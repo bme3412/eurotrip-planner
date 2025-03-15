@@ -1,0 +1,152 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {"days": [1], "score": 2, "special": true, "event": "New Year's Day", "notes": "Holiday atmosphere, many closures, possible icy conditions"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], "score": 2, "notes": "Low season, cold temperatures, fewer tourists"},
+        {"days": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 2, "special": true, "event": "Amsterdam Light Festival", "notes": "Light art installations along canals, winter ambiance"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 1,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 2, "notes": "Winter weather continues, possible canal freezing in cold years"},
+        {"days": [14], "score": 3, "special": true, "event": "Valentine's Day", "notes": "Romantic canal cruises, special restaurant events"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 2, "notes": "Low season, winter conditions continue"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 1,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8], "score": 3, "notes": "Early spring, gradual warming"},
+        {"days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 3, "special": true, "event": "TEFAF Art Fair", "notes": "Prestigious art fair, cultural events"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Spring begins, early tulips, moderate tourism"}
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 3,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 4, "special": true, "event": "Tulip Season Begins", "notes": "Keukenhof Gardens open, tulip fields in bloom"},
+        {"days": [21, 22, 23, 24, 25, 26], "score": 4, "notes": "Spring in full effect, pleasant temperatures"},
+        {"days": [27], "score": 3, "special": true, "event": "King's Day", "notes": "National holiday, citywide street parties, crowded"}
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 5,
+      "tourismLevel": 7
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5], "score": 4, "notes": "Excellent spring weather, tulip season continues"},
+        {"days": [6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "special": true, "event": "Flower Season Peak", "notes": "Keukenhof Gardens peak season, perfect weather"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 5, "notes": "Warm temperatures, ideal for canal cruises and cycling"}
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 8,
+      "tourismLevel": 8
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 5, "notes": "Early summer, long daylight hours, pleasant temperatures"},
+        {"days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], "score": 5, "special": true, "event": "Holland Festival", "notes": "Performing arts festival, cultural activities"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Open Garden Days", "notes": "Canal house gardens open to public, summer festivals"}
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 11,
+      "tourismLevel": 9
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Peak summer tourism, warm weather, busy attractions"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24], "score": 4, "special": true, "event": "Over het IJ Festival", "notes": "Theater festival, outdoor performances"},
+        {"days": [25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "Amsterdam Pride Preparations", "notes": "Busy city center, high tourist numbers"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 10
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6], "score": 4, "special": true, "event": "Amsterdam Pride & Canal Parade", "notes": "Major LGBTQ+ celebration, very crowded canal areas"},
+        {"days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], "score": 4, "notes": "High summer season, possible rain showers"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "Sail Amsterdam (every 5 years)", "notes": "Tall ships festival (when scheduled), summer concluding"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 9
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 5, "notes": "Perfect post-peak season, warm weather continues"},
+        {"days": [11, 12, 13, 14, 15, 16, 17, 18, 19], "score": 5, "special": true, "event": "Open Monuments Day", "notes": "Historical buildings open to public, cultural heritage events"},
+        {"days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "notes": "Early autumn, excellent conditions, moderate tourism"}
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 11,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 4, "notes": "Autumn colors, comfortable temperatures"},
+        {"days": [14, 15, 16, 17], "score": 4, "special": true, "event": "Amsterdam Dance Event", "notes": "Electronic music conference and festival, busy nightlife"},
+        {"days": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Fall atmosphere, museum season begins"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 8,
+      "tourismLevel": 6
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "score": 3, "notes": "Late autumn, cooling temperatures, fewer tourists"},
+        {"days": [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "score": 3, "special": true, "event": "Museum Night", "notes": "Special museum events, early winter atmosphere"},
+        {"days": [30], "score": 3, "special": true, "event": "Amsterdam Light Festival Begins", "notes": "Light installations begin, festive atmosphere starts"}
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 5,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4], "score": 3, "special": true, "event": "Sint Nicholas (Sinterklaas)", "notes": "Traditional Dutch celebration, festive atmosphere"},
+        {"days": [5], "score": 3, "special": true, "event": "Sinterklaas", "notes": "Dutch gift-giving holiday, special events"},
+        {"days": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 3, "special": true, "event": "Amsterdam Light Festival & Winter Markets", "notes": "Illuminated canal cruise season, festive atmosphere"},
+        {"days": [24, 25, 26], "score": 2, "special": true, "event": "Christmas", "notes": "Holiday atmosphere, many restaurant closures"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Between holidays period, winter activities"},
+        {"days": [31], "score": 3, "special": true, "event": "New Year's Eve", "notes": "Fireworks throughout city, celebrations"}
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 2,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": ["Tulip Gardens", "Canal Cruises", "Cycling", "Museums", "Parks & Gardens", "Outdoor Markets", "Cafe Culture", "Day Trips to Countryside"],
+    "summer": ["Canal Festivals", "Outdoor Dining", "Beach Trips to Zandvoort/Bloemendaal", "Vondelpark Activities", "Boat Rentals", "Outdoor Concerts", "Street Markets", "Rooftop Bars"],
+    "autumn": ["Museums", "Cultural Events", "Cafe Culture", "Autumn Walks in Vondelpark", "Foodie Tours", "Indoor Markets", "Historical Tours", "Breweries"],
+    "winter": ["Amsterdam Light Festival", "Ice Skating", "Museums", "Cozy Brown Cafes", "Indoor Food Halls", "Christmas Markets", "Theater", "Canal House Tours"]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+  }
+}

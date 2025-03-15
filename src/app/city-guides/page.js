@@ -157,7 +157,7 @@ const CityGuidesPage = () => {
               
               {searchTerm !== '' && (
                 <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full flex items-center">
-                  Search: "{searchTerm}"
+                  Search: &quot;{searchTerm}&quot;
                   <button 
                     className="ml-1 text-purple-500 hover:text-purple-700"
                     onClick={() => setSearchTerm('')}
