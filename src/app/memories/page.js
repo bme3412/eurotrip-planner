@@ -1,64 +1,102 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 
 export default function MemoriesPage() {
-  const years = Array.from({ length: 20 }, (_, i) => 2006 + i);
-  const [selectedYear, setSelectedYear] = useState(2023);
-  const [photos, setPhotos] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const years = Array.from({ length: 20 }, (_, i) => 2025 - i); // Most recent years first
+  const [activeYearIndex, setActiveYearIndex] = useState(0);
+  const [allPhotos, setAllPhotos] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
   
-  // For the parallax effect - defined outside of render to follow React hooks rules
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
+  // Create refs for each year section properly
+  const yearSectionRefs = useRef(years.map(() => React.createRef()));
   
-  // Define transform functions early to follow React hooks rules
-  const backgroundScaleTransform = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
-  const mainImageYTransform = useTransform(scrollYProgress, [0, 1], [0, 50]);
-  const mainImageScaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const captionYTransform = useTransform(scrollYProgress, [0, 1], [0, 30]);
-  const prevButtonXTransform = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const nextButtonXTransform = useTransform(scrollYProgress, [0, 1], [0, 30]);
-  const thumbnailsYTransform = useTransform(scrollYProgress, [0, 1], [0, 50]);
-
-  // Create a fixed set of thumbnail transforms instead of generating them dynamically
-  const thumbnailTransforms = [
-    useTransform(scrollYProgress, [0, 1], [0, 20]), // idx % 3 === 0
-    useTransform(scrollYProgress, [0, 1], [0, 30]), // idx % 3 === 1
-    useTransform(scrollYProgress, [0, 1], [0, 40])  // idx % 3 === 2
-  ];
-
-  // Sample photo data - in a real app you would fetch this from an API or data file
-  // organized by year
+  // Track scroll position and determine active year
   useEffect(() => {
-    // Simulate loading photos for the selected year
+    const handleScroll = () => {
+      if (!scrollContainerRef.current) return;
+      
+      setScrollY(scrollContainerRef.current.scrollTop);
+      
+      // Determine which year section is most visible
+      const viewportHeight = window.innerHeight;
+      const viewportMiddle = scrollY + (viewportHeight / 2);
+      
+      // Find which year section is most in view
+      let closestSectionIndex = 0;
+      let closestSectionDistance = Infinity;
+      
+      yearSectionRefs.current.forEach((ref, index) => {
+        if (ref && ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+          const sectionMiddle = rect.top + (rect.height / 2);
+          const distance = Math.abs(sectionMiddle - (viewportHeight / 2));
+          
+          if (distance < closestSectionDistance) {
+            closestSectionDistance = distance;
+            closestSectionIndex = index;
+          }
+        }
+      });
+      
+      setActiveYearIndex(closestSectionIndex);
+    };
+    
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      // Initialize with a scroll event to set the initial active year
+      handleScroll();
+    }
+    
+    return () => {
+      if (container) {
+        container.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [scrollY]);
+  
+  // Load all photos when component mounts
+  useEffect(() => {
     setIsLoading(true);
     
-    // This would normally be an API call or data import
+    // Simulate API call to load photos for all years
     setTimeout(() => {
-      // Generate sample photos for the selected year
-      const samplePhotos = Array.from({ length: 12 }, (_, i) => ({
-        id: `${selectedYear}-${i}`,
-        src: `/path/to/${selectedYear}-photo-${i}.jpg`, // This would be your actual path
-        caption: `${selectedYear} European Adventure - Photo ${i + 1}`,
-        location: getRandomLocation(),
-        date: `${getRandomMonth()} ${selectedYear}`,
-        depth: Math.random() * 0.4 + 0.1 // Random depth factor for parallax effect
-      }));
+      const photosByYear = {};
       
-      setPhotos(samplePhotos);
-      setCurrentIndex(0);
+      // For each year, generate sample photos
+      years.forEach(year => {
+        // Generate between 5-12 photos per year
+        const count = Math.floor(Math.random() * 8) + 5;
+        
+        photosByYear[year] = Array.from({ length: count }, (_, i) => ({
+          id: `${year}-${i}`,
+          src: `/path/to/${year}-photo-${i}.jpg`, // This would be your actual path
+          caption: `${year} European Adventure - Photo ${i + 1}`,
+          location: getRandomLocation(),
+          date: `${getRandomMonth()} ${year}`,
+        }));
+      });
+      
+      setAllPhotos(photosByYear);
       setIsLoading(false);
-    }, 500);
-  }, [selectedYear]);
-
+    }, 1000);
+  }, []);
+  
+  // Scroll to a specific year section
+  const scrollToYear = (index) => {
+    const ref = yearSectionRefs.current[index];
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+  
   // Helper functions for sample data
   function getRandomLocation() {
     const locations = [
@@ -78,21 +116,10 @@ export default function MemoriesPage() {
   
   function getRandomMonth() {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 
-                    'July', 'August', 'September', 'October', 'November', 'December'];
+                   'July', 'August', 'September', 'October', 'November', 'December'];
     return months[Math.floor(Math.random() * months.length)];
   }
-
-  // Navigation functions
-  const nextPhoto = () => {
-    if (photos.length === 0) return;
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
-  };
-
-  const prevPhoto = () => {
-    if (photos.length === 0) return;
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
-  };
-
+  
   // For demonstration, using placeholder images
   const getPlaceholderImage = (index, year) => {
     // In a real app, you would use actual image paths from your data
@@ -104,201 +131,127 @@ export default function MemoriesPage() {
     return `https://picsum.photos/id/${id}/800/600`;
   };
 
-  // Helper function to get the appropriate thumbnail transform based on index
-  const getThumbnailTransform = (idx) => {
-    return thumbnailTransforms[idx % 3];
-  };
-
   return (
-    <div className="min-h-screen bg-slate-900 flex">
-      {/* Year selector - vertical sidebar */}
-      <div className="w-20 md:w-24 bg-slate-800 flex flex-col items-center py-4 overflow-y-auto">
-        <div className="text-white font-semibold mb-4">YEARS</div>
-        {years.map(year => (
-          <button
-            key={year}
-            onClick={() => setSelectedYear(year)}
-            className={`w-16 h-16 rounded-full flex items-center justify-center text-lg font-medium my-2 transition-all duration-300
-              ${selectedYear === year 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-slate-700 text-gray-300 hover:bg-slate-600'}`}
-          >
-            {year}
-          </button>
-        ))}
+    <div className="h-screen bg-slate-900 flex overflow-hidden">
+      {/* Horizontal year selector at the top */}
+      <div className="fixed top-0 left-0 right-0 bg-slate-800/90 backdrop-blur-sm flex px-2 py-3 z-30">
+        <div className="flex items-center space-x-1 w-full overflow-x-auto scrollbar-none pb-1">
+          {years.map((year, index) => (
+            <motion.button
+              key={year}
+              onClick={() => scrollToYear(index)}
+              className={`px-3 py-1 rounded-md text-sm transition-all duration-200 flex-shrink-0
+                ${index === activeYearIndex 
+                  ? 'bg-blue-500 text-white font-medium' 
+                  : 'bg-slate-700/80 text-slate-300 hover:bg-slate-600'}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {year}
+            </motion.button>
+          ))}
+        </div>
       </div>
       
-      {/* Main content area */}
-      <div className="flex-1 overflow-hidden">
-        <div 
-          ref={containerRef}
-          className="h-screen relative flex flex-col"
-        >
-          {/* Background parallax element */}
-          <div className="absolute inset-0 overflow-hidden">
-            {!isLoading && photos.length > 0 && (
-              <motion.div
-                className="absolute inset-0 opacity-20 bg-center bg-cover filter blur-sm"
-                style={{
-                  backgroundImage: `url(${getPlaceholderImage(currentIndex, selectedYear)})`,
-                  scale: backgroundScaleTransform,
-                }}
-              />
-            )}
-          </div>
-
-          {/* Loading state */}
-          {isLoading && (
-            <div className="flex-1 flex items-center justify-center">
-              <div className="text-white text-xl">Loading photos from {selectedYear}...</div>
-            </div>
-          )}
-          
-          {/* Photo display area */}
-          {!isLoading && photos.length > 0 && (
-            <div className="flex-1 relative z-10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`${selectedYear}-${currentIndex}`}
-                  initial={{ y: 100, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -100, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="absolute inset-0 flex flex-col items-center justify-center p-4 md:p-8"
-                >
-                  {/* Parallax layers */}
-                  <div className="relative max-w-4xl w-full max-h-full">
-                    {/* Main photo with parallax effect */}
-                    <div className="bg-black rounded-lg overflow-hidden shadow-2xl relative">
-                      {/* Main photo */}
-                      <motion.div
-                        ref={imageRef}
-                        className="relative overflow-hidden"
-                        style={{ 
-                          transformStyle: "preserve-3d",
-                          perspective: "1000px"
-                        }}
-                      >
-                        <motion.img
-                          src={getPlaceholderImage(currentIndex, selectedYear)}
-                          alt={photos[currentIndex].caption}
-                          className="w-full h-auto object-cover max-h-[80vh]"
-                          style={{ 
-                            y: mainImageYTransform,
-                            scale: mainImageScaleTransform,
-                          }}
-                        />
-                      </motion.div>
-                      
-                      {/* Caption overlay with its own parallax movement (moves slower than the image) */}
-                      <motion.div 
-                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white"
-                        style={{ 
-                          y: captionYTransform,
-                        }}
-                      >
-                        <motion.h2 
-                          className="text-2xl font-bold"
-                          initial={{ y: 20, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          {photos[currentIndex].caption}
-                        </motion.h2>
-                        <motion.div 
-                          className="flex items-center mt-2"
-                          initial={{ y: 20, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          <span className="text-lg">{photos[currentIndex].location}</span>
-                          <span className="mx-2">•</span>
-                          <span className="text-lg">{photos[currentIndex].date}</span>
-                        </motion.div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-              
-              {/* Navigation buttons with parallax depth effect */}
-              <motion.button 
-                onClick={prevPhoto}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white"
-                aria-label="Previous photo"
-                style={{ 
-                  x: prevButtonXTransform,
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-              </motion.button>
-              
-              <motion.button 
-                onClick={nextPhoto}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white"
-                aria-label="Next photo"
-                style={{ 
-                  x: nextButtonXTransform,
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </motion.button>
-            </div>
-          )}
-          
-          {/* Empty state */}
-          {!isLoading && photos.length === 0 && (
-            <div className="flex-1 flex items-center justify-center">
-              <div className="text-white text-xl">No photos found for {selectedYear}</div>
-            </div>
-          )}
-          
-          {/* Photo navigation/thumbnails at bottom with staggered parallax effects */}
-          {!isLoading && photos.length > 0 && (
+      {/* Main scrollable content */}
+      <div 
+        ref={scrollContainerRef} 
+        className="flex-1 overflow-y-auto overflow-x-hidden snap-y snap-mandatory scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-transparent"
+      >
+        {isLoading ? (
+          <div className="h-screen flex items-center justify-center">
             <motion.div 
-              className="bg-slate-800/80 backdrop-blur-sm p-4 overflow-x-auto z-20"
-              style={{ 
-                y: thumbnailsYTransform,
-              }}
+              className="text-white text-xl flex flex-col items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             >
-              <div className="flex space-x-2 items-center">
-                {photos.map((photo, idx) => (
-                  <motion.button
-                    key={photo.id}
-                    onClick={() => setCurrentIndex(idx)}
-                    className={`relative flex-shrink-0 h-16 w-24 overflow-hidden rounded 
-                      ${idx === currentIndex ? 'ring-2 ring-blue-500' : 'opacity-60 hover:opacity-100'}`}
-                    whileHover={{ 
-                      y: -5, 
-                      scale: 1.05,
-                      transition: { duration: 0.2 } 
-                    }}
-                    style={{ 
-                      y: getThumbnailTransform(idx),
-                    }}
-                  >
-                    <img
-                      src={getPlaceholderImage(idx, selectedYear)}
-                      alt={`Thumbnail ${idx + 1}`}
-                      className="h-full w-full object-cover"
-                    />
-                  </motion.button>
-                ))}
-              </div>
-              <div className="text-white text-center mt-2">
-                {currentIndex + 1} of {photos.length} photos from {selectedYear}
-              </div>
+              <svg className="animate-spin h-10 w-10 text-blue-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Loading your memories...
             </motion.div>
-          )}
-        </div>
+          </div>
+        ) : (
+          <>
+            {years.map((year, yearIndex) => {
+              const yearPhotos = allPhotos[year] || [];
+              return (
+                <section 
+                  key={year}
+                  ref={yearSectionRefs.current[yearIndex]}
+                  className="min-h-screen snap-start relative pt-14"
+                >
+                  {/* Background gradient for the year section */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800 opacity-80" />
+                  
+                  {/* Background image for the year section */}
+                  {yearPhotos.length > 0 && (
+                    <div className="absolute inset-0 opacity-10 bg-center bg-cover filter blur-sm" style={{
+                      backgroundImage: `url(${getPlaceholderImage(0, year)})`
+                    }} />
+                  )}
+                  
+                  {/* Simple minimal year indicator */}
+                  <motion.div 
+                    className="absolute top-4 left-4 z-10 bg-slate-900/80 backdrop-blur-sm rounded-md px-3 py-1"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2 }}
+                    viewport={{ once: false }}
+                  >
+                    <div className="text-sm font-medium text-slate-400">Year</div>
+                    <div className="text-white text-2xl font-medium">{year}</div>
+                  </motion.div>
+                  
+                  {yearPhotos.length === 0 ? (
+                    <div className="h-full flex items-center justify-center">
+                      <div className="text-white text-lg bg-slate-800/80 rounded-lg p-6 backdrop-blur-sm">
+                        <svg className="w-16 h-16 mx-auto mb-4 text-slate-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <div className="text-center">No memories found for {year}</div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="container mx-auto h-full pt-12 pb-8 px-2 sm:px-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 auto-rows-max">
+                        {yearPhotos.map((photo, photoIndex) => (
+                          <motion.div
+                            key={photo.id}
+                            className="bg-slate-800/90 backdrop-blur-sm rounded-md overflow-hidden shadow-md border border-slate-700/50"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: Math.min(photoIndex * 0.05, 0.3) }}
+                            viewport={{ once: false, margin: "-50px" }}
+                            whileHover={{ y: -2, scale: 1.01 }}
+                          >
+                            <div className="aspect-w-16 aspect-h-9">
+                              <img 
+                                src={getPlaceholderImage(photoIndex, year)} 
+                                alt={photo.caption}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="p-3">
+                              <h3 className="text-white font-medium text-sm sm:text-base mb-1 truncate">{photo.caption}</h3>
+                              <div className="flex items-center text-xs sm:text-sm text-slate-300">
+                                <span className="truncate max-w-24 sm:max-w-full">{photo.location}</span>
+                                <span className="mx-1 flex-shrink-0">•</span>
+                                <span className="flex-shrink-0">{photo.date}</span>
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </section>
+              );
+            })}
+          </>
+        )}
       </div>
     </div>
   );

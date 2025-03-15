@@ -337,12 +337,13 @@ const InteractiveHeader = (props) => {
                     }`}
                   ></div>
                   
-                  {/* Caption overlay with enhanced typography and layout */}
+                  {/* Caption overlay with city name first, country below */}
                   <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black to-transparent text-white">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold tracking-wide">{video.location}, {video.country}</h3>
-                        <p className="text-base font-medium opacity-90">{video.month}</p>
+                        <h3 className="text-2xl font-bold tracking-wide">{video.location}</h3>
+                        <p className="text-base font-medium opacity-80 mt-1">{video.country}</p>
+                        <p className="text-sm opacity-70 mt-0.5">{video.month}</p>
                       </div>
                       <span className="text-4xl ml-3" aria-label={`Flag of ${video.country}`}>{video.flag}</span>
                     </div>
