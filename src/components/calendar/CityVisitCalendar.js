@@ -1,45 +1,245 @@
-// src/components/calendar/CityVisitCalendar.js
-import React, { useState } from 'react';
-import { 
-  parisCalendar2025, 
-  getMonthData, 
-  getBestMonths, 
-  getBestDaysInMonth,
-  getWorstDaysInMonth,
-  RATING_LABELS, 
-  RATING_COLORS,
-  WEATHER_DATA,
-  TOURISM_LEVELS
-} from '../../data/France/paris/paris-visit-calendar';
+'use client';
 
-const CityVisitCalendar = ({ city = 'paris' }) => {
+import React, { useState, useEffect } from 'react';
+
+// Constants for UI elements
+const RATING_LABELS = {
+  5: 'Excellent',
+  4: 'Good',
+  3: 'Average',
+  2: 'Below Average',
+  1: 'Poor'
+};
+
+const RATING_COLORS = {
+  5: '#4ade80', // Green
+  4: '#86efac', // Light green
+  3: '#fde047', // Yellow
+  2: '#fdba74', // Orange
+  1: '#f87171'  // Red
+};
+
+// Helper function to get month name - defined before it's used
+const getMonthName = (monthNum) => {
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return monthNames[monthNum - 1]; // Convert 1-based to 0-based index
+};
+
+const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
   const [selectedDay, setSelectedDay] = useState(null);
   const [view, setView] = useState('calendar'); // calendar, best, worst
+  const [calendarData, setCalendarData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const processCalendarData = () => {
+      setLoading(true);
+      try {
+        // Use the cityData if provided directly
+        if (cityData && cityData.monthlyEvents) {
+          setCalendarData({
+            cityName: city,
+            months: cityData.monthlyEvents
+          });
+          setError(null);
+          setLoading(false);
+          return;
+        }
+        
+        // If no cityData provided, fetch it manually
+        const fetchCalendarData = async () => {
+          try {
+            // Normalize the city name to lowercase
+            const normalizedCity = city.toLowerCase();
+            
+            // Get the country for the city
+            const countryMap = {
+              'paris': 'France',
+              'nice': 'France',
+              'amsterdam': 'Netherlands',
+              'berlin': 'Germany',
+              'barcelona': 'Spain',
+              'rome': 'Italy',
+              'vienna': 'Austria',
+              'brussels': 'Belgium',
+              'copenhagen': 'Denmark',
+              'dublin': 'Ireland',
+              'innsbruck': 'Austria',
+              'salzburg': 'Austria',
+              'antwerp': 'Belgium',
+              // Add other cities as needed
+            };
+            
+            const country = countryMap[normalizedCity];
+            
+            if (!country) {
+              throw new Error(`Country not found for city: ${normalizedCity}`);
+            }
+            
+            // Try multiple possible file paths for the monthly data
+            const possiblePaths = [
+              `/data/${country}/${normalizedCity}/monthly`,
+              `/data/${country}/${normalizedCity}/${normalizedCity}_visit_calendar.json`,
+              `/data/${country}/${normalizedCity}/${normalizedCity}-visit-calendar.json`
+            ];
+            
+            let data = null;
+            
+            // Try to load data from a visit calendar JSON file first
+            for (const path of possiblePaths) {
+              if (path.endsWith('.json')) {
+                try {
+                  const response = await fetch(path);
+                  if (response.ok) {
+                    data = await response.json();
+                    break;
+                  }
+                } catch (e) {
+                  console.log(`Failed to load from ${path}: ${e.message}`);
+                }
+              }
+            }
+            
+            // If we failed to load a single JSON file, try to load monthly data
+            if (!data) {
+              const monthlyData = {};
+              
+              // List of months we'll try to fetch
+              const months = [
+                'january', 'february', 'march', 'april', 'may', 'june',
+                'july', 'august', 'september', 'october', 'november', 'december',
+                'spring', 'summer', 'fall', 'winter'
+              ];
+              
+              // Try to fetch each month
+              for (const month of months) {
+                try {
+                  const response = await fetch(`/data/${country}/${normalizedCity}/monthly/${month}.json`);
+                  if (response.ok) {
+                    const monthData = await response.json();
+                    
+                    // Handle different data structures
+                    if (monthData[month.charAt(0).toUpperCase() + month.slice(1)]) {
+                      monthlyData[month] = monthData[month.charAt(0).toUpperCase() + month.slice(1)];
+                    } else {
+                      monthlyData[month] = monthData;
+                    }
+                  }
+                } catch (e) {
+                  console.log(`Failed to load ${month}: ${e.message}`);
+                }
+              }
+              
+              // If we found any monthly data, use it
+              if (Object.keys(monthlyData).length > 0) {
+                data = {
+                  cityName: city,
+                  months: monthlyData
+                };
+              } else {
+                throw new Error(`No monthly data found for ${normalizedCity}`);
+              }
+            }
+            
+            setCalendarData(data);
+            setError(null);
+          } catch (error) {
+            console.error('Error loading calendar data:', error);
+            setError(error.message);
+            setCalendarData(null);
+          } finally {
+            setLoading(false);
+          }
+        };
+        
+        fetchCalendarData();
+      } catch (error) {
+        console.error('Error processing calendar data:', error);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    
+    processCalendarData();
+  }, [city, cityData]);
+  
+  // Early return if still loading
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center p-8">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+  
+  // Show error message if there was an error
+  if (error) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+        <p className="text-red-600">{error}</p>
+        <p className="text-sm text-gray-600 mt-2">
+          Try exploring other sections of the city guide for more information.
+        </p>
+      </div>
+    );
+  }
+  
+  // Check if we have valid calendar data
+  if (!calendarData || !calendarData.months || Object.keys(calendarData.months).length === 0) {
+    return (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
+        <p className="text-amber-600">No visit calendar information available for {city}.</p>
+        <p className="text-sm text-gray-600 mt-2">
+          We're working on adding more detailed seasonal information.
+        </p>
+      </div>
+    );
+  }
   
   // Get data for the selected month
-  const monthData = getMonthData(selectedMonth);
-  
-  // Get the first day of the month (0 = Sunday, 6 = Saturday)
-  const firstDayOfMonth = new Date(2025, selectedMonth - 1, 1).getDay();
-  
-  // Calculate best months to visit
-  const bestMonths = getBestMonths();
-  
-  // Get best and worst days of the month
-  const bestDays = getBestDaysInMonth(selectedMonth).slice(0, 5);
-  const worstDays = getWorstDaysInMonth(selectedMonth).slice(0, 5);
-  
-  // Handle day selection
-  const handleDayClick = (day) => {
-    setSelectedDay(day);
+  const getMonthData = (monthNum) => {
+    const monthName = getMonthName(monthNum).toLowerCase();
+    
+    // Check if we have data for this month
+    if (!calendarData.months[monthName]) {
+      // Try to find seasonal data instead
+      const seasons = {
+        'winter': [12, 1, 2],
+        'spring': [3, 4, 5],
+        'summer': [6, 7, 8],
+        'fall': [9, 10, 11]
+      };
+      
+      // Find which season this month belongs to
+      for (const [season, months] of Object.entries(seasons)) {
+        if (months.includes(monthNum) && calendarData.months[season]) {
+          return {
+            ...calendarData.months[season],
+            isSeasonal: true,
+            seasonName: season
+          };
+        }
+      }
+      
+      return null;
+    }
+    
+    return calendarData.months[monthName];
   };
   
-  // Format month name
-  const getMonthName = (monthNum) => {
-    return new Date(2025, monthNum - 1, 1).toLocaleString('default', { month: 'long' });
+  // Get the current month's data
+  const currentMonthData = getMonthData(selectedMonth);
+  
+  // Check if month has data
+  const hasMonthData = (monthNum) => {
+    return getMonthData(monthNum) !== null;
   };
-
+  
   // Format date for display
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-US', {
@@ -50,320 +250,249 @@ const CityVisitCalendar = ({ city = 'paris' }) => {
     });
   };
   
+  // Get rating class based on the crowding level or quality
+  const getRatingClass = (rating) => {
+    if (!rating) return 'bg-gray-200 text-gray-800';
+    
+    // Normalize rating to a scale of 1-5
+    let normalizedRating;
+    
+    if (typeof rating === 'string') {
+      const lowercaseRating = rating.toLowerCase();
+      if (lowercaseRating.includes('excellent') || lowercaseRating.includes('best')) {
+        normalizedRating = 5;
+      } else if (lowercaseRating.includes('good')) {
+        normalizedRating = 4;
+      } else if (lowercaseRating.includes('average') || lowercaseRating.includes('moderate')) {
+        normalizedRating = 3;
+      } else if (lowercaseRating.includes('below') || lowercaseRating.includes('poor')) {
+        normalizedRating = 2;
+      } else if (lowercaseRating.includes('avoid') || lowercaseRating.includes('worst')) {
+        normalizedRating = 1;
+      } else {
+        normalizedRating = 3; // Default to average
+      }
+    } else if (typeof rating === 'number') {
+      // If rating is a number between 1-10, convert to 1-5
+      if (rating >= 1 && rating <= 10) {
+        normalizedRating = Math.ceil(rating / 2);
+      } else {
+        normalizedRating = Math.min(Math.max(rating, 1), 5); // Ensure between 1-5
+      }
+    } else {
+      normalizedRating = 3; // Default to average
+    }
+    
+    // Map rating to color classes
+    switch (normalizedRating) {
+      case 5: return 'bg-green-100 text-green-800';
+      case 4: return 'bg-green-50 text-green-600';
+      case 3: return 'bg-yellow-100 text-yellow-800';
+      case 2: return 'bg-orange-100 text-orange-800';
+      case 1: return 'bg-red-100 text-red-800';
+      default: return 'bg-gray-200 text-gray-800';
+    }
+  };
+  
+  // Determine crowding level from month data
+  const getCrowdingLevel = (monthData) => {
+    if (!monthData) return 'N/A';
+    
+    if (monthData.crowding) {
+      return monthData.crowding;
+    }
+    
+    if (monthData.tourism_level) {
+      return monthData.tourism_level;
+    }
+    
+    if (monthData.crowd_level) {
+      return monthData.crowd_level;
+    }
+    
+    // Try to infer from description
+    const description = monthData.description || monthData.overview || '';
+    if (description.toLowerCase().includes('crowd')) {
+      if (description.toLowerCase().includes('high crowd')) return 'High';
+      if (description.toLowerCase().includes('low crowd')) return 'Low';
+      if (description.toLowerCase().includes('moderate crowd')) return 'Medium';
+    }
+    
+    return 'Varies';
+  };
+  
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="p-6 border-b">
-        <h1 className="text-2xl font-bold">When to Visit {city.charAt(0).toUpperCase() + city.slice(1)}</h1>
-        <p className="text-gray-600 mt-2">Plan your trip with our travel calendar showing the best and worst times to visit</p>
-      </div>
-      
-      {/* View selector */}
-      <div className="flex border-b">
-        <button 
-          onClick={() => setView('calendar')}
-          className={`px-6 py-3 font-medium ${view === 'calendar' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-600'}`}
-        >
-          Calendar View
-        </button>
-        <button 
-          onClick={() => setView('best')}
-          className={`px-6 py-3 font-medium ${view === 'best' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-600'}`}
-        >
-          Best Times
-        </button>
-        <button 
-          onClick={() => setView('worst')}
-          className={`px-6 py-3 font-medium ${view === 'worst' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-600'}`}
-        >
-          Times to Avoid
-        </button>
-      </div>
-      
-      <div className="p-6">
-        {view === 'calendar' && (
-          <>
-            {/* Month selector */}
-            <div className="flex justify-between items-center mb-6">
-              <button 
-                onClick={() => setSelectedMonth(prev => Math.max(1, prev - 1))}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-                disabled={selectedMonth === 1}
-              >
-                <span className="hidden sm:inline">Previous</span> Month
-              </button>
-              <h2 className="text-xl font-semibold">{getMonthName(selectedMonth)} 2025</h2>
-              <button 
-                onClick={() => setSelectedMonth(prev => Math.min(12, prev + 1))}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-                disabled={selectedMonth === 12}
-              >
-                <span className="hidden sm:inline">Next</span> Month
-              </button>
-            </div>
-            
-            {/* Month overview */}
-            <div className="mb-6 p-4 border rounded bg-gray-50">
-              <h3 className="text-lg font-medium mb-2">Month Overview</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <p><strong>Weather:</strong> {WEATHER_DATA[selectedMonth].description}</p>
-                  <p><strong>Avg. Temperature:</strong> {WEATHER_DATA[selectedMonth].tempLow}°C - {WEATHER_DATA[selectedMonth].tempHigh}°C</p>
-                  <p><strong>Rainy Days:</strong> ~{WEATHER_DATA[selectedMonth].rainyDays} days</p>
-                </div>
-                <div>
-                  <p><strong>Tourism Level:</strong> {TOURISM_LEVELS[selectedMonth]}/10</p>
-                  <p><strong>Overall Rating:</strong> {bestMonths.find(m => m.month === selectedMonth).avgRating.toFixed(1)}/5</p>
-                  <p><strong>Recommendation:</strong> {bestMonths.find(m => m.month === selectedMonth).avgRating >= 4 ? 'Highly Recommended' : bestMonths.find(m => m.month === selectedMonth).avgRating >= 3 ? 'Good Time to Visit' : 'Consider Other Months'}</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Calendar legend */}
-            <div className="flex flex-wrap gap-4 mb-4">
-              {Object.entries(RATING_LABELS).map(([rating, label]) => (
-                <div key={rating} className="flex items-center">
-                  <div 
-                    className="w-5 h-5 mr-2 rounded-sm" 
-                    style={{ backgroundColor: RATING_COLORS[rating] }}
-                  ></div>
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-            
-            {/* Calendar grid */}
-            <div className="mb-8">
-              {/* Day headers */}
-              <div className="grid grid-cols-7 gap-1 mb-2">
-                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                  <div key={day} className="text-center font-semibold py-2">
-                    {day}
-                  </div>
-                ))}
-              </div>
-              
-              {/* Calendar days */}
-              <div className="grid grid-cols-7 gap-1">
-                {/* Empty cells for days before the 1st of the month */}
-                {Array.from({ length: firstDayOfMonth }).map((_, i) => (
-                  <div key={`empty-${i}`} className="h-16 md:h-24 p-1"></div>
-                ))}
-                
-                {/* Actual days of the month */}
-                {monthData.map(day => (
-                  <div 
-                    key={day.date} 
-                    className="h-16 md:h-24 p-1 border cursor-pointer transition-all hover:shadow-md"
-                    style={{ backgroundColor: day.ratingColor }}
-                    onClick={() => handleDayClick(day)}
-                  >
-                    <div className="font-medium">{day.day}</div>
-                    {day.event && (
-                      <div className="text-xs truncate mt-1" title={day.event.name}>
-                        {day.event.name}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Selected day details */}
-            {selectedDay && (
-              <div className="border p-4 rounded mb-8 bg-white shadow">
-                <h3 className="text-xl font-semibold mb-2">
-                  {formatDate(selectedDay.date)}
-                </h3>
-                <div className="flex items-center mb-2">
-                  <div 
-                    className="w-5 h-5 mr-2 rounded-sm" 
-                    style={{ backgroundColor: selectedDay.ratingColor }}
-                  ></div>
-                  <span>Rating: {selectedDay.ratingLabel}</span>
-                </div>
-                {selectedDay.event && (
-                  <div className="mb-2">
-                    <strong>Event:</strong> {selectedDay.event.name} - {selectedDay.event.impact}
-                  </div>
-                )}
-                <div>
-                  <strong>Notes:</strong>
-                  <ul className="list-disc ml-5 mt-1">
-                    {selectedDay.notes.map((note, i) => (
-                      <li key={i}>{note}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-          </>
-        )}
-        
-        {view === 'best' && (
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Best Times to Visit Paris</h2>
-            
-            {/* Best months */}
-            <div className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Top Months</h3>
-              <div className="space-y-4">
-                {bestMonths.slice(0, 5).map((month, index) => (
-                  <div 
-                    key={month.month} 
-                    className="flex items-center p-3 border rounded hover:bg-gray-50 cursor-pointer transition"
-                    onClick={() => {setSelectedMonth(month.month); setView('calendar');}}
-                  >
-                    <div className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full mr-4">
-                      {index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium">{month.monthName}</div>
-                      <div className="text-sm text-gray-600">Average Rating: {month.avgRating.toFixed(1)}/5</div>
-                    </div>
-                    <div 
-                      className="w-16 h-4 rounded"
-                      style={{ backgroundColor: RATING_COLORS[Math.round(month.avgRating)] }}
-                    ></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Best days in current month */}
-            <div>
-              <h3 className="text-lg font-medium mb-3">Best Days in {getMonthName(selectedMonth)}</h3>
-              <div className="space-y-2">
-                {bestDays.map(day => (
-                  <div 
-                    key={day.date} 
-                    className="p-3 border rounded hover:bg-gray-50 cursor-pointer transition"
-                    onClick={() => {handleDayClick(day); setView('calendar');}}
-                  >
-                    <div className="flex justify-between items-center">
-                      <div className="font-medium">{formatDate(day.date)}</div>
-                      <div 
-                        className="w-6 h-6 rounded-full"
-                        style={{ backgroundColor: day.ratingColor }}
-                      ></div>
-                    </div>
-                    <div className="text-sm mt-1">
-                      {day.event ? `Event: ${day.event.name}` : 'No major events'}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-        
-        {view === 'worst' && (
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Times to Avoid in Paris</h2>
-            
-            {/* Worst months */}
-            <div className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Less Favorable Months</h3>
-              <div className="space-y-4">
-                {[...bestMonths].reverse().slice(0, 5).map((month, index) => (
-                  <div 
-                    key={month.month} 
-                    className="flex items-center p-3 border rounded hover:bg-gray-50 cursor-pointer transition"
-                    onClick={() => {setSelectedMonth(month.month); setView('calendar');}}
-                  >
-                    <div className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full mr-4">
-                      {index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium">{month.monthName}</div>
-                      <div className="text-sm text-gray-600">Average Rating: {month.avgRating.toFixed(1)}/5</div>
-                    </div>
-                    <div 
-                      className="w-16 h-4 rounded"
-                      style={{ backgroundColor: RATING_COLORS[Math.round(month.avgRating)] }}
-                    ></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Worst days in current month */}
-            <div>
-              <h3 className="text-lg font-medium mb-3">Dates to Avoid in {getMonthName(selectedMonth)}</h3>
-              <div className="space-y-2">
-                {worstDays.map(day => (
-                  <div 
-                    key={day.date} 
-                    className="p-3 border rounded hover:bg-gray-50 cursor-pointer transition"
-                    onClick={() => {handleDayClick(day); setView('calendar');}}
-                  >
-                    <div className="flex justify-between items-center">
-                      <div className="font-medium">{formatDate(day.date)}</div>
-                      <div 
-                        className="w-6 h-6 rounded-full"
-                        style={{ backgroundColor: day.ratingColor }}
-                      ></div>
-                    </div>
-                    <div className="text-sm mt-1">
-                      {day.event ? 
-                        `Event: ${day.event.name}` : 
-                        day.rating <= 2 ? 'High crowds or unfavorable conditions' : 'Generally average conditions'
-                      }
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Key times to avoid */}
-            <div className="mt-8 p-4 border rounded bg-gray-50">
-              <h3 className="text-lg font-medium mb-3">General Times to Avoid</h3>
-              <ul className="list-disc ml-5 space-y-2">
-                <li>
-                  <strong>July and August:</strong> Peak tourist season with long lines at attractions, higher prices, and many locals on vacation
-                </li>
-                <li>
-                  <strong>First week of August:</strong> Many restaurants and small shops closed as Parisians go on vacation
-                </li>
-                <li>
-                  <strong>Fashion Weeks:</strong> Hotel prices increase significantly (late January, late February, late June, late September)
-                </li>
-                <li>
-                  <strong>Major holidays:</strong> New Year's, Easter, Christmas Day - many attractions and restaurants closed
-                </li>
-                <li>
-                  <strong>Days with major events:</strong> Bastille Day (July 14), Marathon day (April), Tour de France final (late July)
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-      
-      {/* Tips section - always visible */}
-      <div className="p-6 border-t bg-gray-50">
-        <h3 className="text-lg font-medium mb-3">Travel Tips for Paris</h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 className="font-medium mb-2">How to Use This Calendar</h4>
-            <ul className="list-disc ml-5 space-y-1 text-sm">
-              <li>Green dates indicate optimal visiting times</li>
-              <li>Yellow/orange dates are average conditions</li>
-              <li>Red dates represent less favorable conditions</li>
-              <li>Click on any date for detailed information</li>
-              <li>Switch between views to see best/worst times</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-medium mb-2">When Booking Your Trip</h4>
-            <ul className="list-disc ml-5 space-y-1 text-sm">
-              <li>Book accommodations 3-6 months in advance for green dates</li>
-              <li>Consider purchasing skip-the-line tickets for major attractions</li>
-              <li>Check for local holidays that might affect opening hours</li>
-              <li>Review weather forecasts closer to your travel date</li>
-            </ul>
-          </div>
+    <div className="bg-white p-6 rounded-xl">
+      {/* Month selection */}
+      <div className="mb-6">
+        <h3 className="text-lg font-medium mb-4">Select a month to visit {city.charAt(0).toUpperCase() + city.slice(1)}</h3>
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-2">
+          {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
+            <button
+              key={month}
+              onClick={() => setSelectedMonth(month)}
+              className={`py-2 px-1 text-sm rounded-md transition ${
+                selectedMonth === month
+                  ? 'bg-blue-600 text-white font-medium'
+                  : hasMonthData(month)
+                  ? 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                  : 'bg-gray-100 text-gray-500'
+              }`}
+            >
+              {getMonthName(month).substring(0, 3)}
+            </button>
+          ))}
         </div>
       </div>
+
+      {/* Calendar content */}
+      {currentMonthData ? (
+        <div>
+          <div className="bg-blue-50 rounded-lg p-4 mb-6">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xl font-bold text-blue-900">
+                {getMonthName(selectedMonth)} in {city.charAt(0).toUpperCase() + city.slice(1)}
+                {currentMonthData.isSeasonal && (
+                  <span className="ml-2 text-sm font-normal text-blue-700">
+                    ({currentMonthData.seasonName.charAt(0).toUpperCase() + currentMonthData.seasonName.slice(1)} Season)
+                  </span>
+                )}
+              </h3>
+              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getRatingClass(getCrowdingLevel(currentMonthData))}`}>
+                {typeof getCrowdingLevel(currentMonthData) === 'string' 
+                  ? `${getCrowdingLevel(currentMonthData)} Season`
+                  : `Crowd Level: ${getCrowdingLevel(currentMonthData)}/10`}
+              </span>
+            </div>
+            <p className="text-blue-800">
+              {currentMonthData.overview || currentMonthData.description || 'Experience the unique charm of this month.'}
+            </p>
+          </div>
+
+          {/* Pros and Cons */}
+          {(currentMonthData.pros || currentMonthData.cons) && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              {currentMonthData.pros && (
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <h4 className="text-green-800 font-medium mb-2">Highlights</h4>
+                  <ul className="space-y-2">
+                    {Array.isArray(currentMonthData.pros) ? (
+                      currentMonthData.pros.map((pro, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-green-500 mr-2">✓</span>
+                          <span className="text-green-900">{pro}</span>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="flex items-start">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span className="text-green-900">{currentMonthData.pros}</span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )}
+              
+              {currentMonthData.cons && (
+                <div className="bg-red-50 p-4 rounded-lg">
+                  <h4 className="text-red-800 font-medium mb-2">Considerations</h4>
+                  <ul className="space-y-2">
+                    {Array.isArray(currentMonthData.cons) ? (
+                      currentMonthData.cons.map((con, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-red-500 mr-2">✗</span>
+                          <span className="text-red-900">{con}</span>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="flex items-start">
+                        <span className="text-red-500 mr-2">✗</span>
+                        <span className="text-red-900">{currentMonthData.cons}</span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Weather */}
+          {(currentMonthData.weather || currentMonthData.temperature) && (
+            <div className="mb-6">
+              <h4 className="text-lg font-medium mb-3">Weather</h4>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                {currentMonthData.weather && (
+                  <p className="text-gray-700">{currentMonthData.weather}</p>
+                )}
+                {currentMonthData.temperature && (
+                  <div className="mt-3 grid grid-cols-2 gap-4">
+                    <div>
+                      <span className="text-sm text-gray-500">Average High</span>
+                      <p className="font-medium text-gray-900">
+                        {typeof currentMonthData.temperature.high === 'number' 
+                          ? `${currentMonthData.temperature.high}°C` 
+                          : currentMonthData.temperature.high || 'N/A'}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-sm text-gray-500">Average Low</span>
+                      <p className="font-medium text-gray-900">
+                        {typeof currentMonthData.temperature.low === 'number' 
+                          ? `${currentMonthData.temperature.low}°C` 
+                          : currentMonthData.temperature.low || 'N/A'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Events */}
+          {currentMonthData.events && (
+            <div className="mb-6">
+              <h4 className="text-lg font-medium mb-3">Notable Events</h4>
+              <ul className="space-y-3">
+                {Array.isArray(currentMonthData.events) ? (
+                  currentMonthData.events.map((event, index) => (
+                    <li key={index} className="bg-purple-50 p-3 rounded-lg">
+                      <div className="font-medium text-purple-900">
+                        {event.name || event.title || `Event ${index + 1}`}
+                      </div>
+                      {event.description && (
+                        <p className="text-sm text-purple-800 mt-1">{event.description}</p>
+                      )}
+                      {event.date && (
+                        <p className="text-xs text-purple-700 mt-1">{event.date}</p>
+                      )}
+                    </li>
+                  ))
+                ) : (
+                  <li className="bg-purple-50 p-3 rounded-lg">
+                    <p className="text-purple-800">{currentMonthData.events}</p>
+                  </li>
+                )}
+              </ul>
+            </div>
+          )}
+
+          {/* Recommendations */}
+          {currentMonthData.recommendations && (
+            <div>
+              <h4 className="text-lg font-medium mb-3">Recommendations</h4>
+              <div className="bg-indigo-50 p-4 rounded-lg">
+                <p className="text-indigo-800">{currentMonthData.recommendations}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="text-center py-8">
+          <p className="text-gray-500">
+            No detailed information available for {getMonthName(selectedMonth)} in {city.charAt(0).toUpperCase() + city.slice(1)}.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

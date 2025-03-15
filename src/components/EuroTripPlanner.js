@@ -13,24 +13,24 @@ import InterestCategories from "./planner/InterestCategories";
 import TripRouteDisplay from "./planner/TripRouteDisplay";
 
 // Import city data
-import { austriaCities } from "../data/austriaData";
-import { belgiumCities } from "../data/belgiumData";
-import { czechRepublicCities } from "../data/czechrepublicData";
-import { franceCities } from "../data/franceData";
-import { germanyCities } from "../data/germanyData";
-import { hungaryCities } from "../data/hungaryData";
-import { irelandCities } from "../data/irelandData";
-import { italyCities } from "../data/italyData";
-import { netherlandsCities } from "../data/netherlandsData";
-import { polandCities } from "../data/polandData";
-import { portugalCities } from "../data/portugalData";
-import { spainCities } from "../data/spainData";
-import { switzerlandCities } from "../data/switzerlandData";
-import { ukCities } from "../data/ukData";
-import { countryFlags } from "../data/sharedData";
+import { austriaCities } from "../../public/data/austriaData";
+import { belgiumCities } from "../../public/data/belgiumData";
+import { czechRepublicCities } from "../../public/data/czechrepublicData";
+import { franceCities } from "../../public/data/franceData";
+import { germanyCities } from "../../public/data/germanyData";
+import { hungaryCities } from "../../public/data/hungaryData";
+import { irelandCities } from "../../public/data/irelandData";
+import { italyCities } from "../../public/data/italyData";
+import { netherlandsCities } from "../../public/data/netherlandsData";
+import { polandCities } from "../../public/data/polandData";
+import { portugalCities } from "../../public/data/portugalData";
+import { spainCities } from "../../public/data/spainData";
+import { switzerlandCities } from "../../public/data/switzerlandData";
+import { ukCities } from "../../public/data/ukData";
+import { countryFlags } from "../../public/data/sharedData";
 
 // Import constants and utility functions
-import { calculateTripDuration } from "../data/tripConstants";
+import { calculateTripDuration } from "../../public/data/tripConstants";
 
 const EuroTripPlanner = () => {
   const router = useRouter(); // Initialize the router
