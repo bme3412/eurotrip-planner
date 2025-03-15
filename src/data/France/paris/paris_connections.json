@@ -1,0 +1,430 @@
+{
+    "destinations": [
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "Known for its historical and architectural landmarks.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "2h",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "A vibrant port city with a rich maritime history.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "3h20m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "Famous for its wine-growing region.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare Montparnasse",
+                "journeyTime": "2h10m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Nantes",
+            "country": "France",
+            "whyGo": "Known for its vibrant cultural life and medieval architecture.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare Montparnasse",
+                "journeyTime": "2h15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Lille",
+            "country": "France",
+            "whyGo": "Offers a mix of French and Flemish culture.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "1h",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "Home to a beautiful medieval cityscape and the European Parliament.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "1h45m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The de facto capital of the European Union.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "1h30m",
+                "frequency": "Every 30 minutes"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and narrow houses.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "3h20m",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, and finance.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "2h15m",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Luxembourg City",
+            "country": "Luxembourg",
+            "whyGo": "Known for its fortified medieval old town perched on sheer cliffs.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "2h15m",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "3h45m",
+                "frequency": "6 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest celebration and beer halls.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "5h45m",
+                "frequency": "4 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city with Red Cross headquarters and United Nations offices.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "3h5m",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h5m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for its well-preserved medieval old town.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "4h5m",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Known for its impressive cathedral and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "3h20m",
+                "frequency": "5 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h5m",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially the Sagrada Familia.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "6h15m",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly",
+                    "Beauvais"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h5m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "A global capital of fashion and design.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "7h",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The capital city known for its nearly 3,000 years of globally influential art.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its artistic and intellectual legacy shaped by residents like Mozart and Freud.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h55m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Famous for its art scene and modern landmarks.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Renowned for its strong economy and high quality of life.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Known for its green spaces and museums.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Spreads across 14 islands with more than 50 bridges.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its cafe culture and soulful Fado music.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h35m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Known for its lively nightlife and historical landmarks.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Known for its historic and architectural landmarks.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Known for its resilience and rich history.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its Old Town Square with colorful baroque buildings.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Famous for its stunning architecture and thermal baths.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "2h5m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its artistic and intellectual legacy shaped by residents like Mozart and Freud.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h55m",
+                "frequency": "Hourly"
+            }
+        }
+    ]
+}

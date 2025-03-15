@@ -1,0 +1,533 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Lasarte",
+                "cuisine_type": "Contemporary Catalan",
+                "signature_dishes": [
+                    "Roasted Pigeon with Foie Gras",
+                    "Charcoal Grilled Iberian Pork"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated and elegant with modern decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a month in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 3,
+                "location": "Eixample",
+                "local_tips": "Opt for the tasting menu for a comprehensive experience"
+            },
+            {
+                "name": "Cinc Sentits",
+                "cuisine_type": "Modern Catalan",
+                "signature_dishes": [
+                    "Suckling Pig with Apple",
+                    "Sea Bream with Shellfish"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate and contemporary with a focus on sensory experiences",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a few weeks ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Eixample",
+                "local_tips": "Try their unique wine pairing"
+            },
+            {
+                "name": "Moments",
+                "cuisine_type": "Innovative Catalan",
+                "signature_dishes": [
+                    "Lobster with Black Garlic",
+                    "Duck with Pear and Cinnamon"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic and luxurious with a focus on detail",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Passeig de Gràcia",
+                "local_tips": "Ask for a table with a view of the Passeig de Gràcia"
+            },
+            {
+                "name": "ABaC",
+                "cuisine_type": "Avant-garde Catalan",
+                "signature_dishes": [
+                    "Truffled Egg with Parmentier",
+                    "Wagyu Beef with Girolles"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish and modern with artful presentation",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Reservations open three months ahead, book early",
+                "dress_code": "Smart casual",
+                "michelin_stars": 3,
+                "location": "Sarrià-Sant Gervasi",
+                "local_tips": "The garden offers a serene dining experience"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Bar Cañete",
+                "cuisine_type": "Traditional Catalan",
+                "signature_dishes": [
+                    "Grilled Razor Clams",
+                    "Catalan Sausage with Beans"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and bustling with a classic bar setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a counter seat for an interactive experience",
+                "dress_code": "Casual",
+                "location": "El Raval",
+                "local_tips": "Visit during late hours for an authentic local vibe"
+            },
+            {
+                "name": "El Xampanyet",
+                "cuisine_type": "Tapas and Cava",
+                "signature_dishes": [
+                    "Anchovies",
+                    "Jamón Ibérico"
+                ],
+                "price_range": "€",
+                "atmosphere": "Quaint and rustic, reminiscent of traditional bodegas",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid the crowds",
+                "dress_code": "Casual",
+                "location": "El Born",
+                "local_tips": "Pair your tapas with their house cava"
+            },
+            {
+                "name": "La Paradeta",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Grilled Octopus",
+                    "Marinated Mussels"
+                ],
+                "price_range": "€",
+                "atmosphere": "Casual and vibrant seafood market style",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, go off-peak hours to avoid queues",
+                "dress_code": "Casual",
+                "location": "Various locations",
+                "local_tips": "Pick your seafood fresh at the counter"
+            },
+            {
+                "name": "Can Paixano (La Xampanyeria)",
+                "cuisine_type": "Bar and Charcuterie",
+                "signature_dishes": [
+                    "Beef Sausage Sandwich",
+                    "Cava"
+                ],
+                "price_range": "€",
+                "atmosphere": "Energetic and crowded with a classic bar feel",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Stand-up bar, arrive early evening for a spot",
+                "dress_code": "Casual",
+                "location": "Barceloneta",
+                "local_tips": "Try the cava; it's a local favorite"
+            },
+            {
+                "name": "Cervecería Catalana",
+                "cuisine_type": "Tapas",
+                "signature_dishes": [
+                    "Croquettes",
+                    "Patatas Bravas"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and welcoming, with a bustling atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Expect a wait, but it's worth it",
+                "dress_code": "Casual",
+                "location": "Eixample",
+                "local_tips": "Sit at the bar for quicker service"
+            },
+            {
+                "name": "Cal Pep",
+                "cuisine_type": "Seafood Tapas",
+                "signature_dishes": [
+                    "Fried Calamari",
+                    "Chickpeas with Spinach"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Lively and casual with a counter service",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid long waits",
+                "dress_code": "Casual",
+                "location": "El Born",
+                "local_tips": "Let the staff guide your order for the freshest catch"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Churrería Laietana",
+                "specialties": [
+                    "Churros con Chocolate",
+                    "Porras"
+                ],
+                "price_range": "€",
+                "hours": "08:00 - 20:00",
+                "location": "Via Laietana",
+                "seating": false,
+                "local_tips": "Best visited in the morning for fresh churros"
+            },
+            {
+                "name": "La Boqueria Market Stalls",
+                "specialties": [
+                    "Empanadas",
+                    "Fruit Juices"
+                ],
+                "price_range": "€",
+                "hours": "08:00 - 20:30",
+                "location": "La Rambla",
+                "seating": false,
+                "local_tips": "Visit early to avoid crowds and get the freshest produce"
+            },
+            {
+                "name": "El Quim de la Boqueria",
+                "specialties": [
+                    "Fried Eggs with Baby Squid",
+                    "Tortilla Española"
+                ],
+                "price_range": "€€",
+                "hours": "07:30 - 16:00",
+                "location": "La Boqueria Market",
+                "seating": true,
+                "local_tips": "Go off-peak to snag a seat at the bar"
+            },
+            {
+                "name": "Pinotxo Bar",
+                "specialties": [
+                    "Garbanzo Beans with Morcilla",
+                    "Seafood Tapas"
+                ],
+                "price_range": "€€",
+                "hours": "06:00 - 16:00",
+                "location": "La Boqueria Market",
+                "seating": true,
+                "local_tips": "Chat with the owner, Juanito, for the best recommendations"
+            },
+            {
+                "name": "El Kiosko",
+                "specialties": [
+                    "Gourmet Burgers",
+                    "Sweet Potato Fries"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 - 23:00",
+                "location": "El Born",
+                "seating": true,
+                "local_tips": "Try the classic burger with Catalan cheese"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Nomad Coffee Lab & Shop",
+                "specialty": "Espresso-based drinks",
+                "must_try": [
+                    "Flat White",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and trendy with a focus on quality",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries and snacks",
+                "local_tips": "Perfect for coffee connoisseurs"
+            },
+            {
+                "name": "Satan's Coffee Corner",
+                "specialty": "Single-origin coffees",
+                "must_try": [
+                    "Iced Latte",
+                    "V60 Pour Over"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip and eclectic with a modern touch",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Brunch options available",
+                "local_tips": "Great spot for a relaxed afternoon"
+            },
+            {
+                "name": "Onna Coffee",
+                "specialty": "Costa Rican coffee",
+                "must_try": [
+                    "Cappuccino",
+                    "Espresso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and welcoming with a focus on sustainable practices",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Cakes and pastries",
+                "local_tips": "Ideal for a quiet coffee break"
+            },
+            {
+                "name": "Federal Cafe",
+                "specialty": "Brunch and coffee",
+                "must_try": [
+                    "Avocado Toast",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright and airy with a community feel",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Extensive brunch menu",
+                "local_tips": "Get a window seat for people-watching"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Bobby's Free",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "La Floridita",
+                    "Bobby's Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy with a quirky barber shop entrance",
+                "best_time": "Evening",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Look for the hidden entrance behind the barber shop"
+            },
+            {
+                "name": "El Nacional",
+                "type": "Wine Bar",
+                "specialty": "Spanish wines and tapas",
+                "signature_drinks": [
+                    "Rioja Selection",
+                    "Cava Flights"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant and bustling with a historical setting",
+                "best_time": "Evening",
+                "food_options": "Extensive tapas menu",
+                "reservation_needed": false,
+                "local_tips": "Explore different sections for varied experiences"
+            },
+            {
+                "name": "Boadas Cocktails",
+                "type": "Classic Cocktail Bar",
+                "specialty": "Classic cocktails",
+                "signature_drinks": [
+                    "Dry Martini",
+                    "Margarita"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Old-school charm with a vintage vibe",
+                "best_time": "Late evening",
+                "food_options": "Nuts and olives",
+                "reservation_needed": false,
+                "local_tips": "Sit at the bar to watch the bartenders at work"
+            },
+            {
+                "name": "Bar Marsella",
+                "type": "Absinthe Bar",
+                "specialty": "Absinthe",
+                "signature_drinks": [
+                    "Classic Absinthe",
+                    "Absinthe with Sugar Cube"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and bohemian with a vintage interior",
+                "best_time": "Late night",
+                "food_options": "None",
+                "reservation_needed": false,
+                "local_tips": "Enjoy the eclectic crowd and vibrant atmosphere"
+            },
+            {
+                "name": "Bar Mut",
+                "type": "Wine and Tapas Bar",
+                "specialty": "Natural wines",
+                "signature_drinks": [
+                    "Local Cava",
+                    "Natural Red Wine"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic and bustling with an upscale feel",
+                "best_time": "Dinner",
+                "food_options": "Gourmet tapas",
+                "reservation_needed": true,
+                "local_tips": "Try their daily specials for a surprise"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Devour Barcelona Food Tour",
+                "focus": "Tapas and Wine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Authentic tapas bars",
+                    "Local wines",
+                    "Historical insights",
+                    "Gothic Quarter exploration"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book online a few weeks in advance"
+            },
+            {
+                "name": "Barcelona Market Tour",
+                "focus": "Local Markets and Tastings",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "La Boqueria visit",
+                    "Sample local produce",
+                    "Meet market vendors",
+                    "Traditional breakfast"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book early for morning slots"
+            },
+            {
+                "name": "Sagrada Familia and Tapas Tour",
+                "focus": "Cultural and Culinary",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Guided Sagrada Familia tour",
+                    "Authentic tapas lunch",
+                    "Local wine tasting",
+                    "Gaudí architecture"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "booking_tips": "Combine with a Gaudí tour for a full-day experience"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Paella Cooking Experience",
+                "cuisine_focus": "Spanish",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Paella Valenciana",
+                    "Traditional techniques",
+                    "Ingredient selection",
+                    "Sangria making"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipe booklet",
+                    "Wine tasting"
+                ],
+                "booking_tips": "Book online to secure your spot"
+            },
+            {
+                "name": "Catalan Cuisine Workshop",
+                "cuisine_focus": "Catalan",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Escudella",
+                    "Crema Catalana",
+                    "Traditional sauces",
+                    "Local wine pairing"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Dinner",
+                    "Wine"
+                ],
+                "booking_tips": "Ideal for small groups, so book early"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercat de Sant Josep de la Boqueria",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh seafood",
+                    "Local cheeses",
+                    "Jamón Ibérico",
+                    "Exotic fruits"
+                ],
+                "hours": "08:00 - 20:30",
+                "best_time": "Morning",
+                "location": "La Rambla",
+                "local_tips": "Start early to avoid crowds and get the freshest picks"
+            },
+            {
+                "name": "Mercat de Sant Antoni",
+                "type": "Local Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Textile stalls",
+                    "Sunday book market",
+                    "Gourmet stalls"
+                ],
+                "hours": "08:00 - 20:00",
+                "best_time": "Late morning",
+                "location": "Sant Antoni",
+                "local_tips": "Visit on Sunday for the book market and vintage finds"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Calçots with Romesco Sauce",
+            "Fideuà",
+            "Crema Catalana"
+        ],
+        "summer": [
+            "Gazpacho",
+            "Esqueixada",
+            "Sangria"
+        ],
+        "autumn": [
+            "Panellets",
+            "Mushroom Dishes",
+            "Cava"
+        ],
+        "winter": [
+            "Escudella i Carn d'Olla",
+            "Turrón",
+            "Hot Chocolate with Churros"
+        ]
+    }
+}

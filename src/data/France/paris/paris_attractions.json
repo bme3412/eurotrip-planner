@@ -1,0 +1,378 @@
+{
+    "sites": [
+        {
+            "name": "Eiffel Tower",
+            "type": "Monument",
+            "description": "The Eiffel Tower is an iconic iron lattice tower located on the Champ de Mars. Built in 1889 as the entrance arch to the 1889 World's Fair, it has become a global cultural icon of France and one of the most recognizable structures in the world. Visitors can ascend to three different levels, with restaurants on the first and second levels and an observation deck at the top.",
+            "indoor": false,
+            "best_time": "Evening",
+            "price_range": "Expensive",
+            "seasonal_notes": "Summer months are extremely busy. Winter offers shorter lines but occasional closures due to weather.",
+            "booking_tips": "Book tickets online weeks in advance to avoid long queues. Evening visits with tower illumination are highly recommended.",
+            "ratings": {
+                "cost_estimate": 30,
+                "suggested_duration_hours": 3,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8584,
+            "longitude": 2.2945
+        },
+        {
+            "name": "Louvre Museum",
+            "type": "Museum",
+            "description": "The Louvre is the world's largest art museum and a historic monument. Home to thousands of works of art including the Mona Lisa and Venus de Milo, the museum is housed in the Louvre Palace, originally built as a fortress in the late 12th century. The museum's glass pyramid entrance has become an iconic symbol of Paris.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "Busiest during summer and holidays. Wednesdays and Fridays have evening hours with smaller crowds.",
+            "booking_tips": "Purchase tickets online in advance. Enter through the Carrousel du Louvre entrance to avoid the longest lines.",
+            "ratings": {
+                "cost_estimate": 17,
+                "suggested_duration_hours": 4,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8606,
+            "longitude": 2.3376
+        },
+        {
+            "name": "Notre-Dame Cathedral",
+            "type": "Cathedral",
+            "description": "Notre-Dame is a medieval Catholic cathedral on the Île de la Cité. Known for its French Gothic architecture, magnificent stained glass, and flying buttresses. The cathedral is currently under restoration following the 2019 fire, but the exterior can still be viewed from designated areas.",
+            "indoor": false,
+            "best_time": "Morning",
+            "price_range": "Free",
+            "seasonal_notes": "Restoration work ongoing after the 2019 fire. Check official website for current viewing options.",
+            "booking_tips": "Interior visits suspended during restoration. View from the exterior and the archaeological crypt.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 1,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8530,
+            "longitude": 2.3499
+        },
+        {
+            "name": "Sacré-Cœur Basilica",
+            "type": "Basilica",
+            "description": "Perched atop Montmartre hill, this white-domed basilica offers panoramic views of Paris. Built as a symbol of hope after the Franco-Prussian War, its romano-byzantine architecture and interior mosaics are breathtaking. The surrounding Montmartre district is known for its artistic history.",
+            "indoor": true,
+            "best_time": "Sunset",
+            "price_range": "Free",
+            "seasonal_notes": "Busy year-round, especially during sunset. Early morning offers a more peaceful experience.",
+            "booking_tips": "No booking required for the basilica. Dome and crypt visits require a small fee paid on-site.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 2,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8867,
+            "longitude": 2.3431
+        },
+        {
+            "name": "Arc de Triomphe",
+            "type": "Monument",
+            "description": "Standing at the center of Place Charles de Gaulle, this triumphal arch honors those who fought for France, particularly during the Napoleonic Wars. Visitors can climb to the top for a spectacular view of Paris and the twelve radiating avenues.",
+            "indoor": false,
+            "best_time": "Afternoon",
+            "price_range": "Moderate",
+            "seasonal_notes": "The viewing platform can be windy in winter. Beautiful at night when the Champs-Élysées is illuminated.",
+            "booking_tips": "Online tickets allow you to skip the line. Use the underground passage to reach the monument.",
+            "ratings": {
+                "cost_estimate": 13,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8738,
+            "longitude": 2.2950
+        },
+        {
+            "name": "Musée d'Orsay",
+            "type": "Museum",
+            "description": "Housed in the former Gare d'Orsay railway station, this museum holds mainly French art dating from 1848 to 1914, including masterpieces by Monet, Renoir, Van Gogh, and Degas. The building itself, with its magnificent clock, is a work of art.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "Less crowded on Thursday evenings when open late. Closed on Mondays.",
+            "booking_tips": "Book online in advance. The museum pass offers good value if visiting multiple attractions.",
+            "ratings": {
+                "cost_estimate": 16,
+                "suggested_duration_hours": 3,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8600,
+            "longitude": 2.3266
+        },
+        {
+            "name": "Centre Pompidou",
+            "type": "Museum",
+            "description": "This high-tech architectural marvel houses the National Museum of Modern Art, a vast public library, and a center for music research. Known for its exposed structural elements and mechanical systems, it offers a striking contrast to Paris's traditional architecture.",
+            "indoor": true,
+            "best_time": "Afternoon",
+            "price_range": "Moderate",
+            "seasonal_notes": "The rooftop offers spectacular views year-round. Special exhibitions may increase visitor numbers.",
+            "booking_tips": "Book online to avoid queues. The museum is closed on Tuesdays.",
+            "ratings": {
+                "cost_estimate": 15,
+                "suggested_duration_hours": 3,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8607,
+            "longitude": 2.3522
+        },
+        {
+            "name": "Champs-Élysées",
+            "type": "Street",
+            "description": "One of the world's most famous avenues, stretching from Place de la Concorde to the Arc de Triomphe. It's lined with luxury shops, cafes, theaters, and chestnut trees, embodying the elegance and vivacity of Paris.",
+            "indoor": false,
+            "best_time": "Evening",
+            "price_range": "Free",
+            "seasonal_notes": "Beautiful during Christmas with holiday lights and markets. Summer offers pleasant cafe seating.",
+            "booking_tips": "No booking required. Shops are typically open late, especially on weekends.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 2,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8698,
+            "longitude": 2.3075
+        },
+        {
+            "name": "Montmartre",
+            "type": "District",
+            "description": "A historic hilltop district and former artists' village, known for its bohemian past, winding streets, and the white-domed Sacré-Cœur Basilica. It retains a village-like atmosphere with small shops, cafes, and the famous Place du Tertre where artists still set up their easels.",
+            "indoor": false,
+            "best_time": "Morning",
+            "price_range": "Free",
+            "seasonal_notes": "Crowded year-round, especially during summer. Early morning offers the most authentic experience.",
+            "booking_tips": "No booking required. Consider taking the funicular up the hill to avoid the steep climb.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 3,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8865,
+            "longitude": 2.3431
+        },
+        {
+            "name": "Sainte-Chapelle",
+            "type": "Chapel",
+            "description": "This Gothic royal chapel is renowned for its spectacular stained glass windows, which depict over 1,000 biblical scenes. Built in the 13th century to house religious relics, it's considered one of the highest achievements of Rayonnant Gothic architecture.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "Visit on sunny days when the stained glass is most vibrant. Combined tickets with Conciergerie available.",
+            "booking_tips": "Book online to avoid lines. The chapel is included in the Museum Pass.",
+            "ratings": {
+                "cost_estimate": 12,
+                "suggested_duration_hours": 1,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8553,
+            "longitude": 2.3454
+        },
+        {
+            "name": "Luxembourg Gardens",
+            "type": "Park",
+            "description": "These formal gardens, created in the 17th century, surround the Luxembourg Palace (now the Senate). The park features manicured lawns, tree-lined promenades, model sailboats on the pond, tennis courts, and numerous statues and fountains.",
+            "indoor": false,
+            "best_time": "Afternoon",
+            "price_range": "Free",
+            "seasonal_notes": "Beautiful in spring when flowers bloom. Summer weekends bring puppet shows and concerts.",
+            "booking_tips": "No booking required. Bring a picnic and book to enjoy the tranquility.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 2,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8462,
+            "longitude": 2.3372
+        },
+        {
+            "name": "Place de la Concorde",
+            "type": "Square",
+            "description": "Paris's largest square, featuring the Luxor Obelisk, ornate fountains, and statues representing French cities. It marks the beginning of the Champs-Élysées and has been the site of many historic events, including executions during the French Revolution.",
+            "indoor": false,
+            "best_time": "Evening",
+            "price_range": "Free",
+            "seasonal_notes": "Beautiful when illuminated at night. The giant Ferris wheel is present during winter holidays.",
+            "booking_tips": "No booking required. Combine with visits to the Tuileries Garden and Champs-Élysées.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 0.5,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8656,
+            "longitude": 2.3212
+        },
+        {
+            "name": "Père Lachaise Cemetery",
+            "type": "Cemetery",
+            "description": "The largest cemetery in Paris and the most visited in the world, Père Lachaise is the final resting place of many famous figures including Oscar Wilde, Jim Morrison, and Édith Piaf. Its cobblestone paths, Gothic mausoleums, and ancient trees create a serene, contemplative atmosphere.",
+            "indoor": false,
+            "best_time": "Morning",
+            "price_range": "Free",
+            "seasonal_notes": "Beautiful in autumn with changing leaves. Maps available at entrances.",
+            "booking_tips": "No booking required. Wear comfortable shoes for walking the hilly terrain.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 2,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8616,
+            "longitude": 2.3938
+        },
+        {
+            "name": "Musée de l'Orangerie",
+            "type": "Museum",
+            "description": "Famous for housing eight of Claude Monet's Water Lilies murals, displayed in two oval rooms specifically designed to showcase these masterpieces. The museum also contains works by other impressionist and post-impressionist painters.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "Less crowded than larger museums. Natural light in the Monet rooms changes throughout the day.",
+            "booking_tips": "Book online to avoid queues. Closed on Tuesdays.",
+            "ratings": {
+                "cost_estimate": 13,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8637,
+            "longitude": 2.3232
+        },
+        {
+            "name": "Palais Garnier",
+            "type": "Opera House",
+            "description": "This opulent opera house, built in the 19th century, is a masterpiece of Second Empire architecture. Its grand staircase, auditorium ceiling painted by Marc Chagall, and magnificent chandelier inspired 'The Phantom of the Opera' story.",
+            "indoor": true,
+            "best_time": "Afternoon",
+            "price_range": "Moderate",
+            "seasonal_notes": "Guided tours available daily. Check schedule for performances if you wish to see a show.",
+            "booking_tips": "Book guided tours in advance. For performances, reserve months ahead, especially for popular shows.",
+            "ratings": {
+                "cost_estimate": 14,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 5
+            },
+            "latitude": 48.8720,
+            "longitude": 2.3316
+        },
+        {
+            "name": "Seine River Cruise",
+            "type": "Activity",
+            "description": "A boat cruise along the Seine offers a unique perspective of Paris's monuments and bridges. Many historical buildings face the river, and the banks of the Seine themselves are a UNESCO World Heritage site.",
+            "indoor": false,
+            "best_time": "Sunset",
+            "price_range": "Moderate",
+            "seasonal_notes": "Available year-round, but especially magical at sunset or after dark when monuments are illuminated.",
+            "booking_tips": "Many options available, from basic sightseeing to dinner cruises. Book online for discounts.",
+            "ratings": {
+                "cost_estimate": 20,
+                "suggested_duration_hours": 1,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8584,
+            "longitude": 2.3490
+        },
+        {
+            "name": "Les Catacombes",
+            "type": "Historical Site",
+            "description": "These underground ossuaries hold the remains of more than six million people, transferred from Parisian cemeteries in the late 18th century. The eerie tunnel network stretches for over 200 miles, though only a small portion is open to the public.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "Constant temperature of 14°C (57°F) year-round, so bring a light jacket even in summer.",
+            "booking_tips": "Book online well in advance to secure your preferred time slot. Not recommended for those with mobility issues or claustrophobia.",
+            "ratings": {
+                "cost_estimate": 15,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8338,
+            "longitude": 2.3324
+        },
+        {
+            "name": "Panthéon",
+            "type": "Monument",
+            "description": "Originally built as a church, this neoclassical monument now serves as a mausoleum for distinguished French citizens. Its crypt houses the remains of luminaries like Voltaire, Rousseau, Victor Hugo, Marie Curie, and Alexandre Dumas.",
+            "indoor": true,
+            "best_time": "Afternoon",
+            "price_range": "Moderate",
+            "seasonal_notes": "Foucault's pendulum demonstration is a highlight. The dome offers excellent views of Paris.",
+            "booking_tips": "Tickets available online or on-site. Included in the Paris Museum Pass.",
+            "ratings": {
+                "cost_estimate": 12,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8462,
+            "longitude": 2.3464
+        },
+        {
+            "name": "Musée Rodin",
+            "type": "Museum",
+            "description": "Located in the Hôtel Biron and its surrounding garden, this museum is dedicated to the works of sculptor Auguste Rodin. Famous pieces like 'The Thinker' and 'The Gates of Hell' are displayed in the beautifully landscaped gardens.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "The garden is particularly beautiful in spring and summer. Gardens-only ticket available at reduced price.",
+            "booking_tips": "Book online to avoid waiting. The garden cafe offers a pleasant rest spot.",
+            "ratings": {
+                "cost_estimate": 14,
+                "suggested_duration_hours": 2,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8558,
+            "longitude": 2.3159
+        },
+        {
+            "name": "Le Marais",
+            "type": "District",
+            "description": "A historic district that spreads across parts of the 3rd and 4th arrondissements. Known for its preserved pre-revolutionary buildings, Jewish quarter, vibrant LGBTQ+ community, trendy boutiques, and excellent dining options.",
+            "indoor": false,
+            "best_time": "Afternoon",
+            "price_range": "Free",
+            "seasonal_notes": "Busy on Sundays when many Parisian neighborhoods are quiet. Most shops open late morning.",
+            "booking_tips": "No booking required. One of the few areas where shops open on Sundays.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 3,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8567,
+            "longitude": 2.3600
+        },
+        {
+            "name": "Conciergerie",
+            "type": "Historical Site",
+            "description": "A former royal palace and prison on the Île de la Cité, this medieval building played a significant role during the French Revolution. Marie Antoinette was imprisoned here before her execution, and visitors can see her reconstructed cell.",
+            "indoor": true,
+            "best_time": "Morning",
+            "price_range": "Moderate",
+            "seasonal_notes": "Combined tickets with Sainte-Chapelle available. Less crowded than major attractions.",
+            "booking_tips": "Included in the Paris Museum Pass. Audio guides enhance the experience.",
+            "ratings": {
+                "cost_estimate": 12,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8565,
+            "longitude": 2.3451
+        },
+        {
+            "name": "Tuileries Garden",
+            "type": "Park",
+            "description": "Created by Catherine de' Medici in the 16th century, these formal gardens between the Louvre and Place de la Concorde offer tree-lined paths, fountains, and statues. In summer, a carnival with a Ferris wheel provides entertainment.",
+            "indoor": false,
+            "best_time": "Afternoon",
+            "price_range": "Free",
+            "seasonal_notes": "Perfect for relaxation after visiting the Louvre. Cafes and ice cream vendors available in warmer months.",
+            "booking_tips": "No booking required. Metal chairs around the fountains are perfect for people-watching.",
+            "ratings": {
+                "cost_estimate": 0,
+                "suggested_duration_hours": 1.5,
+                "cultural_significance": 4
+            },
+            "latitude": 48.8634,
+            "longitude": 2.3275
+        }
+    ]
+}

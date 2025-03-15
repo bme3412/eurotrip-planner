@@ -1,0 +1,285 @@
+{
+    "city_info": {
+        "name": "Innsbruck",
+        "coordinates": {
+            "latitude": 47.2692,
+            "longitude": 11.4041
+        }
+    },
+    "seasonal_activities": {
+        "Spring": {
+            "activities": [
+                {
+                    "name": "Hiking in the Nordkette Mountains",
+                    "type": "Outdoor Adventure",
+                    "description": "Explore the scenic trails of the Nordkette mountain range, which offer breathtaking views of Innsbruck and the surrounding Alps.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Free",
+                    "seasonal_notes": "Spring is ideal as the snow starts melting, revealing lush landscapes.",
+                    "booking_tips": "No booking required, but check weather conditions before heading out.",
+                    "coordinates": {
+                        "latitude": 47.3064,
+                        "longitude": 11.3876
+                    }
+                },
+                {
+                    "name": "Ambras Castle Park",
+                    "type": "Historical Park",
+                    "description": "Visit the beautiful gardens of Ambras Castle, which are in full bloom during spring.",
+                    "indoor": false,
+                    "best_time": "Afternoon",
+                    "price_range": "Free",
+                    "seasonal_notes": "Enjoy the vibrant flora and fauna that spring brings.",
+                    "booking_tips": "No booking needed for the park, but entry fee applies for the castle.",
+                    "coordinates": {
+                        "latitude": 47.2515,
+                        "longitude": 11.4286
+                    }
+                },
+                {
+                    "name": "Easter Festival Tirol",
+                    "type": "Festival",
+                    "description": "A cultural festival featuring classical music performances held annually during the Easter period.",
+                    "indoor": true,
+                    "best_time": "Evening",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "Perfect for experiencing local culture in spring.",
+                    "booking_tips": "Advance booking is recommended due to high demand.",
+                    "coordinates": {
+                        "latitude": 47.2692,
+                        "longitude": 11.4041
+                    }
+                }
+            ]
+        },
+        "Summer": {
+            "activities": [
+                {
+                    "name": "Innsbruck Summer Music Festival",
+                    "type": "Music Festival",
+                    "description": "Celebrate summer with a series of concerts featuring international and local artists.",
+                    "indoor": false,
+                    "best_time": "Evening",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "Enjoy long summer evenings with live music.",
+                    "booking_tips": "Purchase tickets in advance as events often sell out.",
+                    "coordinates": {
+                        "latitude": 47.2692,
+                        "longitude": 11.4041
+                    }
+                },
+                {
+                    "name": "Swimming in Natterer See",
+                    "type": "Lake",
+                    "description": "Cool off in the crystal-clear waters of Natterer See, a popular swimming spot near Innsbruck.",
+                    "indoor": false,
+                    "best_time": "Afternoon",
+                    "price_range": "Budget",
+                    "seasonal_notes": "Perfect escape from the summer heat.",
+                    "booking_tips": "Arrive early to secure a good spot by the lake.",
+                    "coordinates": {
+                        "latitude": 47.2364,
+                        "longitude": 11.3455
+                    }
+                }
+            ]
+        },
+        "Autumn": {
+            "activities": [
+                {
+                    "name": "Harvest Festival",
+                    "type": "Cultural Festival",
+                    "description": "Celebrate the harvest season with traditional food, music, and customs.",
+                    "indoor": false,
+                    "best_time": "Afternoon",
+                    "price_range": "Budget",
+                    "seasonal_notes": "Enjoy the local culture and cuisine during the harvest period.",
+                    "booking_tips": "Check the local calendar for specific dates and locations.",
+                    "coordinates": {
+                        "latitude": 47.2692,
+                        "longitude": 11.4041
+                    }
+                },
+                {
+                    "name": "Alpenzoo Innsbruck",
+                    "type": "Zoo",
+                    "description": "Visit the Alpenzoo, home to a wide range of alpine animals, as they prepare for winter.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "Cooler autumn days make it perfect for a zoo visit.",
+                    "booking_tips": "Tickets can be purchased online or at the entrance.",
+                    "coordinates": {
+                        "latitude": 47.2835,
+                        "longitude": 11.4108
+                    }
+                }
+            ]
+        },
+        "Winter": {
+            "activities": [
+                {
+                    "name": "Skiing in the Stubai Valley",
+                    "type": "Ski Resort",
+                    "description": "Experience world-class skiing and snowboarding at the Stubai Glacier, one of Austria's premier ski destinations.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Expensive",
+                    "seasonal_notes": "Winter is peak season for skiing in this region.",
+                    "booking_tips": "Book accommodation and lift passes in advance to secure the best deals.",
+                    "coordinates": {
+                        "latitude": 47.1106,
+                        "longitude": 11.3111
+                    }
+                },
+                {
+                    "name": "Innsbruck Christmas Market",
+                    "type": "Market",
+                    "description": "Enjoy festive shopping, local crafts, and traditional Austrian treats at the Christmas markets in Innsbruck.",
+                    "indoor": false,
+                    "best_time": "Evening",
+                    "price_range": "Budget",
+                    "seasonal_notes": "A must-visit for experiencing holiday cheer and local traditions.",
+                    "booking_tips": "Visit during weekdays to avoid larger crowds.",
+                    "coordinates": {
+                        "latitude": 47.2682,
+                        "longitude": 11.3947
+                    }
+                }
+            ]
+        }
+    },
+    "attractions": {
+        "sites": [
+            {
+                "name": "The Golden Roof (Goldenes Dachl)",
+                "type": "Historical Monument",
+                "description": "A landmark in Innsbruck, the Golden Roof is a late Gothic oriel with a roof covered with 2,738 fire-gilded copper tiles.",
+                "indoor": false,
+                "best_time": "Afternoon",
+                "price_range": "Free",
+                "booking_tips": "No booking required; guided tours available.",
+                "coordinates": {
+                    "latitude": 47.2682,
+                    "longitude": 11.3933
+                },
+                "ratings": {
+                    "cultural_significance": 5
+                }
+            },
+            {
+                "name": "Hofburg Palace",
+                "type": "Historical Site",
+                "description": "Once the residence of the Tyrolean sovereigns, this palace is a remarkable example of Baroque architecture.",
+                "indoor": true,
+                "best_time": "Morning",
+                "price_range": "Moderate",
+                "booking_tips": "Consider buying tickets online to skip the queue.",
+                "coordinates": {
+                    "latitude": 47.268,
+                    "longitude": 11.3961
+                },
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Bergisel Ski Jump",
+                "type": "Sports Venue",
+                "description": "A modern architectural marvel offering panoramic views of Innsbruck and the surrounding mountains.",
+                "indoor": false,
+                "best_time": "Morning",
+                "price_range": "Moderate",
+                "booking_tips": "Combine your visit with a tour of the surrounding Olympic venues.",
+                "coordinates": {
+                    "latitude": 47.248,
+                    "longitude": 11.4004
+                },
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Tyrolean State Museum (Ferdinandeum)",
+                "type": "Museum",
+                "description": "Explore Tyrolean art and history from prehistoric times to the present at this comprehensive museum.",
+                "indoor": true,
+                "best_time": "Afternoon",
+                "price_range": "Moderate",
+                "booking_tips": "Check for temporary exhibitions and special events.",
+                "coordinates": {
+                    "latitude": 47.2649,
+                    "longitude": 11.3962
+                },
+                "ratings": {
+                    "cultural_significance": 3
+                }
+            },
+            {
+                "name": "Innsbruck Cathedral (Dom zu St. Jakob)",
+                "type": "Cathedral",
+                "description": "A stunning Baroque cathedral known for its impressive ceiling frescoes and opulent altar.",
+                "indoor": true,
+                "best_time": "Morning",
+                "price_range": "Free",
+                "booking_tips": "Guided tours are available; check times in advance.",
+                "coordinates": {
+                    "latitude": 47.2685,
+                    "longitude": 11.3946
+                },
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Swarovski Crystal Worlds",
+                "type": "Museum and Art Installation",
+                "description": "A magical experience showcasing the brilliance of crystal in a series of artistic installations.",
+                "indoor": true,
+                "best_time": "Afternoon",
+                "price_range": "Expensive",
+                "booking_tips": "Purchase tickets online for discounts and express entry.",
+                "coordinates": {
+                    "latitude": 47.2988,
+                    "longitude": 11.605
+                },
+                "ratings": {
+                    "cultural_significance": 3
+                }
+            },
+            {
+                "name": "Nordkette Cable Car",
+                "type": "Scenic Ride",
+                "description": "Take the cable car from Innsbruck to the top of the Nordkette for stunning views over the city and mountains.",
+                "indoor": false,
+                "best_time": "Morning",
+                "price_range": "Expensive",
+                "booking_tips": "Tickets can be bought at the station or online.",
+                "coordinates": {
+                    "latitude": 47.2692,
+                    "longitude": 11.4041
+                },
+                "ratings": {
+                    "cultural_significance": 5
+                }
+            },
+            {
+                "name": "Tyrolean Folk Art Museum",
+                "type": "Museum",
+                "description": "Discover a rich collection of Tyrolean cultural artifacts, from traditional costumes to handmade objects.",
+                "indoor": true,
+                "best_time": "Afternoon",
+                "price_range": "Moderate",
+                "booking_tips": "Check for guided tours and special exhibitions.",
+                "coordinates": {
+                    "latitude": 47.2665,
+                    "longitude": 11.3952
+                },
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            }
+        ]
+    }
+}

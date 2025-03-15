@@ -1,0 +1,344 @@
+{
+    "neighborhoods": [
+        {
+            "name": "Altstadt",
+            "character": "Historic and charming with cobblestone streets",
+            "location": {
+                "central": true,
+                "description": "Heart of the city",
+                "coordinates": {
+                    "latitude": 47.2682,
+                    "longitude": 11.3933
+                }
+            },
+            "practical_info": {
+                "transit": [
+                    "Trams, buses"
+                ],
+                "safety": "Very safe",
+                "walkability": "Highly pedestrian-friendly"
+            },
+            "appeal": {
+                "known_for": [
+                    "Golden Roof",
+                    "Medieval architecture"
+                ],
+                "best_for": [
+                    "History buffs",
+                    "Sightseeing"
+                ]
+            },
+            "categories": {
+                "touristy": 5,
+                "shopping": 3,
+                "dining": 4,
+                "nightlife": 3,
+                "cultural": 5
+            },
+            "highlights": {
+                "attractions": [
+                    "Golden Roof",
+                    "Hofkirche",
+                    "Innsbruck Cathedral"
+                ],
+                "dining": [
+                    "Stiftskeller",
+                    "Gasthof Weisses Rössl"
+                ],
+                "activities": [
+                    "Walking tours",
+                    "Museum visits"
+                ]
+            },
+            "stay_here_if": [
+                "You want to be close to major attractions",
+                "Enjoy historic settings"
+            ],
+            "avoid_if": [
+                "You prefer quieter areas",
+                "Dislike tourist crowds"
+            ]
+        },
+        {
+            "name": "Innenstadt",
+            "character": "Vibrant and modern with a mix of shops and eateries",
+            "location": {
+                "central": true,
+                "description": "Adjacent to Altstadt",
+                "coordinates": {
+                    "latitude": 47.2654,
+                    "longitude": 11.3948
+                }
+            },
+            "practical_info": {
+                "transit": [
+                    "Trams, buses"
+                ],
+                "safety": "Very safe",
+                "walkability": "Excellent"
+            },
+            "appeal": {
+                "known_for": [
+                    "Shopping",
+                    "Dining"
+                ],
+                "best_for": [
+                    "Shoppers",
+                    "Foodies"
+                ]
+            },
+            "categories": {
+                "touristy": 4,
+                "shopping": 5,
+                "dining": 4,
+                "nightlife": 4,
+                "cultural": 3
+            },
+            "highlights": {
+                "attractions": [
+                    "Maria-Theresien-Straße",
+                    "Triumphal Arch"
+                ],
+                "dining": [
+                    "Das Schindler",
+                    "Penz Hotel Rooftop Restaurant"
+                ],
+                "activities": [
+                    "Shopping",
+                    "Café hopping"
+                ]
+            },
+            "stay_here_if": [
+                "You love shopping and dining",
+                "Want a lively atmosphere"
+            ],
+            "avoid_if": [
+                "Prefer quieter, residential areas"
+            ]
+        },
+        {
+            "name": "Hötting",
+            "character": "Residential and peaceful with scenic views",
+            "location": {
+                "central": false,
+                "description": "Northwest of the city center",
+                "coordinates": {
+                    "latitude": 47.2745,
+                    "longitude": 11.3816
+                }
+            },
+            "practical_info": {
+                "transit": [
+                    "Bus"
+                ],
+                "safety": "Very safe",
+                "walkability": "Moderate"
+            },
+            "appeal": {
+                "known_for": [
+                    "Scenic views",
+                    "Local living"
+                ],
+                "best_for": [
+                    "Families",
+                    "Nature lovers"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "shopping": 2,
+                "dining": 3,
+                "nightlife": 2,
+                "cultural": 3
+            },
+            "highlights": {
+                "attractions": [
+                    "Botanical Garden",
+                    "Höttinger Alm"
+                ],
+                "dining": [
+                    "Buzihütte"
+                ],
+                "activities": [
+                    "Hiking",
+                    "Nature walks"
+                ]
+            },
+            "stay_here_if": [
+                "You want a quiet neighborhood",
+                "Enjoy outdoor activities"
+            ],
+            "avoid_if": [
+                "You want immediate access to nightlife"
+            ]
+        },
+        {
+            "name": "Saggen",
+            "character": "Elegant with a mix of historic villas and modern buildings",
+            "location": {
+                "central": false,
+                "description": "Northeast of Innenstadt",
+                "coordinates": {
+                    "latitude": 47.2766,
+                    "longitude": 11.4001
+                }
+            },
+            "practical_info": {
+                "transit": [
+                    "Trams, buses"
+                ],
+                "safety": "Very safe",
+                "walkability": "Good"
+            },
+            "appeal": {
+                "known_for": [
+                    "Architecture",
+                    "Residential charm"
+                ],
+                "best_for": [
+                    "Architecture enthusiasts",
+                    "Families"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "shopping": 3,
+                "dining": 3,
+                "nightlife": 2,
+                "cultural": 3
+            },
+            "highlights": {
+                "attractions": [
+                    "Congress Innsbruck",
+                    "Imperial Palace"
+                ],
+                "dining": [
+                    "Fischerhäusl"
+                ],
+                "activities": [
+                    "Walking tours",
+                    "Cultural events"
+                ]
+            },
+            "stay_here_if": [
+                "Enjoy historic architecture",
+                "Prefer quieter areas"
+            ],
+            "avoid_if": [
+                "Want a central location"
+            ]
+        },
+        {
+            "name": "Pradl",
+            "character": "Diverse and bustling with a mix of cultures",
+            "location": {
+                "central": false,
+                "description": "East of Innenstadt",
+                "coordinates": {
+                    "latitude": 47.2637,
+                    "longitude": 11.4176
+                }
+            },
+            "practical_info": {
+                "transit": [
+                    "Trams, buses"
+                ],
+                "safety": "Generally safe",
+                "walkability": "Good"
+            },
+            "appeal": {
+                "known_for": [
+                    "Multicultural vibe",
+                    "Local markets"
+                ],
+                "best_for": [
+                    "Budget travelers",
+                    "Cultural explorers"
+                ]
+            },
+            "categories": {
+                "touristy": 3,
+                "shopping": 4,
+                "dining": 4,
+                "nightlife": 3,
+                "cultural": 4
+            },
+            "highlights": {
+                "attractions": [
+                    "Rapoldi Park",
+                    "Olympiaworld"
+                ],
+                "dining": [
+                    "Local street food stalls"
+                ],
+                "activities": [
+                    "Market visits",
+                    "Community events"
+                ]
+            },
+            "stay_here_if": [
+                "Looking for budget accommodations",
+                "Enjoy diverse cultures"
+            ],
+            "avoid_if": [
+                "Seeking luxury options"
+            ]
+        },
+        {
+            "name": "Wilten",
+            "character": "Artistic and vibrant with a strong local community",
+            "location": {
+                "central": false,
+                "description": "Southwest of Innenstadt",
+                "coordinates": {
+                    "latitude": 47.2565,
+                    "longitude": 11.3917
+                }
+            },
+            "practical_info": {
+                "transit": [
+                    "Trams, buses"
+                ],
+                "safety": "Very safe",
+                "walkability": "Excellent"
+            },
+            "appeal": {
+                "known_for": [
+                    "Art scene",
+                    "Cafés"
+                ],
+                "best_for": [
+                    "Artists",
+                    "Young professionals"
+                ]
+            },
+            "categories": {
+                "touristy": 3,
+                "shopping": 3,
+                "dining": 4,
+                "nightlife": 4,
+                "cultural": 5
+            },
+            "highlights": {
+                "attractions": [
+                    "Basilica of Wilten",
+                    "Wilten Abbey"
+                ],
+                "dining": [
+                    "Local cafés and bakeries"
+                ],
+                "activities": [
+                    "Art galleries",
+                    "Cultural festivals"
+                ]
+            },
+            "stay_here_if": [
+                "Enjoy artistic environments",
+                "Prefer vibrant communities"
+            ],
+            "avoid_if": [
+                "Dislike trendy atmospheres"
+            ]
+        }
+    ]
+}

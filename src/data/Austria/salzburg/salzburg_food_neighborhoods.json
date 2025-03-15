@@ -1,0 +1,308 @@
+{
+    "culinary_guide": {
+        "restaurants": {
+            "fine_dining": [
+                {
+                    "name": "Restaurant Ikarus",
+                    "cuisine_type": "International",
+                    "signature_dishes": [
+                        "Seafood Platter",
+                        "Wagyu Beef"
+                    ],
+                    "price_range": "Luxury",
+                    "atmosphere": "Modern and elegant with a view of the airport",
+                    "location": "Hangar-7, Salzburg Airport",
+                    "local_tips": "Book a window seat for a unique dining experience with views of aircraft."
+                },
+                {
+                    "name": "St. Peter Stiftskulinarium",
+                    "cuisine_type": "Austrian",
+                    "signature_dishes": [
+                        "Tafelspitz",
+                        "Salzburger Nockerl"
+                    ],
+                    "price_range": "Expensive",
+                    "atmosphere": "Historic and romantic, located within the walls of a monastery",
+                    "location": "Altstadt",
+                    "local_tips": "Ideal for a romantic dinner; reservation is recommended."
+                },
+                {
+                    "name": "Esszimmer",
+                    "cuisine_type": "European",
+                    "signature_dishes": [
+                        "Foie Gras",
+                        "Lamb Chops"
+                    ],
+                    "price_range": "Expensive",
+                    "atmosphere": "Contemporary and intimate",
+                    "location": "Mülln",
+                    "local_tips": "Try the tasting menu for a full experience."
+                }
+            ],
+            "casual_dining": [
+                {
+                    "name": "Augustiner Bräustübl",
+                    "cuisine_type": "Bavarian",
+                    "signature_dishes": [
+                        "Pork Knuckle",
+                        "Pretzels"
+                    ],
+                    "price_range": "Moderate",
+                    "atmosphere": "Lively beer hall",
+                    "location": "Mülln",
+                    "local_tips": "Grab a seat in the beer garden for the best atmosphere."
+                },
+                {
+                    "name": "Zum Zirkelwirt",
+                    "cuisine_type": "Austrian",
+                    "signature_dishes": [
+                        "Wiener Schnitzel",
+                        "Goulash"
+                    ],
+                    "price_range": "Moderate",
+                    "atmosphere": "Cozy and traditional",
+                    "location": "Altstadt",
+                    "local_tips": "Try their homemade apple strudel for dessert."
+                },
+                {
+                    "name": "Die Weisse",
+                    "cuisine_type": "Bavarian",
+                    "signature_dishes": [
+                        "Sausage Platter",
+                        "Cheese Spaetzle"
+                    ],
+                    "price_range": "Moderate",
+                    "atmosphere": "Rustic brewery vibe",
+                    "location": "Schallmoos",
+                    "local_tips": "Best visited in the evening for a lively crowd."
+                }
+            ],
+            "street_food": [
+                {
+                    "name": "Balkan Grill Walter",
+                    "specialties": [
+                        "Bosna",
+                        "Sausages"
+                    ],
+                    "price_range": "Budget",
+                    "location": "Getreidegasse",
+                    "local_tips": "Visit during lunchtime for a quick and tasty snack."
+                },
+                {
+                    "name": "Burgers at L'Osteria",
+                    "specialties": [
+                        "Gourmet Burgers"
+                    ],
+                    "price_range": "Budget",
+                    "location": "Linzer Gasse",
+                    "local_tips": "A great spot for a quick bite after shopping."
+                }
+            ]
+        },
+        "food_experiences": {
+            "markets": [
+                {
+                    "name": "Schrannenmarkt",
+                    "highlights": [
+                        "Local cheese",
+                        "Fresh produce",
+                        "Artisanal bread"
+                    ],
+                    "hours": "Thursday 5 AM - 1 PM",
+                    "location": "Mirabellplatz",
+                    "local_tips": "Arrive early for the best selection and avoid the crowds."
+                },
+                {
+                    "name": "Grünmarkt",
+                    "highlights": [
+                        "Organic vegetables",
+                        "Bakery items",
+                        "Local meats"
+                    ],
+                    "hours": "Monday to Saturday, 6 AM - 7 PM",
+                    "location": "Universitätsplatz",
+                    "local_tips": "Great spot for a mid-morning snack and people-watching."
+                }
+            ]
+        },
+        "seasonal_specialties": {
+            "spring": [
+                "Asparagus dishes",
+                "Wild garlic soup"
+            ],
+            "summer": [
+                "Eierschwammerl (chanterelles)",
+                "Summer berries"
+            ],
+            "autumn": [
+                "Pumpkin soup",
+                "Game dishes"
+            ],
+            "winter": [
+                "Mulled wine",
+                "Kaiserschmarrn"
+            ]
+        }
+    },
+    "neighborhoods": [
+        {
+            "name": "Altstadt",
+            "character": "Historic and picturesque with cobblestone streets",
+            "location": {
+                "central": true,
+                "description": "Heart of Salzburg, along the Salzach River"
+            },
+            "practical_info": {
+                "transit": [
+                    "Walking",
+                    "Public buses"
+                ],
+                "safety": "Very safe with plenty of tourists",
+                "walkability": "Highly walkable with many pedestrian zones"
+            },
+            "appeal": {
+                "known_for": [
+                    "Baroque architecture",
+                    "Mozart's birthplace"
+                ],
+                "best_for": [
+                    "History enthusiasts",
+                    "Cultural explorers"
+                ]
+            },
+            "categories": {
+                "touristy": 5,
+                "shopping": 4,
+                "dining": 5,
+                "nightlife": 3,
+                "cultural": 5
+            },
+            "highlights": {
+                "attractions": [
+                    "Salzburg Cathedral",
+                    "Hohensalzburg Fortress"
+                ],
+                "dining": [
+                    "St. Peter Stiftskulinarium",
+                    "Zum Zirkelwirt"
+                ],
+                "activities": [
+                    "Walking tours",
+                    "Museum visits"
+                ]
+            },
+            "stay_here_if": [
+                "You love historical settings and cultural sites"
+            ],
+            "avoid_if": [
+                "You dislike crowded tourist areas"
+            ]
+        },
+        {
+            "name": "Mülln",
+            "character": "Charming and quaint with a local vibe",
+            "location": {
+                "central": true,
+                "description": "Northwest of the city center along the river"
+            },
+            "practical_info": {
+                "transit": [
+                    "Walking",
+                    "Trams"
+                ],
+                "safety": "Safe and quiet",
+                "walkability": "Easily navigable on foot"
+            },
+            "appeal": {
+                "known_for": [
+                    "Augustiner Bräustübl",
+                    "Traditional beer culture"
+                ],
+                "best_for": [
+                    "Beer enthusiasts",
+                    "Relaxed atmosphere seekers"
+                ]
+            },
+            "categories": {
+                "touristy": 3,
+                "shopping": 2,
+                "dining": 4,
+                "nightlife": 4,
+                "cultural": 3
+            },
+            "highlights": {
+                "attractions": [
+                    "Müllner Kirche",
+                    "Augustiner Bräustübl"
+                ],
+                "dining": [
+                    "Esszimmer",
+                    "Augustiner Bräustübl"
+                ],
+                "activities": [
+                    "Beer tasting",
+                    "River walks"
+                ]
+            },
+            "stay_here_if": [
+                "You enjoy local beer culture and a relaxed vibe"
+            ],
+            "avoid_if": [
+                "You prefer high-energy areas with more shopping options"
+            ]
+        },
+        {
+            "name": "Schallmoos",
+            "character": "Residential with a mix of local eateries and shops",
+            "location": {
+                "central": false,
+                "description": "Northeast of the city center"
+            },
+            "practical_info": {
+                "transit": [
+                    "Buses",
+                    "Trams"
+                ],
+                "safety": "Generally safe, quieter at night",
+                "walkability": "Good footpaths, though less pedestrian-exclusive areas"
+            },
+            "appeal": {
+                "known_for": [
+                    "Local dining spots",
+                    "Non-touristy atmosphere"
+                ],
+                "best_for": [
+                    "Budget travelers",
+                    "Local dining experiences"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "shopping": 3,
+                "dining": 4,
+                "nightlife": 3,
+                "cultural": 2
+            },
+            "highlights": {
+                "attractions": [
+                    "Die Weisse Brewery",
+                    "Local parks"
+                ],
+                "dining": [
+                    "Die Weisse",
+                    "Local bakeries"
+                ],
+                "activities": [
+                    "Brewery tours",
+                    "Exploring local shops"
+                ]
+            },
+            "stay_here_if": [
+                "You want to experience local life and avoid tourist crowds"
+            ],
+            "avoid_if": [
+                "You seek a central location with major attractions"
+            ]
+        }
+    ]
+}

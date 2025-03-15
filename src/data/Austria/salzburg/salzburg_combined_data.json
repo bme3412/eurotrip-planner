@@ -1,0 +1,276 @@
+{
+    "seasonal_activities": {
+        "Spring": {
+            "activities": [
+                {
+                    "name": "Salzburg Easter Festival",
+                    "type": "Festival",
+                    "description": "A renowned classical music festival featuring performances by the Vienna Philharmonic and other international artists.",
+                    "indoor": false,
+                    "best_time": "Evening",
+                    "price_range": "Expensive",
+                    "seasonal_notes": "Held annually around Easter, celebrating classical music.",
+                    "booking_tips": "Book tickets well in advance as performances often sell out."
+                },
+                {
+                    "name": "Mirabell Gardens",
+                    "type": "Park",
+                    "description": "Famous for its beautiful, blooming gardens and the setting for 'The Sound of Music' film scenes.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Free",
+                    "seasonal_notes": "Spring is perfect for enjoying the colorful blooms.",
+                    "booking_tips": "No booking required; visit early to avoid crowds."
+                },
+                {
+                    "name": "Salzburg Museum",
+                    "type": "Museum",
+                    "description": "Offers exhibitions on the cultural history of Salzburg, with a special focus on local heritage.",
+                    "indoor": true,
+                    "best_time": "Afternoon",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "Great for rainy spring days.",
+                    "booking_tips": "Purchase tickets online to skip the queue."
+                }
+            ]
+        },
+        "Summer": {
+            "activities": [
+                {
+                    "name": "Salzburg Festival",
+                    "type": "Festival",
+                    "description": "One of the world's most prestigious music and drama festivals, featuring opera, concerts, and theater.",
+                    "indoor": false,
+                    "best_time": "Evening",
+                    "price_range": "Expensive",
+                    "seasonal_notes": "Held from late July to August, attracting visitors from around the globe.",
+                    "booking_tips": "Tickets sell out fast; book as early as possible."
+                },
+                {
+                    "name": "Hiking in Untersberg",
+                    "type": "Outdoor Activity",
+                    "description": "Explore the trails of Untersberg Mountain for stunning views of Salzburg and the Alps.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Free",
+                    "seasonal_notes": "Ideal in summer for clear skies and pleasant weather.",
+                    "booking_tips": "Wear appropriate hiking gear and check weather conditions."
+                },
+                {
+                    "name": "Salzach River Cruise",
+                    "type": "Boat Tour",
+                    "description": "A leisurely cruise along the Salzach River, offering picturesque views of Salzburg.",
+                    "indoor": false,
+                    "best_time": "Afternoon",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "Perfect for a sunny summer day.",
+                    "booking_tips": "Book tickets online to secure your preferred time slot."
+                }
+            ]
+        },
+        "Autumn": {
+            "activities": [
+                {
+                    "name": "Stiegl Brewery Tour",
+                    "type": "Brewery Tour",
+                    "description": "Discover the brewing process of Austria's most famous beer and enjoy tastings.",
+                    "indoor": true,
+                    "best_time": "Afternoon",
+                    "price_range": "Budget",
+                    "seasonal_notes": "Ideal during cooler autumn days.",
+                    "booking_tips": "Tours can be booked online or at the brewery."
+                },
+                {
+                    "name": "Sound of Music Tour",
+                    "type": "Guided Tour",
+                    "description": "Visit iconic filming locations of 'The Sound of Music' set against the backdrop of autumn foliage.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "The fall colors enhance the scenic beauty of the tour.",
+                    "booking_tips": "Book in advance to ensure availability."
+                },
+                {
+                    "name": "Salzburg Autumn Market",
+                    "type": "Market",
+                    "description": "Experience local culture with stalls selling crafts, food, and seasonal produce.",
+                    "indoor": false,
+                    "best_time": "Afternoon",
+                    "price_range": "Free",
+                    "seasonal_notes": "Autumn markets showcase regional specialties.",
+                    "booking_tips": "No booking needed, but arrive early for the best selection."
+                }
+            ]
+        },
+        "Winter": {
+            "activities": [
+                {
+                    "name": "Salzburg Christmas Markets",
+                    "type": "Market",
+                    "description": "Traditional Christmas markets offering festive goods, crafts, and mulled wine.",
+                    "indoor": false,
+                    "best_time": "Evening",
+                    "price_range": "Free",
+                    "seasonal_notes": "A must-visit for holiday cheer and unique gifts.",
+                    "booking_tips": "No booking required, but weekends can be crowded."
+                },
+                {
+                    "name": "Skiing in the Alps",
+                    "type": "Winter Sport",
+                    "description": "Enjoy skiing and snowboarding in nearby alpine resorts.",
+                    "indoor": false,
+                    "best_time": "Morning",
+                    "price_range": "Expensive",
+                    "seasonal_notes": "Winter sports are a highlight of the cold season.",
+                    "booking_tips": "Book ski passes and accommodation in advance."
+                },
+                {
+                    "name": "Hellbrunn Advent Magic",
+                    "type": "Festival",
+                    "description": "A whimsical Christmas experience with light displays and festive activities at Hellbrunn Palace.",
+                    "indoor": false,
+                    "best_time": "Evening",
+                    "price_range": "Moderate",
+                    "seasonal_notes": "The palace grounds transform into a winter wonderland.",
+                    "booking_tips": "Tickets can be purchased at the entrance."
+                }
+            ]
+        }
+    },
+    "attractions": {
+        "sites": [
+            {
+                "name": "Hohensalzburg Fortress",
+                "type": "Monument",
+                "description": "One of Europe's largest medieval castles, offering panoramic views of Salzburg.",
+                "indoor": true,
+                "best_time": "Afternoon",
+                "price_range": "Moderate",
+                "booking_tips": "Consider buying a combined ticket for other attractions.",
+                "ratings": {
+                    "cultural_significance": 5
+                }
+            },
+            {
+                "name": "Mirabell Palace",
+                "type": "Historical Site",
+                "description": "A baroque masterpiece with beautiful gardens and a famous marble hall.",
+                "indoor": true,
+                "best_time": "Morning",
+                "price_range": "Free",
+                "booking_tips": "No booking required; check for public events before visiting.",
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Salzburg Cathedral",
+                "type": "Cathedral",
+                "description": "A stunning 17th-century baroque cathedral known for its architecture and art.",
+                "indoor": true,
+                "best_time": "Morning",
+                "price_range": "Free",
+                "booking_tips": "Entry is free, but donations are appreciated.",
+                "ratings": {
+                    "cultural_significance": 5
+                }
+            },
+            {
+                "name": "Mozart's Birthplace",
+                "type": "Museum",
+                "description": "The birthplace of Wolfgang Amadeus Mozart, now a museum showcasing his life and works.",
+                "indoor": true,
+                "best_time": "Afternoon",
+                "price_range": "Moderate",
+                "booking_tips": "Purchase tickets online to avoid queues.",
+                "ratings": {
+                    "cultural_significance": 5
+                }
+            },
+            {
+                "name": "Getreidegasse",
+                "type": "Shopping Street",
+                "description": "A historic shopping street known for its charming shops and Mozart's Birthplace.",
+                "indoor": false,
+                "best_time": "Afternoon",
+                "price_range": "Free",
+                "booking_tips": "No booking needed; explore at your leisure.",
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Hellbrunn Palace",
+                "type": "Palace",
+                "description": "Famous for its trick fountains and extensive gardens, offering a playful experience.",
+                "indoor": false,
+                "best_time": "Afternoon",
+                "price_range": "Moderate",
+                "booking_tips": "Tickets for the trick fountains are purchased on site.",
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Residenzplatz",
+                "type": "Square",
+                "description": "A historic square surrounded by important buildings, including the Salzburg Cathedral.",
+                "indoor": false,
+                "best_time": "Morning",
+                "price_range": "Free",
+                "booking_tips": "Ideal for a leisurely stroll; no booking needed.",
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            },
+            {
+                "name": "Museum of Modern Art",
+                "type": "Museum",
+                "description": "Features contemporary art collections and rotating exhibitions in a striking modern building.",
+                "indoor": true,
+                "best_time": "Afternoon",
+                "price_range": "Moderate",
+                "booking_tips": "Check the exhibition schedule for current displays.",
+                "ratings": {
+                    "cultural_significance": 3
+                }
+            },
+            {
+                "name": "St. Peter's Abbey",
+                "type": "Monastery",
+                "description": "One of the oldest monasteries in the German-speaking world, with catacombs and a beautiful cemetery.",
+                "indoor": true,
+                "best_time": "Morning",
+                "price_range": "Free",
+                "booking_tips": "No booking required, but check opening times.",
+                "ratings": {
+                    "cultural_significance": 5
+                }
+            },
+            {
+                "name": "Kapuzinerberg",
+                "type": "Park",
+                "description": "A hill offering hiking paths and spectacular views of Salzburg.",
+                "indoor": false,
+                "best_time": "Morning",
+                "price_range": "Free",
+                "booking_tips": "Wear comfortable shoes and bring water.",
+                "ratings": {
+                    "cultural_significance": 3
+                }
+            },
+            {
+                "name": "Salzburg Marionette Theatre",
+                "type": "Theatre",
+                "description": "A unique puppet theatre offering performances of operas and ballets.",
+                "indoor": true,
+                "best_time": "Evening",
+                "price_range": "Moderate",
+                "booking_tips": "Reserve tickets in advance for popular shows.",
+                "ratings": {
+                    "cultural_significance": 4
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,533 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Chantecler",
+                "cuisine_type": "French",
+                "signature_dishes": [
+                    "Foie Gras Terrine",
+                    "Lobster in Vanilla Sauce",
+                    "Grand Marnier Soufflé"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room with a classic French decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance for weekends",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 2,
+                "location": "Promenade des Anglais",
+                "local_tips": "Request a table with a sea view for a memorable experience."
+            },
+            {
+                "name": "Jan",
+                "cuisine_type": "Modern French with South African influences",
+                "signature_dishes": [
+                    "Biltong and Blue Cheese Salad",
+                    "Springbok Loin",
+                    "Melktert"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate setting with contemporary decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a month in advance for weekend evenings",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Port Area",
+                "local_tips": "The wine pairing option is highly recommended for a complete experience."
+            },
+            {
+                "name": "L'Aromate",
+                "cuisine_type": "Innovative French",
+                "signature_dishes": [
+                    "Truffle Risotto",
+                    "Duck Magret with Berry Sauce",
+                    "Chocolate Ganache with Olive Oil"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern minimalist with a cozy feel",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Weekday reservations are easier to secure",
+                "dress_code": "Casual chic",
+                "michelin_stars": null,
+                "location": "Carabacel",
+                "local_tips": "Opt for the tasting menu to experience the chef's creativity."
+            },
+            {
+                "name": "Keisuke Matsushima",
+                "cuisine_type": "Fusion (French-Japanese)",
+                "signature_dishes": [
+                    "Salmon Sashimi with Citrus",
+                    "Wagyu Beef with Wasabi Mash",
+                    "Matcha Mousse"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek and modern with Japanese design elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance for a guaranteed spot",
+                "dress_code": "Smart casual",
+                "michelin_stars": null,
+                "location": "Gambetta",
+                "local_tips": "The chef’s omakase menu is a must-try for adventurous diners."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "La Merenda",
+                "cuisine_type": "Local Niçoise",
+                "signature_dishes": [
+                    "Socca",
+                    "Daube Niçoise",
+                    "Pissaladière"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and cozy with a warm vibe",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "No phone reservations; arrive early to secure a table",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Cash only; try the daily specials for a surprise."
+            },
+            {
+                "name": "Olive & Artichaut",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Burrata with Seasonal Vegetables",
+                    "Grilled Octopus",
+                    "Lemon Tart"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming and artistic with a relaxed setting",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a day in advance, particularly in the summer",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Ask for a table on the terrace for a lovely street view."
+            },
+            {
+                "name": "Le Plongeoir",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Bouillabaisse",
+                    "Sea Urchin Risotto",
+                    "Lemon Meringue Pie"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Unique over-the-water setting with a nautical theme",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a week ahead for sunset views",
+                "dress_code": "Smart casual",
+                "location": "Port Area",
+                "local_tips": "Try to visit at sunset for a spectacular view across the Mediterranean."
+            },
+            {
+                "name": "Chez Acchiardo",
+                "cuisine_type": "Traditional Niçoise",
+                "signature_dishes": [
+                    "Ratatouille",
+                    "Salade Niçoise",
+                    "Farcis Niçois"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Family-run with a homely and welcoming feel",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Call in advance, especially for larger groups",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "The house wine is a great accompaniment to their traditional dishes."
+            },
+            {
+                "name": "Peixes",
+                "cuisine_type": "Seafood Tapas",
+                "signature_dishes": [
+                    "Ceviche",
+                    "Tuna Tataki",
+                    "Grilled Sardines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and lively with a contemporary vibe",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid the lunchtime rush",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "The tapas-style menu is perfect for sharing—try a bit of everything."
+            },
+            {
+                "name": "Bistrot d'Antoine",
+                "cuisine_type": "French Bistro",
+                "signature_dishes": [
+                    "Duck Confit",
+                    "Steak Tartare",
+                    "Crème Brûlée"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic bistro with a bustling and friendly ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance for dinner",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Their wine selection is excellent, ask the staff for pairing suggestions."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Lou Pilha Leva",
+                "specialties": [
+                    "Socca",
+                    "Pan Bagnat",
+                    "Tourte de Blettes"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 8:00 PM",
+                "location": "Old Town",
+                "seating": true,
+                "local_tips": "Visit during off-peak hours to avoid long lines. Try the Socca with a glass of rosé."
+            },
+            {
+                "name": "Chez Thérésa",
+                "specialties": [
+                    "Socca",
+                    "Pissaladière",
+                    "Fougasse"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 6:00 PM",
+                "location": "Cours Saleya Market",
+                "seating": false,
+                "local_tips": "Great for a quick snack while exploring the market. The Socca is best enjoyed hot."
+            },
+            {
+                "name": "Fenocchio Glacier",
+                "specialties": [
+                    "Lavender Ice Cream",
+                    "Rose Ice Cream",
+                    "Lemon Basil Sorbet"
+                ],
+                "price_range": "€€",
+                "hours": "9:00 AM - 12:00 AM",
+                "location": "Old Town",
+                "seating": false,
+                "local_tips": "Perfect for a sweet treat. Try unique flavors like lavender or cactus."
+            },
+            {
+                "name": "Lou Nissart",
+                "specialties": [
+                    "Panisse",
+                    "Socca Sandwich",
+                    "Farcis Niçois"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 7:00 PM",
+                "location": "Old Town",
+                "seating": true,
+                "local_tips": "Panisse is a must-try here. It's best enjoyed fresh and hot."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de Turin",
+                "specialty": "Oysters and seafood platters",
+                "must_try": [
+                    "Oysters",
+                    "Seafood Platter",
+                    "Espresso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historical café with a lively and bustling atmosphere",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Extensive seafood menu",
+                "local_tips": "Pair your coffee with fresh oysters for a unique experience."
+            },
+            {
+                "name": "Emilie and the Cool Kids",
+                "specialty": "Cookies and specialty coffee",
+                "must_try": [
+                    "Choco Chip Cookies",
+                    "Flat White",
+                    "Banana Bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip and cozy with a laid-back vibe",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries, sandwiches, and salads",
+                "local_tips": "Great spot for remote work or a casual meet-up."
+            },
+            {
+                "name": "Marinette",
+                "specialty": "Brunch and pastries",
+                "must_try": [
+                    "Croissant",
+                    "Avocado Toast",
+                    "Latte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming and quaint with a vintage decor",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Brunch menu including vegetarian options",
+                "local_tips": "Their brunch is popular, so come early to grab a seat."
+            },
+            {
+                "name": "Café Marché",
+                "specialty": "Organic coffee and vegan options",
+                "must_try": [
+                    "Vegan Croissant",
+                    "Matcha Latte",
+                    "Quinoa Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Eco-friendly with a modern minimalist design",
+                "best_time": "Lunch",
+                "wifi_friendly": true,
+                "food_options": "Vegan and vegetarian-friendly meals",
+                "local_tips": "Perfect for health-conscious eaters; try their daily specials."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Movida",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails with a Mediterranean twist",
+                "signature_drinks": [
+                    "Mojito Nice Style",
+                    "Mediterranean Mule",
+                    "Lavender Martini"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Vibrant with a stunning sea view",
+                "best_time": "Evening",
+                "food_options": "Tapas and light bites",
+                "reservation_needed": false,
+                "local_tips": "Grab a spot on the terrace for the best sunset views."
+            },
+            {
+                "name": "La Part des Anges",
+                "type": "Wine Bar",
+                "specialty": "Natural and organic wines",
+                "signature_drinks": [
+                    "Chardonnay Selection",
+                    "Local Rosé",
+                    "Organic Merlot"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy with a rustic and intimate setting",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": true,
+                "local_tips": "Ask the staff for wine recommendations based on your taste preferences."
+            },
+            {
+                "name": "Wayne's Bar",
+                "type": "Pub",
+                "specialty": "Live music and draft beers",
+                "signature_drinks": [
+                    "Guinness",
+                    "Local Craft Beer",
+                    "Cider"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and energetic with live music performances",
+                "best_time": "Night",
+                "food_options": "Burgers, nachos, and pub food",
+                "reservation_needed": false,
+                "local_tips": "Popular with both locals and tourists, especially on weekends."
+            },
+            {
+                "name": "Le Shapko",
+                "type": "Jazz Bar",
+                "specialty": "Live jazz and classic cocktails",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Gin Fizz",
+                    "Negroni"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Sophisticated with a relaxed jazz club vibe",
+                "best_time": "Night",
+                "food_options": "Light snacks available",
+                "reservation_needed": true,
+                "local_tips": "Check their schedule for special jazz performances."
+            },
+            {
+                "name": "Le Bar des Oiseaux",
+                "type": "Cocktail Bar",
+                "specialty": "Artisanal cocktails",
+                "signature_drinks": [
+                    "Bird's Negroni",
+                    "Passionfruit Mojito",
+                    "Rosemary Gin & Tonic"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Artistic and eclectic with a warm ambiance",
+                "best_time": "Evening",
+                "food_options": "Mediterranean-inspired tapas",
+                "reservation_needed": true,
+                "local_tips": "Perfect for pre-dinner drinks, try their seasonal cocktails."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Nice Food and Wine Tour",
+                "focus": "Wine and local delicacies",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Wine tasting",
+                    "Cheese sampling",
+                    "Visit to Old Town market"
+                ],
+                "booking_required": true,
+                "group_size": "Maximum 12 participants",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance, especially during high season."
+            },
+            {
+                "name": "Gourmet Walking Tour of Nice",
+                "focus": "Local specialties and hidden gems",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Socca tasting",
+                    "Visit to a local bakery",
+                    "Olive oil sampling"
+                ],
+                "booking_required": true,
+                "group_size": "Maximum 10 participants",
+                "languages": [
+                    "English",
+                    "French",
+                    "Italian"
+                ],
+                "booking_tips": "Book a few days in advance; morning tours are less crowded."
+            },
+            {
+                "name": "Culinary Secrets of Nice",
+                "focus": "Traditional Niçoise cuisine",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Market visit",
+                    "Cooking demonstration",
+                    "Tasting of traditional dishes"
+                ],
+                "booking_required": true,
+                "group_size": "Maximum 8 participants",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Popular with foodies—reserve your spot early."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Niçoise Cooking Class",
+                "cuisine_focus": "Traditional Niçoise",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Pissaladière",
+                    "Ratatouille",
+                    "Socca"
+                ],
+                "group_size": "Maximum 6 participants",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients, recipe book, meal at the end"
+                ],
+                "booking_tips": "Best booked a week in advance; morning classes offer a market tour."
+            },
+            {
+                "name": "Mediterranean Feast Cooking Class",
+                "cuisine_focus": "Mediterranean",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seafood Paella",
+                    "Tapenade",
+                    "Tiramisu"
+                ],
+                "group_size": "Maximum 10 participants",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients, wine pairing, recipe book"
+                ],
+                "booking_tips": "Ideal for groups; inquire about private sessions for special occasions."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché aux Fleurs Cours Saleya",
+                "type": "Flower and food market",
+                "highlights": [
+                    "Fresh flowers",
+                    "Local produce",
+                    "Artisanal cheeses"
+                ],
+                "hours": "6:00 AM - 5:30 PM",
+                "best_time": "Morning",
+                "location": "Cours Saleya, Old Town",
+                "local_tips": "Visit early to avoid crowds and for the best selection of fresh produce."
+            },
+            {
+                "name": "Marché de la Libération",
+                "type": "Produce market",
+                "highlights": [
+                    "Seasonal fruits and vegetables",
+                    "Fresh seafood",
+                    "Local herbs"
+                ],
+                "hours": "7:00 AM - 1:00 PM",
+                "best_time": "Morning",
+                "location": "Avenue Malaussena",
+                "local_tips": "Bargain with vendors for the best prices; bring cash for purchases."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Artichokes Barigoule",
+            "Fava Bean Salad",
+            "Strawberry Tart"
+        ],
+        "summer": [
+            "Salade Niçoise",
+            "Ratatouille",
+            "Peach Melba"
+        ],
+        "autumn": [
+            "Daube Niçoise",
+            "Pumpkin Soup",
+            "Apple Tarte Tatin"
+        ],
+        "winter": [
+            "Truffle Risotto",
+            "Beef Bourguignon",
+            "Chestnut Cake with Chocolate Sauce"
+        ]
+    }
+}

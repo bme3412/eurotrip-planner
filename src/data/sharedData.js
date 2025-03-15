@@ -1,0 +1,27 @@
+export const countryFlags = {
+    France: '🇫🇷',
+    Netherlands: '🇳🇱',
+    Belgium: '🇧🇪',
+    Germany: '🇩🇪',
+    Italy: '🇮🇹',
+    Switzerland: '🇨🇭',
+    Spain: '🇪🇸',
+    Portugal: '🇵🇹',
+    'United Kingdom': '🇬🇧',
+    Austria: '🇦🇹',
+    'Czech Republic': '🇨🇿',
+    Poland: '🇵🇱',
+    Hungary: '🇭🇺',
+    Ireland: '🇮🇪',
+    Sweden: '🇸🇪',
+    Norway: '🇳🇴',
+    Denmark: '🇩🇰',
+    Turkey: '🇹🇷',
+    Finland: '🇫🇮',
+    Romania: '🇷🇴',
+    Bulgaria: '🇧🇬',
+    Greece: '🇬🇷',
+    Iceland: '🇮🇸',
+    Serbia: '🇷🇸'
+  };
+  

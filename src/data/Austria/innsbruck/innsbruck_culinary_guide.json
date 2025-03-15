@@ -1,0 +1,216 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Schwarzer Adler",
+                "cuisine_type": "Austrian",
+                "signature_dishes": [
+                    "Tafelspitz",
+                    "Wiener Schnitzel"
+                ],
+                "price_range": "€€€€ (Luxury)",
+                "atmosphere": "Elegant and classic",
+                "location": "Innenstadt",
+                "coordinates": {
+                    "latitude": 47.2688,
+                    "longitude": 11.3946
+                },
+                "local_tips": "Book in advance, especially during weekends."
+            },
+            {
+                "name": "Das Schindler",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Beef tartare",
+                    "Truffle pasta"
+                ],
+                "price_range": "€€€ (Expensive)",
+                "atmosphere": "Chic and contemporary",
+                "location": "Maria-Theresien-Straße",
+                "coordinates": {
+                    "latitude": 47.2657,
+                    "longitude": 11.3945
+                },
+                "local_tips": "Great for a special occasion dinner."
+            },
+            {
+                "name": "Penz Hotel Rooftop Restaurant",
+                "cuisine_type": "International",
+                "signature_dishes": [
+                    "Grilled fish",
+                    "Seasonal salads"
+                ],
+                "price_range": "€€€ (Expensive)",
+                "atmosphere": "Stylish with panoramic views",
+                "location": "Innenstadt",
+                "coordinates": {
+                    "latitude": 47.2667,
+                    "longitude": 11.3917
+                },
+                "local_tips": "Visit at sunset for the best views."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Stiftskeller",
+                "cuisine_type": "Traditional Austrian",
+                "signature_dishes": [
+                    "Kaiserschmarrn",
+                    "Gröstl"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Rustic and cozy",
+                "location": "Altstadt",
+                "coordinates": {
+                    "latitude": 47.2685,
+                    "longitude": 11.3933
+                },
+                "local_tips": "Perfect for a hearty lunch."
+            },
+            {
+                "name": "Gasthof Weisses Rössl",
+                "cuisine_type": "Austrian",
+                "signature_dishes": [
+                    "Tyrolean dumplings",
+                    "Goulash"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Warm and welcoming",
+                "location": "Altstadt",
+                "coordinates": {
+                    "latitude": 47.2684,
+                    "longitude": 11.3944
+                },
+                "local_tips": "Try their homemade schnapps."
+            },
+            {
+                "name": "Buzihütte",
+                "cuisine_type": "Tyrolean",
+                "signature_dishes": [
+                    "Tiroler Gröstl",
+                    "Cheese spaetzle"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Traditional mountain hut",
+                "location": "Hötting",
+                "coordinates": {
+                    "latitude": 47.2772,
+                    "longitude": 11.3823
+                },
+                "local_tips": "Ideal for a meal after a hike."
+            },
+            {
+                "name": "Fischerhäusl",
+                "cuisine_type": "Local and Mediterranean",
+                "signature_dishes": [
+                    "Grilled trout",
+                    "Pasta dishes"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Relaxed riverside dining",
+                "location": "Innenstadt",
+                "coordinates": {
+                    "latitude": 47.2653,
+                    "longitude": 11.3928
+                },
+                "local_tips": "Enjoy outdoor seating in summer."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Innsbruck Food Market Stalls",
+                "specialties": [
+                    "Käsekrainer sausage",
+                    "Pretzels"
+                ],
+                "price_range": "€ (Budget)",
+                "location": "Markthalle Innsbruck",
+                "coordinates": {
+                    "latitude": 47.2664,
+                    "longitude": 11.3942
+                },
+                "local_tips": "Visit on Saturdays for the full experience."
+            },
+            {
+                "name": "Baguette Food Truck",
+                "specialties": [
+                    "Gourmet sandwiches",
+                    "Wraps"
+                ],
+                "price_range": "€ (Budget)",
+                "location": "Universitätsstraße",
+                "coordinates": {
+                    "latitude": 47.2642,
+                    "longitude": 11.3921
+                },
+                "local_tips": "Great option for a quick lunch."
+            },
+            {
+                "name": "Adler Kebab",
+                "specialties": [
+                    "Doner kebab",
+                    "Falafel"
+                ],
+                "price_range": "€ (Budget)",
+                "location": "Maria-Theresien-Straße",
+                "coordinates": {
+                    "latitude": 47.2649,
+                    "longitude": 11.3947
+                },
+                "local_tips": "Try the spicy sauce for an extra kick."
+            }
+        ]
+    },
+    "food_experiences": {
+        "markets": [
+            {
+                "name": "Markthalle Innsbruck",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Artisan breads"
+                ],
+                "hours": "Mon-Sat: 7am - 6.30pm",
+                "location": "Herzog-Siegmund-Ufer",
+                "coordinates": {
+                    "latitude": 47.2664,
+                    "longitude": 11.3942
+                },
+                "local_tips": "Arrive early for the freshest selections."
+            },
+            {
+                "name": "Wiltener Platzl Market",
+                "highlights": [
+                    "Organic vegetables",
+                    "Handmade crafts",
+                    "Local honey"
+                ],
+                "hours": "Fri: 9am - 6pm",
+                "location": "Wiltener Platzl",
+                "coordinates": {
+                    "latitude": 47.2558,
+                    "longitude": 11.3925
+                },
+                "local_tips": "Combine your visit with a coffee from a nearby café."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus dishes",
+            "Bärlauchsuppe (wild garlic soup)"
+        ],
+        "summer": [
+            "Erdbeerknödel (strawberry dumplings)",
+            "Light salads"
+        ],
+        "autumn": [
+            "Pumpkin soup",
+            "Wild game dishes"
+        ],
+        "winter": [
+            "Kaiserschmarrn",
+            "Glühwein (mulled wine)"
+        ]
+    }
+}
