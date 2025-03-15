@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 
 const MonthlyGuideSection = ({ cityName, monthlyData }) => {
+  // State for showing all experiences
+  const [showAllExperiences, setShowAllExperiences] = useState(false);
   // Standard month names
   const standardMonths = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -68,21 +70,25 @@ const MonthlyGuideSection = ({ cityName, monthlyData }) => {
     );
   };
 
-  // Render weather information - removed tips section
+  // Render weather information - more robust handling of weather data
   const renderWeather = (data) => {
-    if (!data || !data.first_half || !data.second_half) {
-      if (!data || (!data.weather && !data.temperature)) return null;
+    if (!data) return null;
+    
+    // Handle non-split structure (simple weather)
+    if (!data.first_half && !data.second_half) {
+      // Check if we have direct weather data
+      if (!data.weather && !data.temperature) return null;
       
       return (
         <div className="mt-6 bg-blue-50 rounded-lg p-5">
           <h4 className="font-semibold text-lg text-blue-700 mb-3">Weather</h4>
           <div className="text-gray-700">
-            {data.temperature && (
+            {data.temperature && typeof data.temperature === 'string' && (
               <p className="mb-2">
                 <span className="font-medium">Temperature:</span> {data.temperature}
               </p>
             )}
-            {data.weather && (
+            {data.weather && typeof data.weather === 'string' && (
               <p className="mb-2">
                 <span className="font-medium">Conditions:</span> {data.weather}
               </p>
@@ -91,45 +97,67 @@ const MonthlyGuideSection = ({ cityName, monthlyData }) => {
         </div>
       );
     }
-
+    
+    // Handle split structure (first_half/second_half)
     return (
       <div className="mt-6 bg-blue-50 rounded-lg p-5">
         <h4 className="font-semibold text-lg text-blue-700 mb-3">Weather</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h5 className="font-medium text-blue-800 mb-2">
-              {data.first_half.date_range || 'Early Month'}
-            </h5>
-            <div className="text-gray-700">
-              {data.first_half.weather && data.first_half.weather.average_temperature && (
-                <p className="mb-2">
-                  <span className="font-medium">Temperature:</span> High: {data.first_half.weather.average_temperature.high}, Low: {data.first_half.weather.average_temperature.low}
-                </p>
-              )}
-              {data.first_half.weather && data.first_half.weather.precipitation && (
-                <p className="mb-2">
-                  <span className="font-medium">Precipitation:</span> {data.first_half.weather.precipitation}
-                </p>
-              )}
+          {data.first_half && (
+            <div>
+              <h5 className="font-medium text-blue-800 mb-2">
+                {data.first_half.date_range || 'Early Month'}
+              </h5>
+              <div className="text-gray-700">
+                {data.first_half.weather && data.first_half.weather.average_temperature && (
+                  <p className="mb-2">
+                    <span className="font-medium">Temperature:</span> {' '}
+                    {typeof data.first_half.weather.average_temperature === 'object' ? (
+                      <>High: {data.first_half.weather.average_temperature.high}, Low: {data.first_half.weather.average_temperature.low}</>
+                    ) : (
+                      String(data.first_half.weather.average_temperature)
+                    )}
+                  </p>
+                )}
+                {data.first_half.weather && data.first_half.weather.precipitation && (
+                  <p className="mb-2">
+                    <span className="font-medium">Precipitation:</span> {' '}
+                    {typeof data.first_half.weather.precipitation === 'string' ? 
+                      data.first_half.weather.precipitation : 
+                      JSON.stringify(data.first_half.weather.precipitation)}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-          <div>
-            <h5 className="font-medium text-blue-800 mb-2">
-              {data.second_half.date_range || 'Late Month'}
-            </h5>
-            <div className="text-gray-700">
-              {data.second_half.weather && data.second_half.weather.average_temperature && (
-                <p className="mb-2">
-                  <span className="font-medium">Temperature:</span> High: {data.second_half.weather.average_temperature.high}, Low: {data.second_half.weather.average_temperature.low}
-                </p>
-              )}
-              {data.second_half.weather && data.second_half.weather.precipitation && (
-                <p className="mb-2">
-                  <span className="font-medium">Precipitation:</span> {data.second_half.weather.precipitation}
-                </p>
-              )}
+          )}
+          
+          {data.second_half && (
+            <div>
+              <h5 className="font-medium text-blue-800 mb-2">
+                {data.second_half.date_range || 'Late Month'}
+              </h5>
+              <div className="text-gray-700">
+                {data.second_half.weather && data.second_half.weather.average_temperature && (
+                  <p className="mb-2">
+                    <span className="font-medium">Temperature:</span> {' '}
+                    {typeof data.second_half.weather.average_temperature === 'object' ? (
+                      <>High: {data.second_half.weather.average_temperature.high}, Low: {data.second_half.weather.average_temperature.low}</>
+                    ) : (
+                      String(data.second_half.weather.average_temperature)
+                    )}
+                  </p>
+                )}
+                {data.second_half.weather && data.second_half.weather.precipitation && (
+                  <p className="mb-2">
+                    <span className="font-medium">Precipitation:</span> {' '}
+                    {typeof data.second_half.weather.precipitation === 'string' ? 
+                      data.second_half.weather.precipitation : 
+                      JSON.stringify(data.second_half.weather.precipitation)}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     );
@@ -227,8 +255,8 @@ const MonthlyGuideSection = ({ cityName, monthlyData }) => {
     
     if (experiences.length === 0) return null;
     
-    const [showAll, setShowAll] = useState(false);
-    const displayExperiences = showAll ? experiences : experiences.slice(0, 6);
+    // Use the component-level state instead of creating state inside this function
+    const displayExperiences = showAllExperiences ? experiences : experiences.slice(0, 6);
     
     return (
       <div className="mt-6 bg-indigo-50 rounded-lg p-5">
@@ -277,9 +305,9 @@ const MonthlyGuideSection = ({ cityName, monthlyData }) => {
           <div className="text-center mt-6">
             <button 
               className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-5 py-2 rounded-full transition-colors text-sm shadow-sm"
-              onClick={() => setShowAll(!showAll)}
+              onClick={() => setShowAllExperiences(!showAllExperiences)}
             >
-              {showAll ? 'Show Less' : `See ${experiences.length - 6} More Activities`}
+              {showAllExperiences ? 'Show Less' : `See ${experiences.length - 6} More Activities`}
             </button>
           </div>
         )}
