@@ -1,6 +1,3 @@
-'use client';
-// src/components/monthly-visit-guide/MonthlyCalendarView.js
-
 import React, { useState, useEffect, useMemo } from 'react';
 
 // Rating color mapping
@@ -20,42 +17,45 @@ const RATING_LABELS = {
   1: 'Poor'
 };
 
-const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMonth() }) => {
+const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMonth(), city, country }) => {
   const [currentStartMonth, setCurrentStartMonth] = useState(initialMonth);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [detailedCalendarData, setDetailedCalendarData] = useState(null);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [displayMonths, setDisplayMonths] = useState(3); // Number of months to display at once
   const [activeTooltip, setActiveTooltip] = useState(null);
-  
+
   // Determine number of months to display based on screen size
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) { // Small screens
+      if (window.innerWidth < 640) {
         setDisplayMonths(1);
-      } else if (window.innerWidth < 1024) { // Medium screens
+      } else if (window.innerWidth < 1024) {
         setDisplayMonths(2);
-      } else { // Large screens
+      } else {
         setDisplayMonths(3);
       }
     };
-    
+
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
-  // Try to load the detailed calendar data for Paris specifically
+
+  // Load the detailed calendar data dynamically based on the city and country
   useEffect(() => {
     const loadDetailedCalendarData = async () => {
       setIsLoadingData(true);
       try {
-        const response = await fetch('/data/France/paris/paris-visit-calendar.json');
+        const normalizedCity = city.toLowerCase();
+        const url = `/data/${country}/${normalizedCity}/${normalizedCity}-visit-calendar.json`;
+        console.log('Fetching detailed calendar data from:', url);
+        const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
           setDetailedCalendarData(data);
         } else {
-          console.warn('Could not load detailed calendar data for Paris');
+          console.warn(`Could not load detailed calendar data from ${url}`);
         }
       } catch (error) {
         console.error('Error loading detailed calendar data:', error);
@@ -63,10 +63,12 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
         setIsLoadingData(false);
       }
     };
-    
+
     loadDetailedCalendarData();
-  }, []);
-  
+  }, [city, country]);
+
+  // (Remaining code below remains unchanged...)
+
   // Add click outside handler to close tooltip
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -74,12 +76,12 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
         setActiveTooltip(null);
       }
     };
-    
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [activeTooltip]);
-  
-  // Navigate to next/previous set of months
+
+  // Navigation functions...
   const goToPreviousMonths = () => {
     if (currentStartMonth - displayMonths < 0) {
       setCurrentStartMonth(12 - (displayMonths - currentStartMonth));
@@ -89,7 +91,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     }
     setActiveTooltip(null);
   };
-  
+
   const goToNextMonths = () => {
     if (currentStartMonth + displayMonths > 11) {
       setCurrentStartMonth((currentStartMonth + displayMonths) % 12);
@@ -99,7 +101,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     }
     setActiveTooltip(null);
   };
-  
+
   // Get month name from number (0-11)
   const getMonthName = (monthIndex) => {
     const monthNames = [
@@ -108,7 +110,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     ];
     return monthNames[monthIndex];
   };
-  
+
   // Get the month's data from the detailed calendar
   const getDetailedMonthData = (monthIndex) => {
     if (!detailedCalendarData || !detailedCalendarData.months) return null;
@@ -116,15 +118,12 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     const monthName = getMonthName(monthIndex).toLowerCase();
     return detailedCalendarData.months[monthName];
   };
-  
+
   // Get day details from the calendar data
   const getDayDetails = (day, monthData) => {
     if (!monthData || !monthData.ranges) return null;
-    
-    // Find the range this day belongs to
     const range = monthData.ranges.find(r => r.days.includes(day));
     if (!range) return null;
-    
     return {
       score: range.score,
       notes: range.notes || '',
@@ -132,34 +131,26 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       special: range.special || false
     };
   };
-  
+
   // Get the overall month score/rating for display
   const getMonthRating = (monthIndex) => {
     const monthData = getDetailedMonthData(monthIndex);
     if (!monthData || !monthData.ranges) return 3;
-    
-    // Calculate average score from ranges
     let totalScore = 0;
     let totalDays = 0;
-    
     monthData.ranges.forEach(range => {
       totalScore += range.score * range.days.length;
       totalDays += range.days.length;
     });
-    
     return totalDays > 0 ? Math.round(totalScore / totalDays) : 3;
   };
-  
+
   // Toggle tooltip display for a day
   const toggleTooltip = (day, monthIndex, dayOfMonth) => {
-    // Only toggle if it's a special event day
     if (day.special) {
-      if (activeTooltip && 
-          activeTooltip.monthIndex === monthIndex && 
-          activeTooltip.dayOfMonth === dayOfMonth) {
-        setActiveTooltip(null); // Close if already open
+      if (activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === dayOfMonth) {
+        setActiveTooltip(null);
       } else {
-        // Open new tooltip
         setActiveTooltip({
           monthIndex,
           dayOfMonth,
@@ -174,51 +165,29 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
   const generateMonthCalendar = (monthIndex) => {
     const actualYear = monthIndex < 0 ? currentYear - 1 : 
                       monthIndex > 11 ? currentYear + 1 : currentYear;
-    const actualMonth = ((monthIndex % 12) + 12) % 12; // Handle negative month indexes
-    
-    // Get month data
+    const actualMonth = ((monthIndex % 12) + 12) % 12;
     const monthData = getDetailedMonthData(actualMonth);
-    
-    // Get days in month
     const daysInMonth = new Date(actualYear, actualMonth + 1, 0).getDate();
-    
-    // Get first day of month (0 = Sunday, 6 = Saturday)
     const firstDayOfMonth = new Date(actualYear, actualMonth, 1).getDay();
-    
-    // Calculate average rating for the month
     const monthRating = getMonthRating(actualMonth);
-    
-    // Generate days
     const days = [];
-    
-    // Add empty cells for days before the 1st of the month
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push({ type: 'empty' });
     }
-    
-    // Add actual days of the month
     for (let i = 1; i <= daysInMonth; i++) {
-      let dayDetails = null;
-      
-      // If we have detailed data, get the details from there
-      if (monthData) {
-        dayDetails = getDayDetails(i, monthData);
-      }
-      
+      let dayDetails = monthData ? getDayDetails(i, monthData) : null;
       const rating = dayDetails ? dayDetails.score : 3;
-      
       days.push({
         type: 'day',
         dayOfMonth: i,
         date: new Date(actualYear, actualMonth, i),
-        rating: rating,
+        rating,
         color: RATING_COLORS[rating],
         special: dayDetails && dayDetails.special,
         event: dayDetails && dayDetails.event,
         notes: dayDetails && dayDetails.notes
       });
     }
-    
     return {
       monthName: getMonthName(actualMonth),
       year: actualYear,
@@ -229,8 +198,8 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       tourismLevel: monthData?.tourismLevel
     };
   };
-  
-  // Generate calendars for all visible months
+
+  // Generate calendars for visible months
   const visibleMonths = useMemo(() => {
     const months = [];
     for (let i = 0; i < displayMonths; i++) {
@@ -240,7 +209,6 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     return months;
   }, [currentStartMonth, currentYear, displayMonths, detailedCalendarData]);
 
-  // Show loading state while fetching data
   if (isLoadingData) {
     return (
       <div className="flex justify-center items-center py-12">
@@ -323,10 +291,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
             <div className="grid grid-cols-7 gap-px p-1 bg-white">
               {month.days.map((day, dayIndex) => (
                 day.type === 'empty' ? (
-                  <div 
-                    key={`empty-${dayIndex}`} 
-                    className="aspect-square text-center"
-                  />
+                  <div key={`empty-${dayIndex}`} className="aspect-square" />
                 ) : (
                   <div
                     key={`day-${day.dayOfMonth}`}
@@ -338,11 +303,6 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
                     {day.special && (
                       <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
                     )}
-                    
-                    
-                    
-                    
-                    {/* Tooltip for special events */}
                     {activeTooltip && 
                      activeTooltip.monthIndex === (currentStartMonth + monthIdx) % 12 && 
                      activeTooltip.dayOfMonth === day.dayOfMonth && (

@@ -12,7 +12,7 @@ import TransportConnections from '@/components/city-guides/TransportConnections'
 import SeasonalActivities from '@/components/city-guides/SeasonalActivities';
 import MapSection from '@/components/city-guides/MapSection';
 import CityVisitSection from '@/components/city-guides/CityVisitSection';
-import MonthlyGuideSection from '@/components/city-guides/MonthlyGuideSection'; // You'll need to create this component
+import MonthlyGuideSection from '@/components/city-guides/MonthlyGuideSection';
 
 // Function to capitalize the first letter of each word
 const capitalize = (str) => {
@@ -20,6 +20,44 @@ const capitalize = (str) => {
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+};
+
+// Default coordinates for various European regions
+const DEFAULT_COORDINATES = {
+  'France': [2.3522, 48.8566], // Paris
+  'Nice': [7.2620, 43.7102], // Nice, France
+  'Italy': [12.4964, 41.9028], // Rome
+  'Germany': [13.4050, 52.5200], // Berlin
+  'Spain': [-3.7038, 40.4168], // Madrid
+  'Netherlands': [4.9041, 52.3676], // Amsterdam
+  'Belgium': [4.3517, 50.8503], // Brussels
+  'Austria': [16.3738, 48.2082], // Vienna
+  'Denmark': [12.5683, 55.6761], // Copenhagen
+  'Ireland': [-6.2603, 53.3498], // Dublin
+  'default': [9.1900, 48.6600]  // Central Europe
+};
+
+// Add city-specific coordinates using lowercase keys
+const CITY_COORDINATES = {
+  'paris': [2.3522, 48.8566],
+  'nice': [7.2620, 43.7102],
+  'rome': [12.4964, 41.9028],
+  'berlin': [13.4050, 52.5200],
+  'madrid': [-3.7038, 40.4168],
+  'amsterdam': [4.9041, 52.3676],
+  'brussels': [4.3517, 50.8503],
+  'vienna': [16.3738, 48.2082],
+  'copenhagen': [12.5683, 55.6761],
+  'dublin': [-6.2603, 53.3498],
+  'barcelona': [2.1734, 41.3851],
+  'munich': [11.5820, 48.1351],
+  'prague': [14.4378, 50.0755],
+  'milan': [9.1900, 45.4642],
+  'florence': [11.2558, 43.7696],
+  'salzburg': [13.0550, 47.8095],
+  'innsbruck': [11.4041, 47.2692],
+  'antwerp': [4.4024, 51.2194],
+  'seville': [-5.9845, 37.3891]
 };
 
 // Get all available city folders
@@ -280,7 +318,6 @@ async function getCityData(cityName) {
       } catch (error) {
         console.error(`Error loading seasonal activities for ${cityName}:`, error);
       }
-
       // Get monthly events (if available)
       const monthlyPath = path.join(cityPath, 'monthly');
       let monthlyEvents = {};
@@ -300,11 +337,11 @@ async function getCityData(cityName) {
               monthName = monthName.charAt(0).toUpperCase() + monthName.slice(1);
 
               if (monthData[monthName]) {
-                monthlyEvents[monthName] = monthData[monthName];
+                monthlyEvents[monthName.toLowerCase()] = monthData[monthName];
               } else if (['Spring', 'Summer', 'Fall', 'Winter'].includes(monthName)) {
-                monthlyEvents[monthName] = monthData;
+                monthlyEvents[monthName.toLowerCase()] = monthData;
               } else {
-                monthlyEvents[monthName] = monthData;
+                monthlyEvents[monthName.toLowerCase()] = monthData;
               }
             } catch (error) {
               console.error(
@@ -419,7 +456,7 @@ async function getCityData(cityName) {
 }
 
 export default async function CityPage({ params }) {
-  const { city } = await params; // Await params if necessary
+  const { city } = params;
   const cityData = await getCityData(city);
 
   if (!cityData) {
@@ -442,11 +479,34 @@ export default async function CityPage({ params }) {
   const cityDisplayName = capitalize(cityName.replace(/-/g, ' '));
   const countryDisplayName = capitalize(country.replace(/-/g, ' '));
 
-  let mapCenter = [2.3522, 48.8566]; // Default to Paris coordinates
+  // FIXED SECTION: Get proper map center based on city or country
+  // First check if the city exists in our lowercase city coordinates map
+  let mapCenter;
+  const cityNameLower = cityName.toLowerCase();
+  
+  if (CITY_COORDINATES[cityNameLower]) {
+    mapCenter = CITY_COORDINATES[cityNameLower];
+    console.log(`Using CITY_COORDINATES for ${cityName}: [${mapCenter}]`);
+  } else if (DEFAULT_COORDINATES[cityDisplayName]) {
+    // Try with display name (capitalized)
+    mapCenter = DEFAULT_COORDINATES[cityDisplayName];
+    console.log(`Using DEFAULT_COORDINATES (cityDisplayName) for ${cityName}: [${mapCenter}]`);
+  } else if (DEFAULT_COORDINATES[country]) {
+    // Fall back to country coordinates
+    mapCenter = DEFAULT_COORDINATES[country];
+    console.log(`Using DEFAULT_COORDINATES (country) for ${cityName}: [${mapCenter}]`);
+  } else {
+    // Default fallback
+    mapCenter = DEFAULT_COORDINATES['default'];
+    console.log(`Using DEFAULT_COORDINATES (default) for ${cityName}: [${mapCenter}]`);
+  }
+
+  // Override with first attraction coordinates if available
   if (attractions && attractions.sites && attractions.sites.length > 0) {
     const firstAttraction = attractions.sites[0];
     if (firstAttraction.longitude && firstAttraction.latitude) {
       mapCenter = [firstAttraction.longitude, firstAttraction.latitude];
+      console.log(`Using attraction coordinates for ${cityName}: [${mapCenter}]`);
     }
   }
 
@@ -578,7 +638,6 @@ export default async function CityPage({ params }) {
           </nav>
         </div>
       </div>
-
       {/* Main content */}
       <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         {/* Map Section */}
@@ -606,6 +665,7 @@ export default async function CityPage({ params }) {
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
             <CityVisitSection 
+              city={cityName}
               cityName={cityDisplayName}
               countryName={countryDisplayName}
               monthlyData={monthlyEvents}
@@ -624,6 +684,7 @@ export default async function CityPage({ params }) {
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
             {Object.keys(monthlyEvents).length > 0 ? (
               <MonthlyGuideSection 
+                city={cityName}
                 cityName={cityDisplayName}
                 monthlyData={monthlyEvents}
               />
@@ -706,6 +767,7 @@ export default async function CityPage({ params }) {
             </div>
           </section>
         )}
+
       </main>
 
       {/* Footer */}

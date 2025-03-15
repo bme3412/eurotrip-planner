@@ -28,7 +28,7 @@ const getMonthName = (monthNum) => {
   return monthNames[monthNum - 1]; // Convert 1-based to 0-based index
 };
 
-const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
+const CityVisitCalendar = ({ city, cityData = null }) => {
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
   const [selectedDay, setSelectedDay] = useState(null);
   const [view, setView] = useState('calendar'); // calendar, best, worst
@@ -71,7 +71,7 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
               'dublin': 'Ireland',
               'innsbruck': 'Austria',
               'salzburg': 'Austria',
-              'antwerp': 'Belgium',
+              'antwerp': 'Belgium'
               // Add other cities as needed
             };
             
@@ -81,11 +81,11 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
               throw new Error(`Country not found for city: ${normalizedCity}`);
             }
             
-            // Try multiple possible file paths for the monthly data
+            // Reorder the possible paths so the city-specific JSON files are checked first
             const possiblePaths = [
-              `/data/${country}/${normalizedCity}/monthly`,
+              `/data/${country}/${normalizedCity}/${normalizedCity}-visit-calendar.json`,
               `/data/${country}/${normalizedCity}/${normalizedCity}_visit_calendar.json`,
-              `/data/${country}/${normalizedCity}/${normalizedCity}-visit-calendar.json`
+              `/data/${country}/${normalizedCity}/monthly`
             ];
             
             let data = null;
@@ -138,7 +138,7 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
               // If we found any monthly data, use it
               if (Object.keys(monthlyData).length > 0) {
                 data = {
-                  cityName: city,
+                  cityName: normalizedCity,
                   months: monthlyData
                 };
               } else {
@@ -306,6 +306,10 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
       return monthData.tourism_level;
     }
     
+    if (monthData.tourismLevel) {
+      return monthData.tourismLevel;
+    }
+    
     if (monthData.crowd_level) {
       return monthData.crowd_level;
     }
@@ -321,11 +325,14 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
     return 'Varies';
   };
   
+  // Get the city name with proper capitalization
+  const displayCityName = city.charAt(0).toUpperCase() + city.slice(1);
+  
   return (
     <div className="bg-white p-6 rounded-xl">
       {/* Month selection */}
       <div className="mb-6">
-        <h3 className="text-lg font-medium mb-4">Select a month to visit {city.charAt(0).toUpperCase() + city.slice(1)}</h3>
+        <h3 className="text-lg font-medium mb-4">Select a month to visit {displayCityName}</h3>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-2">
           {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
             <button
@@ -351,7 +358,7 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
           <div className="bg-blue-50 rounded-lg p-4 mb-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xl font-bold text-blue-900">
-                {getMonthName(selectedMonth)} in {city.charAt(0).toUpperCase() + city.slice(1)}
+                {getMonthName(selectedMonth)} in {displayCityName}
                 {currentMonthData.isSeasonal && (
                   <span className="ml-2 text-sm font-normal text-blue-700">
                     ({currentMonthData.seasonName.charAt(0).toUpperCase() + currentMonthData.seasonName.slice(1)} Season)
@@ -365,7 +372,7 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
               </span>
             </div>
             <p className="text-blue-800">
-              {currentMonthData.overview || currentMonthData.description || 'Experience the unique charm of this month.'}
+              {currentMonthData.overview || currentMonthData.description || currentMonthData.notes || 'Experience the unique charm of this month.'}
             </p>
           </div>
 
@@ -417,29 +424,35 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
           )}
 
           {/* Weather */}
-          {(currentMonthData.weather || currentMonthData.temperature) && (
+          {(currentMonthData.weather || currentMonthData.temperature || 
+             (currentMonthData.weatherHighC && currentMonthData.weatherLowC)) && (
             <div className="mb-6">
               <h4 className="text-lg font-medium mb-3">Weather</h4>
               <div className="bg-gray-50 p-4 rounded-lg">
                 {currentMonthData.weather && (
                   <p className="text-gray-700">{currentMonthData.weather}</p>
                 )}
-                {currentMonthData.temperature && (
+                {(currentMonthData.temperature || 
+                  (currentMonthData.weatherHighC !== undefined && currentMonthData.weatherLowC !== undefined)) && (
                   <div className="mt-3 grid grid-cols-2 gap-4">
                     <div>
                       <span className="text-sm text-gray-500">Average High</span>
                       <p className="font-medium text-gray-900">
-                        {typeof currentMonthData.temperature.high === 'number' 
-                          ? `${currentMonthData.temperature.high}°C` 
-                          : currentMonthData.temperature.high || 'N/A'}
+                        {currentMonthData.temperature?.high !== undefined
+                          ? `${currentMonthData.temperature.high}°C`
+                          : currentMonthData.weatherHighC !== undefined
+                            ? `${currentMonthData.weatherHighC}°C`
+                            : 'N/A'}
                       </p>
                     </div>
                     <div>
                       <span className="text-sm text-gray-500">Average Low</span>
                       <p className="font-medium text-gray-900">
-                        {typeof currentMonthData.temperature.low === 'number' 
-                          ? `${currentMonthData.temperature.low}°C` 
-                          : currentMonthData.temperature.low || 'N/A'}
+                        {currentMonthData.temperature?.low !== undefined
+                          ? `${currentMonthData.temperature.low}°C`
+                          : currentMonthData.weatherLowC !== undefined
+                            ? `${currentMonthData.weatherLowC}°C`
+                            : 'N/A'}
                       </p>
                     </div>
                   </div>
@@ -449,7 +462,8 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
           )}
 
           {/* Events */}
-          {currentMonthData.events && (
+          {(currentMonthData.events || 
+            (currentMonthData.ranges && currentMonthData.ranges.some(range => range.special))) && (
             <div className="mb-6">
               <h4 className="text-lg font-medium mb-3">Notable Events</h4>
               <ul className="space-y-3">
@@ -467,11 +481,31 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
                       )}
                     </li>
                   ))
-                ) : (
+                ) : currentMonthData.events ? (
                   <li className="bg-purple-50 p-3 rounded-lg">
                     <p className="text-purple-800">{currentMonthData.events}</p>
                   </li>
-                )}
+                ) : currentMonthData.ranges ? (
+                  currentMonthData.ranges
+                    .filter(range => range.special)
+                    .map((range, index) => (
+                      <li key={index} className="bg-purple-50 p-3 rounded-lg">
+                        <div className="font-medium text-purple-900">
+                          {range.event || `Special Event ${index + 1}`}
+                        </div>
+                        {range.notes && (
+                          <p className="text-sm text-purple-800 mt-1">{range.notes}</p>
+                        )}
+                        <p className="text-xs text-purple-700 mt-1">
+                          {Array.isArray(range.days) && range.days.length === 1 
+                            ? `Day ${range.days[0]}`
+                            : Array.isArray(range.days) && range.days.length > 1
+                              ? `Days ${range.days[0]}-${range.days[range.days.length-1]}`
+                              : ''}
+                        </p>
+                      </li>
+                    ))
+                ) : null}
               </ul>
             </div>
           )}
@@ -489,7 +523,7 @@ const CityVisitCalendar = ({ city = 'paris', cityData = null }) => {
       ) : (
         <div className="text-center py-8">
           <p className="text-gray-500">
-            No detailed information available for {getMonthName(selectedMonth)} in {city.charAt(0).toUpperCase() + city.slice(1)}.
+            No detailed information available for {getMonthName(selectedMonth)} in {displayCityName}.
           </p>
         </div>
       )}
