@@ -1,0 +1,400 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 2,
+          "special": true,
+          "event": "New Year's Day",
+          "notes": "Holiday crowds, chilly weather, many closures"
+        },
+        {
+          "days": [2, 3, 4, 5],
+          "score": 2,
+          "notes": "Cold weather, post-holiday lull"
+        },
+        {
+          "days": [6],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany",
+          "notes": "Epiphany celebrations, winter sales begin"
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 2,
+          "notes": "Chilly temperatures, occasional frost"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 2,
+          "notes": "Low season, fewer crowds, lower prices"
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 3,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 2,
+          "notes": "Winter weather persists, cool and damp"
+        },
+        {
+          "days": [14],
+          "score": 3,
+          "special": true,
+          "event": "Valentine's Day",
+          "notes": "Romantic dining events, busy restaurants"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 2,
+          "notes": "Cold conditions, occasional school breaks"
+        }
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 3,
+      "tourismLevel": 4
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "notes": "Early spring, gradually warming"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20],
+          "score": 3,
+          "notes": "Pre-high tourism period, mild days"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Spring Blossom Season Begins",
+          "notes": "City parks and gardens burst into bloom"
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 6,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 4,
+          "special": true,
+          "event": "Spring Bloom Peak",
+          "notes": "Floral splendor in parks and public spaces"
+        },
+        {
+          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "notes": "Comfortable temperatures with vibrant spring activity"
+        }
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 8,
+      "tourismLevel": 7
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "Labor Day",
+          "notes": "Some closures but local events take place"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7],
+          "score": 4,
+          "notes": "Spring flowers and pleasant weather dominate"
+        },
+        {
+          "days": [8],
+          "score": 3,
+          "special": true,
+          "event": "Victory in Europe Day",
+          "notes": "Commemorations with some service disruptions"
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17],
+          "score": 4,
+          "notes": "Excellent weather, early high season yet moderate crowds"
+        },
+        {
+          "days": [18, 19, 20],
+          "score": 5,
+          "special": true,
+          "event": "Nuit des Musées",
+          "notes": "Museums open late with special cultural events"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Warm days foster vibrant outdoor café culture"
+        }
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 11,
+      "tourismLevel": 8
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Excellent weather, long daylight, pre-peak season energy"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20],
+          "score": 4,
+          "notes": "Gradually warming, tourism begins to surge"
+        },
+        {
+          "days": [21],
+          "score": 5,
+          "special": true,
+          "event": "Fête le Vin",
+          "notes": "A celebration of Bordeaux's wine culture on the summer solstice"
+        },
+        {
+          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "notes": "Summer sets in with increasing cultural and outdoor events"
+        }
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 14,
+      "tourismLevel": 9
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Peak tourism season, warm and lively"
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Bastille Day",
+          "notes": "National holiday with fireworks and celebrations"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "special": true,
+          "event": "Bordeaux Plages",
+          "notes": "Urban riverfront transformation with a relaxed beach vibe"
+        }
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 16,
+      "tourismLevel": 10
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 2,
+          "special": true,
+          "event": "Bordeaux Plages & Assumption Day",
+          "notes": "Hot weather, riverfront events, many locals on vacation"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Continued warmth as crowds gradually thin with the end of vacations"
+        }
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 16,
+      "tourismLevel": 9
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Excellent post-peak season with lingering summer warmth"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Bordeaux Cultural Week",
+          "notes": "Pleasant temperatures, reduced crowds, and rich local cultural events"
+        }
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 13,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5],
+          "score": 4,
+          "special": true,
+          "event": "Bordeaux Nuit Blanche",
+          "notes": "All-night arts festival with early fall colors"
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 4,
+          "notes": "Mild temperatures and a picturesque autumn ambiance"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Bordeaux Grape Harvest Festival",
+          "notes": "Celebration of local vineyards with vibrant harvest activities"
+        }
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 10,
+      "tourismLevel": 6
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day",
+          "notes": "Holiday period with some closures; opportunities for reflective visits"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Cooler weather and lingering autumn colors"
+        },
+        {
+          "days": [11],
+          "score": 3,
+          "special": true,
+          "event": "Armistice Day",
+          "notes": "Commemorative events, some public services paused"
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 3,
+          "special": true,
+          "event": "Bordeaux Christmas Markets Begin",
+          "notes": "Festive atmosphere emerges as cooler weather sets in"
+        }
+      ],
+      "weatherHighC": 11,
+      "weatherLowC": 6,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "special": true,
+          "event": "Bordeaux Christmas Markets",
+          "notes": "Festive displays and holiday shopping set the mood"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 3,
+          "notes": "Holiday events and bustling Christmas shopping areas"
+        },
+        {
+          "days": [24, 25],
+          "score": 2,
+          "special": true,
+          "event": "Christmas",
+          "notes": "Many closures but a warm, festive spirit"
+        },
+        {
+          "days": [26, 27, 28, 29, 30],
+          "score": 3,
+          "notes": "Between Christmas and New Year's, busy with tourists"
+        },
+        {
+          "days": [31],
+          "score": 3,
+          "special": true,
+          "event": "New Year's Eve",
+          "notes": "Special events and large celebrations, very crowded"
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 3,
+      "tourismLevel": 7
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Parks",
+      "Museums",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Walking Tours",
+      "Boat Tours",
+      "Markets"
+    ],
+    "summer": [
+      "Outdoor Festivals",
+      "Bordeaux Plages",
+      "Open-Air Cinema",
+      "Gardens",
+      "Music Festivals",
+      "Cycling",
+      "Rooftop Dining"
+    ],
+    "autumn": [
+      "Museums",
+      "Cultural Events",
+      "Wine Tasting",
+      "Vineyard Tours",
+      "Theaters",
+      "Parks",
+      "Festivals",
+      "Covered Passages",
+      "Cooking Classes"
+    ],
+    "winter": [
+      "Ice Skating",
+      "Christmas Markets",
+      "Concerts",
+      "Museums",
+      "Cafés",
+      "Historical Sites",
+      "Theater",
+      "Boat Tours"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+  }
+}

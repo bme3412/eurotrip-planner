@@ -1,0 +1,341 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The iconic French capital with world-famous monuments, museums, and cuisine.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h10m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "Known as 'La Ville Rose' (The Pink City) for its distinctive brick architecture and aerospace industry.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h05m",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Bayonne",
+            "country": "France",
+            "whyGo": "A charming Basque city known for its historic center, chocolate tradition, and proximity to beaches.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "1h50m",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Biarritz",
+            "country": "France",
+            "whyGo": "Elegant seaside resort town with famous surf beaches and Belle Époque architecture.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "La Rochelle",
+            "country": "France",
+            "whyGo": "Historic port city with well-preserved medieval architecture and beautiful waterfront.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h15m",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Arcachon",
+            "country": "France",
+            "whyGo": "Seaside resort known for its Dune du Pilat (Europe's tallest sand dune) and oyster farming.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "45m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Limoges",
+            "country": "France",
+            "whyGo": "Known for its medieval enamels, fine porcelain, and half-timbered houses.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h30m",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Saint-Émilion",
+            "country": "France",
+            "whyGo": "UNESCO World Heritage medieval village surrounded by prestigious vineyards.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "35m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "San Sebastián",
+            "country": "Spain",
+            "whyGo": "Stunning Basque coastal city renowned for its beaches and world-class cuisine.",
+            "intraEuropeTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "4h30m",
+                "frequency": "1-2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2-3 times weekly"
+            }
+        },
+        {
+            "city": "Bilbao",
+            "country": "Spain",
+            "whyGo": "Home to the iconic Guggenheim Museum and vibrant Basque culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h10m",
+                "frequency": "3-4 times weekly"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art and lively atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h20m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, and culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The de facto capital of the European Union with grand architecture and chocolate traditions.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and cycling culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city with Red Cross headquarters and stunning lake views.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its colorful buildings, historic trams, and rich maritime heritage.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic riverside city known for port wine, stunning bridges, and medieval district.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Known for its literary heritage, lively pubs, and friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "3-4 times weekly"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic city known for its art scene, modern landmarks, and vibrant nightlife.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "A global capital of fashion and design with stunning cathedral and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its medieval Old Town, baroque architecture, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "3-4 times weekly"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its imperial palaces, classical music legacy, and café culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "3 times weekly"
+            }
+        },
+        {
+            "city": "Marrakech",
+            "country": "Morocco",
+            "whyGo": "Vibrant North African city known for its medina, souks, and mix of cultures.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "2-3 times weekly"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Transcontinental city bridging Europe and Asia with rich Byzantine and Ottoman heritage.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "3h45m",
+                "frequency": "2 times weekly"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Renowned for its design, bicycle culture, and exceptional dining scene.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h20m",
+                "frequency": "3 times weekly"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful city spread across 14 islands with exceptional quality of life.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "2 times weekly"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient city with world-famous archaeological sites like the Acropolis.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "2-3 times weekly"
+            }
+        }
+    ]
+}

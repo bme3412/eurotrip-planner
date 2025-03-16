@@ -1,0 +1,158 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {"days": [1], "score": 2, "special": true, "event": "New Year's Day", "notes": "Holiday closures, winter atmosphere"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 2, "notes": "Post-holiday period, winter cold, museum season"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 2, "notes": "Low season, fewer tourists, good time for Belgian beer tours"}
+      ],
+      "weatherHighC": 5,
+      "weatherLowC": 0,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 2, "notes": "Winter conditions, indoor attractions popular"},
+        {"days": [14], "score": 3, "special": true, "event": "Valentine's Day", "notes": "Chocolate tours and romantic dining packages"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 2, "special": true, "event": "Carnival", "notes": "Some carnival celebrations, winter conditions"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 0,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "notes": "Early spring, gradually warming"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 3, "notes": "Spring transition, terrace cafés start to open"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Art Brussels Week", "notes": "Contemporary art exhibitions"}
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 3,
+      "tourismLevel": 4
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7], "score": 4, "notes": "Spring flowers, pleasant temperatures"},
+        {"days": [8, 9, 10, 11, 12, 13, 14], "score": 4, "special": true, "event": "Brussels International Fantastic Film Festival", "notes": "Film screenings, cultural events"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "score": 4, "notes": "Spring in full swing, good time for park visits"},
+        {"days": [28, 29, 30], "score": 4, "special": true, "event": "King's Day", "notes": "National celebrations"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 5,
+      "tourismLevel": 6
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day", "notes": "Public holiday, some closures"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Pleasant spring weather, excellent for outdoor activities"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 5, "special": true, "event": "Brussels Jazz Weekend", "notes": "Jazz performances across the city"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 5, "special": true, "event": "Iris Festival", "notes": "Brussels regional holiday celebrations"}
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 8,
+      "tourismLevel": 7
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9], "score": 5, "notes": "Excellent weather, long daylight hours"},
+        {"days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 5, "special": true, "event": "Fête de la Musique", "notes": "Music festival across the city"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Brussels Summer Festival", "notes": "Outdoor events, music, and cultural activities"}
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 11,
+      "tourismLevel": 8
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9], "score": 4, "notes": "Summer weather, outdoor dining, Grand Place activities"},
+        {"days": [10, 11], "score": 4, "special": true, "event": "Flemish Holiday", "notes": "Regional celebrations"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 4, "notes": "Summer peak season, warm weather"},
+        {"days": [21], "score": 5, "special": true, "event": "Belgian National Day", "notes": "Major celebrations, military parade, fireworks"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "Bruxelles les Bains", "notes": "Urban beach along the canal"}
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 13,
+      "tourismLevel": 9
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "notes": "Summer continues, many locals on vacation"},
+        {"days": [15], "score": 3, "special": true, "event": "Assumption Day", "notes": "Public holiday, some closures"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Pleasant summer weather, good time for visiting attractions"},
+        {"days": [31], "score": 5, "special": true, "event": "Belgian Beer Weekend Preparations", "notes": "Pre-festival atmosphere"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 8
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8], "score": 5, "special": true, "event": "Belgian Beer Weekend", "notes": "Major beer festival at Grand Place"},
+        {"days": [9, 10, 11, 12, 13, 14, 15, 16], "score": 5, "notes": "Post-peak season, excellent weather continues"},
+        {"days": [17, 18, 19, 20, 21, 22, 23], "score": 5, "special": true, "event": "Brussels Comic Strip Festival", "notes": "Comic book celebrations, exhibitions"},
+        {"days": [24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "European Heritage Days", "notes": "Historic buildings open to public"}
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 10,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Fall colors, comfortable temperatures"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 4, "special": true, "event": "Brussels Chocolate Week", "notes": "Chocolate tastings, workshops, tours"},
+        {"days": [29, 30, 31], "score": 3, "special": true, "event": "Halloween Events", "notes": "Special museum nights, themed tours"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 7,
+      "tourismLevel": 5
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Public holiday, some closures"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Fall atmosphere, cooling temperatures"},
+        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "score": 3, "notes": "Museums and indoor activities, cooler weather"},
+        {"days": [30], "score": 3, "special": true, "event": "Winter Wonders Preparation", "notes": "Setup for Christmas market"}
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 3,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 4, "special": true, "event": "Winter Wonders Christmas Market", "notes": "Grand Place and central Brussels transform with festive markets, ice skating, light shows"},
+        {"days": [24, 25, 26], "score": 3, "special": true, "event": "Christmas", "notes": "Festive atmosphere but many closures"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Post-Christmas period - museums, indoor activities"},
+        {"days": [31], "score": 4, "special": true, "event": "New Year's Eve", "notes": "Celebrations in Grand Place, fireworks"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 1,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": ["EU Quarter Tours", "Grand Place", "Cinquantenaire Park", "Mont des Arts", "Comic Book Route", "Royal Museums of Fine Arts", "Atomium", "Mini-Europe"],
+    "summer": ["Musical Instrument Museum", "Royal Palace Open Days", "Forest National Events", "Urban Beaches", "Sablon Antiques District", "Cantillon Brewery", "Park of Brussels", "Food Truck Festivals"],
+    "autumn": ["Belgian Comic Strip Center", "Brussels Beer Tours", "Chocolate Workshops", "Manneken Pis", "BOZAR Cultural Center", "Magritte Museum", "Saint-Gilles District", "Horta Museum"],
+    "winter": ["Winter Wonders Christmas Market", "Grand Place Light Show", "Belgian Gastronomy Tours", "Galeries Royales Saint-Hubert", "Musical Performances", "Belgian Beer Bars", "Chocolate Museum", "Autoworld"]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+  }
+}
