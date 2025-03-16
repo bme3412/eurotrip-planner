@@ -44,7 +44,7 @@ export const getCitiesData = () => {
       country: 'France',
       region: 'Atlantic Europe',
       description: "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy, and culture.",
-      thumbnail: '/images/paris-thumbnail.jpg',
+      thumbnail: '/images/paris-thumbnail.jpeg',
       landmarks: ['Eiffel Tower', 'Louvre Museum', "Notre-Dame Cathedral"],
       latitude: 48.8566,
       longitude: 2.3522
@@ -55,7 +55,7 @@ export const getCitiesData = () => {
       country: 'France',
       region: 'Mediterranean',
       description: "Nice, located on the French Riviera, offers beautiful beaches, a Mediterranean climate, and a blend of French and Italian culture.",
-      thumbnail: '/images/nice-thumbnail.jpg',
+      thumbnail: '/images/nice-thumbnail.jpeg',
       landmarks: ['Promenade des Anglais', 'Vieux Nice'],
       latitude: 43.7102,
       longitude: 7.2620
@@ -88,7 +88,7 @@ export const getCitiesData = () => {
       country: 'France',
       region: 'Atlantic Europe',
       description: "Bordeaux, the wine capital of the world, boasts elegant 18th-century architecture, world-class vineyards, and a vibrant riverfront.",
-      thumbnail: '/images/bordeaux-thumbnail.jpg',
+      thumbnail: '/images/bordeaux-thumbnail.jpeg',
       landmarks: ['Place de la Bourse', 'La Cité du Vin'],
       latitude: 44.8378,
       longitude: -0.5792
@@ -154,7 +154,7 @@ export const getCitiesData = () => {
       country: 'France',
       region: 'Mediterranean',
       description: "Famous for its international film festival, Cannes offers luxurious beaches, upscale shopping, and a glamorous atmosphere.",
-      thumbnail: '/images/cannes-thumbnail.jpg',
+      thumbnail: '/images/cannes-thumbnail.jpeg',
       landmarks: ['La Croisette', 'Palais des Festivals'],
       latitude: 43.5528,
       longitude: 7.0174
