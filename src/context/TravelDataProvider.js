@@ -14,6 +14,7 @@ export const TravelDataProvider = ({ initialData = {}, children }) => {
   const [travelParams, setTravelParams] = useState({});
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [isPlanningStarted, setIsPlanningStarted] = useState(false);
   
   // Common data
   const [popularCities, setPopularCities] = useState([]);
@@ -101,6 +102,11 @@ export const TravelDataProvider = ({ initialData = {}, children }) => {
       setIsSearching(false);
     }
   };
+
+  // Function to start planning
+  const startPlanning = () => {
+    setIsPlanningStarted(true);
+  };
   
   // Context value
   const value = {
@@ -111,10 +117,12 @@ export const TravelDataProvider = ({ initialData = {}, children }) => {
     searchResults,
     travelParams,
     isSearching,
+    isPlanningStarted,
     
     // Methods
     setVideos,
-    handleSearch
+    handleSearch,
+    startPlanning
   };
   
   return (
