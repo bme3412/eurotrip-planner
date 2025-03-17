@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 
 const CountryFilter = ({ selectedCountry, handleCountryChange, countries = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Use the provided countries array
-  const countryOptions = countries;
-  
+
   return (
     <div className="mb-6">
       <h3 className="font-medium text-gray-700 mb-2">Filter by Country</h3>
@@ -34,11 +31,11 @@ const CountryFilter = ({ selectedCountry, handleCountryChange, countries = [] })
             </svg>
           </span>
         </button>
-        
+
         {isOpen && (
           <div className="origin-top-right absolute z-50 right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 max-h-60 overflow-y-auto">
             <div className="py-1 divide-y divide-gray-100" role="menu" aria-orientation="vertical">
-              {countryOptions.map((country) => (
+              {countries.map((country) => (
                 <button
                   key={country}
                   className={`${

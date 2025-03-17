@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import RegionFilter from '../../components/city-guides/RegionFilter';
 import CountryFilter from '../../components/city-guides/CountryFilter';
 import CityCard from '../../components/city-guides/CityCard';
-import { getCitiesData, cityRegions, cityCountries } from '../../components/city-guides/cityData';
+import { getCitiesData, cityCountries } from '../../components/city-guides/cityData';
 
 const CityGuidesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,24 +16,19 @@ const CityGuidesPage = () => {
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState(['All']);
   const [error, setError] = useState(null);
+  const [activeFilterType, setActiveFilterType] = useState('geographic');
   
   useEffect(() => {
     try {
       setLoading(true);
       setError(null);
       
-      // Get cities data from the cityData.js file
+      // Get cities data
       const cityData = getCitiesData();
       setCities(cityData);
       
-      // Set countries for the dropdown - safely handle the case where cityCountries might be undefined
-      if (cityCountries && typeof cityCountries === 'object') {
-        setCountries(['All', ...Object.keys(cityCountries).sort()]);
-      } else {
-        // Fallback: extract unique countries from city data
-        const uniqueCountries = [...new Set(cityData.map(city => city.country))].filter(Boolean).sort();
-        setCountries(['All', ...uniqueCountries]);
-      }
+      // Use the cityCountries array (which is already computed as an array)
+      setCountries(['All', ...cityCountries.sort()]);
       
       setLoading(false);
     } catch (err) {
@@ -45,61 +40,70 @@ const CityGuidesPage = () => {
   
   // Filter cities based on search term, region, and country
   const filteredCities = cities.filter(city => {
-    // Filter by search term (case insensitive)
-    const matchesSearch = searchTerm === '' || 
-      city.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    // Apply text search filter
+    const matchesSearch =
+      searchTerm === '' ||
+      city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (city.country && city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (city.description && city.description.toLowerCase().includes(searchTerm.toLowerCase()));
     
-    // Filter by region
-    const matchesRegion = selectedRegion === 'All' || city.region === selectedRegion;
-    
-    // Filter by country
+    // Apply country filter
     const matchesCountry = selectedCountry === 'All' || city.country === selectedCountry;
     
-    return matchesSearch && matchesRegion && matchesCountry;
+    // Apply region/theme filter based on filter type
+    let matchesRegionOrTheme = true;
+    
+    if (selectedRegion !== 'All') {
+      if (activeFilterType === 'geographic') {
+        matchesRegionOrTheme = city.region === selectedRegion;
+      } else if (activeFilterType === 'tourism') {
+        matchesRegionOrTheme = city.tourismCategories && city.tourismCategories.includes(selectedRegion);
+      }
+    }
+    
+    return matchesSearch && matchesCountry && matchesRegionOrTheme;
   });
   
-  // Handle changing of region filter
-  const handleRegionChange = (region) => {
+  // Handlers for filters
+  const handleRegionChange = (region, filterType) => {
     setSelectedRegion(region);
+    if (filterType) {
+      setActiveFilterType(filterType);
+    }
   };
   
-  // Handle changing of country filter
-  const handleCountryChange = (country) => {
-    setSelectedCountry(country);
-  };
+  const handleCountryChange = (country) => setSelectedCountry(country);
   
-  // Clear all filters
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedRegion('All');
     setSelectedCountry('All');
   };
   
+  // Get the appropriate filter label based on active filter type
+  const getFilterLabel = () => {
+    if (activeFilterType === 'geographic') return 'Region';
+    if (activeFilterType === 'tourism') return 'Style';
+    return 'Filter';
+  };
+  
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero section */}
+      {/* Hero Section */}
       <div className="relative text-white overflow-hidden h-64">
-        {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-700/80 to-indigo-800/80 z-10"></div>
-        
-        {/* Background image */}
         <div className="absolute inset-0 w-full h-full bg-blue-600">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: 'url(/images/europe-map-bg.jpg)' }}
           ></div>
         </div>
-        
-        {/* Content */}
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Explore European Cities</h1>
           <p className="text-lg md:text-xl opacity-90 max-w-2xl">
             Discover detailed guides for the most popular destinations across Europe,
             with insider tips, interactive maps, and local recommendations.
           </p>
-          
           {/* Search bar */}
           <div className="mt-4 max-w-lg">
             <div className="relative">
@@ -121,15 +125,14 @@ const CityGuidesPage = () => {
       </div>
       
       <div className="container mx-auto px-4 py-6">
-        {/* Current filters display */}
+        {/* Active Filters */}
         <div className="mb-4">
           {(selectedRegion !== 'All' || selectedCountry !== 'All' || searchTerm !== '') && (
             <div className="flex flex-wrap items-center gap-2 text-sm">
               <span className="text-gray-600">Active filters:</span>
-              
               {selectedRegion !== 'All' && (
                 <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full flex items-center">
-                  Region: {selectedRegion}
+                  {getFilterLabel()}: {selectedRegion}
                   <button 
                     className="ml-1 text-blue-500 hover:text-blue-700"
                     onClick={() => setSelectedRegion('All')}
@@ -140,7 +143,6 @@ const CityGuidesPage = () => {
                   </button>
                 </span>
               )}
-              
               {selectedCountry !== 'All' && (
                 <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full flex items-center">
                   Country: {selectedCountry}
@@ -154,10 +156,9 @@ const CityGuidesPage = () => {
                   </button>
                 </span>
               )}
-              
               {searchTerm !== '' && (
                 <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full flex items-center">
-                  Search: &quot;{searchTerm}&quot;
+                  Search: "{searchTerm}"
                   <button 
                     className="ml-1 text-purple-500 hover:text-purple-700"
                     onClick={() => setSearchTerm('')}
@@ -168,7 +169,6 @@ const CityGuidesPage = () => {
                   </button>
                 </span>
               )}
-              
               <button
                 className="text-gray-500 hover:text-gray-700 text-xs underline ml-2"
                 onClick={clearFilters}
@@ -179,7 +179,7 @@ const CityGuidesPage = () => {
           )}
         </div>
         
-        {/* Filter sections with improved spacing and tooltips */}
+        {/* Filters */}
         <div className="mb-6 flex flex-col sm:flex-row sm:items-start gap-4">
           <RegionFilter 
             selectedRegion={selectedRegion}
@@ -187,7 +187,6 @@ const CityGuidesPage = () => {
             hoveredRegion={hoveredRegion}
             setHoveredRegion={setHoveredRegion}
           />
-          
           <CountryFilter 
             selectedCountry={selectedCountry}
             handleCountryChange={handleCountryChange}
@@ -195,7 +194,7 @@ const CityGuidesPage = () => {
           />
         </div>
         
-        {/* City card grid */}
+        {/* City cards grid */}
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">City Guides</h2>
           <div className="text-sm text-gray-500">
