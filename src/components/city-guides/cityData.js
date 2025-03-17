@@ -97,7 +97,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Strasbourg, located on the German border, blends French and German influences in its cuisine, architecture, and culture. It is also home to important EU institutions.",
-      thumbnail: "/images/strasbourg-thumbnail.jpg",
+      thumbnail: "/images/strasbourg-thumbnail.jpeg",
       landmarks: ["Strasbourg Cathedral", "La Petite France"],
       latitude: 48.5734,
       longitude: 7.7521,
@@ -169,7 +169,7 @@ export const getCitiesData = () => {
       region: "Imperial Cities",
       description:
         "Berlin, Germany's dynamic capital, offers a mix of historical landmarks, world-class museums, and a vibrant modern cultural scene.",
-      thumbnail: "/images/berlin-thumbnail.jpg",
+      thumbnail: "/images/berlin-thumbnail.jpeg",
       landmarks: [
         "Brandenburg Gate",
         "Berlin Wall Memorial",

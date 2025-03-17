@@ -1,0 +1,704 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Au Crocodile",
+                "cuisine_type": "Modern French with Alsatian Influences",
+                "signature_dishes": [
+                    "Foie gras terrine",
+                    "Lobster with sauerkraut",
+                    "Pigeon with truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Refined elegance with crystal chandeliers in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two months in advance, lunch menu offers better value",
+                "dress_code": "Formal attire",
+                "michelin_stars": 1,
+                "location": "Near Place Kléber",
+                "local_tips": "Historic restaurant founded in 1801 that has hosted numerous celebrities and dignitaries"
+            },
+            {
+                "name": "Buerehiesel",
+                "cuisine_type": "Contemporary Alsatian",
+                "signature_dishes": [
+                    "Foie gras with gingerbread",
+                    "Venison with seasonal foraging",
+                    "Modern interpretation of baeckeoffe"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stunning 18th-century half-timbered farmhouse in Orangerie Park",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Request a table with park views, book 3-4 weeks in advance",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Parc de l'Orangerie",
+                "local_tips": "Spectacular setting in the park with seasonal menus highlighting local ingredients"
+            },
+            {
+                "name": "1741",
+                "cuisine_type": "Creative French Gastronomy",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Artistically plated seafood"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated 18th-century mansion with contemporary decor and cathedral views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance, request a table with cathedral views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Near Cathedral",
+                "local_tips": "Named for the year the building was constructed, offers an exceptional wine cellar"
+            },
+            {
+                "name": "Le Pont Tournant",
+                "cuisine_type": "Modern French",
+                "signature_dishes": [
+                    "Inventive seafood creations",
+                    "Game during hunting season",
+                    "Regional cheese trolley"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Riverside setting with modern elegant decor and an outdoor terrace",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request terrace seating in summer, book 2 weeks in advance",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "Ill riverfront near Petite France",
+                "local_tips": "Beautiful views over the river from the terrace, exceptional service and wine pairings"
+            },
+            {
+                "name": "La Casserole",
+                "cuisine_type": "Creative Alsatian",
+                "signature_dishes": [
+                    "Reinterpreted traditional Alsatian dishes",
+                    "Seasonal game",
+                    "Innovative desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate dining room with contemporary elegance in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, the chef's tasting menu is recommended",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "Historic center",
+                "local_tips": "Chef Cédric Moulot creates modern takes on Alsatian cuisine using regional products"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Maison Kammerzell",
+                "cuisine_type": "Traditional Alsatian",
+                "signature_dishes": [
+                    "Choucroute garnie",
+                    "Baeckeoffe",
+                    "Flammekueche (tarte flambée)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic 15th-century half-timbered building with ornate wood carvings",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Request a table with cathedral views, book several days ahead",
+                "dress_code": "Smart casual",
+                "location": "Next to the Cathedral",
+                "local_tips": "The building is a tourist attraction itself - one of the most beautiful in Strasbourg"
+            },
+            {
+                "name": "Au Pont Saint-Martin",
+                "cuisine_type": "Traditional Winstub",
+                "signature_dishes": [
+                    "Tarte flambée",
+                    "Choucroute royale",
+                    "Coq au Riesling"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic Alsatian winstub with wooden panels and a cozy interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Petite France district",
+                "local_tips": "One of the most authentic winstubs in the city with friendly service and generous portions"
+            },
+            {
+                "name": "Le Tire-Bouchon",
+                "cuisine_type": "Traditional Alsatian",
+                "signature_dishes": [
+                    "Presskopf (head cheese)",
+                    "Fleischschnacka (meat-filled pasta rolls)",
+                    "Munster cheese with cumin"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic winstub with red-checked tablecloths and wooden interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book few days ahead, come hungry for generous portions",
+                "dress_code": "Casual",
+                "location": "Grande Île",
+                "local_tips": "Authentic Alsatian cuisine in generous portions, popular with locals"
+            },
+            {
+                "name": "Winstub S'Burjerstuewel",
+                "cuisine_type": "Traditional Alsatian",
+                "signature_dishes": [
+                    "Flammkuchen (tarte flambée) variations",
+                    "Roasted pork knuckle",
+                    "House-made sauerkraut"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic traditional setting with wood beams and warm ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, specify if you want a traditional alcove table",
+                "dress_code": "Casual",
+                "location": "Grande Île",
+                "local_tips": "Family-run winstub serving authentic, hearty Alsatian cuisine"
+            },
+            {
+                "name": "La Corde à Linge",
+                "cuisine_type": "Alsatian with modern touches",
+                "signature_dishes": [
+                    "Innovative tarte flambée variations",
+                    "Seasonal salads",
+                    "Iced fruit soups in summer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic washhouse with a stunning terrace along the canal",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for terrace seating in advance, especially in summer",
+                "dress_code": "Casual",
+                "location": "Petite France",
+                "local_tips": "Beautiful terrace setting with views of half-timbered houses and canals"
+            },
+            {
+                "name": "Umami",
+                "cuisine_type": "Modern French and Asian Fusion",
+                "signature_dishes": [
+                    "Franco-Asian tasting menu",
+                    "Dim sum with Alsatian ingredients",
+                    "East-West desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary minimalist with Asian influences",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week in advance, opt for the tasting menu",
+                "dress_code": "Smart casual",
+                "location": "Krutenau district",
+                "local_tips": "Creative fusion cuisine that respects both French and Asian culinary traditions"
+            },
+            {
+                "name": "La Hache",
+                "cuisine_type": "Gourmet Burgers and Craft Beer",
+                "signature_dishes": [
+                    "Alsatian burger with munster cheese",
+                    "Duck fat fries",
+                    "Local craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with rustic wooden elements",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for dinner as it fills up quickly",
+                "dress_code": "Casual",
+                "location": "Near University",
+                "local_tips": "Quality burgers using local ingredients and excellent beer selection"
+            },
+            {
+                "name": "L'Épicerie",
+                "cuisine_type": "Mediterranean-inspired French",
+                "signature_dishes": [
+                    "Market-inspired daily specials",
+                    "Fresh seafood platters",
+                    "Homemade pasta"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy bistro with deli counter and open kitchen",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Lunch reservations recommended on weekdays",
+                "dress_code": "Casual",
+                "location": "Krutenau district",
+                "local_tips": "Half restaurant, half deli where you can buy products to take home"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché du Neudorf",
+                "specialties": [
+                    "Regional produce",
+                    "Flammekueche slices",
+                    "Turkish and North African specialties"
+                ],
+                "price_range": "€",
+                "hours": "Tue, Sat: 7:00am-1:00pm",
+                "location": "Neudorf district",
+                "seating": false,
+                "local_tips": "One of the city's best neighborhood markets with excellent prepared food options"
+            },
+            {
+                "name": "Chez Tonton Gaby",
+                "specialties": [
+                    "Artisanal pretzels (bretzels)",
+                    "Kougelhopf (Alsatian cake)",
+                    "Seasonal pastries"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 7:00am-7:00pm",
+                "location": "Near Cathedral",
+                "seating": false,
+                "local_tips": "Some of the best traditional bretzels in the city, perfect for a quick snack"
+            },
+            {
+                "name": "Marché de la Marne",
+                "specialties": [
+                    "International street food",
+                    "Fresh produce",
+                    "Lebanese and Turkish specialties"
+                ],
+                "price_range": "€",
+                "hours": "Thu: 7:00am-1:00pm",
+                "location": "Marne district",
+                "seating": false,
+                "local_tips": "More diverse than other markets with excellent Middle Eastern food stalls"
+            },
+            {
+                "name": "Au Brasseur",
+                "specialties": [
+                    "Flammekueche to go",
+                    "House-brewed beer",
+                    "Pretzels"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:30am-11:00pm",
+                "location": "Historic center",
+                "seating": true,
+                "local_tips": "You can order flammekueche from their window for takeaway, perfect with their craft beer"
+            },
+            {
+                "name": "Christian's",
+                "specialties": [
+                    "Gourmet sandwiches",
+                    "Fresh salads",
+                    "Homemade soups"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Fri: 11:00am-3:00pm",
+                "location": "European Quarter",
+                "seating": true,
+                "local_tips": "Popular lunch spot for European Parliament workers, excellent value and quality"
+            },
+            {
+                "name": "Marché de Noël (Christmas Market)",
+                "specialties": [
+                    "Vin chaud (mulled wine)",
+                    "Bretzel",
+                    "Bredele (Christmas cookies)",
+                    "Mannele (brioche figures)"
+                ],
+                "price_range": "€",
+                "hours": "Late Nov to Dec 24: 11:00am-8:00pm",
+                "location": "Throughout city center",
+                "seating": false,
+                "local_tips": "The oldest and most famous Christmas market in France with exceptional food stalls"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Oh My Goodness",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "Homemade pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright minimalist with Nordic influences",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast bowls, healthy lunch options, vegan choices",
+                "local_tips": "Strasbourg's pioneer specialty coffee shop with excellent brunch on weekends"
+            },
+            {
+                "name": "Café Bretelles",
+                "specialty": "Artisanal coffee and specialty drinks",
+                "must_try": [
+                    "Flat white",
+                    "Homemade cheesecake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vintage-industrial with warm tones and wood elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light breakfast, sandwiches, homemade cakes",
+                "local_tips": "Two locations (Petite France and Krutenau), both excellent for coffee lovers"
+            },
+            {
+                "name": "The Broken Arm Café",
+                "specialty": "Specialty coffee and homemade food",
+                "must_try": [
+                    "Cappuccino",
+                    "Seasonal tarts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary with large windows and plants",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full breakfast and lunch menu with vegetarian options",
+                "local_tips": "Excellent for remote working with plenty of outlets and comfortable seating"
+            },
+            {
+                "name": "Café Brant",
+                "specialty": "Historic café with Viennese tradition",
+                "must_try": [
+                    "Viennese coffee",
+                    "House-made Kougelhopf"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic café with historical ambiance",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional pastries, light meals, tea service",
+                "local_tips": "Historic café where Albert Schweitzer and other intellectuals used to meet"
+            },
+            {
+                "name": "Café Sirius",
+                "specialty": "Book café",
+                "must_try": [
+                    "Hot chocolate",
+                    "Apple strudel"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy with bookshelves and comfortable seating",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Homemade cakes, light lunch options",
+                "local_tips": "Perfect for book lovers, with regular literary events and a relaxed atmosphere"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Les Aviateurs",
+                "type": "Cocktail Bar",
+                "specialty": "Aviation-themed craft cocktails",
+                "signature_drinks": [
+                    "Paper Plane (bourbon cocktail)",
+                    "Rotating seasonal menu"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant speakeasy with aviation memorabilia",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the experience, excellent mixologists who can customize drinks"
+            },
+            {
+                "name": "Jeannette et les Cycleux",
+                "type": "Craft Beer Bar",
+                "specialty": "Local and international craft beers",
+                "signature_drinks": [
+                    "Rotating tap selection",
+                    "Local Alsatian craft beer flight"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bicycle-themed with industrial touches",
+                "best_time": "Evening",
+                "food_options": "Charcuterie boards, gourmet sandwiches",
+                "reservation_needed": false,
+                "local_tips": "Great selection of local Alsatian craft breweries, knowledgeable staff"
+            },
+            {
+                "name": "La Lanterne",
+                "type": "Wine Bar",
+                "specialty": "Alsatian and natural wines",
+                "signature_drinks": [
+                    "Alsatian white wine flight",
+                    "Rare Gewürztraminer selections"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Intimate cave with stone walls and soft lighting",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie plates, tarte flambée",
+                "reservation_needed": true,
+                "local_tips": "Excellent selection of Alsatian wines with knowledgeable sommelier"
+            },
+            {
+                "name": "La Taverne Française",
+                "type": "Historic Brewpub",
+                "specialty": "Traditional Alsatian beers",
+                "signature_drinks": [
+                    "House-brewed amber ale",
+                    "Beer and eau-de-vie pairings"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewery setting with long wooden tables",
+                "best_time": "Evening",
+                "food_options": "Hearty Alsatian cuisine",
+                "reservation_needed": false,
+                "local_tips": "One of Strasbourg's oldest breweries with authentic atmosphere"
+            },
+            {
+                "name": "Code Bar",
+                "type": "Mixology Bar",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "House infusions with local herbs",
+                    "Interactive cocktail experiences"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and intimate with expert bartenders",
+                "best_time": "Night",
+                "food_options": "Small plates menu",
+                "reservation_needed": true,
+                "local_tips": "Tell the bartenders your preferences for a custom-made drink"
+            },
+            {
+                "name": "La Fière Écossais",
+                "type": "Whiskey Bar",
+                "specialty": "Extensive whiskey collection",
+                "signature_drinks": [
+                    "Rare Scotch selections",
+                    "Whiskey flight tastings"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Scottish-inspired cozy interior with leather chairs",
+                "best_time": "Night",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Over 200 whiskeys available, with knowledgeable staff to guide your selection"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Strasbourg Tour",
+                "focus": "Traditional Alsatian specialties",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Petite France district",
+                    "Traditional winstub tastings",
+                    "Bretzel, kougelhopf, and wine sampling"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance, wear comfortable shoes for cobblestone streets"
+            },
+            {
+                "name": "Alsatian Wine Journey",
+                "focus": "Regional wine traditions",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Historic wine cellars",
+                    "Food and wine pairings",
+                    "Tasting of Riesling, Gewürztraminer, and more"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French",
+                    "German"
+                ],
+                "booking_tips": "Includes generous tastings, consider arranging transportation afterward"
+            },
+            {
+                "name": "Christmas Market Culinary Walk",
+                "focus": "Seasonal holiday specialties",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Vin chaud (mulled wine)",
+                    "Christmas cookies (bredele)",
+                    "Seasonal Alsatian traditions"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "French",
+                    "German"
+                ],
+                "booking_tips": "Available only during Christmas market season (late November to December 24), book well in advance"
+            },
+            {
+                "name": "Gourmet Strasbourg Experience",
+                "focus": "High-end culinary discoveries",
+                "duration": "5 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Fine dining tastings",
+                    "Meeting with local chefs",
+                    "Exclusive food boutiques"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Premium experience with access to some of Strasbourg's finest establishments"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Atelier de Cuisine Alsacienne",
+                "cuisine_focus": "Traditional Alsatian home cooking",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Authentic choucroute preparation",
+                    "Flammekueche techniques",
+                    "Bredele (Christmas cookies)"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Meal with regional wine"
+                ],
+                "booking_tips": "Classes focused on seasonal specialties, book at least two weeks ahead"
+            },
+            {
+                "name": "Cook & Go Strasbourg",
+                "cuisine_focus": "Modern Alsatian and French techniques",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Quick gourmet meals",
+                    "Modern twists on Alsatian classics",
+                    "Food presentation techniques"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "French",
+                    "English (with advance notice)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Take-home meal",
+                    "Digital recipes"
+                ],
+                "booking_tips": "Express format ideal for visitors with limited time"
+            },
+            {
+                "name": "Oenology Workshop at Cave Historique",
+                "cuisine_focus": "Wine and food pairing",
+                "duration": "2.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Alsatian wine characteristics",
+                    "Professional tasting techniques",
+                    "Food pairing principles"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "French",
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Wine tastings",
+                    "Pairing foods",
+                    "Tasting notebook"
+                ],
+                "booking_tips": "Held in the historic wine cellar beneath the city hospital, a unique experience"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché Neudorf",
+                "type": "Open-air market",
+                "highlights": [
+                    "Local produce",
+                    "Regional specialties",
+                    "Multicultural food stalls"
+                ],
+                "hours": "Tue, Sat: 7:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "Place du Marché Neudorf",
+                "local_tips": "One of the city's largest and most diverse markets, less touristy than central markets"
+            },
+            {
+                "name": "Marché de la Cathédrale",
+                "type": "Daily farmers market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Regional cheeses",
+                    "Seasonal specialties"
+                ],
+                "hours": "Mon-Sat: 7:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Place de la Cathédrale",
+                "local_tips": "Convenient central location with high-quality regional products"
+            },
+            {
+                "name": "Marché Broglie",
+                "type": "Covered and open-air market",
+                "highlights": [
+                    "Diverse food offerings",
+                    "Artisanal products",
+                    "Prepared foods and flowers"
+                ],
+                "hours": "Wed, Fri: 7:00am-1:00pm",
+                "best_time": "Mid-morning",
+                "location": "Place Broglie",
+                "local_tips": "Strasbourg's main central market with a wide variety of products"
+            },
+            {
+                "name": "Marché des Producteurs",
+                "type": "Farmers market",
+                "highlights": [
+                    "Direct from farm products",
+                    "Organic options",
+                    "Local producers"
+                ],
+                "hours": "Sat: 7:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "Rue de la Douane",
+                "local_tips": "Focus on local producers within 50km of Strasbourg, excellent for authentic regional products"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus with hollandaise sauce",
+            "Rhubarb tart",
+            "Spring lamb with fresh herbs"
+        ],
+        "summer": [
+            "Tarte à l'oignon (onion tart)",
+            "Fruit kougelhopf",
+            "Fresh fish from Rhine River"
+        ],
+        "autumn": [
+            "Baeckeoffe (meat and potato stew)",
+            "Game dishes with spätzle",
+            "Mushroom specialties from nearby forests"
+        ],
+        "winter": [
+            "Choucroute garnie (sauerkraut with meats)",
+            "Bredele (Christmas cookies)",
+            "Coq au Riesling"
+        ]
+    }
+}
