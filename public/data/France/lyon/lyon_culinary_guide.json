@@ -1,0 +1,688 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Paul Bocuse",
+                "cuisine_type": "Classic French Haute Cuisine",
+                "signature_dishes": [
+                    "Soupe aux truffes VGE",
+                    "Loup en croûte feuilletée",
+                    "Poulet de Bresse en vessie"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant traditional dining room with impeccable service",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two months in advance, request classic signature dishes",
+                "dress_code": "Formal attire",
+                "michelin_stars": 2,
+                "location": "Collonges-au-Mont-d'Or (just outside Lyon)",
+                "local_tips": "The restaurant of the legendary chef who helped define modern French cuisine"
+            },
+            {
+                "name": "La Mère Brazier",
+                "cuisine_type": "Refined Lyonnaise",
+                "signature_dishes": [
+                    "Poularde de Bresse demi-deuil",
+                    "Artichoke and foie gras"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic and elegant with classic French decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance, lunch menu offers better value",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Near Place Bellecour",
+                "local_tips": "Founded in 1921 by Eugénie Brazier, the first woman to receive 3 Michelin stars"
+            },
+            {
+                "name": "Les Loges",
+                "cuisine_type": "Creative French",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Innovative fish dishes" 
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Renaissance courtyard of the Cour des Loges hotel with vaulted ceilings",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, request courtyard seating",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Vieux Lyon",
+                "local_tips": "The historic setting in a 14th-century building adds to the experience"
+            },
+            {
+                "name": "Restaurant Têtedoie",
+                "cuisine_type": "Contemporary French",
+                "signature_dishes": [
+                    "Lobster with citrus",
+                    "Veal sweetbreads"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern with panoramic views of Lyon from Fourvière Hill",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request a table by the window for the best views of Lyon",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Fourvière Hill",
+                "local_tips": "Take the funicular or the restaurant's private elevator from the bottom of the hill"
+            },
+            {
+                "name": "Le Neuvième Art",
+                "cuisine_type": "Innovative French",
+                "signature_dishes": [
+                    "Artistic flavor combinations",
+                    "Surprising textures and presentations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern and refined with minimalist decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a month in advance, opt for the tasting menu",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Brotteaux district",
+                "local_tips": "Chef Christophe Roure creates visually stunning dishes with unexpected flavor combinations"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Daniel & Denise",
+                "cuisine_type": "Traditional Lyonnais Bouchon",
+                "signature_dishes": [
+                    "Quenelle de brochet sauce Nantua",
+                    "Tablier de sapeur (breaded tripe)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic bouchon with red-and-white checkered tablecloths",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for the Saint-Jean location",
+                "dress_code": "Smart casual",
+                "location": "Multiple locations (Saint-Jean in Vieux Lyon is the original)",
+                "local_tips": "Chef Joseph Viola is a Meilleur Ouvrier de France (MOF), ensuring authentic Lyonnaise cuisine"
+            },
+            {
+                "name": "Café Comptoir Abel",
+                "cuisine_type": "Classic Lyonnais",
+                "signature_dishes": [
+                    "Pike quenelles",
+                    "Chicken with vinegar sauce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic bouchon (since 1928) with traditional decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, specify if you want a traditional table",
+                "dress_code": "Casual",
+                "location": "Presqu'île district",
+                "local_tips": "One of Lyon's oldest bouchons with recipes unchanged for generations"
+            },
+            {
+                "name": "Brasserie Georges",
+                "cuisine_type": "Brasserie Classics",
+                "signature_dishes": [
+                    "Choucroute",
+                    "Seafood platters",
+                    "House-brewed beer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic grand brasserie (est. 1836) with Art Deco elements",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Can accommodate large groups, specify if you prefer a booth",
+                "dress_code": "Smart casual",
+                "location": "Perrache district",
+                "local_tips": "The oldest brasserie in Lyon with its own microbrewery"
+            },
+            {
+                "name": "Le Musée",
+                "cuisine_type": "Traditional Lyonnais",
+                "signature_dishes": [
+                    "Andouillette (tripe sausage)",
+                    "Cervelle de canut (cheese spread)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic bouchon with warm, convivial setting",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, come hungry for hearty portions",
+                "dress_code": "Casual",
+                "location": "Vieux Lyon",
+                "local_tips": "Certified 'Authentique Bouchon Lyonnais' guaranteeing traditional quality"
+            },
+            {
+                "name": "Le Bouchon des Filles",
+                "cuisine_type": "Modern Lyonnais",
+                "signature_dishes": [
+                    "Lighter versions of Lyonnais classics",
+                    "Praline tart"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary twist on traditional bouchon atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "Croix-Rousse district",
+                "local_tips": "Run by women chefs who create lighter, modern versions of traditional dishes"
+            },
+            {
+                "name": "Café Sillon",
+                "cuisine_type": "Modern French Bistro",
+                "signature_dishes": [
+                    "Market-inspired seasonal menu",
+                    "Creative fish dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern bistro with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week in advance",
+                "dress_code": "Smart casual",
+                "location": "7th arrondissement",
+                "local_tips": "Chef Mathieu Rostaing-Tayard creates inventive dishes with minimal intervention"
+            },
+            {
+                "name": "L'Institut Restaurant",
+                "cuisine_type": "Contemporary French",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Regional specialties with modern twist"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant dining room in the Institut Paul Bocuse",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Lunch menu offers excellent value, book at least a week ahead",
+                "dress_code": "Smart casual",
+                "location": "6th arrondissement",
+                "local_tips": "Staffed by students of the prestigious culinary school under professional supervision"
+            },
+            {
+                "name": "Les Apothicaires",
+                "cuisine_type": "Franco-South American Fusion",
+                "signature_dishes": [
+                    "Ceviche variations",
+                    "Creative botanical-inspired dishes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and intimate with pharmacy-inspired decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least two weeks in advance",
+                "dress_code": "Smart casual",
+                "location": "6th arrondissement",
+                "local_tips": "Run by a husband (French) and wife (Colombian) team creating unique fusion cuisine"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Les Halles de Lyon Paul Bocuse",
+                "specialties": [
+                    "Charcuterie",
+                    "Cheese",
+                    "Oysters",
+                    "Regional specialties"
+                ],
+                "price_range": "€€",
+                "hours": "Tue-Sat: 7:00am-7:00pm, Sun: 7:00am-1:00pm",
+                "location": "Part-Dieu district",
+                "seating": true,
+                "local_tips": "Visit Sibilia for charcuterie, Mère Richard for Saint-Marcellin cheese, and Colette Sibilia for quenelles"
+            },
+            {
+                "name": "Marché de la Croix-Rousse",
+                "specialties": [
+                    "Fresh produce",
+                    "Rotisserie chicken",
+                    "Socca (chickpea pancake)"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 6:00am-1:00pm",
+                "location": "Croix-Rousse district",
+                "seating": false,
+                "local_tips": "One of Lyon's best neighborhood markets with excellent prepared food options"
+            },
+            {
+                "name": "À la Marquise",
+                "specialties": [
+                    "Brioche aux pralines",
+                    "Coussin de Lyon (chocolate-marzipan candy)",
+                    "Pastries"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 8:00am-7:30pm, Sun: 8:00am-7:00pm",
+                "location": "Vieux Lyon",
+                "seating": true,
+                "local_tips": "Historic patisserie famous for traditional Lyonnais sweets, perfect for a quick snack"
+            },
+            {
+                "name": "Marché Quai Saint-Antoine",
+                "specialties": [
+                    "Fresh produce",
+                    "Prepared foods",
+                    "Bread and pastries"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 6:00am-1:00pm",
+                "location": "Riverside market along the Saône",
+                "seating": false,
+                "local_tips": "Beautiful setting along the river with excellent cheese vendors and prepared food stalls"
+            },
+            {
+                "name": "Tomo Ramen",
+                "specialties": [
+                    "Japanese ramen",
+                    "Gyoza dumplings"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 12:00pm-2:30pm, 7:00pm-10:00pm",
+                "location": "1st arrondissement",
+                "seating": true,
+                "local_tips": "Fast, affordable and authentic Japanese cuisine, popular with locals for quick meals"
+            },
+            {
+                "name": "Paillette",
+                "specialties": [
+                    "Gourmet sandwiches",
+                    "Fresh salads",
+                    "Homemade cookies"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Fri: 11:30am-3:00pm",
+                "location": "2nd arrondissement",
+                "seating": false,
+                "local_tips": "Perfect for a quick lunch made with high-quality ingredients, popular with local office workers"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Slake Coffee House",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "House-made cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist industrial with plants and natural light",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Light breakfast, pastries, healthy lunch options",
+                "local_tips": "One of Lyon's best specialty coffee shops with excellent brunch on weekends"
+            },
+            {
+                "name": "La Boîte à Café",
+                "specialty": "Artisanal coffee roasting",
+                "must_try": [
+                    "Espresso",
+                    "Croissants from neighboring bakery"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy with coffee sacks and roasting equipment",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and simple snacks",
+                "local_tips": "They roast their own beans on-site and offer great coffee education"
+            },
+            {
+                "name": "Le Perko Café",
+                "specialty": "Specialty coffee and creative food",
+                "must_try": [
+                    "Cappuccino",
+                    "Seasonal brunch plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, artistic space with Scandinavian influences",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full breakfast and lunch menu with vegetarian options",
+                "local_tips": "Great for remote working with plenty of outlets and large tables"
+            },
+            {
+                "name": "Café Mokxa",
+                "specialty": "House-roasted specialty coffee",
+                "must_try": [
+                    "Flat white",
+                    "Coffee flight tasting"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary with coffee focus",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Lyon's pioneer specialty coffee roaster, they supply many other cafes in the city"
+            },
+            {
+                "name": "Anticafé",
+                "specialty": "Co-working with unlimited coffee",
+                "must_try": [
+                    "Unlimited coffee and snacks",
+                    "Work-friendly environment"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright co-working space with comfortable seating",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Self-service snacks, cookies, fruit",
+                "local_tips": "You pay by the hour, not by consumption - great for digital nomads"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Fantôme de l'Opéra",
+                "type": "Cocktail Bar",
+                "specialty": "Theatrical cocktails",
+                "signature_drinks": [
+                    "Phantom (bourbon-based with smoke effect)",
+                    "Opera-themed cocktail menu"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant speakeasy with opera-inspired decor",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the experience, cocktails feature theatrical presentations"
+            },
+            {
+                "name": "Le Sucrière",
+                "type": "Waterfront Bar",
+                "specialty": "Industrial-chic setting",
+                "signature_drinks": [
+                    "Craft beers",
+                    "Wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted warehouse with riverside terrace",
+                "best_time": "Sunset",
+                "food_options": "Small plates menu",
+                "reservation_needed": false,
+                "local_tips": "Great for summer evenings, often hosts DJs and events"
+            },
+            {
+                "name": "La Cave d'à Côté",
+                "type": "Wine Bar",
+                "specialty": "Natural and organic wines",
+                "signature_drinks": [
+                    "Beaujolais selections",
+                    "Rhône Valley vintages"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Intimate wine cave with stone walls",
+                "best_time": "Evening",
+                "food_options": "Charcuterie and cheese plates",
+                "reservation_needed": true,
+                "local_tips": "Excellent sommelier guidance for wine novices and experts alike"
+            },
+            {
+                "name": "Le Bitter Bar",
+                "type": "Mixology Bar",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "House-made bitters and infusions",
+                    "Classic cocktails with local twists"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated and intimate with expert bartenders",
+                "best_time": "Night",
+                "food_options": "Tapas-style bites",
+                "reservation_needed": true,
+                "local_tips": "Tell the bartenders your preferences for a custom-made drink"
+            },
+            {
+                "name": "Bec de Jazz",
+                "type": "Jazz Bar",
+                "specialty": "Live jazz music",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Whiskey selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy underground jazz club with intimate setting",
+                "best_time": "Night",
+                "food_options": "Limited bar menu",
+                "reservation_needed": true,
+                "local_tips": "Check their program for performances, usually starts around 9:30pm"
+            },
+            {
+                "name": "Soda Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views",
+                "signature_drinks": [
+                    "Champagne cocktails",
+                    "Signature spritzes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern rooftop with city views",
+                "best_time": "Sunset",
+                "food_options": "Small plates and finger food",
+                "reservation_needed": true,
+                "local_tips": "Located on top of the Confluences Museum, offering unique views of the river junction"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Lyon Old Town Gourmet Tour",
+                "focus": "Traditional Lyonnaise cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to Les Halles Paul Bocuse",
+                    "Bouchon tastings",
+                    "Chocolate and praline specialties"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance, wear comfortable shoes for cobblestone streets"
+            },
+            {
+                "name": "Croix-Rousse Culinary Secrets",
+                "focus": "Hidden food gems in the silk workers' district",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Croix-Rousse market",
+                    "Artisanal food shops",
+                    "Traboules (hidden passageways)"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Morning tours recommended to experience the market at its best"
+            },
+            {
+                "name": "Lyon Craft Beer Experience",
+                "focus": "Emerging craft beer scene",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Microbrewery visits",
+                    "Beer tastings with food pairings",
+                    "Behind-the-scenes brewing process"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Evening tours available, includes generous tastings"
+            },
+            {
+                "name": "Paul Bocuse Culinary Legacy Tour",
+                "focus": "Exploring the influence of Lyon's legendary chef",
+                "duration": "6 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Les Halles Paul Bocuse",
+                    "Institut Paul Bocuse exterior",
+                    "Collonges-au-Mont-d'Or village"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation, can be combined with lunch reservations"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "L'Atelier des Chefs",
+                "cuisine_focus": "Classic French techniques",
+                "duration": "2-4 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Quenelles preparation",
+                    "Sauce techniques",
+                    "Tarte aux pralines"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Meal with wine"
+                ],
+                "booking_tips": "Various class formats available from express lunch to gourmet workshops"
+            },
+            {
+                "name": "Plum Lyon Teaching Kitchen",
+                "cuisine_focus": "Traditional Lyonnaise home cooking",
+                "duration": "5-6 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Regional specialties",
+                    "Market shopping",
+                    "Home cooking techniques"
+                ],
+                "group_size": "6-8",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market visit",
+                    "Coffee and pastries",
+                    "Full meal with wine"
+                ],
+                "booking_tips": "Held in a beautiful Croix-Rousse apartment, very personal experience"
+            },
+            {
+                "name": "Institut Paul Bocuse Workshops",
+                "cuisine_focus": "Professional culinary techniques",
+                "duration": "4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Professional-level techniques",
+                    "Pastry skills",
+                    "Plating and presentation"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "French",
+                    "English (with advance notice)"
+                ],
+                "includes": [
+                    "Professional kitchen access",
+                    "Premium ingredients",
+                    "Take-home creations"
+                ],
+                "booking_tips": "A unique opportunity to cook in a world-renowned culinary school, book well in advance"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Les Halles de Lyon Paul Bocuse",
+                "type": "Indoor gourmet food hall",
+                "highlights": [
+                    "Premium regional products",
+                    "Cheese, charcuterie, pastries",
+                    "Small eateries and oyster bars"
+                ],
+                "hours": "Tue-Sat: 7:00am-7:00pm, Sun: 7:00am-1:00pm",
+                "best_time": "Late morning",
+                "location": "Part-Dieu district",
+                "local_tips": "The temple of Lyon gastronomy, pricey but highest quality, great for lunch"
+            },
+            {
+                "name": "Marché de la Croix-Rousse",
+                "type": "Daily open-air market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local farmers",
+                    "Street food options"
+                ],
+                "hours": "Tue-Sun: 6:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "Boulevard de la Croix-Rousse",
+                "local_tips": "One of Lyon's best neighborhood markets, authentic local atmosphere"
+            },
+            {
+                "name": "Marché Saint-Antoine",
+                "type": "Riverside market",
+                "highlights": [
+                    "Premium produce",
+                    "Artisanal products",
+                    "Beautiful setting along the Saône"
+                ],
+                "hours": "Tue-Sun: 6:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Quai Saint-Antoine",
+                "local_tips": "Lyon's most scenic market with excellent cheese vendors and specialty producers"
+            },
+            {
+                "name": "Marché de la Place Carnot",
+                "type": "Neighborhood market",
+                "highlights": [
+                    "Affordable produce",
+                    "Multicultural food offerings",
+                    "Local atmosphere"
+                ],
+                "hours": "Wed, Sat: 7:00am-1:00pm",
+                "best_time": "Mid-morning",
+                "location": "Perrache district",
+                "local_tips": "Less touristy than other markets, good prices and authentic experience"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Cervelle de canut (herb and garlic cheese spread)",
+            "Fresh spring vegetables with Lyonnaise sauce",
+            "Navarin of spring lamb"
+        ],
+        "summer": [
+            "Salade Lyonnaise (with bacon, croutons, poached egg)",
+            "Rosette de Lyon (cured sausage) with fresh tomatoes",
+            "Gateau de Voisin (cherry tart)"
+        ],
+        "autumn": [
+            "Coq au vin",
+            "Pumpkin gratin dauphinois",
+            "Tarte aux pralines roses"
+        ],
+        "winter": [
+            "Quenelles de brochet sauce Nantua",
+            "Saucisson chaud (poached sausage)",
+            "Gratin d'andouillette au vin blanc"
+        ]
+    }
+}

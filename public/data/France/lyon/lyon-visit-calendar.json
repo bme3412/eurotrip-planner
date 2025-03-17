@@ -1,0 +1,377 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 2,
+          "special": true,
+          "event": "New Year's Day",
+          "notes": "Holiday atmosphere lingering, many businesses closed"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 3,
+          "notes": "Winter sales (soldes) begin, great shopping opportunities throughout the city"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "special": true,
+          "event": "Salon Mahana (Travel Fair)",
+          "notes": "Travel exhibition at Eurexpo Lyon, featuring tourism offerings from around the world"
+        }
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": -1,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2],
+          "score": 3,
+          "notes": "Winter atmosphere, fewer tourists, excellent museum opportunities"
+        },
+        {
+          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+          "score": 4,
+          "special": true,
+          "event": "Winter School Holidays",
+          "notes": "French school vacation period, increased family tourism, animation in the city"
+        },
+        {
+          "days": [26, 27, 28],
+          "score": 3,
+          "special": true,
+          "event": "Quais du Polar (Crime Fiction Festival) Preparation",
+          "notes": "Anticipation builds for Lyon's popular literary festival, themed bookstore displays"
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 0,
+      "tourismLevel": 4
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 4,
+          "notes": "Early spring weather, café terraces begin to open, pleasant time for urban exploration"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Quais du Polar",
+          "notes": "Major international crime fiction festival with author events, exhibits, and film screenings"
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 3,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Spring in full bloom, ideal weather for exploring parks and riverside walks"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Easter holidays and Spring Break",
+          "notes": "Family-oriented activities, special exhibitions at museums, market festivities"
+        }
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 6,
+      "tourismLevel": 6
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "Labor Day",
+          "notes": "Public holiday, many businesses closed but festive gatherings and demonstrations"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8],
+          "score": 4,
+          "special": true,
+          "event": "Multiple Public Holidays",
+          "notes": "Victory Day (May 8) and often Ascension create long weekends, increased domestic tourism"
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+          "score": 5,
+          "notes": "Perfect spring weather, roses blooming in Parc de la Tête d'Or, ideal for outdoor dining"
+        },
+        {
+          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Nuits Sonores Festival",
+          "notes": "Major electronic music and arts festival across multiple venues in the city"
+        }
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 10,
+      "tourismLevel": 7
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 5,
+          "notes": "Perfect weather, riverside activities in full swing, pre-summer atmosphere"
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Nuits de Fourvière Festival",
+          "notes": "Prestigious performing arts festival in the Roman theaters with international acts"
+        }
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 13,
+      "tourismLevel": 8
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 4,
+          "notes": "Summer season begins, warmer temperatures, many locals depart for vacation"
+        },
+        {
+          "days": [14],
+          "score": 5,
+          "special": true,
+          "event": "Bastille Day",
+          "notes": "National holiday with military parade, firefighter balls, and fireworks over the Rhône"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Tout le Monde Dehors Festival",
+          "notes": "Free outdoor cultural events throughout the city: concerts, cinema, dance"
+        }
+      ],
+      "weatherHighC": 28,
+      "weatherLowC": 16,
+      "tourismLevel": 7
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "notes": "Peak summer heat, many locals away, some restaurant closures"
+        },
+        {
+          "days": [15],
+          "score": 2,
+          "special": true,
+          "event": "Assumption Day",
+          "notes": "Public holiday, significant business closures throughout the city"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Quieter city atmosphere, good for urban exploration, riverside activities"
+        }
+      ],
+      "weatherHighC": 28,
+      "weatherLowC": 16,
+      "tourismLevel": 6
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 5,
+          "notes": "Perfect late summer weather, locals return, city reawakens"
+        },
+        {
+          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 5,
+          "special": true,
+          "event": "Lyon Street Food Festival",
+          "notes": "Major gastronomic event showcasing international and local street food"
+        },
+        {
+          "days": [24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "European Heritage Days",
+          "notes": "Special access to historic buildings normally closed to the public"
+        }
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 12,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+          "score": 5,
+          "notes": "Beautiful autumn colors in parks, pleasant temperatures, ideal for walking tours"
+        },
+        {
+          "days": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Festival Lumière",
+          "notes": "Major film festival celebrating cinema history in the birthplace of film"
+        }
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 8,
+      "tourismLevel": 6
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day",
+          "notes": "Public holiday, many businesses closed"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 4,
+          "notes": "Autumn atmosphere, fewer tourists, excellent museum-going weather"
+        },
+        {
+          "days": [11],
+          "score": 3,
+          "special": true,
+          "event": "Armistice Day",
+          "notes": "Commemorative events, some businesses closed"
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "special": true,
+          "event": "Beaujolais Nouveau Release",
+          "notes": "Celebration of new wine release with tastings throughout Lyon's restaurants and bars"
+        }
+      ],
+      "weatherHighC": 11,
+      "weatherLowC": 3,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 4,
+          "notes": "Pre-festival preparations, Christmas markets begin to open"
+        },
+        {
+          "days": [8, 9, 10, 11],
+          "score": 5,
+          "special": true,
+          "event": "Fête des Lumières (Festival of Lights)",
+          "notes": "World-famous light festival with spectacular installations throughout the city"
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets",
+          "notes": "Holiday markets at Place Carnot and other locations, festive atmosphere"
+        },
+        {
+          "days": [24, 25],
+          "score": 2,
+          "special": true,
+          "event": "Christmas",
+          "notes": "Many closures, limited dining options, quieter atmosphere"
+        },
+        {
+          "days": [26, 27, 28, 29, 30],
+          "score": 3,
+          "notes": "Between Christmas and New Year's, gradual increase in visitors"
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "New Year's Eve",
+          "notes": "Celebrations and special menus at restaurants, festive atmosphere"
+        }
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 0,
+      "tourismLevel": 8
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Parks and Gardens",
+      "River Cruises",
+      "Food Markets",
+      "Museum Visits",
+      "Walking Tours",
+      "Outdoor Dining",
+      "Music Festivals"
+    ],
+    "summer": [
+      "Outdoor Festivals",
+      "River Activities",
+      "Outdoor Cinema",
+      "Roman Theater Performances",
+      "Urban Beaches",
+      "Cycling Tours",
+      "Evening Promenades"
+    ],
+    "autumn": [
+      "Film Festival",
+      "Wine Tastings",
+      "Gastronomy Tours",
+      "Museum Exhibitions",
+      "Fall Foliage in Parks",
+      "Cultural Events",
+      "Shopping"
+    ],
+    "winter": [
+      "Festival of Lights",
+      "Christmas Markets",
+      "Museum Visits",
+      "Indoor Concerts",
+      "Gastronomic Experiences",
+      "Bouchon Restaurants",
+      "Shopping",
+      "Opera and Ballet"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+  }
+}

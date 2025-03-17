@@ -66,7 +66,7 @@ export const getCitiesData = () => {
       country: 'France',
       region: 'Atlantic Europe',
       description: "Lyon is renowned for its historical architecture, gastronomy, and Renaissance district at the confluence of the Rhône and Saône rivers.",
-      thumbnail: '/images/lyon-thumbnail.jpg',
+      thumbnail: '/images/lyon-thumbnail.jpeg',
       landmarks: ['Basilica of Notre-Dame de Fourvière', "Parc de la Tête d'Or"],
       latitude: 45.7640,
       longitude: 4.8357
