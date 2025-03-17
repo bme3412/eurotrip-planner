@@ -153,7 +153,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Lille is a cultural hub in northern France, featuring Flemish architecture, renowned museums, and a lively urban atmosphere.",
-      thumbnail: "/images/lille-thumbnail.jpg",
+      thumbnail: "/images/lille-thumbnail.jpeg",
       landmarks: ["Old Stock Exchange", "Palais des Beaux-Arts"],
       latitude: 50.6292,
       longitude: 3.0573,

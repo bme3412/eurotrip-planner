@@ -1,0 +1,327 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The iconic French capital with world-famous monuments, museums, and cuisine.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "1h00m",
+                "frequency": "Every 30 minutes"
+            },
+            "directWithinCountryHighSpeedTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "1h00m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Vibrant capital of Belgium and the European Union, known for its historic Grand Place, Art Nouveau architecture, and excellent beer culture.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "35m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, and culture.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "1h30m",
+                "frequency": "Several daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and cycling culture.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "2h40m",
+                "frequency": "Several daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Bruges",
+            "country": "Belgium",
+            "whyGo": "Medieval fairy-tale city with canals, cobbled streets, and Gothic architecture, known as the 'Venice of the North'.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "1h10m",
+                "frequency": "Hourly (with change in Kortrijk)"
+            }
+        },
+        {
+            "city": "Ghent",
+            "country": "Belgium",
+            "whyGo": "Historic university town with magnificent medieval architecture, vibrant cultural scene, and fewer tourists than Bruges.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "1h15m",
+                "frequency": "Hourly (with change in Kortrijk)"
+            }
+        },
+        {
+            "city": "Antwerp",
+            "country": "Belgium",
+            "whyGo": "Belgium's capital of cool, known for its fashion industry, diamond district, and impressive Renaissance architecture.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "1h25m",
+                "frequency": "Hourly (with change in Brussels)"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Historic city on the Rhine River known for its magnificent Gothic cathedral, Romanesque churches, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "3h30m",
+                "frequency": "Several daily (with change in Brussels)"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "France's gastronomic capital with Renaissance architecture, Roman ruins, and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "3h00m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "France's oldest city with vibrant multicultural atmosphere, historic port, and dramatic coastline.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "4h30m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "Beautiful Alsatian city with half-timbered buildings, stunning cathedral, and European Parliament.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "3h15m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "Wine capital with elegant 18th-century architecture, vibrant cultural scene, and excellent gastronomy.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "5h00m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "2h00m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "2h05m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Known for its literary heritage, lively pubs, and friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic city known for its art scene, modern landmarks, and vibrant nightlife.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Renowned for its design, bicycle culture, and exceptional dining scene.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its colorful buildings, historic trams, and rich maritime heritage.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "2h35m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its medieval Old Town, baroque architecture, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLille": [
+                    "Lille-Lesquin"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Several weekly"
+            }
+        },
+        {
+            "city": "Arras",
+            "country": "France",
+            "whyGo": "Historic city in northern France with impressive Flemish baroque architecture, UNESCO-listed belfry, and WWI memorials.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "25m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Dunkirk",
+            "country": "France",
+            "whyGo": "Coastal city with significant WWII history, long sandy beaches, and annual carnival celebrations.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "30m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Lens",
+            "country": "France",
+            "whyGo": "Former mining town home to the impressive Louvre-Lens Museum, a branch of the famous Parisian museum.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "35m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Tournai",
+            "country": "Belgium",
+            "whyGo": "One of Belgium's oldest cities featuring a stunning Romanesque and Gothic cathedral and charming Grand Place.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "25m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Amiens",
+            "country": "France",
+            "whyGo": "Historic city with France's largest Gothic cathedral, charming floating gardens, and Jules Verne's house.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "1h20m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Reims",
+            "country": "France",
+            "whyGo": "Champagne capital with magnificent Gothic cathedral where French kings were crowned, and numerous champagne house cellars to visit.",
+            "directWithinCountryTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "1h45m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Roubaix",
+            "country": "France",
+            "whyGo": "Former textile city reinvented as a design and art hub, home to La Piscine Museum housed in an Art Deco swimming pool.",
+            "directWithinCountryMetro": {
+                "stationInLille": "Lille City Center",
+                "journeyTime": "20m",
+                "frequency": "Every 10 minutes"
+            }
+        },
+        {
+            "city": "Rotterdam",
+            "country": "Netherlands",
+            "whyGo": "Modern Dutch city with bold architecture, bustling port, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "2h55m",
+                "frequency": "Several daily (with change)"
+            }
+        },
+        {
+            "city": "Ypres",
+            "country": "Belgium",
+            "whyGo": "Historic Flemish city with WWI significance, featuring the In Flanders Fields Museum and moving Last Post ceremony.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Flandres",
+                "journeyTime": "40m",
+                "frequency": "Hourly (with change)"
+            }
+        },
+        {
+            "city": "Luxembourg City",
+            "country": "Luxembourg",
+            "whyGo": "Capital of the tiny grand duchy with dramatic gorge setting, UNESCO-listed fortifications, and international atmosphere.",
+            "intraEuropeTrain": {
+                "stationInLille": "Lille Europe",
+                "journeyTime": "3h30m",
+                "frequency": "Several daily (with change)"
+            }
+        }
+    ]
+}
