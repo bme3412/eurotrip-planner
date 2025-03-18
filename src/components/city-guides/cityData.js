@@ -125,7 +125,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "A vibrant city on the Loire River, Nantes is known for its rich maritime history, innovative arts scene, and proximity to the Loire Valley.",
-      thumbnail: "/images/nantes-thumbnail.jpg",
+      thumbnail: "/images/nantes-thumbnail.jpeg",
       landmarks: ["Château des Ducs de Bretagne", "Les Machines de l'Île"],
       latitude: 47.2184,
       longitude: -1.5536,
@@ -139,7 +139,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Montpellier is a vibrant university city with a historic center, elegant squares, and a thriving cultural scene.",
-      thumbnail: "/images/montpellier-thumbnail.jpg",
+      thumbnail: "/images/montpellier-thumbnail.jpeg",
       landmarks: ["Place de la Comédie", "Promenade du Peyrou"],
       latitude: 43.6119,
       longitude: 3.8772,
