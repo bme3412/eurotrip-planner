@@ -111,7 +111,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         'Known as "La Ville Rose" (The Pink City) for its distinctive brick architecture, Toulouse is a hub for the aerospace industry and southern French culture.',
-      thumbnail: "/images/toulouse-thumbnail.jpg",
+      thumbnail: "/images/toulouse-thumbnail.jpeg",
       landmarks: ["Place du Capitole", "Basilique Saint-Sernin"],
       latitude: 43.6047,
       longitude: 1.4442,
