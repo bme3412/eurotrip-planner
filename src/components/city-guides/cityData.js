@@ -360,7 +360,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Amsterdam is celebrated for its artistic heritage, elaborate canal system, and narrow houses with gabled facades—a legacy of its 17th-century Golden Age.",
-      thumbnail: "/images/amsterdam-thumbnail.jpg",
+      thumbnail: "/images/amsterdam-thumbnail.jpeg",
       landmarks: ["Rijksmuseum", "Anne Frank House", "Historic Canals"],
       latitude: 52.3676,
       longitude: 4.9041,
@@ -602,7 +602,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Milan is Italy's fashion and design capital, blending historic architecture with modern industry and cultural innovation.",
-      thumbnail: "/images/milan-thumbnail.jpg",
+      thumbnail: "/images/milan-thumbnail.jpeg",
       landmarks: [
         "Duomo di Milano",
         "Sforza Castle",
