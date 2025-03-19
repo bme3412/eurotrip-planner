@@ -588,7 +588,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Rome, steeped in over two millennia of history, offers ancient ruins, Renaissance art, and vibrant street life.",
-      thumbnail: "/images/rome-thumbnail.jpg",
+      thumbnail: "/images/rome-thumbnail.jpeg",
       landmarks: ["Colosseum", "Vatican City", "Trevi Fountain"],
       latitude: 41.9028,
       longitude: 12.4964,

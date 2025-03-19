@@ -1,0 +1,635 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "La Pergola",
+                "cuisine_type": "Mediterranean Italian",
+                "signature_dishes": [
+                    "Deep-fried Zucchini Flower with Caviar on Saffron",
+                    "Fagotelli 'La Pergola'"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant with panoramic views of Rome from Monte Mario hill",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 months in advance, especially for weekend dinners",
+                "dress_code": "Formal",
+                "michelin_stars": 3,
+                "location": "Rome Cavalieri, Waldorf Astoria",
+                "local_tips": "Request a window table for breathtaking views of the city and opt for the tasting menu with wine pairing"
+            },
+            {
+                "name": "Il Pagliaccio",
+                "cuisine_type": "Creative Italian",
+                "signature_dishes": [
+                    "Risotto with Calvisius Caviar",
+                    "Pigeon with Elderberry and Kumquat"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate and refined with contemporary art-filled interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 month in advance",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Centro Storico",
+                "local_tips": "Try the surprise tasting menu for Chef Anthony Genovese's most innovative creations"
+            },
+            {
+                "name": "Imàgo",
+                "cuisine_type": "Italian Fusion",
+                "signature_dishes": [
+                    "Cappelletti with Rabbit and Porcini",
+                    "Mediterranean Sea Bass with Clams"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated and romantic with a stunning view from the 6th floor of Hotel Hassler",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request a window table",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Spanish Steps",
+                "local_tips": "Time your reservation to enjoy the sunset over Roman rooftops"
+            },
+            {
+                "name": "Aroma",
+                "cuisine_type": "Contemporary Roman",
+                "signature_dishes": [
+                    "Spaghetti with Pecorino and Madagascan Pepper",
+                    "Breaded Veal with Wild Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant terrace dining with direct views of the Colosseum",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 months in advance, specify if you want Colosseum view",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Palazzo Manfredi",
+                "local_tips": "Visit during the full moon when the Colosseum is beautifully illuminated"
+            },
+            {
+                "name": "Glass Hostaria",
+                "cuisine_type": "Innovative Italian",
+                "signature_dishes": [
+                    "Tortelli with Baccalà and Coffee",
+                    "Duck with Wild Cherries"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and chic with glass accents in a historic Trastevere building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2 weeks ahead for weekend dining",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Trastevere",
+                "local_tips": "Chef Cristina Bowerman offers innovative cuisine in Rome's most traditional neighborhood"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Roscioli",
+                "cuisine_type": "Roman",
+                "signature_dishes": [
+                    "Carbonara",
+                    "Burrata with Semi-Dried Tomatoes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Bustling deli-restaurant hybrid with exceptional ingredients",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week in advance, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Campo de' Fiori area",
+                "local_tips": "The bread basket is exceptional—they're also a renowned bakery"
+            },
+            {
+                "name": "Armando al Pantheon",
+                "cuisine_type": "Traditional Roman",
+                "signature_dishes": [
+                    "Rigatoni alla Carbonara",
+                    "Coda alla Vaccinara (Oxtail Stew)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, family-run trattoria with authentic vibes",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a week in advance, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Pantheon",
+                "local_tips": "Try their seasonal artichokes when available (winter-spring)"
+            },
+            {
+                "name": "Da Enzo al 29",
+                "cuisine_type": "Traditional Roman",
+                "signature_dishes": [
+                    "Cacio e Pepe",
+                    "Polpette al Sugo (Meatballs)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Tiny, authentic trattoria with a lively atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead; they only take reservations by phone",
+                "dress_code": "Casual",
+                "location": "Trastevere",
+                "local_tips": "Arrive right at opening time if you don't have a reservation"
+            },
+            {
+                "name": "Pizzarium",
+                "cuisine_type": "Gourmet Pizza al Taglio",
+                "signature_dishes": [
+                    "Pizza with Potato and Mozzarella",
+                    "Seasonal Specialty Pizzas"
+                ],
+                "price_range": "€",
+                "atmosphere": "Standing-room-only pizza counter known for artisanal toppings",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; avoid peak lunch hours if possible",
+                "dress_code": "Casual",
+                "location": "Vatican area",
+                "local_tips": "Try multiple varieties by purchasing small rectangular slices"
+            },
+            {
+                "name": "Trattoria Da Danilo",
+                "cuisine_type": "Traditional Roman",
+                "signature_dishes": [
+                    "Tonnarelli Cacio e Pepe",
+                    "Carbonara"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and welcoming family-run establishment",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-5 days in advance",
+                "dress_code": "Casual",
+                "location": "Esquilino",
+                "local_tips": "Their pasta is made fresh daily; arrive hungry"
+            },
+            {
+                "name": "Emma Pizzeria",
+                "cuisine_type": "Pizzeria",
+                "signature_dishes": [
+                    "Margherita with Buffalo Mozzarella",
+                    "Capricciosa Pizza"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stylish modern pizzeria with spacious interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner, especially weekends",
+                "dress_code": "Casual",
+                "location": "Campo de' Fiori area",
+                "local_tips": "Their dough is made with flour from the renowned Mulino Marino"
+            },
+            {
+                "name": "Pierluigi",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Spaghetti alle Vongole",
+                    "Grilled Mediterranean Fish"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant but relaxed with outdoor piazza seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead, request outdoor seating in good weather",
+                "dress_code": "Smart casual",
+                "location": "Campo de' Fiori area",
+                "local_tips": "Ask what's fresh from the market that day for the best seafood experience"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Supplizio",
+                "specialties": [
+                    "Supplì (Fried Rice Balls)",
+                    "Artisanal Potato Croquettes"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 8:00 PM",
+                "location": "Centro Storico",
+                "seating": "Limited",
+                "local_tips": "Try the classic supplì with tomato and mozzarella first"
+            },
+            {
+                "name": "Trapizzino",
+                "specialties": [
+                    "Trapizzino with Chicken Cacciatore",
+                    "Trapizzino with Eggplant Parmigiana"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 12:00 AM",
+                "location": "Testaccio/Trastevere",
+                "seating": true,
+                "local_tips": "This Roman street food invention combines pizza pocket with traditional fillings"
+            },
+            {
+                "name": "Antico Forno Roscioli",
+                "specialties": [
+                    "Pizza Bianca",
+                    "Pizza Rossa"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 7:30 PM",
+                "location": "Campo de' Fiori area",
+                "seating": false,
+                "local_tips": "Ask for your pizza 'calda' (warm) for the best experience"
+            },
+            {
+                "name": "Mordi e Vai",
+                "specialties": [
+                    "Panino with Allesso di Scottona (Beef)",
+                    "Picchiapò Sandwich"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 3:00 PM",
+                "location": "Testaccio Market",
+                "seating": false,
+                "local_tips": "Join the locals for authentic Roman sandwich fillings in the market"
+            },
+            {
+                "name": "Dar Filettaro",
+                "specialties": [
+                    "Filetti di Baccalà (Fried Salt Cod)",
+                    "Supplì"
+                ],
+                "price_range": "€",
+                "hours": "5:30 PM - 11:00 PM",
+                "location": "Campo de' Fiori area",
+                "seating": true,
+                "local_tips": "This tiny spot has been serving the same perfect fried cod since 1950"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Antico Caffè Greco",
+                "specialty": "Traditional Italian Espresso",
+                "must_try": [
+                    "Espresso",
+                    "Granita di Caffè con Panna"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic and elegant with museum-like interiors from 1760",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light snacks",
+                "local_tips": "Stand at the bar like a local to avoid the table service charge"
+            },
+            {
+                "name": "Sant'Eustachio Il Caffè",
+                "specialty": "Gran Caffè (Secret Recipe)",
+                "must_try": [
+                    "Gran Caffè",
+                    "Nocciola (Hazelnut Coffee)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling historic café with standing room and outdoor tables",
+                "best_time": "Any time",
+                "wifi_friendly": false,
+                "food_options": "Pastries and chocolates",
+                "local_tips": "Their signature coffee comes pre-sweetened; specify 'senza zucchero' if you don't want sugar"
+            },
+            {
+                "name": "Tazza d'Oro",
+                "specialty": "Granita di Caffè con Panna",
+                "must_try": [
+                    "Granita di Caffè",
+                    "House Blend Espresso"
+                ],
+                "price_range": "€",
+                "atmosphere": "Traditional and busy with brass fixtures and marble counters",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Limited pastries",
+                "local_tips": "The coffee granita with whipped cream is perfect on a hot Roman day"
+            },
+            {
+                "name": "Barnum Café",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Cappuccino",
+                    "Filter Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bohemian and relaxed with vintage furniture",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Brunch menu and light meals",
+                "local_tips": "One of the few places in Rome embracing international coffee culture"
+            },
+            {
+                "name": "Faro - Luminaries of Coffee",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Pour Over",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and modern with serious coffee focus",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and simple breakfast items",
+                "local_tips": "The place for coffee enthusiasts seeking specialty single-origin beans"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Jerry Thomas Speakeasy",
+                "type": "Speakeasy",
+                "specialty": "Prohibition-Era Cocktails",
+                "signature_drinks": [
+                    "Improved Aviation",
+                    "Secret house creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Secret 1920s-style speakeasy with vintage ambiance",
+                "best_time": "Evening",
+                "food_options": "Small bites",
+                "reservation_needed": true,
+                "local_tips": "Requires password from website; book well in advance and dress smartly"
+            },
+            {
+                "name": "Stravinskij Bar",
+                "type": "Luxury Hotel Bar",
+                "specialty": "Classic and Signature Cocktails",
+                "signature_drinks": [
+                    "Stravinskij Spritz",
+                    "Negroni with aged vermouth"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant garden terrace at Hotel de Russie",
+                "best_time": "Sunset",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Perfect for aperitivo among Rome's elite; worth the splurge"
+            },
+            {
+                "name": "Bar del Fico",
+                "type": "Casual Bar",
+                "specialty": "Aperitivo",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "House wine"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and social with outdoor seating",
+                "best_time": "Evening",
+                "food_options": "Aperitivo buffet with drinks",
+                "reservation_needed": false,
+                "local_tips": "A favorite local hangout; great for people-watching in Piazza del Fico"
+            },
+            {
+                "name": "The Court",
+                "type": "Rooftop Bar",
+                "specialty": "Creative Cocktails",
+                "signature_drinks": [
+                    "Roman Empire",
+                    "Martini selections"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated rooftop with Colosseum views",
+                "best_time": "Sunset",
+                "food_options": "Gourmet finger food",
+                "reservation_needed": true,
+                "local_tips": "Make reservations for the best tables with Colosseum views"
+            },
+            {
+                "name": "Salotto 42",
+                "type": "Book Bar",
+                "specialty": "Curated Cocktails",
+                "signature_drinks": [
+                    "Herbal Gin & Tonic",
+                    "Custom Negroni"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Chic and intimate with books and design magazines",
+                "best_time": "Evening",
+                "food_options": "Simple snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular with fashion and design crowd; arrive early for a seat"
+            },
+            {
+                "name": "Club Derrière",
+                "type": "Speakeasy",
+                "specialty": "Molecular Mixology",
+                "signature_drinks": [
+                    "Smoked Old Fashioned",
+                    "Derrière Sour"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Hidden bar with jazz music and vintage decor",
+                "best_time": "Night",
+                "food_options": "Small plates",
+                "reservation_needed": true,
+                "local_tips": "Enter through the unmarked door and refrigerator in the back of a restaurant"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Testaccio Market Food Tour",
+                "focus": "Roman Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Testaccio Market visits",
+                    "Street food tastings",
+                    "History of Roman cuisine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance; tours run Tuesday-Saturday when the market is open"
+            },
+            {
+                "name": "Trastevere Food & Wine Tour",
+                "focus": "Local Specialties & Wine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to local trattorias",
+                    "Wine pairings with Roman dishes",
+                    "Evening atmosphere in Trastevere"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Evening tours book quickly; reserve 10-14 days ahead"
+            },
+            {
+                "name": "Campo de' Fiori Market Tour",
+                "focus": "Fresh Produce and Roman Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Market shopping with a chef",
+                    "Seasonal produce exploration",
+                    "Tastings of local specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book early; market is closed on Sundays"
+            },
+            {
+                "name": "Pizza and Gelato Making Class",
+                "focus": "Hands-on Pizza & Gelato",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Learn authentic pizza techniques",
+                    "Make gelato from scratch",
+                    "Enjoy your creations"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Popular with families; book at least 2 weeks ahead"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Roman Pasta Workshop",
+                "cuisine_focus": "Traditional Pasta",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Carbonara",
+                    "Cacio e Pepe",
+                    "Amatriciana"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Ingredients, meal, wine, and recipes"
+                ],
+                "booking_tips": "Book 2 weeks ahead, especially for 'The Four Pastas of Rome' classes"
+            },
+            {
+                "name": "Market-to-Table Cooking Experience",
+                "cuisine_focus": "Seasonal Roman",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seasonal antipasti",
+                    "Main course based on market finds",
+                    "Traditional dessert"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market tour, ingredients, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks in advance; closed Sundays when markets are closed"
+            },
+            {
+                "name": "Jewish-Roman Cuisine Class",
+                "cuisine_focus": "Roman-Jewish",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Carciofi alla Giudia (Jewish-style artichokes)",
+                    "Aliciotti con l'Indivia",
+                    "Ricotta Crostata"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Ingredients, meal, wine, historical context"
+                ],
+                "booking_tips": "These specialized classes book quickly; reserve 3 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato di Campo de' Fiori",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Flowers and spices"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Campo de' Fiori",
+                "local_tips": "Visit early for the best selection and atmosphere before tourists arrive"
+            },
+            {
+                "name": "Mercato Testaccio",
+                "type": "Local Food Market",
+                "highlights": [
+                    "Street food stalls",
+                    "Fresh pasta makers",
+                    "Butchers specializing in Roman cuts"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 3:30 PM",
+                "best_time": "Lunch",
+                "location": "Testaccio",
+                "local_tips": "The most authentic Roman market experience; have lunch at Mordi e Vai inside"
+            },
+            {
+                "name": "Mercato Centrale Roma",
+                "type": "Gourmet Food Hall",
+                "highlights": [
+                    "Artisanal food vendors",
+                    "Trapizzino",
+                    "Craft beer"
+                ],
+                "hours": "Daily 8:00 AM - 12:00 AM",
+                "best_time": "Evening",
+                "location": "Termini Station",
+                "local_tips": "Great option for high-quality food near the train station; try multiple vendors"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Carciofi alla Romana (Roman-style artichokes)",
+            "Vignarola (Spring vegetable stew)",
+            "Agretti (Monk's beard greens)"
+        ],
+        "summer": [
+            "Fiori di Zucca Fritti (Fried zucchini flowers)",
+            "Pomodori al Riso (Rice-stuffed tomatoes)",
+            "Cocomero (Watermelon sold from street stands)"
+        ],
+        "autumn": [
+            "Porcini Mushroom Pasta",
+            "Castagne (Roasted chestnuts)",
+            "Supplì ai Funghi (Mushroom rice balls)"
+        ],
+        "winter": [
+            "Coda alla Vaccinara (Oxtail stew)",
+            "Carciofi alla Giudia (Jewish-style artichokes)",
+            "Maritozzi con la Panna (Cream-filled sweet buns)"
+        ]
+    }
+}
