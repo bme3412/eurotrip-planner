@@ -187,7 +187,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Munich is Bavaria's capital, blending traditional German culture with modern technology and renowned for its Oktoberfest celebrations.",
-      thumbnail: "/images/munich-thumbnail.jpg",
+      thumbnail: "/images/munich-thumbnail.jpeg",
       landmarks: ["Marienplatz", "English Garden", "Nymphenburg Palace"],
       latitude: 48.1351,
       longitude: 11.582,
