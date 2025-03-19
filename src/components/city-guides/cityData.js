@@ -474,7 +474,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Barcelona is known for its unique blend of modernist architecture, vibrant street life, and beautiful Mediterranean beaches.",
-      thumbnail: "/images/barcelona-thumbnail.jpg",
+      thumbnail: "/images/barcelona-thumbnail.jpeg",
       landmarks: ["Sagrada Família", "Park Güell", "La Rambla"],
       latitude: 41.3851,
       longitude: 2.1734,
@@ -916,7 +916,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Dublin is a lively city known for its literary history, vibrant pub culture, and iconic landmarks.",
-      thumbnail: "/images/dublin-thumbnail.jpg",
+      thumbnail: "/images/dublin-thumbnail.jpeg",
       landmarks: [
         "Trinity College",
         "Guinness Storehouse",
