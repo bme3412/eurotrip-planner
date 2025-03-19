@@ -1,0 +1,481 @@
+{
+    "neighborhoods": [
+      {
+        "name": "San Marco",
+        "alternate_names": ["St. Mark's", "The Drawing Room of Europe"],
+        "character": "Majestic historical center with Venice's most iconic landmarks and elegant architecture.",
+        "location": {
+          "central": true,
+          "description": "The heart of Venice, surrounding St. Mark's Square (Piazza San Marco).",
+          "borders": ["Castello", "San Polo", "Cannaregio", "Grand Canal"],
+          "landmarks": ["St. Mark's Basilica", "Doge's Palace", "Campanile"]
+        },
+        "practical_info": {
+          "transit": ["San Marco-Vallaresso vaporetto stop", "San Marco-San Zaccaria vaporetto stop"],
+          "safety": "Very safe but crowded. Watch for pickpockets in tourist areas.",
+          "best_time_to_visit": "Early morning or evening to avoid cruise ship crowds.",
+          "walkability": "Highly walkable but many bridges with steps."
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 1,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "St. Mark's Basilica",
+              "type": "Church",
+              "description": "Byzantine masterpiece with golden mosaics and the famous Bronze Horses."
+            },
+            {
+              "name": "Doge's Palace",
+              "type": "Historic Building",
+              "description": "Gothic palace that served as the center of Venetian government."
+            },
+            {
+              "name": "Campanile di San Marco",
+              "type": "Bell Tower",
+              "description": "99-meter tall brick bell tower with panoramic views of Venice."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Caffè Florian",
+              "cuisine": "Italian/Café",
+              "price_range": "€€€€",
+              "known_for": "Historic café dating back to 1720 with orchestra"
+            },
+            {
+              "name": "Quadri",
+              "cuisine": "Venetian Fine Dining",
+              "price_range": "€€€€",
+              "known_for": "Michelin-starred cuisine with views of St. Mark's Square"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit St. Mark's Basilica at opening time to avoid long lines.",
+          "The area floods frequently during acqua alta (October-January)."
+        ]
+      },
+      {
+        "name": "Dorsoduro",
+        "alternate_names": ["The Art District"],
+        "character": "Elegant yet bohemian district with prestigious art collections and university atmosphere.",
+        "location": {
+          "central": true,
+          "description": "Southern part of Venice with waterfronts along both Grand Canal and Giudecca Canal.",
+          "borders": ["San Marco", "San Polo", "Grand Canal", "Giudecca Canal"],
+          "landmarks": ["Gallerie dell'Accademia", "Peggy Guggenheim Collection", "Santa Maria della Salute"]
+        },
+        "practical_info": {
+          "transit": ["Accademia vaporetto stop", "Salute vaporetto stop", "Zattere vaporetto stop"],
+          "safety": "Very safe area at all hours.",
+          "best_time_to_visit": "Afternoon for museums, evening for Campo Santa Margherita.",
+          "walkability": "Excellent with beautiful routes along the Zattere promenade."
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Gallerie dell'Accademia",
+              "type": "Art Museum",
+              "description": "Greatest collection of Venetian paintings from the 14th-18th centuries."
+            },
+            {
+              "name": "Peggy Guggenheim Collection",
+              "type": "Art Museum",
+              "description": "Modern art in Peggy Guggenheim's former home on the Grand Canal."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Osteria Al Squero",
+              "cuisine": "Cicchetti",
+              "price_range": "€",
+              "known_for": "Inexpensive cicchetti across from a gondola workshop"
+            },
+            {
+              "name": "Lineadombra",
+              "cuisine": "Seafood",
+              "price_range": "€€€€",
+              "known_for": "Refined seafood with stunning waterfront dining"
+            }
+          ]
+        },
+        "insider_tips": [
+          "The student-filled bars around Campo Santa Margherita offer Venice's most affordable drinks.",
+          "Zattere promenade has the best sunset views in central Venice."
+        ]
+      },
+      {
+        "name": "Cannaregio",
+        "alternate_names": ["The Jewish Ghetto", "The Canal District"],
+        "character": "Authentic residential neighborhood with Jewish heritage and off-the-beaten-path canals.",
+        "location": {
+          "central": true,
+          "description": "Northern part of Venice, from train station to northeastern edges.",
+          "borders": ["Grand Canal", "Castello", "Lagoon"],
+          "landmarks": ["Jewish Ghetto", "Ca' d'Oro", "Madonna dell'Orto Church"]
+        },
+        "practical_info": {
+          "transit": ["Ferrovia vaporetto stop", "Guglie vaporetto stop", "Madonna dell'Orto vaporetto stop"],
+          "safety": "Very safe residential area.",
+          "best_time_to_visit": "Daytime for Jewish Ghetto tours, evening for dining along canals.",
+          "walkability": "Excellent and less crowded than central districts."
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Jewish Ghetto",
+              "type": "Historic District",
+              "description": "World's first ghetto with unique tall buildings, synagogues, and Jewish museum."
+            },
+            {
+              "name": "Ca' d'Oro",
+              "type": "Palace/Museum",
+              "description": "Gothic palace on the Grand Canal housing an art collection."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Paradiso Perduto",
+              "cuisine": "Venetian",
+              "price_range": "€€",
+              "known_for": "Seafood, live music, and lively atmosphere"
+            },
+            {
+              "name": "Gam Gam",
+              "cuisine": "Jewish Italian/Kosher",
+              "price_range": "€€",
+              "known_for": "Kosher Venetian cooking with Middle Eastern influences"
+            }
+          ]
+        },
+        "insider_tips": [
+          "The area along Fondamenta della Misericordia offers excellent local dining options.",
+          "The northern canals are among the most peaceful in Venice."
+        ]
+      },
+      {
+        "name": "San Polo",
+        "alternate_names": ["The Market District"],
+        "character": "Bustling central district with the famous Rialto Market, atmospheric streets, and historic churches.",
+        "location": {
+          "central": true,
+          "description": "West of the Grand Canal's curve, centered around the Rialto Market area.",
+          "borders": ["Grand Canal", "Santa Croce", "Dorsoduro"],
+          "landmarks": ["Rialto Bridge", "Rialto Market", "Church of San Giacomo di Rialto"]
+        },
+        "practical_info": {
+          "transit": ["Rialto vaporetto stop", "San Silvestro vaporetto stop"],
+          "safety": "Generally safe but watch for pickpockets around the market.",
+          "best_time_to_visit": "Early morning for market, evening for campo atmosphere.",
+          "walkability": "Very walkable though often crowded around Rialto."
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Rialto Market",
+              "type": "Food Market",
+              "description": "Historic market where Venetians have shopped for centuries."
+            },
+            {
+              "name": "Scuola Grande di San Rocco",
+              "type": "Historic Building",
+              "description": "Renaissance building housing an extraordinary cycle of Tintoretto paintings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "All'Arco",
+              "cuisine": "Cicchetti",
+              "price_range": "€",
+              "known_for": "Traditional cicchetti near the Rialto Market"
+            },
+            {
+              "name": "Antiche Carampane",
+              "cuisine": "Seafood",
+              "price_range": "€€€",
+              "known_for": "Fresh seafood from the market with anti-tourist stance"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the fish market Tuesday-Saturday before noon.",
+          "The area hides some of Venice's best cicchetti bars."
+        ]
+      },
+      {
+        "name": "Castello",
+        "alternate_names": ["The Naval District"],
+        "character": "Venice's largest district combining touristic and authentic areas.",
+        "location": {
+          "central": true,
+          "description": "Eastern portion of Venice, from San Marco to the eastern edge.",
+          "borders": ["San Marco", "Cannaregio", "Lagoon"],
+          "landmarks": ["Arsenale", "Giardini Pubblici", "Basilica of Santi Giovanni e Paolo"]
+        },
+        "practical_info": {
+          "transit": ["Arsenale vaporetto stop", "Giardini vaporetto stop"],
+          "safety": "Very safe, even in less touristic areas.",
+          "best_time_to_visit": "Morning for Via Garibaldi, afternoons for eastern quiet areas.",
+          "walkability": "Good, with fewer bridges in some sections."
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Arsenale",
+              "type": "Historic Site",
+              "description": "Former shipyard and naval base that powered Venice's maritime might."
+            },
+            {
+              "name": "Giardini Pubblici",
+              "type": "Park",
+              "description": "Venice's largest public gardens and home to many Biennale pavilions."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Corte Sconta",
+              "cuisine": "Seafood",
+              "price_range": "€€€",
+              "known_for": "Exceptional seafood pasta in a hidden courtyard"
+            },
+            {
+              "name": "Trattoria alla Rampa",
+              "cuisine": "Venetian",
+              "price_range": "€€",
+              "known_for": "Simple local food patronized by dockyard workers"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Western part near San Marco can be crowded, while eastern reaches are quiet.",
+          "Via Garibaldi offers some of Venice's most affordable dining."
+        ]
+      },
+      {
+        "name": "Giudecca",
+        "alternate_names": ["The Island of Redemption"],
+        "character": "Separate island with working-class atmosphere and spectacular views back to Venice.",
+        "location": {
+          "central": false,
+          "description": "South of Venice's main islands across the Giudecca Canal.",
+          "borders": ["Giudecca Canal", "Lagoon"],
+          "landmarks": ["Il Redentore Church", "Molino Stucky"]
+        },
+        "practical_info": {
+          "transit": ["Zitelle vaporetto stop", "Redentore vaporetto stop", "Palanca vaporetto stop"],
+          "safety": "Very safe residential area.",
+          "best_time_to_visit": "Afternoon for photography, July for Redentore Festival.",
+          "walkability": "Easy walking along waterfront, fewer bridges than central Venice."
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 1,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Chiesa del Redentore",
+              "type": "Church",
+              "description": "Palladio-designed church and site of the beloved Redentore Festival."
+            },
+            {
+              "name": "Molino Stucky",
+              "type": "Historic Building",
+              "description": "Former flour mill converted to luxury hotel with rooftop views."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria Altanella",
+              "cuisine": "Venetian",
+              "price_range": "€€€",
+              "known_for": "Classic Venetian seafood in family-run setting"
+            },
+            {
+              "name": "Skyline Rooftop Bar",
+              "cuisine": "International",
+              "price_range": "€€€€",
+              "known_for": "Cocktails with panoramic views of Venice"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Northern shore offers the best views of Venice, especially at sunset.",
+          "For Redentore Festival in July, book accommodation months in advance."
+        ]
+      },
+      {
+        "name": "Murano",
+        "alternate_names": ["Glass Island"],
+        "character": "Famous island known for glass-making tradition and small-town Venetian charm.",
+        "location": {
+          "central": false,
+          "description": "Located in northern Venetian lagoon, about 1.5 km from main islands.",
+          "borders": ["Venetian Lagoon"],
+          "landmarks": ["Glass Factories", "Basilica of Santa Maria e San Donato", "Glass Museum"]
+        },
+        "practical_info": {
+          "transit": ["Murano Colonna vaporetto stop", "Murano Faro vaporetto stop"],
+          "safety": "Very safe at all times.",
+          "best_time_to_visit": "Morning to see glass-making demonstrations.",
+          "walkability": "Easy walking with few bridges."
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Glass Factory Demonstrations",
+              "type": "Craft Experience",
+              "description": "Watch master glassblowers create intricate objects using centuries-old techniques."
+            },
+            {
+              "name": "Museo del Vetro",
+              "type": "Museum",
+              "description": "Historical collection tracing the development of Murano glass from Roman times."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria Busa alla Torre",
+              "cuisine": "Venetian Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh seafood and waterfront tables"
+            },
+            {
+              "name": "Acquastanca",
+              "cuisine": "Modern Venetian",
+              "price_range": "€€",
+              "known_for": "Contemporary takes on local dishes"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Look for the Vetro Artistico Murano trademark for authentic glass.",
+          "Visit smaller workshops away from main canal for personal demonstrations."
+        ]
+      },
+      {
+        "name": "Burano",
+        "alternate_names": ["The Colorful Island", "Lace Island"],
+        "character": "Picturesque fishing island known for brightly colored houses and traditional lace-making.",
+        "location": {
+          "central": false,
+          "description": "Located in northern Venetian lagoon, about 7 km from Venice.",
+          "borders": ["Venetian Lagoon", "Mazzorbo Island"],
+          "landmarks": ["Colorful Houses", "Leaning Bell Tower", "Lace Museum"]
+        },
+        "practical_info": {
+          "transit": ["Burano vaporetto stop (Line 12 from Fondamente Nove)"],
+          "safety": "Extremely safe small community.",
+          "best_time_to_visit": "Morning or late afternoon to avoid midday crowds.",
+          "walkability": "Very walkable small island with few bridges."
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 4,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Colorful Houses",
+              "type": "Architecture",
+              "description": "Vibrantly painted fishermen's homes lining the canals in rainbow colors."
+            },
+            {
+              "name": "Museo del Merletto",
+              "type": "Museum",
+              "description": "Collection displaying the island's famous lace-making tradition."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria da Romano",
+              "cuisine": "Venetian Seafood",
+              "price_range": "€€€",
+              "known_for": "Risotto di Gò (fish risotto) prepared in traditional way"
+            },
+            {
+              "name": "Trattoria al Gatto Nero",
+              "cuisine": "Seafood",
+              "price_range": "€€€",
+              "known_for": "Fresh seafood from the lagoon"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning or stay overnight to experience its true charm.",
+          "Fishermen painted houses in bright colors to recognize their homes in fog."
+        ]
+      }
+    ]
+  }

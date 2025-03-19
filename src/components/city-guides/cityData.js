@@ -634,7 +634,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Built on a network of canals, Venice is a city of romance and history, celebrated for its art and unique waterways.",
-      thumbnail: "/images/venice-thumbnail.jpg",
+      thumbnail: "/images/venice-thumbnail.jpeg",
       landmarks: ["St. Mark's Basilica", "Grand Canal", "Rialto Bridge"],
       latitude: 45.4408,
       longitude: 12.3155,
