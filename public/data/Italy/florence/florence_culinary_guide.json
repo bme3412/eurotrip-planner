@@ -1,0 +1,637 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Enoteca Pinchiorri",
+                "cuisine_type": "Italian Fine Dining",
+                "signature_dishes": [
+                    "Pigeon with Sweet Spices and Wild Strawberries",
+                    "Tagliolini with White Truffles"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant Florentine palace with Renaissance art and antiques",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dinners",
+                "dress_code": "Formal",
+                "michelin_stars": 3,
+                "location": "Santa Croce",
+                "local_tips": "The wine cellar is legendary with over 120,000 bottles; ask for a cellar tour if time permits"
+            },
+            {
+                "name": "La Leggenda dei Frati",
+                "cuisine_type": "Creative Tuscan",
+                "signature_dishes": [
+                    "Tortelli with Pecorino and Pears",
+                    "Pigeon with Liver Pâté"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining in Villa Bardini with panoramic views of Florence",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 3 weeks in advance, request terrace seating in warm weather",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Oltrarno",
+                "local_tips": "Arrive early to explore the Bardini Gardens before your meal"
+            },
+            {
+                "name": "Borgo San Jacopo",
+                "cuisine_type": "Modern Italian",
+                "signature_dishes": [
+                    "Risotto with Squid Ink and Red Prawns",
+                    "Pici with Duck Ragout and Orange"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant riverside dining with Ponte Vecchio views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request window table for Arno River views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Ponte Vecchio",
+                "local_tips": "Time your reservation for sunset to watch the golden light on the Arno"
+            },
+            {
+                "name": "Il Palagio",
+                "cuisine_type": "Refined Tuscan",
+                "signature_dishes": [
+                    "Cavatelli Pasta with Red Prawns and Burrata",
+                    "Suckling Pig with Apple and Calvados"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Opulent hotel restaurant with vaulted ceilings in Four Seasons Hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 month in advance, request garden seating in summer",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Gino Capponi",
+                "local_tips": "Their seasonal truffle menu is extraordinary when available"
+            },
+            {
+                "name": "La Bottega del Buon Caffè",
+                "cuisine_type": "Farm-to-Table Tuscan",
+                "signature_dishes": [
+                    "Homemade Pappardelle with Rabbit Ragout",
+                    "Chianina Beef with Bone Marrow"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Refined riverside dining with open kitchen and organic focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2 weeks ahead, mention if you prefer counter seating to watch the chefs",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Lungarno Cellini",
+                "local_tips": "Many ingredients come from their own farm outside Florence; seasonal menus reflect what's growing"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria Mario",
+                "cuisine_type": "Traditional Florentine",
+                "signature_dishes": [
+                    "Bistecca alla Fiorentina",
+                    "Ribollita"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling family-run trattoria with communal tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive by 12:00 PM to avoid long lines",
+                "dress_code": "Casual",
+                "location": "San Lorenzo Market area",
+                "local_tips": "Closed for dinner; cash only. Daily specials are written on a chalkboard"
+            },
+            {
+                "name": "Osteria Cibrèo",
+                "cuisine_type": "Tuscan",
+                "signature_dishes": [
+                    "Yellow Pepper Soup",
+                    "Tuscan Meatloaf with Pistachios"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and intimate, the casual sister to the formal Cibrèo restaurant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a week in advance; no written menu, servers explain daily offerings",
+                "dress_code": "Casual",
+                "location": "Sant'Ambrogio",
+                "local_tips": "Chef Fabio Picchi is a Florence legend; they don't serve pasta or espresso here—typical Florentine stubbornness!"
+            },
+            {
+                "name": "All'Antico Vinaio",
+                "cuisine_type": "Tuscan Sandwiches",
+                "signature_dishes": [
+                    "La Favolosa (Wild Boar Salami and Pecorino)",
+                    "La Schiacciata del Boss"
+                ],
+                "price_range": "€",
+                "atmosphere": "Tiny takeaway with massive lines for their famous sandwiches",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; expect to wait in line up to 30 minutes in peak season",
+                "dress_code": "Casual",
+                "location": "Via dei Neri",
+                "local_tips": "Their schiacciata bread is the key to their success; worth the wait"
+            },
+            {
+                "name": "Il Latini",
+                "cuisine_type": "Traditional Tuscan",
+                "signature_dishes": [
+                    "Bistecca alla Fiorentina",
+                    "Pappardelle al Cinghiale (Wild Boar)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, rustic tavern with hams hanging from ceiling and communal tables",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Santo Spirito",
+                "local_tips": "Portions are enormous; the house wine flows freely and is included in the price"
+            },
+            {
+                "name": "Osteria Santo Spirito",
+                "cuisine_type": "Tuscan",
+                "signature_dishes": [
+                    "Gnocchi al Gorgonzola Gratinati",
+                    "Tortelli Mugellani"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and welcoming with indoor and piazza seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 days in advance, request outdoor seating in warm weather",
+                "dress_code": "Casual",
+                "location": "Piazza Santo Spirito",
+                "local_tips": "Half portions of pasta are available to try multiple dishes"
+            },
+            {
+                "name": "Gustapizza",
+                "cuisine_type": "Pizzeria",
+                "signature_dishes": [
+                    "Margherita",
+                    "Gustapizza Special (Mozzarella, Cherry Tomatoes, Arugula)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Tiny, no-frills pizzeria with heart-shaped pizzas",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; takeaway available if seats are full",
+                "dress_code": "Casual",
+                "location": "Santo Spirito",
+                "local_tips": "Take your pizza to nearby Piazza Santo Spirito to dine al fresco like locals"
+            },
+            {
+                "name": "5 e Cinque",
+                "cuisine_type": "Vegetarian/Ligurian",
+                "signature_dishes": [
+                    "Cecina (Chickpea Flatbread)",
+                    "Vegetable Farinata"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and bright with a focus on plant-based dishes",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually has space for walk-ins",
+                "dress_code": "Casual",
+                "location": "Santo Spirito",
+                "local_tips": "A rare vegetarian-friendly option that even meat-loving Florentines appreciate"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Nerbone",
+                "specialties": [
+                    "Lampredotto Sandwich (Tripe)",
+                    "Bollito (Boiled Beef) Sandwich"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 2:00 PM",
+                "location": "Mercato Centrale, first floor",
+                "seating": "Limited",
+                "local_tips": "An institution since 1872; ask for it 'bagnato' (with the bread dipped in broth)"
+            },
+            {
+                "name": "La Vineria",
+                "specialties": [
+                    "Schiacciata with Tuscan Prosciutto",
+                    "Pecorino and Honey Sandwich"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 7:00 PM",
+                "location": "Sant'Ambrogio Market",
+                "seating": false,
+                "local_tips": "Great wines by the glass to accompany your sandwich"
+            },
+            {
+                "name": "Ara è Sud",
+                "specialties": [
+                    "Arancini (Sicilian Rice Balls)",
+                    "Cannoli"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Mercato Centrale, first floor",
+                "seating": true,
+                "local_tips": "Southern Italian street food in Florence—a delicious break from Tuscan cuisine"
+            },
+            {
+                "name": "I Fratellini",
+                "specialties": [
+                    "Tiny Sandwiches with Various Fillings",
+                    "Local Wine by the Glass"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Via dei Cimatori",
+                "seating": false,
+                "local_tips": "A hole-in-the-wall with 30+ sandwich options; eat standing up on the street like a local"
+            },
+            {
+                "name": "Il Trippaio del Porcellino",
+                "specialties": [
+                    "Lampredotto",
+                    "Trippa alla Fiorentina"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 3:00 PM",
+                "location": "Loggia del Porcellino",
+                "seating": false,
+                "local_tips": "One of the most famous street food carts; finish your sandwich then rub the famous bronze boar's nose for luck"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Gilli",
+                "specialty": "Traditional Italian Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Sfogliatelle pastry"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant café from 1733 with Belle Époque interiors",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light lunch",
+                "local_tips": "Stand at the bar for authentic experience and lower prices"
+            },
+            {
+                "name": "Caffè Rivoire",
+                "specialty": "Hot Chocolate",
+                "must_try": [
+                    "Cioccolata Calda (Hot Chocolate)",
+                    "House-made Chocolates"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Traditional café with prime position overlooking Piazza della Signoria",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries and breakfast items",
+                "local_tips": "Their thick hot chocolate is a Florentine winter tradition"
+            },
+            {
+                "name": "Ditta Artigianale",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Pour Over",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern specialty coffee shop with hipster vibes",
+                "best_time": "Any time",
+                "wifi_friendly": true,
+                "food_options": "Brunch menu and light meals",
+                "local_tips": "Florence's first true specialty coffee bar; also has excellent gin selection"
+            },
+            {
+                "name": "Caffè Paszkowski",
+                "specialty": "Classic Italian Coffee",
+                "must_try": [
+                    "Caffè Shakerato (Iced Coffee)",
+                    "Budino di Riso (Rice Pudding Tart)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic literary café with elegant interiors and outdoor seating",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries and sandwiches",
+                "local_tips": "A historic literary cafe where intellectuals have gathered since 1903"
+            },
+            {
+                "name": "La Ménagère",
+                "specialty": "Modern Café Experience",
+                "must_try": [
+                    "Cappuccino",
+                    "Fresh Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy concept space combining café, restaurant, flower shop, and design store",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full breakfast, lunch and dinner",
+                "local_tips": "Great for digital nomads during weekday mornings; transforms for aperitivo later"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Locale Firenze",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Innovative Cocktails",
+                "signature_drinks": [
+                    "Renaissance-inspired cocktails",
+                    "Barrel-aged Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stunning Renaissance palazzo with contemporary design elements",
+                "best_time": "Evening",
+                "food_options": "Gourmet small plates",
+                "reservation_needed": true,
+                "local_tips": "Request seating in the ancient cellar or courtyard; arrive early for a tour of the historic building"
+            },
+            {
+                "name": "Rasputin",
+                "type": "Speakeasy",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Custom craft cocktails",
+                    "Aged spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Secret prohibition-style bar with no signage and dim lighting",
+                "best_time": "Night",
+                "food_options": "Light snacks",
+                "reservation_needed": true,
+                "local_tips": "Requires reservation by text message; entrance is hidden and unmarked"
+            },
+            {
+                "name": "Terrazza Brunelleschi",
+                "type": "Rooftop Bar",
+                "specialty": "Classic Cocktails with a View",
+                "signature_drinks": [
+                    "Negroni",
+                    "Prosecco"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Panoramic rooftop bar atop Grand Hotel Baglioni",
+                "best_time": "Sunset",
+                "food_options": "Aperitivo buffet",
+                "reservation_needed": true,
+                "local_tips": "Make reservations for sunset; 360-degree views include the Duomo and surrounding hills"
+            },
+            {
+                "name": "Bitter Bar",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Bitter Italian Liqueurs",
+                "signature_drinks": [
+                    "Bitter Paloma",
+                    "Amaro Flight"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, intimate cocktail bar with knowledgeable bartenders",
+                "best_time": "Evening",
+                "food_options": "Small plates",
+                "reservation_needed": false,
+                "local_tips": "Bartenders create custom drinks based on your preferences; mention what flavors you enjoy"
+            },
+            {
+                "name": "Manifattura",
+                "type": "Italian Spirits Bar",
+                "specialty": "All-Italian Ingredients",
+                "signature_drinks": [
+                    "Vintage Italian Cocktails",
+                    "House Vermouth Creations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vintage 1950s Italian design with attentive service",
+                "best_time": "Evening",
+                "food_options": "Traditional aperitivo snacks",
+                "reservation_needed": false,
+                "local_tips": "Every spirit, mixer, and garnish is Italian; the perfect place to explore Italy's drinking culture"
+            },
+            {
+                "name": "Empireo Rooftop Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Classic and Signature Cocktails",
+                "signature_drinks": [
+                    "Duomo Sunset (Champagne cocktail)",
+                    "Barrel-aged Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant rooftop terrace with unbeatable views of the Duomo",
+                "best_time": "Sunset",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Located on the 6th floor of Plaza Hotel Lucchesi; one of the best Duomo views in Florence"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Mercato Centrale Food Tour",
+                "focus": "Florentine Market and Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Florence's Central Market exploration",
+                    "Lampredotto tasting",
+                    "Tuscan wine sampling"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance; tours don't run on Sundays when many vendors are closed"
+            },
+            {
+                "name": "Santo Spirito Food & Wine Tour",
+                "focus": "Oltrarno Gastronomy",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Artisan food shops in the Oltrarno district",
+                    "Traditional Tuscan dishes",
+                    "Local wine pairings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "French"
+                ],
+                "booking_tips": "Reserve 10-14 days ahead; comfortable walking shoes recommended"
+            },
+            {
+                "name": "Chianti Half-Day Food & Wine Tour",
+                "focus": "Regional Cuisine and Wine",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to Chianti winery",
+                    "Traditional lunch at a farmhouse",
+                    "Pecorino cheese tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book early in high season (April-October); includes transportation from Florence"
+            },
+            {
+                "name": "Gelato and Chocolate Tour",
+                "focus": "Sweet Treats",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Artisanal gelato tastings",
+                    "Historic chocolate shops",
+                    "Traditional Florentine sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Popular with families; afternoon tours recommended to avoid morning crowds"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Tuscan Cooking Class",
+                "cuisine_focus": "Traditional Tuscan",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Handmade Pasta (Pappardelle)",
+                    "Ragù sauce",
+                    "Tiramisu"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market visit, ingredients, meal with wine, and recipes"
+                ],
+                "booking_tips": "Book 2 weeks ahead, especially for popular morning classes with market visits"
+            },
+            {
+                "name": "Farmhouse Cooking Experience",
+                "cuisine_focus": "Farm-to-Table Tuscan",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seasonal antipasti from garden ingredients",
+                    "Homemade pasta with seasonal sauce",
+                    "Traditional dessert"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Transportation to countryside location, garden tour, full meal with wine"
+                ],
+                "booking_tips": "Reserve 2-3 weeks in advance; wear comfortable shoes for garden tour"
+            },
+            {
+                "name": "Florentine Classics Workshop",
+                "cuisine_focus": "Florence's Signature Dishes",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Ribollita (Bread Soup)",
+                    "Bistecca alla Fiorentina (techniques)",
+                    "Cantucci with Vin Santo"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, meal, wine, historical context of dishes"
+                ],
+                "booking_tips": "Evening classes often less crowded; reserve 1-2 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato Centrale",
+                "type": "Food Market",
+                "highlights": [
+                    "Traditional butchers and tripe vendors",
+                    "Fresh pasta makers",
+                    "Produce and specialty foods"
+                ],
+                "hours": "Ground floor: 7:00 AM - 2:00 PM, First floor food court: 10:00 AM - 12:00 AM",
+                "best_time": "Morning",
+                "location": "San Lorenzo",
+                "local_tips": "The ground floor closes early; upstairs food court remains open into evening"
+            },
+            {
+                "name": "Mercato di Sant'Ambrogio",
+                "type": "Local Food Market",
+                "highlights": [
+                    "Farmers selling direct",
+                    "Authentic Florentine atmosphere",
+                    "Neighborhood food shops around perimeter"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Sant'Ambrogio",
+                "local_tips": "More authentic and less touristic than Mercato Centrale; where locals actually shop"
+            },
+            {
+                "name": "Mercato delle Cascine",
+                "type": "Open-air Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Cheese vendors",
+                    "Street food options"
+                ],
+                "hours": "Tuesday 8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Parco delle Cascine",
+                "local_tips": "Florence's largest market but only open on Tuesdays; great for picnic supplies"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Pappardelle with Fresh Peas and Artichokes",
+            "Carciofi Fritti (Fried Artichokes)",
+            "Fava Beans with Pecorino"
+        ],
+        "summer": [
+            "Panzanella (Bread Salad with Tomatoes)",
+            "Peposo (Peppery Beef Stew)",
+            "Contucci con Vin Santo (Almond Cookies with Sweet Wine)"
+        ],
+        "autumn": [
+            "Pappardelle al Cinghiale (Wild Boar Pasta)",
+            "Castagnaccio (Chestnut Flour Cake)",
+            "Schiacciata all'Uva (Grape Flatbread)"
+        ],
+        "winter": [
+            "Ribollita (Bread and Vegetable Soup)",
+            "Bistecca alla Fiorentina (T-bone Steak)",
+            "Lampredotto (Tripe Sandwich)"
+        ]
+    }
+}

@@ -620,7 +620,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Florence is the cradle of the Renaissance, famed for its art, architecture, and enduring cultural legacy.",
-      thumbnail: "/images/florence-thumbnail.jpg",
+      thumbnail: "/images/florence-thumbnail.jpeg",
       landmarks: ["Florence Cathedral", "Uffizi Gallery", "Ponte Vecchio"],
       latitude: 43.7696,
       longitude: 11.2558,
