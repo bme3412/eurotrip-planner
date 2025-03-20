@@ -374,7 +374,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Rotterdam, home to Europe's largest port, is known for its bold modern architecture, innovative urban design, and energetic atmosphere.",
-      thumbnail: "/images/rotterdam-thumbnail.jpg",
+      thumbnail: "/images/rotterdam-thumbnail.jpeg",
       landmarks: ["Erasmus Bridge", "Cube Houses"],
       latitude: 51.9244,
       longitude: 4.4777,
@@ -544,7 +544,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Bilbao, a former industrial city, has transformed into a cultural hub, famous for the titanium-clad Guggenheim Museum.",
-      thumbnail: "/images/bilbao-thumbnail.jpg",
+      thumbnail: "/images/bilbao-thumbnail.jpeg",
       landmarks: ["Guggenheim Museum", "Casco Viejo"],
       latitude: 43.263,
       longitude: -2.935,
