@@ -558,7 +558,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Malaga, Picasso's birthplace, offers Andalusian charm, beautiful beaches, and rich artistic heritage on the Costa del Sol.",
-      thumbnail: "/images/malaga-thumbnail.jpg",
+      thumbnail: "/images/malaga-thumbnail.jpeg",
       landmarks: ["Alcazaba", "Picasso Museum"],
       latitude: 36.7213,
       longitude: -4.4214,
