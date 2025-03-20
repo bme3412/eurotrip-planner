@@ -388,7 +388,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Utrecht features a charming medieval center with iconic canals and the towering Dom, creating a vibrant atmosphere fueled by its large student population.",
-      thumbnail: "/images/utrecht-thumbnail.jpg",
+      thumbnail: "/images/utrecht-thumbnail.jpeg",
       landmarks: ["Dom Tower", "Scenic Canals"],
       latitude: 52.0907,
       longitude: 5.1214,
