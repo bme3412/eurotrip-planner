@@ -648,7 +648,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Naples offers a vibrant urban life, historical treasures, and serves as the gateway to the Amalfi Coast and Pompeii.",
-      thumbnail: "/images/naples-thumbnail.jpg",
+      thumbnail: "/images/naples-thumbnail.jpeg",
       landmarks: [
         "Naples Historic Center",
         "Mount Vesuvius",
