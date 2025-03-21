@@ -243,7 +243,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Frankfurt is a global financial hub with a striking skyline, international business centers, and a mix of modern and historic architecture.",
-      thumbnail: "/images/frankfurt-thumbnail.jpg",
+      thumbnail: "/images/frankfurt-thumbnail.jpeg",
       landmarks: ["Römer", "Main Tower", "St. Bartholomew's Cathedral"],
       latitude: 50.1109,
       longitude: 8.6821,
@@ -530,7 +530,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Granada is known for the stunning Alhambra palace complex, set against the backdrop of the Sierra Nevada mountains.",
-      thumbnail: "/images/granada-thumbnail.jpg",
+      thumbnail: "/images/granada-thumbnail.jpeg",
       landmarks: ["Alhambra", "Albaicín"],
       latitude: 37.1773,
       longitude: -3.5986,
@@ -572,7 +572,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         'Known as the "City of Three Cultures," Toledo preserves its diverse Christian, Jewish, and Islamic heritage within its ancient walls.',
-      thumbnail: "/images/toledo-thumbnail.jpg",
+      thumbnail: "/images/toledo-thumbnail.jpeg",
       landmarks: ["Toledo Cathedral", "Alcázar of Toledo"],
       latitude: 39.8628,
       longitude: -4.0273,

@@ -1,0 +1,644 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Lafleur",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Venison with Black Truffle and Celery",
+                    "Turbot with Riesling Sauce"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, contemporary dining room overlooking the Palmengarten botanical gardens",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Palmengarten, Westend",
+                "local_tips": "Chef Andreas Krolik is known for his exceptional vegetarian tasting menu alongside the regular menu; one of Frankfurt's most prestigious dining experiences"
+            },
+            {
+                "name": "Restaurant Français",
+                "cuisine_type": "Classic French",
+                "signature_dishes": [
+                    "Foie Gras Terrine with Brioche",
+                    "Dover Sole Meunière"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Opulent dining room with crystal chandeliers and luxurious décor in a historic hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 weeks in advance, jacket required for gentlemen",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Inside Steigenberger Frankfurter Hof",
+                "local_tips": "The restaurant has been an institution since 1876; their wine cellar features exceptional vintages and rarities"
+            },
+            {
+                "name": "Gustav",
+                "cuisine_type": "Contemporary German",
+                "signature_dishes": [
+                    "Beef Tartare with Mustard Ice Cream",
+                    "Local Pike-Perch with Frankfurt Green Sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, sophisticated space with understated elegance and warm lighting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Sundays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Westend",
+                "local_tips": "Chef Joachim Busch focuses on creative interpretations of traditional German cuisine using local and seasonal ingredients"
+            },
+            {
+                "name": "Seven Swans",
+                "cuisine_type": "Vegetarian Fine Dining",
+                "signature_dishes": [
+                    "Seasonal Vegetable Tasting",
+                    "Heirloom Beet Variations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate dining room in Germany's narrowest restaurant building with minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks ahead, limited seating due to small space",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Old Town, near the Main River",
+                "local_tips": "One of Europe's few vegetarian Michelin-starred restaurants; many ingredients come from their own permaculture farm outside the city"
+            },
+            {
+                "name": "Weinsinn",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Poached Lobster with Citrus",
+                    "Saddle of Lamb with Mediterranean Vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, contemporary restaurant with open kitchen and excellent wine focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Bahnhofsviertel",
+                "local_tips": "Exceptional wine list focusing on German and European boutique producers; the chef's daily specials based on market finds are always worth trying"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Kleinmarkthalle",
+                "cuisine_type": "German/International",
+                "signature_dishes": [
+                    "Handkäse mit Musik (Marinated Cheese)",
+                    "Frankfurter Würstchen (Frankfurt Sausages)",
+                    "International Street Food"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling indoor market with various food stalls and eateries",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive early to avoid crowds, especially on Saturdays",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Frankfurt's culinary heart with over 60 vendors; head upstairs to Sturm for excellent wine and traditional Frankfurt tapas"
+            },
+            {
+                "name": "Apfelwein Wagner",
+                "cuisine_type": "Traditional Frankfurt",
+                "signature_dishes": [
+                    "Handkäse mit Musik",
+                    "Frankfurter Schnitzel with Green Sauce",
+                    "Pork Knuckle with Sauerkraut"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic, traditional apple wine tavern with communal wooden tables and authentic décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner, especially weekends",
+                "dress_code": "Casual",
+                "location": "Sachsenhausen",
+                "local_tips": "Serving traditional Frankfurt cuisine since 1931; the place to try authentic Apfelwein (apple cider) served in the traditional stoneware pitcher (Bembel)"
+            },
+            {
+                "name": "Atschel",
+                "cuisine_type": "Traditional Frankfurt",
+                "signature_dishes": [
+                    "Grüne Soße (Green Sauce) with Eggs",
+                    "Rippchen mit Kraut (Pork Ribs with Sauerkraut)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional apple wine tavern with wood paneling and historic charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for groups",
+                "dress_code": "Casual",
+                "location": "Alt-Sachsenhausen",
+                "local_tips": "One of the most authentic apple wine taverns in Frankfurt; their green sauce is prepared according to the original recipe with seven specific herbs"
+            },
+            {
+                "name": "Best Worscht in Town",
+                "cuisine_type": "German Street Food",
+                "signature_dishes": [
+                    "Currywurst with various spice levels",
+                    "Frankfurter Würstchen"
+                ],
+                "price_range": "€",
+                "atmosphere": "Fast-paced street food stand with limited seating",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; popular with locals and tourists alike",
+                "dress_code": "Casual",
+                "location": "Multiple locations throughout Frankfurt",
+                "local_tips": "Famous for their customizable spice levels ranging from mild to extremely hot; a Frankfurt institution for currywurst"
+            },
+            {
+                "name": "Haus Wertheym",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Tafelspitz (Boiled Beef)",
+                    "Frankfurt Green Sauce with Schnitzel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant in Frankfurt's oldest half-timbered building dating from 1479",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Römerberg, Old Town",
+                "local_tips": "The building survived WWII bombings that destroyed much of the old town; excellent place to experience traditional Frankfurt cuisine in historic surroundings"
+            },
+            {
+                "name": "Pizzeria Montana",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Margherita D.O.P.",
+                    "Truffle Pizza"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual, modern pizzeria with authentic wood-fired oven",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially weekends",
+                "dress_code": "Casual",
+                "location": "Nordend",
+                "local_tips": "Considered the best Neapolitan pizza in Frankfurt; they use imported Italian ingredients and follow traditional methods"
+            },
+            {
+                "name": "Zum Gemalten Haus",
+                "cuisine_type": "Traditional Frankfurt",
+                "signature_dishes": [
+                    "Frankfurter Schnitzel with Green Sauce",
+                    "Handkäse mit Musik"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional apple wine tavern with rustic décor and painted house facade",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations strongly recommended, especially weekends",
+                "dress_code": "Casual",
+                "location": "Alt-Sachsenhausen",
+                "local_tips": "One of the most popular traditional taverns in the apple wine district; expect hearty portions and authentic local atmosphere"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Kleinmarkthalle Food Stalls",
+                "specialties": [
+                    "Frankfurter Würstchen",
+                    "International Specialties",
+                    "Fresh Regional Products"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 6:00 PM Monday-Friday, 8:00 AM - 4:00 PM Saturday, Closed Sundays",
+                "location": "City Center",
+                "seating": "Limited",
+                "local_tips": "Frankfurt's culinary marketplace with over 60 vendors; try the hot Frankfurter sausages direct from the Schreiber butcher stall"
+            },
+            {
+                "name": "Wochenmarkt Konstablerwache",
+                "specialties": [
+                    "Fresh Produce",
+                    "Regional Specialties",
+                    "Street Food"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 6:00 PM Thursday and Saturday",
+                "location": "Konstablerwache, City Center",
+                "seating": "Limited",
+                "local_tips": "Large farmer's market with excellent food stalls; the perfect place to sample local and regional specialties in an outdoor setting"
+            },
+            {
+                "name": "Bratwurst Dauth-Schneider",
+                "specialties": [
+                    "Frankfurter Würstchen",
+                    "Bratwurst",
+                    "German Fast Food"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "Old Town",
+                "seating": "Limited",
+                "local_tips": "Historic sausage stand connected to one of Frankfurt's traditional apple wine taverns; authentic local fast food"
+            },
+            {
+                "name": "Eiscafé Venezia",
+                "specialties": [
+                    "Artisanal Gelato",
+                    "Italian Ice Cream Specialties"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 10:00 PM (longer in summer, shorter in winter)",
+                "location": "Bornheim",
+                "seating": "Limited",
+                "local_tips": "Family-run Italian ice cream parlor with authentic recipes; locals queue even in colder months"
+            },
+            {
+                "name": "Street Food Thursday at Friedberger Platz",
+                "specialties": [
+                    "International Street Food",
+                    "Craft Beer",
+                    "Wine"
+                ],
+                "price_range": "€€",
+                "hours": "5:00 PM - 9:00 PM Thursdays (April-October)",
+                "location": "Nordend",
+                "seating": "Outdoor",
+                "local_tips": "Popular weekly market that transforms into a street food festival and open-air party in the evenings; major social event for locals during summer months"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Wacker's Kaffee",
+                "specialty": "Traditional German Coffee",
+                "must_try": [
+                    "House-roasted Filter Coffee",
+                    "Frankfurt Crown Cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic coffee house with traditional décor operating since 1914",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional cakes and pastries",
+                "local_tips": "Frankfurt's oldest coffee roastery; they still roast their beans in-house using traditional methods"
+            },
+            {
+                "name": "The Holy Cross Brewing Society",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single-Origin Pour-Over",
+                    "Espresso Tonic"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist, contemporary space with industrial touches",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Artisanal pastries and light breakfast items",
+                "local_tips": "Frankfurt's premier specialty coffee shop; they roast their own beans and offer various brewing methods"
+            },
+            {
+                "name": "Café Hauptwache",
+                "specialty": "Traditional Café",
+                "must_try": [
+                    "Frankfurt Crown Cake",
+                    "Apple Strudel with Vanilla Sauce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café in a former guardhouse building with baroque architecture",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Full menu of German cakes, pastries, and light meals",
+                "local_tips": "One of Frankfurt's most iconic cafés located in a historic building at the heart of the city; perfect for people-watching"
+            },
+            {
+                "name": "Café Karin",
+                "specialty": "German Café Culture",
+                "must_try": [
+                    "Frankfurter Kranz (Frankfurt Crown Cake)",
+                    "Apple Wine Cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional café with homey décor near the Goethe House",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Homemade cakes and full breakfast menu",
+                "local_tips": "Popular with locals and tourists alike; good place to try traditional Frankfurt cakes in a central location"
+            },
+            {
+                "name": "Bunca Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Aeropress Single-Origin Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café with Scandinavian-inspired design",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Vegan and vegetarian breakfast options and pastries",
+                "local_tips": "Popular with digital nomads and coffee enthusiasts; they take their coffee seriously and host occasional brewing workshops"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Gekkos",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Frankfurt Sour (with Apple Wine)",
+                    "Botanical Gin Creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated, upscale bar with sleek design and skyline views",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Located on the 7th floor with panoramic views of the Frankfurt skyline; popular with the financial district crowd"
+            },
+            {
+                "name": "Naïv",
+                "type": "Craft Beer Bar",
+                "specialty": "German and International Craft Beer",
+                "signature_drinks": [
+                    "Rotating Craft Beer Selection",
+                    "Beer Tasting Flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary bar with industrial design and relaxed vibe",
+                "best_time": "Evening",
+                "food_options": "Creative bar food",
+                "reservation_needed": false,
+                "local_tips": "Over 100 different beers available; knowledgeable staff can guide you through the extensive selection"
+            },
+            {
+                "name": "Sachsenhäuser Warte",
+                "type": "Traditional Apple Wine Tavern",
+                "specialty": "Apfelwein (Apple Wine)",
+                "signature_drinks": [
+                    "Traditional Apfelwein",
+                    "Apfelwein Spritzer"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic tavern with rustic décor and traditional communal seating",
+                "best_time": "Evening",
+                "food_options": "Traditional Frankfurt cuisine",
+                "reservation_needed": true,
+                "local_tips": "Authentic apple wine experience in a historic building; apple wine is served in the traditional Bembel (stoneware pitcher)"
+            },
+            {
+                "name": "Die Rote Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic and Signature Cocktails",
+                "signature_drinks": [
+                    "House Old Fashioned",
+                    "Seasonal Fruit Cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Intimate bar with red velvet décor and dim lighting",
+                "best_time": "Late Night",
+                "food_options": "Light snacks",
+                "reservation_needed": false,
+                "local_tips": "Hidden gem for cocktail enthusiasts; bartenders create personalized drinks based on your preferences"
+            },
+            {
+                "name": "Jimmy's Bar",
+                "type": "Classic Hotel Bar",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Expertly Crafted Martinis",
+                    "Vintage Spirits and Liqueurs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, old-world bar with leather seating and sophisticated ambiance",
+                "best_time": "Evening",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": true,
+                "local_tips": "One of Frankfurt's most prestigious bars located in the Hessischer Hof hotel; extensive selection of rare spirits and classic cocktails"
+            },
+            {
+                "name": "Plank",
+                "type": "Brewpub",
+                "specialty": "House-Brewed Craft Beer",
+                "signature_drinks": [
+                    "Plank Pils",
+                    "Seasonal Wheat Beer Variations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern brewpub with visible brewing equipment and relaxed vibe",
+                "best_time": "Evening",
+                "food_options": "Beer-friendly German cuisine",
+                "reservation_needed": false,
+                "local_tips": "Frankfurt's renowned craft brewery; brewery tours available on weekends with advance booking"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Frankfurt Tour",
+                "focus": "Traditional Frankfurt Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of the Kleinmarkthalle",
+                    "Tastings of signature Frankfurt dishes",
+                    "Introduction to apple wine culture"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "Spanish"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable shoes recommended for walking between locations"
+            },
+            {
+                "name": "Sachsenhausen Apple Wine Tour",
+                "focus": "Apple Wine Culture",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to traditional apple wine taverns",
+                    "History of Frankfurt's signature drink",
+                    "Tastings of different apple wines with paired foods"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; evening tours offer the most authentic experience"
+            },
+            {
+                "name": "Culinary Frankfurt History Walk",
+                "focus": "Food History and Culture",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Walking tour connecting Frankfurt's history with its cuisine",
+                    "Visit to historic eating establishments",
+                    "Tastings of traditional and modern Frankfurt dishes"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "French"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes moderate walking through the old town"
+            },
+            {
+                "name": "Rheingau Wine Experience",
+                "focus": "Regional Wine Culture",
+                "duration": "7 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Day trip to nearby Rheingau wine region",
+                    "Visits to traditional wineries",
+                    "Guided tastings of Riesling and other regional wines",
+                    "Lunch at a winery restaurant"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book several weeks ahead; includes transportation to and from Frankfurt"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Frankfurt Traditional Cooking Workshop",
+                "cuisine_focus": "Authentic Frankfurt Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Grüne Soße (Frankfurt Green Sauce)",
+                    "Handkäse mit Musik (Marinated Cheese)",
+                    "Apple Wine Tiramisu"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Market visit to Kleinmarkthalle, all ingredients, recipes, full meal with drinks"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; begins with shopping at Kleinmarkthalle market"
+            },
+            {
+                "name": "Modern German Cuisine",
+                "cuisine_focus": "Contemporary German Cooking",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Updated Green Sauce with Sustainable Fish",
+                    "Modern Interpretations of German Classics",
+                    "Contemporary Desserts with Local Ingredients"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with wine pairings"
+                ],
+                "booking_tips": "Book at least 1 week in advance; explores how traditional German cuisine is evolving"
+            },
+            {
+                "name": "German Bread and Pastry Workshop",
+                "cuisine_focus": "Traditional German Baking",
+                "duration": "5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional German Bread Making",
+                    "Frankfurter Kranz (Crown Cake)",
+                    "Seasonal Fruit Tarts"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All materials, recipes, take-home bread and pastries, coffee and snacks"
+                ],
+                "booking_tips": "Book 2 weeks ahead; hand-on experience with traditional German baking techniques"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Kleinmarkthalle",
+                "type": "Historic Indoor Market",
+                "highlights": [
+                    "150+ vendors in a covered market hall",
+                    "Fresh produce, meats, cheeses, and specialty products",
+                    "Wine bars and food stalls on the upper level"
+                ],
+                "hours": "Monday to Saturday 8:00 AM - 6:00 PM, Closed Sundays",
+                "best_time": "Weekday mornings",
+                "location": "City Center",
+                "local_tips": "Frankfurt's culinary heart since 1954; don't miss the rooftop wine bar Rollanderhof for views and local wines"
+            },
+            {
+                "name": "Wochenmarkt Konstablerwache",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Large outdoor market with regional producers",
+                    "Organic produce and specialty foods",
+                    "Street food and prepared items"
+                ],
+                "hours": "Thursday 10:00 AM - 8:00 PM, Saturday 8:00 AM - 6:00 PM",
+                "best_time": "Saturday morning",
+                "location": "Konstablerwache, City Center",
+                "local_tips": "The Thursday market transforms into a popular after-work social gathering in summer months"
+            },
+            {
+                "name": "Erzeugermarkt Bockenheim",
+                "type": "Producers Market",
+                "highlights": [
+                    "Small producer-focused market",
+                    "Organic and sustainable focus",
+                    "Local specialties from the region"
+                ],
+                "hours": "Friday 10:00 AM - 6:00 PM",
+                "best_time": "Early afternoon",
+                "location": "Bockenheim",
+                "local_tips": "Less touristy than central markets; good place to find seasonal produce directly from local farmers"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Grüne Soße (Frankfurt Green Sauce with Seven Herbs)",
+            "White Asparagus with Hollandaise",
+            "Strawberry Cake"
+        ],
+        "summer": [
+            "Handkäse mit Musik (Marinated Cheese)",
+            "Apfelwein (Apple Wine) Spritzers",
+            "Berry Desserts and Fresh Fruit Tarts"
+        ],
+        "autumn": [
+            "Wild Game Dishes",
+            "Pumpkin Specialties",
+            "Federweisser (Young Wine) with Zwiebelkuchen (Onion Tart)"
+        ],
+        "winter": [
+            "Frankfurter Würstchen with Sauerkraut",
+            "Lebkuchen and Christmas Specialties",
+            "Glühwein (Mulled Wine)"
+        ]
+    }
+}
