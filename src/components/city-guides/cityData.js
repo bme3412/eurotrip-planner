@@ -488,7 +488,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Madrid, Spain's capital, offers a mix of elegant boulevards, expansive parks, and world-class museums alongside a buzzing nightlife.",
-      thumbnail: "/images/madrid-thumbnail.jpg",
+      thumbnail: "/images/madrid-thumbnail.jpeg",
       landmarks: ["Royal Palace", "Prado Museum", "Retiro Park"],
       latitude: 40.4168,
       longitude: -3.7038,
@@ -502,7 +502,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Seville captivates with its rich Moorish history, vibrant flamenco culture, and impressive architectural landmarks.",
-      thumbnail: "/images/seville-thumbnail.jpg",
+      thumbnail: "/images/seville-thumbnail.jpeg",
       landmarks: ["Seville Cathedral", "Alcázar of Seville"],
       latitude: 37.3891,
       longitude: -5.9845,

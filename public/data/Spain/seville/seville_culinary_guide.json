@@ -1,0 +1,549 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Abantal",
+                "cuisine_type": "Contemporary Andalusian",
+                "signature_dishes": [
+                    "Iberian Pork with Pedro Ximénez",
+                    "Red Prawns with Seaweed and Citrus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room with modern decor and intimate atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Near Plaza de España",
+                "local_tips": "Chef Julio Fernández's tasting menu showcases modern Andalusian cuisine with innovative techniques"
+            },
+            {
+                "name": "La Azotea",
+                "cuisine_type": "Contemporary Spanish",
+                "signature_dishes": [
+                    "Grilled Octopus with Sweet Potato",
+                    "Iberian Pork with Black Garlic"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern rooftop dining with city views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "location": "Santa Cruz",
+                "local_tips": "Known for creative tapas and excellent wine selection"
+            },
+            {
+                "name": "Eslava",
+                "cuisine_type": "Creative Tapas",
+                "signature_dishes": [
+                    "Slow-cooked Egg with Mushroom and Truffle",
+                    "Pork Cheeks with Pedro Ximénez"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary dining room with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, closed Sundays",
+                "dress_code": "Smart casual",
+                "location": "San Lorenzo",
+                "local_tips": "Award-winning tapas with innovative twists on traditional dishes"
+            },
+            {
+                "name": "Cañabota",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Red Prawns with Seaweed",
+                    "Grilled Fish with Herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern seafood restaurant with counter seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, closed Sundays",
+                "dress_code": "Smart casual",
+                "location": "Near Plaza de la Alfalfa",
+                "local_tips": "Specializes in fresh seafood and traditional fish preparations"
+            },
+            {
+                "name": "La Brunilda",
+                "cuisine_type": "Creative Tapas",
+                "signature_dishes": [
+                    "Duck Breast with Sweet Potato",
+                    "Scallops with Cauliflower"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy dining room with modern decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "location": "Alameda de Hércules",
+                "local_tips": "Creative tapas with excellent value for money"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "El Rinconcillo",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Spinach with Chickpeas",
+                    "Iberian Ham Croquettes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic tavern with traditional decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for sit-down meals, especially for weekend lunches",
+                "dress_code": "Smart casual",
+                "location": "Alfalfa",
+                "local_tips": "Seville's oldest bar since 1670; perfect for traditional tapas"
+            },
+            {
+                "name": "La Casa del Flamenco",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Gazpacho",
+                    "Salmorejo"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional restaurant with flamenco shows",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner and flamenco show",
+                "dress_code": "Smart casual",
+                "location": "Santa Cruz",
+                "local_tips": "Combines traditional cuisine with authentic flamenco performances"
+            },
+            {
+                "name": "Bar Alfalfa",
+                "cuisine_type": "Traditional Tapas",
+                "signature_dishes": [
+                    "Tortilla Española",
+                    "Fried Fish"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively bar with traditional decor",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for best seating",
+                "dress_code": "Casual",
+                "location": "Alfalfa",
+                "local_tips": "Popular local spot with excellent traditional tapas"
+            },
+            {
+                "name": "La Bodega",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Montaditos",
+                    "Fried Fish"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional bodega with lively atmosphere",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for best seating",
+                "dress_code": "Casual",
+                "location": "Santa Cruz",
+                "local_tips": "Famous for its montaditos and local atmosphere"
+            },
+            {
+                "name": "Taberna Coloniales",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Spinach with Chickpeas",
+                    "Fried Fish"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic tavern with traditional decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for weekend lunches",
+                "dress_code": "Smart casual",
+                "location": "Plaza Cristo de Burgos",
+                "local_tips": "Historic tavern with excellent traditional dishes"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercado de Triana",
+                "specialties": [
+                    "Fresh Seafood",
+                    "Iberian Ham",
+                    "Local Produce"
+                ],
+                "price_range": "€€",
+                "hours": "9:00 AM - 3:00 PM",
+                "location": "Triana",
+                "seating": "Standing room and limited tables",
+                "local_tips": "Historic market with fresh local produce and seafood; perfect for sampling local specialties"
+            },
+            {
+                "name": "Mercado de la Encarnación",
+                "specialties": [
+                    "Fresh Produce",
+                    "Local Specialties",
+                    "Gourmet Food Stalls"
+                ],
+                "price_range": "€€",
+                "hours": "9:00 AM - 3:00 PM",
+                "location": "Plaza de la Encarnación",
+                "seating": "Multiple levels with seating options",
+                "local_tips": "Modern market with gourmet food stalls and local specialties"
+            },
+            {
+                "name": "Churrería La Centuria",
+                "specialties": [
+                    "Churros with Chocolate",
+                    "Porras"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 1:00 PM",
+                "location": "Near Plaza de la Alfalfa",
+                "seating": "Limited",
+                "local_tips": "Historic churros institution; perfect for traditional breakfast"
+            },
+            {
+                "name": "La Campana",
+                "specialties": [
+                    "Traditional Pastries",
+                    "Mantecados",
+                    "Polvorones"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 9:00 PM",
+                "location": "Calle Sierpes",
+                "seating": "Limited",
+                "local_tips": "Historic pastry shop since 1885; famous for traditional Spanish sweets"
+            },
+            {
+                "name": "Bar El Comercio",
+                "specialties": [
+                    "Traditional Tapas",
+                    "Montaditos"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 4:00 PM",
+                "location": "Plaza del Comercio",
+                "seating": "Standing room only",
+                "local_tips": "Historic bar since 1904; famous for its traditional tapas and local atmosphere"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de Indias",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Specialty Coffee",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy café with colonial decor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast items and pastries",
+                "local_tips": "Excellent specialty coffee and homemade cakes"
+            },
+            {
+                "name": "Café Virgen",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Specialty Coffee",
+                    "Brunch Menu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Brunch menu and healthy options",
+                "local_tips": "Popular with digital nomads; excellent brunch options"
+            },
+            {
+                "name": "Café Baraka",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Specialty Coffee",
+                    "Healthy Breakfast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy café with eclectic decor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Healthy breakfast options and pastries",
+                "local_tips": "Focus on healthy and organic options"
+            },
+            {
+                "name": "Café de la Prensa",
+                "specialty": "Traditional Coffee",
+                "must_try": [
+                    "Café con Leche",
+                    "Traditional Breakfast"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic café with traditional decor",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Traditional breakfast items",
+                "local_tips": "Historic café with traditional Spanish breakfast"
+            },
+            {
+                "name": "Café del Art",
+                "specialty": "Coffee & Art",
+                "must_try": [
+                    "Specialty Coffee",
+                    "Art Exhibitions"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Art gallery café with contemporary decor",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Combines contemporary art with specialty coffee"
+            }
+        ],
+        "bars": [
+            {
+                "name": "El Garlochi",
+                "type": "Traditional Bar",
+                "specialty": "Sherry and Local Wines",
+                "signature_drinks": [
+                    "Manzanilla",
+                    "Fino",
+                    "Local Wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic bar with religious decor",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "Unique religious-themed bar with excellent sherry selection"
+            },
+            {
+                "name": "La Alacena",
+                "type": "Wine Bar",
+                "specialty": "Natural Wines",
+                "signature_drinks": [
+                    "Natural Wines",
+                    "Local Wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with eclectic decor",
+                "best_time": "Evening",
+                "food_options": "Creative tapas",
+                "reservation_needed": false,
+                "local_tips": "Specializes in natural and local wines"
+            },
+            {
+                "name": "La Carbonería",
+                "type": "Flamenco Bar",
+                "specialty": "Flamenco Shows",
+                "signature_drinks": [
+                    "Local Wines",
+                    "Traditional Cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic bar with flamenco shows",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "Free flamenco shows in historic setting"
+            },
+            {
+                "name": "La Bodeguita",
+                "type": "Traditional Bar",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "Local Wines",
+                    "Sherry"
+                ],
+                "price_range": "€",
+                "atmosphere": "Traditional bodega with lively atmosphere",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "Popular local spot with excellent traditional tapas"
+            },
+            {
+                "name": "La Antigua Bodeguita",
+                "type": "Traditional Bar",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "Local Wines",
+                    "Sherry"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic bodega with traditional decor",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "Historic bar with excellent traditional atmosphere"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Seville Tapas Tour",
+                "focus": "Traditional Seville Tapas",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit historic tapas bars",
+                    "Taste traditional Seville specialties",
+                    "Learn about tapas culture"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book at least a week in advance; tours explain the history of tapas culture"
+            },
+            {
+                "name": "Triana Market Tour",
+                "focus": "Local Market Culture",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of historic market",
+                    "Taste various local specialties",
+                    "Meet local vendors"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Morning tours recommended when market is most active"
+            },
+            {
+                "name": "Sherry Wine Tour",
+                "focus": "Andalusian Wines",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit traditional wine bars",
+                    "Taste various sherry wines",
+                    "Learn about wine regions"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes transportation between venues"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Andalusian Cooking Workshop",
+                "cuisine_focus": "Traditional Andalusian Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Gazpacho and Salmorejo",
+                    "Traditional Tapas",
+                    "Andalusian Desserts"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; begins with shopping at local market"
+            },
+            {
+                "name": "Tapas Masterclass",
+                "cuisine_focus": "Spanish Tapas",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Classic Tapas Recipes",
+                    "Wine Pairing",
+                    "Spanish Cooking Techniques"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with wine"
+                ],
+                "booking_tips": "Book at least 5 days in advance; great for groups"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado de Triana",
+                "type": "Historic Food Market",
+                "highlights": [
+                    "Fresh seafood",
+                    "Local produce",
+                    "Traditional vendors"
+                ],
+                "hours": "9:00 AM - 3:00 PM",
+                "best_time": "Morning",
+                "location": "Triana",
+                "local_tips": "Historic market with fresh local produce and seafood; perfect for sampling local specialties"
+            },
+            {
+                "name": "Mercado de la Encarnación",
+                "type": "Modern Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Gourmet food stalls",
+                    "Local specialties"
+                ],
+                "hours": "9:00 AM - 3:00 PM",
+                "best_time": "Morning",
+                "location": "Plaza de la Encarnación",
+                "local_tips": "Modern market with gourmet food stalls and local specialties"
+            },
+            {
+                "name": "Mercado de Feria",
+                "type": "Traditional Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Traditional vendors"
+                ],
+                "hours": "8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Feria",
+                "local_tips": "Traditional market in historic neighborhood; less touristy than other markets"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Espárragos Verdes (Green Asparagus)",
+            "Habas con Jamón (Broad Beans with Ham)",
+            "Cordero Lechal (Spring Lamb)"
+        ],
+        "summer": [
+            "Gazpacho",
+            "Salmorejo",
+            "Pescado a la Plancha (Grilled Fish)"
+        ],
+        "autumn": [
+            "Setas (Wild Mushrooms)",
+            "Rabo de Toro (Oxtail)",
+            "Pescado Frito (Fried Fish)"
+        ],
+        "winter": [
+            "Rabo de Toro",
+            "Cocido Andaluz (Andalusian Stew)",
+            "Sopa de Pescado (Fish Soup)"
+        ]
+    }
+} 

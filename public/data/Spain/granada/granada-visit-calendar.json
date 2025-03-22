@@ -4,16 +4,28 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6],
+          "days": [1],
           "score": 3,
           "special": true,
-          "event": "New Year & Three Kings",
-          "notes": "New Year's Day (Jan 1) is a public holiday. Three Kings celebration (Jan 5-6) features a spectacular parade through central Granada and marks the main gift-giving tradition in Spain. January 6 is a public holiday."
+          "event": "New Year's Day",
+          "notes": "New Year's Day is a public holiday with celebrations throughout the city center."
+        },
+        {
+          "days": [2, 3, 4],
+          "score": 3,
+          "notes": "Off-season with fewer tourists and excellent hotel value. Cold winter months but with frequent sunny days. Sierra Nevada ski resort at its peak season."
+        },
+        {
+          "days": [5, 6],
+          "score": 4,
+          "special": true,
+          "event": "Three Kings Celebration",
+          "notes": "Three Kings celebration features a spectacular parade through central Granada and marks the main gift-giving tradition in Spain. January 6 is a public holiday."
         },
         {
           "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
           "score": 3,
-          "notes": "Off-season with fewer tourists and excellent hotel value. Cold winter months but with frequent sunny days. Sierra Nevada ski resort at its peak season while the city enjoys mild winter days. Winter sales begin mid-January in all shops."
+          "notes": "The city enjoys mild winter days while Sierra Nevada offers excellent skiing conditions. Winter sales begin mid-January in all shops. Museums and cultural venues are less crowded than other times of year."
         }
       ],
       "weatherHighC": 12,
@@ -24,16 +36,23 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2],
+          "days": [1, 2, 3, 4, 5],
           "score": 3,
           "notes": "Winter continues with cold nights but often clear, sunny days. Good conditions for Sierra Nevada skiing combined with city visits."
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [6, 7, 8, 9, 10, 11, 12],
           "score": 3,
           "special": true,
-          "event": "San Cecilio & Carnival",
-          "notes": "San Cecilio, the patron saint of Granada, is celebrated on the first Sunday of February with pilgrimages to Sacromonte Abbey. Carnival celebrations feature costume parades and musical performances throughout the city, usually falling in late February or early March depending on the Easter calendar."
+          "event": "San Cecilio",
+          "notes": "San Cecilio, the patron saint of Granada, is celebrated on the first Sunday of February with pilgrimages to Sacromonte Abbey. Religious ceremonies and cultural events throughout the city."
+        },
+        {
+          "days": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "special": true,
+          "event": "Carnival",
+          "notes": "Carnival celebrations feature costume parades and musical performances throughout the city, usually falling in late February or early March depending on the Easter calendar."
         }
       ],
       "weatherHighC": 14,
@@ -44,16 +63,21 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
           "score": 4,
           "notes": "Early spring brings almond blossoms in the countryside around Granada and warming temperatures. Still excellent conditions for skiing in Sierra Nevada combined with city visits."
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 4,
+          "notes": "Mid-March sees increasing temperatures and longer days. The Alhambra gardens begin showing first signs of spring blooms."
         },
         {
           "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
           "score": 4,
           "special": true,
           "event": "Spring begins",
-          "notes": "Spring officially begins with longer days and gardens starting to bloom. Ideal time for visiting the Alhambra gardens and Generalife as flowers begin appearing. Tourism gradually increases but still before peak season."
+          "notes": "Spring officially begins with gardens starting to bloom. Ideal time for visiting the Alhambra gardens and Generalife as flowers begin appearing. Tourism gradually increases but still before peak season."
         }
       ],
       "weatherHighC": 17,
@@ -64,16 +88,21 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 5,
+          "notes": "Perfect spring weather with warm days and cool evenings. Gardens in full bloom throughout the city."
+        },
+        {
+          "days": [8, 9, 10, 11, 12, 13, 14],
           "score": 5,
           "special": true,
           "event": "Semana Santa (Holy Week - varies by year)",
           "notes": "Granada's Holy Week processions feature solemn and haunting processions through the narrow streets of the historic center. The city's unique topography creates dramatic scenes as processions wind through the Albaicín and Centro districts."
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
           "score": 5,
-          "notes": "Perfect spring weather with warm days and cool evenings. Ideal time to visit before summer crowds arrive. Sierra Nevada often still offers spring skiing while the city enjoys warm weather - a unique combination."
+          "notes": "Ideal time to visit before summer crowds arrive. Sierra Nevada often still offers spring skiing while the city enjoys warm weather - a unique combination. Perfect conditions for exploring all neighborhoods on foot."
         }
       ],
       "weatherHighC": 20,
@@ -88,7 +117,7 @@
           "score": 4,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday with events throughout the city, many locals head to parks or the countryside for picnics"
+          "notes": "Public holiday with events throughout the city, many locals head to parks or the countryside for picnics."
         },
         {
           "days": [2, 3],
@@ -153,16 +182,21 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "notes": "Peak summer season with very hot temperatures and maximum tourist numbers. Many locals leave the city for coastal areas. Morning and evening activities recommended to avoid midday heat."
+        },
+        {
+          "days": [15],
           "score": 3,
           "special": true,
           "event": "Virgen de la Asunción",
-          "notes": "Public holiday on August 15 with religious observances. Peak summer season with very hot temperatures and maximum tourist numbers. Many locals leave the city for coastal areas. Night visits to the Alhambra particularly popular."
+          "notes": "Public holiday with religious observances and processions in some neighborhoods."
         },
         {
           "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
           "score": 3,
-          "notes": "Hottest month of the year with temperatures often exceeding 36°C during the day. Tourism remains high with international visitors. Many local businesses may close for extended holiday periods. Evening activities most comfortable."
+          "notes": "Hottest month of the year with temperatures often exceeding 36°C during the day. Tourism remains high with international visitors. Many local businesses may close for extended holiday periods. Night visits to the Alhambra particularly popular."
         }
       ],
       "weatherHighC": 34,
@@ -225,11 +259,16 @@
           "notes": "Public holiday with traditional cemetery visits and special services. Many businesses closed."
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 4,
+          "notes": "Weather turns cooler with potential for first frosts and occasional rain. Sierra Nevada prepares for ski season with snowmaking equipment ready."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
           "score": 4,
           "special": true,
           "event": "Granada Jazz Festival",
-          "notes": "International jazz festival featuring performances at the Isabel la Católica Theater and venues throughout the city. Weather turns cooler with potential for first frosts and occasional rain. Sierra Nevada ski season may begin in late November."
+          "notes": "International jazz festival featuring performances at the Isabel la Católica Theater and venues throughout the city. Sierra Nevada ski season may begin in late November if conditions permit."
         }
       ],
       "weatherHighC": 16,
@@ -240,28 +279,45 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7],
+          "days": [1, 2, 3, 4, 5],
           "score": 3,
-          "special": true,
-          "event": "Constitution Day & Immaculate Conception",
-          "notes": "Public holidays on December 6 (Constitution) and December 8 (Immaculate Conception) creating a 'puente' (bridge) holiday period for many Spaniards. Sierra Nevada ski season in full swing."
+          "notes": "Early winter with cold temperatures but often sunny days. Sierra Nevada ski season gaining momentum with more slopes opening."
         },
         {
-          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+          "days": [6],
+          "score": 3,
+          "special": true,
+          "event": "Constitution Day",
+          "notes": "Public holiday commemorating the Spanish Constitution. Many businesses closed."
+        },
+        {
+          "days": [7],
+          "score": 3,
+          "notes": "'Puente' (bridge) holiday period between Constitution Day and Immaculate Conception."
+        },
+        {
+          "days": [8],
+          "score": 3,
+          "special": true,
+          "event": "Immaculate Conception",
+          "notes": "Public holiday with special religious services. Many businesses closed."
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
           "score": 4,
           "special": true,
           "event": "Christmas Preparations",
           "notes": "Granada's Christmas decorations and lights create a festive atmosphere. The traditional belén (nativity scene) displays appear throughout the city, with a large municipal belén in the Town Hall. Unique opportunity to combine skiing in Sierra Nevada with Christmas festivities in the city."
         },
         {
-          "days": [25, 26],
+          "days": [25],
           "score": 3,
           "special": true,
           "event": "Christmas Day",
-          "notes": "Public holiday with limited opening hours. Unlike northern Europe, December 26 is not a holiday in Spain."
+          "notes": "Public holiday with limited opening hours. Family celebration day."
         },
         {
-          "days": [27, 28, 29, 30],
+          "days": [26, 27, 28, 29, 30],
           "score": 4,
           "notes": "Post-Christmas period with continued holiday atmosphere and festive decorations throughout the city. Sierra Nevada typically offers excellent skiing conditions during this period."
         },
