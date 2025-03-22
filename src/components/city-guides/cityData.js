@@ -229,7 +229,7 @@ export const getCitiesData = () => {
       region: "Imperial Cities",
       description:
         'Often called the "Florence of the Elbe," Dresden is celebrated for its stunning baroque architecture and rich musical legacy.',
-      thumbnail: "/images/dresden-thumbnail.jpg",
+      thumbnail: "/images/dresden-thumbnail.jpeg",
       landmarks: ["Zwinger Palace", "Semper Opera House"],
       latitude: 51.0504,
       longitude: 13.7373,
