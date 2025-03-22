@@ -1,0 +1,649 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Moissonnier",
+                "cuisine_type": "French Contemporary",
+                "signature_dishes": [
+                    "Quail with Foie Gras and Truffles",
+                    "Turbot with Champagne Sauce"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, intimate dining room with artistic decor and traditional French charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Kreuzfeld, Belgian Quarter",
+                "local_tips": "Chefs Eric Menchon and Vincent Moissonnier have maintained their Michelin stars for over a decade; their wine list featuring rare French vintages is exceptional"
+            },
+            {
+                "name": "Vendôme",
+                "cuisine_type": "Modern German-French",
+                "signature_dishes": [
+                    "Rhenish Sauerbraten Interpretation",
+                    "Rheinischer Kaviar (local caviar) with traditional accompaniments"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious dining room in a historic castle estate with panoramic views outside Cologne",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 month in advance, jacket recommended for gentlemen",
+                "dress_code": "Formal",
+                "michelin_stars": 3,
+                "location": "Schloss Bensberg, Bergisch Gladbach (30 min from city center)",
+                "local_tips": "Worth the short journey outside Cologne; Chef Joachim Wissler is considered one of Germany's finest chefs with three Michelin stars; their lunch menu offers great value for this level of dining"
+            },
+            {
+                "name": "Ox & Klee",
+                "cuisine_type": "Innovative Regional",
+                "signature_dishes": [
+                    "Locally Sourced Fish with Seasonal Accompaniments",
+                    "Ox Cheek with Riesling Jus"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, minimalist space with floor-to-ceiling windows overlooking the Rhine in the Crane Houses",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Rheinauhafen",
+                "local_tips": "Chef Daniel Gottschlich focuses on innovative preparations of regional ingredients; spectacular views of the Rhine and Cologne Cathedral from their dining room"
+            },
+            {
+                "name": "Maximilian Lorenz",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "Aged Local Beef with Fermented Vegetables",
+                    "Rhine River Pike-Perch with Brown Butter"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated modern space with clean lines and elegant simplicity",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks ahead, closed Sundays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Belgisches Viertel (Belgian Quarter)",
+                "local_tips": "Chef Maximilian Lorenz focuses on contemporary interpretations of German classics using regional and seasonal ingredients; excellent wine pairings available"
+            },
+            {
+                "name": "Neobiota",
+                "cuisine_type": "Progressive European",
+                "signature_dishes": [
+                    "Fermented and Preserved Seasonal Vegetables",
+                    "Sustainably Sourced Fish with Foraged Herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, minimalist dining room with an open kitchen and nature-inspired design elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Ehrenfeld",
+                "local_tips": "Focused on sustainability and zero-waste cooking; Chefs Sonja Baumann and Erik Kormann create innovative dishes using local, seasonal ingredients with minimal environmental impact"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Früh am Dom",
+                "cuisine_type": "Traditional Cologne",
+                "signature_dishes": [
+                    "Himmel un Ääd (Heaven and Earth - black pudding with mashed potatoes and apple sauce)",
+                    "Rheinischer Sauerbraten (marinated pot roast)",
+                    "Halver Hahn (rye roll with cheese)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brauhaus (brewery restaurant) with traditional wooden furnishings just steps from the Cathedral",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner, especially weekends",
+                "dress_code": "Casual",
+                "location": "Old Town, near the Cathedral",
+                "local_tips": "One of Cologne's iconic brewery restaurants serving the local Kölsch beer in traditional 0.2L glasses brought continuously by roaming köbes (waiters) until you cover your glass with your coaster"
+            },
+            {
+                "name": "Bei Oma Kleinmann",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Schnitzel (over 20 varieties)",
+                    "Potato Salad",
+                    "Seasonal Specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional restaurant with homey decor and friendly service",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations highly recommended as space is limited",
+                "dress_code": "Casual",
+                "location": "Nippes",
+                "local_tips": "A Cologne institution known for having the best schnitzels in the city; massive portions that often overflow the plate; frequented primarily by locals rather than tourists"
+            },
+            {
+                "name": "Lommerzheim",
+                "cuisine_type": "Traditional Cologne",
+                "signature_dishes": [
+                    "Koteletts (Pork Chops)",
+                    "Mettwurst Sausage",
+                    "Halver Hahn (Gouda Cheese Sandwich)"
+                ],
+                "price_range": "€",
+                "atmosphere": "No-frills, authentic Cologne kneipe (pub) with simple wooden tables and historic charm",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations accepted; be prepared to share tables with locals",
+                "dress_code": "Casual",
+                "location": "Deutz, east side of the Rhine",
+                "local_tips": "A cult favorite among locals since 1959; legendary for its perfectly cooked pork chops and authentic Cologne atmosphere; owner-operated with famously gruff but charming service"
+            },
+            {
+                "name": "Haxenhaus zum Rheingarten",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Schweinshaxe (Pork Knuckle)",
+                    "Sauerkraut with Smoked Pork",
+                    "Brewery Fresh Kölsch"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic medieval building with Rhine views, timber beams and traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for the tables with river views",
+                "dress_code": "Casual",
+                "location": "Old Town, Rhine Promenade",
+                "local_tips": "Specializing in pork knuckles (haxen) since 1989; historic building with sections dating back to the 13th century; excellent location along the Rhine promenade"
+            },
+            {
+                "name": "Kebapland",
+                "cuisine_type": "Turkish/German Street Food",
+                "signature_dishes": [
+                    "Döner Kebab",
+                    "Durum Wraps",
+                    "Falafel"
+                ],
+                "price_range": "€",
+                "atmosphere": "Fast-paced street food restaurant with limited seating",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; popular with locals and tourists alike",
+                "dress_code": "Casual",
+                "location": "Zülpicher Straße, near university",
+                "local_tips": "Considered by many to serve the best döner kebabs in Cologne; popular late-night spot after bars close; expect lines during peak times"
+            },
+            {
+                "name": "Wok Inn",
+                "cuisine_type": "Chinese/Asian Fusion",
+                "signature_dishes": [
+                    "Build Your Own Wok Dish",
+                    "Dim Sum",
+                    "Crispy Duck"
+                ],
+                "price_range": "€",
+                "atmosphere": "Casual, modern restaurant with quick service and cafeteria style dining",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed; prices based on plate size that you fill yourself",
+                "dress_code": "Casual",
+                "location": "Multiple locations throughout Cologne",
+                "local_tips": "Popular for its great value all-you-can-eat concept; you select your own ingredients and they cook it fresh in a wok; favored by students and budget-conscious diners"
+            },
+            {
+                "name": "Peters Brauhaus",
+                "cuisine_type": "Traditional Cologne",
+                "signature_dishes": [
+                    "Rheinischer Sauerbraten",
+                    "Himmel un Ääd",
+                    "House-brewed Kölsch Beer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewery restaurant with classic German beer hall setting in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations strongly recommended, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "One of the authentic Cologne brewery restaurants brewing their own Kölsch; traditional servers (Köbes) in blue aprons keep bringing fresh Kölsch until you place your coaster over your glass"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Heinzelmännchen Markt",
+                "specialties": [
+                    "Currywurst",
+                    "International Street Food",
+                    "Local Specialties"
+                ],
+                "price_range": "€",
+                "hours": "Varies by vendor, generally 11:00 AM - 10:00 PM",
+                "location": "Alter Markt, Old Town (during Christmas Market season)",
+                "seating": "Limited",
+                "local_tips": "Part of the winter market with excellent food stalls; try the local reibekuchen (potato pancakes) with apple sauce"
+            },
+            {
+                "name": "Street Food Thursday at Rudolfplatz",
+                "specialties": [
+                    "International Street Food",
+                    "Craft Beers",
+                    "Rotating Food Trucks"
+                ],
+                "price_range": "€€",
+                "hours": "4:00 PM - 10:00 PM Thursdays (May-October)",
+                "location": "Rudolfplatz",
+                "seating": "Outdoor",
+                "local_tips": "Cologne's popular street food market featuring different vendors each week; excellent variety from German classics to international cuisine"
+            },
+            {
+                "name": "Fischmarkt",
+                "specialties": [
+                    "Fresh Fish Sandwiches",
+                    "Fried Fish",
+                    "Seafood Specialties"
+                ],
+                "price_range": "€€",
+                "hours": "10:00 AM - 6:00 PM Sundays (April-October)",
+                "location": "Rhine Promenade, Old Town",
+                "seating": "Outdoor",
+                "local_tips": "Sunday fish market with food stalls and live music along the Rhine; popular weekend brunch alternative with beautiful views"
+            },
+            {
+                "name": "Caffè Buur",
+                "specialties": [
+                    "Specialty Coffee",
+                    "Artisanal Ice Cream",
+                    "Handmade Waffles"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 7:00 PM (longer in summer, shorter in winter)",
+                "location": "Belgian Quarter",
+                "seating": "Limited",
+                "local_tips": "Famous for creative ice cream flavors and Instagram-worthy coffee creations; expect lines in summer months"
+            },
+            {
+                "name": "Martinsviertelfest Food Stalls",
+                "specialties": [
+                    "Traditional German Festival Food",
+                    "International Street Food",
+                    "Regional Specialties"
+                ],
+                "price_range": "€€",
+                "hours": "11:00 AM - 11:00 PM during festival weekends",
+                "location": "St. Martin's Quarter, Old Town",
+                "seating": "Outdoor",
+                "local_tips": "Seasonal street food available during Cologne's frequent festivals; particularly good during St. Martin's Day celebrations in November"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Van Dyck Rösterei",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single-Origin Pour-Over",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic coffee roastery with minimalist decor and roasting equipment on display",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Cakes, pastries, and light breakfast items",
+                "local_tips": "Cologne's premier coffee roastery; they roast on-site and offer brewing workshops for enthusiasts"
+            },
+            {
+                "name": "Café Reichard",
+                "specialty": "Traditional Café",
+                "must_try": [
+                    "Black Forest Cake",
+                    "Apple Strudel with Vanilla Sauce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with ornate decor and outdoor seating overlooking the Cathedral",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Full selection of German cakes, pastries, and light meals",
+                "local_tips": "Operating since 1855 with the best location in the city directly facing the Cathedral; perfect for people-watching and photos"
+            },
+            {
+                "name": "Café Fassbender",
+                "specialty": "Traditional Patisserie",
+                "must_try": [
+                    "Baumkuchen (Tree Cake)",
+                    "Berliner (German Doughnuts)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic patisserie with traditional decor and display cases of tempting pastries",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional German pastries and cakes",
+                "local_tips": "One of Cologne's oldest patisseries operating since 1888; known for exceptional quality traditional German baked goods"
+            },
+            {
+                "name": "The Coffee Gang",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, modern café with minimalist design in a trendy neighborhood",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Avocado toast, granola bowls, and vegan options",
+                "local_tips": "Popular with digital nomads and the creative crowd; they take their coffee seriously with beans from various specialty roasters"
+            },
+            {
+                "name": "Kaffeesaurus",
+                "specialty": "Organic Coffee",
+                "must_try": [
+                    "Speciality Filter Coffee",
+                    "Vegan Cake Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, sustainability-focused café with vintage furniture and plants",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Organic, mostly vegetarian and vegan food options",
+                "local_tips": "Environmentally conscious café with excellent plant-based food options; they host community events and live music on weekends"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Shepheard",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Dom Sour (Kölsch Beer Cocktail)",
+                    "Botanical Gin Creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated speakeasy-style bar with elegant vintage decor",
+                "best_time": "Evening",
+                "food_options": "High-end bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Award-winning cocktail bar regularly ranked among Germany's best; hidden entrance adds to the exclusive feel"
+            },
+            {
+                "name": "Braustelle",
+                "type": "Craft Beer Bar",
+                "specialty": "Local Craft Beer",
+                "signature_drinks": [
+                    "Helios (house craft beer)",
+                    "Rotating Seasonal Brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "No-frills microbrewery with industrial vibe and friendly atmosphere",
+                "best_time": "Evening",
+                "food_options": "Simple German bar food",
+                "reservation_needed": false,
+                "local_tips": "Pioneer in Cologne's craft beer scene breaking away from the Kölsch-only tradition; knowledgeable bartenders can guide your tasting"
+            },
+            {
+                "name": "Päffgen Brauhaus",
+                "type": "Traditional Kölsch House",
+                "specialty": "Kölsch Beer",
+                "signature_drinks": [
+                    "House-brewed Päffgen Kölsch",
+                    "Kölsch with a shot of fruit liqueur ('Herrengedeck')"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic brewery with traditional wooden interiors and authentic Cologne atmosphere",
+                "best_time": "Evening",
+                "food_options": "Traditional Cologne cuisine",
+                "reservation_needed": true,
+                "local_tips": "One of the most authentic Kölsch breweries dating back to 1883; traditional Köbes (waiters) in blue aprons keep bringing 0.2L Kölsch glasses until you cover your glass with a coaster"
+            },
+            {
+                "name": "Bastian's",
+                "type": "Cocktail Bar",
+                "specialty": "Classic and Creative Cocktails",
+                "signature_drinks": [
+                    "Cologne Mule (with local botanicals)",
+                    "Seasonal Fruit Infusions"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stylish, intimate bar with art deco touches and subtle lighting",
+                "best_time": "Late Night",
+                "food_options": "Light snacks",
+                "reservation_needed": false,
+                "local_tips": "Known for perfectly executed classics and creative seasonal specials; bartenders are happy to create personalized drinks based on your preferences"
+            },
+            {
+                "name": "LUXUS 13",
+                "type": "Classic Bar",
+                "specialty": "Premium Spirits",
+                "signature_drinks": [
+                    "Expertly Crafted Old Fashioned",
+                    "Rare Whiskey Selection"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, dimly-lit bar with leather seating and sophisticated ambiance",
+                "best_time": "Evening",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": true,
+                "local_tips": "One of Cologne's most prestigious bars with an exceptional selection of rare spirits and knowledgeable bartenders; dress smartly to match the upscale atmosphere"
+            },
+            {
+                "name": "Craftbeer Corner Coeln",
+                "type": "Craft Beer Bar",
+                "specialty": "International Craft Beer",
+                "signature_drinks": [
+                    "Rotating Selection of 15 Craft Beers on Tap",
+                    "Extensive Bottled Beer Collection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern beer bar with industrial design and relaxed vibe",
+                "best_time": "Evening",
+                "food_options": "Beer-friendly snacks",
+                "reservation_needed": false,
+                "local_tips": "Best selection of international craft beers in Cologne with over 100 bottles and rotating taps; friendly staff offer samples to help you choose"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Culinary Cologne Tour",
+                "focus": "Traditional Cologne Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour through the Old Town",
+                    "Tastings of signature Cologne dishes",
+                    "Introduction to Kölsch beer culture"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "Spanish"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable shoes recommended for walking between locations"
+            },
+            {
+                "name": "Kölsch Beer Experience",
+                "focus": "Local Beer Culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to traditional brewery houses",
+                    "History of Cologne's signature Kölsch beer",
+                    "Tastings at multiple breweries with paired foods"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; evening tours offer the most authentic experience"
+            },
+            {
+                "name": "Rhine Culinary Cruise",
+                "focus": "Rhine Valley Food and Wine",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Boat trip along the Rhine",
+                    "Tastings of regional specialties on board",
+                    "Wine sampling from local vineyards"
+                ],
+                "booking_required": true,
+                "group_size": "Max 20 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "French"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; seasonal operation from April to October"
+            },
+            {
+                "name": "Chocolate Museum Workshop",
+                "focus": "Chocolate Making and History",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of the Chocolate Museum",
+                    "History of chocolate production",
+                    "Hands-on chocolate making workshop",
+                    "Tastings of various chocolates"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book several weeks ahead; popular with families and groups"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Rhineland Cooking Academy",
+                "cuisine_focus": "Traditional Cologne Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Himmel un Ääd (Heaven and Earth)",
+                    "Rheinischer Sauerbraten (Marinated Pot Roast)",
+                    "Reibekuchen (Potato Pancakes)"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with local beer and wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held in a professional teaching kitchen"
+            },
+            {
+                "name": "Cologne Christmas Baking",
+                "cuisine_focus": "Traditional German Holiday Baking",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Spekulatius (Spiced Cookies)",
+                    "Stollen (Christmas Fruit Bread)",
+                    "Zimtsterne (Cinnamon Stars)"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, take-home baked goods, coffee and hot chocolate"
+                ],
+                "booking_tips": "Book at least 3 weeks in advance; seasonal availability from November through December"
+            },
+            {
+                "name": "Rheinland Beer Brewing Workshop",
+                "cuisine_focus": "Traditional Kölsch Brewing",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Basics of Kölsch Beer Brewing",
+                    "History and Culture of Cologne's Beer Tradition",
+                    "Brewing Your Own Batch"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All materials, beer tastings, take-home beer (when ready), traditional brewery lunch"
+                ],
+                "booking_tips": "Book 3-4 weeks ahead; participants must be 18+ years old"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Carlsplatz Market",
+                "type": "Daily Open-Air Market",
+                "highlights": [
+                    "100+ vendors selling fresh produce and specialty foods",
+                    "Mix of traditional German and international offerings",
+                    "Food stalls serving prepared items"
+                ],
+                "hours": "Tuesday to Saturday 8:00 AM - 6:00 PM",
+                "best_time": "Saturday morning",
+                "location": "Carlsplatz, Old Town",
+                "local_tips": "Cologne's oldest and most central market; the cheese stands offer excellent local and regional varieties"
+            },
+            {
+                "name": "Wilhelmplatz Market",
+                "type": "Weekly Farmers Market",
+                "highlights": [
+                    "Local producers and farmers",
+                    "Seasonal produce and flowers",
+                    "Organic and conventional offerings"
+                ],
+                "hours": "Wednesday and Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Early morning",
+                "location": "Nippes",
+                "local_tips": "More locals than tourists; excellent place to find seasonal Rhine Valley produce direct from farmers"
+            },
+            {
+                "name": "Market at Rudolfplatz",
+                "type": "Weekly Gourmet Market",
+                "highlights": [
+                    "Artisanal food producers",
+                    "Organic focus",
+                    "Ready-to-eat specialty foods"
+                ],
+                "hours": "Friday 11:00 AM - 6:00 PM",
+                "best_time": "Lunchtime",
+                "location": "Rudolfplatz",
+                "local_tips": "Great spot for lunch with many high-quality food stalls; popular with office workers from nearby businesses"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise Sauce",
+            "Fresh Herbs and Spring Vegetables",
+            "Maibowle (May Punch with Woodruff)"
+        ],
+        "summer": [
+            "Himmel un Ääd (Black Pudding with Mashed Potatoes and Apple Sauce)",
+            "Kölsch Beer Garden Culture",
+            "Fresh Berries from Rhine Valley Farms"
+        ],
+        "autumn": [
+            "Reibekuchen (Potato Pancakes) with Apple Sauce",
+            "Game Dishes from Eifel Region",
+            "Zwiebelkuchen (Onion Tart) with Federweisser (Young Wine)"
+        ],
+        "winter": [
+            "Rheinischer Sauerbraten (Marinated Pot Roast)",
+            "Spekulatius and Holiday Baked Goods",
+            "Glühwein (Mulled Wine) and Reibekuchen at Christmas Markets"
+        ]
+    }
+}

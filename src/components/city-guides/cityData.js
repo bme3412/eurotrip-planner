@@ -215,7 +215,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Cologne is known for its twin-spired Gothic cathedral and a unique blend of Roman heritage and modern cultural vibrancy.",
-      thumbnail: "/images/cologne-thumbnail.jpg",
+      thumbnail: "/images/cologne-thumbnail.jpeg",
       landmarks: ["Cologne Cathedral", "Hohenzollern Bridge"],
       latitude: 50.9375,
       longitude: 6.9603,
