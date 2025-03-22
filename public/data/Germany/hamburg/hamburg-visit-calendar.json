@@ -1,0 +1,419 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 2,
+          "special": true,
+          "event": "New Year's Day",
+          "notes": "Public holiday, most businesses closed, New Year's concerts at Elbphilharmonie and other venues"
+        },
+        {
+          "days": [2, 3, 4, 5, 6],
+          "score": 3,
+          "special": true,
+          "event": "Heilige Drei Könige (Epiphany)",
+          "notes": "January 6th is a public holiday in northern Germany, traditional Three Kings singers visit homes"
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 2,
+          "notes": "Winter sales begin ('Winterschlussverkauf'), cold weather, few tourists, good time for museum visits"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 2,
+          "special": true,
+          "event": "Beginning of Carnival Season",
+          "notes": "First carnival events begin, indoor activities dominate due to cold weather"
+        }
+      ],
+      "weatherHighC": 3,
+      "weatherLowC": -2,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 2,
+          "notes": "Cold winter weather continues, few tourists, excellent time for museums and indoor attractions"
+        },
+        {
+          "days": [14],
+          "score": 3,
+          "special": true,
+          "event": "Valentine's Day",
+          "notes": "Special menus at restaurants, not traditionally celebrated but increasing in popularity"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "special": true,
+          "event": "Carnival Peak Season",
+          "notes": "Costume parties, balls, and street celebrations culminating in Rosenmontag (Carnival Monday)"
+        }
+      ],
+      "weatherHighC": 4,
+      "weatherLowC": -1,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+          "score": 3,
+          "notes": "Early spring with unpredictable weather, gradual warming, outdoor cafes begin to open on sunny days"
+        },
+        {
+          "days": [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Spring Festival Season",
+          "notes": "Various spring festivals and events begin, including the Spring Fair at Heiligengeistfeld"
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 1,
+      "tourismLevel": 4
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "score": 4,
+          "special": true,
+          "event": "Holy Week & Easter",
+          "notes": "Religious celebrations, Easter markets, many restaurants open with special menus"
+        },
+        {
+          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+          "score": 4,
+          "notes": "Spring weather improves, cherry blossoms in Planten un Blomen, outdoor cafe culture begins"
+        },
+        {
+          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Spring Festival",
+          "notes": "Hamburg's spring festival at Heiligengeistfeld with traditional northern German attractions"
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 4,
+      "tourismLevel": 5
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 4,
+          "special": true,
+          "event": "Tag der Arbeit (Labor Day)",
+          "notes": "Public holiday with traditional Maypole celebrations and demonstrations"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 5,
+          "notes": "Beautiful spring weather, perfect for outdoor activities and harbor tours"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Hamburg Port Anniversary",
+          "notes": "World's largest port festival with ship parades, maritime demonstrations, and fireworks"
+        },
+        {
+          "days": [31],
+          "score": 5,
+          "special": true,
+          "event": "Hafengeburtstag (Port Anniversary)",
+          "notes": "Final day of the port festival with spectacular fireworks and celebrations"
+        }
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 8,
+      "tourismLevel": 6
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8],
+          "score": 5,
+          "notes": "Early summer weather, excellent for outdoor activities, moderate tourism levels"
+        },
+        {
+          "days": [9, 10],
+          "score": 5,
+          "special": true,
+          "event": "Corpus Christi",
+          "notes": "Religious holiday (date varies) with processions in city center"
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Hamburg Summer Festival",
+          "notes": "Cultural festival with music, international food, and art installations"
+        }
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 11,
+      "tourismLevel": 7
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 5,
+          "special": true,
+          "event": "Hamburg State Opera Festival",
+          "notes": "Prestigious opera performances at the State Opera and other venues"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Sommerferien (Summer Vacation)",
+          "notes": "School holidays begin, more locals at beaches and outdoor venues"
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 8
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 4,
+          "notes": "Peak summer heat, beach bars and outdoor activities very popular, high tourist season"
+        },
+        {
+          "days": [15],
+          "score": 4,
+          "special": true,
+          "event": "Mariä Himmelfahrt (Assumption Day)",
+          "notes": "Public holiday in some areas, special masses at major churches"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Hamburg Cruise Days",
+          "notes": "World's largest cruise festival with spectacular ship parades and maritime events"
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 8
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Pleasant late summer weather, perfect conditions for outdoor activities"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "special": true,
+          "event": "Hamburg Marathon",
+          "notes": "Annual marathon through the city's most scenic areas"
+        }
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 10,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3],
+          "score": 4,
+          "special": true,
+          "event": "Hamburg Marathon Weekend",
+          "notes": "Final days of the marathon event with various running activities"
+        },
+        {
+          "days": [3],
+          "score": 4,
+          "special": true,
+          "event": "Tag der Deutschen Einheit (German Unity Day)",
+          "notes": "National holiday celebrating German reunification, special events"
+        },
+        {
+          "days": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Beautiful autumn colors in parks and gardens, pleasant temperatures"
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "Halloween/Reformationstag",
+          "notes": "Halloween celebrations growing in popularity; Reformation Day observed"
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 6,
+      "tourismLevel": 7
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "Allerheiligen (All Saints' Day)",
+          "notes": "Public holiday in some areas, special masses at major churches"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Quieter tourism period, increasingly cold weather, transition to indoor activities"
+        },
+        {
+          "days": [11],
+          "score": 3,
+          "special": true,
+          "event": "St. Martin's Day",
+          "notes": "Children's lantern processions and traditional celebrations"
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "score": 3,
+          "notes": "Pre-Christmas atmosphere begins, decreasing daylight hours"
+        },
+        {
+          "days": [30],
+          "score": 4,
+          "special": true,
+          "event": "Advent Season Begins",
+          "notes": "First Christmas markets open, holiday decorations appear"
+        }
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 2,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets",
+          "notes": "Traditional Christmas markets throughout the city, especially at Rathausmarkt"
+        },
+        {
+          "days": [6],
+          "score": 4,
+          "special": true,
+          "event": "Nikolaustag (St. Nicholas Day)",
+          "notes": "Children receive small gifts, special Nikolaus appearances"
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Market Season",
+          "notes": "Peak holiday atmosphere, festive decorations throughout the city"
+        },
+        {
+          "days": [24],
+          "score": 3,
+          "special": true,
+          "event": "Heiligabend (Christmas Eve)",
+          "notes": "Main Christmas celebration, most businesses close by afternoon"
+        },
+        {
+          "days": [25, 26],
+          "score": 3,
+          "special": true,
+          "event": "Weihnachten (Christmas) & Stephanitag",
+          "notes": "Public holidays, most businesses closed, quiet atmosphere"
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 3,
+          "notes": "Post-Christmas period, some markets and decorations remain"
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "Silvester (New Year's Eve)",
+          "notes": "Celebrations at Landungsbrücken and throughout the city, fireworks"
+        }
+      ],
+      "weatherHighC": 4,
+      "weatherLowC": 0,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Cherry Blossom Viewing in Planten un Blomen",
+      "Spring Festival at Heiligengeistfeld",
+      "Hamburg Port Anniversary",
+      "Alster Lakes Spring Cruises",
+      "Biking Along Elbe River Paths",
+      "Seasonal White Asparagus Menus",
+      "Maypole Celebrations",
+      "Fish Market for Spring Seafood"
+    ],
+    "summer": [
+      "Elbe River Beach Bars",
+      "Swimming at Övelgönne Beach",
+      "Outdoor Concerts at Planten un Blomen",
+      "Harbor Boat Tours",
+      "Hamburg Summer Festival",
+      "Open-Air Cinema Events",
+      "Day Trips to Sylt",
+      "Rooftop Bars and Outdoor Dining"
+    ],
+    "autumn": [
+      "Autumn Fair at Heiligengeistfeld",
+      "Autumn Colors in Planten un Blomen",
+      "Hamburg Marathon",
+      "Day Trips to Lüneburg Heath",
+      "Seasonal Game and Mushroom Cuisine",
+      "Museum Exhibits and Gallery Openings",
+      "Long Night of Museums",
+      "Cultural Performances at Elbphilharmonie"
+    ],
+    "winter": [
+      "Christmas Markets Throughout the City",
+      "Ice Skating at Planten un Blomen",
+      "Hamburg Dungeon Winter Special",
+      "Hamburg Ballet Nutcracker",
+      "Winter Menu Specialties and Glühwein",
+      "Day Trips to Heligoland",
+      "Museum Visits and Indoor Culture",
+      "New Year's Celebrations"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very low/high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+  }
+} 

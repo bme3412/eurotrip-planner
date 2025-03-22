@@ -201,7 +201,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Hamburg is Germany's major port city with a rich maritime heritage, impressive Hanseatic architecture, and a lively cultural scene.",
-      thumbnail: "/images/hamburg-thumbnail.jpg",
+      thumbnail: "/images/hamburg-thumbnail.jpeg",
       landmarks: ["Port of Hamburg", "Elbphilharmonie"],
       latitude: 53.5511,
       longitude: 9.9937,
