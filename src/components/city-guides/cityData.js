@@ -516,7 +516,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Valencia blends futuristic architecture with historic charm, offering beautiful beaches and the birthplace of paella.",
-      thumbnail: "/images/valencia-thumbnail.jpg",
+      thumbnail: "/images/valencia-thumbnail.jpeg",
       landmarks: ["City of Arts and Sciences", "Valencia Cathedral"],
       latitude: 39.4699,
       longitude: -0.3763,
