@@ -257,7 +257,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Düsseldorf is a fashion and business center, famous for its shopping boulevard and vibrant arts scene, centered around its charming Altstadt (Old Town).",
-      thumbnail: "/images/dusseldorf-thumbnail.jpg",
+      thumbnail: "/images/dusseldorf-thumbnail.jpeg",
       landmarks: ["Königsallee", "Altstadt"],
       latitude: 51.2277,
       longitude: 6.7735,
