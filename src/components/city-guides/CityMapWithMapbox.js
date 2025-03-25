@@ -8,56 +8,96 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // In production, you should use an environment variable
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
-// Define category colors for attractions with modern color palette
-const CATEGORY_COLORS = {
-  'Museum': '#E53E3E', // Red
-  'Monument': '#DD6B20', // Orange
-  'Park': '#38A169', // Green
-  'Garden': '#48BB78', // Light Green
-  'Church': '#805AD5', // Purple
-  'Cathedral': '#6B46C1', // Indigo-Purple
-  'Basilica': '#9F7AEA', // Medium Purple
-  'Chapel': '#B794F4', // Light Purple
-  'Religious': '#7B61FF', // Blue-Purple
-  'Shopping': '#3182CE', // Blue
-  'Entertainment': '#F6E05E', // Yellow
-  'Historical': '#6B46C1', // Indigo
-  'Architecture': '#2C7A7B', // Teal
-  'Cultural': '#ED64A6', // Pink
-  'Landmark': '#4299E1', // Light Blue
-  'District': '#F6AD55', // Orange 
-  'Square': '#FBD38D', // Light Orange
-  'Street': '#F6AD55', // Orange
-  'Food': '#F56565', // Light Red
-  'Residential': '#718096', // Gray-Blue
-  'Uncategorized': '#718096' // Gray
+// Define broader category mapping to consolidate attraction types
+// This helps organize attractions into more manageable groups
+const CATEGORY_MAPPING = {
+  // Arts & Culture
+  'Museum': 'Arts & Culture',
+  'Art Gallery': 'Arts & Culture',
+  'Theater': 'Arts & Culture',
+  'Opera House': 'Arts & Culture',
+  'Concert Hall': 'Arts & Culture',
+  'Cultural': 'Arts & Culture',
+  
+  // Landmarks
+  'Monument': 'Landmarks',
+  'Landmark': 'Landmarks',
+  'Architecture': 'Landmarks',
+  'Government Building': 'Landmarks',
+  'Historical': 'Landmarks',
+  'Historic District': 'Landmarks',
+  
+  // Religious Sites
+  'Church': 'Religious Sites',
+  'Cathedral': 'Religious Sites',
+  'Basilica': 'Religious Sites',
+  'Chapel': 'Religious Sites',
+  'Religious': 'Religious Sites',
+  
+  // Nature & Outdoors
+  'Park': 'Nature & Outdoors',
+  'Garden': 'Nature & Outdoors',
+  'Lake': 'Nature & Outdoors',
+  'Zoo': 'Nature & Outdoors',
+  
+  // Urban Spaces
+  'District': 'Urban Spaces',
+  'Square': 'Urban Spaces',
+  'Street': 'Urban Spaces',
+  'Harbor': 'Urban Spaces',
+  'Entertainment District': 'Urban Spaces',
+  
+  // Food & Shopping
+  'Food': 'Food & Shopping',
+  'Market': 'Food & Shopping',
+  'Shopping': 'Food & Shopping',
+  
+  // Everything else
+  'Uncategorized': 'Other'
 };
 
-// Helper function to get category color
-const getCategoryColor = (category) => {
-  if (!category) return CATEGORY_COLORS['Uncategorized'];
+// Define colors for the main categories with a cohesive color palette
+const MAIN_CATEGORY_COLORS = {
+  'Arts & Culture': '#E53E3E', // Red
+  'Landmarks': '#DD6B20', // Orange
+  'Religious Sites': '#805AD5', // Purple
+  'Nature & Outdoors': '#38A169', // Green
+  'Urban Spaces': '#4299E1', // Blue
+  'Food & Shopping': '#F56565', // Pink
+  'Other': '#718096' // Gray
+};
+
+// Helper function to get standardized category from attraction type
+const getStandardCategory = (type) => {
+  if (!type) return 'Other';
   
-  // Try to find exact match
-  if (CATEGORY_COLORS[category]) {
-    return CATEGORY_COLORS[category];
+  // Try direct mapping first
+  if (CATEGORY_MAPPING[type]) {
+    return CATEGORY_MAPPING[type];
   }
   
-  // Try to find partial match (case insensitive)
-  const lowerCategory = category.toLowerCase();
-  for (const key of Object.keys(CATEGORY_COLORS)) {
-    if (lowerCategory.includes(key.toLowerCase())) {
-      return CATEGORY_COLORS[key];
+  // Try case-insensitive partial matching
+  const lowerType = type.toLowerCase();
+  for (const [key, value] of Object.entries(CATEGORY_MAPPING)) {
+    if (lowerType.includes(key.toLowerCase())) {
+      return value;
     }
   }
   
-  return CATEGORY_COLORS['Uncategorized'];
+  return 'Other';
+};
+
+// Helper function to get color based on category
+const getCategoryColor = (category) => {
+  const standardCategory = getStandardCategory(category);
+  return MAIN_CATEGORY_COLORS[standardCategory] || MAIN_CATEGORY_COLORS['Other'];
 };
 
 // City map component that uses Mapbox
 export default function CityMapWithMapbox({ 
   attractions = [], 
   categories = [], 
-  cityName, 
+  cityName = "City", 
   center = [0, 0], 
   zoom = 12 
 }) {
@@ -70,34 +110,35 @@ export default function CityMapWithMapbox({
   const [activeCategories, setActiveCategories] = useState([]);
   const [showCategoryFilter, setShowCategoryFilter] = useState(false);
   const [mapError, setMapError] = useState(null);
-
-  // Process attractions to extract categories
+  const [categoriesProcessed, setCategoriesProcessed] = useState(false);
+  
+  // Convert existing categories to standard categories - called only from useEffect
   const processCategories = () => {
-    if (categories.length === 0 && attractions.length > 0) {
-      // Extract categories from attractions
-      const uniqueCategories = [...new Set(attractions.map(attr => {
-        // Look for category field first, then try type, then default to Uncategorized
-        return attr.category || attr.type || 'Uncategorized';
-      }))];
-      
-      // Create category objects
-      const derivedCategories = uniqueCategories.map(cat => ({
-        category: cat,
-        sites: attractions.filter(attr => (attr.category || attr.type || 'Uncategorized') === cat)
-      }));
-      
-      setActiveCategories(derivedCategories.map(cat => cat.category));
-      setShowCategoryFilter(derivedCategories.length > 1);
-      return derivedCategories;
-    } else if (categories.length > 0) {
-      setActiveCategories(categories.map(cat => cat.category));
-      setShowCategoryFilter(categories.length > 1);
-      return categories;
-    }
-    return [];
+    if (categoriesProcessed) return;
+    
+    // Get all unique standard categories from attractions
+    const uniqueCategories = [...new Set(attractions.map(attr => {
+      const origCategory = attr.category || attr.type || 'Uncategorized';
+      return getStandardCategory(origCategory);
+    }))];
+    
+    // Create standardized category objects
+    const standardizedCategories = uniqueCategories.map(cat => ({
+      category: cat,
+      sites: attractions.filter(attr => {
+        const origCategory = attr.category || attr.type || 'Uncategorized';
+        return getStandardCategory(origCategory) === cat;
+      })
+    })).sort((a, b) => b.sites.length - a.sites.length); // Sort by number of sites
+    
+    setActiveCategories(standardizedCategories.map(cat => cat.category));
+    setShowCategoryFilter(standardizedCategories.length > 1);
+    setCategoriesProcessed(true);
+    
+    return standardizedCategories;
   };
 
-  // Initialize map
+  // Initialize map and process categories once
   useEffect(() => {
     if (map.current) return; // Map already initialized
 
@@ -131,6 +172,7 @@ export default function CityMapWithMapbox({
       // On map load
       map.current.on('load', () => {
         setMapLoaded(true);
+        // Process categories after map is loaded
         processCategories();
       });
 
@@ -156,11 +198,11 @@ export default function CityMapWithMapbox({
         map.current = null;
       }
     };
-  }, [center, zoom, cityName]);
+  }, [center, zoom, cityName, attractions]); // Include attractions in dependencies
 
-  // Add markers when map is loaded and attractions data changes
+  // Add markers when map is loaded and attractions data changes or filters change
   useEffect(() => {
-    if (!mapLoaded || !styleLoaded || !map.current) return;
+    if (!mapLoaded || !styleLoaded || !map.current || !categoriesProcessed) return;
 
     // Clear any existing markers
     if (markersRef.current.length > 0) {
@@ -181,9 +223,13 @@ export default function CityMapWithMapbox({
       const isVisible = (attraction) => {
         if (activeCategories.length === 0) return true;
         
-        // Get category from attraction (try category, then type, then default)
-        const attrCategory = attraction.category || attraction.type || 'Uncategorized';
-        return activeCategories.includes(attrCategory);
+        // Get original category from attraction
+        const origCategory = attraction.category || attraction.type || 'Uncategorized';
+        
+        // Get standardized category
+        const standardCategory = getStandardCategory(origCategory);
+        
+        return activeCategories.includes(standardCategory);
       };
 
       // Add markers for each attraction
@@ -211,8 +257,9 @@ export default function CityMapWithMapbox({
 
         // Get attraction category
         const category = attraction.category || attraction.type || 'Uncategorized';
+        const standardCategory = getStandardCategory(category);
         
-        // Get marker color based on category
+        // Get marker color based on standardized category
         const color = getCategoryColor(category);
 
         // Create custom marker element
@@ -232,7 +279,10 @@ export default function CityMapWithMapbox({
         let popupContent = `
           <div class="popup-container">
             <h3 class="popup-title">${attraction.name}</h3>
-            ${category ? `<p class="popup-category" style="color: ${color};">${category}</p>` : ''}
+            <p class="popup-category" style="color: ${color};">
+              <span>${category}</span>
+              <span class="popup-main-category">${standardCategory}</span>
+            </p>
         `;
         
         // Add description if available
@@ -259,6 +309,13 @@ export default function CityMapWithMapbox({
               <span class="popup-detail-icon">🕒</span>
               <span class="popup-detail-text">${attraction.hours}</span>
             </div>`;
+        } else if (attraction.best_time) {
+          // If no hours but best_time is available
+          popupContent += `
+            <div class="popup-detail-item">
+              <span class="popup-detail-icon">🕒</span>
+              <span class="popup-detail-text">Best time: ${attraction.best_time}</span>
+            </div>`;
         }
         
         // Add price if available
@@ -273,12 +330,21 @@ export default function CityMapWithMapbox({
         
         // Add ratings if available
         if (attraction.ratings) {
+          let ratingInfo = '';
+          
           // Handle different rating structures
-          const ratingInfo = typeof attraction.ratings === 'object' 
-            ? (attraction.ratings.score || attraction.ratings.suggested_duration_hours 
-                ? `${attraction.ratings.score || ''} ${attraction.ratings.suggested_duration_hours ? `(${attraction.ratings.suggested_duration_hours} hrs)` : ''}` 
-                : '')
-            : attraction.ratings;
+          if (typeof attraction.ratings === 'object') {
+            if (attraction.ratings.score) {
+              ratingInfo = attraction.ratings.score;
+            }
+            
+            if (attraction.ratings.suggested_duration_hours) {
+              ratingInfo += ratingInfo ? ` (${attraction.ratings.suggested_duration_hours} hrs)` : 
+                            `${attraction.ratings.suggested_duration_hours} hrs`;
+            }
+          } else {
+            ratingInfo = attraction.ratings;
+          }
             
           if (ratingInfo) {
             popupContent += `
@@ -349,6 +415,7 @@ export default function CityMapWithMapbox({
               
               // Get category
               const category = attr.category || attr.type || 'Uncategorized';
+              const standardCategory = getStandardCategory(category);
               
               return {
                 type: 'Feature',
@@ -359,6 +426,7 @@ export default function CityMapWithMapbox({
                 properties: {
                   name: attr.name,
                   category: category,
+                  standardCategory: standardCategory,
                   description: attr.description || '',
                   color: getCategoryColor(category)
                 }
@@ -431,7 +499,35 @@ export default function CityMapWithMapbox({
       console.error('Error adding map features:', err);
       setMapError(err.message || 'Failed to add map features');
     }
-  }, [mapLoaded, styleLoaded, attractions, activeCategories]);
+  }, [mapLoaded, styleLoaded, attractions, activeCategories, categoriesProcessed]);
+
+  // Get the list of categories to show in filters - now memoized
+  const getFilterCategories = () => {
+    // Only return categories that have already been processed
+    if (!categoriesProcessed) return [];
+    
+    // Get all unique standard categories from attractions
+    const uniqueCategories = [...new Set(attractions.map(attr => {
+      const origCategory = attr.category || attr.type || 'Uncategorized';
+      return getStandardCategory(origCategory);
+    }))];
+    
+    // Create standardized category objects
+    return uniqueCategories.map(cat => ({
+      category: cat,
+      sites: attractions.filter(attr => {
+        const origCategory = attr.category || attr.type || 'Uncategorized';
+        return getStandardCategory(origCategory) === cat;
+      })
+    })).sort((a, b) => b.sites.length - a.sites.length);
+  };
+
+  // Get a list of categories to show in the legend - limited to main categories
+  const getLegendCategories = () => {
+    const filterCats = getFilterCategories();
+    // Always limit to a reasonable number for the legend
+    return filterCats.length <= 7 ? filterCats : filterCats.slice(0, 7);
+  };
 
   // Toggle a category filter
   const toggleCategory = (category) => {
@@ -446,15 +542,8 @@ export default function CityMapWithMapbox({
 
   // Select all categories
   const selectAllCategories = () => {
-    if (categories.length > 0) {
-      setActiveCategories(categories.map(cat => cat.category));
-    } else {
-      // If no categories are provided, extract them from attractions
-      const uniqueCategories = [...new Set(attractions.map(attr => 
-        attr.category || attr.type || 'Uncategorized'
-      ))];
-      setActiveCategories(uniqueCategories);
-    }
+    const standardizedCategories = getFilterCategories();
+    setActiveCategories(standardizedCategories.map(cat => cat.category));
   };
 
   // Clear all categories
@@ -462,70 +551,47 @@ export default function CityMapWithMapbox({
     setActiveCategories([]);
   };
 
-  // Get the list of categories to show in filters
-  const getFilterCategories = () => {
-    if (categories.length > 0) return categories;
-    
-    // Extract categories from attractions
-    const uniqueCategories = [...new Set(attractions.map(attr => {
-      // Look for category field first, then try type, then default to Uncategorized
-      return attr.category || attr.type || 'Uncategorized';
-    }))];
-    
-    // Create category objects
-    return uniqueCategories.map(cat => ({
-      category: cat,
-      sites: attractions.filter(attr => (attr.category || attr.type || 'Uncategorized') === cat)
-    }));
-  };
-
-  // Get a list of categories to show in the legend
-  const getLegendCategories = () => {
-    const filterCats = getFilterCategories();
-    return filterCats.length <= 10 ? filterCats : filterCats.slice(0, 10);
-  };
-
   return (
-    <div className="relative w-full h-[500px] rounded-lg overflow-hidden">
+    <div className="relative w-full h-full rounded-lg overflow-hidden">
       {/* Map container */}
       <div ref={mapContainer} className="w-full h-full" />
       
       {/* Category filter panel - only show if we have categories */}
-      {showCategoryFilter && (
+      {showCategoryFilter && categoriesProcessed && (
         <div className="absolute top-4 left-4 z-10 bg-white p-4 rounded-lg shadow-lg max-w-xs max-h-[calc(100%-32px)] overflow-y-auto">
           <h3 className="font-bold text-gray-800 mb-2 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clipRule="evenodd" />
             </svg>
-            Filter Attractions
+            Filter By Category
           </h3>
           <div className="flex space-x-2 mb-3">
             <button 
               onClick={selectAllCategories}
               className="text-xs bg-blue-600 hover:bg-blue-700 text-white py-1 px-2 rounded transition-colors duration-200"
             >
-              Select All
+              All
             </button>
             <button 
               onClick={clearAllCategories}
               className="text-xs bg-gray-600 hover:bg-gray-700 text-white py-1 px-2 rounded transition-colors duration-200"
             >
-              Clear All
+              None
             </button>
           </div>
           <div className="flex flex-wrap gap-2">
             {getFilterCategories().map((cat) => (
               <button
                 key={cat.category || 'uncategorized'}
-                onClick={() => toggleCategory(cat.category || 'Uncategorized')}
+                onClick={() => toggleCategory(cat.category || 'Other')}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
-                  activeCategories.includes(cat.category || 'Uncategorized')
+                  activeCategories.includes(cat.category || 'Other')
                     ? 'border-transparent text-white shadow-md' 
                     : 'border-gray-300 text-gray-700 bg-gray-100 hover:bg-gray-200'
                 }`}
                 style={{
-                  backgroundColor: activeCategories.includes(cat.category || 'Uncategorized') 
-                    ? getCategoryColor(cat.category) 
+                  backgroundColor: activeCategories.includes(cat.category || 'Other') 
+                    ? MAIN_CATEGORY_COLORS[cat.category] || MAIN_CATEGORY_COLORS['Other']
                     : '',
                 }}
               >
@@ -558,25 +624,27 @@ export default function CityMapWithMapbox({
       )}
       
       {/* Legend for categories */}
-      <div className="absolute bottom-4 right-4 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
-        <h4 className="text-xs font-bold text-gray-700 mb-2 flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-          </svg>
-          Legend
-        </h4>
-        <div className="grid grid-cols-2 gap-1">
-          {getLegendCategories().map((cat) => (
-            <div key={cat.category || 'uncategorized'} className="flex items-center space-x-1">
-              <div 
-                className="w-3 h-3 rounded-full border border-white shadow-sm" 
-                style={{ backgroundColor: getCategoryColor(cat.category) }}
-              ></div>
-              <span className="text-xs text-gray-700 truncate">{cat.category || 'Other'}</span>
-            </div>
-          ))}
+      {categoriesProcessed && (
+        <div className="absolute bottom-4 right-4 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
+          <h4 className="text-xs font-bold text-gray-700 mb-2 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+            </svg>
+            Legend
+          </h4>
+          <div className="grid grid-cols-2 gap-1">
+            {getLegendCategories().map((cat) => (
+              <div key={cat.category || 'uncategorized'} className="flex items-center space-x-1">
+                <div 
+                  className="w-3 h-3 rounded-full border border-white shadow-sm" 
+                  style={{ backgroundColor: MAIN_CATEGORY_COLORS[cat.category] || MAIN_CATEGORY_COLORS['Other'] }}
+                ></div>
+                <span className="text-xs text-gray-700 truncate">{cat.category || 'Other'}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Add CSS for custom markers and popups */}
       <style jsx global>{`
@@ -660,8 +728,13 @@ export default function CityMapWithMapbox({
           font-size: 12px;
           font-weight: 600;
           margin-bottom: 8px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        .popup-main-category {
+          opacity: 0.8;
+          font-style: italic;
         }
         
         .popup-description {

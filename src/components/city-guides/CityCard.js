@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { regionColors } from './cityData';
@@ -58,6 +60,9 @@ const CityCard = ({ city }) => {
     return countryToFlag[country] || '';
   };
   
+  // Default thumbnail path if not provided
+  const thumbnailPath = city.thumbnail || '/images/cities/default-city.jpg';
+  
   return (
     <div className="relative group">
       <Link href={`/city-guides/${city.id}`} className="block">
@@ -66,8 +71,8 @@ const CityCard = ({ city }) => {
           <div className="relative h-44 overflow-hidden">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105"
-              style={{ 
-                backgroundImage: `url(${city.thumbnail || '/images/city-placeholder.jpg'})`,
+              style={{
+                backgroundImage: `url(${thumbnailPath})`,
               }}
             >
               {/* Gradient overlay */}

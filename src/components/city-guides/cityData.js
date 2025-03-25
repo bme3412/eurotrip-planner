@@ -10,6 +10,18 @@ import {
   getCountriesInRegion,
 } from "./regionData";
 
+// Define region colors for UI display
+export const regionColors = {
+  "Atlantic Europe": "#0EA5E9", // sky
+  "Mediterranean": "#F97316", // orange
+  "Central Europe": "#10B981", // emerald
+  "Imperial Cities": "#8B5CF6", // violet
+  "Alpine": "#3B82F6", // blue
+  "Celtic & Nordic": "#6366F1", // indigo
+  "Arctic": "#EC4899", // pink
+  "Atlantic Islands": "#F59E0B", // amber
+};
+
 export const getCitiesData = () => {
   return [
     // FRANCE
