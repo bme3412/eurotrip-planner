@@ -1,10 +1,10 @@
-// src/app/city-guides/[city]/page.js
 import { notFound } from "next/navigation";
 import fs from "fs";
 import path from "path";
 import Image from "next/image";
 
 // Import components
+import CityOverview from "@/components/city-guides/CityOverview";
 import AttractionsList from "@/components/city-guides/AttractionsList";
 import NeighborhoodsList from "@/components/city-guides/NeighborhoodsList";
 import CulinaryGuide from "@/components/city-guides/CulinaryGuide";
@@ -63,9 +63,7 @@ const CITY_COORDINATES = {
 // Get all available city folders
 export async function generateStaticParams() {
   // Try multiple data directories
-  const possibleDataDirs = [
-    path.join(process.cwd(), "public/data"), // Only use this path
-  ];
+  const possibleDataDirs = [path.join(process.cwd(), "public/data")];
 
   let dataDir = null;
 
@@ -73,9 +71,7 @@ export async function generateStaticParams() {
   for (const dir of possibleDataDirs) {
     if (fs.existsSync(dir)) {
       dataDir = dir;
-      console.log(
-        `Found data directory for generateStaticParams at: ${dataDir}`
-      );
+      console.log(`Found data directory for generateStaticParams at: ${dataDir}`);
       break;
     }
   }
@@ -136,9 +132,7 @@ export async function generateStaticParams() {
 
 async function getCityData(cityName) {
   // Try multiple data directories
-  const possibleDataDirs = [
-    path.join(process.cwd(), "public/data"), // Only use this path
-  ];
+  const possibleDataDirs = [path.join(process.cwd(), "public/data")];
 
   let dataDir = null;
 
@@ -199,6 +193,32 @@ async function getCityData(cityName) {
 
     if (countryCities.includes(cityName)) {
       const cityPath = path.join(countryPath, cityName);
+
+      // Get overview data - NEW SECTION
+      let overview = null;
+      try {
+        const possibleOverviewPaths = [
+          path.join(cityPath, `${cityName}-overview.json`),
+          path.join(cityPath, `paris-overview.json`), // Special case for Paris
+          path.join(cityPath, `${cityName}_overview.json`),
+          path.join(cityPath, `overview.json`),
+        ];
+
+        for (const overviewPath of possibleOverviewPaths) {
+          if (fs.existsSync(overviewPath)) {
+            const overviewData = fs.readFileSync(overviewPath, "utf8");
+            overview = JSON.parse(overviewData);
+            console.log(`Found overview file at: ${overviewPath}`);
+            break;
+          }
+        }
+
+        if (!overview) {
+          console.log(`No overview file found for ${cityName}`);
+        }
+      } catch (error) {
+        console.error(`Error loading overview data for ${cityName}:`, error);
+      }
 
       // Get attractions data
       let attractions = null;
@@ -341,6 +361,7 @@ async function getCityData(cityName) {
           error
         );
       }
+
       // Get monthly events (if available)
       const monthlyPath = path.join(cityPath, "monthly");
       let monthlyEvents = {};
@@ -509,6 +530,7 @@ async function getCityData(cityName) {
       return {
         cityName,
         country,
+        overview,
         attractions,
         neighborhoods,
         culinaryGuide,
@@ -539,6 +561,7 @@ export default async function CityPage({ params }) {
   const {
     cityName,
     country,
+    overview,
     attractions,
     neighborhoods,
     culinaryGuide,
@@ -553,7 +576,6 @@ export default async function CityPage({ params }) {
   const countryDisplayName = capitalize(country.replace(/-/g, " "));
 
   // FIXED SECTION: Get proper map center based on city or country
-  // First check if the city exists in our lowercase city coordinates map
   let mapCenter;
   const cityNameLower = cityName.toLowerCase();
 
@@ -561,19 +583,16 @@ export default async function CityPage({ params }) {
     mapCenter = CITY_COORDINATES[cityNameLower];
     console.log(`Using CITY_COORDINATES for ${cityName}: [${mapCenter}]`);
   } else if (DEFAULT_COORDINATES[cityDisplayName]) {
-    // Try with display name (capitalized)
     mapCenter = DEFAULT_COORDINATES[cityDisplayName];
     console.log(
       `Using DEFAULT_COORDINATES (cityDisplayName) for ${cityName}: [${mapCenter}]`
     );
   } else if (DEFAULT_COORDINATES[country]) {
-    // Fall back to country coordinates
     mapCenter = DEFAULT_COORDINATES[country];
     console.log(
       `Using DEFAULT_COORDINATES (country) for ${cityName}: [${mapCenter}]`
     );
   } else {
-    // Default fallback
     mapCenter = DEFAULT_COORDINATES["default"];
     console.log(
       `Using DEFAULT_COORDINATES (default) for ${cityName}: [${mapCenter}]`
@@ -650,6 +669,24 @@ export default async function CityPage({ params }) {
             aria-label="City guide sections"
           >
             <ul className="flex space-x-6 min-w-full">
+              {overview && (
+                <li>
+                  <a
+                    href="#overview"
+                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                  >
+                    Overview
+                  </a>
+                </li>
+              )}
+              <li>
+                <a
+                  href="#map"
+                  className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                >
+                  Map
+                </a>
+              </li>
               <li>
                 <a
                   href="#monthly-guide"
@@ -722,11 +759,34 @@ export default async function CityPage({ params }) {
           </nav>
         </div>
       </div>
+
       {/* Main content */}
       <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+        {/* City Overview Section - NEW SECTION */}
+        {overview && (
+          <section id="overview" className="mb-16 scroll-mt-20">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+                City Overview
+              </h2>
+              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
+            </div>
+            <CityOverview 
+              cityData={overview}
+              cityDisplayName={cityDisplayName}
+            />
+          </section>
+        )}
+
         {/* Map Section */}
         {attractions && attractions.sites && (
-          <section className="mb-16">
+          <section id="map" className="mb-16 scroll-mt-20">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+                Interactive Map
+              </h2>
+              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
+            </div>
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <MapSection
                 attractions={attractions.sites}
