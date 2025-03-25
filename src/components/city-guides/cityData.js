@@ -271,7 +271,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Stuttgart, the cradle of the automobile industry, is home to world-renowned museums like those dedicated to Mercedes-Benz and Porsche.",
-      thumbnail: "/images/stuttgart-thumbnail.jpg",
+      thumbnail: "/images/stuttgart-thumbnail.jpeg",
       landmarks: ["Mercedes-Benz Museum", "Wilhelma Zoo"],
       latitude: 48.7758,
       longitude: 9.1829,
