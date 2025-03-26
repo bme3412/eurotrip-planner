@@ -28,6 +28,7 @@ export default function MapSection({
   zoom = 12,
   title,
   subtitle,
+  showHeader = true,
   height = 500 
 }) {
   const [isClient, setIsClient] = useState(false);
@@ -42,11 +43,13 @@ export default function MapSection({
   const mapSubtitle = subtitle || `Interactive map of key attractions and landmarks`;
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-      <div className="p-4 border-b border-gray-100">
-        <h3 className="text-xl font-semibold text-gray-800">{mapTitle}</h3>
-        <p className="text-sm text-gray-600">{mapSubtitle}</p>
-      </div>
+    <div className="overflow-hidden">
+      {showHeader && (
+        <div className="p-4 border-b border-gray-100">
+          <h3 className="text-xl font-semibold text-gray-800">{mapTitle}</h3>
+          <p className="text-sm text-gray-600">{mapSubtitle}</p>
+        </div>
+      )}
       
       <div style={{ height: `${height}px` }}>
         {isClient && (

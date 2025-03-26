@@ -629,43 +629,53 @@ export default async function CityPage({ params }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <div className="relative h-56 md:h-72 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
-        {cityImage && (
-          <div className="absolute inset-0 z-0 opacity-40">
-            <Image
-              src={cityImage}
-              alt={`${cityDisplayName}, ${countryDisplayName}`}
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-              unoptimized={true}
-            />
-          </div>
-        )}
-        <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
-        <div className="container mx-auto px-4 md:px-6 py-6 relative z-20 flex flex-col justify-end h-full">
-          <div className="max-w-4xl">
-            <div className="inline-block px-2 py-1 bg-blue-600 bg-opacity-75 rounded-md text-xs font-medium mb-1">
-              {countryDisplayName}
+      {/* Compact City Header */}
+      <div className="relative h-32 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
+        <div className="container mx-auto px-4 md:px-6 py-3 flex h-full">
+          <div className="flex-1 flex flex-col justify-center">
+            <div className="flex items-center mb-1">
+              <div className="px-2 py-0.5 bg-blue-600 bg-opacity-75 rounded-md text-xs font-medium mr-2">
+                {countryDisplayName}
+              </div>
+              <h1 className="text-xl md:text-2xl font-bold">
+                {cityDisplayName}
+              </h1>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              {cityDisplayName}
-            </h1>
             {summary && summary.brief_description && (
-              <p className="text-sm md:text-base opacity-95 leading-relaxed max-w-3xl line-clamp-2">
+              <p className="text-xs opacity-90 leading-tight max-w-2xl line-clamp-1">
                 {summary.brief_description}
               </p>
             )}
+          </div>
+          <div className="hidden md:flex flex-col justify-center items-end text-xs gap-1">
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+              <span>Best time: {summary?.best_time_to_visit || 'May-Sept'}</span>
+            </div>
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Avg. visit: {summary?.recommended_duration || '2-3 days'}</span>
+            </div>
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+              <span>Currency: {countryDisplayName === "France" ? "Euro (€)" : 
+                countryDisplayName === "United Kingdom" ? "Pound (£)" : "Euro (€)"}</span>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Quick Navigation Bar */}
-      <div className="sticky top-0 z-40 bg-white shadow-md">
+      <div className="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-200">
         <div className="container mx-auto px-4 md:px-6">
           <nav
-            className="flex overflow-x-auto py-3 scrollbar-none"
+            className="flex overflow-x-auto py-2.5 scrollbar-none"
             aria-label="City guide sections"
           >
             <ul className="flex space-x-6 min-w-full">
@@ -673,7 +683,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#overview"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     Overview
                   </a>
@@ -682,7 +692,7 @@ export default async function CityPage({ params }) {
               <li>
                 <a
                   href="#map"
-                  className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                  className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                 >
                   Map
                 </a>
@@ -690,7 +700,7 @@ export default async function CityPage({ params }) {
               <li>
                 <a
                   href="#monthly-guide"
-                  className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                  className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                 >
                   Monthly Guide
                 </a>
@@ -699,7 +709,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#when-to-visit"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     When to Visit
                   </a>
@@ -709,7 +719,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#attractions"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     Attractions
                   </a>
@@ -719,7 +729,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#neighborhoods"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     Neighborhoods
                   </a>
@@ -729,7 +739,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#food"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     Food &amp; Drink
                   </a>
@@ -739,7 +749,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#transport"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     Transport
                   </a>
@@ -749,7 +759,7 @@ export default async function CityPage({ params }) {
                 <li>
                   <a
                     href="#seasonal"
-                    className="text-blue-700 font-medium whitespace-nowrap hover:text-blue-900 transition"
+                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
                   >
                     Seasonal
                   </a>
@@ -761,36 +771,33 @@ export default async function CityPage({ params }) {
       </div>
 
       {/* Main content */}
-      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
-        {/* City Overview Section - NEW SECTION */}
+      <main className="container mx-auto px-4 md:px-6 py-4 md:py-6">
+        {/* City Overview Section */}
         {overview && (
-          <section id="overview" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
+          <section id="overview" className="mb-6 scroll-mt-16">
+            <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
+              <h2 className="text-2xl font-bold">Paris</h2>
+              <p className="text-gray-600 italic">City of Light ✨</p>
+              <p className="text-gray-700 mt-2">The capital of France stands as a global icon of art, architecture, cuisine, and fashion. With its scenic riverbanks, historic monuments, and cultural treasures, Paris continues to enchant visitors with an atmosphere that balances historic grandeur with modern energy. From the iconic Eiffel Tower to charming café terraces, the city exemplifies joie de vivre. 🗼</p>
             </div>
-            <CityOverview 
-              cityData={overview}
-              cityDisplayName={cityDisplayName}
-            />
           </section>
         )}
 
         {/* Map Section */}
         {attractions && attractions.sites && (
-          <section id="map" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                Interactive Map
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <section id="map" className="mb-10 scroll-mt-16">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+              <div className="border-b border-gray-100 px-5 py-3 flex justify-between items-center">
+                <h3 className="font-medium text-gray-700">City Map</h3>
+                <span className="text-xs text-gray-500">{attractions.sites.length} attractions</span>
+              </div>
               <MapSection
                 attractions={attractions.sites}
                 categories={attractionCategories}
                 cityName={cityDisplayName}
                 center={mapCenter}
                 zoom={13}
+                showHeader={false}
               />
             </div>
           </section>
@@ -798,9 +805,9 @@ export default async function CityPage({ params }) {
 
         {/* Best Time to Visit Section */}
         {Object.keys(monthlyEvents).length > 0 && (
-          <section id="when-to-visit" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <section id="when-to-visit" className="mb-12 scroll-mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 Best Time to Visit
               </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
@@ -815,14 +822,14 @@ export default async function CityPage({ params }) {
         )}
 
         {/* Monthly Guide Section */}
-        <section id="monthly-guide" className="mb-16 scroll-mt-20">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+        <section id="monthly-guide" className="mb-10 scroll-mt-16">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800">
               Monthly Guide
             </h2>
             <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
           </div>
-          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+          <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
             {Object.keys(monthlyEvents).length > 0 ? (
               <MonthlyGuideSection
                 city={cityName}
@@ -830,10 +837,10 @@ export default async function CityPage({ params }) {
                 monthlyData={monthlyEvents}
               />
             ) : (
-              <div className="text-center py-10">
+              <div className="text-center py-8">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="mx-auto h-12 w-12 text-gray-400"
+                  className="mx-auto h-10 w-10 text-gray-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -845,10 +852,10 @@ export default async function CityPage({ params }) {
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                <h3 className="mt-4 text-lg font-medium text-gray-900">
+                <h3 className="mt-3 text-base font-medium text-gray-900">
                   No Monthly Guide Available
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-gray-500">
                   We don&apos;t have specific monthly information for{" "}
                   {cityDisplayName} yet. Check back later for detailed monthly
                   guides.
@@ -860,14 +867,14 @@ export default async function CityPage({ params }) {
 
         {/* Attractions Section */}
         {attractions && attractions.sites && (
-          <section id="attractions" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <section id="attractions" className="mb-10 scroll-mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 Top Attractions
               </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <AttractionsList attractions={attractions.sites} />
             </div>
           </section>
@@ -875,14 +882,14 @@ export default async function CityPage({ params }) {
 
         {/* Neighborhoods Section */}
         {neighborhoods && neighborhoods.neighborhoods && (
-          <section id="neighborhoods" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <section id="neighborhoods" className="mb-10 scroll-mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 Neighborhoods
               </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <NeighborhoodsList neighborhoods={neighborhoods.neighborhoods} />
             </div>
           </section>
@@ -890,14 +897,14 @@ export default async function CityPage({ params }) {
 
         {/* Food & Drink Section */}
         {culinaryGuide && (
-          <section id="food" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <section id="food" className="mb-10 scroll-mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 Food &amp; Drink
               </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <CulinaryGuide culinaryData={culinaryGuide} />
             </div>
           </section>
@@ -905,14 +912,14 @@ export default async function CityPage({ params }) {
 
         {/* Getting Around Section */}
         {connections && (
-          <section id="transport" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <section id="transport" className="mb-10 scroll-mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 Getting Around
               </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <TransportConnections
                 connections={connections}
                 currentCity={cityName}
@@ -923,14 +930,14 @@ export default async function CityPage({ params }) {
 
         {/* Seasonal Activities Section */}
         {seasonalActivities && (
-          <section id="seasonal" className="mb-16 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <section id="seasonal" className="mb-10 scroll-mt-16">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 Seasonal Activities
               </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <SeasonalActivities activities={seasonalActivities} />
             </div>
           </section>
@@ -995,30 +1002,6 @@ export default async function CityPage({ params }) {
           </div>
         </div>
       </footer>
-
-      {/* Back to top button */}
-      <div className="fixed bottom-8 right-8">
-        <a
-          href="#"
-          className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition"
-          aria-label="Back to top"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </a>
-      </div>
     </div>
   );
 }

@@ -25,14 +25,11 @@ const CityOverview = ({ cityData, cityDisplayName }) => {
   };
   
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-      {/* Header with city info */}
-      <div className="p-5">
-        <h2 className="text-2xl font-bold">{cityInfo.name}</h2>
-        <p className="text-gray-600 italic">{cityInfo.nickname}</p>
-        <p className="text-gray-700 mt-2">{cityInfo.description}</p>
-      </div>
-    </div>
+    <>
+      <h2 className="text-2xl font-bold">{cityInfo.name}</h2>
+      <p className="text-gray-600 italic">{cityInfo.nickname}</p>
+      <p className="text-gray-700 mt-2">{cityInfo.description}</p>
+    </>
   );
 };
 
