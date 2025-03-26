@@ -766,9 +766,6 @@ export default async function CityPage({ params }) {
         {overview && (
           <section id="overview" className="mb-16 scroll-mt-20">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                City Overview
-              </h2>
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
             <CityOverview 

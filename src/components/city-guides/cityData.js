@@ -826,7 +826,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Antwerp is a vibrant port city with a rich history in diamond trade, art, and fashion.",
-      thumbnail: "/images/antwerp-thumbnail.jpg",
+      thumbnail: "/images/antwerp-thumbnail.png",
       landmarks: ["Cathedral of Our Lady", "Antwerp Zoo"],
       latitude: 51.2194,
       longitude: 4.4025,

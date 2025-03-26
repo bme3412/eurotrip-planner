@@ -3,15 +3,20 @@
         "fine_dining": [
             {
                 "name": "The Jane",
-                "cuisine_type": "Contemporary European",
+                "cuisine_type": "Contemporary European with Belgian influences",
                 "signature_dishes": [
                     "Langoustines with herbs",
                     "Wagyu beef"
                 ],
-                "price_range": "Luxury",
-                "atmosphere": "Chic and modern with a stunning interior design",
+                "price_range": "€€€€",
+                "atmosphere": "Chic and modern with a stunning interior design in a former chapel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3 months in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
                 "location": "Zuid",
-                "local_tips": "Book well in advance, as it’s extremely popular."
+                "local_tips": "One of Antwerp's most prestigious restaurants; located in a renovated chapel with stunning stained glass ceiling; upstairs bar offers excellent cocktails with no reservation required"
             },
             {
                 "name": "Restaurant Nuance",
@@ -20,72 +25,99 @@
                     "Foie gras torchon",
                     "Lobster with seasonal vegetables"
                 ],
-                "price_range": "Expensive",
+                "price_range": "€€€€",
                 "atmosphere": "Elegant and intimate",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
                 "location": "Duffel (near Antwerp)",
-                "local_tips": "Perfect for special occasions; try the tasting menu."
+                "local_tips": "Perfect for special occasions; try the tasting menu with wine pairing; worth the short trip outside the city center"
             },
             {
-                "name": "’t Zilte",
-                "cuisine_type": "Belgian",
+                "name": "'t Zilte",
+                "cuisine_type": "Modern Belgian",
                 "signature_dishes": [
                     "Flemish rabbit",
                     "North Sea sole"
                 ],
-                "price_range": "Luxury",
+                "price_range": "€€€€",
                 "atmosphere": "Sophisticated with panoramic city views",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request window table for best views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
                 "location": "Eilandje",
-                "local_tips": "Located in MAS museum, reserve a window seat."
+                "local_tips": "Located on the top floor of MAS museum with spectacular panoramic views; excellent Belgian wine selection; arrive early to explore the museum before dinner"
             }
         ],
         "casual_dining": [
             {
                 "name": "Frites Atelier",
-                "cuisine_type": "Belgian",
+                "cuisine_type": "Gourmet Belgian",
                 "signature_dishes": [
-                    "Gourmet fries",
+                    "Gourmet fries with seasonal toppings",
                     "Truffle mayonnaise"
                 ],
-                "price_range": "Moderate",
+                "price_range": "€€",
                 "atmosphere": "Trendy and vibrant",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but expect a wait during peak hours",
+                "dress_code": "Casual",
                 "location": "Historic Center",
-                "local_tips": "Try the seasonal sauces for a unique flavor."
+                "local_tips": "Created by Dutch Michelin-starred chef Sergio Herman; try the seasonal sauces for a unique flavor; perfect for a quick lunch or dinner"
             },
             {
                 "name": "Balls & Glory",
-                "cuisine_type": "Belgian",
+                "cuisine_type": "Modern Belgian",
                 "signature_dishes": [
                     "Stuffed meatballs",
-                    "Stoemp"
+                    "Stoemp (Belgian mashed potatoes)"
                 ],
-                "price_range": "Moderate",
+                "price_range": "€€",
                 "atmosphere": "Casual and cozy",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but arrives early for lunch rush",
+                "dress_code": "Casual",
                 "location": "Theaterbuurt",
-                "local_tips": "Their lunch deals offer great value."
+                "local_tips": "Their lunch deals offer great value; rotating daily meatball fillings; excellent vegetarian options available"
             },
             {
                 "name": "De Bomma",
                 "cuisine_type": "Traditional Belgian",
                 "signature_dishes": [
-                    "Carbonade flamande",
-                    "Moules-frites"
+                    "Carbonade flamande (beef stew with beer)",
+                    "Moules-frites (mussels with fries)"
                 ],
-                "price_range": "Budget",
+                "price_range": "€€",
                 "atmosphere": "Homey and nostalgic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner service",
+                "dress_code": "Casual",
                 "location": "Historic Center",
-                "local_tips": "Great place for sampling authentic Belgian comfort food."
+                "local_tips": "Great place for sampling authentic Belgian comfort food; generous portions; authentic 'grandmother's cooking' experience"
             },
             {
                 "name": "Bier Central",
-                "cuisine_type": "Belgian",
+                "cuisine_type": "Belgian Beer Cuisine",
                 "signature_dishes": [
                     "Beer stew",
+                    "Flemish carbonades",
                     "Belgian waffles"
                 ],
-                "price_range": "Moderate",
-                "atmosphere": "Lively with a vast beer selection",
+                "price_range": "€€",
+                "atmosphere": "Lively beer hall with a vast selection",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins welcome but arrive early on weekends",
+                "dress_code": "Casual",
                 "location": "Central Station area",
-                "local_tips": "Ask for beer pairing recommendations."
+                "local_tips": "Over 300 Belgian beers available; ask staff for beer pairing recommendations; great for groups"
             }
         ],
         "street_food": [
@@ -93,76 +125,324 @@
                 "name": "Frituur No. 1",
                 "specialties": [
                     "Belgian fries",
-                    "Bitterballen"
+                    "Bitterballen",
+                    "Frikandel"
                 ],
-                "price_range": "Budget",
+                "price_range": "€",
+                "hours": "11:00 AM - 2:00 AM (later on weekends)",
                 "location": "Historic Center",
-                "local_tips": "Best enjoyed late at night; try with curry ketchup."
+                "seating": "Limited",
+                "local_tips": "Best enjoyed late at night; try with andalouse sauce or curry ketchup; authentic Belgian fries double-fried in beef fat"
             },
             {
-                "name": "Fish A’gogo",
+                "name": "Fish A'gogo",
                 "specialties": [
                     "Fish and chips",
-                    "Shrimp croquettes"
+                    "Shrimp croquettes",
+                    "Calamari"
                 ],
-                "price_range": "Budget",
+                "price_range": "€-€€",
+                "hours": "11:00 AM - 8:00 PM",
                 "location": "Groenplaats",
-                "local_tips": "Perfect for a quick seafood snack on the go."
+                "seating": "Some outdoor seating",
+                "local_tips": "Perfect for a quick seafood snack on the go; super fresh North Sea seafood; excellent homemade tartar sauce"
             },
             {
                 "name": "De Broers van Julienne",
                 "specialties": [
                     "Vegan wraps",
-                    "Quinoa salads"
+                    "Quinoa salads",
+                    "Vegetable soups"
                 ],
-                "price_range": "Budget",
+                "price_range": "€€",
+                "hours": "10:00 AM - 5:00 PM (Mon-Fri)",
                 "location": "Zuid",
-                "local_tips": "Ideal for vegetarians; try their daily specials."
+                "seating": "Limited indoor seating",
+                "local_tips": "Ideal for vegetarians and vegans; try their daily specials; ingredients sourced from local organic farms"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffènation",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Filter Coffee",
+                    "Artisanal Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, minimalist coffee bar",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light meals",
+                "local_tips": "One of Antwerp's pioneering specialty coffee shops; excellent beans roasted in-house; knowledgeable baristas"
+            },
+            {
+                "name": "Normo",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat White",
+                    "House-roasted beans"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial chic with warm touches",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and small bites",
+                "local_tips": "Award-winning micro-roastery; coffee beans available to purchase; relaxed atmosphere ideal for working"
+            },
+            {
+                "name": "Café Capitale",
+                "specialty": "Belgian Coffee Tradition",
+                "must_try": [
+                    "Traditional Belgian Coffee",
+                    "Homemade Waffles"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic café with vintage touches",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Belgian pastries",
+                "local_tips": "Authentic old-world café experience; excellent place to try traditional Belgian coffee culture; beautiful Art Nouveau interior"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Kulminator",
+                "type": "Belgian Beer Bar",
+                "specialty": "Rare and Aged Beers",
+                "signature_drinks": [
+                    "Vintage Trappist Ales",
+                    "Aged Gueuze",
+                    "Rare Belgian Lambics"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy and cluttered with beer memorabilia",
+                "best_time": "Evening",
+                "food_options": "Cheese plates and snacks",
+                "reservation_needed": false,
+                "local_tips": "World-famous beer archive with over 800 beers; specializes in cellared and vintage beers; owners are walking encyclopedias of Belgian beer"
+            },
+            {
+                "name": "De Koninck Brewery",
+                "type": "Brewery",
+                "specialty": "Antwerp's Local Beer",
+                "signature_drinks": [
+                    "De Koninck Bolleke",
+                    "Triple d'Anvers",
+                    "Wild Jo"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern brewery with interactive tour",
+                "best_time": "Afternoon",
+                "food_options": "Full restaurant adjacent",
+                "reservation_needed": false,
+                "local_tips": "Antwerp's historic city brewery; excellent interactive tour; tasting room with brewery-fresh beers; cheese shop on premises"
+            },
+            {
+                "name": "Bar Paniek",
+                "type": "Waterfront Bar",
+                "specialty": "Craft Beers and Cocktails",
+                "signature_drinks": [
+                    "Local Craft Beers",
+                    "Classic Cocktails",
+                    "Natural Wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial waterfront space with artistic vibe",
+                "best_time": "Sunset",
+                "food_options": "Simple meals and snacks",
+                "reservation_needed": false,
+                "local_tips": "Hip waterfront location with sunset views; popular with locals; outdoor seating along the Scheldt River; cultural events and DJ sets on weekends"
+            },
+            {
+                "name": "Cocktails at Nine",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Belgian Gin Creations",
+                    "Molecular Mixology",
+                    "Classic Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant speakeasy with intimate setting",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Antwerp's premier cocktail destination; expert mixologists; hidden entrance adds to the charm; reserve a seat at the bar to watch the cocktail preparation"
             }
         ]
     },
     "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Antwerp Food Tour",
+                "focus": "Traditional Belgian Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Chocolate tasting",
+                    "Belgian beer sampling",
+                    "Traditional savory specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable walking shoes"
+            },
+            {
+                "name": "Chocolate Journey",
+                "focus": "Artisanal Chocolate",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to master chocolatiers",
+                    "Chocolate making demonstration",
+                    "Extensive tastings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; tours run daily except Mondays"
+            },
+            {
+                "name": "Beer Heritage Walk",
+                "focus": "Belgian Beer Tradition",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Historic brewery visit",
+                    "Multiple beer tastings",
+                    "Traditional beer cuisine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes substantial beer tastings; eat before the tour"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Belgian Classics Workshop",
+                "cuisine_focus": "Traditional Belgian Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic waffle preparation",
+                    "Carbonades flamandes (beef and beer stew)",
+                    "Belgian chocolate truffles"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held three times weekly"
+            },
+            {
+                "name": "Chocolate Masterclass",
+                "cuisine_focus": "Belgian Chocolate Artistry",
+                "duration": "2.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Chocolate tempering techniques",
+                    "Praline filling preparation",
+                    "Decorative finishes"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French"
+                ],
+                "includes": [
+                    "Premium chocolate ingredients, take-home box of creations, recipe booklet"
+                ],
+                "booking_tips": "Book 2 weeks ahead; suitable for beginners and intermediate skill levels"
+            }
+        ],
         "markets": [
             {
                 "name": "Antwerp Market",
+                "type": "Weekly Market",
                 "highlights": [
                     "Fresh produce",
                     "Artisan cheeses",
-                    "Local meats"
+                    "Local meats",
+                    "Belgian specialties"
                 ],
                 "hours": "Every Saturday, 8 AM - 4 PM",
+                "best_time": "Morning",
                 "location": "Theaterplein",
-                "local_tips": "Arrive early for the best selection and to avoid crowds."
+                "local_tips": "Arrive early for the best selection and to avoid crowds; excellent place to sample local street food; bargains toward closing time"
             },
             {
                 "name": "Exotic Market",
+                "type": "International Market",
                 "highlights": [
                     "International spices",
                     "Exotic fruits",
-                    "Local pastries"
+                    "Local pastries",
+                    "Global street food"
                 ],
                 "hours": "Every Saturday and Sunday, 8 AM - 4 PM",
-                "location": "Theaterplein",
-                "local_tips": "Sample the diverse street food options."
+                "best_time": "Late morning",
+                "location": "Oudevaartplaats",
+                "local_tips": "Sample the diverse street food options; great for photography; vibrant multicultural atmosphere"
+            },
+            {
+                "name": "BioMarkt",
+                "type": "Organic Market",
+                "highlights": [
+                    "Organic produce",
+                    "Sustainable products",
+                    "Artisanal breads",
+                    "Natural wines"
+                ],
+                "hours": "Every Wednesday, 12 PM - 7 PM",
+                "best_time": "Afternoon",
+                "location": "Falconplein",
+                "local_tips": "Best organic and sustainable products in Antwerp; many vendors offer samples; bring your own bags"
             }
         ]
     },
     "seasonal_specialties": {
         "spring": [
-            "Asparagus Flemish style",
-            "Strawberry tart"
+            "Asparagus Flemish style with clarified butter and herbs",
+            "Strawberry tart with local berries",
+            "Spring lamb with young vegetables"
         ],
         "summer": [
-            "Moules-frites",
-            "Chilled white asparagus soup"
+            "Moules-frites with North Sea mussels at their best",
+            "Chilled white asparagus soup with Flemish grey shrimp",
+            "Fresh fruit pies and tarts with seasonal berries"
         ],
         "autumn": [
-            "Game stew",
-            "Pumpkin soup"
+            "Game stew with seasonal forest mushrooms",
+            "Pumpkin soup with smoked bacon",
+            "Warm Belgian waffles with spiced compote"
         ],
         "winter": [
-            "Stoofvlees (beef stew)",
-            "Speculaas cookies"
+            "Stoofvlees (beef stew) with Belgian abbey beer",
+            "Speculaas cookies and holiday pastries",
+            "Witloof (Belgian endive) wrapped in ham with cheese sauce"
         ]
     }
 }
