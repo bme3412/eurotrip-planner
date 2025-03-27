@@ -297,7 +297,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "A city steeped in history with medieval walls and architecture, Nuremberg is also famed for its traditional Christmas market.",
-      thumbnail: "/images/nuremberg-thumbnail.jpg",
+      thumbnail: "/images/nuremberg-thumbnail.png",
       landmarks: [
         "Nuremberg Castle",
         "Documentation Centre Nazi Party Rally Grounds",
