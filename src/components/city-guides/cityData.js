@@ -678,7 +678,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Bologna is known for its cuisine, medieval architecture, and the oldest university in the Western world.",
-      thumbnail: "/images/bologna-thumbnail.jpg",
+      thumbnail: "/images/bologna-thumbnail.png",
       landmarks: ["Two Towers", "Archiginnasio"],
       latitude: 44.4949,
       longitude: 11.3426,
