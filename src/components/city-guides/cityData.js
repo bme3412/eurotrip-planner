@@ -314,7 +314,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Leipzig is a cultural hub with a rich musical heritage, known for its connection to Bach, Mendelssohn, and the peaceful revolution of 1989.",
-      thumbnail: "/images/leipzig-thumbnail.jpg",
+      thumbnail: "/images/leipzig-thumbnail.png",
       landmarks: ["St. Thomas Church", "Leipzig Opera House"],
       latitude: 51.3397,
       longitude: 12.3731,
