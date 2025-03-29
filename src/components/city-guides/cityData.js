@@ -328,7 +328,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Heidelberg is a picturesque university town, famous for its romantic castle ruins and historic old town along the Neckar River.",
-      thumbnail: "/images/heidelberg-thumbnail.jpg",
+      thumbnail: "/images/heidelberg-thumbnail.png",
       landmarks: ["Heidelberg Castle", "Old Bridge"],
       latitude: 49.3988,
       longitude: 8.6724,
