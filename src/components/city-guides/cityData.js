@@ -428,7 +428,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Maastricht, one of the oldest cities in the Netherlands, is famed for its picturesque squares, historical buildings, and lively culinary scene.",
-      thumbnail: "/images/maastricht-thumbnail.jpg",
+      thumbnail: "/images/maastricht-thumbnail.png",
       landmarks: ["Vrijthof Square", "St. Servatius Basilica"],
       latitude: 50.8514,
       longitude: 5.691,
