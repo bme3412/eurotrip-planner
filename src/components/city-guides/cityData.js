@@ -414,7 +414,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "A hub for technology and design, Eindhoven is renowned for its innovation, being home to Philips and hosting the annual Dutch Design Week.",
-      thumbnail: "/images/eindhoven-thumbnail.jpg",
+      thumbnail: "/images/eindhoven-thumbnail.png",
       landmarks: ["Philips Museum", "Strijp-S District"],
       latitude: 51.4416,
       longitude: 5.4697,
