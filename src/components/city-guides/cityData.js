@@ -342,7 +342,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Bremen is a historic Hanseatic city known for its fairytale connection, maritime heritage, and distinctive Gothic architecture.",
-      thumbnail: "/images/bremen-thumbnail.jpg",
+      thumbnail: "/images/bremen-thumbnail.png",
       landmarks: ["Bremen Town Musicians Statue", "Schnoor Quarter"],
       latitude: 53.0793,
       longitude: 8.8017,
