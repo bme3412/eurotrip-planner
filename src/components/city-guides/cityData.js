@@ -356,7 +356,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Hannover combines urban innovation with natural beauty, featuring the Royal Gardens of Herrenhausen and a rebuilt historic center.",
-      thumbnail: "/images/hannover-thumbnail.jpg",
+      thumbnail: "/images/hannover-thumbnail.png",
       landmarks: ["Herrenhausen Gardens", "New Town Hall"],
       latitude: 52.3759,
       longitude: 9.732,
