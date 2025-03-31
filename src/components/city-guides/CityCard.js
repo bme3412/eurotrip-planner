@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { regionColors } from './cityData';
 
 // Country code to flag emoji mapping
@@ -67,30 +68,31 @@ const CityCard = ({ city }) => {
     <div className="relative group">
       <Link href={`/city-guides/${city.id}`} className="block">
         <div className="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
-          {/* Card image */}
+          {/* Card image container */}
           <div className="relative h-44 overflow-hidden">
-            <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105"
-              style={{
-                backgroundImage: `url(${thumbnailPath})`,
-              }}
-            >
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
+            {/* Use next/image for optimized loading */}
+            <Image
+              src={thumbnailPath}
+              alt={`Thumbnail image for ${city.name}`}
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+            />
             
-            {/* Country tag with flag emoji */}
-            <div className="absolute top-3 left-3 px-2 py-1 text-xs font-medium bg-white/90 rounded-full text-gray-800">
+            {/* Gradient overlay - placed inside or alongside Image depending on styling needs */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+            
+            {/* Content absolutely positioned over the image */}
+            <div className="absolute top-3 left-3 px-2 py-1 text-xs font-medium bg-white/90 rounded-full text-gray-800 z-20">
               {getFlagEmoji(city.country)} {city.country}
             </div>
             
-            {/* Region tag */}
-            <div className={`absolute top-3 right-3 px-2 py-1 text-xs font-medium rounded-full ${getRegionColorClass(city.region)}`}>
+            <div className={`absolute top-3 right-3 px-2 py-1 text-xs font-medium rounded-full ${getRegionColorClass(city.region)} z-20`}>
               {city.region}
             </div>
             
-            {/* City name */}
-            <h3 className="absolute bottom-3 left-3 text-white font-bold text-xl drop-shadow-sm">
+            <h3 className="absolute bottom-3 left-3 text-white font-bold text-xl drop-shadow-sm z-20">
               {city.name}
             </h3>
           </div>
