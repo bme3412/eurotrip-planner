@@ -1,0 +1,338 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 2,
+          "special": true,
+          "event": "New Year's Day",
+          "notes": "Public holiday, most businesses closed. Quiet, potentially cold. Good for cozy cafes and museum visits."
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Winter sales. Cold, crisp weather possible. Fewer tourists, ideal for exploring museums (Prinsenhof, Vermeer Centrum, Royal Delft) without crowds."
+        }
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 1,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Cold winter weather continues, potentially damp. Low season for tourism, great for indoor attractions."
+        },
+        {
+          "days": [14],
+          "score": 3,
+          "special": true,
+          "event": "Valentine's Day",
+          "notes": "Some restaurants offer special menus. Cozy atmosphere in historic pubs."
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "notes": "End of winter, maybe occasional brighter days. Still quiet tourist-wise."
+        }
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 1,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+          "score": 4,
+          "notes": "Early spring, weather unpredictable but improving. Canal tours may start operating. First hints of terrace life on sunny days."
+        },
+        {
+          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Start of Keukenhof Season (Day Trip)",
+          "notes": "World-famous flower gardens open nearby. Start planning day trips. Delft flower market gets more vibrant."
+        }
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 3,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "special": true,
+          "event": "Peak Tulip Season / Easter (Varies)",
+          "notes": "Ideal time for Keukenhof day trip. Easter weekend brings events & crowds. Spring flowers bloom in Delft."
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+          "score": 5,
+          "notes": "Pleasant spring weather likely. Canal tours running regularly. Terraces bustling on sunny days."
+        },
+        {
+          "days": [26, 27],
+          "score": 5,
+          "special": true,
+          "event": "King's Day (Koningsdag)",
+          "notes": "Major national holiday. City packed with orange-clad crowds, street markets, music. Very festive atmosphere."
+        },
+        {
+          "days": [28, 29, 30],
+          "score": 5,
+          "notes": "Excellent spring conditions. Good time for cycling trips around Delft."
+        }
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 5,
+      "tourismLevel": 8
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4],
+          "score": 5,
+          "notes": "Generally beautiful spring weather. Last chance for Keukenhof."
+        },
+        {
+          "days": [5],
+          "score": 4,
+          "special": true,
+          "event": "Liberation Day (Bevrijdingsdag)",
+          "notes": "Potential local events/concerts (public holiday status varies)."
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "notes": "Usually excellent weather. Perfect for walking tours, canal boats, cycling, terraces. Tourism levels high."
+        }
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 8,
+      "tourismLevel": 8
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Start of summer. Long daylight hours. Ideal for outdoor activities, Oude Delft Antiques Market (Saturdays), exploring Delftse Hout park. Day trips to Scheveningen beach."
+        }
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 11,
+      "tourismLevel": 9
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Peak Summer / Delft Chamber Music Festival (late July/early Aug)",
+          "notes": "Warmest month, potentially hot. Peak tourist season. Terraces are very popular. Book accommodation and popular tours well in advance. Check dates for Chamber Music Festival."
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 10
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Peak Summer / Delft Chamber Music Festival (early Aug)",
+          "notes": "Continued peak season. Warm weather ideal for outdoor activities. Oude Delft market continues. High tourism levels."
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "tourismLevel": 10
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 5,
+          "notes": "Late summer, often still pleasant weather. Tourism starts to decrease slightly after summer holidays end. Good time for exploring."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "special": true,
+          "event": "Start of Cultural Season / Bokbier Season",
+          "notes": "Weather becomes more autumnal. Theaters start new season. First autumn bock beers appear in pubs."
+        }
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 11,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Autumn colors appear. Cooler, potentially rainy weather. Last month for Oude Delft market. Good time for museums and cozy pubs. Bokbier widely available."
+        }
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 7,
+      "tourismLevel": 5
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Low season. Weather often grey, damp, and cool. Focus on indoor activities: museums, cafes, pubs."
+        },
+        {
+          "days": [11],
+          "score": 3,
+          "special": true,
+          "event": "Sint Maarten",
+          "notes": "Children's lantern processions mainly in residential areas in the evening."
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "score": 3,
+          "special": true,
+          "event": "Arrival of Sinterklaas (mid-Nov)",
+          "notes": "Sinterklaas arrives by boat, big parade. Festive atmosphere starts building. Check exact date."
+        },
+        {
+          "days": [30],
+          "score": 3,
+          "notes": "Lead up to Sinterklaas gift-giving evening (Dec 5th). Shops are busy."
+        }
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 4,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4],
+          "score": 3,
+          "notes": "Sinterklaas season continues. Shops very busy."
+        },
+        {
+          "days": [5],
+          "score": 3,
+          "special": true,
+          "event": "Sinterklaas Eve (Pakjesavond)",
+          "notes": "Main Dutch gift-giving evening, primarily a family celebration at home."
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12],
+          "score": 4,
+          "notes": "Christmas lights and decorations appear. Festive atmosphere builds."
+        },
+        {
+          "days": [13, 14, 15, 16, 17],
+          "score": 5,
+          "special": true,
+          "event": "Lichtjesavond (check date)",
+          "notes": "Major Delft event! City center lit by candles/lights, tree lighting, market stalls. Very crowded but magical. Usually one Tuesday evening mid-Dec."
+        },
+        {
+          "days": [18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "notes": "Christmas shopping period. Potential smaller Christmas markets. Oliebollen stalls appear."
+        },
+        {
+          "days": [24],
+          "score": 3,
+          "special": true,
+          "event": "Christmas Eve",
+          "notes": "Shops close early. Quiet evening."
+        },
+        {
+          "days": [25, 26],
+          "score": 2,
+          "special": true,
+          "event": "Christmas & Second Christmas Day",
+          "notes": "Public holidays. Most businesses, including museums, closed. Very quiet."
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 3,
+          "notes": "Between Christmas and New Year. Some shops/museums open, some closed. Check ahead."
+        },
+        {
+          "days": [31],
+          "score": 3,
+          "special": true,
+          "event": "New Year's Eve",
+          "notes": "Shops close early. Fireworks (private use can be extensive). Some restaurants/bars have special events (booking essential)."
+        }
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 2,
+      "tourismLevel": 5
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "King's Day Celebrations",
+      "Canal Boat Tours",
+      "Keukenhof Day Trips",
+      "Enjoying Terraces",
+      "Flower Markets",
+      "Cycling Tours"
+    ],
+    "summer": [
+      "Oude Delft Antiques Market",
+      "Delft Chamber Music Festival",
+      "Outdoor Dining (Terraces)",
+      "Scheveningen Beach Day Trip",
+      "Exploring Delftse Hout",
+      "Canal Kayaking/SUPing"
+    ],
+    "autumn": [
+      "Attending Cultural Performances",
+      "Bokbier Tasting in Pubs",
+      "Cozy Brown Cafe Visits",
+      "Museum Exploration",
+      "TU Delft Campus Walk/Cycle",
+      "Autumn Market Visits"
+    ],
+    "winter": [
+      "Lichtjesavond Experience",
+      "Sinterklaas Arrival Parade",
+      "Christmas Markets & Shopping",
+      "Ice Skating (if available)",
+      "Eating Oliebollen",
+      "Indoor Museum Visits"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate tourism, potential for specific event crowds",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very low/high tourism (business closures)",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+  }
+} 

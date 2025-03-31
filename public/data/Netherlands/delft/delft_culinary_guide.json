@@ -1,0 +1,317 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Van der Dussen",
+                "cuisine_type": "Modern European/French",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Locally Sourced Fish"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining in a historic canal house",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several weeks in advance, especially for weekends; request canal view table.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Historic City Center",
+                "local_tips": "Known for its beautiful courtyard garden for summer dining and classic ambiance."
+            },
+            {
+                "name": "Le Vieux Jean",
+                "cuisine_type": "Classic French",
+                "signature_dishes": [
+                    "French Onion Soup",
+                    "Steak Frites"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Traditional French bistro style, intimate setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations highly recommended due to small size.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Historic City Center",
+                "local_tips": "A long-standing Delft establishment known for classic French dishes and wine list."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Kobus Kuch",
+                "cuisine_type": "Modern Cafe/Brunch",
+                "signature_dishes": [
+                    "Famous Apple Pie",
+                    "Creative Sandwiches & Salads"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy, bustling, popular with locals and students",
+                "best_time": "Lunch/Afternoon Coffee",
+                "reservation_needed": false,
+                "booking_tips": "Can get very busy, especially weekends; go early or expect a wait.",
+                "dress_code": "Casual",
+                "location": "Beestenmarkt area",
+                "local_tips": "Renowned for its apple pie, often cited as the best in Delft."
+            },
+            {
+                "name": "Spijshuis de Dis",
+                "cuisine_type": "Traditional Dutch",
+                "signature_dishes": [
+                    "Stamppot (seasonal)",
+                    "Hutspot"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional Dutch 'living room' style",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead, popular for its authentic Dutch food experience.",
+                "dress_code": "Casual",
+                "location": "Historic City Center",
+                "local_tips": "Offers a genuine taste of old-fashioned Dutch home cooking."
+            },
+            {
+                "name": "THUIS by Ladera",
+                "cuisine_type": "International/Tapas",
+                "signature_dishes": [
+                    "Shared Plates",
+                    "Seasonal Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, contemporary, good for groups",
+                "best_time": "Dinner/Evening Drinks",
+                "reservation_needed": true,
+                "booking_tips": "Good spot for shared dining and cocktails.",
+                "dress_code": "Smart casual",
+                "location": "Near Markt Square",
+                "local_tips": "Focuses on shared dining concepts with international flavors."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Delft Market (Thursday/Saturday)",
+                "specialties": [
+                    "Herring ('Haring') Cart",
+                    "Stroopwafels",
+                    "Cheese Stands",
+                    "Kibbeling (fried fish)"
+                ],
+                "price_range": "€",
+                "hours": "Thursday & Saturday, approx. 9:00 AM - 5:00 PM",
+                "location": "Markt Square & surrounding streets",
+                "seating": "Limited/None",
+                "local_tips": "Thursday market is larger; try fresh herring 'Hollandse Nieuwe' (seasonal, May/June) or warm stroopwafels."
+            },
+             {
+                "name": "Leo's Koffiehuis (Frites)",
+                "specialties": [
+                    "Dutch Fries ('Patat')",
+                    "Various Sauces",
+                    "Snacks (Kroket, Frikandel)"
+                ],
+                "price_range": "€",
+                "hours": "Varies, typically lunch through evening",
+                "location": "City Center (check specific location)",
+                "seating": false,
+                "local_tips": "Classic Dutch fast food experience, try 'patatje oorlog' (fries with mayo, satay sauce, onions)."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Kobus Kuch",
+                "specialty": "Specialty Coffee & Famous Apple Pie",
+                "must_try": [
+                    "Flat White",
+                    "Slice of Apple Pie"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, popular, modern decor",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Excellent breakfast, lunch, pastries",
+                "local_tips": "Known city-wide for its apple pie. Expect queues during peak times."
+            },
+            {
+                "name": "KEEK",
+                "specialty": "Organic Coffee & Baked Goods",
+                "must_try": [
+                    "Organic Cappuccino",
+                    "Homemade Scones"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, sustainable focus, often busy",
+                "best_time": "Morning/Lunch",
+                "wifi_friendly": true,
+                "food_options": "Organic sandwiches, soups, cakes",
+                "local_tips": "Focuses on organic and local products, popular lunch spot."
+            },
+            {
+                "name": "Coffee Company",
+                "specialty": "Reliable Coffee Chain",
+                "must_try": [
+                    "Espresso",
+                    "Iced Coffee (seasonal)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Standard coffee chain, good for working/studying",
+                "best_time": "Anytime",
+                "wifi_friendly": true,
+                "food_options": "Pastries, muffins, some sandwiches",
+                "local_tips": "Multiple locations, consistent quality, popular with students."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Bierhuis de Klomp",
+                "type": "Historic Brown Cafe/Beer Bar",
+                "specialty": "Large selection of Dutch & Belgian Beers",
+                "signature_drinks": [
+                    "Trappist Beers",
+                    "Local Delft Beers (if available)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Oldest pub in Delft (est. 1652), traditional, cozy",
+                "best_time": "Evening",
+                "food_options": "Limited bar snacks ('borrelhapjes')",
+                "reservation_needed": false,
+                "local_tips": "Authentic 'brown cafe' experience, knowledgeable staff about beers."
+            },
+            {
+                "name": "Locus Publicus",
+                "type": "Specialty Beer Bar",
+                "specialty": "Extensive International Beer List",
+                "signature_drinks": [
+                    "Rotating Guest Taps",
+                    "Rare International Beers"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic pub feel, popular with beer enthusiasts",
+                "best_time": "Evening",
+                "food_options": "Cheese boards, sausages",
+                "reservation_needed": false,
+                "local_tips": "Over 200 beers on the menu, great place to explore different styles."
+            },
+            {
+                "name": "De Gist",
+                "type": "Modern Craft Beer Bar",
+                "specialty": "Dutch & International Craft Beers",
+                "signature_drinks": [
+                    "IPA Selection",
+                    "Sour Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary, relaxed, knowledgeable staff",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Good quality bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Focuses on modern craft beer trends, often has brewery tap takeovers."
+            },
+            {
+                "name": "Beestenmarkt Square",
+                "type": "Square with Terrace Bars",
+                "specialty": "Outdoor Drinking/Dining",
+                "signature_drinks": ["Various options (Beer, Wine, Cocktails)"],
+                "price_range": "€€",
+                "atmosphere": "Lively square lined with cafes/bars with large terraces",
+                "best_time": "Afternoon/Evening (especially in good weather)",
+                "food_options": "Many bars offer full menus",
+                "reservation_needed": false,
+                "local_tips": "Great spot for people-watching and enjoying drinks outdoors in summer under the plane trees."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Delft Culinary Walking Tour",
+                "focus": "Local History & Bites",
+                "duration": "approx. 3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit local cheese shop",
+                    "Taste traditional snacks",
+                    "Learn about Delft culinary history"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": ["English", "Dutch"],
+                "booking_tips": "Check local tour operators, good way to combine sightseeing and tasting."
+            }
+        ],
+        "cooking_classes": [
+             {
+                "name": "Dutch Baking Workshop (e.g., Apple Pie)",
+                "cuisine_focus": "Traditional Dutch Baking",
+                "duration": "approx. 3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Making Dutch Apple Pie",
+                    "Other local pastries (seasonal)"
+                ],
+                "group_size": "Varies",
+                "languages": ["English", "Dutch"],
+                "includes": ["Ingredients, tasting"],
+                "booking_tips": "Look for workshops offered by local cooking studios or community centers."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Thursday Market",
+                "type": "General Goods & Food Market",
+                "highlights": [
+                    "Large market on Markt square",
+                    "Fresh produce, cheese, fish, bread, clothing, flowers"
+                ],
+                "hours": "Thursdays approx. 9:00 AM - 5:00 PM",
+                "best_time": "Morning for best selection",
+                "location": "Markt Square and surrounding streets (Brabantse Turfmarkt, Burgwal)",
+                "local_tips": "The main market day in Delft, very lively."
+            },
+            {
+                "name": "Saturday Market",
+                "type": "Smaller Food & Flower Market",
+                "highlights": [
+                    "Focus on food (cheese, nuts, olives, bread) and flowers"
+                ],
+                "hours": "Saturdays approx. 9:00 AM - 5:00 PM",
+                "best_time": "Morning",
+                "location": "Brabantse Turfmarkt & Burgwal (not on Markt square)",
+                "local_tips": "More focused on food items than the larger Thursday market."
+            },
+            {
+                "name": "Summer Antiques & Bric-a-Brac Market",
+                "type": "Antiques/Flea Market",
+                "highlights": [
+                    "Antiques, collectibles, books, vintage items"
+                ],
+                "hours": "Saturdays (April-October), approx. 9:00 AM - 5:00 PM",
+                "best_time": "Morning",
+                "location": "Along the canals in the Hippolytusbuurt area",
+                "local_tips": "Fun for browsing even if not buying, combines well with a canal walk."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus ('het witte goud') served traditionally (Late April - June)",
+            "'Hollandse Nieuwe' Herring (Raw herring, starting late May/June)",
+            "Lamb dishes"
+        ],
+        "summer": [
+            "Fresh local berries",
+            "Outdoor terrace dining ('Terrasjesweer')",
+            "BBQ items from market butchers"
+        ],
+        "autumn": [
+            "'Stamppot' (mashed potatoes with vegetables like kale 'boerenkool' or endive 'andijvie')",
+            "Game dishes (Wild boar, deer)",
+            "'Bokbier' (seasonal dark beer)"
+        ],
+        "winter": [
+            "'Erwtensoep' (thick pea soup with sausage)",
+            "'Oliebollen' & 'Appelbeignets' (doughnuts & apple fritters, especially around New Year)",
+            "Hot chocolate ('Warme chocolademelk') at cafes"
+        ]
+    }
+} 

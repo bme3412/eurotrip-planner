@@ -442,7 +442,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Delft is known for its iconic blue pottery, historic canals, and connection to the royal House of Orange-Nassau.",
-      thumbnail: "/images/delft-thumbnail.jpg",
+      thumbnail: "/images/delft-thumbnail.png",
       landmarks: ["Oude Kerk", "Royal Delft Factory"],
       latitude: 51.999,
       longitude: 4.362,
