@@ -692,7 +692,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Palermo, Sicily's capital, showcases a unique blend of Arab-Norman architecture and Mediterranean flair.",
-      thumbnail: "/images/palermo-thumbnail.jpg",
+      thumbnail: "/images/palermo-thumbnail.png",
       landmarks: ["Palermo Cathedral", "Quattro Canti"],
       latitude: 38.1157,
       longitude: 13.3615,

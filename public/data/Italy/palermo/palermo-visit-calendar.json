@@ -1,0 +1,365 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "New Year's Day (Capodanno)",
+          "notes": "Public holiday, many businesses closed, quiet start to the year."
+        },
+        {
+          "days": [2, 3, 4, 5],
+          "score": 3,
+          "notes": "Winter low season, fewer tourists, good time for museums."
+        },
+        {
+          "days": [6],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany (La Befana)",
+          "notes": "Public holiday marking the end of Christmas festivities."
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "special": true,
+          "event": "Winter Sales (Saldi)",
+          "notes": "Shopping discounts begin. Cool weather, fewest crowds."
+        }
+      ],
+      "weatherHighC": 15,
+      "weatherLowC": 9,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "special": true,
+          "event": "Carnival (Carnevale) period (variable dates)",
+          "notes": "Possibility of local Carnevale events, especially in the lead-up to Lent. Generally cool weather, low tourism."
+        }
+      ],
+      "weatherHighC": 15,
+      "weatherLowC": 9,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+          "score": 4,
+          "notes": "Weather starts to warm up, early spring flowers. Tourism still moderate."
+        },
+        {
+          "days": [19],
+          "score": 4,
+          "special": true,
+          "event": "Feast of St. Joseph (San Giuseppe)",
+          "notes": "Traditional day, look for special pastries ('sfince di San Giuseppe')."
+        },
+        {
+          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Lead-up to Easter (if applicable)",
+          "notes": "Increasingly pleasant weather. Potential for early Holy Week events if Easter is early."
+        }
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 10,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+          "score": 5,
+          "special": true,
+          "event": "Holy Week & Easter (Settimana Santa - variable dates)",
+          "notes": "Major religious processions (especially Good Friday), peak spring atmosphere. Can be crowded."
+        },
+        {
+          "days": [25],
+          "score": 4,
+          "special": true,
+          "event": "Liberation Day",
+          "notes": "National holiday, potential for local events, some closures."
+        },
+        {
+          "days": [26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Excellent spring weather, ideal for sightseeing, visiting gardens and Monreale."
+        }
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 11,
+      "tourismLevel": 7
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 4,
+          "special": true,
+          "event": "Labor Day (Primo Maggio)",
+          "notes": "Public holiday, many shops closed, locals may picnic or head to Mondello."
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Start of Beach Season / Potential World Festival on the Beach",
+          "notes": "Beautiful weather, perfect for exploring everything. Mondello gets busier. Check dates for World Festival on the Beach."
+        }
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 15,
+      "tourismLevel": 8
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 5,
+          "notes": "Start of summer, long sunny days, warm sea temperatures."
+        },
+        {
+          "days": [2],
+          "score": 4,
+          "special": true,
+          "event": "Festa della Repubblica",
+          "notes": "National holiday, potential parades or ceremonies, some closures."
+        },
+        {
+          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Excellent summer weather, ideal for Mondello beach, boat trips, outdoor dining. Tourism high."
+        }
+      ],
+      "weatherHighC": 27,
+      "weatherLowC": 19,
+      "tourismLevel": 9
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "score": 4,
+          "notes": "Hot summer weather, peak beach season, start of Sicilian Jazz Festival (check dates)."
+        },
+        {
+          "days": [10, 11, 12, 13, 14, 15],
+          "score": 5,
+          "special": true,
+          "event": "Festino di Santa Rosalia",
+          "notes": "Palermo's biggest festival! Huge procession (14th), fireworks, street food. Very crowded but unforgettable."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Peak heat and peak tourism. Focus on beach, evening activities, indoor sights during midday. Sicilian Jazz Festival continues."
+        }
+      ],
+      "weatherHighC": 30,
+      "weatherLowC": 22,
+      "tourismLevel": 10
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "notes": "Hottest month, very high humidity, peak holiday time for Italians. Many locals leave the city. Some smaller shops/restaurants might close."
+        },
+        {
+          "days": [15],
+          "score": 3,
+          "special": true,
+          "event": "Ferragosto (Assumption Day)",
+          "notes": "Major national holiday, widespread closures. Locals head to the beach (Mondello extremely crowded)."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Continued heat, high tourism, focus on coastal activities and evening strolls."
+        }
+      ],
+      "weatherHighC": 31,
+      "weatherLowC": 23,
+      "tourismLevel": 9
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 5,
+          "notes": "Excellent weather, still warm enough for beach, sea is warm, crowds start to lessen slightly."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Potential start of 'Le Vie dei Tesori' (check dates)",
+          "notes": "Ideal month for sightseeing. Check for start of cultural festival opening hidden sites."
+        }
+      ],
+      "weatherHighC": 28,
+      "weatherLowC": 20,
+      "tourismLevel": 8
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "'Le Vie dei Tesori' cultural festival (typically weekends)",
+          "notes": "Pleasant weather, good for exploring. Main month for 'Le Vie dei Tesori', opening numerous sites. Tourism moderate."
+        }
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 17,
+      "tourismLevel": 7
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day (Ognissanti)",
+          "notes": "Public holiday, some closures. Traditionally time for visiting cemeteries."
+        },
+        {
+          "days": [2],
+          "score": 3,
+          "special": true,
+          "event": "All Souls' Day (Giorno dei Morti)",
+          "notes": "Not a public holiday but culturally important. Look for special 'Frutta Martorana' (marzipan sweets)."
+        },
+        {
+          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 3,
+          "notes": "Cooler, potentially rainy weather. Low season, ideal for museums and indoor sights without crowds."
+        }
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 13,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 3,
+          "notes": "Cool weather, start of festive season decorations."
+        },
+        {
+          "days": [8],
+          "score": 4,
+          "special": true,
+          "event": "Immaculate Conception (Immacolata)",
+          "notes": "Public holiday, official start of Christmas season, markets often open."
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets & Festivities",
+          "notes": "Markets (e.g., Politeama area), lights, festive atmosphere. Look for 'Presepi' (nativity scenes)."
+        },
+        {
+          "days": [24, 25],
+          "score": 3,
+          "special": true,
+          "event": "Christmas Eve & Day (Vigilia & Natale)",
+          "notes": "Family time, many closures on 25th. Midnight Mass options."
+        },
+        {
+          "days": [26],
+          "score": 3,
+          "special": true,
+          "event": "Santo Stefano",
+          "notes": "Public holiday, closures continue, quiet day."
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 4,
+          "notes": "Festive period between Christmas and New Year."
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "New Year's Eve (San Silvestro)",
+          "notes": "Public concert/celebrations often in Piazza Politeama. Restaurants offer special dinners (book way ahead)."
+        }
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 10,
+      "tourismLevel": 5
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Sightseeing (Monuments, Churches)",
+      "Holy Week Processions (Easter)",
+      "Visiting Monreale",
+      "Exploring Markets (Ballarò, Capo)",
+      "Strolling Gardens (Villa Giulia, Botanical)",
+      "Enjoying Seasonal Produce (Artichokes, Fava)",
+      "Day Trips (weather permitting)"
+    ],
+    "summer": [
+      "Mondello Beach (Swimming, Sunbathing)",
+      "Festino di Santa Rosalia (July)",
+      "Evening Passeggiata & Granita",
+      "Outdoor Concerts & Cinema",
+      "Boat Trips",
+      "Visiting Markets early morning",
+      "Jazz Festival (July/Aug)",
+      "World Festival on the Beach (early summer)"
+    ],
+    "autumn": [
+      "Le Vie dei Tesori (Cultural Festival)",
+      "Sightseeing with pleasant weather",
+      "Hiking in Nature Reserves",
+      "Visiting Indoor Museums",
+      "Theater/Opera Season Opening",
+      "Wine Tasting Day Trips",
+      "Enjoying Autumn Produce (Mushrooms, Chestnuts)"
+    ],
+    "winter": [
+      "Visiting Museums & Palaces",
+      "Christmas Markets & Lights",
+      "Opera/Concert Season",
+      "New Year's Eve Celebrations",
+      "Exploring Churches & Presepi (Nativity Scenes)",
+      "Enjoying Winter Sales (Jan)",
+      "Sampling Seasonal Sweets (Frutta Martorana, Buccellato)"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Ideal conditions, significant positive events, pleasant weather, potentially moderate crowds",
+    "4": "Good: Favorable conditions, good weather, possibly some key events, manageable or festive crowds",
+    "3": "Average: Standard conditions, typical weather, potential for heat/closures (summer) or cool/rain (winter), moderate tourism or holiday peaks",
+    "2": "Below Average: Less ideal conditions, potential for closures (August), heat (August), or consistent cool/wet weather",
+    "1": "Poor: Generally unfavorable conditions for typical tourism (not generally applicable to Palermo)"
+  }
+} 
