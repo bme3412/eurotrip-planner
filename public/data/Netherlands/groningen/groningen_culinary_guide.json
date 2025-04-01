@@ -1,0 +1,313 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Nassau",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Chef's Surprise Menu",
+                    "Seasonal Ingredients Focus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish and refined, located in the Prinsenhof hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, mention dietary requirements when booking.",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "Prinsenhof Hotel, near Martinikerk",
+                "local_tips": "Known for its creative dishes and excellent wine pairings in a historic setting."
+            },
+            {
+                "name": "Voila",
+                "cuisine_type": "French/Mediterranean",
+                "signature_dishes": [
+                    "Fixed Menu Concept (changes daily)",
+                    "Emphasis on Fresh, High-Quality Produce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, classic bistro feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential, limited seating. Fixed menu, check beforehand if dietary needs can be accommodated.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0, 
+                "location": "W.A. Scholtenstraat",
+                "local_tips": "Highly regarded for its no-choice menu concept, ensuring freshness and quality."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "De Uurwerker",
+                "cuisine_type": "Pizza/Pub Grub",
+                "signature_dishes": [
+                    "Wood-fired Pizzas",
+                    "Burgers",
+                    "Nachos"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial chic, lively, popular with students and young professionals",
+                "best_time": "Lunch/Dinner/Evening Drinks",
+                "reservation_needed": false,
+                "booking_tips": "Usually busy, especially evenings/weekends. Large space, often possible to find a spot.",
+                "dress_code": "Casual",
+                "location": "Uurwerkersplein (near University Library)",
+                "local_tips": "Great pizzas and a bustling atmosphere, nice outdoor seating area."
+            },
+            {
+                "name": "De Drie Gezusters",
+                "cuisine_type": "International/Pub Fare",
+                "signature_dishes": [
+                    "Steaks",
+                    "Salads",
+                    "Lunch Specials"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Grand cafe style, multiple interconnected rooms with different vibes",
+                "best_time": "Anytime (Lunch, Dinner, Drinks)",
+                "reservation_needed": "Recommended for dinner groups, often not needed for lunch/drinks.",
+                "booking_tips": "Explore the different rooms; large terrace on the Grote Markt.",
+                "dress_code": "Casual / Smart Casual",
+                "location": "Grote Markt",
+                "local_tips": "A Groningen institution, huge place perfect for people-watching on the main square."
+            },
+            {
+                "name": "Het Concerthuis",
+                "cuisine_type": "Modern European/Shared Dining",
+                "signature_dishes": [
+                    "Foodplanks (Shared platters)",
+                    "Vegetarian Options"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Hip, eclectic decor, relaxed vibe",
+                "best_time": "Dinner/Weekend Brunch",
+                "reservation_needed": "Recommended, especially weekends.",
+                "booking_tips": "Great for sharing platters with friends.",
+                "dress_code": "Casual",
+                "location": "Poelestraat",
+                "local_tips": "Known for its creative shared dining concepts and cozy atmosphere."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Vismarkt Market (Tues/Fri/Sat)",
+                "specialties": [
+                    "Eierbal (Groningen specialty - ragout-filled ball)",
+                    "Herring ('Haring') Cart",
+                    "Stroopwafels",
+                    "Kibbeling (fried fish)",
+                    "Cheese Stands"
+                ],
+                "price_range": "€",
+                "hours": "Tuesday, Friday, Saturday, approx. 9:00 AM - 5:00 PM",
+                "location": "Vismarkt Square",
+                "seating": "Limited/None",
+                "local_tips": "Must try the local 'eierbal'. Saturdays are often the busiest. Great place for fresh produce and snacks."
+            },
+             {
+                "name": "Various Snackbars (e.g., Cafetaria Koning)",
+                "specialties": [
+                    "Eierbal",
+                    "Dutch Fries ('Patat') with various sauces",
+                    "Kroket, Frikandel"
+                ],
+                "price_range": "€",
+                "hours": "Varies, often lunch through late night",
+                "location": "Throughout the city",
+                "seating": "Often limited or takeaway",
+                "local_tips": "Look for snackbars advertising 'Eierbal uit Grunnen'. Perfect for a quick, cheap, local bite."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Black & Bloom",
+                "specialty": "Specialty Coffee Roasters",
+                "must_try": [
+                    "Filter Coffee (various methods)",
+                    "Espresso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Passionate coffee focus, minimalist, knowledgeable baristas",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries/cakes",
+                "local_tips": "Highly regarded by coffee aficionados, they roast their own beans."
+            },
+            {
+                "name": "PS! Koffie, Kunst & Kado",
+                "specialty": "Coffee, Art & Gifts",
+                "must_try": [
+                    "Latte Art Coffees",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, artistic, combined with a gift shop",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Cakes, small lunch items",
+                "local_tips": "Unique atmosphere combining coffee with local art and gifts."
+            },
+            {
+                "name": "MASMAS",
+                "specialty": "Quality Coffee & Breakfast/Lunch",
+                "must_try": [
+                    "Cappuccino",
+                    "Breakfast Bowls",
+                    "Sandwiches"
+                 ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern, relaxed",
+                "best_time": "Morning/Lunch",
+                "wifi_friendly": true,
+                "food_options": "Good breakfast and lunch menu",
+                "local_tips": "Good spot for a relaxed coffee or healthy lunch near the city center."
+            }
+        ],
+        "bars": [
+            {
+                "name": "De Pintelier",
+                "type": "Belgian Beer Cafe",
+                "specialty": "Extensive Belgian & Dutch Beer Selection (draught & bottle)",
+                "signature_drinks": [
+                    "Trappist Beers",
+                    "Local Groninger Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic brown cafe, knowledgeable staff, popular",
+                "best_time": "Evening",
+                "food_options": "Bar snacks ('borrelhapjes')",
+                "reservation_needed": false,
+                "local_tips": "A must-visit for beer lovers, huge selection on tap and in bottles."
+            },
+            {
+                "name": "Mr. Mofongo",
+                "type": "Cocktail Bar & Restaurant",
+                "specialty": "Innovative Cocktails, Robotic Arm Bartender",
+                "signature_drinks": [
+                    "Gin & Tonics (large selection)",
+                    "Signature Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy, multi-level, unique decor, rooftop terrace",
+                "best_time": "Evening/Late Night",
+                "food_options": "Full restaurant menu available",
+                "reservation_needed": "Recommended for restaurant/groups, often not needed just for drinks.",
+                "local_tips": "Check out the robotic arm mixing cocktails behind the bar and the distillery downstairs."
+            },
+            {
+                "name": "Café Mulder",
+                "type": "Traditional Brown Cafe",
+                "specialty": "Local hangout, 'gezelligheid'",
+                "signature_drinks": [
+                    "Local Pilsner",
+                    "Jenever"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic, old-school Dutch pub feel",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Simple bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Experience a genuine local 'stamkroeg' (regular's bar)."
+            },
+            {
+                "name": "Poeleplein & Grote Markt Area",
+                "type": "Area with multiple bars/clubs",
+                "specialty": "Nightlife Hub",
+                "signature_drinks": ["Wide variety across different venues"],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively, bustling, especially on student nights (Thursday) and weekends",
+                "best_time": "Evening/Late Night",
+                "food_options": "Many bars offer snacks or full menus; nearby snackbars",
+                "reservation_needed": "Generally not needed for bars, maybe for specific clubs/events.",
+                "local_tips": "The main areas for going out in Groningen, lots of options from pubs to clubs."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Groningen Food Walk (Self-Guided or Organized)",
+                "focus": "Local Specialties & City Highlights",
+                "duration": "approx. 2-4 hours",
+                "price_range": "€-€€€ (depending on provider/self-spend)",
+                "highlights": [
+                    "Taste 'Eierbal' from a snackbar",
+                    "Visit Vismarkt for market snacks (cheese, fish)",
+                    "Try 'Groninger Koek' (local spice cake)",
+                    "Sample local beers"
+                ],
+                "booking_required": "For organized tours, yes. Self-guided, no.",
+                "group_size": "Varies",
+                "languages": ["English", "Dutch"],
+                "booking_tips": "Search for local food tour operators or create your own route hitting key spots like Vismarkt and local cafes/snackbars."
+            }
+        ],
+        "cooking_classes": [
+             {
+                "name": "Workshop Groninger Specialties (e.g., Eierbal Making)",
+                "cuisine_focus": "Local Groningen/Dutch Dishes",
+                "duration": "approx. 3-4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making the perfect Eierbal",
+                    "Preparing Stamppot or other Dutch classics"
+                ],
+                "group_size": "Varies",
+                "languages": ["Dutch", "English (often available)"],
+                "includes": ["Ingredients, instruction, tasting"],
+                "booking_tips": "Check local cooking schools ('kookstudio') or community centers for offerings. May be seasonal."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Vismarkt Market",
+                "type": "Large General Goods & Food Market",
+                "highlights": [
+                    "Major market on a central square",
+                    "Fresh fish, produce, cheese, bread, clothing, flowers, snacks (incl. Eierbal)"
+                ],
+                "hours": "Tuesdays, Fridays, Saturdays approx. 9:00 AM - 5:00 PM",
+                "best_time": "Morning for best selection, Saturday for most atmosphere",
+                "location": "Vismarkt Square",
+                "local_tips": "The heart of Groningen market life. Don't miss trying local snacks here."
+            },
+            {
+                "name": "Ommelander Markt (Regional Products)",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Focus on local and regional products from the Groningen area ('Ommelanden')",
+                    "Artisanal cheese, meats, bread, honey, vegetables"
+                ],
+                "hours": "Certain Saturdays (check schedule), approx. 10:00 AM - 4:00 PM",
+                "best_time": "Mid-morning",
+                "location": "Harmonieplein (check location, may vary)",
+                "local_tips": "Great place to discover high-quality products directly from local producers."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus ('Asperges')",
+            "'Hollandse Nieuwe' Herring (Raw herring, starting late May/June)",
+            "Rhubarb desserts"
+        ],
+        "summer": [
+            "Fresh local berries and fruits",
+            "Outdoor terrace dining and BBQs",
+            "Salads with local produce"
+        ],
+        "autumn": [
+            "'Stamppot' (various kinds, e.g., 'Boerenkool', 'Hutspot')",
+            "Mushrooms and game dishes",
+            "'Bokbier' (seasonal dark beer)"
+        ],
+        "winter": [
+            "'Erwtensoep' (Snert - thick pea soup)",
+            "'Oliebollen' & 'Appelbeignets' (around New Year)",
+            "'Groninger Koek' (local spice cake, available year-round but comforting in winter)",
+            "Hot chocolate ('Warme chocolademelk')"
+        ]
+    }
+} 

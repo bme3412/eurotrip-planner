@@ -456,7 +456,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Groningen is a vibrant university city in the north, known for its youthful energy, cycling culture, and historic architecture.",
-      thumbnail: "/images/groningen-thumbnail.jpg",
+      thumbnail: "/images/groningen-thumbnail.png",
       landmarks: ["Martinitoren", "Groninger Museum"],
       latitude: 53.2194,
       longitude: 6.5665,

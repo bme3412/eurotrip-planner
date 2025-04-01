@@ -1,0 +1,159 @@
+{
+    "destinations": [
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the Netherlands' vibrant capital with its iconic canals, world-class museums, and distinctive architecture.",
+            "directWithinCountryTrain": {
+                "stationInGroningen": "Groningen",
+                "journeyTime": "approx. 2 hours",
+                "frequency": "Multiple per hour"
+            },
+            "intraEuropeFlight": {
+                "airportsInGroningen": ["Groningen Eelde (GRQ)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "Not applicable - train recommended",
+                "frequency": "Not applicable"
+            }
+        },
+        {
+            "city": "Rotterdam",
+            "country": "Netherlands",
+            "whyGo": "Discover the Netherlands' second-largest city known for its modern architecture, innovative design, and bustling harbor.",
+            "directWithinCountryTrain": {
+                "stationInGroningen": "Groningen",
+                "journeyTime": "approx. 2 hours 30 minutes (may require change)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "The Hague",
+            "country": "Netherlands",
+            "whyGo": "Visit the seat of Dutch government, international courts, royal palaces, and beautiful North Sea beaches.",
+            "directWithinCountryTrain": {
+                "stationInGroningen": "Groningen",
+                "journeyTime": "approx. 2 hours 20 minutes (may require change)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Utrecht",
+            "country": "Netherlands",
+            "whyGo": "Explore this historic city with its iconic Dom Tower, charming canals, and rich cultural heritage.",
+            "directWithinCountryTrain": {
+                "stationInGroningen": "Groningen",
+                "journeyTime": "approx. 1 hour 45 minutes",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Leeuwarden",
+            "country": "Netherlands",
+            "whyGo": "Explore the capital of Friesland, known for its canals, historic center, and the leaning Oldehove tower.",
+             "directWithinCountryTrain": {
+                "stationInGroningen": "Groningen",
+                "journeyTime": "approx. 35 minutes",
+                "frequency": "Multiple per hour"
+            }
+        },
+         {
+            "city": "Zwolle",
+            "country": "Netherlands",
+            "whyGo": "Discover this charming Hanseatic city with its star-shaped moat, historic Sassenpoort gate, and Museum de Fundatie.",
+             "directWithinCountryTrain": {
+                "stationInGroningen": "Groningen",
+                "journeyTime": "approx. 1 hour",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Bremen",
+            "country": "Germany",
+            "whyGo": "Visit this historic Hanseatic city in Germany, famous for the Town Musicians of Bremen statue and its beautiful market square.",
+            "intraEuropeTrain": {
+                "stationInGroningen": "Groningen (change at Leer)",
+                "journeyTime": "approx. 2 hours 30 minutes",
+                "frequency": "Hourly+"
+            },
+             "intraEuropeFlight": {
+                 "airportsInGroningen": ["Groningen Eelde (GRQ)", "Bremen (BRE)"],
+                "approxFlightTime": "Not applicable - train recommended",
+                "frequency": "Not applicable"
+            }
+        },
+        {
+            "city": "Hamburg",
+            "country": "Germany",
+            "whyGo": "Explore Germany's second-largest city, known for its large harbor, Speicherstadt warehouse district, and vibrant nightlife.",
+            "intraEuropeTrain": {
+                "stationInGroningen": "Groningen (change at Leer/Bremen)",
+                "journeyTime": "approx. 4 hours",
+                "frequency": "Hourly+"
+            },
+             "intraEuropeFlight": {
+                 "airportsInGroningen": ["Groningen Eelde (GRQ)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour (from AMS)",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Explore the EU capital with its magnificent Grand Place, Art Nouveau architecture, and renowned chocolate and beer.",
+            "intraEuropeTrain": {
+                "stationInGroningen": "Groningen (change at Schiphol/Rotterdam)",
+                "journeyTime": "approx. 3 hours 30 minutes - 4 hours",
+                "frequency": "Hourly+"
+            },
+            "intraEuropeFlight": {
+                 "airportsInGroningen": ["Groningen Eelde (GRQ)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 45 minutes (from AMS)",
+                "frequency": "Few daily (from AMS)"
+            }
+        },
+         {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Explore one of the world's most dynamic cities with its historic landmarks, cultural diversity, and cutting-edge arts scene.",
+            "intraEuropeTrain": {
+                "stationInGroningen": "Groningen (change at Rotterdam/Brussels)",
+                "journeyTime": "approx. 6 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsInGroningen": ["Groningen Eelde (GRQ)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour",
+                "frequency": "Daily (GRQ) / Multiple times daily (AMS)"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Experience the iconic City of Light with its world-famous landmarks, unparalleled museums, and legendary culinary scene.",
+            "intraEuropeTrain": {
+                "stationInGroningen": "Groningen (change at Schiphol/Rotterdam)",
+                "journeyTime": "approx. 5 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsInGroningen": ["Groningen Eelde (GRQ)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour 15 minutes (from AMS)",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Discover Germany's dynamic capital with its turbulent history, cutting-edge arts scene, and legendary nightlife.",
+            "intraEuropeTrain": {
+                 "stationInGroningen": "Groningen (direct or change at Leer)",
+                "journeyTime": "approx. 5 hours 30 minutes - 6 hours",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsInGroningen": ["Groningen Eelde (GRQ)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour 20 minutes (from AMS)",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        }
+    ]
+} 
