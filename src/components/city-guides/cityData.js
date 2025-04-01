@@ -470,7 +470,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Haarlem offers historic charm with its medieval buildings, cobblestone streets, and proximity to tulip fields and coastal dunes.",
-      thumbnail: "/images/haarlem-thumbnail.jpg",
+      thumbnail: "/images/haarlem-thumbnail.png",
       landmarks: ["Grote Markt", "Teylers Museum"],
       latitude: 52.3874,
       longitude: 4.6462,
