@@ -720,7 +720,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Verona, the setting for Shakespeare's Romeo and Juliet, enchants with its Roman arena, medieval squares, and romantic atmosphere.",
-      thumbnail: "/images/verona-thumbnail.jpg",
+      thumbnail: "/images/verona-thumbnail.png",
       landmarks: ["Arena di Verona", "Juliet's House"],
       latitude: 45.4384,
       longitude: 10.9916,
