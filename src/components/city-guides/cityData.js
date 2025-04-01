@@ -706,7 +706,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Turin combines French-influenced elegance with Italian character, known for its automotive industry and Egyptian Museum.",
-      thumbnail: "/images/turin-thumbnail.jpg",
+      thumbnail: "/images/turin-thumbnail.png",
       landmarks: ["Mole Antonelliana", "Royal Palace of Turin"],
       latitude: 45.0703,
       longitude: 7.6869,
