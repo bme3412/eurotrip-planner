@@ -2,342 +2,781 @@
     "neighborhoods": [
         {
             "name": "Altstadt",
-            "character": "Historic and charming with cobblestone streets",
+            "alternate_names": [
+                "Old Town"
+            ],
+            "character": "Historic and charming with cobblestone streets, the medieval heart of Innsbruck.",
             "location": {
                 "central": true,
-                "description": "Heart of the city",
-                "coordinates": {
-                    "latitude": 47.2682,
-                    "longitude": 11.3933
-                }
+                "description": "Heart of the city, centered around the Golden Roof.",
+                "borders": [
+                    "Innenstadt",
+                    "Mariahilf-St. Nikolaus"
+                ],
+                "landmarks": [
+                    "Golden Roof",
+                    "Helbling House",
+                    "City Tower (Stadtturm)"
+                ]
+            },
+            "history": {
+                "overview": "The oldest part of Innsbruck, developed in the Middle Ages.",
+                "significance": "Historic center of trade and governance in Tyrol.",
+                "notable_events": [
+                    "Construction of Golden Roof (c. 1500)",
+                    "Preservation efforts maintaining medieval character"
+                ]
             },
             "practical_info": {
                 "transit": [
-                    "Trams, buses"
+                    "Trams and buses accessible on surrounding streets (e.g., Marktgraben, Burggraben)"
                 ],
-                "safety": "Very safe",
-                "walkability": "Highly pedestrian-friendly"
+                "safety": "Very safe, popular tourist area.",
+                "best_time_to_visit": "Year-round; Summer for festivals, December for Christmas markets.",
+                "walkability": "Excellent, primarily pedestrian-only."
             },
             "appeal": {
                 "known_for": [
                     "Golden Roof",
-                    "Medieval architecture"
+                    "Medieval architecture",
+                    "Historic landmarks"
+                ],
+                "atmosphere": [
+                    "Historic",
+                    "Charming",
+                    "Touristy",
+                    "Lively"
                 ],
                 "best_for": [
                     "History buffs",
-                    "Sightseeing"
+                    "Sightseeing",
+                    "First-time visitors"
                 ]
             },
             "categories": {
                 "touristy": 5,
+                "residential": 1,
+                "green_spaces": 1,
                 "shopping": 3,
                 "dining": 4,
                 "nightlife": 3,
-                "cultural": 5
+                "cultural": 5,
+                "historic": 5
             },
             "highlights": {
                 "attractions": [
-                    "Golden Roof",
-                    "Hofkirche",
-                    "Innsbruck Cathedral"
+                    {
+                        "name": "Golden Roof (Goldenes Dachl)",
+                        "type": "Landmark",
+                        "description": "Iconic balcony with 2,738 fire-gilded copper tiles.",
+                        "appeal": "Symbol of Innsbruck, great photo opportunity."
+                    },
+                    {
+                        "name": "Hofkirche (Court Church)",
+                        "type": "Church / Museum",
+                        "description": "Gothic church housing Emperor Maximilian I's cenotaph.",
+                        "appeal": "Impressive bronze statues ('Schwarze Mander')."
+                    },
+                    {
+                        "name": "Innsbruck Cathedral (Dom zu St. Jakob)",
+                        "type": "Cathedral",
+                        "description": "Stunning Baroque cathedral with elaborate interior.",
+                        "appeal": "Masterpiece of Baroque architecture and art."
+                    }
                 ],
                 "dining": [
-                    "Stiftskeller",
-                    "Gasthof Weisses Rössl"
+                    {
+                        "name": "Stiftskeller",
+                        "cuisine": "Traditional Austrian",
+                        "price_range": "€€",
+                        "known_for": "Hearty local dishes, Kaiserschmarrn",
+                        "atmosphere": "Rustic and cozy"
+                    },
+                    {
+                        "name": "Gasthof Weisses Rössl",
+                        "cuisine": "Austrian",
+                        "price_range": "€€",
+                        "known_for": "Tyrolean dumplings, Goulash",
+                        "atmosphere": "Warm and welcoming"
+                    }
                 ],
                 "activities": [
-                    "Walking tours",
-                    "Museum visits"
+                    {
+                        "name": "Climb the City Tower (Stadtturm)",
+                        "type": "Sightseeing",
+                        "description": "Ascend the medieval tower for panoramic views.",
+                        "suitable_for": [
+                            "Photographers",
+                            "Sightseers"
+                        ]
+                    },
+                    {
+                        "name": "Guided Walking Tour",
+                        "type": "Cultural / Historic",
+                        "description": "Learn about the history and legends of the Old Town.",
+                        "suitable_for": [
+                            "History buffs",
+                            "First-time visitors"
+                        ]
+                    }
                 ]
             },
             "stay_here_if": [
-                "You want to be close to major attractions",
-                "Enjoy historic settings"
+                "You want to be immersed in history and close to major attractions."
             ],
             "avoid_if": [
-                "You prefer quieter areas",
-                "Dislike tourist crowds"
+                "You prefer quieter areas, dislike tourist crowds, or need easy car access."
+            ],
+            "insider_tips": [
+                "Explore the smaller side streets and alleyways for hidden architectural details.",
+                "Visit early in the morning or later in the evening to avoid the largest crowds.",
+                "Look up! Many buildings have beautiful oriel windows and facades."
             ]
         },
         {
             "name": "Innenstadt",
-            "character": "Vibrant and modern with a mix of shops and eateries",
+            "alternate_names": [
+                "City Center",
+                "Neustadt"
+            ],
+            "character": "Vibrant and modern commercial heart with main shopping street and administrative buildings.",
             "location": {
                 "central": true,
-                "description": "Adjacent to Altstadt",
-                "coordinates": {
-                    "latitude": 47.2654,
-                    "longitude": 11.3948
-                }
+                "description": "Surrounds the Altstadt, includes Maria-Theresien-Straße.",
+                "borders": [
+                    "Altstadt",
+                    "Saggen",
+                    "Wilten",
+                    "Mariahilf-St. Nikolaus"
+                ],
+                "landmarks": [
+                    "Maria-Theresien-Straße",
+                    "Triumphal Arch (Triumphpforte)",
+                    "Annasäule (St. Anne's Column)"
+                ]
+            },
+            "history": {
+                "overview": "Developed as the 'New Town' outside the medieval walls, becoming the main commercial and administrative hub.",
+                "significance": "Main thoroughfare and center of modern Innsbruck life.",
+                "notable_events": [
+                    "Construction of Triumphal Arch (1765)",
+                    "Development of Maria-Theresien-Straße as a prestigious boulevard"
+                ]
             },
             "practical_info": {
                 "transit": [
-                    "Trams, buses"
+                    "Numerous tram and bus lines converge here (e.g., Museumstraße, Anichstraße)"
                 ],
-                "safety": "Very safe",
-                "walkability": "Excellent"
+                "safety": "Very safe, busy day and night.",
+                "best_time_to_visit": "Year-round for shopping and dining.",
+                "walkability": "Excellent, largely pedestrianized main street."
             },
             "appeal": {
                 "known_for": [
-                    "Shopping",
-                    "Dining"
+                    "Shopping (department stores, international brands)",
+                    "Dining (restaurants, cafes, bars)",
+                    "Central location"
+                ],
+                "atmosphere": [
+                    "Vibrant",
+                    "Modern",
+                    "Commercial",
+                    "Busy"
                 ],
                 "best_for": [
                     "Shoppers",
-                    "Foodies"
+                    "Foodies",
+                    "People watchers"
                 ]
             },
             "categories": {
                 "touristy": 4,
+                "residential": 2,
+                "green_spaces": 2,
                 "shopping": 5,
                 "dining": 4,
                 "nightlife": 4,
-                "cultural": 3
+                "cultural": 3,
+                "historic": 3
             },
             "highlights": {
                 "attractions": [
-                    "Maria-Theresien-Straße",
-                    "Triumphal Arch"
+                    {
+                        "name": "Maria-Theresien-Straße",
+                        "type": "Street / Shopping",
+                        "description": "Innsbruck's main boulevard with shops, cafes, and historic buildings.",
+                        "appeal": "Heart of the city, great for shopping and strolling."
+                    },
+                    {
+                        "name": "Triumphal Arch (Triumphpforte)",
+                        "type": "Monument",
+                        "description": "Roman-style arch built by Empress Maria Theresa.",
+                        "appeal": "Significant historical landmark."
+                    },
+                    {
+                        "name": "Audioversum",
+                        "type": "Museum (Science Center)",
+                        "description": "Interactive museum dedicated to hearing and sound.",
+                        "appeal": "Engaging exhibits for all ages."
+                    }
                 ],
                 "dining": [
-                    "Das Schindler",
-                    "Penz Hotel Rooftop Restaurant"
+                     {
+                        "name": "Das Schindler",
+                        "cuisine": "Modern European",
+                        "price_range": "€€€",
+                        "known_for": "Beef tartare, truffle pasta",
+                        "atmosphere": "Chic and contemporary"
+                    },
+                     {
+                        "name": "Penz Hotel Rooftop Restaurant",
+                        "cuisine": "International",
+                        "price_range": "€€€",
+                        "known_for": "Panoramic views, cocktails",
+                        "atmosphere": "Stylish and modern"
+                    },
+                    {
+                        "name": "Fischerhäusl",
+                         "cuisine": "Local and Mediterranean",
+                         "price_range": "€€",
+                         "known_for": "Grilled trout, riverside dining",
+                         "atmosphere": "Relaxed and casual"
+                    }
                 ],
                 "activities": [
-                    "Shopping",
-                    "Café hopping"
+                     {
+                        "name": "Shopping",
+                        "type": "Shopping",
+                        "description": "Browse department stores (Kaufhaus Tyrol, RathausGallerien) and boutiques.",
+                        "suitable_for": [
+                            "Shoppers",
+                            "Fashion enthusiasts"
+                        ]
+                    },
+                    {
+                        "name": "Café Hopping",
+                        "type": "Dining / Leisure",
+                        "description": "Relax at one of the many cafes lining Maria-Theresien-Straße.",
+                        "suitable_for": [
+                            "Everyone"
+                        ]
+                    }
                 ]
             },
             "stay_here_if": [
-                "You love shopping and dining",
-                "Want a lively atmosphere"
+                "You love shopping, dining, and a lively, central atmosphere."
             ],
             "avoid_if": [
-                "Prefer quieter, residential areas"
+                "You prefer quieter, residential areas or are looking for budget options."
+            ],
+            "insider_tips": [
+                "Check out the rooftop bar at The Penz Hotel for great views, even if not dining.",
+                "Explore the arcades and passages off the main street for smaller shops.",
+                "Enjoy the Christmas lights and markets here in December."
             ]
         },
-        {
+         {
             "name": "Hötting",
-            "character": "Residential and peaceful with scenic views",
+            "alternate_names": [],
+            "character": "Residential and peaceful hillside neighborhood with scenic views over the city and access to nature.",
             "location": {
                 "central": false,
-                "description": "Northwest of the city center",
-                "coordinates": {
-                    "latitude": 47.2745,
-                    "longitude": 11.3816
-                }
+                "description": "Northwest of the city center, on the sunny slopes north of the Inn river.",
+                "borders": [
+                    "Hungerburg",
+                    "Mariahilf-St. Nikolaus"
+                ],
+                "landmarks": [
+                    "Botanical Garden (University)",
+                    "Höttinger Bild (Chapel)",
+                    "Alpenzoo (borders Hötting/Hungerburg)"
+                ]
+            },
+            "history": {
+                "overview": "One of the oldest settlements in the Innsbruck area, incorporated into the city in 1938.",
+                "significance": "Retains some village character, known for its connection to nature and views.",
+                "notable_events": [
+                    "Establishment of the Botanical Garden"
+                ]
             },
             "practical_info": {
                 "transit": [
-                    "Bus"
+                    "Bus lines (e.g., Line A, J)"
                 ],
-                "safety": "Very safe",
-                "walkability": "Moderate"
+                "safety": "Very safe, quiet residential area.",
+                "best_time_to_visit": "Spring, Summer, and Autumn for hiking and garden visits.",
+                "walkability": "Moderate, involves hills. Good for walks, less for quick errands."
             },
             "appeal": {
                 "known_for": [
-                    "Scenic views",
-                    "Local living"
+                    "Scenic views over Innsbruck",
+                    "Hiking trails",
+                    "Local living",
+                    "Botanical Garden"
+                ],
+                "atmosphere": [
+                    "Residential",
+                    "Peaceful",
+                    "Scenic",
+                    "Green"
                 ],
                 "best_for": [
                     "Families",
-                    "Nature lovers"
+                    "Nature lovers",
+                    "Hikers",
+                    "Those seeking quiet"
                 ]
             },
             "categories": {
                 "touristy": 2,
-                "shopping": 2,
-                "dining": 3,
-                "nightlife": 2,
-                "cultural": 3
+                "residential": 5,
+                "green_spaces": 4,
+                "shopping": 1,
+                "dining": 2,
+                "nightlife": 1,
+                "cultural": 3,
+                "historic": 3
             },
             "highlights": {
                 "attractions": [
-                    "Botanical Garden",
-                    "Höttinger Alm"
+                     {
+                        "name": "Botanical Garden of the University of Innsbruck",
+                        "type": "Garden / Nature",
+                        "description": "Diverse collection of plants from around the world.",
+                        "appeal": "Peaceful escape, educational exhibits."
+                    },
+                     {
+                        "name": "Höttinger Alm",
+                        "type": "Mountain Hut / Viewpoint",
+                        "description": "Traditional Alm accessible via hike, offering food and views.",
+                        "appeal": "Authentic Tyrolean experience, rewarding hike."
+                    }
                 ],
                 "dining": [
-                    "Buzihütte"
+                    {
+                        "name": "Buzihütte",
+                        "cuisine": "Tyrolean",
+                        "price_range": "€€",
+                        "known_for": "Tiroler Gröstl, mountain hut fare",
+                        "atmosphere": "Traditional and rustic"
+                    }
                 ],
                 "activities": [
-                    "Hiking",
-                    "Nature walks"
+                   {
+                        "name": "Hiking",
+                        "type": "Outdoor",
+                        "description": "Access trails leading up towards the Nordkette range.",
+                        "suitable_for": [
+                            "Hikers",
+                            "Nature lovers"
+                        ]
+                    },
+                     {
+                        "name": "Nature Walks",
+                        "type": "Outdoor",
+                        "description": "Enjoy walks through the quiet streets and nearby woods.",
+                        "suitable_for": [
+                            "Families",
+                            "Everyone"
+                        ]
+                    }
                 ]
             },
             "stay_here_if": [
-                "You want a quiet neighborhood",
-                "Enjoy outdoor activities"
+                "You want a quiet, residential neighborhood with great views and easy access to nature/hiking."
             ],
             "avoid_if": [
-                "You want immediate access to nightlife"
+                "You want immediate access to nightlife, extensive shopping, or dislike hills."
+            ],
+            "insider_tips": [
+                "Take the 'J' bus line for easy access up the hill.",
+                "Wear comfortable shoes for walking the hilly streets.",
+                "Enjoy the sunset views over the city from higher points in the neighborhood."
             ]
         },
         {
             "name": "Saggen",
-            "character": "Elegant with a mix of historic villas and modern buildings",
+            "alternate_names": [],
+            "character": "Elegant residential district known for its beautiful late 19th/early 20th-century villas and leafy streets.",
             "location": {
                 "central": false,
-                "description": "Northeast of Innenstadt",
-                "coordinates": {
-                    "latitude": 47.2766,
-                    "longitude": 11.4001
-                }
+                "description": "Northeast of Innenstadt, stretching towards the Inn river.",
+                "borders": [
+                    "Innenstadt",
+                    "Hungerburg",
+                    "Mühlau"
+                ],
+                "landmarks": [
+                    "Imperial Palace (Hofburg) - borders Saggen",
+                    "Congress Innsbruck - borders Saggen",
+                    "Tyrolean State Theatre - borders Saggen"
+                ]
+            },
+            "history": {
+                "overview": "Developed primarily during the Gründerzeit period (late 19th century) as an upscale residential area.",
+                "significance": "Showcases impressive villa architecture from various periods.",
+                "notable_events": [
+                    "Construction of numerous architecturally significant villas"
+                ]
             },
             "practical_info": {
                 "transit": [
-                    "Trams, buses"
+                    "Tram lines (e.g., 1, 3), Bus lines"
                 ],
-                "safety": "Very safe",
-                "walkability": "Good"
+                "safety": "Very safe, affluent residential area.",
+                "best_time_to_visit": "Year-round for architecture; Spring/Summer for pleasant walks.",
+                "walkability": "Good, pleasant for strolling."
             },
             "appeal": {
                 "known_for": [
-                    "Architecture",
-                    "Residential charm"
+                    "Architecture (Villas, Gründerzeit)",
+                    "Residential charm",
+                    "Quiet streets",
+                    "Proximity to Hofgarten"
+                ],
+                "atmosphere": [
+                    "Elegant",
+                    "Residential",
+                    "Quiet",
+                    "Green"
                 ],
                 "best_for": [
                     "Architecture enthusiasts",
-                    "Families"
+                    "Families",
+                    "Those seeking tranquility near the center"
                 ]
             },
             "categories": {
                 "touristy": 2,
+                "residential": 5,
+                "green_spaces": 4,
+                "shopping": 2,
+                "dining": 2,
+                "nightlife": 1,
+                "cultural": 3,
+                "historic": 4
+            },
+            "highlights": {
+                "attractions": [
+                   {
+                        "name": "Villa Architecture",
+                        "type": "Architecture",
+                        "description": "Numerous examples of historicist and Art Nouveau villas.",
+                        "appeal": "A delight for architecture lovers."
+                    },
+                   {
+                        "name": "Hofgarten (Imperial Gardens)",
+                        "type": "Park",
+                        "description": "Large park adjacent to Saggen, ideal for relaxing.",
+                        "appeal": "Green oasis near the city center."
+                    }
+                ],
+                "dining": [
+                ],
+                "activities": [
+                    {
+                        "name": "Architecture Walking Tour",
+                        "type": "Cultural / Historic",
+                        "description": "Stroll through the streets admiring the unique villas.",
+                        "suitable_for": [
+                            "Architecture enthusiasts",
+                            "Photographers"
+                        ]
+                    },
+                    {
+                        "name": "Relax in the Hofgarten",
+                        "type": "Leisure / Outdoor",
+                        "description": "Enjoy the park's paths, playground, and cafes.",
+                        "suitable_for": [
+                            "Everyone",
+                            "Families"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You appreciate beautiful historic architecture and prefer quieter, upscale residential areas close to the center."
+            ],
+            "avoid_if": [
+                "You want a wide variety of dining and nightlife options within the immediate neighborhood or are on a tight budget."
+            ],
+            "insider_tips": [
+                "Simply wander the streets (like Kaiserjägerstraße, Falkstraße) to admire the villas.",
+                "Enjoy a coffee break at a cafe in the nearby Hofgarten.",
+                "It's a short, pleasant walk to the Old Town and city center."
+            ]
+        },
+       {
+            "name": "Pradl",
+            "alternate_names": [],
+            "character": "Diverse and bustling residential and commercial district east of the city center, with good infrastructure.",
+            "location": {
+                "central": false,
+                "description": "East of Innenstadt and the main railway line.",
+                "borders": [
+                    "Saggen",
+                    "Reichenau",
+                    "Amras"
+                ],
+                "landmarks": [
+                    "Rapoldi Park",
+                    "Olympiaworld Innsbruck",
+                    "Tivoli Stadium"
+                ]
+            },
+            "history": {
+                "overview": "Developed rapidly with the expansion of the railway, becoming a large residential and partly industrial area.",
+                "significance": "Important residential area with significant sports and recreational facilities.",
+                "notable_events": [
+                    "Development of Olympiaworld for the Winter Olympics (1964, 1976)",
+                    "Establishment of Rapoldi Park"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Tram lines (e.g., 2, 3, 5), Bus lines"
+                ],
+                "safety": "Generally safe, standard urban residential area.",
+                "best_time_to_visit": "Year-round; check event schedules for Olympiaworld.",
+                "walkability": "Good within residential pockets and parks."
+            },
+            "appeal": {
+                "known_for": [
+                    "Olympiaworld (sports/events)",
+                    "Residential living",
+                    "Good transport links",
+                    "Parks"
+                ],
+                "atmosphere": [
+                    "Diverse",
+                    "Bustling (in parts)",
+                    "Local",
+                    "Residential"
+                ],
+                "best_for": [
+                    "Families",
+                    "Locals",
+                    "Sports fans (events)"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "residential": 5,
+                "green_spaces": 3,
                 "shopping": 3,
                 "dining": 3,
                 "nightlife": 2,
-                "cultural": 3
+                "cultural": 3,
+                "historic": 2
             },
             "highlights": {
                 "attractions": [
-                    "Congress Innsbruck",
-                    "Imperial Palace"
+                    {
+                        "name": "Rapoldi Park",
+                        "type": "Park",
+                        "description": "Large urban park with playgrounds, paths, and a pond.",
+                        "appeal": "Popular recreational spot for locals."
+                    },
+                    {
+                        "name": "Olympiaworld Innsbruck",
+                        "type": "Sports / Event Venue",
+                        "description": "Complex hosting ice rinks, halls for sports, concerts, and events.",
+                        "appeal": "Major venue for sports and entertainment."
+                    },
+                     {
+                        "name": "Tivoli Stadium",
+                        "type": "Stadium",
+                        "description": "Home stadium for FC Wacker Innsbruck.",
+                        "appeal": "Football matches and other events."
+                    }
                 ],
                 "dining": [
-                    "Fischerhäusl"
+                     {
+                        "name": "Local Bakeries & Cafes",
+                        "cuisine": "Various",
+                        "price_range": "€-€€",
+                        "known_for": "Neighborhood staples",
+                        "atmosphere": "Casual and local"
+                    }
                 ],
                 "activities": [
-                    "Walking tours",
-                    "Cultural events"
+                   {
+                        "name": "Attend an Event at Olympiaworld",
+                        "type": "Entertainment / Sports",
+                        "description": "Check the schedule for ice hockey, concerts, or other events.",
+                        "suitable_for": [
+                            "Sports fans",
+                            "Music lovers",
+                            "Families"
+                        ]
+                    },
+                    {
+                        "name": "Relax in Rapoldi Park",
+                        "type": "Leisure / Outdoor",
+                        "description": "Enjoy walking, cycling, or relaxing in the park.",
+                        "suitable_for": [
+                            "Everyone",
+                            "Families"
+                        ]
+                    }
                 ]
             },
             "stay_here_if": [
-                "Enjoy historic architecture",
-                "Prefer quieter areas"
+                "You are looking for a more local residential experience with good transport links and parks.",
+                 "Attending an event at Olympiaworld."
             ],
             "avoid_if": [
-                "Want a central location"
-            ]
-        },
-        {
-            "name": "Pradl",
-            "character": "Diverse and bustling with a mix of cultures",
-            "location": {
-                "central": false,
-                "description": "East of Innenstadt",
-                "coordinates": {
-                    "latitude": 47.2637,
-                    "longitude": 11.4176
-                }
-            },
-            "practical_info": {
-                "transit": [
-                    "Trams, buses"
-                ],
-                "safety": "Generally safe",
-                "walkability": "Good"
-            },
-            "appeal": {
-                "known_for": [
-                    "Multicultural vibe",
-                    "Local markets"
-                ],
-                "best_for": [
-                    "Budget travelers",
-                    "Cultural explorers"
-                ]
-            },
-            "categories": {
-                "touristy": 3,
-                "shopping": 4,
-                "dining": 4,
-                "nightlife": 3,
-                "cultural": 4
-            },
-            "highlights": {
-                "attractions": [
-                    "Rapoldi Park",
-                    "Olympiaworld"
-                ],
-                "dining": [
-                    "Local street food stalls"
-                ],
-                "activities": [
-                    "Market visits",
-                    "Community events"
-                ]
-            },
-            "stay_here_if": [
-                "Looking for budget accommodations",
-                "Enjoy diverse cultures"
+                "You want to be in the heart of the historic or tourist center, seeking high-end dining/shopping."
             ],
-            "avoid_if": [
-                "Seeking luxury options"
+            "insider_tips": [
+                "Check out the local shops along Pradler Straße.",
+                "Rapoldi Park is great for a run or a family outing.",
+                "Look into public swimming options at the Olympiaworld complex."
             ]
         },
-        {
+       {
             "name": "Wilten",
-            "character": "Artistic and vibrant with a strong local community",
+            "alternate_names": [],
+            "character": "Artistic and vibrant district south of the center, known for its independent shops, cafés, and strong local community.",
             "location": {
                 "central": false,
-                "description": "Southwest of Innenstadt",
-                "coordinates": {
-                    "latitude": 47.2565,
-                    "longitude": 11.3917
-                }
+                "description": "Southwest of Innenstadt, centered around Wiltener Platzl.",
+                "borders": [
+                    "Innenstadt",
+                    "Bergisel",
+                    "Pradl"
+                ],
+                "landmarks": [
+                    "Basilica of Wilten",
+                    "Wilten Abbey (Stift Wilten)",
+                    "Wiltener Platzl (Square)"
+                ]
+            },
+            "history": {
+                "overview": "One of Innsbruck's oldest areas, site of the Roman settlement Veldidena and the ancient Wilten Abbey.",
+                "significance": "Important religious site (Abbey) and recently revitalized cultural and creative hub.",
+                "notable_events": [
+                    "Founding of Wilten Abbey (c. 1138)",
+                    "Recent emergence as a trendy, artistic neighborhood"
+                ]
             },
             "practical_info": {
                 "transit": [
-                    "Trams, buses"
+                    "Tram lines (1, 3, STB)",
+                    "Bus lines"
                 ],
-                "safety": "Very safe",
-                "walkability": "Excellent"
+                "safety": "Very safe, lively community feel.",
+                "best_time_to_visit": "Year-round; Fridays for the Wiltener Platzl market.",
+                "walkability": "Excellent, very pleasant for exploring on foot."
             },
             "appeal": {
                 "known_for": [
-                    "Art scene",
-                    "Cafés"
+                    "Art scene (galleries, studios)",
+                    "Independent boutiques",
+                    "Trendy cafés and bars",
+                    "Wiltener Platzl market"
+                ],
+                "atmosphere": [
+                    "Artistic",
+                    "Vibrant",
+                    "Trendy",
+                    "Community-focused",
+                    "Bohemian"
                 ],
                 "best_for": [
                     "Artists",
-                    "Young professionals"
+                    "Young professionals",
+                    "Foodies",
+                    "Those seeking local vibe"
                 ]
             },
             "categories": {
                 "touristy": 3,
-                "shopping": 3,
+                "residential": 4,
+                "green_spaces": 2,
+                "shopping": 4,
                 "dining": 4,
                 "nightlife": 4,
-                "cultural": 5
+                "cultural": 5,
+                "historic": 4
             },
             "highlights": {
                 "attractions": [
-                    "Basilica of Wilten",
-                    "Wilten Abbey"
+                   {
+                        "name": "Basilica of Wilten",
+                        "type": "Church",
+                        "description": "Magnificent Rococo basilica, parish church of Wilten.",
+                        "appeal": "Stunning example of Rococo architecture."
+                    },
+                   {
+                        "name": "Wilten Abbey (Stift Wilten)",
+                        "type": "Monastery / Church",
+                        "description": "Historic Premonstratensian monastery with a beautiful church.",
+                        "appeal": "Important historical and religious site."
+                    },
+                    {
+                        "name": "Wiltener Platzl",
+                         "type": "Square / Market",
+                         "description": "Charming square hosting a popular weekly market.",
+                         "appeal": "Heart of the neighborhood, great atmosphere."
+                     }
                 ],
                 "dining": [
-                    "Local cafés and bakeries"
+                     {
+                        "name": "Various Cafés & Bakeries",
+                        "cuisine": "Cafe / Bakery",
+                        "price_range": "€-€€",
+                        "known_for": "Coffee, pastries, light meals",
+                        "atmosphere": "Trendy, cozy, local"
+                     },
+                     {
+                         "name": "Wilten Restaurants",
+                         "cuisine": "Various (Austrian, International)",
+                         "price_range": "€€-€€€",
+                         "known_for": "Diverse dining options, often with local/organic focus",
+                         "atmosphere": "Varied - from casual to chic"
+                     }
                 ],
                 "activities": [
-                    "Art galleries",
-                    "Cultural festivals"
+                    {
+                        "name": "Browse Independent Shops",
+                        "type": "Shopping",
+                        "description": "Discover unique clothing, crafts, and design shops.",
+                        "suitable_for": [
+                            "Shoppers",
+                            "Art lovers"
+                        ]
+                    },
+                     {
+                        "name": "Visit Wiltener Platzl Market",
+                        "type": "Shopping / Dining",
+                        "description": "Enjoy the Friday market with local produce, food stalls, and crafts.",
+                        "suitable_for": [
+                            "Foodies",
+                            "Locals",
+                            "Tourists"
+                        ]
+                    },
+                     {
+                        "name": "Explore Art Galleries",
+                        "type": "Cultural",
+                        "description": "Visit small galleries showcasing local and contemporary art.",
+                        "suitable_for": [
+                            "Art enthusiasts"
+                        ]
+                    }
                 ]
             },
             "stay_here_if": [
-                "Enjoy artistic environments",
-                "Prefer vibrant communities"
+                "You enjoy artistic, vibrant neighborhoods with a strong local feel, independent shops, and good cafes."
             ],
             "avoid_if": [
-                "Dislike trendy atmospheres"
+                "You prefer very quiet areas or are looking for large chain stores/restaurants."
+            ],
+            "insider_tips": [
+                "Definitely visit the market at Wiltener Platzl if you're there on a Friday.",
+                "Explore the side streets off Leopoldstraße for hidden gems.",
+                "Enjoy the relaxed pace and people-watching at a local café."
             ]
         }
     ]

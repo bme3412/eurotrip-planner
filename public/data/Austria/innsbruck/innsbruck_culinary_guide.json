@@ -8,14 +8,15 @@
                     "Tafelspitz",
                     "Wiener Schnitzel"
                 ],
-                "price_range": "€€€€ (Luxury)",
+                "price_range": "€€€€",
                 "atmosphere": "Elegant and classic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance, especially during weekends.",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 0,
                 "location": "Innenstadt",
-                "coordinates": {
-                    "latitude": 47.2688,
-                    "longitude": 11.3946
-                },
-                "local_tips": "Book in advance, especially during weekends."
+                "local_tips": "Historic setting, consider trying a local wine."
             },
             {
                 "name": "Das Schindler",
@@ -24,14 +25,15 @@
                     "Beef tartare",
                     "Truffle pasta"
                 ],
-                "price_range": "€€€ (Expensive)",
+                "price_range": "€€€",
                 "atmosphere": "Chic and contemporary",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Great for a special occasion dinner.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
                 "location": "Maria-Theresien-Straße",
-                "coordinates": {
-                    "latitude": 47.2657,
-                    "longitude": 11.3945
-                },
-                "local_tips": "Great for a special occasion dinner."
+                "local_tips": "Has a popular bar area as well."
             },
             {
                 "name": "Penz Hotel Rooftop Restaurant",
@@ -40,14 +42,15 @@
                     "Grilled fish",
                     "Seasonal salads"
                 ],
-                "price_range": "€€€ (Expensive)",
+                "price_range": "€€€",
                 "atmosphere": "Stylish with panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Visit at sunset for the best views.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
                 "location": "Innenstadt",
-                "coordinates": {
-                    "latitude": 47.2667,
-                    "longitude": 11.3917
-                },
-                "local_tips": "Visit at sunset for the best views."
+                "local_tips": "Excellent cocktail menu to enjoy with the view."
             }
         ],
         "casual_dining": [
@@ -58,14 +61,14 @@
                     "Kaiserschmarrn",
                     "Gröstl"
                 ],
-                "price_range": "€€ (Moderate)",
+                "price_range": "€€",
                 "atmosphere": "Rustic and cozy",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Can get busy during lunch hours.",
+                "dress_code": "Casual",
                 "location": "Altstadt",
-                "coordinates": {
-                    "latitude": 47.2685,
-                    "longitude": 11.3933
-                },
-                "local_tips": "Perfect for a hearty lunch."
+                "local_tips": "Perfect for a hearty lunch in the old town."
             },
             {
                 "name": "Gasthof Weisses Rössl",
@@ -74,14 +77,14 @@
                     "Tyrolean dumplings",
                     "Goulash"
                 ],
-                "price_range": "€€ (Moderate)",
+                "price_range": "€€",
                 "atmosphere": "Warm and welcoming",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Try their homemade schnapps.",
+                "dress_code": "Casual",
                 "location": "Altstadt",
-                "coordinates": {
-                    "latitude": 47.2684,
-                    "longitude": 11.3944
-                },
-                "local_tips": "Try their homemade schnapps."
+                "local_tips": "Authentic Tyrolean experience in a historic building."
             },
             {
                 "name": "Buzihütte",
@@ -90,14 +93,14 @@
                     "Tiroler Gröstl",
                     "Cheese spaetzle"
                 ],
-                "price_range": "€€ (Moderate)",
+                "price_range": "€€",
                 "atmosphere": "Traditional mountain hut",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Ideal for a meal after a hike.",
+                "dress_code": "Casual",
                 "location": "Hötting",
-                "coordinates": {
-                    "latitude": 47.2772,
-                    "longitude": 11.3823
-                },
-                "local_tips": "Ideal for a meal after a hike."
+                "local_tips": "Requires a walk/hike to reach, check opening times."
             },
             {
                 "name": "Fischerhäusl",
@@ -106,14 +109,14 @@
                     "Grilled trout",
                     "Pasta dishes"
                 ],
-                "price_range": "€€ (Moderate)",
+                "price_range": "€€",
                 "atmosphere": "Relaxed riverside dining",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Enjoy outdoor seating in summer.",
+                "dress_code": "Casual",
                 "location": "Innenstadt",
-                "coordinates": {
-                    "latitude": 47.2653,
-                    "longitude": 11.3928
-                },
-                "local_tips": "Enjoy outdoor seating in summer."
+                "local_tips": "Nice spot by the River Inn."
             }
         ],
         "street_food": [
@@ -123,13 +126,11 @@
                     "Käsekrainer sausage",
                     "Pretzels"
                 ],
-                "price_range": "€ (Budget)",
+                "price_range": "€",
+                "hours": "Mon-Sat: 7am - 6.30pm (approx)",
                 "location": "Markthalle Innsbruck",
-                "coordinates": {
-                    "latitude": 47.2664,
-                    "longitude": 11.3942
-                },
-                "local_tips": "Visit on Saturdays for the full experience."
+                "seating": true,
+                "local_tips": "Visit on Saturdays for the full experience and farmer's market."
             },
             {
                 "name": "Baguette Food Truck",
@@ -137,13 +138,11 @@
                     "Gourmet sandwiches",
                     "Wraps"
                 ],
-                "price_range": "€ (Budget)",
+                "price_range": "€",
+                "hours": "Lunchtimes (approx)",
                 "location": "Universitätsstraße",
-                "coordinates": {
-                    "latitude": 47.2642,
-                    "longitude": 11.3921
-                },
-                "local_tips": "Great option for a quick lunch."
+                "seating": false,
+                "local_tips": "Great option for a quick lunch, popular with students."
             },
             {
                 "name": "Adler Kebab",
@@ -151,47 +150,49 @@
                     "Doner kebab",
                     "Falafel"
                 ],
-                "price_range": "€ (Budget)",
+                "price_range": "€",
+                "hours": "11:00 AM - 11:00 PM (approx)",
                 "location": "Maria-Theresien-Straße",
-                "coordinates": {
-                    "latitude": 47.2649,
-                    "longitude": 11.3947
-                },
+                "seating": false,
                 "local_tips": "Try the spicy sauce for an extra kick."
             }
         ]
     },
+    "bars_and_cafes": {
+        "coffee_shops": [],
+        "bars": []
+    },
     "food_experiences": {
+        "food_tours": [],
+        "cooking_classes": [],
         "markets": [
             {
                 "name": "Markthalle Innsbruck",
+                "type": "Food Market",
                 "highlights": [
                     "Fresh produce",
                     "Local cheeses",
-                    "Artisan breads"
+                    "Artisan breads",
+                    "Food stalls"
                 ],
-                "hours": "Mon-Sat: 7am - 6.30pm",
+                "hours": "Mon-Fri: 7am - 6.30pm, Sat: 7am - 1pm",
+                "best_time": "Morning",
                 "location": "Herzog-Siegmund-Ufer",
-                "coordinates": {
-                    "latitude": 47.2664,
-                    "longitude": 11.3942
-                },
-                "local_tips": "Arrive early for the freshest selections."
+                "local_tips": "Arrive early for the freshest selections, especially on Saturday."
             },
             {
                 "name": "Wiltener Platzl Market",
+                "type": "Local Market",
                 "highlights": [
                     "Organic vegetables",
                     "Handmade crafts",
-                    "Local honey"
+                    "Local honey",
+                    "Street food"
                 ],
-                "hours": "Fri: 9am - 6pm",
+                "hours": "Fri: 9am - 2pm (check seasonal variations)",
+                "best_time": "Morning",
                 "location": "Wiltener Platzl",
-                "coordinates": {
-                    "latitude": 47.2558,
-                    "longitude": 11.3925
-                },
-                "local_tips": "Combine your visit with a coffee from a nearby café."
+                "local_tips": "Combine your visit with exploring the charming Wilten district."
             }
         ]
     },
@@ -202,15 +203,18 @@
         ],
         "summer": [
             "Erdbeerknödel (strawberry dumplings)",
-            "Light salads"
+            "Light salads",
+            "Fresh berries"
         ],
         "autumn": [
             "Pumpkin soup",
-            "Wild game dishes"
+            "Wild game dishes",
+            "Schwammerlgulasch (mushroom goulash)"
         ],
         "winter": [
             "Kaiserschmarrn",
-            "Glühwein (mulled wine)"
+            "Glühwein (mulled wine)",
+            "Tiroler Gröstl"
         ]
     }
 }

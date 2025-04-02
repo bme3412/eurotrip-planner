@@ -1,259 +1,79 @@
 {
-    "origin": {
-        "city": "Innsbruck",
-        "coordinates": {
-            "latitude": 47.2692,
-            "longitude": 11.4041
-        }
-    },
     "destinations": [
         {
             "city": "Vienna",
             "country": "Austria",
-            "coordinates": {
-                "latitude": 48.2082,
-                "longitude": 16.3738
-            },
             "whyGo": "Historical architecture and cultural events",
-            "transport": [
-                {
-                    "type": "train",
-                    "duration": "4 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "Direct connections available",
-                    "departure_point": {
-                        "name": "Innsbruck Central Station",
-                        "coordinates": {
-                            "latitude": 47.2676,
-                            "longitude": 11.3921
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Vienna Central Station",
-                        "coordinates": {
-                            "latitude": 48.1855,
-                            "longitude": 16.3807
-                        }
-                    }
-                }
-            ]
+            "directWithinCountryTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "4 hours",
+                "frequency": "Multiple times daily"
+            }
         },
         {
             "city": "Munich",
             "country": "Germany",
-            "coordinates": {
-                "latitude": 48.1351,
-                "longitude": 11.582
-            },
             "whyGo": "Bavarian culture and Oktoberfest",
-            "transport": [
-                {
-                    "type": "train",
-                    "duration": "1.5 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "High-speed rail connection",
-                    "departure_point": {
-                        "name": "Innsbruck Central Station",
-                        "coordinates": {
-                            "latitude": 47.2676,
-                            "longitude": 11.3921
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Munich Central Station",
-                        "coordinates": {
-                            "latitude": 48.1403,
-                            "longitude": 11.5583
-                        }
-                    }
-                }
-            ]
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "1.5 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Innsbruck Bus Terminal",
+                 "journeyTime": "2 hours",
+                 "frequency": "Multiple times daily"
+             }
         },
         {
             "city": "Zurich",
             "country": "Switzerland",
-            "coordinates": {
-                "latitude": 47.3769,
-                "longitude": 8.5417
-            },
             "whyGo": "Scenic beauty and financial hub",
-            "transport": [
-                {
-                    "type": "train",
-                    "duration": "3.5 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "Picturesque train route",
-                    "departure_point": {
-                        "name": "Innsbruck Central Station",
-                        "coordinates": {
-                            "latitude": 47.2676,
-                            "longitude": 11.3921
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Zurich Central Station",
-                        "coordinates": {
-                            "latitude": 47.3782,
-                            "longitude": 8.5402
-                        }
-                    }
-                }
-            ]
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "3.5 hours",
+                "frequency": "Multiple times daily"
+            }
         },
         {
             "city": "Salzburg",
             "country": "Austria",
-            "coordinates": {
-                "latitude": 47.8095,
-                "longitude": 13.055
-            },
             "whyGo": "Birthplace of Mozart and stunning alpine scenery",
-            "transport": [
-                {
-                    "type": "train",
-                    "duration": "1.5 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "Scenic train ride through the Alps",
-                    "departure_point": {
-                        "name": "Innsbruck Central Station",
-                        "coordinates": {
-                            "latitude": 47.2676,
-                            "longitude": 11.3921
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Salzburg Central Station",
-                        "coordinates": {
-                            "latitude": 47.8157,
-                            "longitude": 13.0461
-                        }
-                    }
-                }
-            ]
+            "directWithinCountryTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "1.5 hours",
+                "frequency": "Multiple times daily"
+            }
         },
         {
             "city": "Venice",
             "country": "Italy",
-            "coordinates": {
-                "latitude": 45.4408,
-                "longitude": 12.3155
-            },
             "whyGo": "Romantic canals and historic architecture",
-            "transport": [
-                {
-                    "type": "train",
-                    "duration": "4 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "Scenic train journey through the Alps",
-                    "departure_point": {
-                        "name": "Innsbruck Central Station",
-                        "coordinates": {
-                            "latitude": 47.2676,
-                            "longitude": 11.3921
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Venice Santa Lucia Station",
-                        "coordinates": {
-                            "latitude": 45.4408,
-                            "longitude": 12.3155
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "city": "Munich",
-            "country": "Germany",
-            "coordinates": {
-                "latitude": 48.1351,
-                "longitude": 11.582
-            },
-            "whyGo": "Bavarian culture and Oktoberfest",
-            "transport": [
-                {
-                    "type": "bus",
-                    "duration": "2 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "Comfortable bus service with Wi-Fi",
-                    "departure_point": {
-                        "name": "Innsbruck Bus Terminal",
-                        "coordinates": {
-                            "latitude": 47.2614,
-                            "longitude": 11.3951
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Munich ZOB",
-                        "coordinates": {
-                            "latitude": 48.1401,
-                            "longitude": 11.5584
-                        }
-                    }
-                }
-            ]
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "4 hours",
+                "frequency": "Multiple times daily"
+            }
         },
         {
             "city": "Milan",
             "country": "Italy",
-            "coordinates": {
-                "latitude": 45.4642,
-                "longitude": 9.19
-            },
             "whyGo": "Fashion capital and historic landmarks",
-            "transport": [
-                {
-                    "type": "train",
-                    "duration": "4 hours",
-                    "frequency": "Multiple times daily",
-                    "notes": "Direct train connections available",
-                    "departure_point": {
-                        "name": "Innsbruck Central Station",
-                        "coordinates": {
-                            "latitude": 47.2676,
-                            "longitude": 11.3921
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Milan Central Station",
-                        "coordinates": {
-                            "latitude": 45.4641,
-                            "longitude": 9.19
-                        }
-                    }
-                }
-            ]
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "4 hours",
+                "frequency": "Multiple times daily"
+            }
         },
         {
             "city": "Frankfurt",
             "country": "Germany",
-            "coordinates": {
-                "latitude": 50.1109,
-                "longitude": 8.6821
-            },
             "whyGo": "Financial hub and cultural attractions",
-            "transport": [
-                {
-                    "type": "flight",
-                    "duration": "1.5 hours",
-                    "frequency": "Multiple flights daily",
-                    "notes": "Direct flights available",
-                    "departure_point": {
-                        "name": "Innsbruck Airport",
-                        "coordinates": {
-                            "latitude": 47.2602,
-                            "longitude": 11.3431
-                        }
-                    },
-                    "arrival_point": {
-                        "name": "Frankfurt Airport",
-                        "coordinates": {
-                            "latitude": 50.0481,
-                            "longitude": 8.5706
-                        }
-                    }
-                }
-            ]
+            "intraEuropeFlight": {
+                "originAirports": ["Innsbruck Airport"],
+                "approxFlightTime": "1.5 hours",
+                "frequency": "Multiple flights daily"
+            }
         }
     ]
 }

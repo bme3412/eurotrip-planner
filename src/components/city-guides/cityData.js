@@ -768,7 +768,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Nestled in the Alps, Innsbruck is renowned for its winter sports and picturesque mountain scenery.",
-      thumbnail: "/images/innsbruck-thumbnail.jpg",
+      thumbnail: "/images/innsbruck-thumbnail.png",
       landmarks: ["Golden Roof", "Innsbruck Cathedral"],
       latitude: 47.2692,
       longitude: 11.4041,
