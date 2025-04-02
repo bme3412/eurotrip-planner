@@ -736,7 +736,7 @@ export const getCitiesData = () => {
       region: "Imperial Cities",
       description:
         "Vienna exudes imperial charm with its classical music legacy, grand palaces, and vibrant coffeehouse culture.",
-      thumbnail: "/images/vienna-thumbnail.jpg",
+      thumbnail: "/images/vienna-thumbnail.png",
       landmarks: [
         "Schönbrunn Palace",
         "St. Stephen's Cathedral",
