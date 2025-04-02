@@ -754,7 +754,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Famous as the birthplace of Mozart, Salzburg enchants visitors with its baroque architecture and stunning alpine backdrop.",
-      thumbnail: "/images/salzburg-thumbnail.jpg",
+      thumbnail: "/images/salzburg-thumbnail.png",
       landmarks: ["Hohensalzburg Fortress", "Mirabell Palace"],
       latitude: 47.8095,
       longitude: 13.055,
