@@ -812,7 +812,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Brussels is the de facto capital of the European Union, celebrated for its historical sites, cuisine, and comic art culture.",
-      thumbnail: "/images/brussels-thumbnail.jpg",
+      thumbnail: "/images/brussels-thumbnail.png",
       landmarks: ["Grand Place", "Atomium", "Manneken Pis"],
       latitude: 50.8503,
       longitude: 4.3517,
