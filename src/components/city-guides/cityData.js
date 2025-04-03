@@ -840,7 +840,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Bruges enchants visitors with its medieval architecture, romantic canals, and cobblestone streets that evoke a fairytale atmosphere.",
-      thumbnail: "/images/bruges-thumbnail.jpg",
+      thumbnail: "/images/bruges-thumbnail.png",
       landmarks: ["Belfry of Bruges", "Markt Square"],
       latitude: 51.2093,
       longitude: 3.2247,

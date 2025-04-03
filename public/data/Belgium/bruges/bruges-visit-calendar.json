@@ -1,0 +1,154 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {"days": [1], "score": 2, "special": true, "event": "New Year's Day", "notes": "Holiday crowds, cold, many closures"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 2, "notes": "Winter cold, quiet period, indoor museum season, January is coldest month with average temperatures around 2.8-6.2°C"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 2, "notes": "Low season, fewer crowds, great time for chocolate workshops and Belgian beer tasting in cozy pubs"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 3,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 2, "notes": "Winter conditions continue, indoor activities preferred"},
+        {"days": [14], "score": 3, "special": true, "event": "Valentine's Day", "notes": "Special chocolate tours and romantic canal boat rides (if not frozen), romantic dining specials"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 2, "special": true, "event": "Carnival", "notes": "Some carnival celebrations in surrounding areas, winter conditions remain"}
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 3,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "notes": "Early spring, gradual warming, beginning of outdoor café season"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 3, "notes": "Spring beginning, Begijnhof gardens start to bloom"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "End of March Events", "notes": "Cultural performances at Concertgebouw, moderate tourism"}
+      ],
+      "weatherHighC": 11,
+      "weatherLowC": 4,
+      "tourismLevel": 4
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5], "score": 4, "notes": "Spring flowers, pleasant temperatures, Easter period preparations"},
+        {"days": [6], "score": 5, "special": true, "event": "Tour of Flanders", "notes": "Major cycling race starts in Bruges, festive atmosphere throughout the city"},
+        {"days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 4, "notes": "Ideal spring weather, increasing outdoor activities, daffodils in Begijnhof at peak bloom"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Canal boat tours begin regular schedule, outdoor cafes fully operational"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 6,
+      "tourismLevel": 6
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day", "notes": "Many closures but special events"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 4, "notes": "Excellent spring weather, flowering gardens, comfortable temperatures"},
+        {"days": [29], "score": 5, "special": true, "event": "Procession of the Holy Blood", "notes": "UNESCO-recognized religious procession dating back to 1304, major cultural event"},
+        {"days": [30, 31], "score": 4, "notes": "Warm weather, outdoor café culture, approaching summer"}
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 9,
+      "tourismLevel": 7
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent weather, long daylight, outdoor markets, most sunshine hours of the year"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Summer Solstice Period", "notes": "Longest days of the year (16+ hours of daylight), perfect for evening canal cruises and outdoor dining"}
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 12,
+      "tourismLevel": 8
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6], "score": 4, "notes": "Summer weather, outdoor activities, moderate crowds"},
+        {"days": [7, 8, 9, 10, 11, 12, 13], "score": 5, "special": true, "event": "Cactus Festival", "notes": "Popular music festival in Minnewater Park featuring alternative pop and rock"},
+        {"days": [14, 15, 16, 17, 18, 19, 20, 21], "score": 3, "notes": "Peak tourist season, warm weather, canal swimming opportunities"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Summer Festivals", "notes": "Various cultural events throughout the city, including 'Feest in 't Park'"}
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 14,
+      "tourismLevel": 9
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9], "score": 3, "notes": "Warmest month of the year with peak temperatures (average 21.4°C high), heavy tourism"},
+        {"days": [10, 11, 12, 13, 14], "score": 3, "special": true, "event": "Musica Antiqua Festival", "notes": "Medieval and early music performances in historic venues throughout Bruges"},
+        {"days": [15], "score": 3, "special": true, "event": "Assumption Day", "notes": "Religious holiday, some closures"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Summer at its height, highest rainfall of the year, good time for museums on rainy days"}
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 15,
+      "tourismLevel": 8
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent post-peak season, comfortable temperatures (13-19°C), highest atmospheric pressure of the year"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Cultural Season Begins", "notes": "Concertgebouw season opening, theater and art exhibitions start, perfect time to visit with fewer crowds"}
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 13,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Fall colors, comfortable temperatures, cultural season in full swing"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 4, "special": true, "event": "Beer Festival", "notes": "Belgian beer celebrations with tastings and brewery tours"},
+        {"days": [29, 30, 31], "score": 3, "special": true, "event": "Halloween Events", "notes": "Special evening tours, 'haunted Bruges' themed walks"}
+      ],
+      "weatherHighC": 15,
+      "weatherLowC": 10,
+      "tourismLevel": 5
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Holiday, some closures"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Fall atmosphere, cooling temperatures, highest rainfall of the year"},
+        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "score": 3, "notes": "Museums and indoor activities, cooler weather, chocolate workshops popular"},
+        {"days": [30], "score": 4, "special": true, "event": "Winter Glow Festival begins", "notes": "Start of winter celebrations, Christmas preparations"}
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 5,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 4, "special": true, "event": "Winter Glow & Christmas Markets", "notes": "Markt and Simon Stevinplein transform into winter wonderlands, ice skating on Minnewater, holiday shopping, light experience trail"},
+        {"days": [24, 25, 26], "score": 3, "special": true, "event": "Christmas", "notes": "Festive atmosphere but many closures"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - museum visits, chocolate workshops, winter walks"},
+        {"days": [31], "score": 3, "special": true, "event": "New Year's Eve", "notes": "Celebrations and possible events in Markt Square"}
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 3,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": ["Begijnhof Daffodil Viewing", "Canal Boat Tours", "Chocolate Workshops", "Belfry Tower Climb", "Church of Our Lady Visit", "Bicycle Trips to Damme", "Holy Blood Procession", "Tour of Flanders Starting Day"],
+    "summer": ["Canal Swimming", "Minnewater Park", "Cactus Festival", "Musica Antiqua Festival", "Bicycle Tours", "Rooftop Bars", "Brewery Tours", "Boat Rental on Canals"],
+    "autumn": ["Cultural Performances", "Beer Tastings", "Groeninge Museum", "St. Anna Quarter Walks", "Belgian Chocolate Tastings", "Historic Churches Tour", "Windmill Visits", "Concertgebouw Concerts"],
+    "winter": ["Christmas Markets", "Ice Skating on Minnewater", "Winter Glow Light Trail", "Chocolate Nation Museum", "Historic Pubs", "Indoor Food Halls", "Diamond Museum", "Bruges Beer Experience"]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+  }
+}
