@@ -1,0 +1,275 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Eckstein by Albert",
+                "cuisine_type": "Austrian / Styrian",
+                "signature_dishes": [
+                    "Styrian Tasting Menu",
+                    "Seasonal Local Dishes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Upscale, cozy wine cellar feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially weekends. Popular with locals.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City Center (Mehlplatz)",
+                "local_tips": "Excellent wine list, knowledgeable staff. Ask for recommendations."
+            },
+            {
+                "name": "Aiola Upstairs",
+                "cuisine_type": "Regional / International",
+                "signature_dishes": [
+                    "Styrian Corn-Fed Chicken",
+                    "Ceviche"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, panoramic city views",
+                "best_time": "Dinner (sunset views)",
+                "reservation_needed": true,
+                "booking_tips": "Request outdoor seating in summer for the best views.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Schlossberg",
+                "local_tips": "Accessible via Schlossberg lift or funicular."
+            },
+            {
+                "name": "Aiola im Schloss",
+                "cuisine_type": "Regional / Styrian",
+                "signature_dishes": [
+                    "Regional Specialties",
+                    "Event Catering Focus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, historic mansion with gardens",
+                "best_time": "Dinner / Events",
+                "reservation_needed": true,
+                "booking_tips": "Ideal for special occasions, requires car/taxi.",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 0,
+                "location": "Outskirts of Graz (Andritz)",
+                "local_tips": "Beautiful setting, especially the gardens."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Der Steirer",
+                "cuisine_type": "Styrian / Austrian / Slovenian",
+                "signature_dishes": [
+                    "Backhendl (Fried Chicken)",
+                    "Styrian Tapas",
+                    "Meat and Potato Dishes"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively, noisy, popular",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Reserve ahead, can be very busy.",
+                "dress_code": "Casual",
+                "location": "Near Jakominiplatz",
+                "local_tips": "Extensive local wine list. Also has a shop selling regional products."
+            },
+            {
+                "name": "Gasthaus Glöcklbräu",
+                "cuisine_type": "Traditional Austrian / Styrian",
+                "signature_dishes": [
+                    "Backhendl",
+                    "Käsespätzle"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic, traditional gasthaus",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Good spot for lunch in the Old Town.",
+                "dress_code": "Casual",
+                "location": "Glockenspielplatz",
+                "local_tips": "Try the local Glöckl Bräu beer or Schilcher wine."
+            },
+            {
+                "name": "Gösser Bräu",
+                "cuisine_type": "Austrian / Brewery Food",
+                "signature_dishes": [
+                    "Pretzels",
+                    "Traditional Austrian dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewery, beer garden",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Large beer garden is great in summer.",
+                "dress_code": "Casual",
+                "location": "Near Lendplatz",
+                "local_tips": "Try different types of Gösser beer."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Delikatessen Frankowitsch",
+                "specialties": [
+                    "Belegte Brote (Open Sandwiches)",
+                    "Pastries",
+                    "Coffee"
+                ],
+                "price_range": "€",
+                "hours": "Likely Mon-Sat business hours",
+                "location": "City Center",
+                "seating": true,
+                "local_tips": "Historic institution, part deli/cafe. Can be busy, grab a pfiff (small beer)."
+            },
+            {
+                "name": "Standl 5 – Wurscht is my business",
+                "specialties": [
+                    "Sausages (Wurst)"
+                ],
+                "price_range": "€",
+                "hours": "Likely market hours",
+                "location": "Kaiser Josef Platz Market (or similar market)",
+                "seating": false,
+                "local_tips": "A popular sausage stand often found at markets."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+             {
+                "name": "Hofbäckerei Edegger-Tax",
+                "type": "Historic Bakery & Cafe",
+                "atmosphere": "Charming, historic",
+                "specialty_drinks_snacks": [
+                    "Coffee",
+                    "Pastries",
+                    "Cakes",
+                    "Sissi-Busserl (macaroons)"
+                ],
+                "location": "Hofgasse (Old Town)",
+                "local_tips": "Oldest bakery in Graz (since 1569), beautiful facade."
+            },
+             {
+                "name": "Delikatessen Frankowitsch",
+                "type": "Cafe / Deli",
+                "atmosphere": "Bustling, traditional",
+                "specialty_drinks_snacks": [
+                    "Coffee",
+                    "Pastries",
+                    "Open Sandwiches"
+                ],
+                "location": "City Center",
+                "local_tips": "Good for a quick coffee and snack, Austrian aperitivo feel."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Gösser Bräu",
+                "type": "Brewery / Beer Garden",
+                "atmosphere": "Traditional, lively",
+                "specialty_drinks_snacks": [
+                    "Gösser Beer varieties",
+                    "Pretzels"
+                ],
+                "location": "Near Lendplatz",
+                "local_tips": "Classic Austrian beer experience."
+            },
+            {
+                "name": "Aiola Upstairs Bar",
+                "type": "Cocktail Bar",
+                "atmosphere": "Stylish, panoramic views",
+                "specialty_drinks_snacks": [
+                    "Cocktails",
+                    "Wine"
+                ],
+                "location": "Schlossberg",
+                "local_tips": "Great spot for drinks with a view, especially at sunset."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                 "name": "Graz Food Tour (e.g., with Testesser)",
+                 "type": "Walking Food Tour",
+                 "highlights": [
+                     "Sampling local specialties",
+                     "Visiting markets or shops",
+                     "Learning about Graz culinary scene"
+                 ],
+                 "booking_info": "Search for local guides like Manuela Pucher (Testesser) or check Graz Tourism.",
+                 "local_tips": "A great way to get introduced to local foods and restaurants."
+            },
+            {
+                 "name": "Graz Food Festival Tours/Workshops",
+                 "type": "Festival Event",
+                 "highlights": [
+                     "Specialized tastings",
+                     "Culinary walking tours",
+                     "Foodie workshops"
+                 ],
+                 "booking_info": "Check Graz Food Festival schedule (typically August).",
+                 "local_tips": "Offers unique culinary experiences during the festival."
+            }
+        ],
+        "cooking_classes": [],
+        "markets": [
+            {
+                "name": "Farmers Market at Kaiser Josef Platz",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Fresh regional produce",
+                    "Pumpkin seed oil",
+                    "Local cheeses",
+                    "Flowers",
+                    "Food stalls (e.g., sausage stands)"
+                ],
+                "hours": "Mon-Sat: Morning (approx 6am - 1pm)",
+                "best_time": "Morning, especially Saturday",
+                "location": "Kaiser-Josef-Platz",
+                "local_tips": "Largest farmers market in Graz, great atmosphere."
+            },
+            {
+                "name": "Farmers Market at Lendplatz",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "More relaxed atmosphere than Kaiser Josef Platz"
+                ],
+                 "hours": "Mon-Sat: Morning (approx 6am - 1pm)",
+                "best_time": "Morning",
+                "location": "Lendplatz",
+                "local_tips": "Located in the Lend district, good to combine with exploring the area."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus (Spargel)",
+            "Wild garlic (Bärlauch)"
+        ],
+        "summer": [
+            "Runner Bean Salad (Käferbohnensalat)",
+            "Fresh berries",
+            "Light salads"
+        ],
+        "autumn": [
+            "Pumpkin (Kürbis) dishes (soup, oil)",
+            "Wild game (Wildgerichte)",
+            "Mushrooms (e.g., Chanterelles - Eierschwammerl)",
+            "Sturm (young wine)"
+        ],
+        "winter": [
+            "Backhendl (often available year-round)",
+            "Hearty stews and roasts",
+            "Christmas cookies and pastries",
+            "Glühwein (Mulled Wine)"
+        ],
+        "styrian_classics": [
+            "Pumpkin Seed Oil (Kürbiskernöl)",
+            "Backhendl",
+            "Brettljause",
+            "Käferbohnensalat",
+            "Verhackertes (spread)",
+            "Styrian Wines (Sauvignon Blanc, Schilcher)"
+        ]
+    }
+} 

@@ -1,0 +1,114 @@
+{
+    "destinations": [
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial history, vibrant arts scene, coffee houses",
+            "directWithinCountryTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 2.5 hours",
+                "frequency": "Hourly"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 2.5-3 hours",
+                 "frequency": "Multiple times daily"
+             }
+        },
+        {
+            "city": "Salzburg",
+            "country": "Austria",
+            "whyGo": "Mozart's birthplace, Sound of Music tours, Alpine backdrop",
+            "directWithinCountryTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 4 hours",
+                "frequency": "Multiple times daily"
+            },
+             "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 4-5 hours",
+                 "frequency": "Multiple times daily"
+             }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Bavarian culture, beer gardens, museums",
+            "intraEuropeTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 6 hours",
+                "frequency": "Multiple times daily (some direct, some changes)"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 5-6 hours",
+                 "frequency": "Multiple times daily"
+             },
+            "intraEuropeFlight": {
+                "originAirports": ["Graz Airport"],
+                "approxFlightTime": "Approx. 1 hour",
+                "frequency": "Often daily"
+            }
+        },
+         {
+            "city": "Ljubljana",
+            "country": "Slovenia",
+            "whyGo": "Charming capital, Dragon Bridge, Tivoli Park",
+            "intraEuropeTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 3-3.5 hours",
+                "frequency": "Multiple times daily (often with changes)"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 2.5-3 hours",
+                 "frequency": "Multiple times daily"
+             }
+        },
+        {
+            "city": "Zagreb",
+            "country": "Croatia",
+            "whyGo": "Croatian capital, historic Upper Town, museums",
+             "intraEuropeTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 4-4.5 hours",
+                "frequency": "Daily or multiple times daily (some direct, some changes)"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 2.5-3 hours",
+                 "frequency": "Multiple times daily"
+             }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Thermal baths, Parliament Building, Danube views",
+            "intraEuropeTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 4.5-5.5 hours",
+                "frequency": "Multiple times daily (usually with changes)"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 4.5-5 hours",
+                 "frequency": "Multiple times daily"
+             }
+        },
+        {
+            "city": "Maribor",
+            "country": "Slovenia",
+            "whyGo": "Second largest Slovenian city, wine region, Drava river",
+             "intraEuropeTrain": {
+                "originPointName": "Graz Central Station",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Graz Bus Terminal",
+                 "journeyTime": "Approx. 1-1.5 hours",
+                 "frequency": "Multiple times daily"
+             }
+        }
+    ]
+} 

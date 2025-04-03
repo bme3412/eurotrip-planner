@@ -782,7 +782,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Graz, Austria's second-largest city, features a UNESCO-listed Old Town, modern architecture, and a thriving university culture.",
-      thumbnail: "/images/graz-thumbnail.jpg",
+      thumbnail: "/images/graz-thumbnail.png",
       landmarks: ["Schlossberg", "Kunsthaus Graz"],
       latitude: 47.0707,
       longitude: 15.4395,
@@ -796,7 +796,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Linz has transformed from an industrial city to a cultural center, known for its electronic arts festival and riverside views.",
-      thumbnail: "/images/linz-thumbnail.jpg",
+      thumbnail: "/images/linz-thumbnail.png",
       landmarks: ["Pöstlingberg", "Ars Electronica Center"],
       latitude: 48.3069,
       longitude: 14.2858,
