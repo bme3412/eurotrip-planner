@@ -854,7 +854,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Ghent offers a perfect blend of historic charm and youthful energy, with its medieval architecture and vibrant university atmosphere.",
-      thumbnail: "/images/ghent-thumbnail.jpg",
+      thumbnail: "/images/ghent-thumbnail.png",
       landmarks: ["Gravensteen Castle", "St. Bavo's Cathedral"],
       latitude: 51.0543,
       longitude: 3.7174,
