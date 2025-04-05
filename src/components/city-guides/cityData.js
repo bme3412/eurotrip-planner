@@ -960,7 +960,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Galway captivates with its bohemian spirit, traditional Irish music, and stunning location on the Wild Atlantic Way.",
-      thumbnail: "/images/galway-thumbnail.jpg",
+      thumbnail: "/images/galway-thumbnail.png",
       landmarks: ["Galway Cathedral", "Spanish Arch"],
       latitude: 53.2707,
       longitude: -9.0568,
