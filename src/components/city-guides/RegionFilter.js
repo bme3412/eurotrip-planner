@@ -229,41 +229,17 @@ const RegionFilter = ({
       <div className={`${activeFilterType === 'region' ? 'pr-2 pb-2' : 'max-h-48 overflow-y-auto pr-2 pb-2'}`}>
         <div className={`${activeFilterType === 'region' ? 'flex items-center gap-2' : 'flex flex-wrap gap-2'}`}>
           {getActiveFilterOptions().map((region) => (
-            <div
+            <button
               key={region.id}
-              className="relative"
-              onMouseEnter={() => setHoveredRegion(region.id)}
-              onMouseLeave={() => setHoveredRegion(null)}
+              onClick={() => handleRegionClick(region.id)}
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                selectedRegion === region.id
+                  ? `${region.tailwind || 'bg-indigo-500'} text-white`
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
             >
-              <button
-                onClick={() => handleRegionClick(region.id)}
-                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                  selectedRegion === region.id
-                    ? `${region.tailwind || 'bg-indigo-500'} text-white`
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {region.name}
-              </button>
-
-              {/* Tooltip for regions other than "All" */}
-              {hoveredRegion === region.id && region.id !== 'All' && (
-                <div className="absolute z-10 w-64 px-3 py-2 mt-1 text-sm font-normal bg-white border rounded-md shadow-lg">
-                  <p className="font-medium">{region.name}</p>
-                  <p className="text-gray-600 text-xs">{region.description}</p>
-                  
-                  {/* Display countries for geographic regions */}
-                  {(activeFilterType === 'geographic' || activeFilterType === 'region') && 
-                   region.countries && region.countries.length > 0 && (
-                    <div className="mt-1">
-                      <p className="text-gray-500 text-xs">
-                        Countries: {region.countries.join(', ')}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
+              {region.name}
+            </button>
           ))}
         </div>
       </div>
