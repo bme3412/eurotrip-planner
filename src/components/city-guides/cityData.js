@@ -528,7 +528,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Valencia blends futuristic architecture with historic charm, offering beautiful beaches and the birthplace of paella.",
-      thumbnail: "/images/valencia-thumbnail.jpeg",
+      thumbnail: "/images/valencia-thumbnail.png",
       landmarks: ["City of Arts and Sciences", "Valencia Cathedral"],
       latitude: 39.4699,
       longitude: -0.3763,
@@ -868,7 +868,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Liège combines industrial heritage with cultural richness, set in the scenic valley of the Meuse River.",
-      thumbnail: "/images/liege-thumbnail.jpg",
+      thumbnail: "/images/liege-thumbnail.png",
       landmarks: ["Montagne de Bueren", "Liège-Guillemins Station"],
       latitude: 50.6326,
       longitude: 5.5797,
@@ -884,7 +884,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Copenhagen is a modern Scandinavian capital known for its design, cycling culture, and historic harbor.",
-      thumbnail: "/images/copenhagen-thumbnail.jpg",
+      thumbnail: "/images/copenhagen-thumbnail.png",
       landmarks: ["Tivoli Gardens", "Nyhavn", "The Little Mermaid"],
       latitude: 55.6761,
       longitude: 12.5683,
@@ -898,7 +898,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Aarhus blends ancient Viking history with modern innovation, featuring cutting-edge museums and a bustling waterfront.",
-      thumbnail: "/images/aarhus-thumbnail.jpg",
+      thumbnail: "/images/aarhus-thumbnail.png",
       landmarks: ["ARoS Art Museum", "Den Gamle By"],
       latitude: 56.1629,
       longitude: 10.2039,
@@ -912,7 +912,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Odense, the birthplace of Hans Christian Andersen, charms with its literary heritage, cobblestone streets, and historic homes.",
-      thumbnail: "/images/odense-thumbnail.jpg",
+      thumbnail: "/images/odense-thumbnail.png",
       landmarks: ["Hans Christian Andersen Museum", "Saint Canute's Cathedral"],
       latitude: 55.4038,
       longitude: 10.4024,
