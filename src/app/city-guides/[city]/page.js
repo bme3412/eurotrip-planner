@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import fs from "fs";
+import fsPromises from "fs/promises";
 import path from "path";
 import Image from "next/image";
+import Link from "next/link";
 
 // Import components
 import CityOverview from "@/components/city-guides/CityOverview";
@@ -60,16 +62,29 @@ const CITY_COORDINATES = {
   seville: [-5.9845, 37.3891],
 };
 
-// Get all available city folders
-export async function generateStaticParams() {
-  // Try multiple data directories
-  const possibleDataDirs = [path.join(process.cwd(), "public/data")];
+// Helper to check if a path exists (async)
+async function pathExists(filePath) {
+  try {
+    await fsPromises.access(filePath);
+    return true;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return false;
+    } else {
+      // Rethrow other errors (e.g., permissions)
+      throw error;
+    }
+  }
+}
 
+// Get all available city folders (Async version)
+export async function generateStaticParams() {
+  const possibleDataDirs = [path.join(process.cwd(), "public/data")];
   let dataDir = null;
 
-  // Find the first data directory that exists
   for (const dir of possibleDataDirs) {
-    if (fs.existsSync(dir)) {
+    // Use async check
+    if (await pathExists(dir)) {
       dataDir = dir;
       console.log(`Found data directory for generateStaticParams at: ${dataDir}`);
       break;
@@ -81,17 +96,14 @@ export async function generateStaticParams() {
     return [];
   }
 
-  // Check if countries can be listed
   let countries = [];
   try {
-    countries = fs
-      .readdirSync(dataDir)
-      .filter(
-        (item) =>
-          !item.includes(".") &&
-          !item.includes("compressed_videos") &&
-          !item.includes("IMG_")
-      );
+    // Use async readdir
+    const items = await fsPromises.readdir(dataDir, { withFileTypes: true });
+    countries = items
+      .filter(item => item.isDirectory() && !item.name.includes("compressed_videos") && !item.name.includes("IMG_"))
+      .map(item => item.name);
+
   } catch (error) {
     console.error(`Error reading data directory: ${error}`);
     return [];
@@ -99,48 +111,51 @@ export async function generateStaticParams() {
 
   let cities = [];
 
-  countries.forEach((country) => {
+  // Use Promise.all for concurrent processing of countries
+  await Promise.all(countries.map(async (country) => {
     const countryPath = path.join(dataDir, country);
-
-    // Skip if not a directory
-    if (
-      !fs.existsSync(countryPath) ||
-      !fs.statSync(countryPath).isDirectory()
-    ) {
-      return;
-    }
-
     try {
-      const countryCities = fs
-        .readdirSync(countryPath)
-        .filter(
-          (item) =>
-            !item.includes(".") &&
-            fs.statSync(path.join(countryPath, item)).isDirectory()
-        );
+      // Use async readdir with file types
+      const countryItems = await fsPromises.readdir(countryPath, { withFileTypes: true });
+      const countryCities = countryItems
+        .filter(item => item.isDirectory() && !item.name.includes("."))
+        .map(item => item.name);
 
       countryCities.forEach((city) => {
-        cities.push({ city });
+        cities.push({ city }); // Match the required format { city: 'cityName' }
       });
     } catch (error) {
+      // Log specific country error but continue with others
       console.error(`Error reading country directory ${country}: ${error}`);
     }
-  });
+  }));
 
+  console.log(`Generated ${cities.length} static params.`);
   return cities;
 }
 
-async function getCityData(cityName) {
-  // Try multiple data directories
-  const possibleDataDirs = [path.join(process.cwd(), "public/data")];
+// Async helper to read JSON safely
+async function readJsonFile(filePath) {
+  try {
+    if (await pathExists(filePath)) {
+      const data = await fsPromises.readFile(filePath, "utf8");
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error(`Error reading or parsing JSON file ${filePath}:`, error);
+  }
+  return null;
+}
 
+// Async version of getCityData
+async function getCityData(cityName) {
+  const possibleDataDirs = [path.join(process.cwd(), "public/data")];
   let dataDir = null;
 
-  // Find the first data directory that exists
   for (const dir of possibleDataDirs) {
-    if (fs.existsSync(dir)) {
+    if (await pathExists(dir)) {
       dataDir = dir;
-      console.log(`Found data directory at: ${dataDir}`);
+      // console.log(`Found data directory at: ${dataDir}`); // Less verbose logging
       break;
     }
   }
@@ -150,17 +165,12 @@ async function getCityData(cityName) {
     return null;
   }
 
-  // List all countries in the data directory
   let countries = [];
   try {
-    countries = fs
-      .readdirSync(dataDir)
-      .filter(
-        (item) =>
-          !item.includes(".") &&
-          !item.includes("compressed_videos") &&
-          !item.includes("IMG_")
-      );
+    const items = await fsPromises.readdir(dataDir, { withFileTypes: true });
+     countries = items
+      .filter(item => item.isDirectory() && !item.name.includes("compressed_videos") && !item.name.includes("IMG_"))
+      .map(item => item.name);
   } catch (error) {
     console.error(`Error reading data directory: ${error}`);
     return null;
@@ -168,390 +178,161 @@ async function getCityData(cityName) {
 
   for (const country of countries) {
     const countryPath = path.join(dataDir, country);
-
-    // Skip if not a directory
-    if (
-      !fs.existsSync(countryPath) ||
-      !fs.statSync(countryPath).isDirectory()
-    ) {
-      continue;
-    }
-
-    let countryCities = [];
     try {
-      countryCities = fs
-        .readdirSync(countryPath)
-        .filter(
-          (item) =>
-            !item.includes(".") &&
-            fs.statSync(path.join(countryPath, item)).isDirectory()
-        );
-    } catch (error) {
-      console.error(`Error reading country directory ${country}: ${error}`);
-      continue;
-    }
+       const countryItems = await fsPromises.readdir(countryPath, { withFileTypes: true });
+       const cityExists = countryItems.some(item => item.isDirectory() && item.name === cityName);
 
-    if (countryCities.includes(cityName)) {
-      const cityPath = path.join(countryPath, cityName);
+      if (cityExists) {
+        const cityPath = path.join(countryPath, cityName);
 
-      // Get overview data - NEW SECTION
-      let overview = null;
-      try {
-        const possibleOverviewPaths = [
-          path.join(cityPath, `${cityName}-overview.json`),
-          path.join(cityPath, `paris-overview.json`), // Special case for Paris
-          path.join(cityPath, `${cityName}_overview.json`),
-          path.join(cityPath, `overview.json`),
-        ];
+        // Use Promise.all to fetch all data concurrently
+        const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, monthlyEventsData, summary] = await Promise.all([
+          // Overview
+          readJsonFile(path.join(cityPath, `${cityName}-overview.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `paris-overview.json`))) // Special Paris case
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}_overview.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `overview.json`))),
 
-        for (const overviewPath of possibleOverviewPaths) {
-          if (fs.existsSync(overviewPath)) {
-            const overviewData = fs.readFileSync(overviewPath, "utf8");
-            overview = JSON.parse(overviewData);
-            console.log(`Found overview file at: ${overviewPath}`);
-            break;
-          }
-        }
+          // Attractions
+          readJsonFile(path.join(cityPath, `${cityName}_attractions.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `attractions.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-attractions.json`))),
 
-        if (!overview) {
-          console.log(`No overview file found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(`Error loading overview data for ${cityName}:`, error);
-      }
+          // Neighborhoods
+          readJsonFile(path.join(cityPath, `${cityName}_neighborhoods.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `neighborhoods.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-neighborhoods.json`))),
 
-      // Get attractions data
-      let attractions = null;
-      try {
-        const possibleAttractionPaths = [
-          path.join(cityPath, `${cityName}_attractions.json`),
-          path.join(cityPath, `attractions.json`),
-          path.join(cityPath, `${cityName}-attractions.json`),
-        ];
+          // Culinary Guide
+          readJsonFile(path.join(cityPath, `${cityName}_culinary_guide.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `culinary_guide.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-culinary-guide.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `culinary-guide.json`))),
 
-        for (const attractionsPath of possibleAttractionPaths) {
-          if (fs.existsSync(attractionsPath)) {
-            const attractionsData = fs.readFileSync(attractionsPath, "utf8");
-            attractions = JSON.parse(attractionsData);
-            if (attractions && attractions.sites) {
-              attractions.sites = attractions.sites.map((site) => ({
+          // Connections
+          readJsonFile(path.join(cityPath, `${cityName}_connections.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `connections.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-connections.json`))),
+
+          // Seasonal Activities
+          readJsonFile(path.join(cityPath, `${cityName}_seasonal_activities.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `seasonal_activities.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-seasonal-activities.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `seasonal-activities.json`))),
+            
+          // Monthly Events / Visit Calendar (Complex logic handled separately below)
+          (async () => {
+            const monthlyPath = path.join(cityPath, "monthly");
+            let events = {};
+            if (await pathExists(monthlyPath)) {
+              try {
+                const monthFiles = (await fsPromises.readdir(monthlyPath)).filter(file => file.endsWith(".json"));
+                await Promise.all(monthFiles.map(async (monthFile) => {
+                   try {
+                      const monthData = await readJsonFile(path.join(monthlyPath, monthFile));
+                      if(monthData) {
+                         let monthName = monthFile.replace(".json", "");
+                         monthName = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+                         // Simplified logic: assume file name is key
+                         events[monthName.toLowerCase()] = monthData[monthName] || monthData; // Handle cases where key matches filename or not
+                      }
+                   } catch (e) { console.error(`Error processing month file ${monthFile}`, e); }
+                }));
+              } catch (error) {
+                console.error(`Error reading monthly directory: ${error}`);
+              }
+            } else {
+               // Try visit calendar as fallback
+               const possibleCalendarPaths = [
+                   path.join(cityPath, `${cityName}-visit-calendar.json`),
+                   path.join(cityPath, `${cityName}_visit_calendar.json`),
+                   path.join(cityPath, `visit-calendar.json`),
+                   path.join(cityPath, `visit_calendar.json`),
+               ];
+               for (const calendarPath of possibleCalendarPaths) {
+                   const calendarData = await readJsonFile(calendarPath);
+                   if (calendarData) {
+                       console.log(`Using visit calendar from: ${calendarPath}`);
+                       events = calendarData.months || calendarData; // Use months property or whole object
+                       break;
+                   }
+               }
+            }
+            return events;
+          })(),
+
+          // Summary
+          readJsonFile(path.join(cityPath, "generation_summary.json"))
+            .then(data => data || readJsonFile(path.join(cityPath, "summary.json")))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-summary.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}_summary.json`))),
+        ]);
+        
+        // Post-process fetched data (only if needed, e.g., normalizing structures)
+        if (attractions && attractions.sites) {
+            attractions.sites = attractions.sites.map((site) => ({
                 ...site,
                 category: site.category || site.type,
-              }));
-            }
-            break;
-          }
+            }));
         }
-
-        if (!attractions) {
-          console.log(`No attractions file found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(`Error loading attractions data for ${cityName}:`, error);
-      }
-
-      // Get neighborhoods data
-      let neighborhoods = null;
-      try {
-        const possibleNeighborhoodPaths = [
-          path.join(cityPath, `${cityName}_neighborhoods.json`),
-          path.join(cityPath, `neighborhoods.json`),
-          path.join(cityPath, `${cityName}-neighborhoods.json`),
-        ];
-
-        for (const neighborhoodsPath of possibleNeighborhoodPaths) {
-          if (fs.existsSync(neighborhoodsPath)) {
-            neighborhoods = JSON.parse(
-              fs.readFileSync(neighborhoodsPath, "utf8")
-            );
-            if (neighborhoods && neighborhoods.neighborhoods) {
+         if (neighborhoods && neighborhoods.neighborhoods) {
               neighborhoods.neighborhoods = neighborhoods.neighborhoods.map(
                 (neighborhood, index) => ({
                   ...neighborhood,
                   id: neighborhood.id || `neighborhood-${index}`,
                 })
               );
-            }
-            break;
           }
-        }
 
-        if (!neighborhoods) {
-          console.log(`No neighborhoods file found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(
-          `Error loading neighborhoods data for ${cityName}:`,
-          error
-        );
-      }
-
-      // Get culinary guide data
-      let culinaryGuide = null;
-      try {
-        const possibleCulinaryPaths = [
-          path.join(cityPath, `${cityName}_culinary_guide.json`),
-          path.join(cityPath, `culinary_guide.json`),
-          path.join(cityPath, `${cityName}-culinary-guide.json`),
-          path.join(cityPath, `culinary-guide.json`),
+        // Check for city image (can remain synchronous if check is quick, or make async)
+        let cityImage = "/images/cities/default-city.jpg";
+        const possibleImagePaths = [
+          path.join(process.cwd(), "public", "images", "cities", `${cityName}.jpg`),
+          path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.jpg`),
+          path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.jpg`),
+          path.join(process.cwd(), "public", "images", `${cityName.toLowerCase()}-thumbnail.jpg`),
         ];
 
-        for (const culinaryPath of possibleCulinaryPaths) {
-          if (fs.existsSync(culinaryPath)) {
-            culinaryGuide = JSON.parse(fs.readFileSync(culinaryPath, "utf8"));
+        for (const imagePath of possibleImagePaths) {
+          // Using synchronous existsSync here for simplicity, could be replaced by async pathExists
+          if (fs.existsSync(imagePath)) { 
+            const relativePath = imagePath.replace(path.join(process.cwd(), "public"), "");
+            cityImage = relativePath;
+            // console.log(`Found city image at: ${cityImage}`); // Less verbose
             break;
           }
         }
 
-        if (!culinaryGuide) {
-          console.log(`No culinary guide found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(`Error loading culinary guide for ${cityName}:`, error);
+        return {
+          cityName,
+          country,
+          overview,
+          attractions,
+          neighborhoods,
+          culinaryGuide,
+          connections,
+          seasonalActivities,
+          monthlyEvents: monthlyEventsData, // Use the resolved data
+          summary,
+          cityImage,
+        };
       }
-
-      // Get connections data
-      let connections = null;
-      try {
-        const possibleConnectionsPaths = [
-          path.join(cityPath, `${cityName}_connections.json`),
-          path.join(cityPath, `connections.json`),
-          path.join(cityPath, `${cityName}-connections.json`),
-        ];
-
-        for (const connectionsPath of possibleConnectionsPaths) {
-          if (fs.existsSync(connectionsPath)) {
-            connections = JSON.parse(fs.readFileSync(connectionsPath, "utf8"));
-            break;
-          }
-        }
-
-        if (!connections) {
-          console.log(`No connections data found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(`Error loading connections data for ${cityName}:`, error);
-      }
-
-      // Get seasonal activities data
-      let seasonalActivities = null;
-      try {
-        const possibleSeasonalPaths = [
-          path.join(cityPath, `${cityName}_seasonal_activities.json`),
-          path.join(cityPath, `seasonal_activities.json`),
-          path.join(cityPath, `${cityName}-seasonal-activities.json`),
-          path.join(cityPath, `seasonal-activities.json`),
-        ];
-
-        for (const seasonalPath of possibleSeasonalPaths) {
-          if (fs.existsSync(seasonalPath)) {
-            seasonalActivities = JSON.parse(
-              fs.readFileSync(seasonalPath, "utf8")
-            );
-            break;
-          }
-        }
-
-        if (!seasonalActivities) {
-          console.log(`No seasonal activities data found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(
-          `Error loading seasonal activities for ${cityName}:`,
-          error
-        );
-      }
-
-      // Get monthly events (if available)
-      const monthlyPath = path.join(cityPath, "monthly");
-      let monthlyEvents = {};
-
-      if (
-        fs.existsSync(monthlyPath) &&
-        fs.statSync(monthlyPath).isDirectory()
-      ) {
-        try {
-          const months = fs
-            .readdirSync(monthlyPath)
-            .filter((file) => file.endsWith(".json"));
-
-          for (const month of months) {
-            try {
-              const monthData = JSON.parse(
-                fs.readFileSync(path.join(monthlyPath, month), "utf8")
-              );
-              let monthName = month.replace(".json", "");
-              monthName =
-                monthName.charAt(0).toUpperCase() + monthName.slice(1);
-
-              if (monthData[monthName]) {
-                monthlyEvents[monthName.toLowerCase()] = monthData[monthName];
-              } else if (
-                ["Spring", "Summer", "Fall", "Winter"].includes(monthName)
-              ) {
-                monthlyEvents[monthName.toLowerCase()] = monthData;
-              } else {
-                monthlyEvents[monthName.toLowerCase()] = monthData;
-              }
-            } catch (error) {
-              console.error(
-                `Error reading monthly data for ${month} in ${cityName}:`,
-                error
-              );
-            }
-          }
-        } catch (error) {
-          console.error(`Error reading monthly directory: ${error}`);
-        }
-      } else {
-        console.log(`No monthly directory found for ${cityName}`);
-
-        // Try to load visit calendar as an alternative
-        try {
-          const possibleCalendarPaths = [
-            path.join(cityPath, `${cityName}-visit-calendar.json`),
-            path.join(cityPath, `${cityName}_visit_calendar.json`),
-            path.join(cityPath, `visit-calendar.json`),
-            path.join(cityPath, `visit_calendar.json`),
-          ];
-
-          for (const calendarPath of possibleCalendarPaths) {
-            if (fs.existsSync(calendarPath)) {
-              console.log(`Found visit calendar at: ${calendarPath}`);
-              const calendarData = JSON.parse(
-                fs.readFileSync(calendarPath, "utf8")
-              );
-
-              if (calendarData.months) {
-                monthlyEvents = calendarData.months;
-              } else {
-                const seasonalKeys = ["Spring", "Summer", "Fall", "Winter"];
-                const monthlyKeys = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "December",
-                ];
-
-                const hasSeasonalData = seasonalKeys.some(
-                  (key) => key in calendarData
-                );
-                const hasMonthlyData = monthlyKeys.some(
-                  (key) => key in calendarData
-                );
-
-                if (hasSeasonalData || hasMonthlyData) {
-                  monthlyEvents = { ...calendarData };
-                }
-              }
-              break;
-            }
-          }
-        } catch (error) {
-          console.error(`Error loading visit calendar for ${cityName}:`, error);
-        }
-      }
-
-      // Get summary if available
-      let summary = null;
-      try {
-        const possibleSummaryPaths = [
-          path.join(cityPath, "generation_summary.json"),
-          path.join(cityPath, "summary.json"),
-          path.join(cityPath, `${cityName}-summary.json`),
-          path.join(cityPath, `${cityName}_summary.json`),
-        ];
-
-        for (const summaryPath of possibleSummaryPaths) {
-          if (fs.existsSync(summaryPath)) {
-            summary = JSON.parse(fs.readFileSync(summaryPath, "utf8"));
-            break;
-          }
-        }
-
-        if (!summary) {
-          console.log(`No summary data found for ${cityName}`);
-        }
-      } catch (error) {
-        console.error(`Error loading summary for ${cityName}:`, error);
-      }
-
-      // Check for city image in public directory
-      let cityImage = "/images/cities/default-city.jpg";
-      const possibleImagePaths = [
-        path.join(
-          process.cwd(),
-          "public",
-          "images",
-          "cities",
-          `${cityName}.jpg`
-        ),
-        path.join(
-          process.cwd(),
-          "public",
-          "images",
-          "cities",
-          `${cityName.toLowerCase()}.jpg`
-        ),
-        path.join(
-          process.cwd(),
-          "public",
-          "images",
-          `${cityName}-thumbnail.jpg`
-        ),
-        path.join(
-          process.cwd(),
-          "public",
-          "images",
-          `${cityName.toLowerCase()}-thumbnail.jpg`
-        ),
-      ];
-
-      for (const imagePath of possibleImagePaths) {
-        if (fs.existsSync(imagePath)) {
-          const relativePath = imagePath.replace(
-            path.join(process.cwd(), "public"),
-            ""
-          );
-          cityImage = relativePath;
-          console.log(`Found city image at: ${cityImage}`);
-          break;
-        }
-      }
-
-      return {
-        cityName,
-        country,
-        overview,
-        attractions,
-        neighborhoods,
-        culinaryGuide,
-        connections,
-        seasonalActivities,
-        monthlyEvents,
-        summary,
-        cityImage,
-      };
+    } catch (error) {
+       console.error(`Error checking country directory ${country}: ${error}`);
+       // Continue to next country
     }
   }
 
-  console.error(`City not found: ${cityName}`);
+  console.error(`City data retrieval failed for: ${cityName}`);
   return null;
 }
 
 export default async function CityPage({ params }) {
-  // Make sure params is resolved before destructuring
-  const resolvedParams = await params;
-  const { city } = resolvedParams;
+  // Make sure params is resolved before destructuring (already async)
+  const resolvedParams = await params; // Needs to be awaited
+  const { city } = resolvedParams; // Use the awaited params
 
+  // Call the async version of getCityData
   const cityData = await getCityData(city);
 
   if (!cityData) {
@@ -959,22 +740,21 @@ export default async function CityPage({ params }) {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-300">
                 <li>
-                  <a href="/" className="hover:text-white transition">
+                  <Link href="/" className="hover:text-white transition">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/city-guides"
+                  <Link href="/city-guides"
                     className="hover:text-white transition"
                   >
                     City Guides
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/about" className="hover:text-white transition">
+                  <Link href="/about" className="hover:text-white transition">
                     About
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -982,14 +762,14 @@ export default async function CityPage({ params }) {
               <h4 className="text-lg font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-gray-300">
                 <li>
-                  <a href="/privacy" className="hover:text-white transition">
+                  <Link href="/privacy" className="hover:text-white transition">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/terms" className="hover:text-white transition">
+                  <Link href="/terms" className="hover:text-white transition">
                     Terms of Service
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

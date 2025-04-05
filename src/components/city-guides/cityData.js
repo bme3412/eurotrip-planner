@@ -486,7 +486,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Barcelona is known for its unique blend of modernist architecture, vibrant street life, and beautiful Mediterranean beaches.",
-      thumbnail: "/images/barcelona-thumbnail.jpeg",
+      thumbnail: "/images/barcelona-thumbnail.png",
       landmarks: ["Sagrada Família", "Park Güell", "La Rambla"],
       latitude: 41.3851,
       longitude: 2.1734,
@@ -946,7 +946,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Cork, Ireland's second city, offers a vibrant arts scene, maritime heritage, and serves as a gateway to the scenic southwest.",
-      thumbnail: "/images/cork-thumbnail.jpg",
+      thumbnail: "/images/cork-thumbnail.png",
       landmarks: ["English Market", "Blarney Castle"],
       latitude: 51.8985,
       longitude: -8.4756,

@@ -1,12 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import RegionFilter from '../../components/city-guides/RegionFilter';
 import CountryFilter from '../../components/city-guides/CountryFilter';
 import CityCard from '../../components/city-guides/CityCard';
 import { getCitiesData, cityCountries } from '../../components/city-guides/cityData';
 import { regionThemes } from '../../components/city-guides/regionData';
+
+const INITIAL_LOAD = 12;
+const LOAD_INCREMENT = 8;
+const SCROLL_OFFSET = 250;
 
 const CityGuidesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +22,10 @@ const CityGuidesPage = () => {
   const [allAvailableCountries, setAllAvailableCountries] = useState([]);
   const [error, setError] = useState(null);
   const [activeFilterType, setActiveFilterType] = useState('geographic');
+
+  const [itemsToShow, setItemsToShow] = useState(INITIAL_LOAD);
+  const [displayedCities, setDisplayedCities] = useState([]);
+  const [hasMore, setHasMore] = useState(false);
   
   useEffect(() => {
     try {
@@ -38,31 +46,62 @@ const CityGuidesPage = () => {
     }
   }, []);
   
-  const filteredCities = cities.filter(city => {
-    const matchesSearch =
-      searchTerm === '' ||
-      city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (city.country && city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (city.description && city.description.toLowerCase().includes(searchTerm.toLowerCase()));
-    
-    const matchesCountry = selectedCountries.length === 0 || selectedCountries.includes(city.country);
-    
-    let matchesRegionOrTheme = true;
-    
-    if (selectedRegion !== 'All') {
-      if (activeFilterType === 'geographic') {
-        const theme = regionThemes.find(t => t.id === selectedRegion);
-        const countriesInRegion = theme ? theme.countries || [] : [];
-        matchesRegionOrTheme = theme ? countriesInRegion.includes(city.country) : false;
-      } else if (activeFilterType === 'region') {
-        matchesRegionOrTheme = city.region === selectedRegion;
-      } else if (activeFilterType === 'travel') {
-        matchesRegionOrTheme = city.tourismCategories && city.tourismCategories.includes(selectedRegion);
+  const filteredCities = useMemo(() => {
+    return cities.filter(city => {
+      const matchesSearch =
+        searchTerm === '' ||
+        city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (city.country && city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (city.description && city.description.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      const matchesCountry = selectedCountries.length === 0 || selectedCountries.includes(city.country);
+      
+      let matchesRegionOrTheme = true;
+      
+      if (selectedRegion !== 'All') {
+        if (activeFilterType === 'geographic') {
+          const theme = regionThemes.find(t => t.id === selectedRegion);
+          const countriesInRegion = theme ? theme.countries || [] : [];
+          matchesRegionOrTheme = theme ? countriesInRegion.includes(city.country) : false;
+        } else if (activeFilterType === 'region') {
+          matchesRegionOrTheme = city.region === selectedRegion;
+        } else if (activeFilterType === 'travel') {
+          matchesRegionOrTheme = city.tourismCategories && city.tourismCategories.includes(selectedRegion);
+        }
       }
-    }
-    
-    return matchesSearch && matchesCountry && matchesRegionOrTheme;
-  });
+      
+      return matchesSearch && matchesCountry && matchesRegionOrTheme;
+    });
+  }, [cities, searchTerm, selectedCountries, selectedRegion, activeFilterType]);
+
+  useEffect(() => {
+    setItemsToShow(INITIAL_LOAD);
+    const initialSlice = filteredCities.slice(0, INITIAL_LOAD);
+    setDisplayedCities(initialSlice);
+    setHasMore(filteredCities.length > INITIAL_LOAD);
+  }, [filteredCities]);
+
+  const loadMoreCities = useCallback(() => {
+    if (!hasMore) return;
+
+    const newItemsToShow = itemsToShow + LOAD_INCREMENT;
+    const newDisplayedCities = filteredCities.slice(0, newItemsToShow);
+    setDisplayedCities(newDisplayedCities);
+    setItemsToShow(newItemsToShow);
+    setHasMore(filteredCities.length > newItemsToShow);
+  }, [itemsToShow, filteredCities, hasMore]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - SCROLL_OFFSET && hasMore && !loading) {
+        loadMoreCities();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+
+  }, [hasMore, loading, loadMoreCities]);
   
   const handleRegionChange = (region, filterType) => {
     setSelectedRegion(region);
@@ -184,9 +223,7 @@ const CityGuidesPage = () => {
           )}
         </div>
         
-        {/* Filters Container - Applying Flexbox for layout */}
         <div className="mb-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
-          {/* Region Filter Column */}
           <div className="flex-1">
             <RegionFilter 
               selectedRegion={selectedRegion}
@@ -194,8 +231,6 @@ const CityGuidesPage = () => {
             />
           </div>
 
-          {/* Country Filter Column - Fixed width or alignment */}
-          {/* Added w-full md:w-auto to control width and ensure consistency */}
           <div className="w-full md:w-auto">
             <CountryFilter 
               selectedCountries={selectedCountries}
@@ -208,7 +243,7 @@ const CityGuidesPage = () => {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">City Guides</h2>
           <div className="text-sm text-gray-500">
-            {loading ? 'Loading...' : `Showing ${filteredCities.length} of ${cities.length} cities`}
+            {loading ? 'Loading...' : `Showing ${displayedCities.length} of ${filteredCities.length} cities`}
           </div>
         </div>
         
@@ -231,11 +266,15 @@ const CityGuidesPage = () => {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredCities.map((city) => (
-              <CityCard key={city.id} city={city} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {displayedCities.map((city) => (
+                <div key={city.id} className="transition-opacity ease-in-out duration-500">
+                  <CityCard city={city} />
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>
