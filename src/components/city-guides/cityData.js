@@ -1018,7 +1018,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Faro, the gateway to the Algarve, combines a historic old town with nearby golden beaches and natural reserves.",
-      thumbnail: "/images/faro-thumbnail.jpg",
+      thumbnail: "/images/faro-thumbnail.png",
       landmarks: ["Arco da Vila", "Faro Cathedral"],
       latitude: 37.0194,
       longitude: -7.9304,
@@ -1032,7 +1032,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Coimbra, home to one of Europe's oldest universities, offers rich academic traditions, medieval architecture, and Fado music.",
-      thumbnail: "/images/coimbra-thumbnail.jpg",
+      thumbnail: "/images/coimbra-thumbnail.png",
       landmarks: ["University of Coimbra", "Old Cathedral of Coimbra"],
       latitude: 40.2056,
       longitude: -8.429,
