@@ -91,6 +91,23 @@ body {
   max-width: 300px;
 }
 
+/* Center popup styles */
+.map-center-popup {
+  transform: translate(-50%, -50%) !important;
+  left: 50% !important;
+  top: 50% !important;
+  position: absolute !important;
+}
+
+.map-center-popup .mapboxgl-popup-content {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.map-center-popup .mapboxgl-popup-tip {
+  display: none !important;
+}
+
 .custom-popup .popup-content {
   max-height: 60vh; /* Limit height to 60% of viewport height */
   overflow-y: auto; /* Add vertical scrolling when needed */

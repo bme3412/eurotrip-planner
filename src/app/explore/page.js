@@ -10,7 +10,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { getCitiesData } from '@/components/city-guides/cityData';
 
 // Dynamically import the Map component with no SSR
-const Map = dynamic(() => import('@/components/MapComponent'), { 
+const Map = dynamic(() => import('@/components/map/MapComponent'), { 
   ssr: false,
   loading: () => <p>Loading map...</p>
 });
