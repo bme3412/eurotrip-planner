@@ -974,7 +974,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Limerick combines medieval history with Georgian elegance, situated along the majestic River Shannon.",
-      thumbnail: "/images/limerick-thumbnail.jpg",
+      thumbnail: "/images/limerick-thumbnail.png",
       landmarks: ["King John's Castle", "Hunt Museum"],
       latitude: 52.668,
       longitude: -8.6305,
