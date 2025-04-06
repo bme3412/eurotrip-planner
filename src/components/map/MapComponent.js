@@ -116,11 +116,18 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       );
     }
     
-    if (filters.startDate && filters.endDate && filters.minRating > 0) {
-      results = results.filter(city => {
-        const rating = cityRatings[city.title] || 0;
-        return rating >= filters.minRating;
-      });
+    // Apply rating filters if we have date selection
+    if (filters.minRating > 0) {
+      const hasDateFilters = 
+        (!filters.useFlexibleDates && filters.startDate && filters.endDate) || 
+        (filters.useFlexibleDates && filters.selectedMonths.length > 0);
+      
+      if (hasDateFilters) {
+        results = results.filter(city => {
+          const rating = cityRatings[city.title] || 0;
+          return rating >= filters.minRating;
+        });
+      }
     }
     
     setFilteredDestinations(results);
@@ -129,27 +136,43 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
   // Fetch ratings for all cities when date range changes
   useEffect(() => {
     const fetchAllRatings = async () => {
-      if ((!filters.startDate || !filters.endDate) && 
-          (filters.useFlexibleDates && filters.selectedMonths.length === 0)) {
+      // Check if we need to fetch ratings
+      const shouldFetchRatings = 
+        (!filters.useFlexibleDates && filters.startDate && filters.endDate) || 
+        (filters.useFlexibleDates && filters.selectedMonths.length > 0);
+        
+      if (!shouldFetchRatings) {
+        // Clear ratings and return
+        setCityRatings({});
         return;
       }
       
       setDateRangeLoading(true);
       
-      const ratings = {};
-      const promises = destinations.map(async (city) => {
-        let rating;
-        if (filters.useFlexibleDates) {
-          rating = await getCityRatingForMonths(city, filters.selectedMonths);
-        } else {
-          rating = await getCityRatingForDateRange(city, filters.startDate, filters.endDate);
-        }
-        ratings[city.title] = rating;
-      });
-      
-      await Promise.all(promises);
-      setCityRatings(ratings);
-      setDateRangeLoading(false);
+      try {
+        const ratings = {};
+        const promises = destinations.map(async (city) => {
+          try {
+            let rating;
+            if (filters.useFlexibleDates) {
+              rating = await getCityRatingForMonths(city, filters.selectedMonths);
+            } else {
+              rating = await getCityRatingForDateRange(city, filters.startDate, filters.endDate);
+            }
+            ratings[city.title] = rating;
+          } catch (error) {
+            console.error(`Error fetching rating for ${city.title}:`, error);
+            ratings[city.title] = 0; // Set default rating on error
+          }
+        });
+        
+        await Promise.all(promises);
+        setCityRatings(ratings);
+      } catch (error) {
+        console.error("Error fetching ratings:", error);
+      } finally {
+        setDateRangeLoading(false);
+      }
     };
     
     fetchAllRatings();
@@ -422,6 +445,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
             showCountryDropdown={showCountryDropdown}
             dateRangeLoading={dateRangeLoading}
             destinationCount={filteredDestinations.length || destinations.length}
+            cityRatings={cityRatings}
             onToggleCountryDropdown={handleToggleCountryDropdown}
             onToggleCountry={toggleCountry}
             onSearchChange={handleSearchChange}

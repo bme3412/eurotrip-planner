@@ -78,19 +78,92 @@ export const getCityRatingForMonths = async (city, selectedMonths) => {
     
     const calendar = await response.json();
     
-    let totalScore = 0;
-    let daysCount = 0;
+    // Define weights for different factors
+    const weights = {
+      score: 0.7,         // Base score from the calendar (considers local events and optimal visit times)
+      weather: 0.15,      // Weather conditions during the month
+      tourism: -0.15      // Negative weight for tourism levels (lower is better)
+    };
+    
+    // Process each selected month
+    const monthScores = [];
     
     for (const monthIndex of selectedMonths) {
       const monthName = MONTH_NAMES[monthIndex];
+      
       if (calendar.months[monthName]) {
         const monthData = calendar.months[monthName];
-        totalScore += monthData.ranges.reduce((acc, range) => acc + range.score * range.days.length, 0);
-        daysCount += monthData.ranges.reduce((acc, range) => acc + range.days.length, 0);
+        
+        // Calculate weighted score for this month
+        let monthScore = 0;
+        let factorCount = 0;
+        
+        // Factor 1: Base ratings for days in the month (includes events and local factors)
+        const totalDayScore = monthData.ranges.reduce((acc, range) => acc + range.score * range.days.length, 0);
+        const totalDays = monthData.ranges.reduce((acc, range) => acc + range.days.length, 0);
+        
+        if (totalDays > 0) {
+          const avgDayScore = totalDayScore / totalDays;
+          monthScore += weights.score * avgDayScore;
+          factorCount++;
+        }
+        
+        // Factor 2: Weather conditions (if available)
+        if (monthData.weatherHighC && monthData.weatherLowC) {
+          // Normalize temperature to a 0-5 scale (adjust these thresholds as needed)
+          // Assuming 15-25°C is ideal (scores 5), and extreme temps score lower
+          const avgTemp = (monthData.weatherHighC + monthData.weatherLowC) / 2;
+          let weatherScore;
+          
+          if (avgTemp >= 15 && avgTemp <= 25) {
+            weatherScore = 5; // Ideal temperature range
+          } else if (avgTemp >= 10 && avgTemp < 15) {
+            weatherScore = 4; // Slightly cool but pleasant
+          } else if (avgTemp > 25 && avgTemp <= 30) {
+            weatherScore = 4; // Warm but manageable
+          } else if (avgTemp >= 5 && avgTemp < 10) {
+            weatherScore = 3; // Cool
+          } else if (avgTemp > 30 && avgTemp <= 35) {
+            weatherScore = 3; // Hot
+          } else if (avgTemp >= 0 && avgTemp < 5) {
+            weatherScore = 2; // Cold
+          } else if (avgTemp > 35) {
+            weatherScore = 2; // Very hot
+          } else {
+            weatherScore = 1; // Very cold (below 0°C)
+          }
+          
+          monthScore += weights.weather * weatherScore;
+          factorCount++;
+        }
+        
+        // Factor 3: Tourism level (if available)
+        if (monthData.tourismLevel) {
+          // Convert tourism level (typically 1-10) to our 1-5 scale
+          // We invert this because lower crowds are better
+          const normalizedLevel = 6 - Math.min(5, Math.ceil(monthData.tourismLevel / 2));
+          monthScore += weights.tourism * normalizedLevel;
+          factorCount++;
+        }
+        
+        // Add special event bonus - look for special events that might be interesting
+        const specialEvents = monthData.ranges.filter(range => range.special === true);
+        if (specialEvents.length > 0) {
+          // Small bonus for having special events
+          monthScore += 0.5;
+        }
+        
+        // Normalize final score to ensure it's in the 1-5 range
+        const finalMonthScore = Math.max(1, Math.min(5, monthScore));
+        monthScores.push(finalMonthScore);
       }
     }
     
-    const avgScore = daysCount > 0 ? totalScore / daysCount : 0;
+    // Calculate the overall average score for all selected months
+    const avgScore = monthScores.length > 0 
+      ? monthScores.reduce((sum, score) => sum + score, 0) / monthScores.length 
+      : 0;
+    
     return avgScore;
   } catch (error) {
     console.error(`Error fetching monthly rating for ${city.title}:`, error);

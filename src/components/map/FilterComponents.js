@@ -131,41 +131,94 @@ export const SearchInput = ({ searchTerm, onSearchChange }) => {
 export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMonthToggle }) => {
   const { useFlexibleDates, startDate, endDate, selectedMonths } = dateFilters;
   
+  // Group months by season for quick selection
+  const seasons = [
+    { name: 'Winter', months: [0, 1, 11] }, // Dec, Jan, Feb
+    { name: 'Spring', months: [2, 3, 4] },  // Mar, Apr, May
+    { name: 'Summer', months: [5, 6, 7] },  // Jun, Jul, Aug
+    { name: 'Fall', months: [8, 9, 10] },   // Sep, Oct, Nov
+  ];
+
+  const handleSeasonToggle = (seasonMonths) => {
+    // If all months in the season are already selected, deselect them
+    // Otherwise, select all months in the season
+    const allSelected = seasonMonths.every(month => selectedMonths.includes(month));
+    
+    if (allSelected) {
+      // Remove all months in this season
+      const newSelection = selectedMonths.filter(month => !seasonMonths.includes(month));
+      seasonMonths.forEach(month => onMonthToggle(month, false));
+    } else {
+      // Add all months in this season
+      seasonMonths.forEach(month => {
+        if (!selectedMonths.includes(month)) {
+          onMonthToggle(month, true);
+        }
+      });
+    }
+  };
+  
   return (
     <div className="mb-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mb-2">
         <label className="block text-sm font-medium text-gray-700">Visit Dates</label>
-        <div className="flex items-center">
-          <span className="text-xs text-gray-500 mr-2">
-            {useFlexibleDates ? 'Flexible' : 'Exact'}
-          </span>
-          <button 
-            onClick={onDateTypeToggle}
-            className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ${
-              useFlexibleDates ? 'bg-blue-500' : 'bg-gray-300'
+        <div className="flex items-center bg-gray-100 rounded-lg p-1">
+          <button
+            onClick={() => useFlexibleDates && onDateTypeToggle()}
+            className={`text-xs px-3 py-1 rounded-md transition-colors ${
+              !useFlexibleDates ? 'bg-white shadow-sm text-blue-600 font-medium' : 'text-gray-600'
             }`}
           >
-            <span 
-              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                useFlexibleDates ? 'translate-x-5' : 'translate-x-1'
-              }`} 
-            />
+            Exact Dates
+          </button>
+          <button
+            onClick={() => !useFlexibleDates && onDateTypeToggle()}
+            className={`text-xs px-3 py-1 rounded-md transition-colors ${
+              useFlexibleDates ? 'bg-white shadow-sm text-blue-600 font-medium' : 'text-gray-600'
+            }`}
+          >
+            Flexible Dates
           </button>
         </div>
       </div>
       
       {useFlexibleDates ? (
         <div className="mt-2">
-          <div className="text-xs text-gray-500 mb-2">Select months to visit:</div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="text-sm text-gray-700 mb-2">When would you like to travel?</div>
+          
+          {/* Season quick-select buttons */}
+          <div className="flex flex-wrap gap-2 mb-3">
+            {seasons.map(season => {
+              const allSelected = season.months.every(month => selectedMonths.includes(month));
+              const someSelected = season.months.some(month => selectedMonths.includes(month)) && !allSelected;
+              
+              return (
+                <button
+                  key={season.name}
+                  onClick={() => handleSeasonToggle(season.months)}
+                  className={`text-xs py-1 px-3 rounded-md border transition-colors ${
+                    allSelected 
+                      ? 'bg-blue-100 border-blue-300 text-blue-800 font-medium' 
+                      : someSelected
+                        ? 'bg-blue-50 border-blue-200 text-blue-700'
+                        : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  {season.name}
+                </button>
+              );
+            })}
+          </div>
+          
+          <div className="grid grid-cols-4 gap-2">
             {MONTH_NAMES_SHORT.map((month, index) => (
               <div 
                 key={month}
                 onClick={() => onMonthToggle(index, !selectedMonths.includes(index))}
-                className={`cursor-pointer text-center py-1 px-2 rounded text-sm ${
+                className={`cursor-pointer text-center py-1.5 px-1 rounded-md text-sm transition-colors ${
                   selectedMonths.includes(index) 
-                    ? 'bg-blue-100 text-blue-800 font-medium' 
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-blue-100 text-blue-800 font-medium border border-blue-300' 
+                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
                 {month}
@@ -173,34 +226,72 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
             ))}
           </div>
           {selectedMonths.length === 0 && (
-            <p className="text-xs text-amber-600 mt-1">Please select at least one month</p>
+            <p className="text-xs text-amber-600 mt-2 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              Please select at least one month
+            </p>
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-2 mt-2">
-          <div>
-            <label className="block text-xs text-gray-500 mb-1">Start Date</label>
-            <input 
-              type="date" 
-              className="w-full p-2 border border-gray-300 rounded-md text-sm"
-              value={startDate}
-              onChange={(e) => onDateChange('startDate', e.target.value)}
-            />
+        <div className="mt-2">
+          <div className="text-sm text-gray-700 mb-3">Select your travel period:</div>
+          <div className="space-y-3">
+            <div className="relative">
+              <label className="absolute -top-2 left-2 bg-white px-1 text-xs text-gray-500 z-10">Start Date</label>
+              <input 
+                type="date" 
+                className="w-full p-2 pt-3 border border-gray-300 rounded-md text-sm bg-white"
+                value={startDate}
+                onChange={(e) => onDateChange('startDate', e.target.value)}
+                style={{ minHeight: '45px' }}
+              />
+            </div>
+            <div className="relative">
+              <label className="absolute -top-2 left-2 bg-white px-1 text-xs text-gray-500 z-10">End Date</label>
+              <input 
+                type="date" 
+                className="w-full p-2 pt-3 border border-gray-300 rounded-md text-sm bg-white"
+                value={endDate}
+                onChange={(e) => onDateChange('endDate', e.target.value)}
+                min={startDate}
+                style={{ minHeight: '45px' }}
+              />
+            </div>
           </div>
-          <div>
-            <label className="block text-xs text-gray-500 mb-1">End Date</label>
-            <input 
-              type="date" 
-              className="w-full p-2 border border-gray-300 rounded-md text-sm"
-              value={endDate}
-              onChange={(e) => onDateChange('endDate', e.target.value)}
-              min={startDate}
-            />
-          </div>
+          {(!startDate || !endDate) && (
+            <p className="text-xs text-amber-600 mt-2 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              Both start and end dates are required
+            </p>
+          )}
+          {startDate && endDate && (
+            <div className="mt-2 text-xs text-blue-600 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {calculateTripDuration(startDate, endDate)} day trip
+            </div>
+          )}
         </div>
       )}
     </div>
   );
+};
+
+/**
+ * Calculate trip duration in days
+ * @param {string} startDate - Start date in ISO format
+ * @param {string} endDate - End date in ISO format
+ * @returns {number} - Trip duration in days
+ */
+const calculateTripDuration = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  return Math.max(1, Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1);
 };
 
 /**
@@ -213,32 +304,76 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
  * @param {Object} props.dateFilters - Date filter settings
  * @returns {JSX.Element} - Rating filter component
  */
-export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dateFilters }) => {
+export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dateFilters, cityRatings }) => {
   const dateFiltersMissing = 
     (!dateFilters.startDate || !dateFilters.endDate) && 
     (dateFilters.useFlexibleDates && dateFilters.selectedMonths.length === 0);
   
+  // Determine if there are highly rated cities in the selected months
+  const hasHighRatedCities = cityRatings && Object.values(cityRatings).some(rating => rating >= 4);
+  
+  // Get the highest rated month (if flexible dates)
+  const getMonthsDescription = () => {
+    if (!dateFilters.useFlexibleDates || dateFilters.selectedMonths.length === 0) {
+      return '';
+    }
+    
+    const monthNames = dateFilters.selectedMonths.map(index => MONTH_NAMES_SHORT[index]);
+    
+    if (monthNames.length === 1) {
+      return `in ${monthNames[0]}`;
+    } else if (monthNames.length === 2) {
+      return `in ${monthNames[0]} and ${monthNames[1]}`;
+    } else {
+      return `in selected months`;
+    }
+  };
+  
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700 mb-1">Minimum Rating</label>
+      <div className="flex items-center justify-between mb-1">
+        <label className="block text-sm font-medium text-gray-700">Destination Quality</label>
+        {loading && (
+          <div className="flex items-center text-blue-600">
+            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span className="text-xs">Analyzing...</span>
+          </div>
+        )}
+      </div>
+      
       <select 
-        className="w-full p-2 border border-gray-300 rounded-md"
+        className={`w-full p-2 border ${dateFiltersMissing ? 'border-gray-200 bg-gray-50' : 'border-gray-300 bg-white'} rounded-md transition-colors`}
         value={minRating}
         onChange={(e) => onRatingChange(e.target.value)}
         disabled={disabled || dateFiltersMissing}
       >
-        <option value="0">All Ratings</option>
-        <option value="3">3+ ★★★☆☆</option>
-        <option value="4">4+ ★★★★☆</option>
-        <option value="5">5 ★★★★★</option>
+        <option value="0">All Destinations</option>
+        <option value="3">Good & Above (3+ ★★★☆☆)</option>
+        <option value="4">Very Good (4+ ★★★★☆)</option>
+        <option value="5">Excellent (5 ★★★★★)</option>
       </select>
+      
       {dateFiltersMissing ? (
-        <p className="text-xs text-amber-600 mt-1">
-          {dateFilters.useFlexibleDates ? 'Select at least one month' : 'Select a date range'} to filter by rating
+        <p className="text-xs text-amber-600 mt-1 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          {dateFilters.useFlexibleDates ? 'Select at least one month' : 'Select a date range'} to filter by quality
         </p>
-      ) : null}
-      {loading && (
-        <p className="text-xs text-blue-600 mt-1">Loading ratings for selected dates...</p>
+      ) : loading ? (
+        <p className="text-xs text-blue-600 mt-1">Analyzing travel conditions {getMonthsDescription()}...</p>
+      ) : (
+        minRating > 0 && hasHighRatedCities && (
+          <p className="text-xs text-green-600 mt-1 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Found great destinations {getMonthsDescription()}
+          </p>
+        )
       )}
     </div>
   );
