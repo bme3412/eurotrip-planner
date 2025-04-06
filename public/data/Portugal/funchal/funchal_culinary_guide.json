@@ -1,0 +1,394 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Il Gallo d'Oro",
+                "cuisine_type": "Mediterranean, European, Portuguese",
+                "signature_dishes": [
+                    "Scarlet Shrimp Variations",
+                    "Suckling Pig Confit",
+                    "Creative Tasting Menus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and sophisticated dining within The Cliff Bay hotel, ocean views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance (weeks or months); specify dietary requirements when booking",
+                "dress_code": "Smart Elegant (jacket recommended for men)",
+                "michelin_stars": 2,
+                "location": "The Cliff Bay Hotel, Estrada Monumental",
+                "local_tips": "Madeira's first restaurant to receive a Michelin star, now holding two. Chef Benoît Sinthon focuses on high-quality Iberian ingredients. Opt for a tasting menu with wine pairing for the full experience."
+            },
+            {
+                "name": "William Restaurant",
+                "cuisine_type": "Modern European, Portuguese",
+                "signature_dishes": [
+                    "Seared Scallops with Cauliflower Purée",
+                    "Black Scabbard Fish with Banana",
+                    "Seasonal Tasting Menus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Refined dining with stunning panoramic views from Belmond Reid's Palace",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well ahead, especially for a terrace table. Mention special occasions.",
+                "dress_code": "Smart Elegant (jacket required for men)",
+                "michelin_stars": 1,
+                "location": "Belmond Reid's Palace, Estrada Monumental",
+                "local_tips": "Named after the hotel's founder, William Reid. Executive Chef Luís Pestana offers creative cuisine inspired by local ingredients. The terrace offers arguably the best dining view in Funchal."
+            },
+            {
+                "name": "Kampo by Chef Júlio Pereira",
+                "cuisine_type": "Modern Portuguese, Steakhouse focus",
+                "signature_dishes": [
+                    "Dry-Aged Madeiran Beef",
+                    "Tuna Tartare Taco",
+                    "Caramelized Foie Gras"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy, lively, chef-focused with counter seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, counter seats offer view of the kitchen action. Small venue.",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 0, 
+                "location": "Rua do Sabão (City Center)",
+                "local_tips": "Focuses on high-quality, matured meats and creative dishes cooked over fire. Sister restaurant 'Akua' focuses on seafood. Lively atmosphere, great for foodies."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Taberna Ruel",
+                "cuisine_type": "Traditional Madeiran, Seafood",
+                "signature_dishes": [
+                    "Espada com Banana (Black Scabbard Fish with Banana)",
+                    "Lapas Grelhadas (Grilled Limpets)",
+                    "Picado (Diced Beef with Fries)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling, traditional tavern in the heart of the Old Town",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially evenings",
+                "booking_tips": "Popular spot, can get very busy. Outdoor seating available on the painted street.",
+                "dress_code": "Casual",
+                "location": "Rua de Santa Maria (Zona Velha)",
+                "local_tips": "Classic Zona Velha dining experience. Excellent place to try traditional Madeiran dishes like Espada and Lapas. Lively atmosphere, sometimes with live music nearby."
+            },
+            {
+                "name": "Restaurante Mozart",
+                "cuisine_type": "European, Portuguese with a twist",
+                "signature_dishes": [
+                    "Set menus offering choice of starters, mains (often fish/meat), dessert",
+                    "Costumed waiters adding to the theme"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Themed dining experience in the Old Town with costumed staff",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance, very popular with tourists. Known for its good value set menus.",
+                "dress_code": "Smart Casual",
+                "location": "Rua Dom Carlos I (Zona Velha)",
+                "local_tips": "Offers a fixed-price menu concept which is popular. While themed, the food quality is generally well-regarded. Fun experience, particularly for first-time visitors."
+            },
+            {
+                "name": "O Tasco",
+                "cuisine_type": "Traditional Portuguese Petiscos",
+                "signature_dishes": [
+                    "Tuna Steak 'à Tasco'",
+                    "Octopus Salad",
+                    "Codfish cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, rustic, authentic Portuguese tasca (tavern)",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, small place",
+                "booking_tips": "Very popular with locals and informed tourists. Limited seating.",
+                "dress_code": "Casual",
+                "location": "Rua Bela São Tiago (near Zona Velha)",
+                "local_tips": "Authentic, no-frills Madeiran food. Great value. Can involve waiting if you don't book. Try the house wine."
+            },
+            {
+                "name": "Restaurante dos Combatentes",
+                "cuisine_type": "Traditional Madeiran",
+                "signature_dishes": [
+                    "Espetada (Beef Skewers on Laurel Stick)",
+                    "Bife de Atum (Tuna Steak)",
+                    "Milho Frito (Fried Cornmeal Cubes)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic, somewhat formal old-style Portuguese restaurant",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended for dinner",
+                "booking_tips": "Located within the historical Combatentes building.",
+                "dress_code": "Casual / Smart Casual",
+                "location": "Rua Ivens (City Center)",
+                "local_tips": "A Funchal institution, popular with locals for traditional dishes, especially Espetada cooked correctly on laurel skewers. Good portion sizes."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercado dos Lavradores Stalls",
+                "specialties": [
+                    "Bolo do Caco (traditional flatbread) with garlic butter or fillings",
+                    "Exotic fruit samples (be mindful of pricing)"
+                ],
+                "price_range": "€-€€",
+                "hours": "Market hours (Mon-Fri ~7am-7pm, Sat ~7am-2pm)",
+                "location": "Mercado dos Lavradores",
+                "seating": "Limited, informal",
+                "local_tips": "Try Bolo do Caco from one of the dedicated stalls inside or just outside the market. Be cautious with pre-cut fruit platters, confirm price first as they can be expensive."
+            },
+            {
+                "name": "O Calhau",
+                "specialties": [
+                    "Poncha (traditional Madeiran drink)",
+                    "Nikita (beer/wine smoothie)",
+                    "Bolo do Caco",
+                    "Tremoços (lupini beans)"
+                ],
+                "price_range": "€",
+                "hours": "Lunch & Evening",
+                "location": "Near Funchal Marina / Praça do Povo",
+                "seating": "Outdoor kiosk/bar seating",
+                "local_tips": "Popular spot for trying authentic Poncha variations (Pescador, Regional, Maracujá). Casual place for a quick drink and snack with sea views."
+            },
+            {
+                "name": "Casa do Bolo do Caco",
+                "specialties": [
+                    "Bolo do Caco with various fillings (chorizo, ham, cheese, steak)"
+                ],
+                "price_range": "€",
+                "hours": "Lunch & Dinner",
+                "location": "Various locations, including near La Vie Shopping Centre",
+                "seating": "Casual takeaway / basic seating",
+                "local_tips": "Dedicated spot focusing on Bolo do Caco sandwiches. Quick, cheap, and tasty option for a traditional Madeiran snack or light meal."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Loja do Chá (Tea House)",
+                "specialty": "Wide Selection of Teas, Scones",
+                "must_try": [
+                    "Afternoon Tea Set",
+                    "Homemade Cakes",
+                    "Specialty Teas"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming, traditional tea house ambiance",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Cakes, scones, light meals, pastries",
+                "local_tips": "Located near the Municipal Garden. Offers a classic afternoon tea experience. Extensive tea menu. Cozy and relaxing atmosphere."
+            },
+            {
+                "name": "Art Food Corner Madeira",
+                "specialty": "Healthy Options, Specialty Coffee",
+                "must_try": [
+                    "Açaí Bowls",
+                    "Avocado Toast",
+                    "Specialty Coffee Drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, bright, artsy cafe focusing on healthy food",
+                "best_time": "Breakfast/Lunch",
+                "wifi_friendly": true,
+                "food_options": "Healthy bowls, toasts, salads, smoothies",
+                "local_tips": "Good spot for vegetarian/vegan options. Popular for brunch. Often features local art."
+            },
+            {
+                "name": "A Confeitaria (at Reid's Palace)",
+                "specialty": "Classic Afternoon Tea",
+                "must_try": [
+                    "Traditional Afternoon Tea service (sandwiches, scones, pastries)",
+                    "Selection of fine teas"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Iconic, luxurious setting on the terrace of Belmond Reid's Palace",
+                "best_time": "Afternoon (3pm-5:30pm)",
+                "wifi_friendly": true,
+                "food_options": "Full afternoon tea set",
+                "local_tips": "Reservations essential, book well in advance. Strict dress code (smart casual, no sportswear). A splurge, but a classic Funchal experience with stunning views."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Barreirinha Bar Café",
+                "type": "Seafront Bar",
+                "specialty": "Relaxed drinks with ocean views",
+                "signature_drinks": [
+                    "Local Beer (Coral)",
+                    "Poncha",
+                    "Gin Tonics"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual, laid-back terrace bar overlooking the sea near São Tiago Fort",
+                "best_time": "Late Afternoon/Sunset",
+                "food_options": "Light snacks, sandwiches",
+                "reservation_needed": false,
+                "local_tips": "Great spot for chilling out with a drink after exploring the Zona Velha. Can get busy around sunset. Often has live music or DJ sets."
+            },
+            {
+                "name": "Venda Velha",
+                "type": "Traditional Poncha Bar",
+                "specialty": "Authentic Poncha",
+                "signature_drinks": [
+                    "Poncha Pescador (Fisherman's Poncha - potent!)",
+                    "Poncha Regional (Traditional)",
+                    "Poncha de Maracujá (Passion Fruit)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Small, rustic, traditional bar focusing on Poncha",
+                "best_time": "Evening",
+                "food_options": "Peanuts, lupini beans",
+                "reservation_needed": false,
+                "local_tips": "Authentic place to try Poncha, made fresh to order. Often lively with locals. Located in the Zona Velha."
+            },
+            {
+                "name": "The Ritz Madeira",
+                "type": "Café/Bar with Live Music",
+                "specialty": "Drinks on the Esplanade, Evening Cabaret Show",
+                "signature_drinks": [
+                    "Madeira Wine",
+                    "Cocktails",
+                    "Coffee/Tea"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Grand European style café/bar on main avenue with large terrace",
+                "best_time": "Afternoon / Evening (for show)",
+                "food_options": "Snacks, light meals, ice cream",
+                "reservation_needed": "Recommended for Sian's Cabaret Show",
+                "local_tips": "Iconic spot on Avenida Arriaga. Great for people-watching from the terrace. Hosts a popular cabaret show several nights a week (check schedule and book)."
+            },
+            {
+                "name": "Revolucion Rock Bar",
+                "type": "Rock Bar",
+                "specialty": "Rock Music, Live Bands",
+                "signature_drinks": [
+                    "Beer Selection",
+                    "Spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively rock music venue with indoor/outdoor space",
+                "best_time": "Late Evening/Night",
+                "food_options": "Basic bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Located in the Zona Velha. Popular spot for rock music lovers. Features live bands on certain nights (check schedule). Good atmosphere for a late night out."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Madeira Food on Foot Tour",
+                "focus": "Local Flavors & History",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit Mercado dos Lavradores",
+                    "Taste Bolo do Caco, local fruits, chocolates, pastries",
+                    "Sample Madeira Wine and/or Poncha",
+                    "Learn about Funchal's history and food culture"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [
+                    "English", "Portuguese", "Other languages may be available"
+                ],
+                "booking_tips": "Book online in advance. Wear comfortable shoes. Covers multiple tastings at different locations in the city center."
+            },
+            {
+                "name": "Madeira Wine Lodge Tours (e.g., Blandy's, Oliveiras)",
+                "focus": "History and Tasting of Madeira Wine",
+                "duration": "1-2 hours (depending on tour)",
+                "price_range": "€-€€€ (depending on tasting level)",
+                "highlights": [
+                    "Learn about the unique Madeira wine production process (estufagem)",
+                    "Tour historic wine cellars",
+                    "Guided tasting of different Madeira wine styles (Sercial, Verdelho, Bual, Malmsey)"
+                ],
+                "booking_required": "Recommended, especially for premium tours",
+                "group_size": "Varies",
+                "languages": [
+                    "English", "Portuguese", "French", "German"
+                ],
+                "booking_tips": "Several lodges offer tours (Blandy's is the largest and most central). Choose a tour based on your interest level and desired tasting range. Located in central Funchal."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Madeira Cooking Experience",
+                "cuisine_focus": "Traditional Madeiran Dishes",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Preparing Espada com Banana",
+                    "Making Bolo do Caco from scratch",
+                    "Traditional side dishes like Milho Frito"
+                ],
+                "group_size": "Small groups",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market visit (optional), hands-on cooking, full meal with drinks"
+                ],
+                "booking_tips": "Search for local providers offering hands-on classes. Often includes enjoying the meal you prepared. Book in advance."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado dos Lavradores",
+                "type": "Main Municipal Market",
+                "highlights": [
+                    "Exotic fruits (banana-pineapple, passion fruit varieties)",
+                    "Vibrant flower stalls (Strelitzia)",
+                    "Lively fish market (espada, tuna)",
+                    "Local crafts, spices, Bolo do Caco"
+                ],
+                "hours": "Mon-Thu 7am-7pm, Fri 7am-8pm, Sat 7am-2pm. Closed Sun.",
+                "best_time": "Morning (especially Friday/Saturday for peak activity and fish market)",
+                "location": "City Center (near Zona Velha)",
+                "local_tips": "Iconic Funchal landmark in an Art Deco building. Be aware fruit prices for tourists can be inflated, especially for samples - confirm cost first. Fish market is most active early morning."
+            },
+            {
+                "name": "Feira da Laginha (Organic Market)",
+                "type": "Organic Farmers Market",
+                "highlights": [
+                    "Certified organic local produce",
+                    "Homemade jams, bread, cakes",
+                    "Friendly atmosphere"
+                ],
+                "hours": "Saturdays ~9am - 2pm (check locally)",
+                "best_time": "Morning",
+                "location": "Praça da Laginha (near Municipal Gardens)",
+                "local_tips": "Small but growing market focusing on organic and local products directly from producers. Good place to find seasonal items."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Lapas Grelhadas (Grilled Limpets - available year-round but often plentiful)",
+            "Fresh local vegetables like peas and broad beans",
+            "Cherries from Jardim da Serra (late spring/early summer)"
+        ],
+        "summer": [
+            "Bife de Atum com Milho Frito (Tuna steak with fried cornmeal - Tuna season)",
+            "Abacate (Avocado - peak season)",
+            "Maracujá (Passion Fruit - various types peak)",
+            "Festas (local festivals often feature special foods like Carne Vinha d'Alhos sandwiches)"
+        ],
+        "autumn": [
+            "Castanhas (Roasted Chestnuts - sold on streets from Nov)",
+            "Sweet Potatoes (Batata Doce)",
+            "Vindima (Grape Harvest) related products/events"
+        ],
+        "winter": [
+            "Carne Vinha d'Alhos (Marinated Pork - traditional Christmas dish)",
+            "Bolo de Mel (Honey Cake - traditional Christmas cake)",
+            "Sopa de Trigo (Wheat Soup - hearty winter soup)",
+            "Citrus fruits (Oranges, Tangerines)"
+        ]
+    }
+}

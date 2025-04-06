@@ -1046,7 +1046,7 @@ export const getCitiesData = () => {
       region: "Atlantic Islands",
       description:
         "Funchal, the capital of Madeira Island, features subtropical gardens, volcanic landscapes, and a picturesque harbor.",
-      thumbnail: "/images/funchal-thumbnail.jpg",
+      thumbnail: "/images/funchal-thumbnail.png",
       landmarks: ["Monte Cable Car", "Madeira Botanical Garden"],
       latitude: 32.6669,
       longitude: -16.9241,
