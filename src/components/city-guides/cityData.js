@@ -1062,7 +1062,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Athens is a city where ancient history meets modern urban life, boasting iconic ruins and lively neighborhoods.",
-      thumbnail: "/images/athens-thumbnail.jpg",
+      thumbnail: "/images/athens-thumbnail.png",
       landmarks: ["Acropolis", "Parthenon", "Plaka"],
       latitude: 37.9838,
       longitude: 23.7275,

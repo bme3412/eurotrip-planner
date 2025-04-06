@@ -1,0 +1,424 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Spondi",
+                "cuisine_type": "Modern French/Mediterranean",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Langoustine with Citrus Variations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining in a historic neoclassical building with a charming courtyard",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially for courtyard seating; specify dietary restrictions when booking",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Pangrati (near Panathenaic Stadium)",
+                "local_tips": "Consistently ranked among Greece's best restaurants; known for exceptional service and wine list; offers a refined dining experience away from the main tourist crowds."
+            },
+            {
+                "name": "Varoulko Seaside",
+                "cuisine_type": "Modern Greek Seafood",
+                "signature_dishes": [
+                    "Calamari with Pesto Genovese",
+                    "Kritharoto (Orzo Pasta) with Crayfish",
+                    "Catch of the Day preparations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish waterfront dining with stunning views of Mikrolimano marina",
+                "best_time": "Dinner (especially sunset)",
+                "reservation_needed": true,
+                "booking_tips": "Request a table by the water for the best views; popular for special occasions",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 1,
+                "location": "Mikrolimano, Piraeus",
+                "local_tips": "Michelin-starred seafood restaurant by renowned chef Lefteris Lazarou; offers creative takes on Greek seafood; accessible via taxi/tram from central Athens; perfect for a special seaside dinner."
+            },
+            {
+                "name": "Hytra",
+                "cuisine_type": "Modern Greek/Creative",
+                "signature_dishes": [
+                    "Innovative Tasting Menus",
+                    "Deconstructed Greek Salad"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sleek rooftop restaurant with panoramic Acropolis and city views",
+                "best_time": "Dinner (for views)",
+                "reservation_needed": true,
+                "booking_tips": "Book a table on the terrace during warmer months for incredible views; also has an indoor dining area",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 1,
+                "location": "Onassis Cultural Centre (Stegi)",
+                "local_tips": "Offers both fine dining and a more casual bistro menu; known for creative cocktails and modern interpretations of Greek classics; combines culture (at Stegi) with gastronomy."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "O Kostas (Syntagma Square location)",
+                "cuisine_type": "Traditional Greek Souvlaki",
+                "signature_dishes": [
+                    "Pork Souvlaki Pita",
+                    "Beefteki (Burger Patty) Pita"
+                ],
+                "price_range": "€",
+                "atmosphere": "Tiny, legendary souvlaki joint with standing room only",
+                "best_time": "Lunch (closes when sold out)",
+                "reservation_needed": false,
+                "booking_tips": "Go early (before 1pm) as they often sell out by mid-afternoon; cash only; be prepared for a queue",
+                "dress_code": "Casual",
+                "location": "Near Syntagma Square",
+                "local_tips": "Considered by many to serve the best traditional souvlaki in Athens; simple menu, high-quality ingredients; an authentic Athenian experience."
+            },
+            {
+                "name": "Avli Tou Thissiou",
+                "cuisine_type": "Traditional Greek Taverna",
+                "signature_dishes": [
+                    "Moussaka",
+                    "Grilled Lamb Chops (Paidákia)",
+                    "Variety of Mezedes (appetizers)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming taverna with a beautiful courtyard and Acropolis views",
+                "best_time": "Evening",
+                "reservation_needed": "Recommended, especially for tables with views",
+                "booking_tips": "Ask for a table with an Acropolis view when booking",
+                "dress_code": "Casual",
+                "location": "Thissio",
+                "local_tips": "Classic Greek taverna experience in a picturesque setting; popular with both locals and tourists; great spot for a relaxed dinner after visiting the Acropolis or Ancient Agora."
+            },
+            {
+                "name": "To Kafeneio",
+                "cuisine_type": "Greek Mezedes/Taverna",
+                "signature_dishes": [
+                    "Meatballs in Tomato Sauce",
+                    "Fava (Split Pea Puree)",
+                    "Fried Saganaki Cheese"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional, cozy kafeneio (coffee house/tavern) in Plaka",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended for dinner",
+                "booking_tips": "Small place, booking advised for evenings",
+                "dress_code": "Casual",
+                "location": "Plaka",
+                "local_tips": "Offers a traditional Greek dining experience in the heart of Plaka; excellent for sharing a variety of mezedes (small plates); serves house wine."
+            },
+            {
+                "name": "Nolan",
+                "cuisine_type": "Greek-Japanese Fusion",
+                "signature_dishes": [
+                    "Nolan Fried Chicken (NFC)",
+                    "Steamed Buns with Pork Belly",
+                    "Soba Noodles with Smoked Salmon"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Minimalist, trendy bistro near Syntagma",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; small space, often fully booked",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Near Syntagma Square",
+                "local_tips": "Bib Gourmand recipient; innovative fusion cuisine by chef Sotiris Kontizas; popular with a younger, foodie crowd; creative and delicious dishes."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Koulouri Stands (various locations)",
+                "specialties": [
+                    "Koulouri Thessalonikis (Sesame Bread Ring)"
+                ],
+                "price_range": "€",
+                "hours": "Morning mainly",
+                "location": "Street corners all over Athens, especially near metro stations",
+                "seating": "None (takeaway)",
+                "local_tips": "The quintessential Athenian breakfast on the go; look for vendors with fresh, piled-high koulouri; variations include whole wheat or filled versions."
+            },
+            {
+                "name": "Lukumades",
+                "specialties": [
+                    "Loukoumades (Greek Doughnuts) with various toppings (honey & cinnamon, chocolate, gelato)"
+                ],
+                "price_range": "€",
+                "hours": "Afternoon & Evening",
+                "location": "Aiolou Street (near Monastiraki)",
+                "seating": "Limited indoor/outdoor seating",
+                "local_tips": "Modern take on the traditional Greek doughnut; freshly fried and topped to order; popular spot for a sweet treat."
+            },
+            {
+                "name": "Feyrouz",
+                "specialties": [
+                    "Lahmacun (Turkish flatbread pizza)",
+                    "Pide (Turkish boat-shaped pizza)",
+                    "Middle Eastern-inspired street food"
+                ],
+                "price_range": "€",
+                "hours": "Lunch & early Dinner",
+                "location": "Near Monastiraki",
+                "seating": "Very limited counter seating (mostly takeaway)",
+                "local_tips": "Excellent quality, flavorful Lebanese/Middle Eastern street food; popular lunch spot; vegetarian options available."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "TAF Coffee (The Underdog)",
+                "specialty": "Specialty Coffee Roasters",
+                "must_try": [
+                    "Single-origin Espresso",
+                    "Cold Brew",
+                    "Filter Coffee (V60, Aeropress)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Award-winning coffee shop focused on quality beans and brewing methods",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries/snacks",
+                "local_tips": "Internationally recognized coffee shop and roastery; pioneers of the specialty coffee scene in Athens; great for serious coffee lovers; located near Omonia."
+            },
+            {
+                "name": "Little Kook",
+                "specialty": "Fairytale-Themed Cafe",
+                "must_try": [
+                    "Elaborate Cakes and Desserts",
+                    "Themed Hot Chocolates",
+                    "Milkshakes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Extravagantly decorated cafe with constantly changing fairytale themes",
+                "best_time": "Anytime (especially festive seasons)",
+                "wifi_friendly": false,
+                "food_options": "Desserts, cakes, limited savory options",
+                "local_tips": "An Instagram favorite; expect queues, especially on weekends; over-the-top decorations cover the entire building and street; fun for families and those seeking a unique visual experience."
+            },
+            {
+                "name": "Yiasemi",
+                "specialty": "Traditional Greek Coffee & Sweets",
+                "must_try": [
+                    "Greek Coffee (Ellinikós Kafés)",
+                    "Homemade Pies (Pites)",
+                    "Orange Pie (Portokalopita)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming, rustic cafe with iconic steps seating in Plaka",
+                "best_time": "Afternoon/Evening",
+                "wifi_friendly": true,
+                "food_options": "Homemade pies, cakes, light meals",
+                "local_tips": "Famous for its cushions laid out on the steps of Mnisikleous street; very popular and picturesque spot in Plaka; great place to relax and people-watch."
+            }
+        ],
+        "bars": [
+            {
+                "name": "The Clumsies",
+                "type": "Cocktail Bar",
+                "specialty": "World-Class Cocktails",
+                "signature_drinks": [
+                    "Innovative Signature Cocktails (menu changes)",
+                    "Perfectly executed Classic Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish multi-space bar, frequently listed among the World's 50 Best Bars",
+                "best_time": "Evening/Night",
+                "food_options": "Gourmet bar food",
+                "reservation_needed": "Recommended, especially weekends",
+                "local_tips": "One of Athens' most famous bars; offers exceptional cocktails in a sophisticated yet relaxed setting; attracts a trendy crowd; located downtown."
+            },
+            {
+                "name": "Baba Au Rum",
+                "type": "Rum & Cocktail Bar",
+                "specialty": "Rum Selection & Tropical Cocktails",
+                "signature_drinks": [
+                    "Extensive Rum List",
+                    "Tiki Cocktails",
+                    "Classic Rum Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Cozy, eclectic bar with a focus on rum culture; also listed among World's 50 Best Bars",
+                "best_time": "Evening/Night",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Recommended for groups",
+                "local_tips": "Another top-tier Athenian cocktail bar; great atmosphere and music; knowledgeable bartenders; perfect for rum enthusiasts and lovers of well-crafted cocktails."
+            },
+            {
+                "name": "Brettos Bar",
+                "type": "Historic Distillery/Bar",
+                "specialty": "Ouzo, Brandy, Liqueurs",
+                "signature_drinks": [
+                    "House-distilled Ouzo (various types)",
+                    "Wide range of colourful liqueurs",
+                    "Greek wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Iconic, colourful bar with walls lined with illuminated bottles",
+                "best_time": "Evening",
+                "food_options": "None",
+                "reservation_needed": false,
+                "local_tips": "Athens' oldest distillery (since 1909); located in Plaka; famous for its visually stunning interior; great place to sample traditional Greek spirits like Ouzo and Tsipouro."
+            },
+            {
+                "name": "A for Athens",
+                "type": "Rooftop Bar",
+                "specialty": "Acropolis Views",
+                "signature_drinks": [
+                    "Classic Cocktails",
+                    "Greek Wines",
+                    "Beers"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Popular rooftop bar directly facing the Acropolis above Monastiraki Square",
+                "best_time": "Sunset/Evening",
+                "food_options": "Bar snacks, light meals",
+                "reservation_needed": "Highly recommended for good tables",
+                "local_tips": "Offers arguably one of the best direct views of the Acropolis, especially when illuminated at night; gets very crowded; located in the A for Athens hotel."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Athens Street Food Walking Tour",
+                "focus": "Local Athenian Snacks & Markets",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Sampling koulouri, souvlaki, loukoumades",
+                    "Visit to the Varvakios Agora (Central Market)",
+                    "Exploring hidden culinary gems in Psyrri/Monastiraki"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (typically max 12)",
+                "languages": [ "English", "Greek", "Other languages often available" ],
+                "booking_tips": "Book online in advance; wear comfortable shoes; come hungry; great introduction to Athenian street food culture."
+            },
+            {
+                "name": "Greek Food Discovery in Plaka",
+                "focus": "Traditional Greek Cuisine & Mezedes",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Tasting various mezedes (appetizers)",
+                    "Sampling Greek cheeses, olives, olive oil",
+                    "Visiting traditional food shops and tavernas in Plaka"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "Greek" ],
+                "booking_tips": "Focuses more on seated tastings and traditional products than just street food; explores the historic Plaka district; often includes wine or ouzo tasting."
+            },
+            {
+                "name": "Athens Evening Food Tour with Wine Tasting",
+                "focus": "Dinner Experience & Greek Wines",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Exploring Athens nightlife districts",
+                    "Tasting modern and traditional Greek dishes",
+                    "Pairing food with Greek wines"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English" ],
+                "booking_tips": "Evening tour combining food exploration with insights into Athenian nightlife; includes multiple stops for different courses; good way to discover local wines."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Greek Cooking Class & Dinner",
+                "cuisine_focus": "Classic Greek Dishes (Moussaka, Tzatziki, etc.)",
+                "duration": "4-5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Preparing a multi-course Greek meal",
+                    "Techniques for Greek staples",
+                    "Using fresh, seasonal ingredients"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "Greek" ],
+                "includes": [ "Hands-on cooking, all ingredients, recipes, full dinner with wine" ],
+                "booking_tips": "Often includes a visit to the central market; great way to learn fundamental Greek recipes; book in advance; vegetarian options usually available."
+            },
+            {
+                "name": "Greek Pies (Pita) Workshop",
+                "cuisine_focus": "Savory and Sweet Greek Pies",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making phyllo dough from scratch (sometimes)",
+                    "Preparing fillings for Spanakopita (spinach pie), Tiropita (cheese pie)",
+                    "Techniques for assembling different types of pies"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "Greek" ],
+                "includes": [ "Hands-on class, ingredients, tasting of pies made" ],
+                "booking_tips": "Focuses on a beloved category of Greek cuisine; practical skills to take home; some classes focus on specific regional pies."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Varvakios Agora (Central Market)",
+                "type": "Central Municipal Market",
+                "highlights": [
+                    "Meat Market (loud, chaotic, fascinating)",
+                    "Fish Market (huge variety of fresh seafood)",
+                    "Fruit & Vegetable Market (outdoors, surrounding streets)"
+                ],
+                "hours": "Approx. 7 AM - 6 PM (Mon-Sat), Fish/Meat sections close earlier",
+                "best_time": "Morning (for peak activity)",
+                "location": "Athinas Street (between Monastiraki and Omonia)",
+                "local_tips": "A vibrant, bustling, and somewhat intense experience; wear closed-toe shoes; see butchers and fishmongers at work; small eateries within the market serve fresh, simple food; great place for photography and observing local life."
+            },
+            {
+                "name": "Evripidou Street Spice Market",
+                "type": "Street Market/Specialty Shops",
+                "highlights": [
+                    "Herbs and Spices",
+                    "Cheeses (esp. Feta)",
+                    "Cured Meats (Pastourma, Soutzouki)",
+                    "Olives, nuts, dried fruits"
+                ],
+                "hours": "Shop hours vary, generally Mon-Sat business hours",
+                "best_time": "Morning/Afternoon",
+                "location": "Evripidou Street (off Athinas Street, near Central Market)",
+                "local_tips": "The 'spice street' of Athens; aromatic and colourful; find specialty food products; Karamanlidika tou Fani is a famous deli/taverna here specializing in cured meats and cheeses."
+            },
+            {
+                "name": "Monastiraki Flea Market",
+                "type": "Flea Market/Tourist Market",
+                "highlights": [
+                    "Souvenirs",
+                    "Antiques (especially on Sundays)",
+                    "Clothing, crafts, food products"
+                ],
+                "hours": "Daily, but most extensive on Sunday mornings",
+                "best_time": "Sunday morning (for antiques/flea market)",
+                "location": "Ifestou Street and surrounding area, Monastiraki",
+                "local_tips": "More tourist-oriented than Varvakios, but still lively; Sunday is the main flea market day with more vendors selling antiques and second-hand goods; browse for souvenirs, leather goods, etc.; find some food stalls and cafes nearby."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Artichokes (Aginares) prepared in various ways",
+            "Fresh Peas and Broad Beans (often cooked with lamb - Arni Fricase)",
+            "Easter specialties like Magiritsa (lamb offal soup) and Tsoureki (sweet braided bread)"
+        ],
+        "summer": [
+            "Gemista (Tomatoes and Peppers stuffed with rice and herbs)",
+            "Horiatiki Salata (Greek Salad) at its peak with ripe tomatoes",
+            "Fresh Figs, Watermelon, Melons"
+        ],
+        "autumn": [
+            "Horta (Wild Greens) - boiled and served with lemon and olive oil",
+            "Quince (Kydoni) - often made into spoon sweets or baked",
+            "Dishes featuring mushrooms and chestnuts"
+        ],
+        "winter": [
+            "Fasolada (White Bean Soup - considered a national dish)",
+            "Lahanodolmades (Cabbage Rolls stuffed with meat and rice in avgolemono sauce)",
+            "Citrus fruits (oranges, mandarins)",
+            "Melomakarona and Kourabiedes (Christmas cookies)"
+        ]
+    }
+}
