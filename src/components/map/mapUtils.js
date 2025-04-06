@@ -28,28 +28,152 @@ export const getCityRatingForDateRange = async (city, startDate, endDate) => {
       return 0;
     }
     
-    let totalScore = 0;
-    let daysCount = 0;
+    // Calculate total days in the trip
+    const totalTripDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
     
+    // Initialize tracking variables
+    let dayScoresSum = 0;
+    let daysWithScores = 0;
+    const monthsInRange = new Set();
+    const monthData = {};
+    
+    // Process each day in the date range
     const currentDate = new Date(start);
     while (currentDate <= end) {
       const month = MONTH_NAMES[currentDate.getMonth()];
       const day = currentDate.getDate();
       
+      // Track months for weather and tourism data
+      if (!monthsInRange.has(month) && calendar.months[month]) {
+        monthsInRange.add(month);
+        const data = calendar.months[month];
+        monthData[month] = {
+          weatherHighC: data.weatherHighC,
+          weatherLowC: data.weatherLowC,
+          tourismLevel: data.tourismLevel
+        };
+      }
+      
+      // Get day score
       if (calendar.months[month]) {
+        let foundScore = false;
+        
         for (const range of calendar.months[month].ranges) {
           if (range.days.includes(day)) {
-            totalScore += range.score;
-            daysCount++;
+            // Base day score (1-5)
+            let dayScore = range.score;
+            
+            // Add bonus for special events
+            if (range.special === true) {
+              dayScore += 0.5;
+            }
+            
+            // Cap at 5
+            dayScore = Math.min(5, dayScore);
+            
+            dayScoresSum += dayScore;
+            daysWithScores++;
+            foundScore = true;
             break;
           }
         }
+        
+        // If no specific score found for this day, use month average
+        if (!foundScore && calendar.months[month].ranges.length > 0) {
+          // Calculate month average if not already done
+          if (!monthData[month].avgScore) {
+            const ranges = calendar.months[month].ranges;
+            const totalScore = ranges.reduce((sum, range) => sum + range.score * range.days.length, 0);
+            const totalDays = ranges.reduce((sum, range) => sum + range.days.length, 0);
+            monthData[month].avgScore = totalDays > 0 ? totalScore / totalDays : 3; // Default to average
+          }
+          
+          dayScoresSum += monthData[month].avgScore;
+          daysWithScores++;
+        }
       }
+      
+      // Move to next day
       currentDate.setDate(currentDate.getDate() + 1);
     }
     
-    const avgScore = daysCount > 0 ? totalScore / daysCount : 0;
-    return avgScore;
+    // If we have less than 60% coverage with day scores, fill in with averages
+    const coverage = daysWithScores / totalTripDays;
+    if (coverage < 0.6 && monthsInRange.size > 0) {
+      // Add average scores for the missing days
+      const missingDays = totalTripDays - daysWithScores;
+      const avgMonthScore = Array.from(monthsInRange)
+        .filter(month => monthData[month] && monthData[month].avgScore)
+        .reduce((sum, month) => sum + monthData[month].avgScore, 0) / 
+        Array.from(monthsInRange).filter(month => monthData[month] && monthData[month].avgScore).length || 3;
+      
+      dayScoresSum += avgMonthScore * missingDays;
+      daysWithScores = totalTripDays;
+    }
+    
+    // Calculate base score from days
+    const baseScore = daysWithScores > 0 ? dayScoresSum / daysWithScores : 0;
+    
+    // Calculate additional factors
+    let weatherScore = 0;
+    let tourismScore = 0;
+    
+    Array.from(monthsInRange).forEach(month => {
+      if (!monthData[month]) return;
+      
+      // Weather score
+      if (monthData[month].weatherHighC && monthData[month].weatherLowC) {
+        const avgTemp = (monthData[month].weatherHighC + monthData[month].weatherLowC) / 2;
+        
+        if (avgTemp >= 15 && avgTemp <= 25) {
+          weatherScore += 5; // Ideal temperature
+        } else if (avgTemp >= 10 && avgTemp < 15 || avgTemp > 25 && avgTemp <= 30) {
+          weatherScore += 4; // Good temperature
+        } else if (avgTemp >= 5 && avgTemp < 10 || avgTemp > 30 && avgTemp <= 35) {
+          weatherScore += 3; // Acceptable temperature
+        } else if (avgTemp >= 0 && avgTemp < 5 || avgTemp > 35) {
+          weatherScore += 2; // Less ideal temperature
+        } else {
+          weatherScore += 1; // Poor temperature
+        }
+      }
+      
+      // Tourism level score (inverted - lower crowds are better)
+      if (monthData[month].tourismLevel) {
+        // Convert 1-10 scale to 1-5 and invert
+        tourismScore += 6 - Math.min(5, Math.ceil(monthData[month].tourismLevel / 2));
+      }
+    });
+    
+    // Average the additional factors
+    const avgWeatherScore = monthsInRange.size > 0 ? weatherScore / monthsInRange.size : 3;
+    const avgTourismScore = monthsInRange.size > 0 ? tourismScore / monthsInRange.size : 3;
+    
+    // Calculate final score with weightings
+    const weights = {
+      baseScore: 0.7,
+      weather: 0.15,
+      tourism: 0.15
+    };
+    
+    let finalScore = (
+      weights.baseScore * baseScore +
+      weights.weather * avgWeatherScore +
+      weights.tourism * avgTourismScore
+    );
+    
+    // For short trips (3 days or less), adjust score to be more favorable
+    if (totalTripDays <= 3) {
+      finalScore = Math.max(finalScore, finalScore * 1.1); // Boost by up to 10%
+    }
+    
+    // For new destinations with limited data, use a more neutral score
+    if (daysWithScores / totalTripDays < 0.3) {
+      finalScore = Math.max(3.0, finalScore); // At least average for destinations with little data
+    }
+    
+    // Ensure final score is in the valid range
+    return Math.max(1, Math.min(5, finalScore));
   } catch (error) {
     console.error(`Error fetching rating for ${city.title}:`, error);
     return 0;
@@ -304,67 +428,19 @@ function addEventToMap(eventsMap, range, monthName, days) {
 }
 
 /**
- * Format events from the events map
+ * Format events for display
  * @param {Map} eventsMap - Map of events
- * @returns {Array<Object>} - Formatted events
+ * @returns {Array} - Formatted events
  */
 function formatEvents(eventsMap) {
   const events = [];
-  for (const eventData of eventsMap.values()) {
-    eventData.dates.sort((a, b) => {
-      const monthOrder = MONTH_NAMES.indexOf(a.month.toLowerCase()) - MONTH_NAMES.indexOf(b.month.toLowerCase());
-      if (monthOrder === 0) {
-        return a.day - b.day;
-      }
-      return monthOrder;
-    });
-    
-    let formattedDates = [];
-    let rangeStart = null;
-    let rangeEnd = null;
-    
-    eventData.dates.forEach((dateObj, index) => {
-      if (rangeStart === null) {
-        rangeStart = dateObj;
-        rangeEnd = dateObj;
-      } else {
-        const prevDate = new Date(2023, MONTH_NAMES.indexOf(eventData.dates[index-1].month.toLowerCase()), eventData.dates[index-1].day);
-        const currDate = new Date(2023, MONTH_NAMES.indexOf(dateObj.month.toLowerCase()), dateObj.day);
-        const dayDiff = (currDate - prevDate) / (1000 * 60 * 60 * 24);
-        if (dayDiff === 1) {
-          rangeEnd = dateObj;
-        } else {
-          formattedDates.push(formatDateRange(rangeStart, rangeEnd));
-          rangeStart = dateObj;
-          rangeEnd = dateObj;
-        }
-      }
-      if (index === eventData.dates.length - 1) {
-        formattedDates.push(formatDateRange(rangeStart, rangeEnd));
-      }
-    });
-    
+  for (const [key, eventData] of eventsMap.entries()) {
     events.push({
-      event: eventData.event,
-      dates: formattedDates,
+      id: key,
+      title: eventData.event,
+      dates: eventData.dates,
       notes: eventData.notes
     });
   }
   return events;
-}
-
-/**
- * Format a date range
- * @param {Object} start - Start date object
- * @param {Object} end - End date object
- * @returns {string} - Formatted date range
- */
-function formatDateRange(start, end) {
-  if (start.month === end.month && start.day === end.day) {
-    return `${start.month} ${start.day}`;
-  } else if (start.month === end.month) {
-    return `${start.month} ${start.day}-${end.day}`;
-  } else {
-    return `${start.month} ${start.day} - ${end.month} ${end.day}`;
-  }
 }

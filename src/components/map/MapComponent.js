@@ -18,6 +18,9 @@ import {
 } from './mapService';
 import { FilterToggleButton } from './FilterComponents';
 import FilterContainer from './FilterContainer';
+import RankedListPanel from './RankedListPanel';
+import LoadingOverlay from '../common/LoadingOverlay';
+import CityDetailsPopup from './CityDetailsPopup';
 
 /**
  * Map Component
@@ -31,6 +34,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
   const markersRef = useRef([]);
   const popupsRef = useRef([]);
   const isMoving = useRef(false);
+  const mapInitialized = useRef(false); // Ref to track initialization
   
   // State
   const [showFilters, setShowFilters] = useState(true);
@@ -40,6 +44,8 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
   const [dateRangeLoading, setDateRangeLoading] = useState(false);
   const [filters, setFilters] = useState(INITIAL_FILTERS);
   const [currentPopup, setCurrentPopup] = useState(null);
+  const [showRankedListPanel, setShowRankedListPanel] = useState(false);
+  const [selectedCityForDetails, setSelectedCityForDetails] = useState(null);
 
   // Memoized values
   const countries = useMemo(() => {
@@ -48,9 +54,14 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
 
   // Effect for initializing map
   useEffect(() => {
-    if (!mapContainer.current) return;
+    // Prevent re-initialization if already done or container not ready
+    if (mapInitialized.current || !mapContainer.current) {
+      return;
+    }
+    mapInitialized.current = true; // Mark as initialized
 
     const setupMap = async () => {
+      console.log("[MapComponent] Attempting map initialization...");
       try {
         const { map, mapboxgl, isMoving: movingState } = await initializeMap(
           mapContainer.current, 
@@ -58,16 +69,19 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
           onViewStateChange
         );
         
+        console.log("[MapComponent] Map initialized successfully.");
         mapInstance.current = map;
         mapboxGLRef.current = mapboxgl;
         isMoving.current = movingState;
         
-        // Add markers once map is loaded
         map.once('load', async () => {
+          console.log("[MapComponent] Map 'load' event fired.");
           await updateMarkers();
         });
       } catch (error) {
-        console.error("Error setting up map:", error);
+        console.error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        console.error("[MapComponent] CRITICAL ERROR setting up map:", error);
+        console.error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       }
     };
 
@@ -77,6 +91,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       if (mapInstance.current) {
         mapInstance.current.remove();
         mapInstance.current = null;
+        mapInitialized.current = false; // Reset on unmount
       }
     };
   }, []);
@@ -123,10 +138,17 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         (filters.useFlexibleDates && filters.selectedMonths.length > 0);
       
       if (hasDateFilters) {
-        results = results.filter(city => {
+        // Round to first decimal place for more consistent filtering
+        const ratingToUse = parseInt(filters.minRating);
+        
+        // Filter based on ratings
+        const filteredByRating = results.filter(city => {
           const rating = cityRatings[city.title] || 0;
-          return rating >= filters.minRating;
+          const roundedRating = Math.round(rating * 10) / 10; // Round to 1 decimal
+          return roundedRating >= ratingToUse;
         });
+        
+        results = filteredByRating;
       }
     }
     
@@ -428,23 +450,34 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
     setShowCountryDropdown(prev => !prev);
   }, []);
 
+  const toggleRankedListPanel = useCallback(() => {
+    setShowRankedListPanel(prev => !prev);
+    if (showRankedListPanel) {
+      setSelectedCityForDetails(null);
+    }
+  }, [showRankedListPanel]);
+
+  const handleShowCityDetails = useCallback((city) => {
+    setSelectedCityForDetails(city);
+  }, []);
+
+  const handleCloseCityDetails = useCallback(() => {
+    setSelectedCityForDetails(null);
+  }, []);
+
   return (
-    <>
-      <div ref={mapContainer} style={{ width: '100%', height: '100%' }} />
+    <div className="relative h-screen">
+      <div ref={mapContainer} className="absolute top-0 bottom-0 w-full" style={{ height: '100%' }} />
       
-      <div className="absolute top-4 left-4 z-10">
-        <FilterToggleButton 
-          showFilters={showFilters} 
-          onToggle={handleToggleFilters} 
-        />
-        
+      <div className="absolute top-4 left-4 z-10 flex flex-col items-start">
+        <FilterToggleButton showFilters={showFilters} onToggle={handleToggleFilters} />
         {showFilters && (
           <FilterContainer 
-            countries={countries}
+            countries={['All', ...Object.keys(destinations.reduce((acc, d) => ({ ...acc, [d.country]: true }), {}))]}
             filters={filters}
             showCountryDropdown={showCountryDropdown}
             dateRangeLoading={dateRangeLoading}
-            destinationCount={filteredDestinations.length || destinations.length}
+            destinationCount={filteredDestinations.length} 
             cityRatings={cityRatings}
             onToggleCountryDropdown={handleToggleCountryDropdown}
             onToggleCountry={toggleCountry}
@@ -453,16 +486,38 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
             onDateTypeToggle={toggleDateMode}
             onMonthToggle={handleMonthSelection}
             onRatingChange={handleRatingChange}
+            showRankedListPanel={showRankedListPanel}
+            onToggleRankedList={toggleRankedListPanel}
           />
         )}
       </div>
       
-      {destinations?.length === 0 && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded shadow-md">
-          <p>No destination data available to display on the map.</p>
-        </div>
+      {showRankedListPanel && (
+        <RankedListPanel 
+          destinationsWithRatings={filteredDestinations.map(dest => ({
+            ...dest,
+            rating: cityRatings[dest.title] || 0
+          }))}
+          onClose={toggleRankedListPanel} 
+          onCitySelect={handleShowCityDetails}
+        />
       )}
-    </>
+      
+      {selectedCityForDetails && (
+        <CityDetailsPopup
+          city={selectedCityForDetails}
+          dateFilters={{
+            startDate: filters.startDate,
+            endDate: filters.endDate,
+            useFlexibleDates: filters.useFlexibleDates,
+            selectedMonths: filters.selectedMonths
+          }}
+          onClose={handleCloseCityDetails}
+        />
+      )}
+      
+      <LoadingOverlay isLoading={dateRangeLoading} text="Calculating best travel times..." />
+    </div>
   );
 }
 

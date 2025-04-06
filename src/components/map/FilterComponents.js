@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { MONTH_NAMES_SHORT } from './constants';
 
 /**
@@ -139,6 +139,74 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
     { name: 'Fall', months: [8, 9, 10] },   // Sep, Oct, Nov
   ];
 
+  // Add custom styles to improve date picker arrows
+  useEffect(() => {
+    // Add custom CSS to document head
+    const style = document.createElement('style');
+    style.textContent = `
+      /* Hide default calendar icon and customize our own */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+      
+      /* Better date inputs in Firefox */
+      input[type="date"] {
+        position: relative;
+        appearance: none;
+        -moz-appearance: none;
+      }
+      
+      /* Make calendar clickable across the entire input */
+      .date-input-wrapper {
+        position: relative;
+      }
+      
+      .calendar-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 1;
+      }
+      
+      /* Better month navigation arrows */
+      .react-datepicker__navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 32px;
+        width: 32px;
+        border-radius: 4px;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+      }
+      
+      .react-datepicker__navigation:hover {
+        background-color: #e5e7eb;
+      }
+      
+      .react-datepicker__navigation-icon {
+        position: relative;
+        top: 0;
+        display: block;
+        width: 0;
+        border-color: #6b7280;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const handleSeasonToggle = (seasonMonths) => {
     // If all months in the season are already selected, deselect them
     // Otherwise, select all months in the season
@@ -156,6 +224,18 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
         }
       });
     }
+  };
+  
+  /**
+   * Calculate trip duration in days
+   * @param {string} startDate - Start date in ISO format
+   * @param {string} endDate - End date in ISO format
+   * @returns {number} - Trip duration in days
+   */
+  const calculateTripDuration = (startDate, endDate) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    return Math.max(1, Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1);
   };
   
   return (
@@ -238,7 +318,7 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
         <div className="mt-2">
           <div className="text-sm text-gray-700 mb-3">Select your travel period:</div>
           <div className="space-y-3">
-            <div className="relative">
+            <div className="relative date-input-wrapper">
               <label className="absolute -top-2 left-2 bg-white px-1 text-xs text-gray-500 z-10">Start Date</label>
               <input 
                 type="date" 
@@ -247,8 +327,13 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
                 onChange={(e) => onDateChange('startDate', e.target.value)}
                 style={{ minHeight: '45px' }}
               />
+              <div className="calendar-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
             </div>
-            <div className="relative">
+            <div className="relative date-input-wrapper">
               <label className="absolute -top-2 left-2 bg-white px-1 text-xs text-gray-500 z-10">End Date</label>
               <input 
                 type="date" 
@@ -258,6 +343,11 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
                 min={startDate}
                 style={{ minHeight: '45px' }}
               />
+              <div className="calendar-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
             </div>
           </div>
           {(!startDate || !endDate) && (
@@ -283,18 +373,6 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
 };
 
 /**
- * Calculate trip duration in days
- * @param {string} startDate - Start date in ISO format
- * @param {string} endDate - End date in ISO format
- * @returns {number} - Trip duration in days
- */
-const calculateTripDuration = (startDate, endDate) => {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  return Math.max(1, Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1);
-};
-
-/**
  * Rating filter component
  * @param {Object} props - Component props
  * @param {number} props.minRating - Minimum rating
@@ -302,15 +380,67 @@ const calculateTripDuration = (startDate, endDate) => {
  * @param {boolean} props.loading - Whether loading is in progress
  * @param {Function} props.onRatingChange - Rating change handler
  * @param {Object} props.dateFilters - Date filter settings
+ * @param {Object} props.cityRatings - City ratings object
+ * @param {number} props.destinationCount - Count of destinations currently shown
  * @returns {JSX.Element} - Rating filter component
  */
-export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dateFilters, cityRatings }) => {
+export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dateFilters, cityRatings = {}, destinationCount }) => {
   const dateFiltersMissing = 
     (!dateFilters.startDate || !dateFilters.endDate) && 
     (dateFilters.useFlexibleDates && dateFilters.selectedMonths.length === 0);
   
-  // Determine if there are highly rated cities in the selected months
-  const hasHighRatedCities = cityRatings && Object.values(cityRatings).some(rating => rating >= 4);
+  const calculateRatingCounts = useCallback(() => {
+    if (!cityRatings || Object.keys(cityRatings).length === 0) {
+      return {
+        good: 0,
+        veryGood: 0,
+        total: 0,
+        showingOnMap: 0
+      };
+    }
+
+    const counts = {
+      good: 0,
+      veryGood: 0,
+      total: 0,
+      showingOnMap: 0
+    };
+
+    // Count cities by rating
+    Object.entries(cityRatings).forEach(([cityName, rating]) => {
+      // Skip invalid ratings
+      if (rating === null || rating === undefined || isNaN(rating)) {
+        return;
+      }
+      
+      const roundedRating = Math.round(rating * 10) / 10; // Round to 1 decimal
+      
+      if (roundedRating >= 3 && roundedRating < 4) {
+        counts.good++;
+      } else if (roundedRating >= 4) {
+        counts.veryGood++;
+      }
+      
+      if (roundedRating > 0) {
+        counts.total++;
+      }
+    });
+
+    // Calculate how many cities are showing on map based on current filter
+    if (parseInt(minRating) === 0) {
+      counts.showingOnMap = destinationCount || 0;
+    } else if (parseInt(minRating) === 3) {
+      counts.showingOnMap = counts.good + counts.veryGood;
+    } else if (parseInt(minRating) === 4) {
+      counts.showingOnMap = counts.veryGood;
+    } else {
+      counts.showingOnMap = 0;
+    }
+
+    return counts;
+  }, [cityRatings, minRating, destinationCount]);
+  
+  const ratingCounts = calculateRatingCounts();
   
   // Get the highest rated month (if flexible dates)
   const getMonthsDescription = () => {
@@ -332,7 +462,7 @@ export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dat
   return (
     <div className="mb-4">
       <div className="flex items-center justify-between mb-1">
-        <label className="block text-sm font-medium text-gray-700">Destination Quality</label>
+        <label className="block text-sm font-medium text-gray-700">Destination Rating</label>
         {loading && (
           <div className="flex items-center text-blue-600">
             <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -344,37 +474,57 @@ export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dat
         )}
       </div>
       
-      <select 
-        className={`w-full p-2 border ${dateFiltersMissing ? 'border-gray-200 bg-gray-50' : 'border-gray-300 bg-white'} rounded-md transition-colors`}
-        value={minRating}
-        onChange={(e) => onRatingChange(e.target.value)}
-        disabled={disabled || dateFiltersMissing}
-      >
-        <option value="0">All Destinations</option>
-        <option value="3">Good & Above (3+ ★★★☆☆)</option>
-        <option value="4">Very Good (4+ ★★★★☆)</option>
-        <option value="5">Excellent (5 ★★★★★)</option>
-      </select>
+      <div className="relative">
+        <select 
+          className={`w-full p-2 border ${dateFiltersMissing ? 'border-gray-200 bg-gray-50' : 'border-gray-300 bg-white'} rounded-md transition-colors appearance-none pr-8`}
+          value={minRating}
+          onChange={(e) => onRatingChange(e.target.value)}
+          disabled={disabled || dateFiltersMissing}
+        >
+          <option value="0">All Destinations</option>
+          <option value="3">3+ (Good)</option>
+          <option value="4">4+ (Very Good)</option>
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+          </svg>
+        </div>
+      </div>
       
       {dateFiltersMissing ? (
         <p className="text-xs text-amber-600 mt-1 flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
-          {dateFilters.useFlexibleDates ? 'Select at least one month' : 'Select a date range'} to filter by quality
+          {dateFilters.useFlexibleDates ? 'Select at least one month' : 'Select a date range'} to filter by rating
         </p>
       ) : loading ? (
         <p className="text-xs text-blue-600 mt-1">Analyzing travel conditions {getMonthsDescription()}...</p>
-      ) : (
-        minRating > 0 && hasHighRatedCities && (
-          <p className="text-xs text-green-600 mt-1 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-            </svg>
-            Found great destinations {getMonthsDescription()}
-          </p>
-        )
-      )}
+      ) : ratingCounts.total > 0 ? (
+        <div className="mt-2 space-y-1">
+          <div className="grid grid-cols-2 gap-x-1 text-xs">
+            <div className="text-gray-700">Very Good (4+)</div>
+            <div className="text-right font-medium text-green-700">
+              {isNaN(ratingCounts.veryGood) ? 0 : ratingCounts.veryGood}
+            </div>
+            
+            <div className="text-gray-700">Good (3+)</div>
+            <div className="text-right font-medium text-green-600">
+              {isNaN(ratingCounts.good + ratingCounts.veryGood) ? 0 : (ratingCounts.good + ratingCounts.veryGood)}
+            </div>
+          </div>
+          
+          {parseInt(minRating) > 0 && (
+            <div className="mt-2 pt-2 border-t border-gray-100 flex items-center justify-between text-xs">
+              <span className="font-medium text-gray-700">Showing on map:</span>
+              <span className="font-medium text-blue-600">
+                {isNaN(ratingCounts.showingOnMap) ? 0 : ratingCounts.showingOnMap}
+              </span>
+            </div>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 };
