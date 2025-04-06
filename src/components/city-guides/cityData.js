@@ -990,7 +990,7 @@ export const getCitiesData = () => {
       region: "Atlantic Islands",
       description:
         "Lisbon, perched on seven hills, offers a blend of traditional heritage and striking modernism, with a scenic riverside setting.",
-      thumbnail: "/images/lisbon-thumbnail.jpg",
+      thumbnail: "/images/lisbon-thumbnail.png",
       landmarks: ["Belém Tower", "Jerónimos Monastery", "Alfama District"],
       latitude: 38.7223,
       longitude: -9.1393,
@@ -1004,7 +1004,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Porto is known for its historic center, vibrant wine culture, and dramatic riverside landscapes.",
-      thumbnail: "/images/porto-thumbnail.jpg",
+      thumbnail: "/images/porto-thumbnail.png",
       landmarks: ["Dom Luís I Bridge", "Livraria Lello", "Clérigos Tower"],
       latitude: 41.1579,
       longitude: -8.6291,

@@ -1,0 +1,172 @@
+{
+    "destinations": [
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Discover Portugal's vibrant second city, famous for its Port wine cellars, historic Ribeira district along the Douro River, colorful tiled buildings, and iconic Dom Luís I Bridge.",
+            "directWithinCountryTrain": {
+                "stationInLisbon": "Lisbon Santa Apolónia / Oriente",
+                "journeyTime": "Approx. 3 hours (Alfa Pendular high-speed)",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Sete Rios / Oriente",
+                "journeyTime": "Approx. 3 hours 30 minutes",
+                "frequency": "Multiple times per hour"
+            }
+        },
+        {
+            "city": "Faro (Algarve)",
+            "country": "Portugal",
+            "whyGo": "Explore the capital of the Algarve region, a gateway to southern Portugal's stunning beaches, dramatic cliffs, golf courses, and charming coastal towns.",
+            "directWithinCountryTrain": {
+                "stationInLisbon": "Lisbon Oriente / Entrecampos",
+                "journeyTime": "Approx. 3 hours (Alfa Pendular)",
+                "frequency": "Several times per day"
+            },
+            "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Sete Rios / Oriente",
+                "journeyTime": "Approx. 3 hours 30 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "45 minutes",
+                "frequency": "Several times daily (seasonal variations)"
+            }
+        },
+        {
+            "city": "Coimbra",
+            "country": "Portugal",
+            "whyGo": "Visit Portugal's historic university city, home to one of the world's oldest universities, a stunning Baroque library (Biblioteca Joanina), and a rich tradition of Fado music.",
+            "directWithinCountryTrain": {
+                "stationInLisbon": "Lisbon Santa Apolónia / Oriente",
+                "journeyTime": "Approx. 1 hour 45 minutes (Alfa Pendular)",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Sete Rios / Oriente",
+                "journeyTime": "Approx. 2 hours 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant Spanish capital with its world-class art museums (Prado, Reina Sofía), Royal Palace, lively tapas bars, Retiro Park, and bustling nightlife.",
+            "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Sete Rios / Oriente",
+                "journeyTime": "Approx. 8-9 hours (often overnight)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Seville",
+            "country": "Spain",
+            "whyGo": "Discover the heart of Andalusia with its stunning Alcázar palace, massive Gothic cathedral, flamenco dancing, orange-tree-lined streets, and vibrant Feria de Abril.",
+             "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Sete Rios / Oriente",
+                "journeyTime": "Approx. 6-7 hours (day or overnight options)",
+                "frequency": "Several times daily"
+            },
+           "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Daily flights"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Explore Catalonia's cosmopolitan capital, renowned for Gaudí's unique architecture (Sagrada Família, Park Güell), the Gothic Quarter, Las Ramblas boulevard, and Mediterranean beaches.",
+            "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Oriente",
+                "journeyTime": "Approx. 18-20 hours (very long)",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the iconic City of Light, home to the Eiffel Tower, Louvre Museum, Notre Dame Cathedral, charming Montmartre, romantic Seine River cruises, and world-class cuisine.",
+            "directWithinCountryBus": {
+                "stationInLisbon": "Lisbon Oriente / Sete Rios",
+                "journeyTime": "Approx. 24 hours (very long)",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Experience the historic UK capital with its royal landmarks (Buckingham Palace, Tower of London), world-class museums, diverse neighborhoods, West End theatre, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Explore the Eternal City, delving into ancient history at the Colosseum and Roman Forum, visiting Vatican City (St. Peter's Basilica, Vatican Museums), and enjoying delicious Italian food.",
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "3 hours 15 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Discover the charming Dutch capital with its picturesque canals, historic gabled houses, world-class art museums (Rijksmuseum, Van Gogh Museum), Anne Frank House, and liberal atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "3 hours",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Marrakech",
+            "country": "Morocco",
+            "whyGo": "Immerse yourself in the vibrant culture of Morocco, exploring the bustling Djemaa el-Fna square, winding souks, stunning palaces (Bahia, El Badi), and Jardin Majorelle.",
+            "intraEuropeFlight": {
+                "airportsInLisbon": [
+                    "Lisbon Airport (LIS)"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Daily flights"
+            }
+        }
+    ]
+}
