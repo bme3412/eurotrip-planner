@@ -1,0 +1,464 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Clochard",
+                "cuisine_type": "Modern Greek/French",
+                "signature_dishes": [
+                    "Cod with Lemon Sauce and Caviar",
+                    "Moussaka with Slow-cooked Cheeks",
+                    "Wagyu Picanha Nigiri"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining with mirrors, fine lighting, and art de la table in a historic building on Mitropoleos Street",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially for weekend dinners; considered one of the city's top fine dining establishments",
+                "dress_code": "Smart Elegant",
+                "location": "Mitropoleos Street, City Center",
+                "local_tips": "Impressive wine list with over 600 labels from around the world; balances traditional Greek dishes with innovative presentations; combines French techniques with Greek ingredients."
+            },
+            {
+                "name": "Charoupi",
+                "cuisine_type": "Refined Cretan Cuisine",
+                "signature_dishes": [
+                    "Gooey Egg Yolks with Staka Cream",
+                    "Fried Kalitsounia (Cheese Pies)",
+                    "Gamopilafo (Wedding Rice)",
+                    "Cretan Salad Presentation"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated yet relaxed dining with elegant presentation and attentive service",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve in advance; mention any dietary preferences; ask for recommendations on Cretan wine pairings",
+                "dress_code": "Smart Casual",
+                "location": "Doxis 4, Ladadika",
+                "local_tips": "Run by acclaimed chef Manolis Papoutsakis since 2016; features over 10 carefully selected Cretan cheeses; offers a complimentary dessert after your meal; an excellent introduction to authentic Cretan cuisine."
+            },
+            {
+                "name": "Olympos Naoussa",
+                "cuisine_type": "Contemporary Greek",
+                "signature_dishes": [
+                    "Seafood Selections",
+                    "Refined Greek Classics",
+                    "Seasonal Specialties"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic culinary landmark on the waterfront, elegantly restored to blend iconic past with contemporary sophistication",
+                "best_time": "Dinner (especially sunset)",
+                "reservation_needed": true,
+                "booking_tips": "Request a table with sea views; weekend bookings should be made well in advance",
+                "dress_code": "Smart Elegant",
+                "location": "Waterfront",
+                "local_tips": "A Thessaloniki institution originally established in the 1920s; once hosted celebrities, artists and intellectuals; recently renovated to preserve its heritage while embracing modern Greek gastronomy."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "To Elliniko",
+                "cuisine_type": "Traditional Greek Taverna",
+                "signature_dishes": [
+                    "Zucchini Fritters with Tzatziki",
+                    "Stuffed Vine Leaves",
+                    "Saganaki (Fried Cheese)",
+                    "Cretan Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic, welcoming taverna featured in Rick Stein's travel documentary",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended for dinner",
+                "booking_tips": "Popular with both locals and tourists; lively atmosphere",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Offers quintessential Greek dining experience with generous portions and friendly service; perfect for first-time visitors wanting to sample a variety of traditional Greek dishes."
+            },
+            {
+                "name": "To Manitari",
+                "cuisine_type": "Creative Greek",
+                "signature_dishes": [
+                    "Seasonal Mushroom Dishes",
+                    "Risottos",
+                    "Chef's Special Tasting Menu"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Urban-chic restaurant with a beautiful balcony and impressive design in Kalamaria",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance, especially for the balcony seating in summer",
+                "dress_code": "Smart Casual",
+                "location": "Kalamaria",
+                "local_tips": "Award-winning restaurant (Greece Best Restaurant Award 2018-2019); uses high-quality products from small producers throughout Greece; menu changes seasonally; excellent for a special night out."
+            },
+            {
+                "name": "Nea Diagonios",
+                "cuisine_type": "Greek Meat Specialties",
+                "signature_dishes": [
+                    "Fillet of Veal Souvlaki",
+                    "Grilled Lamb Chops",
+                    "House-made Spicy Sausage",
+                    "Grilled Beef Liver with Pear and Mustard Sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek, sophisticated steakhouse with modern decor",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Request information about the meat cuts of the day",
+                "dress_code": "Smart Casual",
+                "location": "City Center",
+                "local_tips": "Premium meat-focused restaurant with high-quality cuts and sophisticated preparations; veal fillet with summer truffle carpaccio and porcini cream is a standout dish; good wine selection to pair with meat dishes."
+            },
+            {
+                "name": "Grada Nuevo",
+                "cuisine_type": "Mediterranean/Seafood",
+                "signature_dishes": [
+                    "Fresh Fish Selections",
+                    "Seafood Platters",
+                    "Colorful Seafood Delicacies"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Upscale seafood restaurant near Aristotelous Square",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Highly recommended",
+                "booking_tips": "Specify if you have any seafood preferences when booking",
+                "dress_code": "Smart Casual",
+                "location": "Near Aristotelous Square, Ladadika",
+                "local_tips": "Specializes in fresh seafood and fish; some meat options available; excellent for business lunches or special occasions; popular with locals for celebrating important events."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Gyros Stands (various locations)",
+                "specialties": [
+                    "Pork Gyros",
+                    "Chicken Gyros",
+                    "Souvlaki Pita",
+                    "Soutzoukakia (Spiced Meatballs)"
+                ],
+                "price_range": "€",
+                "hours": "Lunch, Dinner, Late Night",
+                "location": "Throughout the city, particularly around Aristotelous Square and Navarinou Square",
+                "seating": "Limited or standing only",
+                "local_tips": "Look for places where locals queue; freshly sliced meat from the vertical rotisserie is key; authentic gyros includes fries inside the pita; typically served with tzatziki, tomatoes, onions, and sometimes mustard."
+            },
+            {
+                "name": "Bougatsa Shops",
+                "specialties": [
+                    "Bougatsa (Custard-filled Phyllo Pastry)",
+                    "Cheese Bougatsa",
+                    "Minced Meat Bougatsa"
+                ],
+                "price_range": "€",
+                "hours": "Morning to Afternoon",
+                "location": "Various locations, with famous shops near Modiano Market",
+                "seating": "Limited",
+                "local_tips": "Serraikon near Modiano Market is famous for the best bougatsa in Thessaloniki; traditionally eaten for breakfast with powdered sugar and cinnamon; watch the skilled bakers stretch the dough by hand; bougatsa is a Thessaloniki specialty with Byzantine origins."
+            },
+            {
+                "name": "Feyrouz",
+                "specialties": [
+                    "Lahmacun (Turkish flatbread pizza)",
+                    "Pide (Boat-shaped pizza)",
+                    "Middle Eastern-inspired street food"
+                ],
+                "price_range": "€",
+                "hours": "Lunch & early Dinner",
+                "location": "Near Modiano Market",
+                "seating": "Limited counter seating",
+                "local_tips": "Popular lunch spot offering excellent quality, flavorful Middle Eastern street food that reflects Thessaloniki's multicultural heritage; vegetarian options available; items sell out quickly, so go early."
+            },
+            {
+                "name": "Koulouri Stands",
+                "specialties": [
+                    "Koulouri Thessalonikis (Sesame Bread Rings)"
+                ],
+                "price_range": "€",
+                "hours": "Morning",
+                "location": "Street corners throughout the city, especially near transit hubs",
+                "seating": "None (takeaway)",
+                "local_tips": "The quintessential Thessaloniki breakfast on-the-go; best fresh in the morning; sometimes available with fillings like cheese or chocolate spread; pairs perfectly with Greek coffee."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "The Garden Bar",
+                "specialty": "Brunch & Specialty Coffee",
+                "must_try": [
+                    "Pancakes with Various Toppings",
+                    "Yogurt/Fruit Bowl",
+                    "Specialty Coffee Selections"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy modern interior with natural elements and greenery",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Extensive brunch menu, vegetarian options",
+                "local_tips": "Popular for its relaxed atmosphere and quality ingredients; comfortable benches and chairs with pleasant background music; generous portions; one of the city's best brunch spots."
+            },
+            {
+                "name": "Ergon Agora",
+                "specialty": "Market Café & Delicatessen",
+                "must_try": [
+                    "Greek Coffee",
+                    "Pastries",
+                    "Gourmet Sandwiches"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant marketplace where modernity meets tradition",
+                "best_time": "Anytime",
+                "wifi_friendly": true,
+                "food_options": "Market products, light meals, groceries",
+                "local_tips": "More than just a café - a comprehensive food experience; you can buy groceries and dine in the same location; Sunday brunch is particularly popular; excellent quality but service can be slow when busy."
+            },
+            {
+                "name": "Palio Hamam",
+                "specialty": "Historic Setting",
+                "must_try": [
+                    "Greek Coffee by the Fireplace",
+                    "Specialty Teas",
+                    "Cocktails (evening)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Unique café set in a restored Ottoman bathhouse with layers of history",
+                "best_time": "Afternoon/Evening",
+                "wifi_friendly": true,
+                "food_options": "Light snacks, desserts",
+                "local_tips": "Sitting on some of Thessaloniki's oldest ruins; warm and cozy in winter with a fireplace; rooftop bar in summer offers views of the Ottoman baths; perfect blend of history and modern café culture."
+            },
+            {
+                "name": "To Pikap",
+                "specialty": "Vinyl & Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Freddo Cappuccino",
+                    "Greek Coffee"
+                ],
+                "price_range": "€",
+                "atmosphere": "Unique vinyl shop and café with authentic music ambiance",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks",
+                "local_tips": "Not just a café but also a vinyl record shop; music played from the café's own vinyl collection; owners were formerly DJs; located in Old Town (Ano Poli); a haven for music lovers."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Skyline - OTE Tower",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic Views",
+                "signature_drinks": [
+                    "Signature Cocktails",
+                    "Wine Selection",
+                    "Premium Spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant revolving bar atop the OTE Tower with 360-degree views of the city",
+                "best_time": "Sunset/Evening",
+                "food_options": "Light bites, cheese platters",
+                "reservation_needed": "Highly recommended",
+                "local_tips": "The bar rotates completely in about 45 minutes, offering stunning panoramic views; recently renovated; ideal for special occasions; serves breakfast and brunch earlier in the day."
+            },
+            {
+                "name": "Local",
+                "type": "Wine Bar",
+                "specialty": "Greek Wines",
+                "signature_drinks": [
+                    "Kir-Yianni Blue Fox Blend",
+                    "Greek Vineyard Selections",
+                    "Wine Flights"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated wine bar at the busy intersection of Paleon Patron Germanou and Pavlou Mela streets",
+                "best_time": "Evening",
+                "food_options": "Gourmet small plates, excellent carpaccio",
+                "reservation_needed": "Recommended for groups",
+                "local_tips": "Owned by Nikos Vangelopoulos; excellent selection of Greek wines; perfect spot for people-watching; knowledgeable staff can help with wine recommendations; popular with local wine enthusiasts."
+            },
+            {
+                "name": "Paraty",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "House Special Cocktails",
+                    "Classic Cocktails",
+                    "Premium Spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish bar with imposing central bar, cozy corners, comfortable vintage and art deco furniture",
+                "best_time": "Evening/Night",
+                "food_options": "Light snacks",
+                "reservation_needed": "Recommended for groups",
+                "local_tips": "Features a special upstairs 'Loft' area reminiscent of a New York loft with a different list of wines and cocktails; attention to detail in both decor and drink preparation; sophisticated ambiance with curated music."
+            },
+            {
+                "name": "Elephantas Cafe Bar",
+                "type": "Laid-back Bar",
+                "specialty": "Relaxed Atmosphere",
+                "signature_drinks": [
+                    "Greek Beers",
+                    "Cocktails",
+                    "Ouzo and Tsipouro"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, welcoming space with friendly staff and eclectic music (funk, jazz, Latin, reggae)",
+                "best_time": "Anytime",
+                "food_options": "Small plates",
+                "reservation_needed": false,
+                "local_tips": "Though small in size, offers a homey, welcoming atmosphere; excellent music selection creates a relaxing environment; open from morning until late at night; popular with students and locals."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Thessaloniki Food Tour",
+                "focus": "Traditional Thessaloniki Cuisine",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Exploring Kapani and Modiano Markets",
+                    "Sampling local specialties like bougatsa, koulouri, and meze",
+                    "Learning about Thessaloniki's multicultural culinary history"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (typically max 8-10)",
+                "languages": [ "English", "Greek", "Other languages available on request" ],
+                "booking_tips": "Book in advance online; wear comfortable walking shoes; come hungry; don't plan a big meal before or after; these tours showcase why Thessaloniki is a UNESCO City of Gastronomy."
+            },
+            {
+                "name": "Sweet Thessaloniki Tour",
+                "focus": "Desserts and Sweet Specialties",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visiting Thessaloniki's best pastry shops",
+                    "Tasting local sweets like trigona panoramatos, tsoureki, and bougatsa",
+                    "Learning about the city's sweet traditions"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "Greek" ],
+                "booking_tips": "Perfect for those with a sweet tooth; combines cultural and culinary history with dessert tastings; provides insight into the city's famous pastry scene."
+            },
+            {
+                "name": "Greek Drinks Experience",
+                "focus": "Traditional Greek Beverages",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Sampling various Greek drinks at local tavernas",
+                    "Learning about wine, ouzo, tsipouro, and Greek coffee traditions",
+                    "Discovering the culture around drinking in Greece"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "Greek" ],
+                "booking_tips": "Insightful tour with a local expert; great introduction to Greek drinking culture; includes food pairings with drinks at various stops."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Cooking Class for Foodies",
+                "cuisine_focus": "Traditional Greek Cuisine",
+                "duration": "4-5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Preparing 7 traditional Greek recipes",
+                    "Learning about Greek ingredients and cooking techniques",
+                    "Understanding the stories behind Greek dishes"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "Greek" ],
+                "includes": [ "All ingredients, printed recipes, meal with wine or fresh lemonade, dessert" ],
+                "booking_tips": "Held in the heart of the city by experienced local chefs; suitable for all skill levels; hands-on class with step-by-step guidance; leaves you with skills to recreate authentic Greek dishes at home."
+            },
+            {
+                "name": "Greek Home Cooking Experience",
+                "cuisine_focus": "Authentic Greek Home Cooking with Modern Twists",
+                "duration": "4-5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Traditional Greek dishes with personal touches",
+                    "Preparing mezedes (appetizers) like tzatziki, fried eggplant, feta in wine leaves",
+                    "Using fresh, seasonal ingredients"
+                ],
+                "group_size": "Very small groups (intimate setting)",
+                "languages": [ "English", "Greek" ],
+                "includes": [ "Transportation from city center, all ingredients, full meal with hosts, recipes to take home" ],
+                "booking_tips": "Takes place in a local home outside Thessaloniki; warm, personal experience with hosts; learn Greek cooking from a family perspective; consistently rated as a trip highlight by visitors."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Kapani Market (Agora Kapani)",
+                "type": "Open-air Market/Historic",
+                "highlights": [
+                    "Oldest marketplace in Thessaloniki",
+                    "Fresh produce, meats, fish",
+                    "Olives, spices, local delicacies",
+                    "Traditional food products"
+                ],
+                "hours": "Early morning to afternoon (Mon-Sat)",
+                "best_time": "Morning for freshest selection",
+                "location": "City Center, near Aristotelous Square",
+                "local_tips": "Authentic, bustling marketplace with a wide array of shops; vibrant atmosphere with vendors calling out their wares; great for photography; cafes nearby to relax after shopping; best place to experience local daily life and food culture."
+            },
+            {
+                "name": "Modiano Market",
+                "type": "Covered Market/Historic",
+                "highlights": [
+                    "Historic covered market built in 1922",
+                    "Recently renovated",
+                    "Meat, fish, cheese stalls",
+                    "Restaurants and bars"
+                ],
+                "hours": "Morning to evening (varies by vendor)",
+                "best_time": "Mid-morning",
+                "location": "City Center, near Aristotelous Square",
+                "local_tips": "Cross-shaped historic market recently renovated to blend historical character with modern amenities; now features both traditional market stalls and new dining venues; showcases Thessaloniki's famous food scene; some restaurants offer cooking with ingredients purchased directly from the market."
+            },
+            {
+                "name": "Bit Bazaar",
+                "type": "Flea Market/Food Area",
+                "highlights": [
+                    "Antiques and second-hand goods",
+                    "Small tavernas and eateries",
+                    "Vibrant food scene",
+                    "Local atmosphere"
+                ],
+                "hours": "Varies by establishment, most active evenings and weekends",
+                "best_time": "Evening",
+                "location": "Near Roman Forum",
+                "local_tips": "Unique area combining small antique shops with casual eateries; popular with locals and students; authentic, non-touristy dining options; interesting place to browse for unique items while sampling local food; prices generally lower than more tourist-centric areas."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Wild greens (Horta) with lemon and olive oil",
+            "Fresh sardines and anchovies",
+            "Spring lamb dishes",
+            "Easter specialties: red-dyed eggs, tsoureki (sweet bread), magiritsa soup"
+        ],
+        "summer": [
+            "Gemista (stuffed tomatoes and peppers)",
+            "Fresh seafood from the Thermaic Gulf",
+            "Cold soups like tarator (cucumber yogurt soup)",
+            "Watermelon with feta cheese"
+        ],
+        "autumn": [
+            "Mushroom dishes (especially from nearby Mt. Olympus)",
+            "Game meats",
+            "Fresh olives and olive oil from the new harvest",
+            "Chestnuts and chestnut-based sweets"
+        ],
+        "winter": [
+            "Hearty bean soups like fasolada",
+            "Trahanas (fermented grain soup)",
+            "Soutzoukakia (spiced meatballs in tomato sauce)",
+            "Christmas sweets: melomakarona (honey cookies) and kourabiedes (almond cookies)"
+        ]
+    }
+}

@@ -1076,7 +1076,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Thessaloniki blends Byzantine heritage with a vibrant waterfront and cultural scene as Greece's second-largest city.",
-      thumbnail: "/images/thessaloniki-thumbnail.jpg",
+      thumbnail: "/images/thessaloniki-thumbnail.png",
       landmarks: ["White Tower", "Rotunda"],
       latitude: 40.6401,
       longitude: 22.9444,
