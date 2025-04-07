@@ -1090,7 +1090,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Heraklion, Crete's capital, combines ancient Minoan heritage with a lively modern atmosphere.",
-      thumbnail: "/images/heraklion-thumbnail.jpg",
+      thumbnail: "/images/heraklion-thumbnail.png",
       landmarks: ["Palace of Knossos", "Heraklion Archaeological Museum"],
       latitude: 35.3387,
       longitude: 25.1442,
