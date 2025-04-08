@@ -1,0 +1,185 @@
+{
+    "destinations": [
+        {
+            "city": "Athens (Piraeus Port)",
+            "country": "Greece",
+            "whyGo": "The Greek capital featuring the Acropolis, Parthenon, National Archaeological Museum, Ancient Agora, and vibrant neighborhoods like Plaka. The historic and cultural heart of Greece.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port (Acandia or Commercial)",
+                "journeyTime": "Approx. 12-18+ hours (often overnight)",
+                "frequency": "Multiple sailings per week, potentially daily in peak summer",
+                "companies": ["Blue Star Ferries", "ANEK Lines (check specific routes)"]
+            },
+            "intraGreeceFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 1 hour",
+                "frequency": "Multiple flights daily",
+                "airlines": ["Aegean Airlines", "Olympic Air", "Sky Express"]
+            }
+        },
+        {
+            "city": "Santorini (Thira)",
+            "country": "Greece",
+            "whyGo": "Iconic Cycladic island famous for its dramatic caldera views, white-washed villages (Oia, Fira), stunning sunsets, volcanic beaches, and archaeological site of Akrotiri.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port",
+                "journeyTime": "Approx. 7-12 hours (often involves changes or stops, less direct than from Crete)",
+                "frequency": "Less frequent, check schedules, potentially via Crete or other islands",
+                "companies": ["Blue Star Ferries", "SeaJets (check seasonal routes)", "ANEK Lines (check specific routes)"]
+            },
+            "intraGreeceFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 40-50 minutes (direct, if available, often seasonal) or via Athens",
+                "frequency": "Less frequent direct flights, check seasonal schedules",
+                "airlines": ["Sky Express (seasonal direct)", "Aegean/Olympic (via Athens)"]
+            }
+        },
+        {
+            "city": "Symi",
+            "country": "Greece",
+            "whyGo": "Stunningly picturesque Dodecanese island with a beautiful neoclassical harbour (Gialos), colourful mansions, monasteries (Panormitis), and lovely small beaches.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port (Kolona or Acandia)",
+                "journeyTime": "Approx. 1 - 1.5 hours (fast ferry/catamaran)",
+                "frequency": "Multiple daily sailings (especially high season)",
+                "companies": ["Dodekanisos Seaways", "Blue Star Ferries", "Sea Dreams", "Anes Ferries"]
+            }
+        },
+        {
+            "city": "Kos",
+            "country": "Greece",
+            "whyGo": "Major Dodecanese island known for its ancient ruins (Asklepion), beaches, vibrant town, and connections to other islands and Turkey.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port",
+                "journeyTime": "Approx. 2.5 - 4 hours",
+                "frequency": "Multiple daily sailings",
+                "companies": ["Dodekanisos Seaways", "Blue Star Ferries"]
+            },
+            "intraGreeceFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 30 minutes",
+                "frequency": "Several flights weekly (seasonal)",
+                "airlines": ["Sky Express"]
+            }
+        },
+        {
+            "city": "Karpathos",
+            "country": "Greece",
+            "whyGo": "Island between Rhodes and Crete, known for its dramatic landscapes, traditional villages (Olympos), beautiful beaches, and strong cultural identity.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port",
+                "journeyTime": "Approx. 3.5 - 5 hours",
+                "frequency": "Several sailings per week",
+                "companies": ["Blue Star Ferries", "ANEK Lines"]
+            },
+            "intraGreeceFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 30 minutes",
+                "frequency": "Several flights weekly",
+                "airlines": ["Olympic Air/Aegean", "Sky Express"]
+            }
+        },
+         {
+            "city": "Crete (Heraklion)",
+            "country": "Greece",
+            "whyGo": "Largest Greek island offering Minoan palaces (Knossos), Venetian towns (Chania, Rethymno), stunning gorges (Samaria), diverse beaches, and rich history.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port",
+                "journeyTime": "Approx. 10-14 hours (often overnight, may stop at other islands)",
+                "frequency": "Several sailings per week",
+                "companies": ["ANEK Lines", "Blue Star Ferries (check schedules)"]
+            },
+             "intraGreeceFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 45 minutes",
+                "frequency": "Several flights weekly (seasonal)",
+                "airlines": ["Sky Express", "Olympic Air/Aegean"]
+            }
+        },
+        {
+            "city": "Mykonos",
+            "country": "Greece",
+            "whyGo": "Famous Cycladic island known for its vibrant nightlife, iconic windmills, Little Venice district, beautiful beaches, and cosmopolitan atmosphere.",
+            "intraGreeceFerry": {
+                "portInRhodes": "Rhodes Port",
+                "journeyTime": "Approx. 8-12 hours (usually involves changes/stops, e.g., via Syros or Piraeus)",
+                "frequency": "Less frequent direct sailings, check schedules",
+                "companies": ["Blue Star Ferries (check routes)"]
+            },
+            "intraGreeceFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 2.5-3 hours (via Athens)",
+                "frequency": "Multiple daily options via Athens",
+                "airlines": ["Aegean Airlines", "Olympic Air", "Sky Express"]
+            }
+        },
+        {
+            "city": "Marmaris",
+            "country": "Turkey",
+            "whyGo": "Popular Turkish resort town with a large marina, bustling bazaar, waterfront restaurants, beaches, and nightlife. Gateway to explore the Turkish coastline.",
+            "internationalFerry": {
+                "portInRhodes": "Rhodes Port (Commercial Port)",
+                "journeyTime": "Approx. 1 hour (catamaran)",
+                "frequency": "Multiple daily sailings (high season)",
+                "companies": ["Sea Dreams", "Yesil Marmaris Lines"],
+                "notes": "Passport/Visa requirements apply. Check border crossing regulations."
+            }
+        },
+        {
+            "city": "Fethiye",
+            "country": "Turkey",
+            "whyGo": "Turkish port town known for its natural harbour, rock tombs, nearby Ölüdeniz Blue Lagoon, Saklıkent Gorge, and access to Lycian Way treks.",
+            "internationalFerry": {
+                "portInRhodes": "Rhodes Port (Commercial Port)",
+                "journeyTime": "Approx. 1.5 - 2 hours",
+                "frequency": "Daily sailings (high season)",
+                "companies": ["Sky Marine Ferries", "Makri Travel"],
+                "notes": "Passport/Visa requirements apply. Check border crossing regulations."
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Major global city offering iconic landmarks (Buckingham Palace, Tower of London), world-class museums (British Museum), theatre, shopping, and diverse culture.",
+            "intraEuropeFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 4 - 4.5 hours",
+                "frequency": "Multiple flights daily (seasonal, direct with EasyJet, Ryanair, Jet2, TUI, British Airways)",
+                "airlines": ["EasyJet", "Ryanair", "Jet2", "TUI", "British Airways", "Aegean (via Athens)"]
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The 'City of Light' known for the Eiffel Tower, Louvre Museum, Notre Dame Cathedral, romantic atmosphere, charming neighborhoods, and world-class cuisine.",
+             "intraEuropeFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 3.5 - 4 hours",
+                "frequency": "Frequent flights (seasonal, direct with Transavia, EasyJet, Air France; also Aegean via Athens)",
+                "airlines": ["Transavia", "EasyJet", "Air France", "Aegean Airlines"]
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The 'Eternal City' featuring ancient wonders like the Colosseum and Roman Forum, Vatican City (St. Peter's Basilica, Vatican Museums), Trevi Fountain, and delicious Italian food.",
+            "intraEuropeFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 2 - 2.5 hours",
+                "frequency": "Several flights weekly (seasonal, direct with EasyJet, Ryanair, Wizz Air, ITA; also Aegean via Athens)",
+                "airlines": ["EasyJet", "Ryanair", "Wizz Air", "ITA Airways", "Aegean Airlines"]
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Major financial hub with a modern skyline, but also a charming old town (Römerberg), museums along the Main river, and a gateway to other parts of Germany and Europe.",
+            "intraEuropeFlight": {
+                "airportInRhodes": "Rhodes Diagoras Airport (RHO)",
+                "approxFlightTime": "Approx. 3 - 3.5 hours",
+                "frequency": "Multiple flights daily (seasonal, direct with Lufthansa, Condor, TUI Fly, Eurowings; also Aegean via Athens)",
+                 "airlines": ["Lufthansa", "Condor", "TUI Fly", "Eurowings", "Aegean Airlines"]
+            }
+        }
+    ]
+}

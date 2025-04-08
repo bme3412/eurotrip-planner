@@ -1104,7 +1104,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Rhodes Town features a UNESCO-listed medieval Old Town enclosed within impressive fortress walls.",
-      thumbnail: "/images/rhodes-thumbnail.jpg",
+      thumbnail: "/images/rhodes-thumbnail.png",
       landmarks: ["Palace of the Grand Master", "Street of the Knights"],
       latitude: 36.4349,
       longitude: 28.2176,

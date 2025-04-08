@@ -1,0 +1,395 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Peskesi",
+                "cuisine_type": "Authentic Cretan/Farm-to-Table",
+                "signature_dishes": [
+                    "Slow-cooked Lamb with Stamnagathi (wild greens)",
+                    "Pork Syn­gli­no (Smoked Pork)",
+                    "Ancient Minoan-inspired Dishes",
+                    "Chochlioi Boubouristi (Snails)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Rustic-chic interior in a restored historic mansion with a focus on authentic Cretan heritage and ingredients",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, highly popular. Specify interest in traditional dishes.",
+                "dress_code": "Smart Casual",
+                "location": "Kapetan Haralampi 6-8, City Center",
+                "local_tips": "Dedicated to preserving traditional Cretan recipes and using local, organic ingredients often from their own farm. Excellent selection of Cretan wines and raki."
+            },
+            {
+                "name": "Merastri",
+                "cuisine_type": "Modern Cretan",
+                "signature_dishes": [
+                    "Creative interpretations of Cretan classics",
+                    "Seasonal tasting menus",
+                    "Fresh seafood preparations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and modern dining space with a beautiful courtyard garden",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request courtyard seating in good weather. Ideal for a special occasion.",
+                "dress_code": "Smart Elegant",
+                "location": "Christomichali Xilouri 16, City Center",
+                "local_tips": "Focuses on high-quality local ingredients presented with modern techniques. Known for its refined ambiance and professional service."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Erganos",
+                "cuisine_type": "Traditional Cretan Taverna",
+                "signature_dishes": [
+                    "Antikristo Lamb (special order may be needed)",
+                    "Gamopilafo (Wedding Pilaf)",
+                    "Kalitsounia (Cheese Pies)",
+                    "Dakos Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic, bustling Cretan taverna with traditional decor and often live Cretan music",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially if requesting specific dishes like Antikristo or during music nights",
+                "booking_tips": "Popular with locals and tourists alike. Good for large groups wanting an authentic experience.",
+                "dress_code": "Casual",
+                "location": "Georgiou Georgiadou 5, City Center (near Georgiadis Park)",
+                "local_tips": "One of the oldest and most traditional tavernas in Heraklion, offering a wide range of classic Cretan dishes. Live music nights provide a very authentic atmosphere."
+            },
+            {
+                "name": "Ligo Krasi Ligo Thalassa",
+                "cuisine_type": "Seafood/Meze",
+                "signature_dishes": [
+                    "Grilled Octopus",
+                    "Fresh Fish of the Day",
+                    "Seafood Pasta/Risotto",
+                    "Various Mezedes (small plates)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Popular seaside taverna right by the Venetian harbour, offering great views of the Koules Fortress",
+                "best_time": "Lunch or Sunset Dinner",
+                "reservation_needed": "Recommended, especially for tables by the water",
+                "booking_tips": "Ask about the catch of the day. Can get busy during peak season.",
+                "dress_code": "Casual",
+                "location": "Mitsotaki 1 & Sofokli Venizelou Avenue, Harbourfront",
+                "local_tips": "Means 'A Little Wine, A Little Sea'. Great location for fresh seafood with views. Perfect spot after visiting the fortress."
+            },
+            {
+                "name": "Alla Ki Alla",
+                "cuisine_type": "Cretan Mezedopoleio (Meze Restaurant)",
+                "signature_dishes": [
+                    "Apaki (Smoked Pork)",
+                    "Fried Myzithra Cheese with Honey",
+                    "Variety of Cretan Cheeses",
+                    "Seasonal Vegetable Dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, traditional meze place popular with locals, often crowded and noisy",
+                "best_time": "Dinner/Late Evening",
+                "reservation_needed": "Recommended for larger groups or peak times",
+                "booking_tips": "Go with a group to sample many different small plates (mezedes).",
+                "dress_code": "Casual",
+                "location": "Marineli 13 (alley off Korai Street)",
+                "local_tips": "A classic Heraklion mezedopoleio experience. Expect generous portions of raki to accompany the food. Great for experiencing local social dining culture."
+            },
+            {
+                "name": "Kastella",
+                "cuisine_type": "Greek/Seafood",
+                "signature_dishes": [
+                    "Grilled Seafood",
+                    "Fried Calamari",
+                    "Greek Salads",
+                    "Traditional Cooked Dishes (Mageirefta)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Simple, traditional taverna with outdoor seating near the harbour and Venetian Arsenals",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Good value for money, straightforward traditional food.",
+                "dress_code": "Casual",
+                "location": "Leof. Sofokli Venizelou (near Koules Fortress)",
+                "local_tips": "Reliable spot for classic Greek taverna fare near the main tourist attractions of the harbour. Popular for a casual lunch."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Gyros/Souvlaki Stands",
+                "specialties": [
+                    "Pork Gyros Pita",
+                    "Chicken Gyros Pita",
+                    "Souvlaki Kalamaki (Meat Skewers)",
+                    "Pita Skepasti (Covered Pita Sandwich)"
+                ],
+                "price_range": "€",
+                "hours": "Lunch, Dinner, Late Night",
+                "location": "Numerous locations, especially around Lions Square, Liberty Square (Plateia Eleftherias), and main streets",
+                "seating": "Usually limited or takeaway",
+                "local_tips": "A Greek staple. Look for places busy with locals. Specify if you want tzatziki, onions, tomatoes, fries inside. 'Hovoli' is a popular local chain."
+            },
+            {
+                "name": "Bougatsa Herakleiou Shops",
+                "specialties": [
+                    "Bougatsa with Cream (sweet)",
+                    "Bougatsa with Myzithra Cheese (savory)",
+                    "Bougatsa with Minced Meat (less common)"
+                ],
+                "price_range": "€",
+                "hours": "Morning to early Afternoon",
+                "location": "Especially around Lions Square (e.g., Kirkor, Phyllosophies)",
+                "seating": "Limited or takeaway",
+                "local_tips": "Heraklion's bougatsa is slightly different from Thessaloniki's. Often eaten for breakfast. Ask for it sprinkled with sugar and cinnamon (sweet) or just as is (savory)."
+            },
+            {
+                "name": "Kalitsounia Stands/Bakeries",
+                "specialties": [
+                    "Kalitsounia Lychnarakia (sweet cheese pies with honey)",
+                    "Savory Kalitsounia (with greens or cheese)"
+                ],
+                "price_range": "€",
+                "hours": "Morning to Afternoon (best fresh)",
+                "location": "Bakeries throughout the city and market area",
+                "seating": "Takeaway",
+                "local_tips": "Traditional Cretan pies. Lychnarakia (shaped like little lamps) are a classic sweet version. Bakeries often have the best selection."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Think Coffee",
+                "specialty": "Specialty Coffee & Brunch",
+                "must_try": [
+                    "Single Origin Espresso/Filter Coffee",
+                    "Freddo Espresso/Cappuccino",
+                    "Pancakes",
+                    "Eggs Benedict"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, bright, and popular spot, often busy",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Excellent brunch menu, light snacks, pastries",
+                "local_tips": "One of Heraklion's go-to places for quality coffee and brunch. Good for people-watching. Can get crowded."
+            },
+            {
+                "name": "Crop Roastery-Brewery",
+                "specialty": "Artisan Coffee Roaster",
+                "must_try": [
+                    "Freshly Roasted Filter Coffee",
+                    "Espresso based drinks",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic design, focused on the coffee experience",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Limited snacks/pastries",
+                "local_tips": "For serious coffee lovers. They roast their own beans on-site. Knowledgeable baristas can guide you through different origins and brewing methods."
+            },
+            {
+                "name": "Cafes around Lions Square (Morosini Fountain)",
+                "specialty": "Central Location & People Watching",
+                "must_try": [
+                    "Greek Coffee",
+                    "Frappe",
+                    "Freddo Espresso/Cappuccino",
+                    "Local sweets"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling, classic European square atmosphere",
+                "best_time": "Anytime",
+                "wifi_friendly": "Most offer WiFi",
+                "food_options": "Coffee, drinks, pastries, ice cream, light snacks",
+                "local_tips": "The heart of Heraklion's social life. Choose any cafe lining the square (e.g., Veneto, Ploto) for a classic Heraklion coffee break experience. Great for resting after exploring the city center."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Dish Bar Party Restaurant",
+                "type": "Cocktail Bar/Restaurant",
+                "specialty": "Creative Cocktails & Lively Atmosphere",
+                "signature_drinks": [
+                    "Signature Cocktails List",
+                    "Premium Spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy, energetic bar with music (often DJ sets), popular with a younger crowd",
+                "best_time": "Evening/Night",
+                "food_options": "Full modern European/Mediterranean menu available",
+                "reservation_needed": "Recommended for tables, especially on weekends",
+                "local_tips": "Known for its vibrant party atmosphere later in the evening. Good place to start or end a night out."
+            },
+            {
+                "name": "Stone Project",
+                "type": "All-Day Cafe Bar",
+                "specialty": "Relaxed Vibes & Quality Drinks",
+                "signature_drinks": [
+                    "Good selection of beers",
+                    "Classic Cocktails",
+                    "Coffee (daytime)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stylish industrial design with stone elements, comfortable seating, laid-back music",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Brunch, Salads, Burgers, Bar Snacks",
+                "reservation_needed": false,
+                "local_tips": "A popular all-day spot transitioning from cafe to bar. Good for meeting friends. Located in a central pedestrian street."
+            },
+            {
+                "name": "Bitters Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic & Craft Cocktails",
+                "signature_drinks": [
+                    "Negroni variations",
+                    "Old Fashioned",
+                    "Gin & Tonics with premium gins",
+                    "Bartender's choice"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, dimly lit, speakeasy vibe with a focus on quality spirits and expert bartending",
+                "best_time": "Evening/Late Night",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": "Recommended due to limited space",
+                "local_tips": "For cocktail aficionados. Knowledgeable bartenders can make classic drinks perfectly or create something bespoke based on your preferences."
+            },
+            {
+                "name": "Rakadika in Kourkoutis/Lakkos Area",
+                "type": "Traditional Cretan Spirit Bars",
+                "specialty": "Raki/Tsikoudia & Mezedes",
+                "signature_drinks": [
+                    "Raki/Tsikoudia (served by the 'karafaki' - small carafe)",
+                    "Local Wine",
+                    "Greek Beers"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Authentic, no-frills, lively local atmosphere, often with simple wooden tables/stools",
+                "best_time": "Evening/Night",
+                "food_options": "Simple, traditional mezedes (often included with drink order or very cheap)",
+                "reservation_needed": false,
+                "local_tips": "Experience authentic Cretan culture. Raki is served generously, usually accompanied by small plates of food. The Lakkos area has several traditional spots. It's about socializing and enjoying the local spirit."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Heraklion Bites & Sights Food Tour",
+                "focus": "Cretan Flavors & City Landmarks",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Exploring the Heraklion Central Market",
+                    "Tasting bougatsa, kalitsounia, Cretan cheese, olives, olive oil",
+                    "Learning about Cretan diet and culinary history while seeing key sights"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": ["English", "Greek"],
+                "booking_tips": "Wear comfortable shoes for walking. Combines food tasting with city exploration. Inform operator of any dietary restrictions."
+            },
+            {
+                "name": "Cretan Olive Oil & Wine Tasting Experience",
+                "focus": "Olive Oil & Local Wine Varieties",
+                "duration": "Half-day (often includes transport)",
+                "price_range": "€€€-€€€€",
+                "highlights": [
+                    "Visiting an olive grove/mill and a local winery near Heraklion",
+                    "Learning about olive oil production and tasting different varieties",
+                    "Sampling indigenous Cretan grape varieties (e.g., Vidiano, Kotsifali)"
+                ],
+                "booking_required": true,
+                "group_size": "Varies by operator",
+                "languages": ["English", "Greek"],
+                "booking_tips": "Often requires booking transport or joining an organized tour. Great way to understand two pillars of Cretan agriculture and gastronomy."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Cretan Cooking Class",
+                "cuisine_focus": "Classic Cretan Home Cooking",
+                "duration": "4-5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Preparing key Cretan dishes like Dakos, Gemista, Kalitsounia",
+                    "Using local herbs, olive oil, and seasonal ingredients",
+                    "Techniques passed down through generations"
+                ],
+                "group_size": "Small groups",
+                "languages": ["English", "Greek"],
+                "includes": ["Hands-on instruction, all ingredients, recipes, full meal with wine/raki"],
+                "booking_tips": "Several local operators and cooking schools offer classes, some in the city, others in nearby villages. Check reviews and specific curriculum."
+            },
+            {
+                "name": "Minoan Cuisine Workshop (at Peskesi Farm or similar)",
+                "cuisine_focus": "Historical Cretan/Minoan-inspired dishes",
+                "duration": "Half-day",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Ancient cooking techniques and ingredients used in Minoan times",
+                    "Preparing dishes based on archaeological findings and historical texts",
+                    "Understanding the roots of the Cretan diet"
+                ],
+                "group_size": "Small groups",
+                "languages": ["English", "Greek"],
+                "includes": ["Farm visit (if applicable), instruction, ingredients, meal"],
+                "booking_tips": "Unique experience offered by places like Peskesi or specialized cultural centers. Check availability and book well in advance."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Heraklion Central Market (1866 Street)",
+                "type": "Open-air Market Street",
+                "highlights": [
+                    "Bustling pedestrian street market",
+                    "Fresh produce, meat, fish, cheese (Graviera, Myzithra)",
+                    "Cretan herbs (dittany, oregano), spices, honey, raki",
+                    "Souvenirs, leather goods, local crafts"
+                ],
+                "hours": "Shop hours (approx. 9am - 2pm & 5pm - 8pm Mon-Sat, varies)",
+                "best_time": "Morning for food products",
+                "location": "1866 Street (runs from Meidani Square towards Lions Square)",
+                "local_tips": "Vibrant slice of local life. Good place to buy local products and souvenirs. Can get very crowded. Practice respectful bargaining if appropriate (less common for food)."
+            },
+            {
+                "name": "Municipal Fish Market (adjacent to Central Market)",
+                "type": "Covered Fish Market",
+                "highlights": [
+                    "Fresh catch from the Cretan Sea",
+                    "Wide variety of fish and seafood",
+                    "Lively atmosphere with fishmongers"
+                ],
+                "hours": "Early morning to early afternoon (Mon-Sat)",
+                "best_time": "Early morning for best selection",
+                "location": "Off 1866 Street",
+                "local_tips": "Interesting to see the local seafood even if not buying. Be prepared for strong smells and wet floors. Combine visit with the Central Market."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh artichokes (Aginares) cooked with lamb or broad beans",
+            "Wild asparagus (Sparaggia)",
+            "Abundant wild greens (Horta) - askordoulakoi, stamnagathi",
+            "Easter specialties: Kalitsounia, lamb roasted on the spit, Tsoureki"
+        ],
+        "summer": [
+            "Dakos salad (barley rusk topped with tomato, feta/myzithra, olive oil)",
+            "Gemista (vegetables stuffed with rice and herbs)",
+            "Fresh figs, grapes, watermelon",
+            "Grilled sardines and other fresh fish"
+        ],
+        "autumn": [
+            "Quince (Kydoni) - often made into preserves or cooked with meat",
+            "Chestnuts (Kastana)",
+            "Start of the raki distillation season (Kazani)",
+            "Pomegranates"
+        ],
+        "winter": [
+            "Hearty meat stews with vegetables",
+            "Bean soups (Fasolada, Revithia)",
+            "Citrus fruits (oranges, lemons, mandarins)",
+            "Pork dishes (often prepared after traditional pig slaughter)",
+            "Christmas sweets: Kourabiedes, Melomakarona"
+        ]
+    }
+}
