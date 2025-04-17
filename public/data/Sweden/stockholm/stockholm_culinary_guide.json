@@ -1,0 +1,428 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Frantzén",
+                "cuisine_type": "Modern Scandinavian/Global",
+                "signature_dishes": [
+                    "Multi-course tasting menu focused on seasonal luxury ingredients"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Exclusive and intimate multi-level dining experience",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Extremely difficult to book; reservations open specific dates months in advance; requires prepayment",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 3,
+                "location": "Norrmalm",
+                "local_tips": "Sweden's only three-Michelin-starred restaurant; offers a unique fixed menu experience combining Nordic ingredients with Japanese influences; prepare for a significant splurge."
+            },
+            {
+                "name": "Ekstedt",
+                "cuisine_type": "Nordic - Open Fire Cooking",
+                "signature_dishes": [
+                    "Hay-flamed Scallops",
+                    "Birch-fired Wild Trout",
+                    "Dishes cooked solely over birch wood fire, cast iron, or in a wood-fired oven"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Rustic yet sophisticated, focused around the open kitchen fire",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; specify allergies when booking; seating near the kitchen offers a view of the cooking process",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 1,
+                "location": "Östermalm",
+                "local_tips": "Unique concept where all food is cooked without electricity or gas, using traditional Scandinavian techniques over open flames; offers a smoky, intense flavour profile."
+            },
+            {
+                "name": "Gastrologik",
+                "cuisine_type": "New Nordic - Producer Focused",
+                "signature_dishes": [
+                    "Fixed tasting menu based entirely on the best available Swedish produce of the day"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Minimalist, elegant, and focused on the dining experience",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead; the menu is decided daily based on ingredient availability, making each visit unique; inform about dietary needs in advance.",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 2,
+                "location": "Östermalm",
+                "local_tips": "Emphasizes close relationships with local farmers and producers; known for its innovative and pure flavors showcasing Swedish ingredients; offers a surprise menu."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Pelikan",
+                "cuisine_type": "Traditional Swedish 'Husmanskost'",
+                "signature_dishes": [
+                    "Swedish Meatballs (Köttbullar)",
+                    "SOS (Smör, Ost och Sill - Butter, Cheese, and Herring)",
+                    "Fläsklägg med Rotmos (Pork Shank with Root Vegetable Mash)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic, bustling beer hall atmosphere with high ceilings and traditional decor",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended for dinner, especially weekends",
+                "booking_tips": "Can get loud; great for experiencing classic Swedish dishes in a traditional setting",
+                "dress_code": "Casual",
+                "location": "Södermalm",
+                "local_tips": "A Stockholm institution since 1733 (in various locations); serves hearty, authentic Swedish home-style cooking; large portions; good selection of beer and snaps."
+            },
+            {
+                "name": "Meatballs for the People",
+                "cuisine_type": "Swedish Meatballs Focus",
+                "signature_dishes": [
+                    "Classic Swedish Meatballs",
+                    "Meatballs made from various meats (Elk, Wild Boar, Reindeer, Vegetarian)",
+                    "Served with traditional accompaniments (potato purée, cream sauce, lingonberries, pickled cucumber)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy yet cozy bistro dedicated to meatballs",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended for dinner",
+                "booking_tips": "Popular spot, booking advised; try different types of meatballs",
+                "dress_code": "Casual",
+                "location": "Södermalm",
+                "local_tips": "Focuses exclusively on high-quality, often organic, meatballs; great place to sample variations of Sweden's most famous dish."
+            },
+            {
+                "name": "Kvarnen",
+                "cuisine_type": "Traditional Swedish Beer Hall/Restaurant",
+                "signature_dishes": [
+                    "Biff Rydberg (Diced beef tenderloin, onion, potato, egg yolk)",
+                    "Wallenbergare (Veal patty with potato purée, peas, lingonberries)",
+                    "Toast Skagen (Shrimp toast)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Large, traditional beer hall with historical ambiance, separate dining room",
+                "best_time": "Dinner or late night",
+                "reservation_needed": "Recommended for dining room",
+                "booking_tips": "Beer hall section is more casual and often crowded; dining room offers a calmer experience",
+                "dress_code": "Casual",
+                "location": "Södermalm",
+                "local_tips": "Another Södermalm institution (over 100 years old); serves classic Swedish dishes and has a wide beer selection; featured in Stieg Larsson's Millennium trilogy."
+            },
+            {
+                "name": "Östermalms Korvspecialist",
+                "cuisine_type": "Gourmet Hot Dogs/Sausages",
+                "signature_dishes": [
+                    "Wide variety of high-quality sausages from around the world (e.g., Merguez, Kabanoss, Thüringer)",
+                    "Served with sauerkraut, potato salad, various mustards"
+                ],
+                "price_range": "€",
+                "atmosphere": "Legendary, tiny street food kiosk with outdoor standing tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Be prepared to queue, especially at lunchtime; cash often preferred",
+                "dress_code": "Casual",
+                "location": "Östermalm (near Nybrogatan)",
+                "local_tips": "Elevated hot dog experience; considered a Stockholm classic for a quick, high-quality bite; popular with locals from all walks of life."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Tunnbrödsrulle Stands (various locations)",
+                "specialties": [
+                    "Tunnbrödsrulle (Flatbread wrap with sausage, mashed potatoes, shrimp salad, lettuce, onion)"
+                ],
+                "price_range": "€",
+                "hours": "Often Lunch & Late Night",
+                "location": "Various street corners, squares (e.g., near Slussen, Medborgarplatsen)",
+                "seating": "None (takeaway)",
+                "local_tips": "The quintessential Swedish street food experience, especially after a night out; a unique combination of ingredients in a soft flatbread wrap."
+            },
+            {
+                "name": "Strömmingsvagnen (Herring Wagon)",
+                "specialties": [
+                    "Stekt Strömming (Fried Baltic Herring) served with mashed potatoes, lingonberries, pickled cucumber, on crispbread (knäckebröd) or soft bread."
+                ],
+                "price_range": "€-€€",
+                "hours": "Lunchtime (check specific hours)",
+                "location": "Slussen area (Kornhamnstorg - location can sometimes vary slightly)",
+                "seating": "Limited outdoor seating/standing",
+                "local_tips": "Iconic food truck serving a Stockholm classic; fried herring is a traditional dish; look for the wagon usually parked near the locks at Slussen."
+            },
+            {
+                "name": "Food Trucks (various locations)",
+                "specialties": [
+                    "Diverse offerings: Gourmet Burgers, Tacos, Asian Fusion, Vegan options"
+                ],
+                "price_range": "€-€€",
+                "hours": "Typically Lunch, sometimes events/evenings (variable)",
+                "location": "Often congregate in areas like Hornstull Marknad (weekends), near office districts, or special events. Check websites/apps like StreetKäk for locations.",
+                "seating": "Variable (often none or limited public seating nearby)",
+                "local_tips": "Stockholm has a growing food truck scene offering diverse and often high-quality fast food; check online resources for current locations and operating times."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Vete-Katten",
+                "specialty": "Classic Swedish Konditori (Patisserie/Cafe)",
+                "must_try": [
+                    "Kanelbulle (Cinnamon Bun)",
+                    "Prinsesstårta (Princess Cake)",
+                    "Semla (seasonal, Lenten bun)",
+                    "Filter Coffee (Påtår - refill often included/cheap)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional, elegant, labyrinthine cafe with multiple rooms and old-world charm",
+                "best_time": "Fika time (mid-morning or mid-afternoon)",
+                "wifi_friendly": true,
+                "food_options": "Extensive selection of cakes, pastries, sandwiches, light lunches",
+                "local_tips": "A true Stockholm institution founded in 1928; perfect for experiencing traditional Swedish fika; can get busy but usually possible to find a seat in one of the many rooms."
+            },
+            {
+                "name": "Drop Coffee",
+                "specialty": "Specialty Coffee Roasters & Cafe",
+                "must_try": [
+                    "Single-origin Pour Over (V60, Chemex)",
+                    "Espresso-based drinks",
+                    "Seasonal coffee selections"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Minimalist, bright, coffee-focused cafe; knowledgeable baristas",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, lighter snacks",
+                "local_tips": "Award-winning specialty coffee shop known for its high-quality, light-roast beans sourced globally; popular with coffee aficionados; located in Södermalm."
+            },
+            {
+                "name": "Fabrique Stenugnsbageri (various locations)",
+                "specialty": "Sourdough Bread & Traditional Pastries",
+                "must_try": [
+                    "Kardemummabulle (Cardamom Bun)",
+                    "Sourdough Bread (to take away)",
+                    "Croissants"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic-chic bakeries with a focus on stone oven baking",
+                "best_time": "Morning/Fika time",
+                "wifi_friendly": "Varies by location (some are small/takeaway focused)",
+                "food_options": "Breads, pastries, buns, some sandwiches",
+                "local_tips": "Popular chain known for excellent sourdough bread and high-quality buns, especially their cardamom buns; multiple locations across Stockholm."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Pharmarium",
+                "type": "Cocktail Bar",
+                "specialty": "Apothecary-Themed Cocktails",
+                "signature_drinks": [
+                    "Inventive cocktails with unique ingredients and presentation, often using herbs and bitters",
+                    "Menu inspired by old pharmacy recipes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, dimly lit, historic setting resembling an old pharmacy in Stortorget (Gamla Stan)",
+                "best_time": "Evening",
+                "food_options": "Small, refined food pairings",
+                "reservation_needed": "Highly recommended, especially weekends",
+                "local_tips": "Located in Stockholm's oldest pharmacy building; offers creative and well-crafted cocktails in a unique, atmospheric setting; great for a special night out in the Old Town."
+            },
+            {
+                "name": "Tjoget",
+                "type": "Multi-Concept Bar (Cocktail Bar, Wine Bodega, Beer Café)",
+                "specialty": "Award-Winning Cocktails (Linje Tio), Mediterranean Vibe",
+                "signature_drinks": [
+                    "Excellent classic and signature cocktails at Linje Tio",
+                    "Good wine selection at Hornstulls Bodega",
+                    "Craft beers at Roy & Son"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Large, lively venue divided into distinct sections; industrial-chic design",
+                "best_time": "Evening/Night",
+                "food_options": "Dining available, particularly Mediterranean-inspired food at Linje Tio",
+                "reservation_needed": "Recommended for dining or larger groups at Linje Tio",
+                "local_tips": "Frequently listed among the World's 50 Best Bars; offers something for everyone with its different concepts under one roof; located in Hornstull, Södermalm."
+            },
+            {
+                "name": "Omnipollos Hatt",
+                "type": "Craft Beer Bar & Pizzeria",
+                "specialty": "Omnipollo Craft Beers & Creative Pizza",
+                "signature_drinks": [
+                    "Wide range of Omnipollo beers on tap (often experimental and unique)",
+                    "Guest taps featuring other craft breweries"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Casual, hip, often crowded bar known for its excellent beer and pizza",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Creative sourdough pizzas with unusual toppings",
+                "reservation_needed": false,
+                "local_tips": "A must-visit for craft beer lovers; Omnipollo is a highly regarded Swedish brewery; expect a lively atmosphere and potentially a wait for tables; located near Slussen."
+            },
+            {
+                "name": "ICEBAR Stockholm by ICEHOTEL",
+                "type": "Ice Bar",
+                "specialty": "Drinks served in glasses made of ice in a -5°C environment",
+                "signature_drinks": [
+                    "Vodka-based cocktails",
+                    "Non-alcoholic options available"
+                ],
+                "price_range": "€€€ (includes entry fee & first drink)",
+                "atmosphere": "Bar made entirely of ice, including walls, bar, tables, and glasses; themed designs change periodically",
+                "best_time": "Designated time slots",
+                "food_options": "None",
+                "reservation_needed": "Highly recommended; book timed entry slots",
+                "local_tips": "The world's first permanent ice bar; located within Hotel C Stockholm near the Central Station; entry includes rental of a warm poncho and gloves; a unique, albeit touristy, experience."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "The Stockholm Food Tour",
+                "focus": "Swedish Classics & Modern Cuisine",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Sampling traditional Swedish dishes (like herring, meatballs)",
+                    "Visiting key food spots like Östermalms Saluhall",
+                    "Tasting modern Nordic cuisine elements",
+                    "Learning about Swedish food culture and history"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "Swedish" ],
+                "booking_tips": "Provides a good overview of Swedish food; wear comfortable shoes for walking; book online in advance."
+            },
+            {
+                "name": "Nordic Food Walk",
+                "focus": "Nordic Flavors & Ingredients",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Focus on seasonal Nordic ingredients",
+                    "Tasting specialties from Sweden and neighboring Nordic countries",
+                    "Visiting specialty food stores and markets",
+                    "Understanding the New Nordic Cuisine philosophy"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English" ],
+                "booking_tips": "Good for those interested in the broader Nordic food scene; emphasizes quality ingredients and culinary traditions."
+            },
+            {
+                "name": "Swedish Fika Tour",
+                "focus": "The Culture of Fika",
+                "duration": "Approx. 2 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Understanding the concept and importance of fika",
+                    "Visiting traditional cafes and modern coffee shops",
+                    "Sampling classic fika pastries (like Kanelbullar, Chokladbollar)",
+                    "Tasting Swedish coffee"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English" ],
+                "booking_tips": "A shorter tour focused specifically on the Swedish coffee break tradition; great way to discover good cafes and pastries."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Swedish Meatball Cooking Class",
+                "cuisine_focus": "Mastering the Swedish Meatball",
+                "duration": "3-4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Making meatballs from scratch (often using a traditional recipe)",
+                    "Preparing classic accompaniments (cream sauce, potato purée, lingonberries, pickled cucumber)",
+                    "Techniques for achieving the right texture and flavor"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "Swedish" ],
+                "includes": [ "Hands-on cooking, ingredients, recipes, meal featuring the meatballs made" ],
+                "booking_tips": "Popular class focusing on Sweden's most famous dish; book ahead; learn the secrets to authentic Köttbullar."
+            },
+            {
+                "name": "Swedish Baking Class (Kanelbullar & More)",
+                "cuisine_focus": "Classic Swedish Pastries",
+                "duration": "3-4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Baking Cinnamon Buns (Kanelbullar) and/or Cardamom Buns (Kardemummabullar)",
+                    "Techniques for yeasted doughs and shaping buns",
+                    "Often includes other fika treats like Chokladbollar (Chocolate Balls)"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "Swedish" ],
+                "includes": [ "Hands-on baking, ingredients, recipes, fika with the baked goods" ],
+                "booking_tips": "Learn to make essential Swedish fika pastries; great hands-on experience; take home delicious results (and skills)."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Östermalms Saluhall",
+                "type": "Historic Food Hall",
+                "highlights": [
+                    "High-quality butchers, fishmongers, cheese shops",
+                    "Delicatessens and specialty food vendors",
+                    "Several restaurants and cafes within the hall",
+                    "Beautiful historic building (reopened after renovation)"
+                ],
+                "hours": "Mon-Fri approx. 9:30 AM - 7 PM, Sat approx. 9:30 AM - 5 PM (individual vendor hours may vary)",
+                "best_time": "Lunchtime or afternoon browse",
+                "location": "Östermalm",
+                "local_tips": "Upscale food hall dating back to 1888; great place to buy high-quality Swedish ingredients or have lunch; beautifully restored architecture; more expensive than other markets."
+            },
+            {
+                "name": "Hötorgshallen",
+                "type": "Underground Food Hall",
+                "highlights": [
+                    "Diverse range of international foods (Middle Eastern, Turkish, Balkan, Asian)",
+                    "Swedish delicatessens, cheese, fish",
+                    "Many lunch counters and small eateries",
+                    "Located beneath the Hötorget square outdoor market"
+                ],
+                "hours": "Mon-Thu approx. 10 AM - 6 PM, Fri 10 AM - 7 PM, Sat 10 AM - 4 PM",
+                "best_time": "Lunchtime",
+                "location": "Norrmalm (Hötorget)",
+                "local_tips": "Lively, diverse food hall offering a mix of Swedish and international flavors; great spot for a quick and varied lunch; more bustling and less formal than Östermalms Saluhall."
+            },
+            {
+                "name": "Söderhallarna",
+                "type": "Modern Food Hall",
+                "highlights": [
+                    "Mix of specialty food shops (cheese, meat, fish)",
+                    "Systembolaget (state liquor store)",
+                    "Several restaurants and cafes",
+                    "Cinema complex"
+                ],
+                "hours": "Mon-Fri approx. 10 AM - 7 PM, Sat 10 AM - 5 PM (restaurants may stay open later)",
+                "best_time": "Lunch or afternoon",
+                "location": "Södermalm (Medborgarplatsen)",
+                "local_tips": "Modern food hall integrated into a larger complex; offers a good range of food options and shops in the heart of Södermalm; convenient location."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Nässelsoppa (Nettle Soup) - Made from young stinging nettles",
+            "Asparagus (Sparris) - Often served simply with butter or hollandaise",
+            "Rhubarb (Rabarber) - Used in pies, crumbles, and compotes",
+            "Matjes Herring (Matjessill) - Young herring, typically eaten around Midsummer (late Spring/early Summer)"
+        ],
+        "summer": [
+            "Kräftskiva (Crayfish Parties) - Boiled crayfish eaten outdoors (typically August)",
+            "Färskpotatis (New Potatoes) - Small, delicate potatoes boiled with dill",
+            "Fresh Berries - Strawberries (Jordgubbar), Blueberries (Blåbär), Raspberries (Hallon), Cloudberries (Hjortron)",
+            "Grilled Foods (Grillat) - Sausages, meats, fish cooked outdoors"
+        ],
+        "autumn": [
+            "Wild Mushrooms - Chanterelles (Kantareller), Porcini (Karljohan)",
+            "Game Meat - Elk (Älg), Deer (Rådjur), Reindeer (Ren)",
+            "Root Vegetables - Parsnips, Swede, Carrots used in stews and roasts",
+            "Apples (Äpplen) - Used in cakes, pies, and sauces"
+        ],
+        "winter": [
+            "Julbord (Christmas Buffet) - Extensive spread including pickled herring, gravlax, Christmas ham (Julskinka), meatballs, Janssons Frestelse (potato-anchovy casserole)",
+            "Glögg (Mulled Wine) - Spiced warm wine, often served with almonds and raisins",
+            "Lussekatter (Saffron Buns) - Eaten around Lucia Day (Dec 13th)",
+            "Semlor - Cardamom buns filled with almond paste and whipped cream (traditionally eaten before Lent, now available Jan-Mar)",
+            "Ärtsoppa och Pannkakor (Pea Soup and Pancakes) - Traditional Thursday meal"
+        ]
+    }
+}

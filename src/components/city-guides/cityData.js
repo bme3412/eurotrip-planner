@@ -1118,7 +1118,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Santorini captivates with its iconic white-washed buildings perched on volcanic cliffs overlooking the azure Aegean Sea.",
-      thumbnail: "/images/santorini-thumbnail.jpg",
+      thumbnail: "/images/santorini-thumbnail.png",
       landmarks: ["Oia Village", "Akrotiri Archaeological Site"],
       latitude: 36.3932,
       longitude: 25.4615,
@@ -1134,7 +1134,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Stockholm is built on a series of islands and is renowned for its stunning waterfront, historic core, and innovative design scene.",
-      thumbnail: "/images/stockholm-thumbnail.jpg",
+      thumbnail: "/images/stockholm-thumbnail.png",
       landmarks: ["Gamla Stan", "Vasa Museum", "Royal Palace"],
       latitude: 59.3293,
       longitude: 18.0686,
