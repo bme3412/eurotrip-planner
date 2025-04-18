@@ -1148,7 +1148,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Gothenburg offers maritime charm with its harbor, canals, and relaxed atmosphere as Sweden's second-largest city.",
-      thumbnail: "/images/gothenburg-thumbnail.jpg",
+      thumbnail: "/images/gothenburg-thumbnail.png",
       landmarks: ["Liseberg Amusement Park", "Gothenburg Archipelago"],
       latitude: 57.7089,
       longitude: 11.9746,
