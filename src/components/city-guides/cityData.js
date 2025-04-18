@@ -1192,7 +1192,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Oslo offers a unique blend of modern architecture and natural beauty, set against a backdrop of fjords and forested hills.",
-      thumbnail: "/images/oslo-thumbnail.jpg",
+      thumbnail: "/images/oslo-thumbnail.png",
       landmarks: [
         "Vigeland Sculpture Park",
         "Akershus Fortress",
