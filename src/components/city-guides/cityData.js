@@ -1224,7 +1224,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Trondheim, Norway's third-largest city and former capital, features colorful warehouses and a stunning Gothic cathedral.",
-      thumbnail: "/images/trondheim-thumbnail.jpg",
+      thumbnail: "/images/trondheim-thumbnail.png",
       landmarks: ["Nidaros Cathedral", "Old Town Bridge"],
       latitude: 63.4305,
       longitude: 10.3951,
