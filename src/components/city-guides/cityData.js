@@ -1210,7 +1210,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Bergen enchants with its colorful wooden houses along the old wharf, surrounded by seven mountains and fjords.",
-      thumbnail: "/images/bergen-thumbnail.jpg",
+      thumbnail: "/images/bergen-thumbnail.png",
       landmarks: ["Bryggen Hanseatic Wharf", "Mount Fløyen"],
       latitude: 60.3913,
       longitude: 5.3221,
