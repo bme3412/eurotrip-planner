@@ -1162,7 +1162,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Malmö combines historic roots with modern sustainability, connected to Copenhagen by the Öresund Bridge.",
-      thumbnail: "/images/malmo-thumbnail.jpg",
+      thumbnail: "/images/malmo-thumbnail.png",
       landmarks: ["Turning Torso", "Malmö Castle"],
       latitude: 55.605,
       longitude: 13.0038,
