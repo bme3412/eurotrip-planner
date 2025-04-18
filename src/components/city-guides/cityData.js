@@ -1176,7 +1176,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Uppsala, Sweden's fourth-largest city, is known for its prestigious university, Gothic cathedral, and Viking heritage.",
-      thumbnail: "/images/uppsala-thumbnail.jpg",
+      thumbnail: "/images/uppsala-thumbnail.png",
       landmarks: ["Uppsala Cathedral", "Uppsala University"],
       latitude: 59.8586,
       longitude: 17.6389,
