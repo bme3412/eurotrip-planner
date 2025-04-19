@@ -1238,7 +1238,7 @@ export const getCitiesData = () => {
       region: "Arctic",
       description:
         "Tromsø, located above the Arctic Circle, offers northern lights viewing, midnight sun, and a vibrant cultural scene.",
-      thumbnail: "/images/tromso-thumbnail.jpg",
+      thumbnail: "/images/tromso-thumbnail.png",
       landmarks: ["Arctic Cathedral", "Polaria"],
       latitude: 69.6492,
       longitude: 18.956,
