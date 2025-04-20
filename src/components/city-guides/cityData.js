@@ -1252,7 +1252,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Stavanger blends old-world charm with modern energy, serving as the gateway to spectacular fjords and the famous Pulpit Rock.",
-      thumbnail: "/images/stavanger-thumbnail.jpg",
+      thumbnail: "/images/stavanger-thumbnail.png",
       landmarks: ["Old Stavanger", "Norwegian Petroleum Museum"],
       latitude: 58.969,
       longitude: 5.7331,
@@ -1268,7 +1268,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Helsinki is known for its design-driven culture, maritime charm, and a mix of modern and neoclassical architecture.",
-      thumbnail: "/images/helsinki-thumbnail.jpg",
+      thumbnail: "/images/helsinki-thumbnail.png",
       landmarks: ["Helsinki Cathedral", "Suomenlinna", "Market Square"],
       latitude: 60.1699,
       longitude: 24.9384,
