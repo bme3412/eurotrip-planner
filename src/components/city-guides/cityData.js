@@ -1282,7 +1282,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Tampere, located between two lakes, was a historical industrial center that has transformed into a hub for culture and technology.",
-      thumbnail: "/images/tampere-thumbnail.jpg",
+      thumbnail: "/images/tampere-thumbnail.png",
       landmarks: ["Tampere Cathedral", "Särkänniemi Amusement Park"],
       latitude: 61.4978,
       longitude: 23.761,
