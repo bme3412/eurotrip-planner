@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { FoodIcon, UtensilsIcon, CoffeeIcon, BeerIcon, ShoppingBasketIcon, LeafIcon } from 'lucide-react';
 
 // Icon components
-const FoodIcon = ({ className = "" }) => (
+const FoodIconComponent = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
     <path d="M5 8h10.5a2.5 2.5 0 0 1 0 5H6a2 2 0 0 0 0 4h8"></path>
@@ -12,21 +13,12 @@ const FoodIcon = ({ className = "" }) => (
 );
 
 const CulinaryGuide = ({ culinaryData }) => {
-  // Early check if data exists
-  if (!culinaryData) {
-    return (
-      <div className="flex flex-col items-center justify-center py-12 bg-gray-50 rounded-lg">
-        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
-          <FoodIcon className="text-gray-400" />
-        </div>
-        <h3 className="mt-4 text-xl font-medium text-gray-600">No Culinary Data Available</h3>
-        <p className="mt-2 text-gray-500">We don't have culinary information for this city yet.</p>
-      </div>
-    );
-  }
-  
-  // Extract data
-  const { 
+  // ========== HOOKS - START ==========
+  const [activeTab, setActiveTabInternal] = useState(null); // Initialize as null
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Extract data safely, providing defaults if culinaryData is null/undefined initially
+  const {
     restaurants,
     bars_and_cafes,
     food_experiences,
@@ -35,7 +27,7 @@ const CulinaryGuide = ({ culinaryData }) => {
     dining_options,
     food_markets,
     drink_specialties
-  } = culinaryData;
+  } = culinaryData || {}; // Use default empty object if culinaryData is missing
 
   // Create unified data structure that works with both formats
   const processedData = useMemo(() => {
@@ -136,32 +128,37 @@ const CulinaryGuide = ({ culinaryData }) => {
       // Markets (if not already handled by street_food)
       if (food_experiences.markets) {
         food_experiences.markets.forEach(market => {
-          data.foodMarkets.push({
-            ...market,
-            description: `${market.type} featuring ${market.highlights?.join(', ') || 'various foods'}.`
-          });
+          // Avoid adding duplicates if already added from restaurants.street_food
+          if (!data.foodMarkets.some(fm => fm.name === market.name)) {
+            data.foodMarkets.push({
+              ...market,
+              description: `${market.type} featuring ${market.highlights?.join(', ') || 'various foods'}.`
+            });
+          }
         });
       }
     }
     
     // Format 2: If data uses the flat structure with direct properties
-    if (local_specialties) {
+    // Make sure not to overwrite data processed from Format 1
+    if (local_specialties && data.localSpecialties.length === 0) {
       data.localSpecialties = local_specialties;
     }
     
-    if (dining_options) {
+    if (dining_options && data.diningOptions.length === 0) {
       data.diningOptions = dining_options;
     }
     
-    if (food_markets) {
+    if (food_markets && data.foodMarkets.length === 0) {
       data.foodMarkets = food_markets;
     }
     
-    if (drink_specialties) {
+    if (drink_specialties && data.drinkSpecialties.length === 0) {
       data.drinkSpecialties = drink_specialties;
     }
     
-    if (food_experiences && Array.isArray(food_experiences)) {
+    // Be careful with food_experiences if it might be in both formats
+    if (food_experiences && Array.isArray(food_experiences) && data.foodExperiences.length === 0) {
       data.foodExperiences = food_experiences;
     }
     
@@ -175,120 +172,136 @@ const CulinaryGuide = ({ culinaryData }) => {
     dining_options,
     food_markets,
     drink_specialties
-  ]);
-  
+  ]); // Dependencies are based on the destructured props
+
   // Determine which tabs to show based on available data
   const availableTabs = useMemo(() => {
     const tabs = [];
+    if (!processedData) return tabs; // Guard against processedData being null/undefined
     
     if (processedData.localSpecialties && processedData.localSpecialties.length > 0) {
       tabs.push({ id: 'specialties', label: 'Local Specialties' });
     }
-    
     if (processedData.diningOptions && processedData.diningOptions.length > 0) {
       tabs.push({ id: 'dining', label: 'Where to Eat' });
     }
-    
     if (processedData.foodMarkets && processedData.foodMarkets.length > 0) {
       tabs.push({ id: 'markets', label: 'Food Markets' });
     }
-    
     if (processedData.drinkSpecialties && processedData.drinkSpecialties.length > 0) {
       tabs.push({ id: 'drinks', label: 'Drinks & Cafés' });
     }
-    
     if (processedData.foodExperiences && processedData.foodExperiences.length > 0) {
       tabs.push({ id: 'experiences', label: 'Food Experiences' });
     }
-    
     if (processedData.seasonalSpecialties && Object.keys(processedData.seasonalSpecialties).length > 0) {
       tabs.push({ id: 'seasonal', label: 'Seasonal Specialties' });
     }
-    
     return tabs;
   }, [processedData]);
-  
-  // If no tabs are available, show a message
-  if (availableTabs.length === 0) {
+
+  const setActiveTab = useCallback((tabId) => {
+    setActiveTabInternal(tabId);
+  }, []); // Empty dependency array is correct here
+
+  const filteredData = useMemo(() => {
+    const query = searchQuery.toLowerCase();
+    // Return processedData directly if search is empty or data is missing
+    if (!query || !processedData) return processedData || {}; 
+
+    const filtered = { ...processedData };
+
+    // Filter local specialties
+    if (filtered.localSpecialties) {
+      filtered.localSpecialties = filtered.localSpecialties.filter(item =>
+        item.name?.toLowerCase().includes(query) ||
+        item.description?.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter dining options
+    if (filtered.diningOptions) {
+      filtered.diningOptions = filtered.diningOptions.filter(item =>
+        item.name?.toLowerCase().includes(query) ||
+        item.type?.toLowerCase().includes(query) ||
+        item.category?.toLowerCase().includes(query) ||
+        item.specialty?.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter food markets
+    if (filtered.foodMarkets) {
+      filtered.foodMarkets = filtered.foodMarkets.filter(item =>
+        item.name?.toLowerCase().includes(query) ||
+        item.description?.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter drink specialties
+    if (filtered.drinkSpecialties) {
+      filtered.drinkSpecialties = filtered.drinkSpecialties.filter(item =>
+        item.name?.toLowerCase().includes(query) ||
+        item.description?.toLowerCase().includes(query) ||
+        item.type?.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter food experiences
+    if (filtered.foodExperiences) {
+      filtered.foodExperiences = filtered.foodExperiences.filter(item =>
+        item.name?.toLowerCase().includes(query) ||
+        item.description?.toLowerCase().includes(query) ||
+        item.type?.toLowerCase().includes(query)
+      );
+    }
+    
+    // Seasonal specialties remain unfiltered by search query
+    if (filtered.seasonalSpecialties) {
+       // No change needed here based on current logic
+    }
+
+    return filtered;
+  }, [searchQuery, processedData]);
+
+  // Set initial active tab *after* all hooks are defined and availableTabs is calculated
+  // We use a React Effect hook for this side-effect to ensure it runs after initial render
+  useEffect(() => {
+    if (activeTab === null && availableTabs.length > 0) {
+      setActiveTab(availableTabs[0].id);
+    }
+  }, [availableTabs, activeTab, setActiveTab]); // Dependencies for effect
+  // ========== HOOKS - END ==========
+
+  // Early check if data exists - NOW after hooks
+  if (!culinaryData) {
     return (
       <div className="flex flex-col items-center justify-center py-12 bg-gray-50 rounded-lg">
         <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
-          <FoodIcon className="text-gray-400" />
+          <FoodIconComponent className="text-gray-400" />
         </div>
         <h3 className="mt-4 text-xl font-medium text-gray-600">No Culinary Data Available</h3>
-        <p className="mt-2 text-gray-500">We don't have culinary information for this city yet.</p>
+        <p className="mt-2 text-gray-500">We don&apos;t have culinary information for this city yet.</p>
       </div>
     );
   }
   
-  const [activeTab, setActiveTab] = useState(availableTabs[0].id);
-  const [searchQuery, setSearchQuery] = useState('');
+  // If, after processing, no tabs are available (e.g., empty data object passed), show a message
+  if (availableTabs.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 bg-gray-50 rounded-lg">
+        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
+          <FoodIconComponent className="text-gray-400" />
+        </div>
+        <h3 className="mt-4 text-xl font-medium text-gray-600">No Culinary Data Available</h3>
+        <p className="mt-2 text-gray-500">We don&apos;t have culinary information for this city yet.</p>
+      </div>
+    );
+  }
   
-  // Filter data based on search query
-  const filteredData = useMemo(() => {
-    const query = searchQuery.toLowerCase();
-    if (!query) return processedData;
-    
-    const filtered = { ...processedData };
-    
-    // Filter local specialties
-    if (filtered.localSpecialties) {
-      filtered.localSpecialties = filtered.localSpecialties.filter(item => 
-        item.name?.toLowerCase().includes(query) ||
-        item.description?.toLowerCase().includes(query)
-      );
-    }
-    
-    // Filter dining options
-    if (filtered.diningOptions) {
-      filtered.diningOptions = filtered.diningOptions.filter(item => 
-        item.name?.toLowerCase().includes(query) ||
-        item.cuisine_type?.toLowerCase().includes(query) ||
-        item.signature_dishes?.some(dish => dish.toLowerCase().includes(query)) ||
-        item.description?.toLowerCase().includes(query)
-      );
-    }
-    
-    // Filter food markets
-    if (filtered.foodMarkets) {
-      filtered.foodMarkets = filtered.foodMarkets.filter(item => 
-        item.name?.toLowerCase().includes(query) ||
-        item.description?.toLowerCase().includes(query) ||
-        item.specialties?.some(specialty => specialty.toLowerCase().includes(query))
-      );
-    }
-    
-    // Filter drink specialties
-    if (filtered.drinkSpecialties) {
-      filtered.drinkSpecialties = filtered.drinkSpecialties.filter(item => 
-        item.name?.toLowerCase().includes(query) ||
-        item.description?.toLowerCase().includes(query) ||
-        item.type?.toLowerCase().includes(query) ||
-        item.must_try?.some(drink => drink.toLowerCase().includes(query)) ||
-        item.signature_drinks?.some(drink => drink.toLowerCase().includes(query))
-      );
-    }
-    
-    // Filter food experiences
-    if (filtered.foodExperiences) {
-      filtered.foodExperiences = filtered.foodExperiences.filter(item => 
-        item.name?.toLowerCase().includes(query) ||
-        item.description?.toLowerCase().includes(query) ||
-        item.type?.toLowerCase().includes(query) ||
-        item.cuisine_focus?.toLowerCase().includes(query) ||
-        item.highlights?.some(highlight => highlight.toLowerCase().includes(query))
-      );
-    }
-    
-    // We don't filter seasonal specialties as they're already organized by season
-    
-    return filtered;
-  }, [processedData, searchQuery]);
-  
-  // Render functions for each tab
+  // Render functions for each tab (content depends on filteredData)
   const renderLocalSpecialties = () => {
-    if (!filteredData.localSpecialties || filteredData.localSpecialties.length === 0) {
-      return <EmptyState message="No matching local specialty information" />;
+    if (!filteredData?.localSpecialties || filteredData.localSpecialties.length === 0) {
+      return <EmptyState message={searchQuery ? "No local specialties match your search." : "No local specialty information available."} />;
     }
     
     return (
@@ -320,8 +333,8 @@ const CulinaryGuide = ({ culinaryData }) => {
   };
   
   const renderDiningOptions = () => {
-    if (!filteredData.diningOptions || filteredData.diningOptions.length === 0) {
-      return <EmptyState message="No matching dining options" />;
+    if (!filteredData?.diningOptions || filteredData.diningOptions.length === 0) {
+      return <EmptyState message={searchQuery ? "No dining options match your search." : "No dining options available."} />;
     }
 
     // Group by category if available
@@ -357,8 +370,8 @@ const CulinaryGuide = ({ culinaryData }) => {
   };
   
   const renderFoodMarkets = () => {
-    if (!filteredData.foodMarkets || filteredData.foodMarkets.length === 0) {
-      return <EmptyState message="No matching food market information" />;
+    if (!filteredData?.foodMarkets || filteredData.foodMarkets.length === 0) {
+      return <EmptyState message={searchQuery ? "No food markets match your search." : "No food market information available."} />;
     }
     
     return (
@@ -418,8 +431,8 @@ const CulinaryGuide = ({ culinaryData }) => {
   };
   
   const renderDrinkSpecialties = () => {
-    if (!filteredData.drinkSpecialties || filteredData.drinkSpecialties.length === 0) {
-      return <EmptyState message="No matching drink specialty information" />;
+    if (!filteredData?.drinkSpecialties || filteredData.drinkSpecialties.length === 0) {
+      return <EmptyState message={searchQuery ? "No drinks or cafés match your search." : "No drink specialty information available."} />;
     }
     
     // Group by type if available
@@ -459,8 +472,8 @@ const CulinaryGuide = ({ culinaryData }) => {
   };
   
   const renderFoodExperiences = () => {
-    if (!filteredData.foodExperiences || filteredData.foodExperiences.length === 0) {
-      return <EmptyState message="No matching food experience information" />;
+    if (!filteredData?.foodExperiences || filteredData.foodExperiences.length === 0) {
+      return <EmptyState message={searchQuery ? "No food experiences match your search." : "No food experience information available."} />;
     }
     
     // Group by type if available
@@ -496,13 +509,14 @@ const CulinaryGuide = ({ culinaryData }) => {
   };
 
   const renderSeasonalSpecialties = () => {
-    if (!filteredData.seasonalSpecialties || Object.keys(filteredData.seasonalSpecialties).length === 0) {
-      return <EmptyState message="No seasonal food information available" />;
+    // Use processedData here, as seasonal data isn't filtered by search
+    if (!processedData?.seasonalSpecialties || Object.keys(processedData.seasonalSpecialties).length === 0) {
+      return <EmptyState message="No seasonal food information available." />;
     }
     
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {Object.entries(filteredData.seasonalSpecialties).map(([season, items]) => (
+        {Object.entries(processedData.seasonalSpecialties).map(([season, items]) => (
           <div key={season} className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <h3 className="font-semibold text-lg mb-3 text-gray-800 capitalize flex items-center">
               {season === 'spring' && <span className="mr-2">🌱</span>}
@@ -664,7 +678,7 @@ const CulinaryGuide = ({ culinaryData }) => {
       {(experience.highlights || experience.what_you_learn) && (
         <div className="mt-4">
           <h4 className="font-medium text-sm text-gray-600">
-            {experience.highlights ? 'Highlights:' : 'What You\'ll Learn:'}
+            {experience.highlights ? 'Highlights:' : "What You'll Learn:"}
           </h4>
           <ul className="list-disc list-inside text-sm text-gray-700 mt-1 ml-2">
             {Array.isArray(experience.highlights) && experience.highlights.map((item, i) => (
@@ -690,68 +704,61 @@ const CulinaryGuide = ({ culinaryData }) => {
   );
   
   const EmptyState = ({ message }) => (
-    <div className="flex flex-col items-center justify-center py-8 bg-gray-50 rounded-lg">
-      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
-        <FoodIcon className="text-gray-400" />
-      </div>
-      <p className="mt-4 text-gray-500">{message}</p>
+    <div className="text-center py-8 text-gray-500">
+      {searchQuery ? `No items match "${searchQuery}".` : (message || "No information available.")}
     </div>
   );
   
+  // Get classNames function for conditional classes (if not already imported)
+  // Assuming classNames is available or import it: import classNames from 'classnames'; 
+  // For simplicity, manually construct string here if classNames isn't standard
+  const classNames = (...classes) => classes.filter(Boolean).join(' ');
+
   return (
-    <div className="bg-gray-50 p-6 rounded-lg">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 flex items-center">
-          <FoodIcon className="mr-2 text-blue-500" /> Culinary Guide
-        </h2>
-        
-        {/* Search input for all sections */}
-        <div className="w-full max-w-xs">
-          <input
-            type="text"
-            className="w-full p-2 text-sm border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            placeholder="Search culinary options..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+    <div className="bg-white shadow-md rounded-lg p-6">
+      {/* Search Input */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Search culinary highlights..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" // Added focus styles
+        />
       </div>
-      
-      {/* Navigation tabs */}
-      <div className="flex overflow-x-auto space-x-2 mb-6 pb-2 border-b border-gray-200">
-        {availableTabs.map(tab => (
-          <button
-            key={tab.id}
-            className={`px-4 py-2 text-sm font-medium rounded-t-md whitespace-nowrap transition-colors
-              ${activeTab === tab.id 
-                ? 'bg-white text-blue-600 border-t border-l border-r border-gray-200' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
+
+      {/* Tab Navigation */}
+      <div className="border-b border-gray-200 mb-6">
+        <nav className="-mb-px flex space-x-6 overflow-x-auto" aria-label="Tabs">
+          {availableTabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={classNames(
+                tab.id === activeTab
+                  ? 'border-indigo-500 text-indigo-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
+                'whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm transition duration-150 ease-in-out focus:outline-none focus:text-indigo-800 focus:border-indigo-700' // Added focus styles
+              )}
+              aria-current={tab.id === activeTab ? 'page' : undefined} // Accessibility improvement
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
       </div>
-      
-      {/* Show count of filtered results if search is active */}
-      {searchQuery && (
-        <div className="mb-4 text-sm text-gray-500">
-          {activeTab === 'specialties' && `Found ${filteredData.localSpecialties?.length || 0} matching specialties`}
-          {activeTab === 'dining' && `Found ${filteredData.diningOptions?.length || 0} matching dining options`}
-          {activeTab === 'markets' && `Found ${filteredData.foodMarkets?.length || 0} matching food markets`}
-          {activeTab === 'drinks' && `Found ${filteredData.drinkSpecialties?.length || 0} matching drink venues`}
-          {activeTab === 'experiences' && `Found ${filteredData.foodExperiences?.length || 0} matching food experiences`}
-        </div>
-      )}
-      
-      {/* Content area */}
-      <div className="mt-6">
+
+      {/* Tab Content */}
+      <div>
         {activeTab === 'specialties' && renderLocalSpecialties()}
         {activeTab === 'dining' && renderDiningOptions()}
         {activeTab === 'markets' && renderFoodMarkets()}
         {activeTab === 'drinks' && renderDrinkSpecialties()}
         {activeTab === 'experiences' && renderFoodExperiences()}
         {activeTab === 'seasonal' && renderSeasonalSpecialties()}
+        {activeTab === null && availableTabs.length > 0 && (
+            <div className="text-center py-8 text-gray-500">Loading...</div>
+        )}
       </div>
     </div>
   );

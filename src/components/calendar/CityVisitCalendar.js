@@ -195,7 +195,7 @@ const CityVisitCalendar = ({ city, cityData = null }) => {
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
         <p className="text-amber-600">No visit calendar information available for {city}.</p>
         <p className="text-sm text-gray-600 mt-2">
-          We're working on adding more detailed seasonal information.
+          We&apos;re working on adding more detailed seasonal information.
         </p>
       </div>
     );

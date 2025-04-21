@@ -22,7 +22,7 @@ export default function StartPlanningPage() {
         <div className="container mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Plan Your Perfect Eurotrip</h1>
           <p className="text-xl text-white/80 max-w-3xl">
-            Customize your journey through Europe's most beautiful cities
+            Customize your journey through Europe&apos;s most beautiful cities
           </p>
           
           {/* Filter Box - positioned at the bottom of the header */}

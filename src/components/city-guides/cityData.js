@@ -1276,7 +1276,7 @@ export const getCitiesData = () => {
       linguisticCategories: ["Uralic"],
     },
     {
-      id: "tampere",
+      id: "tampere",  
       name: "Tampere",
       country: "Finland",
       region: "Celtic & Nordic",
@@ -1296,7 +1296,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Turku, Finland's oldest city and former capital, offers medieval heritage, an archipelago, and a lively cultural scene.",
-      thumbnail: "/images/turku-thumbnail.jpg",
+      thumbnail: "/images/turku-thumbnail.png",
       landmarks: ["Turku Castle", "Turku Cathedral"],
       latitude: 60.4518,
       longitude: 22.2666,

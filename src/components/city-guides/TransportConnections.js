@@ -15,36 +15,29 @@ const EmptyState = ({ message }) => (
   <div className="flex flex-col items-center justify-center py-12 bg-gray-50 rounded-lg">
     <div className="w-12 h-12 text-gray-400 mb-3">🚆</div>
     <h3 className="mt-2 text-xl font-medium text-gray-600">{message}</h3>
-    <p className="mt-2 text-gray-500">We don't have this information available yet.</p>
+    <p className="mt-2 text-gray-500">We don&apos;t have this information available yet.</p>
   </div>
 );
 
 const TransportConnections = ({ connections, currentCity = '' }) => {
-  // Initialize state regardless of conditions (to fix ESLint warning)
+  // --- HOOKS MOVED TO TOP ---
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeCountry, setActiveCountry] = useState('all');
   const [viewMode, setViewMode] = useState('table');
   
-  // Early return if no data
-  if (!connections) {
-    return <EmptyState message="No Transportation Data Available" />;
-  }
+  // Use useMemo safely after checking for connections
+  const destinations = useMemo(() => {
+    return connections?.destinations || []; 
+  }, [connections]);
   
-  // Handle the destinations-only format
-  const { destinations } = connections;
-  
-  if (!destinations || destinations.length === 0) {
-    return <EmptyState message="No Destination Data Available" />;
-  }
-  
-  // Get unique countries for filtering
   const countries = useMemo(() => {
+    if (!destinations.length) return ['all'];
     const uniqueCountries = [...new Set(destinations.map(dest => dest.country))];
     return ['all', ...uniqueCountries];
   }, [destinations]);
-  
-  // Filter destinations based on selected filters
+
   const filteredDestinations = useMemo(() => {
+    if (!destinations.length) return [];
     return destinations.filter(dest => {
       // Filter by transport type
       const hasSelectedTransport = 
@@ -60,9 +53,9 @@ const TransportConnections = ({ connections, currentCity = '' }) => {
       return hasSelectedTransport && matchesCountry;
     });
   }, [destinations, activeFilter, activeCountry]);
-  
-  // Group destinations by country
+
   const destinationsByCountry = useMemo(() => {
+    if (!filteredDestinations.length) return {};
     const grouped = {};
     
     filteredDestinations.forEach(dest => {
@@ -75,8 +68,10 @@ const TransportConnections = ({ connections, currentCity = '' }) => {
     return grouped;
   }, [filteredDestinations]);
 
-  // Calculate some statistics for the header section
   const stats = useMemo(() => {
+    if (!destinations.length) {
+      return { totalDestinations: 0, countriesCount: 0, trainDestinations: 0, flightDestinations: 0 };
+    }
     const totalDestinations = destinations.length;
     const countriesCount = new Set(destinations.map(d => d.country)).size;
     const trainDestinations = destinations.filter(d => d.directWithinCountryTrain || d.intraEuropeTrain).length;
@@ -89,6 +84,18 @@ const TransportConnections = ({ connections, currentCity = '' }) => {
       flightDestinations
     };
   }, [destinations]);
+  // --- END OF MOVED HOOKS ---
+
+  // Early return if no data (can happen after hooks are initialized)
+  if (!connections) {
+    return <EmptyState message="No Transportation Data Available" />;
+  }
+  
+  // Handle the destinations-only format - check after hooks
+  // Note: 'destinations' is already memoized safely above
+  if (!destinations || destinations.length === 0) {
+    return <EmptyState message="No Destination Data Available" />;
+  }
   
   return (
     <div className="p-6">
