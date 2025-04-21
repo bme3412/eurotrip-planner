@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import fs from "fs";
+// import fs from "fs"; // Removed as fsPromises is used instead
 import fsPromises from "fs/promises";
 import path from "path";
 import Image from "next/image";
@@ -122,7 +122,7 @@ export async function generateStaticParams() {
         .map(item => item.name);
 
       countryCities.forEach((city) => {
-        cities.push({ city }); // Match the required format { city: 'cityName' }
+        cities.push({ city }); // Keep the original format for fetching
       });
     } catch (error) {
       // Log specific country error but continue with others
@@ -130,8 +130,24 @@ export async function generateStaticParams() {
     }
   }));
 
-  console.log(`Generated ${cities.length} static params.`);
-  return cities;
+  // Fetch data for each city and combine it with the city name
+  const citiesWithData = await Promise.all(
+    cities.map(async ({ city }) => {
+      const cityData = await getCityData(city); // Fetch data here
+      // Return structure containing both city and its data
+      return { city: city, cityData: cityData };
+    })
+  );
+
+  // Filter out cities where data fetching might have failed (cityData is null)
+  const validCitiesData = citiesWithData.filter(item => item.cityData);
+
+  console.log(`Generated ${validCitiesData.length} static params with data pre-fetched.`);
+
+  // Return the array of objects containing both city and cityData
+  // Next.js will use the 'city' property for the route parameter,
+  // and we'll access 'cityData' directly in the page component props.
+  return validCitiesData; // Return the full objects { city: '...', cityData: {...} }
 }
 
 // Async helper to read JSON safely
@@ -288,17 +304,22 @@ async function getCityData(cityName) {
         let cityImage = "/images/cities/default-city.jpg";
         const possibleImagePaths = [
           path.join(process.cwd(), "public", "images", "cities", `${cityName}.jpg`),
+          path.join(process.cwd(), "public", "images", "cities", `${cityName}.png`),
+          path.join(process.cwd(), "public", "images", "cities", `${cityName}.jpeg`),
           path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.jpg`),
+          path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.png`),
+          path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.jpeg`),
           path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.jpg`),
           path.join(process.cwd(), "public", "images", `${cityName.toLowerCase()}-thumbnail.jpg`),
+          path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.png`),
+          path.join(process.cwd(), "public", "images", `${cityName.toLowerCase()}-thumbnail.png`),
         ];
 
         for (const imagePath of possibleImagePaths) {
-          // Using synchronous existsSync here for simplicity, could be replaced by async pathExists
-          if (fs.existsSync(imagePath)) { 
-            const relativePath = imagePath.replace(path.join(process.cwd(), "public"), "");
-            cityImage = relativePath;
-            // console.log(`Found city image at: ${cityImage}`); // Less verbose
+          if (await pathExists(imagePath)) {
+            const relativePath = imagePath.replace(path.join(process.cwd(), "public"), "").replace(/\\/g, '/');
+            cityImage = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
+            console.log(`Found city image for ${cityName} at: ${cityImage}`);
             break;
           }
         }
@@ -327,29 +348,40 @@ async function getCityData(cityName) {
   return null;
 }
 
+// Main page component
 export default async function CityPage({ params }) {
-  // Make sure params is resolved before destructuring (already async)
-  const resolvedParams = await params; // Needs to be awaited
-  const { city } = resolvedParams; // Use the awaited params
+  // Destructure city and cityData directly from params provided by generateStaticParams
+  const { city, cityData } = params;
 
-  // Call the async version of getCityData
-  const cityData = await getCityData(city);
-
+  // If cityData wasn't pre-fetched (shouldn't happen with the filter in generateStaticParams, but safe check)
   if (!cityData) {
-    notFound();
+    console.error(`City data for ${city} not found in params.`);
+    notFound(); // Trigger 404 if data is missing
   }
+
+  // Destructure data from cityData
+  const {
+    overview = {},
+    attractions = [],
+    neighborhoods = [],
+    culinary_guide = {},
+    connections = {},
+    seasonal_activities = [],
+    monthly_events = {},
+    summary
+  } = cityData;
 
   const {
     cityName,
     country,
-    overview,
-    attractions,
-    neighborhoods,
+    overview: cityOverview,
+    attractions: cityAttractions,
+    neighborhoods: cityNeighborhoods,
     culinaryGuide,
-    connections,
+    connections: cityConnections,
     seasonalActivities,
     monthlyEvents,
-    summary,
+    summary: citySummary,
     cityImage,
   } = cityData;
 
@@ -381,8 +413,8 @@ export default async function CityPage({ params }) {
   }
 
   // Override with first attraction coordinates if available
-  if (attractions && attractions.sites && attractions.sites.length > 0) {
-    const firstAttraction = attractions.sites[0];
+  if (cityAttractions && cityAttractions.sites && cityAttractions.sites.length > 0) {
+    const firstAttraction = cityAttractions.sites[0];
     if (firstAttraction.longitude && firstAttraction.latitude) {
       mapCenter = [firstAttraction.longitude, firstAttraction.latitude];
       console.log(
@@ -392,17 +424,17 @@ export default async function CityPage({ params }) {
   }
 
   let attractionCategories = [];
-  if (attractions && attractions.sites) {
+  if (cityAttractions && cityAttractions.sites) {
     const uniqueCategories = [
       ...new Set(
-        attractions.sites.map(
+        cityAttractions.sites.map(
           (site) => site.category || site.type || "Uncategorized"
         )
       ),
     ];
     attractionCategories = uniqueCategories.map((category) => ({
       category,
-      sites: attractions.sites.filter(
+      sites: cityAttractions.sites.filter(
         (site) => (site.category || site.type || "Uncategorized") === category
       ),
     }));
@@ -422,9 +454,9 @@ export default async function CityPage({ params }) {
                 {cityDisplayName}
               </h1>
             </div>
-            {summary && summary.brief_description && (
+            {citySummary && citySummary.brief_description && (
               <p className="text-xs opacity-90 leading-tight max-w-2xl line-clamp-1">
-                {summary.brief_description}
+                {citySummary.brief_description}
               </p>
             )}
           </div>
@@ -433,13 +465,13 @@ export default async function CityPage({ params }) {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
               </svg>
-              <span>Best time: {summary?.best_time_to_visit || 'May-Sept'}</span>
+              <span>Best time: {citySummary?.best_time_to_visit || 'May-Sept'}</span>
             </div>
             <div className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Avg. visit: {summary?.recommended_duration || '2-3 days'}</span>
+              <span>Avg. visit: {citySummary?.recommended_duration || '2-3 days'}</span>
             </div>
             <div className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -460,7 +492,7 @@ export default async function CityPage({ params }) {
             aria-label="City guide sections"
           >
             <ul className="flex space-x-6 min-w-full">
-              {overview && (
+              {cityOverview && (
                 <li>
                   <a
                     href="#overview"
@@ -496,7 +528,7 @@ export default async function CityPage({ params }) {
                   </a>
                 </li>
               )}
-              {attractions && attractions.sites && (
+              {cityAttractions && cityAttractions.sites && (
                 <li>
                   <a
                     href="#attractions"
@@ -506,7 +538,7 @@ export default async function CityPage({ params }) {
                   </a>
                 </li>
               )}
-              {neighborhoods && neighborhoods.neighborhoods && (
+              {cityNeighborhoods && cityNeighborhoods.neighborhoods && (
                 <li>
                   <a
                     href="#neighborhoods"
@@ -526,7 +558,7 @@ export default async function CityPage({ params }) {
                   </a>
                 </li>
               )}
-              {connections && (
+              {cityConnections && (
                 <li>
                   <a
                     href="#transport"
@@ -554,7 +586,7 @@ export default async function CityPage({ params }) {
       {/* Main content */}
       <main className="container mx-auto px-4 md:px-6 py-4 md:py-6">
         {/* City Overview Section */}
-        {overview && (
+        {cityOverview && (
           <section id="overview" className="mb-6 scroll-mt-16">
             <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
               <h2 className="text-2xl font-bold">Paris</h2>
@@ -565,15 +597,15 @@ export default async function CityPage({ params }) {
         )}
 
         {/* Map Section */}
-        {attractions && attractions.sites && (
+        {cityAttractions && cityAttractions.sites && (
           <section id="map" className="mb-10 scroll-mt-16">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <div className="border-b border-gray-100 px-5 py-3 flex justify-between items-center">
                 <h3 className="font-medium text-gray-700">City Map</h3>
-                <span className="text-xs text-gray-500">{attractions.sites.length} attractions</span>
+                <span className="text-xs text-gray-500">{cityAttractions.sites.length} attractions</span>
               </div>
               <MapSection
-                attractions={attractions.sites}
+                attractions={cityAttractions.sites}
                 categories={attractionCategories}
                 cityName={cityDisplayName}
                 center={mapCenter}
@@ -594,7 +626,7 @@ export default async function CityPage({ params }) {
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
             <CityVisitSection
-              city={cityName}
+              city={city}
               cityName={cityDisplayName}
               countryName={countryDisplayName}
               monthlyData={monthlyEvents}
@@ -613,7 +645,7 @@ export default async function CityPage({ params }) {
           <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
             {Object.keys(monthlyEvents).length > 0 ? (
               <MonthlyGuideSection
-                city={cityName}
+                city={city}
                 cityName={cityDisplayName}
                 monthlyData={monthlyEvents}
               />
@@ -647,7 +679,7 @@ export default async function CityPage({ params }) {
         </section>
 
         {/* Attractions Section */}
-        {attractions && attractions.sites && (
+        {cityAttractions && cityAttractions.sites && (
           <section id="attractions" className="mb-10 scroll-mt-16">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl md:text-2xl font-bold text-gray-800">
@@ -656,13 +688,13 @@ export default async function CityPage({ params }) {
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <AttractionsList attractions={attractions.sites} />
+              <AttractionsList attractions={cityAttractions.sites} />
             </div>
           </section>
         )}
 
         {/* Neighborhoods Section */}
-        {neighborhoods && neighborhoods.neighborhoods && (
+        {cityNeighborhoods && cityNeighborhoods.neighborhoods && (
           <section id="neighborhoods" className="mb-10 scroll-mt-16">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl md:text-2xl font-bold text-gray-800">
@@ -671,7 +703,7 @@ export default async function CityPage({ params }) {
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <NeighborhoodsList neighborhoods={neighborhoods.neighborhoods} />
+              <NeighborhoodsList neighborhoods={cityNeighborhoods.neighborhoods} />
             </div>
           </section>
         )}
@@ -692,7 +724,7 @@ export default async function CityPage({ params }) {
         )}
 
         {/* Getting Around Section */}
-        {connections && (
+        {cityConnections && (
           <section id="transport" className="mb-10 scroll-mt-16">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl md:text-2xl font-bold text-gray-800">
@@ -702,8 +734,8 @@ export default async function CityPage({ params }) {
             </div>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <TransportConnections
-                connections={connections}
-                currentCity={cityName}
+                connections={cityConnections}
+                currentCity={city}
               />
             </div>
           </section>
