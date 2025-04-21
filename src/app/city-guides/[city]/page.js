@@ -165,6 +165,9 @@ async function readJsonFile(filePath) {
 
 // Async version of getCityData
 async function getCityData(cityName) {
+  // Convert cityName to lowercase to handle case-insensitive file systems and ensure consistency
+  const lowerCaseCityName = cityName.toLowerCase();
+
   const possibleDataDirs = [path.join(process.cwd(), "public/data")];
   let dataDir = null;
 
@@ -196,48 +199,52 @@ async function getCityData(cityName) {
     const countryPath = path.join(dataDir, country);
     try {
        const countryItems = await fsPromises.readdir(countryPath, { withFileTypes: true });
-       const cityExists = countryItems.some(item => item.isDirectory() && item.name === cityName);
+       // Find the directory matching the original cityName (case might matter for directory check)
+       const cityDirEntry = countryItems.find(item => item.isDirectory() && item.name.toLowerCase() === lowerCaseCityName);
 
-      if (cityExists) {
-        const cityPath = path.join(countryPath, cityName);
+      if (cityDirEntry) {
+         // Use the actual directory name found for the path
+        const actualCityDirName = cityDirEntry.name;
+        const cityPath = path.join(countryPath, actualCityDirName);
 
-        // Use Promise.all to fetch all data concurrently
+        // Use Promise.all to fetch all data concurrently - USE lowerCaseCityName for filenames
         const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, monthlyEventsData, summary] = await Promise.all([
           // Overview
-          readJsonFile(path.join(cityPath, `${cityName}-overview.json`))
-            .then(data => data || readJsonFile(path.join(cityPath, `paris-overview.json`))) // Special Paris case
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}_overview.json`)))
+          readJsonFile(path.join(cityPath, `${lowerCaseCityName}-overview.json`))
+            .then(data => data || readJsonFile(path.join(cityPath, `paris-overview.json`))) // Special Paris case remains
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}_overview.json`)))
             .then(data => data || readJsonFile(path.join(cityPath, `overview.json`))),
 
           // Attractions
-          readJsonFile(path.join(cityPath, `${cityName}_attractions.json`))
+          readJsonFile(path.join(cityPath, `${lowerCaseCityName}_attractions.json`))
             .then(data => data || readJsonFile(path.join(cityPath, `attractions.json`)))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-attractions.json`))),
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}-attractions.json`))),
 
           // Neighborhoods
-          readJsonFile(path.join(cityPath, `${cityName}_neighborhoods.json`))
+          readJsonFile(path.join(cityPath, `${lowerCaseCityName}_neighborhoods.json`))
             .then(data => data || readJsonFile(path.join(cityPath, `neighborhoods.json`)))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-neighborhoods.json`))),
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}-neighborhoods.json`))),
 
           // Culinary Guide
-          readJsonFile(path.join(cityPath, `${cityName}_culinary_guide.json`))
+          readJsonFile(path.join(cityPath, `${lowerCaseCityName}_culinary_guide.json`))
             .then(data => data || readJsonFile(path.join(cityPath, `culinary_guide.json`)))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-culinary-guide.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}-culinary-guide.json`)))
             .then(data => data || readJsonFile(path.join(cityPath, `culinary-guide.json`))),
 
           // Connections
-          readJsonFile(path.join(cityPath, `${cityName}_connections.json`))
+          readJsonFile(path.join(cityPath, `${lowerCaseCityName}_connections.json`))
             .then(data => data || readJsonFile(path.join(cityPath, `connections.json`)))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-connections.json`))),
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}-connections.json`))),
 
           // Seasonal Activities
-          readJsonFile(path.join(cityPath, `${cityName}_seasonal_activities.json`))
+          readJsonFile(path.join(cityPath, `${lowerCaseCityName}_seasonal_activities.json`))
             .then(data => data || readJsonFile(path.join(cityPath, `seasonal_activities.json`)))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-seasonal-activities.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}-seasonal-activities.json`)))
             .then(data => data || readJsonFile(path.join(cityPath, `seasonal-activities.json`))),
             
           // Monthly Events / Visit Calendar (Complex logic handled separately below)
           (async () => {
+            // Use actualCityDirName for the monthly path
             const monthlyPath = path.join(cityPath, "monthly");
             let events = {};
             if (await pathExists(monthlyPath)) {
@@ -258,10 +265,10 @@ async function getCityData(cityName) {
                 console.error(`Error reading monthly directory: ${error}`);
               }
             } else {
-               // Try visit calendar as fallback
+               // Try visit calendar as fallback - USE lowerCaseCityName
                const possibleCalendarPaths = [
-                   path.join(cityPath, `${cityName}-visit-calendar.json`),
-                   path.join(cityPath, `${cityName}_visit_calendar.json`),
+                   path.join(cityPath, `${lowerCaseCityName}-visit-calendar.json`),
+                   path.join(cityPath, `${lowerCaseCityName}_visit_calendar.json`),
                    path.join(cityPath, `visit-calendar.json`),
                    path.join(cityPath, `visit_calendar.json`),
                ];
@@ -277,11 +284,11 @@ async function getCityData(cityName) {
             return events;
           })(),
 
-          // Summary
-          readJsonFile(path.join(cityPath, "generation_summary.json"))
-            .then(data => data || readJsonFile(path.join(cityPath, "summary.json")))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}-summary.json`)))
-            .then(data => data || readJsonFile(path.join(cityPath, `${cityName}_summary.json`))),
+          // Summary - USE lowerCaseCityName
+          readJsonFile(path.join(cityPath, "generation_summary.json")) // Keep generic name
+            .then(data => data || readJsonFile(path.join(cityPath, "summary.json"))) // Keep generic name
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}-summary.json`)))
+            .then(data => data || readJsonFile(path.join(cityPath, `${lowerCaseCityName}_summary.json`))),
         ]);
         
         // Post-process fetched data (only if needed, e.g., normalizing structures)
@@ -302,30 +309,34 @@ async function getCityData(cityName) {
 
         // Check for city image (can remain synchronous if check is quick, or make async)
         let cityImage = "/images/cities/default-city.jpg";
+        // USE lowerCaseCityName for image checks
         const possibleImagePaths = [
+          path.join(process.cwd(), "public", "images", "cities", `${lowerCaseCityName}.jpg`),
+          path.join(process.cwd(), "public", "images", "cities", `${lowerCaseCityName}.png`),
+          path.join(process.cwd(), "public", "images", "cities", `${lowerCaseCityName}.jpeg`),
+          // Keep original cityName checks as well in case some images use capitalization? Maybe remove later.
           path.join(process.cwd(), "public", "images", "cities", `${cityName}.jpg`),
           path.join(process.cwd(), "public", "images", "cities", `${cityName}.png`),
           path.join(process.cwd(), "public", "images", "cities", `${cityName}.jpeg`),
-          path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.jpg`),
-          path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.png`),
-          path.join(process.cwd(), "public", "images", "cities", `${cityName.toLowerCase()}.jpeg`),
-          path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.jpg`),
-          path.join(process.cwd(), "public", "images", `${cityName.toLowerCase()}-thumbnail.jpg`),
-          path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.png`),
-          path.join(process.cwd(), "public", "images", `${cityName.toLowerCase()}-thumbnail.png`),
+          path.join(process.cwd(), "public", "images", `${lowerCaseCityName}-thumbnail.jpg`),
+          path.join(process.cwd(), "public", "images", `${lowerCaseCityName}-thumbnail.png`),
+          path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.jpg`), // Keep original case check
+          path.join(process.cwd(), "public", "images", `${cityName}-thumbnail.png`), // Keep original case check
         ];
 
         for (const imagePath of possibleImagePaths) {
           if (await pathExists(imagePath)) {
             const relativePath = imagePath.replace(path.join(process.cwd(), "public"), "").replace(/\\/g, '/');
             cityImage = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
-            console.log(`Found city image for ${cityName} at: ${cityImage}`);
+            console.log(`Found city image for ${cityName} (checked as ${lowerCaseCityName}) at: ${cityImage}`);
             break;
           }
         }
 
         return {
-          cityName,
+          // Return the original cityName from the directory for display purposes if needed,
+          // but ensure data corresponds to lowerCaseCityName lookups.
+          cityName: actualCityDirName,
           country,
           overview,
           attractions,
@@ -350,14 +361,19 @@ async function getCityData(cityName) {
 
 // Main page component
 export default async function CityPage({ params }) {
-  // Destructure city and cityData directly from params provided by generateStaticParams
-  const { city, cityData } = params;
+  // Destructure city (which comes from the URL path, likely lowercase)
+  const { city } = params;
+  // Fetch data using the city param from the URL (likely lowercase)
+  const cityData = await getCityData(city);
 
-  // If cityData wasn't pre-fetched (shouldn't happen with the filter in generateStaticParams, but safe check)
+  // If cityData fetch failed based on the URL param
   if (!cityData) {
-    console.error(`City data for ${city} not found in params.`);
+    console.error(`City data fetch failed for: ${city}`);
     notFound(); // Trigger 404 if data is missing
   }
+
+  // Capitalize city name for display if needed (using the original name from cityData)
+  const displayCityName = cityData.cityName ? capitalize(cityData.cityName) : capitalize(city);
 
   // Destructure data from cityData
   const {
