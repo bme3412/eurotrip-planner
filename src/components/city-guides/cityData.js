@@ -1354,7 +1354,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Basel, at the meeting point of three countries, is renowned for its art, architecture, and pharmaceutical industry.",
-      thumbnail: "/images/basel-thumbnail.jpg",
+      thumbnail: "/images/basel-thumbnail.png",
       landmarks: ["Basel Minster", "Kunstmuseum Basel"],
       latitude: 47.5596,
       longitude: 7.5886,
