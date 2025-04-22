@@ -1326,7 +1326,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Zurich is Switzerland's financial center, offering a mix of medieval charm, modern amenities, and lakeside beauty.",
-      thumbnail: "/images/zurich-thumbnail.jpg",
+      thumbnail: "/images/zurich-thumbnail.png",
       landmarks: ["Lake Zurich", "Old Town", "Bahnhofstrasse"],
       latitude: 47.3769,
       longitude: 8.5417,
