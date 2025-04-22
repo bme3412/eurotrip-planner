@@ -1310,7 +1310,7 @@ export const getCitiesData = () => {
       region: "Arctic",
       description:
         'Rovaniemi, the "official hometown of Santa Claus," is the gateway to Lapland, offering Arctic adventures and Northern Lights.',
-      thumbnail: "/images/rovaniemi-thumbnail.jpg",
+      thumbnail: "/images/rovaniemi-thumbnail.png",
       landmarks: ["Santa Claus Village", "Arktikum Science Museum"],
       latitude: 66.5039,
       longitude: 25.7294,
