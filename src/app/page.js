@@ -50,10 +50,18 @@ export default function Home() {
   const placeholderImage = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%23506C8B'/%3E%3Cstop offset='1' stop-color='%232E4057'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3C/svg%3E`;
   
   return (
-    <main className="min-h-screen bg-gray-50">
-      <InteractiveHeader />
+    <main className="bg-gray-50">
+      {/* --- Header Section --- */}
+      <div className="relative h-screen overflow-hidden">
+        {/* Header Content - Positioned above videos */}
+        {/* The InteractiveHeader component likely handles its own internal z-index for content and background videos */}
+        <InteractiveHeader /> 
+      </div>
+      {/* --- End Header Section --- */}
       
-      <div className="container mx-auto px-4 py-16 mt-12">
+      {/* --- Main Content Section --- */}
+      {/* Removed relative z-10 and semi-transparent background */}
+      <div className="container mx-auto px-4 py-16">
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Featured Destinations</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
