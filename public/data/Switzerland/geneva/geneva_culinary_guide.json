@@ -1,0 +1,471 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Chat-Botté (Hôtel Beau-Rivage Genève)",
+                "cuisine_type": "Modern French/European",
+                "signature_dishes": [
+                    "Seasonal tasting menus by chef Dominique Gauthier, known for refined French cuisine with contemporary touches."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant, luxurious setting within the historic Beau-Rivage hotel with lake views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; specify dietary requirements; jackets often preferred for gentlemen",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Hôtel Beau-Rivage Genève (Quai du Mont-Blanc)",
+                "local_tips": "A long-standing bastion of Geneva fine dining, offering classic elegance, impeccable service, and sophisticated cuisine overlooking the lake."
+            },
+            {
+                "name": "Domaine de Châteauvieux",
+                "cuisine_type": "Modern French/Swiss",
+                "signature_dishes": [
+                    "Menus featuring ingredients from the estate's garden and local producers, crafted by chef Philippe Chevrier."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Charming, rustic-elegant setting in a historic wine estate slightly outside the city center",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Located in Satigny (Geneva countryside), requires transport; book well ahead; inquire about wine pairings from their vineyard.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 2,
+                "location": "Satigny (outside Geneva)",
+                "local_tips": "Exceptional dining experience focused on seasonality and terroir. Worth the trip for a special occasion."
+            },
+            {
+                "name": "Il Lago (Four Seasons Hotel des Bergues)",
+                "cuisine_type": "Italian",
+                "signature_dishes": [
+                    "Refined Northern Italian cuisine, seasonal specialties, high-quality pasta and risotto dishes."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant and sophisticated dining room within the luxurious Four Seasons hotel",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead; known for excellent service and classic Italian dishes prepared with finesse.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Four Seasons Hotel des Bergues (Quai des Bergues)",
+                "local_tips": "Offers high-end Italian dining in a prime location with views towards the lake."
+            },
+            {
+                "name": "Bayview by Michel Roth (Hotel President Wilson)",
+                "cuisine_type": "Modern French",
+                "signature_dishes": [
+                    "Contemporary French cuisine by renowned chef Michel Roth, often featuring lake fish and seasonal ingredients."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Modern, chic dining room with large windows offering stunning lake and Mont Blanc views",
+                "best_time": "Dinner (for views)",
+                "reservation_needed": true,
+                "booking_tips": "Request a window table for the best views; book in advance.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Hotel President Wilson (Quai Wilson)",
+                "local_tips": "Combines sophisticated French cuisine with exceptional panoramic views of Lake Geneva and the Jet d'Eau."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Café du Soleil",
+                "cuisine_type": "Traditional Swiss (Fondue Specialist)",
+                "signature_dishes": [
+                    "Fondue Moitié-Moitié (Gruyère and Vacherin Fribourgeois)",
+                    "Fondue with tomatoes, mushrooms, or other variations",
+                    "Malakoffs (Cheese Fritters - regional specialty)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic, cozy, traditional neighborhood bistro atmosphere, claimed to be Geneva's oldest",
+                "best_time": "Dinner (especially colder months)",
+                "reservation_needed": "Highly recommended, very popular",
+                "booking_tips": "Book well in advance; specializes almost exclusively in fondue.",
+                "dress_code": "Casual",
+                "location": "Petit-Saconnex (slightly outside main center, easily accessible)",
+                "local_tips": "Considered by many locals to serve the best fondue in Geneva. Authentic and popular."
+            },
+            {
+                "name": "Les Armures (Hôtel Les Armures)",
+                "cuisine_type": "Traditional Swiss",
+                "signature_dishes": [
+                    "Cheese Fondue",
+                    "Raclette",
+                    "Viande séchée (air-dried beef)",
+                    "Geneva specialties like Longeole sausage"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Rustic, historic setting in the heart of the Old Town, often busy with tourists and locals",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially evenings",
+                "booking_tips": "Located in a historic hotel; offers a classic Swiss dining experience in a prime Old Town location.",
+                "dress_code": "Casual / Smart Casual",
+                "location": "Old Town (near St. Pierre Cathedral)",
+                "local_tips": "A reliable choice for traditional Swiss dishes like fondue and raclette right in the Old Town."
+            },
+            {
+                "name": "Brasserie Lipp Genève",
+                "cuisine_type": "French Brasserie",
+                "signature_dishes": [
+                    "Choucroute garnie (Alsatian sauerkraut with meats)",
+                    "Steak Frites",
+                    "Plateau de fruits de mer (Seafood platter)",
+                    "Classic French onion soup"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Classic Parisian brasserie ambiance, bustling, traditional decor, mirrored walls",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially during peak hours",
+                "booking_tips": "Sister restaurant to the famous Brasserie Lipp in Paris; offers consistent French brasserie fare.",
+                "dress_code": "Smart Casual",
+                "location": "Confédération Centre (Shopping district)",
+                "local_tips": "A Geneva institution for a classic French brasserie experience. Good for people-watching."
+            },
+            {
+                "name": "Buvette des Bains des Pâquis",
+                "cuisine_type": "Simple, Healthy, Local",
+                "signature_dishes": [
+                    "Plat du jour (Dish of the day - often excellent value)",
+                    "Salads, Soups",
+                    "Fondue (especially popular in winter)",
+                    "Breakfast items"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Casual, relaxed, communal tables, lakeside setting with great views, alternative vibe",
+                "best_time": "Lunch, casual dinner (check evening hours), Breakfast",
+                "reservation_needed": "No reservations, expect queues especially for fondue in winter",
+                "booking_tips": "Located at the Bains des Pâquis public bath; pay entry fee to the baths to access the restaurant; very popular with locals.",
+                "dress_code": "Very Casual",
+                "location": "Bains des Pâquis (Jetty on Lake Geneva)",
+                "local_tips": "Unique Geneva experience offering affordable, tasty food in a laid-back lakeside setting. Fantastic value and atmosphere."
+            },
+            {
+                "name": "Chez Ma Cousine (various locations)",
+                "cuisine_type": "Rotisserie Chicken",
+                "signature_dishes": [
+                    "Half Roast Chicken ('Demi Poulet rôti') served with potatoes and salad"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Simple, casual, bustling, fast service",
+                "best_time": "Quick Lunch or Dinner",
+                "reservation_needed": "No reservations, usually quick turnover",
+                "booking_tips": "Very simple menu focused primarily on roast chicken; excellent value for money.",
+                "dress_code": "Casual",
+                "location": "Various (e.g., Old Town, Plainpalais)",
+                "local_tips": "Extremely popular spot for a simple, delicious, and affordable meal focused on perfectly roasted chicken."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Plainpalais Market (Tuesday/Friday/Sunday)",
+                "specialties": [
+                    "Huge variety: Fresh produce, cheese, bread, clothes, antiques (flea market days vary)",
+                    "Diverse food stalls: Lebanese falafel, Portuguese chicken, Asian dishes, crêpes, etc."
+                ],
+                "price_range": "€-€€€",
+                "hours": "Tuesdays, Fridays, Sundays (approx. 6:30 AM - 2/3 PM, food stalls often later)",
+                "location": "Plaine de Plainpalais",
+                "seating": "Limited public benches around the plain",
+                "local_tips": "Geneva's largest market. A great place to wander, find bargains (flea market days), and grab diverse street food for lunch."
+            },
+            {
+                "name": "Carouge Market (Wednesday/Saturday mornings)",
+                "specialties": [
+                    "High-quality local produce, artisan foods",
+                    "Italian specialties, flowers, cheese, bread",
+                    "Food stalls (e.g., socca, sandwiches)"
+                ],
+                "price_range": "€-€€€",
+                "hours": "Wednesdays & Saturdays, approx. 8 AM - 2 PM",
+                "location": "Place du Marché, Carouge",
+                "seating": "Cafes around the square, limited public benches",
+                "local_tips": "Charming market in the bohemian Carouge district. More focused on quality food products than Plainpalais. Combine with exploring Carouge's boutiques."
+            },
+            {
+                "name": "Food Trucks (various locations)",
+                "specialties": [
+                    "Varies: Burgers (e.g., The Hamburger Foundation, Holy Cow!), Tacos, Asian Fusion, Pizza, etc."
+                ],
+                "price_range": "€€-€€€",
+                "hours": "Often lunchtime near office areas (e.g., Nations), specific events, or designated spots.",
+                "location": "Various locations - check local guides or apps like 'moncamionresto.ch'",
+                "seating": "Usually none (takeaway) or public benches",
+                "local_tips": "Growing scene, particularly active during lunch hours in business districts or during summer festivals along the lake."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Boréal Coffee Shop (various locations)",
+                "specialty": "Specialty Coffee Roasters",
+                "must_try": [
+                    "Single-origin filter coffee or espresso",
+                    "Flat white",
+                    "Cold brew in summer"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern, relaxed, laptop-friendly, popular with students and remote workers",
+                "best_time": "Morning/Afternoon coffee break, light lunch",
+                "wifi_friendly": true,
+                "food_options": "Bagels, sandwiches, pastries, cakes",
+                "local_tips": "One of Geneva's pioneers in specialty coffee. Reliable quality and good atmosphere across their locations."
+            },
+            {
+                "name": "Café Remor",
+                "specialty": "Traditional Geneva Cafe/Bistro",
+                "must_try": [
+                    "Coffee, Hot Chocolate",
+                    "Simple breakfast or lunch dishes",
+                    "Pastries"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Classic, slightly retro, intellectual vibe, terrace on Place du Cirque",
+                "best_time": "Anytime, good for people-watching on the terrace",
+                "wifi_friendly": "Yes",
+                "food_options": "Salads, sandwiches, tartines, quiches, cakes",
+                "local_tips": "A long-standing Geneva institution near the university and Plainpalais. Classic cafe experience."
+            },
+            {
+                "name": "La Clémence",
+                "specialty": "Historic Cafe in the Old Town",
+                "must_try": [
+                    "Coffee or a drink on the terrace",
+                    "Simple snacks"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic building, prime location on Place du Bourg-de-Four, large popular terrace",
+                "best_time": "Sunny afternoon for the terrace",
+                "wifi_friendly": "Less focus on this",
+                "food_options": "Limited snacks, drinks are the main focus",
+                "local_tips": "Iconic spot in the heart of the Old Town, perfect for soaking up the atmosphere on its bustling terrace."
+            },
+             {
+                "name": "Pâtisserie Ducret",
+                "specialty": "Traditional Pâtisserie & Tea Room",
+                "must_try": [
+                    "Fine pastries and cakes",
+                    "Pralinés (chocolates)",
+                    "Viennoiseries (croissants etc.)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic, slightly old-fashioned tea room and shop",
+                "best_time": "Morning or afternoon tea/coffee",
+                "wifi_friendly": "No",
+                "food_options": "Pastries, cakes, chocolates, light savory options",
+                "local_tips": "High-quality traditional Swiss/French patisserie in the Plainpalais area."
+            },
+            {
+                "name": "Coffee Lab",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Expertly prepared espresso-based drinks",
+                    "Pour-over coffee"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Small, modern, focused on coffee quality",
+                "best_time": "Coffee break",
+                "wifi_friendly": true,
+                "food_options": "Pastries, small snacks",
+                "local_tips": "Dedicated specialty coffee spot for enthusiasts seeking high-quality brews."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Verre à Monique",
+                "type": "Speakeasy Cocktail Bar",
+                "specialty": "Creative & Bespoke Cocktails",
+                "signature_drinks": [
+                    "Inventive cocktails with unique ingredients and presentation",
+                    "Bartender's choice based on preference"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, stylish, dimly lit, retro-chic decor",
+                "best_time": "Evening/Late Night",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Recommended, especially weekends",
+                "local_tips": "Hidden gem known for its high-quality, imaginative cocktails and skilled bartenders. Ring the bell for entry."
+            },
+            {
+                "name": "FloorTwo Bar (Grand Hôtel Kempinski)",
+                "type": "Hotel Rooftop Bar",
+                "specialty": "Cocktails with Lake Views",
+                "signature_drinks": [
+                    "Classic & signature cocktails, champagne"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Chic, modern, stunning panoramic views of Lake Geneva and the Jet d'Eau",
+                "best_time": "Sunset/Evening",
+                "food_options": "Upscale bar snacks, tapas",
+                "reservation_needed": "Recommended, especially for window tables/terrace",
+                "local_tips": "Upscale rooftop bar experience with some of the best direct views of the Jet d'Eau."
+            },
+            {
+                "name": "L'Apothicaire Cocktail Club",
+                "type": "Cocktail Bar",
+                "specialty": "Classic & Creative Cocktails",
+                "signature_drinks": [
+                    "Well-executed classics and unique house creations",
+                    "Good selection of spirits"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Cozy, vintage pharmacy-themed decor, knowledgeable staff",
+                "best_time": "Evening",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Recommended for groups",
+                "local_tips": "Located near Plainpalais, popular for its themed decor and quality cocktails."
+            },
+            {
+                "name": "La Terrasse (Hôtel Beau-Rivage Genève - Summer only)",
+                "type": "Lakeside Terrace Bar",
+                "specialty": "Drinks & Light Meals by the Lake",
+                "signature_drinks": [
+                    "Champagne, Wine, Summer Cocktails (e.g., Spritz)"
+                ],
+                "price_range": "€€€€-€€€€€",
+                "atmosphere": "Elegant, relaxed, prime lakeside location with beautiful views",
+                "best_time": "Summer afternoon/evening",
+                "food_options": "Light meals, salads, snacks",
+                "reservation_needed": "Recommended for dining tables",
+                "local_tips": "A sophisticated spot to enjoy drinks and views during the summer months at one of Geneva's grand hotels."
+            },
+            {
+                "name": "Les Voisins",
+                "type": "Neighborhood Bar/Cafe",
+                "specialty": "Local Beers, Wine, Simple Drinks",
+                "signature_drinks": [
+                    "Local craft beers",
+                    "Simple cocktails, wine"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Casual, friendly, neighborhood vibe, often with live music or events",
+                "best_time": "Evening",
+                "food_options": "Simple snacks, sometimes small plates",
+                "reservation_needed": "Generally not needed",
+                "local_tips": "Popular local spot known for its relaxed atmosphere and community feel, often featuring cultural events."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Geneva Food Tour",
+                "focus": "Local Specialties, Chocolate & Cheese",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Tasting Swiss cheeses and learning about production",
+                    "Sampling local chocolates and pastries",
+                    "Visiting traditional eateries or market stalls",
+                    "Learning about Geneva's culinary traditions (influenced by France)"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "French" ],
+                "booking_tips": "Check providers like 'Taste of Geneva' or tours offered via the tourism office. Wear comfortable shoes. Book online."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Swiss Chocolate Workshop (Geneva)",
+                "cuisine_focus": "Working with Swiss Chocolate",
+                "duration": "Approx. 1.5 - 3 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Basics of chocolate history and production",
+                    "Creating your own chocolate treats (e.g., bars, truffles)"
+                ],
+                "group_size": "Varies",
+                "languages": [ "English", "French" ],
+                "includes": [ "Hands-on experience, ingredients, resulting chocolates" ],
+                "booking_tips": "Several chocolatiers in Geneva offer workshops (e.g., Stettler, Du Rhône Chocolatier sometimes). Check availability and book in advance."
+            },
+            {
+                "name": "Fondue Cooking Experience",
+                "cuisine_focus": "Preparing Traditional Swiss Fondue",
+                "duration": "Approx. 2-3 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Selecting the right cheeses (Gruyère, Vacherin)",
+                    "Proper technique for melting and seasoning",
+                    "Serving suggestions"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "French" ],
+                "includes": [ "Instruction, ingredients, enjoying the fondue meal" ],
+                "booking_tips": "Less common than chocolate workshops, may be offered by specific cooking schools or event providers. Look for 'Atelier Fondue'."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché de Plainpalais",
+                "type": "Large Outdoor General Market & Food Market",
+                "highlights": [
+                    "Vast array of fruits, vegetables, cheeses, meats, breads",
+                    "International food stalls offering diverse cuisines",
+                    "Also includes clothing, household goods, flea market items (days vary)"
+                ],
+                "hours": "Tuesdays, Fridays, Sundays (approx. 6:30 AM - 2/3 PM)",
+                "best_time": "Lunchtime for food stalls, morning for produce",
+                "location": "Plaine de Plainpalais",
+                "local_tips": "Geneva's largest and most diverse market. Great for affordable lunch options."
+            },
+            {
+                "name": "Marché de Carouge",
+                "type": "Outdoor Farmers Market",
+                "highlights": [
+                    "High-quality local and regional produce",
+                    "Artisan cheeses, breads, pastries, olive oils, Italian specialties",
+                    "Flowers and plants",
+                    "Charming atmosphere in the Italianate Carouge district"
+                ],
+                "hours": "Wednesdays & Saturdays (approx. 8 AM - 2 PM)",
+                "best_time": "Saturday morning for liveliest atmosphere",
+                "location": "Place du Marché, Carouge",
+                "local_tips": "A more upscale food-focused market than Plainpalais, located in a beautiful historic square."
+            },
+            {
+                "name": "Halles de Rive",
+                "type": "Indoor Food Market",
+                "highlights": [
+                    "Permanent indoor market with high-quality vendors",
+                    "Butchers, fishmongers, cheesemongers, bakers, delicatessens, specialty grocers",
+                    "Small eateries and cafes within the market"
+                ],
+                "hours": "Mon-Sat (check specific vendor hours, generally closed Sunday)",
+                "best_time": "Lunchtime or for gourmet food shopping",
+                "location": "Rive (near shopping district and lake)",
+                "local_tips": "Geneva's main indoor market, offering premium food products. Good place for picnic supplies or a high-quality quick bite."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Cardon Genevois (Cardoon - local thistle variety, often served au gratin)",
+            "Asperges (Asparagus)",
+            "Morilles (Morel Mushrooms)",
+            "Rhubarbe (Rhubarb)"
+        ],
+        "summer": [
+            "Filets de Perche du Lac Léman (Perch fillets from Lake Geneva - a key local dish)",
+            "Tomates (Tomatoes)",
+            "Baies Fraîches (Fresh Berries)",
+            "Abricots (Apricots)",
+            "Féra du Lac (Lake whitefish)"
+        ],
+        "autumn": [
+            "Chasse (Game meat - Venison, Wild Boar)",
+            "Champignons Sauvages (Wild Mushrooms - Chanterelles, Porcini)",
+            "Courge (Pumpkin/Squash)",
+            "Raisins (Grapes - during harvest season)",
+            "Cardon Genevois (continues into autumn/winter)"
+        ],
+        "winter": [
+            "Fondue Moitié-Moitié",
+            "Raclette",
+            "Longeole (Genevan pork and fennel sausage, IGP protected)",
+            "Cardon Genevois Gratin",
+            "Soupe à la Courge (Pumpkin Soup)",
+            "Marmite de l'Escalade (Chocolate cauldron filled with marzipan vegetables - Dec 11/12)"
+        ]
+    }
+}

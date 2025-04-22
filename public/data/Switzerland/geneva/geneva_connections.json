@@ -1,0 +1,294 @@
+{
+    "destinations": [
+        {
+            "city": "Lausanne",
+            "country": "Switzerland",
+            "whyGo": "Olympic capital, stunning lake views, vibrant arts scene.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin",
+                "journeyTime": "Approx. 45 mins",
+                "frequency": "Very Frequent"
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Regular"
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 64 km / 40 miles",
+            "recommendedVisitDuration": "1-2 days",
+            "highlights": ["Olympic Museum", "Lausanne Cathedral", "Ouchy waterfront", "Lavaux Vineyards (nearby)"]
+        },
+        {
+            "city": "Montreux",
+            "country": "Switzerland",
+            "whyGo": "Beautiful lakeside promenade, Château de Chillon, Montreux Jazz Festival.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin",
+                "journeyTime": "Approx. 1 hour 15 mins",
+                "frequency": "Frequent"
+            },
+            "directBus": {
+                "available": false
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 95 km / 59 miles",
+            "recommendedVisitDuration": "1 day",
+            "highlights": ["Château de Chillon", "Lakeside Promenade", "Queen Studio Experience", "Rochers-de-Naye mountain railway"]
+        },
+        {
+            "city": "Bern",
+            "country": "Switzerland",
+            "whyGo": "UNESCO World Heritage medieval old town, capital city charm, bears.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin",
+                "journeyTime": "Approx. 1 hour 45 mins",
+                "frequency": "Frequent"
+            },
+            "directBus": {
+                "available": false
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 160 km / 100 miles",
+            "recommendedVisitDuration": "1-2 days",
+            "highlights": ["Zytglogge (Clock Tower)", "Bern Minster", "Bear Park", "Rose Garden", "Federal Palace"]
+        },
+        {
+            "city": "Zermatt",
+            "country": "Switzerland",
+            "whyGo": "Iconic Matterhorn views, world-class skiing and hiking, car-free village.",
+            "directTrain": {
+                "available": false
+            },
+            "directBus": {
+                "available": false
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": true,
+                "changeRequired": "Yes, typically in Visp",
+                "journeyTime": "Approx. 3 hours 45 mins",
+                "frequency": "Frequent"
+            },
+            "distanceFromGeneva": "Approx. 235 km / 146 miles",
+            "recommendedVisitDuration": "2-4 days",
+            "highlights": ["Matterhorn Glacier Paradise", "Gornergrat Bahn", "Hiking trails", "Skiing/Snowboarding", "Charming village atmosphere"]
+        },
+        {
+            "city": "Annecy",
+            "country": "France",
+            "whyGo": "'Venice of the Alps', charming canals, beautiful lake, medieval old town.",
+            "directTrain": {
+                "available": false
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière",
+                "journeyTime": "Approx. 45 mins - 1 hour",
+                "frequency": "Frequent"
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": true,
+                "changeRequired": "Often requires change in Annemasse or Bellegarde",
+                "journeyTime": "Approx. 1.5 - 2 hours",
+                "frequency": "Regular"
+            },
+            "distanceFromGeneva": "Approx. 45 km / 28 miles",
+            "recommendedVisitDuration": "1 day",
+            "highlights": ["Palais de l'Isle", "Château d'Annecy", "Lake Annecy", "Pont des Amours", "Old Town canals"]
+        },
+        {
+            "city": "Chamonix",
+            "country": "France",
+            "whyGo": "Gateway to Mont Blanc, world-renowned skiing/mountaineering, stunning alpine scenery.",
+            "directTrain": {
+                "available": false
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière / Airport",
+                "journeyTime": "Approx. 1 hour 15 mins - 1 hour 45 mins",
+                "frequency": "Frequent"
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": true,
+                "changeRequired": "Yes, often via Martigny (CH) or St Gervais (FR)",
+                "journeyTime": "Approx. 2.5 - 3.5 hours",
+                "frequency": "Regular"
+            },
+            "distanceFromGeneva": "Approx. 82 km / 51 miles",
+            "recommendedVisitDuration": "2-4 days",
+            "highlights": ["Aiguille du Midi cable car", "Mer de Glace glacier train", "Mont Blanc views", "Hiking/Skiing", "Alpine town atmosphere"]
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "Gastronomic capital, historic old town (Vieux Lyon), Roman ruins, vibrant culture.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin",
+                "journeyTime": "Approx. 2 hours",
+                "frequency": "Frequent"
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière",
+                "journeyTime": "Approx. 2 - 2.5 hours",
+                "frequency": "Regular"
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 150 km / 93 miles",
+            "recommendedVisitDuration": "2-3 days",
+            "highlights": ["Vieux Lyon (Old Lyon)", "Basilica of Notre-Dame de Fourvière", "Roman Theatres", "Presqu'île district", "Les Halles de Lyon Paul Bocuse (food market)"]
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Iconic landmarks (Eiffel Tower, Louvre), world-class museums, romantic atmosphere, fashion capital.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin",
+                "journeyTime": "Approx. 3 hours 15 mins",
+                "frequency": "Several daily"
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière",
+                "journeyTime": "Approx. 7-9 hours",
+                "frequency": "Regular"
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": true,
+                "airport": "Geneva Airport (GVA)",
+                "journeyTime": "Approx. 1 hour 15 mins",
+                "frequency": "Frequent"
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 540 km / 335 miles",
+            "recommendedVisitDuration": "3-5 days",
+            "highlights": ["Eiffel Tower", "Louvre Museum", "Notre Dame Cathedral", "Montmartre & Sacré-Cœur", "Champs-Élysées & Arc de Triomphe"]
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Fashion and design hub, magnificent Duomo, 'The Last Supper', historic Galleria.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin",
+                "journeyTime": "Approx. 4 hours",
+                "frequency": "Several daily"
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière",
+                "journeyTime": "Approx. 4-5 hours",
+                "frequency": "Regular"
+            },
+            "intraSwitzerlandFlight": {
+                "available": false
+            },
+            "intraEuropeFlight": {
+                "available": true,
+                "airport": "Geneva Airport (GVA)",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Regular"
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 320 km / 200 miles",
+            "recommendedVisitDuration": "2-3 days",
+            "highlights": ["Milan Duomo", "Galleria Vittorio Emanuele II", "Santa Maria delle Grazie (The Last Supper)", "Sforza Castle", "Fashion District"]
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Financial center, beautiful old town, Lake Zurich, vibrant nightlife.",
+            "directTrain": {
+                "available": true,
+                "station": "Geneva Cornavin / Airport",
+                "journeyTime": "Approx. 2 hours 45 mins",
+                "frequency": "Frequent"
+            },
+            "directBus": {
+                "available": true,
+                "station": "Geneva Gare Routière",
+                "journeyTime": "Approx. 4-5 hours",
+                "frequency": "Limited"
+            },
+            "intraSwitzerlandFlight": {
+                "available": true,
+                "airport": "Geneva Airport (GVA)",
+                "journeyTime": "Approx. 50 mins",
+                "frequency": "Several daily"
+            },
+            "intraEuropeFlight": {
+                "available": false
+            },
+            "indirectTrain": {
+                "available": false
+            },
+            "distanceFromGeneva": "Approx. 280 km / 174 miles",
+            "recommendedVisitDuration": "1-2 days",
+            "highlights": ["Altstadt (Old Town)", "Lake Zurich", "Grossmünster Church", "Bahnhofstrasse (shopping)", "Swiss National Museum"]
+        }
+    ]
+}

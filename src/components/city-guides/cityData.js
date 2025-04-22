@@ -1340,7 +1340,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Geneva, a global hub for diplomacy, combines French influence, a magnificent lakefront, and mountain views.",
-      thumbnail: "/images/geneva-thumbnail.jpg",
+      thumbnail: "/images/geneva-thumbnail.png",
       landmarks: ["Jet d'Eau", "Palais des Nations"],
       latitude: 46.2044,
       longitude: 6.1432,
