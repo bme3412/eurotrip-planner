@@ -1,15 +1,9 @@
 'use client';
 
 import React from 'react';
-import dynamic from 'next/dynamic';
+import InteractiveHeader from '../components/common/InteractiveHeader';
 import { useTravelData } from '../context/TravelDataProvider';
 import Link from 'next/link';
-
-// Dynamically import the header, disabling SSR
-const InteractiveHeader = dynamic(
-  () => import('../components/common/InteractiveHeader'),
-  { ssr: false }
-);
 
 export default function Home() {
   const { popularCities } = useTravelData();

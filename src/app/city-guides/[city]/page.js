@@ -130,24 +130,10 @@ export async function generateStaticParams() {
     }
   }));
 
-  // Fetch data for each city and combine it with the city name
-  const citiesWithData = await Promise.all(
-    cities.map(async ({ city }) => {
-      const cityData = await getCityData(city); // Fetch data here
-      // Return structure containing both city and its data
-      return { city: city, cityData: cityData };
-    })
-  );
-
-  // Filter out cities where data fetching might have failed (cityData is null)
-  const validCitiesData = citiesWithData.filter(item => item.cityData);
-
-  console.log(`Generated ${validCitiesData.length} static params with data pre-fetched.`);
-
-  // Return the array of objects containing both city and cityData
-  // Next.js will use the 'city' property for the route parameter,
-  // and we'll access 'cityData' directly in the page component props.
-  return validCitiesData; // Return the full objects { city: '...', cityData: {...} }
+  // CORRECTED: Return only the city param object
+  // NOTE: This will be empty until the directory structure/reading logic is fixed
+  console.log(`Found ${cities.length} potential city params (before data validation).`);
+  return cities; // Returns [{ city: '...' }, ...]
 }
 
 // Async helper to read JSON safely
@@ -361,6 +347,8 @@ async function getCityData(cityName) {
 
 // Main page component
 export default async function CityPage({ params }) {
+  // Await the props object to ensure params are resolved (though usually implicit in async components)
+  // const { params } = await props; // Removed this line
   // Destructure city (which comes from the URL path, likely lowercase)
   const { city } = params;
   // Fetch data using the city param from the URL (likely lowercase)

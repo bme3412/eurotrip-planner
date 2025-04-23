@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import RegionFilter from '../../components/city-guides/RegionFilter';
 import CountryFilter from '../../components/city-guides/CountryFilter';
@@ -10,7 +10,6 @@ import { regionThemes } from '../../components/city-guides/regionData';
 
 const INITIAL_LOAD = 12;
 const LOAD_INCREMENT = 8;
-const SCROLL_OFFSET = 250;
 
 const CityGuidesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,6 +26,8 @@ const CityGuidesPage = () => {
   const [displayedCities, setDisplayedCities] = useState([]);
   const [hasMore, setHasMore] = useState(false);
   
+  const observerRef = useRef(null);
+
   useEffect(() => {
     try {
       setLoading(true);
@@ -78,29 +79,44 @@ const CityGuidesPage = () => {
     setItemsToShow(INITIAL_LOAD);
     const initialSlice = filteredCities.slice(0, INITIAL_LOAD);
     setDisplayedCities(initialSlice);
-    setHasMore(filteredCities.length > INITIAL_LOAD);
+    const moreExist = filteredCities.length > INITIAL_LOAD;
+    setHasMore(moreExist);
+    console.log(`Filtered cities count: ${filteredCities.length}, Initial load: ${INITIAL_LOAD}, Has more: ${moreExist}`);
   }, [filteredCities]);
 
   const loadMoreCities = useCallback(() => {
-    if (!hasMore) return;
-
+    console.log('Intersection Observer triggered loadMoreCities');
     const newItemsToShow = itemsToShow + LOAD_INCREMENT;
     const newDisplayedCities = filteredCities.slice(0, newItemsToShow);
     setDisplayedCities(newDisplayedCities);
     setItemsToShow(newItemsToShow);
     setHasMore(filteredCities.length > newItemsToShow);
-  }, [itemsToShow, filteredCities, hasMore]);
+  }, [itemsToShow, filteredCities]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - SCROLL_OFFSET && hasMore && !loading) {
-        loadMoreCities();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const firstEntry = entries[0];
+        if (firstEntry.isIntersecting && hasMore && !loading) {
+           console.log('Observer threshold reached, loading more cities...');
+           loadMoreCities();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    const currentObserverRef = observerRef.current;
+    if (currentObserverRef) {
+      console.log('Attaching Intersection Observer');
+      observer.observe(currentObserverRef);
+    }
+
+    return () => {
+      if (currentObserverRef) {
+        console.log('Disconnecting Intersection Observer');
+        observer.unobserve(currentObserverRef);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-
   }, [hasMore, loading, loadMoreCities]);
   
   const handleRegionChange = (region, filterType) => {
@@ -274,6 +290,12 @@ const CityGuidesPage = () => {
                 </div>
               ))}
             </div>
+
+            {hasMore && (
+              <div ref={observerRef} className="flex justify-center items-center h-20">
+                 {!loading && <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>}
+              </div>
+            )}
           </>
         )}
       </div>
