@@ -1396,7 +1396,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Lausanne, home to the International Olympic Committee, offers spectacular views of Lake Geneva and the Alps.",
-      thumbnail: "/images/lausanne-thumbnail.jpg",
+      thumbnail: "/images/lausanne-thumbnail.png",
       landmarks: ["Lausanne Cathedral", "Olympic Museum"],
       latitude: 46.5197,
       longitude: 6.6336,
