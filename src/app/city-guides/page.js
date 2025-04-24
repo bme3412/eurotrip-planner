@@ -1,299 +1,289 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import Link from 'next/link';
-import RegionFilter from '../../components/city-guides/RegionFilter';
-import CountryFilter from '../../components/city-guides/CountryFilter';
-import CityCard from '../../components/city-guides/CityCard';
-import { getCitiesData, cityCountries } from '../../components/city-guides/cityData';
-import { regionThemes } from '../../components/city-guides/regionData';
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+} from 'react';
+import RegionFilter from '@/components/city-guides/RegionFilter';
+import CountryFilter from '@/components/city-guides/CountryFilter';
+import CityCard from '@/components/city-guides/CityCard';
+import { getCitiesData } from '@/components/city-guides/cityData';
+import { regionThemes } from '@/components/city-guides/regionData';
 
 const INITIAL_LOAD = 12;
 const LOAD_INCREMENT = 8;
 
-const CityGuidesPage = () => {
+export default function CityGuidesPage() {
+  /* ───────── state ───────── */
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedCountries, setSelectedCountries] = useState([]);
-  const [hoveredRegion, setHoveredRegion] = useState(null);
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [allAvailableCountries, setAllAvailableCountries] = useState([]);
+  const [allCountries, setAllCountries] = useState([]);
   const [error, setError] = useState(null);
   const [activeFilterType, setActiveFilterType] = useState('geographic');
 
   const [itemsToShow, setItemsToShow] = useState(INITIAL_LOAD);
-  const [displayedCities, setDisplayedCities] = useState([]);
+  const [displayed, setDisplayed] = useState([]);
   const [hasMore, setHasMore] = useState(false);
-  
+
   const observerRef = useRef(null);
 
+  /* ───────── data load ───────── */
   useEffect(() => {
     try {
-      setLoading(true);
-      setError(null);
-      
-      const cityData = getCitiesData();
-      setCities(cityData);
-      
-      const availableCountries = [...new Set(cityData.map(c => c.country).filter(Boolean))].sort();
-      setAllAvailableCountries(availableCountries);
-      
+      const data = getCitiesData();
+      setCities(data);
+      setAllCountries(
+        [...new Set(data.map((c) => c.country).filter(Boolean))].sort(),
+      );
       setLoading(false);
     } catch (err) {
-      console.error('Error loading cities:', err);
+      console.error(err);
       setError('Failed to load city data');
       setLoading(false);
     }
   }, []);
-  
-  const filteredCities = useMemo(() => {
-    return cities.filter(city => {
+
+  /* ───────── filtering ───────── */
+  const filtered = useMemo(() => {
+    return cities.filter((city) => {
       const matchesSearch =
-        searchTerm === '' ||
+        !searchTerm ||
         city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (city.country && city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (city.description && city.description.toLowerCase().includes(searchTerm.toLowerCase()));
-      
-      const matchesCountry = selectedCountries.length === 0 || selectedCountries.includes(city.country);
-      
-      let matchesRegionOrTheme = true;
-      
+        (city.country &&
+          city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (city.description &&
+          city.description.toLowerCase().includes(searchTerm.toLowerCase()));
+
+      const matchesCountry =
+        selectedCountries.length === 0 || selectedCountries.includes(city.country);
+
+      let matchesRegion = true;
       if (selectedRegion !== 'All') {
         if (activeFilterType === 'geographic') {
-          const theme = regionThemes.find(t => t.id === selectedRegion);
-          const countriesInRegion = theme ? theme.countries || [] : [];
-          matchesRegionOrTheme = theme ? countriesInRegion.includes(city.country) : false;
+          const theme = regionThemes.find((t) => t.id === selectedRegion);
+          matchesRegion = theme?.countries?.includes(city.country) ?? false;
         } else if (activeFilterType === 'region') {
-          matchesRegionOrTheme = city.region === selectedRegion;
-        } else if (activeFilterType === 'travel') {
-          matchesRegionOrTheme = city.tourismCategories && city.tourismCategories.includes(selectedRegion);
+          matchesRegion = city.region === selectedRegion;
+        } else if (activeFilterType === 'travel' || activeFilterType === 'tourism') {
+          matchesRegion =
+            city.tourismCategories?.includes(selectedRegion) ?? false;
         }
       }
-      
-      return matchesSearch && matchesCountry && matchesRegionOrTheme;
+
+      return matchesSearch && matchesCountry && matchesRegion;
     });
   }, [cities, searchTerm, selectedCountries, selectedRegion, activeFilterType]);
 
+  /* ───────── infinite scroll ───────── */
   useEffect(() => {
+    setDisplayed(filtered.slice(0, INITIAL_LOAD));
     setItemsToShow(INITIAL_LOAD);
-    const initialSlice = filteredCities.slice(0, INITIAL_LOAD);
-    setDisplayedCities(initialSlice);
-    const moreExist = filteredCities.length > INITIAL_LOAD;
-    setHasMore(moreExist);
-    console.log(`Filtered cities count: ${filteredCities.length}, Initial load: ${INITIAL_LOAD}, Has more: ${moreExist}`);
-  }, [filteredCities]);
+    setHasMore(filtered.length > INITIAL_LOAD);
+  }, [filtered]);
 
-  const loadMoreCities = useCallback(() => {
-    console.log('Intersection Observer triggered loadMoreCities');
-    const newItemsToShow = itemsToShow + LOAD_INCREMENT;
-    const newDisplayedCities = filteredCities.slice(0, newItemsToShow);
-    setDisplayedCities(newDisplayedCities);
-    setItemsToShow(newItemsToShow);
-    setHasMore(filteredCities.length > newItemsToShow);
-  }, [itemsToShow, filteredCities]);
+  const loadMore = useCallback(() => {
+    const next = itemsToShow + LOAD_INCREMENT;
+    setDisplayed(filtered.slice(0, next));
+    setItemsToShow(next);
+    setHasMore(filtered.length > next);
+  }, [itemsToShow, filtered]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const firstEntry = entries[0];
-        if (firstEntry.isIntersecting && hasMore && !loading) {
-           console.log('Observer threshold reached, loading more cities...');
-           loadMoreCities();
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && hasMore && !loading) {
+          loadMore();
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1 },
+    );
+    
+    if (observerRef.current) {
+      io.observe(observerRef.current);
+    }
+    
+    return () => io.disconnect();
+  }, [hasMore, loading, loadMore]);
+
+  /* ───────── UI handlers ───────── */
+  const handleRegionChange = (region, type) => {
+    setSelectedRegion(region);
+    if (type) setActiveFilterType(type);
+  };
+
+  const handleCountryChange = (c) =>
+    setSelectedCountries((prev) =>
+      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
     );
 
-    const currentObserverRef = observerRef.current;
-    if (currentObserverRef) {
-      console.log('Attaching Intersection Observer');
-      observer.observe(currentObserverRef);
-    }
-
-    return () => {
-      if (currentObserverRef) {
-        console.log('Disconnecting Intersection Observer');
-        observer.unobserve(currentObserverRef);
-      }
-    };
-  }, [hasMore, loading, loadMoreCities]);
-  
-  const handleRegionChange = (region, filterType) => {
-    setSelectedRegion(region);
-    if (filterType) {
-      setActiveFilterType(filterType);
-    }
-  };
-  
-  const handleCountryChange = (country) => {
-    setSelectedCountries(prevSelectedCountries => {
-      if (prevSelectedCountries.includes(country)) {
-        return prevSelectedCountries.filter(c => c !== country);
-      } else {
-        return [...prevSelectedCountries, country];
-      }
-    });
-  };
-  
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedRegion('All');
     setSelectedCountries([]);
   };
-  
-  const getFilterLabel = () => {
-    if (activeFilterType === 'geographic') return 'Region';
-    if (activeFilterType === 'tourism') return 'Style';
-    return 'Filter';
-  };
-  
+
+  const filterLabel =
+    activeFilterType === 'geographic'
+      ? 'Region'
+      : activeFilterType === 'tourism'
+      ? 'Style'
+      : 'Filter';
+
+  /* ───────── render ───────── */
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative text-white overflow-hidden h-64">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-700/80 to-indigo-800/80 z-10"></div>
-        <div className="absolute inset-0 w-full h-full bg-blue-600">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/europe-map-bg.jpg)' }}
-          ></div>
-        </div>
-        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Explore European Cities</h1>
-          <p className="text-lg md:text-xl opacity-90 max-w-2xl">
-            Discover detailed guides for the most popular destinations across Europe,
-            with insider tips, interactive maps, and local recommendations.
+      {/* hero */}
+      <div className="relative h-64 overflow-hidden text-white">
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-blue-700/80 to-indigo-800/80" />
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/images/europe-map-bg.jpg)' }}
+        />
+        <div className="relative z-20 container mx-auto flex h-full flex-col justify-center px-4">
+          <h1 className="text-3xl font-bold md:text-4xl">
+            Explore European Cities
+          </h1>
+          <p className="mt-1 max-w-2xl opacity-90">
+            Discover insider tips, interactive maps, and local recommendations
+            for Europe&apos;s most compelling destinations.
           </p>
-          <div className="mt-4 max-w-lg">
-            <div className="relative">
-              <input 
-                type="text" 
-                placeholder="Search for a city or country..." 
-                className="w-full py-2 px-4 pr-10 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <div className="absolute right-3 top-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </div>
+
+          <div className="relative mt-4 max-w-lg">
+            <input
+              type="text"
+              placeholder="Search for a city or country..."
+              className="w-full rounded-lg bg-white/90 py-2 px-4 pr-10 text-gray-800 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <span className="absolute right-6 top-[11px] text-gray-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </div>
-      
-      <div className="container mx-auto px-4 py-6">
-        <div className="mb-4">
-          {(selectedRegion !== 'All' || selectedCountries.length > 0 || searchTerm !== '') && (
-            <div className="flex flex-wrap items-center gap-2 text-sm">
-              <span className="text-gray-600">Active filters:</span>
-              {selectedRegion !== 'All' && (
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full flex items-center">
-                  {getFilterLabel()}: {selectedRegion}
-                  <button 
-                    className="ml-1 text-blue-500 hover:text-blue-700"
-                    onClick={() => setSelectedRegion('All')}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </span>
-              )}
-              {selectedCountries.length > 0 && (
-                selectedCountries.map(country => (
-                  <span key={country} className="bg-green-100 text-green-800 px-2 py-1 rounded-full flex items-center">
-                    Country: {country}
-                    <button 
-                      className="ml-1 text-green-500 hover:text-green-700"
-                      onClick={() => handleCountryChange(country)}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </button>
-                  </span>
-                ))
-              )}
-              {searchTerm !== '' && (
-                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full flex items-center">
-                  Search: &quot;{searchTerm}&quot;
-                  <button 
-                    className="ml-1 text-purple-500 hover:text-purple-700"
-                    onClick={() => setSearchTerm('')}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                </span>
-              )}
-              <button
-                className="text-gray-500 hover:text-gray-700 text-xs underline ml-2"
-                onClick={clearFilters}
-              >
-                Clear all
-              </button>
-            </div>
-          )}
-        </div>
-        
-        <div className="mb-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
-          <div className="flex-1">
-            <RegionFilter 
-              selectedRegion={selectedRegion}
-              handleRegionChange={handleRegionChange}
-            />
-          </div>
 
-          <div className="w-full md:w-auto">
-            <CountryFilter 
-              selectedCountries={selectedCountries}
-              handleCountryChange={handleCountryChange}
-              countries={allAvailableCountries}
-            />
+      {/* filters & grid */}
+      <div className="container mx-auto px-4 py-6">
+        {/* active-filter chips */}
+        {(selectedRegion !== 'All' || selectedCountries.length > 0 || searchTerm) && (
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-gray-600">Active filters:</span>
+
+            {selectedRegion !== 'All' && (
+              <span className="flex items-center rounded-full bg-blue-100 px-2 py-1 text-blue-800">
+                {filterLabel}: {selectedRegion}
+                <button onClick={() => setSelectedRegion('All')} className="ml-1">
+                  ✕
+                </button>
+              </span>
+            )}
+
+            {selectedCountries.map((c) => (
+              <span
+                key={c}
+                className="flex items-center rounded-full bg-green-100 px-2 py-1 text-green-800"
+              >
+                Country: {c}
+                <button onClick={() => handleCountryChange(c)} className="ml-1">
+                  ✕
+                </button>
+              </span>
+            ))}
+
+            {searchTerm && (
+              <span className="flex items-center rounded-full bg-purple-100 px-2 py-1 text-purple-800">
+                Search: &apos;{searchTerm}&apos;
+                <button onClick={() => setSearchTerm('')} className="ml-1">
+                  ✕
+                </button>
+              </span>
+            )}
+
+            <button onClick={clearFilters} className="ml-2 text-xs underline">
+              Clear all
+            </button>
           </div>
+        )}
+
+        {/* filter controls */}
+        <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
+          <RegionFilter
+            selectedRegion={selectedRegion}
+            handleRegionChange={handleRegionChange}
+          />
+
+          <CountryFilter
+            selectedCountries={selectedCountries}
+            handleCountryChange={handleCountryChange}
+            countries={allCountries}
+          />
         </div>
-        
-        <div className="flex items-center justify-between mb-4">
+
+        {/* results header */}
+        <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-bold">City Guides</h2>
-          <div className="text-sm text-gray-500">
-            {loading ? 'Loading...' : `Showing ${displayedCities.length} of ${filteredCities.length} cities`}
-          </div>
+          <span className="text-sm text-gray-500">
+            {loading
+              ? 'Loading…'
+              : `Showing ${displayed.length} of ${filtered.length}`}
+          </span>
         </div>
-        
+
+        {/* states */}
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="flex h-64 items-center justify-center">
+            <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-t-2 border-blue-500" />
           </div>
         ) : error ? (
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+          <div className="rounded-lg bg-white p-6 text-center shadow-md">
             <p className="text-red-600">{error}</p>
           </div>
-        ) : filteredCities.length === 0 ? (
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <p className="text-gray-600">No cities found matching your criteria</p>
+        ) : filtered.length === 0 ? (
+          <div className="rounded-lg bg-white p-6 text-center shadow-md">
+            <p className="text-gray-600">No cities match your criteria.</p>
             <button
-              className="mt-3 text-blue-600 hover:text-blue-800 font-medium"
               onClick={clearFilters}
+              className="mt-3 font-medium text-blue-600 hover:text-blue-800"
             >
               Clear all filters
             </button>
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {displayedCities.map((city) => (
-                <div key={city.id} className="transition-opacity ease-in-out duration-500">
-                  <CityCard city={city} />
-                </div>
+            {/* cards */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {displayed.map((city) => (
+                <CityCard key={city.id} city={city} />
               ))}
             </div>
 
+            {/* infinite-scroll sentinel */}
             {hasMore && (
-              <div ref={observerRef} className="flex justify-center items-center h-20">
-                 {!loading && <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>}
+              <div
+                ref={observerRef}
+                className="flex h-20 items-center justify-center"
+              >
+                <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-t-2 border-blue-500" />
               </div>
             )}
           </>
@@ -301,6 +291,4 @@ const CityGuidesPage = () => {
       </div>
     </div>
   );
-};
-
-export default CityGuidesPage;
+}

@@ -1,12 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-
-// Set Mapbox token - using a default public token for demo purposes
-// In production, you should use an environment variable
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
+// Remove CSS import from here
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Define broader category mapping to consolidate attraction types
 // This helps organize attractions into more manageable groups
@@ -105,6 +101,7 @@ export default function CityMapWithMapbox({
   const map = useRef(null);
   const popupRef = useRef(null);
   const markersRef = useRef([]);
+  const mapboxglRef = useRef(null); // Ref to hold the loaded mapboxgl library
   const [mapLoaded, setMapLoaded] = useState(false);
   const [styleLoaded, setStyleLoaded] = useState(false);
   const [activeCategories, setActiveCategories] = useState([]);
@@ -142,54 +139,66 @@ export default function CityMapWithMapbox({
   useEffect(() => {
     if (map.current) return; // Map already initialized
 
-    try {
-      // Initialize map with a more vibrant style
-      map.current = new mapboxgl.Map({
-        container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/streets-v12', // More colorful style
-        center: center,
-        zoom: zoom,
-        attributionControl: false,
-        pitchWithRotate: false
-      });
+    // Use an async function to load Mapbox dynamically
+    const initializeMap = async () => {
+      try {
+        // Dynamically import mapbox-gl
+        const mapboxglModule = (await import('mapbox-gl')).default;
+        mapboxglRef.current = mapboxglModule; // Store the loaded library in the ref
 
-      // Add navigation controls
-      map.current.addControl(new mapboxgl.NavigationControl({
-        showCompass: true,
-        visualizePitch: true
-      }), 'top-right');
-      
-      map.current.addControl(new mapboxgl.FullscreenControl(), 'top-right');
-      
-      map.current.addControl(
-        new mapboxgl.AttributionControl({ 
-          compact: true,
-          customAttribution: `© ${new Date().getFullYear()} | ${cityName} City Guide`
-        }), 
-        'bottom-right'
-      );
+        // Set access token *after* import, using the ref
+        mapboxglRef.current.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-      // On map load
-      map.current.on('load', () => {
-        setMapLoaded(true);
-        // Process categories after map is loaded
-        processCategories();
-      });
+        // Initialize map with a more vibrant style, using the ref
+        map.current = new mapboxglRef.current.Map({
+          container: mapContainer.current,
+          style: 'mapbox://styles/mapbox/streets-v12', // More colorful style
+          center: center,
+          zoom: zoom,
+          attributionControl: false,
+          pitchWithRotate: false
+        });
 
-      // Wait for style to be fully loaded before adding data
-      map.current.on('styledata', () => {
-        setStyleLoaded(true);
-      });
+        // Add navigation controls, using the ref
+        map.current.addControl(new mapboxglRef.current.NavigationControl({
+          showCompass: true,
+          visualizePitch: true
+        }), 'top-right');
+        
+        map.current.addControl(new mapboxglRef.current.FullscreenControl(), 'top-right');
+        
+        map.current.addControl(
+          new mapboxglRef.current.AttributionControl({ 
+            compact: true,
+            customAttribution: `© ${new Date().getFullYear()} | ${cityName} City Guide`
+          }), 
+          'bottom-right'
+        );
 
-      // Handle errors
-      map.current.on('error', (e) => {
-        console.error('Mapbox error:', e);
-        setMapError(e.error ? e.error.message : 'Unknown map error');
-      });
-    } catch (err) {
-      console.error('Error initializing map:', err);
-      setMapError(err.message || 'Failed to initialize map');
-    }
+        // On map load
+        map.current.on('load', () => {
+          setMapLoaded(true);
+          // Process categories after map is loaded
+          processCategories();
+        });
+
+        // Wait for style to be fully loaded before adding data
+        map.current.on('styledata', () => {
+          setStyleLoaded(true);
+        });
+
+        // Handle errors
+        map.current.on('error', (e) => {
+          console.error('Mapbox error:', e);
+          setMapError(e.error ? e.error.message : 'Unknown map error');
+        });
+      } catch (err) {
+        console.error('Error initializing map:', err);
+        setMapError(err.message || 'Failed to initialize map');
+      }
+    };
+
+    initializeMap(); // Call the async function
 
     // Cleanup on unmount
     return () => {
@@ -202,7 +211,11 @@ export default function CityMapWithMapbox({
 
   // Add markers when map is loaded and attractions data changes or filters change
   useEffect(() => {
-    if (!mapLoaded || !styleLoaded || !map.current || !categoriesProcessed) return;
+    // Add check for mapboxglRef.current being loaded
+    if (!mapLoaded || !styleLoaded || !map.current || !categoriesProcessed || !mapboxglRef.current) return;
+
+    // Access mapboxgl classes via the ref
+    const mapboxgl = mapboxglRef.current;
 
     // Clear any existing markers
     if (markersRef.current.length > 0) {
@@ -358,7 +371,7 @@ export default function CityMapWithMapbox({
         // Close details div and popup container
         popupContent += `</div></div>`;
         
-        // Create popup with improved styling
+        // Create popup with improved styling, using ref
         const popup = new mapboxgl.Popup({ 
           offset: 35, 
           closeButton: true,
@@ -367,7 +380,7 @@ export default function CityMapWithMapbox({
           className: 'custom-popup'
         }).setHTML(popupContent);
         
-        // Create and store the marker
+        // Create and store the marker, using ref
         const marker = new mapboxgl.Marker(markerEl)
           .setLngLat([lng, lat])
           .setPopup(popup)
@@ -468,7 +481,7 @@ export default function CityMapWithMapbox({
           }
         });
         
-        // Fit map to visible attractions with animation
+        // Fit map to visible attractions with animation, using ref
         const bounds = new mapboxgl.LngLatBounds();
         
         visibleAttractions.forEach(attr => {

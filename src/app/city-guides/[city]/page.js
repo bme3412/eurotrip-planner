@@ -4,6 +4,7 @@ import fsPromises from "fs/promises";
 import path from "path";
 import Image from "next/image";
 import Link from "next/link";
+// Remove dynamic import: import dynamic from 'next/dynamic';
 
 // Import components
 import CityOverview from "@/components/city-guides/CityOverview";
@@ -12,9 +13,10 @@ import NeighborhoodsList from "@/components/city-guides/NeighborhoodsList";
 import CulinaryGuide from "@/components/city-guides/CulinaryGuide";
 import TransportConnections from "@/components/city-guides/TransportConnections";
 import SeasonalActivities from "@/components/city-guides/SeasonalActivities";
-import MapSection from "@/components/city-guides/MapSection";
+import MapSection from "@/components/city-guides/MapSection"; // Re-add static import
 import CityVisitSection from "@/components/city-guides/CityVisitSection";
 import MonthlyGuideSection from "@/components/city-guides/MonthlyGuideSection";
+// Remove CityMapLoader import
 
 // Function to capitalize the first letter of each word
 const capitalize = (str) => {
@@ -347,36 +349,28 @@ async function getCityData(cityName) {
 
 // Main page component
 export default async function CityPage({ params }) {
-  // Await the props object to ensure params are resolved (though usually implicit in async components)
-  // const { params } = await props; // Removed this line
-  // Destructure city (which comes from the URL path, likely lowercase)
-  const { city } = params;
-  // Fetch data using the city param from the URL (likely lowercase)
-  const cityData = await getCityData(city);
+  // Fetch data using the city param directly from params
+  const cityData = await getCityData(params.city);
 
   // If cityData fetch failed based on the URL param
   if (!cityData) {
-    console.error(`City data fetch failed for: ${city}`);
+    console.error(`City data fetch failed for: ${params.city}`);
     notFound(); // Trigger 404 if data is missing
   }
 
-  // Capitalize city name for display if needed (using the original name from cityData)
-  const displayCityName = cityData.cityName ? capitalize(cityData.cityName) : capitalize(city);
+  // ---- IMPORTANT: Use cityData for subsequent logic ----
+  const fetchedCityName = cityData.cityName; // Get the definitive name from the data
+  if (!fetchedCityName) {
+    // Handle cases where data might be missing the name unexpectedly
+    console.error("Fetched city data is missing cityName property.");
+    notFound();
+  }
+
+  // Capitalize city name for display using the fetched name
+  const displayCityName = capitalize(fetchedCityName.replace(/-/g, " "));
 
   // Destructure data from cityData
   const {
-    overview = {},
-    attractions = [],
-    neighborhoods = [],
-    culinary_guide = {},
-    connections = {},
-    seasonal_activities = [],
-    monthly_events = {},
-    summary
-  } = cityData;
-
-  const {
-    cityName,
     country,
     overview: cityOverview,
     attractions: cityAttractions,
@@ -389,30 +383,30 @@ export default async function CityPage({ params }) {
     cityImage,
   } = cityData;
 
-  const cityDisplayName = capitalize(cityName.replace(/-/g, " "));
+  // Use fetchedCityName or derived display names for props
   const countryDisplayName = capitalize(country.replace(/-/g, " "));
 
   // FIXED SECTION: Get proper map center based on city or country
   let mapCenter;
-  const cityNameLower = cityName.toLowerCase();
+  const cityNameLower = fetchedCityName.toLowerCase(); // Use fetched name
 
   if (CITY_COORDINATES[cityNameLower]) {
     mapCenter = CITY_COORDINATES[cityNameLower];
-    console.log(`Using CITY_COORDINATES for ${cityName}: [${mapCenter}]`);
-  } else if (DEFAULT_COORDINATES[cityDisplayName]) {
-    mapCenter = DEFAULT_COORDINATES[cityDisplayName];
+    console.log(`Using CITY_COORDINATES for ${fetchedCityName}: [${mapCenter}]`);
+  } else if (DEFAULT_COORDINATES[displayCityName]) { // Use display name derived from fetched name
+    mapCenter = DEFAULT_COORDINATES[displayCityName];
     console.log(
-      `Using DEFAULT_COORDINATES (cityDisplayName) for ${cityName}: [${mapCenter}]`
+      `Using DEFAULT_COORDINATES (displayCityName) for ${fetchedCityName}: [${mapCenter}]`
     );
   } else if (DEFAULT_COORDINATES[country]) {
     mapCenter = DEFAULT_COORDINATES[country];
     console.log(
-      `Using DEFAULT_COORDINATES (country) for ${cityName}: [${mapCenter}]`
+      `Using DEFAULT_COORDINATES (country) for ${fetchedCityName}: [${mapCenter}]`
     );
   } else {
     mapCenter = DEFAULT_COORDINATES["default"];
     console.log(
-      `Using DEFAULT_COORDINATES (default) for ${cityName}: [${mapCenter}]`
+      `Using DEFAULT_COORDINATES (default) for ${fetchedCityName}: [${mapCenter}]`
     );
   }
 
@@ -422,7 +416,7 @@ export default async function CityPage({ params }) {
     if (firstAttraction.longitude && firstAttraction.latitude) {
       mapCenter = [firstAttraction.longitude, firstAttraction.latitude];
       console.log(
-        `Using attraction coordinates for ${cityName}: [${mapCenter}]`
+        `Using attraction coordinates for ${fetchedCityName}: [${mapCenter}]` // Log with fetched name
       );
     }
   }
@@ -455,7 +449,7 @@ export default async function CityPage({ params }) {
                 {countryDisplayName}
               </div>
               <h1 className="text-xl md:text-2xl font-bold">
-                {cityDisplayName}
+                {displayCityName}
               </h1>
             </div>
             {citySummary && citySummary.brief_description && (
@@ -608,10 +602,10 @@ export default async function CityPage({ params }) {
                 <h3 className="font-medium text-gray-700">City Map</h3>
                 <span className="text-xs text-gray-500">{cityAttractions.sites.length} attractions</span>
               </div>
-              <MapSection
+              <MapSection 
                 attractions={cityAttractions.sites}
                 categories={attractionCategories}
-                cityName={cityDisplayName}
+                cityName={displayCityName}
                 center={mapCenter}
                 zoom={13}
                 showHeader={false}
@@ -630,8 +624,8 @@ export default async function CityPage({ params }) {
               <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
             </div>
             <CityVisitSection
-              city={city}
-              cityName={cityDisplayName}
+              city={fetchedCityName}
+              cityName={displayCityName}
               countryName={countryDisplayName}
               monthlyData={monthlyEvents}
             />
@@ -649,8 +643,8 @@ export default async function CityPage({ params }) {
           <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
             {Object.keys(monthlyEvents).length > 0 ? (
               <MonthlyGuideSection
-                city={city}
-                cityName={cityDisplayName}
+                city={fetchedCityName}
+                cityName={displayCityName}
                 monthlyData={monthlyEvents}
               />
             ) : (
@@ -674,7 +668,7 @@ export default async function CityPage({ params }) {
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   We don&apos;t have specific monthly information for{" "}
-                  {cityDisplayName} yet. Check back later for detailed monthly
+                  {displayCityName} yet. Check back later for detailed monthly
                   guides.
                 </p>
               </div>
@@ -739,7 +733,7 @@ export default async function CityPage({ params }) {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <TransportConnections
                 connections={cityConnections}
-                currentCity={city}
+                currentCity={fetchedCityName}
               />
             </div>
           </section>

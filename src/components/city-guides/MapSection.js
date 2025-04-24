@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Dynamically import the map component on the client side
 // Using dynamic import with no SSR for reliable rendering
