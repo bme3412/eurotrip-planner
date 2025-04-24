@@ -1368,7 +1368,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Bern, Switzerland's capital, charms with its medieval old town, covered arcades, and scenic Aare River.",
-      thumbnail: "/images/bern-thumbnail.jpg",
+      thumbnail: "/images/bern-thumbnail.png",
       landmarks: ["Clock Tower (Zytglogge)", "Federal Palace"],
       latitude: 46.948,
       longitude: 7.4474,
@@ -1382,7 +1382,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Lucerne offers picture-perfect lake and mountain scenery, with its iconic wooden bridge and well-preserved medieval core.",
-      thumbnail: "/images/lucerne-thumbnail.jpg",
+      thumbnail: "/images/lucerne-thumbnail.png",
       landmarks: ["Chapel Bridge", "Lion Monument"],
       latitude: 47.0502,
       longitude: 8.3093,
