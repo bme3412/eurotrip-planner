@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-// Remove fsPromises and path imports as they are no longer needed for data loading
-// import fsPromises from "fs/promises";
-// import path from "path"; 
+// Re-introduce fs/promises and path
+import fsPromises from "fs/promises";
+import path from "path"; 
 import Image from "next/image";
 import Link from "next/link";
 // Remove dynamic import: import dynamic from 'next/dynamic';
@@ -20,11 +20,8 @@ import MonthlyGuideSection from "@/components/city-guides/MonthlyGuideSection";
 // Import the new loader component
 import CityMapLoader from "@/components/city-guides/CityMapLoader"; 
 
-// Base URL for fetching data - Adjust if necessary for local dev vs production
-// process.env.VERCEL_URL provides the deployment URL on Vercel
-const BASE_URL = process.env.VERCEL_URL 
-  ? `https://${process.env.VERCEL_URL}` 
-  : 'http://localhost:3000'; // Default for local development
+// Remove BASE_URL as it's no longer needed for build-time data fetching
+// const BASE_URL = ... 
 
 // Function to capitalize the first letter of each word
 const capitalize = (str) => {
@@ -73,22 +70,38 @@ const CITY_COORDINATES = {
   seville: [-5.9845, 37.3891],
 };
 
-// Fetch manifest file helper
-async function getManifest() {
+// Helper to check if a file path exists (optional but good practice)
+async function pathExists(filePath) {
   try {
-    const res = await fetch(`${BASE_URL}/data/manifest.json`, { next: { revalidate: 3600 } }); // Revalidate manifest periodically
-    if (!res.ok) {
-      console.error(`Failed to fetch manifest: ${res.status} ${res.statusText}`);
-      throw new Error(`Manifest fetch failed: ${res.status}`);
-    }
-    return await res.json();
+    await fsPromises.access(filePath);
+    return true;
   } catch (error) {
-    console.error("Error fetching or parsing manifest.json:", error);
+    if (error.code === 'ENOENT') {
+      return false;
+    } else {
+      throw error;
+    }
+  }
+}
+
+// Fetch manifest file helper using fs
+async function getManifest() {
+  const manifestPath = path.join(process.cwd(), 'public', 'data', 'manifest.json');
+  try {
+    // Check if manifest exists before reading
+    if (!(await pathExists(manifestPath))) {
+        console.error(`Manifest file not found at: ${manifestPath}`);
+        return null;
+    }
+    const fileContent = await fsPromises.readFile(manifestPath, "utf8");
+    return JSON.parse(fileContent);
+  } catch (error) {
+    console.error(`Error reading or parsing manifest.json from ${manifestPath}:`, error);
     return null; // Indicate failure
   }
 }
 
-// Refactored generateStaticParams using manifest.json
+// Refactored generateStaticParams using manifest (fetched via fs)
 export async function generateStaticParams() {
   const manifest = await getManifest();
 
@@ -100,64 +113,58 @@ export async function generateStaticParams() {
   // Extract city names (keys) from the manifest
   const cities = Object.keys(manifest.cities).map(cityKey => ({
     // Ensure the parameter matches the directory name ([city]) expected by the route
-    city: cityKey 
+    // Use encodeURIComponent for city names that might contain special characters (like Tromsø)
+    city: encodeURIComponent(cityKey) 
   }));
 
   console.log(`Found ${cities.length} potential city params from manifest.`);
+  // console.log("Params:", cities); // Optional: Log generated params
   return cities; 
 }
 
-// Async helper to fetch JSON safely from a URL
-async function fetchJsonFile(url) {
+// Async helper to read JSON safely from filesystem
+async function readJsonFile(filePath) {
   try {
-    const res = await fetch(url, { next: { revalidate: 3600 } }); // Add revalidation strategy
-    if (!res.ok) {
-      if (res.status === 404) {
-        // console.log(`File not found (404): ${url}`); // Optional: less verbose logging
-        return null; // Treat 404 as file not found, return null
-      }
-      // Log other errors
-      console.error(`Failed to fetch JSON file ${url}: ${res.status} ${res.statusText}`);
-      return null; 
-    }
-    // Check content type before parsing
-    const contentType = res.headers.get("content-type");
-    if (contentType && contentType.indexOf("application/json") !== -1) {
-        return await res.json();
+    // Use the pathExists helper
+    if (await pathExists(filePath)) { 
+      const data = await fsPromises.readFile(filePath, "utf8");
+      return JSON.parse(data);
     } else {
-        console.error(`Expected JSON but received Content-Type: ${contentType} from ${url}`);
-        return null;
+      // console.log(`File not found: ${filePath}`); // Optional: less verbose logging
+      return null;
     }
   } catch (error) {
-    // Network errors or JSON parsing errors
-    console.error(`Error fetching or parsing JSON file ${url}:`, error);
+    // File reading or JSON parsing errors
+    console.error(`Error reading or parsing JSON file ${filePath}:`, error);
     return null;
   }
 }
 
-// Refactored getCityData using fetch and manifest.json
+// Refactored getCityData using fs and manifest.json
 async function getCityData(cityName) {
-  const lowerCaseCityName = cityName.toLowerCase(); // Use lowercase for manifest lookup
+  // Decode the city name from the URL param first
+  const decodedCityName = decodeURIComponent(cityName);
+  const lowerCaseCityName = decodedCityName.toLowerCase(); // Use lowercase for manifest lookup
 
   const manifest = await getManifest();
   if (!manifest || !manifest.cities) {
-    console.error(`Failed to load manifest for city: ${cityName}`);
+    console.error(`Failed to load manifest for city: ${decodedCityName}`);
     return null;
   }
 
   const cityManifest = manifest.cities[lowerCaseCityName];
 
   if (!cityManifest) {
-    console.error(`City data retrieval failed: ${cityName} not found in manifest.`);
+    console.error(`City data retrieval failed: ${decodedCityName} (lookup: ${lowerCaseCityName}) not found in manifest.`);
     return null;
   }
 
   const country = cityManifest.country;
-  // Use the directoryName from manifest for constructing paths, fallback to capitalized cityName
   const actualCityDirName = cityManifest.directoryName || capitalize(lowerCaseCityName); 
-  const cityDataPath = `/data/${country}/${actualCityDirName}`; // Base path for this city's data
+  // Construct the absolute base path to the city's data directory within /public
+  const cityDataDir = path.join(process.cwd(), 'public', 'data', country, actualCityDirName);
 
-  // Define potential filenames using lowerCaseCityName for consistency
+  // Define potential filenames (same as before)
   const overviewFiles = [`${lowerCaseCityName}-overview.json`, `paris-overview.json`, `${lowerCaseCityName}_overview.json`, `overview.json`];
   const attractionsFiles = [`${lowerCaseCityName}_attractions.json`, `attractions.json`, `${lowerCaseCityName}-attractions.json`];
   const neighborhoodsFiles = [`${lowerCaseCityName}_neighborhoods.json`, `neighborhoods.json`, `${lowerCaseCityName}-neighborhoods.json`];
@@ -167,16 +174,18 @@ async function getCityData(cityName) {
   const summaryFiles = [`generation_summary.json`, `summary.json`, `${lowerCaseCityName}-summary.json`, `${lowerCaseCityName}_summary.json`];
   const monthlyCalendarFiles = [`${lowerCaseCityName}-visit-calendar.json`, `${lowerCaseCityName}_visit_calendar.json`, `visit-calendar.json`, `visit_calendar.json`];
 
-  // Helper to try fetching multiple files until one succeeds
-  const fetchWithFallbacks = async (basePath, filenames) => {
+  // Helper to try reading multiple files from filesystem until one succeeds
+  const readWithFallbacks = async (baseDir, filenames) => {
     for (const filename of filenames) {
-      const data = await fetchJsonFile(`${BASE_URL}${basePath}/${filename}`);
-      if (data) return data; // Return the first successful fetch
+      const filePath = path.join(baseDir, filename);
+      const data = await readJsonFile(filePath);
+      if (data) return data; // Return the first successful read
     }
-    return null; // Return null if all fetches fail
+    // console.log(`Failed to find any valid file for ${baseDir} with options: ${filenames.join(', ')}`); // Optional logging
+    return null; // Return null if all reads fail
   };
 
-  // Fetch all data concurrently using the fetchWithFallbacks helper
+  // Read all data concurrently using the readWithFallbacks helper
   const [
     overview, 
     attractions, 
@@ -187,115 +196,84 @@ async function getCityData(cityName) {
     monthlyEventsData, 
     summary
   ] = await Promise.all([
-    fetchWithFallbacks(cityDataPath, overviewFiles),
-    fetchWithFallbacks(cityDataPath, attractionsFiles),
-    fetchWithFallbacks(cityDataPath, neighborhoodsFiles),
-    fetchWithFallbacks(cityDataPath, culinaryFiles),
-    fetchWithFallbacks(cityDataPath, connectionsFiles),
-    fetchWithFallbacks(cityDataPath, seasonalFiles),
+    readWithFallbacks(cityDataDir, overviewFiles),
+    readWithFallbacks(cityDataDir, attractionsFiles),
+    readWithFallbacks(cityDataDir, neighborhoodsFiles),
+    readWithFallbacks(cityDataDir, culinaryFiles),
+    readWithFallbacks(cityDataDir, connectionsFiles),
+    readWithFallbacks(cityDataDir, seasonalFiles),
     
-    // Monthly Events logic using manifest
+    // Monthly Events logic using manifest and fs
     (async () => {
       let events = {};
-      const monthlyBasePath = `${cityDataPath}/monthly`;
+      const monthlyDir = path.join(cityDataDir, 'monthly');
       
-      // Try fetching individual month files listed in manifest first
-      if (cityManifest.monthlyFiles && cityManifest.monthlyFiles.length > 0) {
-        console.log(`Fetching monthly data for ${cityName} from manifest files...`);
+      // Try reading individual month files listed in manifest first
+      if (cityManifest.monthlyFiles && cityManifest.monthlyFiles.length > 0 && await pathExists(monthlyDir)) {
+        // console.log(`Reading monthly data for ${decodedCityName} from manifest files...`);
         await Promise.all(cityManifest.monthlyFiles.map(async (monthFile) => {
           try {
-            const monthData = await fetchJsonFile(`${BASE_URL}${monthlyBasePath}/${monthFile}`);
+            const monthFilePath = path.join(monthlyDir, monthFile);
+            const monthData = await readJsonFile(monthFilePath);
             if (monthData) {
-              // Assuming filename (without .json) is the key, or data is structured { monthName: {...} }
               let monthName = monthFile.replace(".json", "").toLowerCase();
-              events[monthName] = monthData[capitalize(monthName)] || monthData[monthName] || monthData; // Handle different potential structures
+              events[monthName] = monthData[capitalize(monthName)] || monthData[monthName] || monthData;
             }
-          } catch (e) { console.error(`Error processing fetched month file ${monthFile}`, e); }
+          } catch (e) { console.error(`Error processing read month file ${monthFile}`, e); }
         }));
       }
       
       // If no events found via manifest files OR manifest didn't list files, try fallback calendar files
       if (Object.keys(events).length === 0) {
-         console.log(`No events from monthly files for ${cityName}, trying visit calendar fallbacks...`);
-         const calendarData = await fetchWithFallbacks(cityDataPath, monthlyCalendarFiles);
+         // console.log(`No events from monthly files for ${decodedCityName}, trying visit calendar fallbacks...`);
+         const calendarData = await readWithFallbacks(cityDataDir, monthlyCalendarFiles);
          if (calendarData) {
-             console.log(`Using visit calendar data for ${cityName}`);
-             events = calendarData.months || calendarData; // Use months property or whole object
+             // console.log(`Using visit calendar data for ${decodedCityName}`);
+             events = calendarData.months || calendarData;
          }
       }
 
       return events;
     })(),
 
-    fetchWithFallbacks(cityDataPath, summaryFiles),
+    readWithFallbacks(cityDataDir, summaryFiles),
   ]);
 
-  // Post-process fetched data (remains the same)
-  if (attractions && attractions.sites && Array.isArray(attractions.sites)) {
-      attractions.sites = attractions.sites.map((site) => ({
-          ...site,
-          category: site.category || site.type,
-      }));
-  } else if (attractions && !Array.isArray(attractions)) {
-      console.warn(`Expected attractions.sites to be an array, but got:`, attractions);
-      // Potentially reset attractions or handle error
-  }
+  // --- Image Checking --- 
+  // We can revert to checking the filesystem path during build 
+  // OR keep the HEAD check (might be slower build) 
+  // OR trust the manifest/convention.
+  // Let's revert to simple path construction for SSG build.
   
-  if (neighborhoods && neighborhoods.neighborhoods && Array.isArray(neighborhoods.neighborhoods)) {
-       neighborhoods.neighborhoods = neighborhoods.neighborhoods.map(
-         (neighborhood, index) => ({
-           ...neighborhood,
-           id: neighborhood.id || `neighborhood-${index}`,
-         })
-       );
-   } else if (neighborhoods && !Array.isArray(neighborhoods)) {
-       console.warn(`Expected neighborhoods.neighborhoods to be an array, but got:`, neighborhoods);
-   }
-
-  // --- Refactored Image Checking ---
-  // Construct potential image URLs directly instead of checking filesystem paths
-  let cityImage = "/images/cities/default-city.jpg"; // Default
-  const possibleImageUrls = [
-      `/images/cities/${lowerCaseCityName}.jpg`,
-      `/images/cities/${lowerCaseCityName}.png`,
-      `/images/cities/${lowerCaseCityName}.jpeg`,
-      `/images/${lowerCaseCityName}-thumbnail.jpg`,
-      `/images/${lowerCaseCityName}-thumbnail.png`,
-      // Add variations with original casing if needed, but lowercase is safer
-      `/images/cities/${cityName}.jpg`, 
-      `/images/cities/${cityName}.png`,
-      `/images/${cityName}-thumbnail.jpg`,
-      `/images/${cityName}-thumbnail.png`,
+  let cityImage = "/images/cities/default-city.jpg"; // Default public path
+  const publicImageBase = path.join(process.cwd(), 'public');
+  const possibleImagePaths = [
+    // Lowercase checks first
+    path.join('images', 'cities', `${lowerCaseCityName}.jpg`),
+    path.join('images', 'cities', `${lowerCaseCityName}.png`),
+    path.join('images', 'cities', `${lowerCaseCityName}.jpeg`),
+    path.join('images', `${lowerCaseCityName}-thumbnail.jpg`),
+    path.join('images', `${lowerCaseCityName}-thumbnail.png`),
+    // Original case as fallback?
+    // path.join('images', 'cities', `${decodedCityName}.jpg`), 
+    // path.join('images', 'cities', `${decodedCityName}.png`),
   ];
 
-  // Optional: Check if image exists using HEAD request (more robust but adds latency)
-  // This requires careful implementation to avoid issues in serverless envs.
-  // Simpler approach: Just construct the path and let the browser handle 404s.
-  // Let's try the first plausible path based on lowercase convention.
-  // You might pre-calculate the correct image path in the manifest for certainty.
-  
-  // Prioritize lowercase paths:
-  const preferredImagePath = `/images/cities/${lowerCaseCityName}.jpg`; // Example preference
-  // A simple check based on convention (can be improved with HEAD or manifest data)
-  // For now, just using a common pattern, adjust as needed
-  if(await fetch(`${BASE_URL}/images/cities/${lowerCaseCityName}.jpg`, { method: 'HEAD' }).then(res => res.ok)) {
-      cityImage = `/images/cities/${lowerCaseCityName}.jpg`;
-      console.log(`Found city image for ${cityName} (HEAD check): ${cityImage}`);
-  } else if (await fetch(`${BASE_URL}/images/cities/${lowerCaseCityName}.png`, { method: 'HEAD' }).then(res => res.ok)) {
-      cityImage = `/images/cities/${lowerCaseCityName}.png`;
-      console.log(`Found city image for ${cityName} (HEAD check): ${cityImage}`);
-  } else if (await fetch(`${BASE_URL}/images/${lowerCaseCityName}-thumbnail.png`, { method: 'HEAD' }).then(res => res.ok)) {
-      cityImage = `/images/${lowerCaseCityName}-thumbnail.png`;
-      console.log(`Found city image for ${cityName} (HEAD check): ${cityImage}`);
-  } else {
-      console.log(`City image for ${cityName} not found via HEAD check, using default.`);
-      // Could try other possibleImageUrls here...
+  for (const relativeImagePath of possibleImagePaths) {
+      const fullImagePath = path.join(publicImageBase, relativeImagePath);
+      if (await pathExists(fullImagePath)) {
+          cityImage = `/${relativeImagePath.replace(/\\/g, '/')}`; // Construct public URL path
+          // console.log(`Found city image for ${decodedCityName} (fs check): ${cityImage}`);
+          break;
+      }
   }
+  // Remove the fetch HEAD check block
+  // if(await fetch(...)) { ... } else { ... }
 
 
   // Return the combined data
   return {
-    cityName: capitalize(cityName), // Use capitalized for display
+    cityName: capitalize(decodedCityName), // Use capitalized for display
     country,
     overview,
     attractions,
@@ -311,12 +289,12 @@ async function getCityData(cityName) {
 
 // Main page component
 export default async function CityPage({ params }) {
-  // Decode URI component for city names with special characters like Tromsø
-  const cityName = decodeURIComponent(params.city); 
+  // No need to decode here anymore, getCityData handles it
+  const cityName = params.city; 
   const cityData = await getCityData(cityName);
 
   if (!cityData) {
-    console.log(`City data not found for param: ${params.city}, decoded: ${cityName}. Triggering notFound().`);
+    console.log(`City data returned null for param: ${cityName}. Triggering notFound().`);
     notFound();
   }
 
@@ -334,15 +312,12 @@ export default async function CityPage({ params }) {
   } = cityData || {}; // Add safeguard if cityData itself is null
 
   // Capitalize city name for display
-  const displayCityName = cityData?.cityName || capitalize(cityName); // Use name from data if available
+  const displayCityName = cityData?.cityName || capitalize(decodeURIComponent(cityName)); // Use name from data if available, fallback to decoded param
   
   // --- Process potentially null data safely ---
-  // Ensure attractions structure is valid or default to empty array
   const safeAttractions = (attractions?.sites && Array.isArray(attractions.sites)) 
                           ? attractions.sites 
                           : [];
-  // Ensure categories are handled (assuming they might come from attractions or elsewhere)
-  // If categories are expected within attractions data, extract safely
   const safeCategories = safeAttractions
       .map(site => site.category)
       .filter((value, index, self) => value && self.indexOf(value) === index); // Get unique categories
@@ -358,7 +333,7 @@ export default async function CityPage({ params }) {
                            : {}; 
 
   // Get center coordinates for the map
-  const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
+  const center = CITY_COORDINATES[decodeURIComponent(cityName).toLowerCase()] || DEFAULT_COORDINATES.default;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
@@ -379,7 +354,6 @@ export default async function CityPage({ params }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Left Column (Overview, Attractions, Neighborhoods) */}
           <div className="md:col-span-2 space-y-8">
-            {/* Pass potentially empty objects/arrays safely */}
             <CityOverview overview={overview || {}} cityName={displayCityName} />
             <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={displayCityName} />
             <NeighborhoodsList neighborhoods={safeNeighborhoods} cityName={displayCityName} />
@@ -408,7 +382,6 @@ export default async function CityPage({ params }) {
           </section>
 
           <CityVisitSection summary={summary || {}} cityName={displayCityName} />
-          {/* Pass safeMonthlyEvents which is guaranteed to be an object */}
           <MonthlyGuideSection monthlyEvents={safeMonthlyEvents} cityName={displayCityName} /> 
         </div>
       </main>
