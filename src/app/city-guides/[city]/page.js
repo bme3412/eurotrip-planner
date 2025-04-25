@@ -367,12 +367,21 @@ export default async function CityPage({ params }) {
     culinaryGuide = {},
     connections = {},
     seasonalActivities = {},
-    monthlyEvents = {},
+    monthlyEvents: rawMonthlyEvents = {}, // Destructure with default
     summary = {},
   } = cityData;
 
   // Capitalize city name for display
   const displayCityName = capitalize(cityName);
+  
+  // --- Ensure attractions and categories are arrays --- 
+  const safeAttractions = Array.isArray(attractions) ? attractions : [];
+  const safeCategories = Array.isArray(categories) ? categories : [];
+  // --------------------------------------------------
+  
+  // --- Ensure monthlyEvents is a non-null object --- 
+  const safeMonthlyEvents = rawMonthlyEvents !== null && typeof rawMonthlyEvents === 'object' ? rawMonthlyEvents : {}; 
+  // -------------------------------------------------
 
   // Get center coordinates for the map
   const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
@@ -397,7 +406,7 @@ export default async function CityPage({ params }) {
           {/* Left Column (Overview, Attractions, Neighborhoods) */}
           <div className="md:col-span-2 space-y-8">
             <CityOverview overview={overview} cityName={displayCityName} />
-            <AttractionsList attractions={attractions} categories={categories} cityName={displayCityName} />
+            <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={displayCityName} />
             <NeighborhoodsList neighborhoods={neighborhoods} cityName={displayCityName} />
           </div>
 
@@ -414,8 +423,8 @@ export default async function CityPage({ params }) {
            {/* Replace MapSection with CityMapLoader */}
           <section className="bg-white rounded-lg shadow-md overflow-hidden">
              <CityMapLoader
-              attractions={attractions}
-              categories={categories} 
+              attractions={safeAttractions}
+              categories={safeCategories}
               cityName={displayCityName}
               center={center}
               zoom={12} // Default zoom or adjust as needed
@@ -425,7 +434,7 @@ export default async function CityPage({ params }) {
           </section>
 
           <CityVisitSection summary={summary} cityName={displayCityName} />
-          <MonthlyGuideSection monthlyEvents={monthlyEvents} cityName={displayCityName} />
+          <MonthlyGuideSection monthlyEvents={safeMonthlyEvents} cityName={displayCityName} />
         </div>
       </main>
 
