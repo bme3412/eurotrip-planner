@@ -13,10 +13,12 @@ import NeighborhoodsList from "@/components/city-guides/NeighborhoodsList";
 import CulinaryGuide from "@/components/city-guides/CulinaryGuide";
 import TransportConnections from "@/components/city-guides/TransportConnections";
 import SeasonalActivities from "@/components/city-guides/SeasonalActivities";
-import MapSection from "@/components/city-guides/MapSection"; // Re-add static import
+// Remove direct MapSection import
+// import MapSection from "@/components/city-guides/MapSection"; 
 import CityVisitSection from "@/components/city-guides/CityVisitSection";
 import MonthlyGuideSection from "@/components/city-guides/MonthlyGuideSection";
-// Remove CityMapLoader import
+// Import the new loader component
+import CityMapLoader from "@/components/city-guides/CityMapLoader"; 
 
 // Function to capitalize the first letter of each word
 const capitalize = (str) => {
@@ -349,468 +351,87 @@ async function getCityData(cityName) {
 
 // Main page component
 export default async function CityPage({ params }) {
-  // Fetch data using the city param directly from params
-  const cityData = await getCityData(params.city);
+  const cityName = params.city;
+  const cityData = await getCityData(cityName);
 
-  // If cityData fetch failed based on the URL param
   if (!cityData) {
-    console.error(`City data fetch failed for: ${params.city}`);
-    notFound(); // Trigger 404 if data is missing
-  }
-
-  // ---- IMPORTANT: Use cityData for subsequent logic ----
-  const fetchedCityName = cityData.cityName; // Get the definitive name from the data
-  if (!fetchedCityName) {
-    // Handle cases where data might be missing the name unexpectedly
-    console.error("Fetched city data is missing cityName property.");
     notFound();
   }
 
-  // Capitalize city name for display using the fetched name
-  const displayCityName = capitalize(fetchedCityName.replace(/-/g, " "));
-
-  // Destructure data from cityData
-  const {
-    country,
-    overview: cityOverview,
-    attractions: cityAttractions,
-    neighborhoods: cityNeighborhoods,
-    culinaryGuide,
-    connections: cityConnections,
-    seasonalActivities,
-    monthlyEvents,
-    summary: citySummary,
-    cityImage,
+  // Extract data with defaults
+  const { 
+    overview = {},
+    attractions = [], 
+    categories = [],
+    neighborhoods = [],
+    culinaryGuide = {},
+    connections = {},
+    seasonalActivities = {},
+    monthlyEvents = {},
+    summary = {},
   } = cityData;
 
-  // Use fetchedCityName or derived display names for props
-  const countryDisplayName = capitalize(country.replace(/-/g, " "));
+  // Capitalize city name for display
+  const displayCityName = capitalize(cityName);
 
-  // FIXED SECTION: Get proper map center based on city or country
-  let mapCenter;
-  const cityNameLower = fetchedCityName.toLowerCase(); // Use fetched name
-
-  if (CITY_COORDINATES[cityNameLower]) {
-    mapCenter = CITY_COORDINATES[cityNameLower];
-    console.log(`Using CITY_COORDINATES for ${fetchedCityName}: [${mapCenter}]`);
-  } else if (DEFAULT_COORDINATES[displayCityName]) { // Use display name derived from fetched name
-    mapCenter = DEFAULT_COORDINATES[displayCityName];
-    console.log(
-      `Using DEFAULT_COORDINATES (displayCityName) for ${fetchedCityName}: [${mapCenter}]`
-    );
-  } else if (DEFAULT_COORDINATES[country]) {
-    mapCenter = DEFAULT_COORDINATES[country];
-    console.log(
-      `Using DEFAULT_COORDINATES (country) for ${fetchedCityName}: [${mapCenter}]`
-    );
-  } else {
-    mapCenter = DEFAULT_COORDINATES["default"];
-    console.log(
-      `Using DEFAULT_COORDINATES (default) for ${fetchedCityName}: [${mapCenter}]`
-    );
-  }
-
-  // Override with first attraction coordinates if available
-  if (cityAttractions && cityAttractions.sites && cityAttractions.sites.length > 0) {
-    const firstAttraction = cityAttractions.sites[0];
-    if (firstAttraction.longitude && firstAttraction.latitude) {
-      mapCenter = [firstAttraction.longitude, firstAttraction.latitude];
-      console.log(
-        `Using attraction coordinates for ${fetchedCityName}: [${mapCenter}]` // Log with fetched name
-      );
-    }
-  }
-
-  let attractionCategories = [];
-  if (cityAttractions && cityAttractions.sites) {
-    const uniqueCategories = [
-      ...new Set(
-        cityAttractions.sites.map(
-          (site) => site.category || site.type || "Uncategorized"
-        )
-      ),
-    ];
-    attractionCategories = uniqueCategories.map((category) => ({
-      category,
-      sites: cityAttractions.sites.filter(
-        (site) => (site.category || site.type || "Uncategorized") === category
-      ),
-    }));
-  }
+  // Get center coordinates for the map
+  const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Compact City Header */}
-      <div className="relative h-32 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
-        <div className="container mx-auto px-4 md:px-6 py-3 flex h-full">
-          <div className="flex-1 flex flex-col justify-center">
-            <div className="flex items-center mb-1">
-              <div className="px-2 py-0.5 bg-blue-600 bg-opacity-75 rounded-md text-xs font-medium mr-2">
-                {countryDisplayName}
-              </div>
-              <h1 className="text-xl md:text-2xl font-bold">
-                {displayCityName}
-              </h1>
-            </div>
-            {citySummary && citySummary.brief_description && (
-              <p className="text-xs opacity-90 leading-tight max-w-2xl line-clamp-1">
-                {citySummary.brief_description}
-              </p>
-            )}
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      {/* Page Header */}
+      <header className="py-8 bg-white shadow-sm border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold text-center text-gray-800">
+            {displayCityName} Travel Guide
+          </h1>
+          <p className="text-center text-lg text-gray-600 mt-2">
+            Your complete guide to exploring {displayCityName}
+          </p>
+        </div>
+      </header>
+
+      {/* Main Content Area */}
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Left Column (Overview, Attractions, Neighborhoods) */}
+          <div className="md:col-span-2 space-y-8">
+            <CityOverview overview={overview} cityName={displayCityName} />
+            <AttractionsList attractions={attractions} categories={categories} cityName={displayCityName} />
+            <NeighborhoodsList neighborhoods={neighborhoods} cityName={displayCityName} />
           </div>
-          <div className="hidden md:flex flex-col justify-center items-end text-xs gap-1">
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-              </svg>
-              <span>Best time: {citySummary?.best_time_to_visit || 'May-Sept'}</span>
-            </div>
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Avg. visit: {citySummary?.recommended_duration || '2-3 days'}</span>
-            </div>
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-              </svg>
-              <span>Currency: {countryDisplayName === "France" ? "Euro (€)" : 
-                countryDisplayName === "United Kingdom" ? "Pound (£)" : "Euro (€)"}</span>
-            </div>
+
+          {/* Right Column (Culinary, Transport, Seasonal) */}
+          <div className="md:col-span-1 space-y-8">
+            <CulinaryGuide guide={culinaryGuide} cityName={displayCityName} />
+            <TransportConnections connections={connections} cityName={displayCityName} />
+            <SeasonalActivities activities={seasonalActivities} cityName={displayCityName} />
           </div>
         </div>
-      </div>
 
-      {/* Quick Navigation Bar */}
-      <div className="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-200">
-        <div className="container mx-auto px-4 md:px-6">
-          <nav
-            className="flex overflow-x-auto py-2.5 scrollbar-none"
-            aria-label="City guide sections"
-          >
-            <ul className="flex space-x-6 min-w-full">
-              {cityOverview && (
-                <li>
-                  <a
-                    href="#overview"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    Overview
-                  </a>
-                </li>
-              )}
-              <li>
-                <a
-                  href="#map"
-                  className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                >
-                  Map
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#monthly-guide"
-                  className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                >
-                  Monthly Guide
-                </a>
-              </li>
-              {Object.keys(monthlyEvents).length > 0 && (
-                <li>
-                  <a
-                    href="#when-to-visit"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    When to Visit
-                  </a>
-                </li>
-              )}
-              {cityAttractions && cityAttractions.sites && (
-                <li>
-                  <a
-                    href="#attractions"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    Attractions
-                  </a>
-                </li>
-              )}
-              {cityNeighborhoods && cityNeighborhoods.neighborhoods && (
-                <li>
-                  <a
-                    href="#neighborhoods"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    Neighborhoods
-                  </a>
-                </li>
-              )}
-              {culinaryGuide && (
-                <li>
-                  <a
-                    href="#food"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    Food &amp; Drink
-                  </a>
-                </li>
-              )}
-              {cityConnections && (
-                <li>
-                  <a
-                    href="#transport"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    Transport
-                  </a>
-                </li>
-              )}
-              {seasonalActivities && (
-                <li>
-                  <a
-                    href="#seasonal"
-                    className="text-blue-700 text-sm font-medium whitespace-nowrap hover:text-blue-900 transition border-b-2 border-transparent hover:border-blue-700 py-1.5 px-0.5"
-                  >
-                    Seasonal
-                  </a>
-                </li>
-              )}
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-      {/* Main content */}
-      <main className="container mx-auto px-4 md:px-6 py-4 md:py-6">
-        {/* City Overview Section */}
-        {cityOverview && (
-          <section id="overview" className="mb-6 scroll-mt-16">
-            <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
-              <h2 className="text-2xl font-bold">Paris</h2>
-              <p className="text-gray-600 italic">City of Light ✨</p>
-              <p className="text-gray-700 mt-2">The capital of France stands as a global icon of art, architecture, cuisine, and fashion. With its scenic riverbanks, historic monuments, and cultural treasures, Paris continues to enchant visitors with an atmosphere that balances historic grandeur with modern energy. From the iconic Eiffel Tower to charming café terraces, the city exemplifies joie de vivre. 🗼</p>
-            </div>
-          </section>
-        )}
-
-        {/* Map Section */}
-        {cityAttractions && cityAttractions.sites && (
-          <section id="map" className="mb-10 scroll-mt-16">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <div className="border-b border-gray-100 px-5 py-3 flex justify-between items-center">
-                <h3 className="font-medium text-gray-700">City Map</h3>
-                <span className="text-xs text-gray-500">{cityAttractions.sites.length} attractions</span>
-              </div>
-              <MapSection 
-                attractions={cityAttractions.sites}
-                categories={attractionCategories}
-                cityName={displayCityName}
-                center={mapCenter}
-                zoom={13}
-                showHeader={false}
-              />
-            </div>
-          </section>
-        )}
-
-        {/* Best Time to Visit Section */}
-        {Object.keys(monthlyEvents).length > 0 && (
-          <section id="when-to-visit" className="mb-12 scroll-mt-16">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                Best Time to Visit
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <CityVisitSection
-              city={fetchedCityName}
+        {/* Full Width Sections (Map, Visit Planner, Monthly Guide) */}
+        <div className="mt-12 space-y-12">
+           {/* Replace MapSection with CityMapLoader */}
+          <section className="bg-white rounded-lg shadow-md overflow-hidden">
+             <CityMapLoader
+              attractions={attractions}
+              categories={categories} 
               cityName={displayCityName}
-              countryName={countryDisplayName}
-              monthlyData={monthlyEvents}
-            />
+              center={center}
+              zoom={12} // Default zoom or adjust as needed
+              title={`${displayCityName} Interactive Map`}
+              subtitle="Explore attractions, neighborhoods, and more"
+             />
           </section>
-        )}
 
-        {/* Monthly Guide Section */}
-        <section id="monthly-guide" className="mb-10 scroll-mt-16">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-              Monthly Guide
-            </h2>
-            <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-5 md:p-6 border border-gray-100">
-            {Object.keys(monthlyEvents).length > 0 ? (
-              <MonthlyGuideSection
-                city={fetchedCityName}
-                cityName={displayCityName}
-                monthlyData={monthlyEvents}
-              />
-            ) : (
-              <div className="text-center py-8">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mx-auto h-10 w-10 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <h3 className="mt-3 text-base font-medium text-gray-900">
-                  No Monthly Guide Available
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  We don&apos;t have specific monthly information for{" "}
-                  {displayCityName} yet. Check back later for detailed monthly
-                  guides.
-                </p>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Attractions Section */}
-        {cityAttractions && cityAttractions.sites && (
-          <section id="attractions" className="mb-10 scroll-mt-16">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                Top Attractions
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <AttractionsList attractions={cityAttractions.sites} />
-            </div>
-          </section>
-        )}
-
-        {/* Neighborhoods Section */}
-        {cityNeighborhoods && cityNeighborhoods.neighborhoods && (
-          <section id="neighborhoods" className="mb-10 scroll-mt-16">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                Neighborhoods
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <NeighborhoodsList neighborhoods={cityNeighborhoods.neighborhoods} />
-            </div>
-          </section>
-        )}
-
-        {/* Food & Drink Section */}
-        {culinaryGuide && (
-          <section id="food" className="mb-10 scroll-mt-16">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                Food &amp; Drink
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <CulinaryGuide culinaryData={culinaryGuide} />
-            </div>
-          </section>
-        )}
-
-        {/* Getting Around Section */}
-        {cityConnections && (
-          <section id="transport" className="mb-10 scroll-mt-16">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                Getting Around
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <TransportConnections
-                connections={cityConnections}
-                currentCity={fetchedCityName}
-              />
-            </div>
-          </section>
-        )}
-
-        {/* Seasonal Activities Section */}
-        {seasonalActivities && (
-          <section id="seasonal" className="mb-10 scroll-mt-16">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                Seasonal Activities
-              </h2>
-              <div className="hidden md:block h-px bg-gray-200 flex-grow ml-4"></div>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-              <SeasonalActivities activities={seasonalActivities} />
-            </div>
-          </section>
-        )}
+          <CityVisitSection summary={summary} cityName={displayCityName} />
+          <MonthlyGuideSection monthlyEvents={monthlyEvents} cityName={displayCityName} />
+        </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Eurotrip Planner</h3>
-              <p className="text-gray-300 mb-4">
-                Your comprehensive guide to exploring Europe&apos;s most
-                beautiful cities.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <Link href="/" className="hover:text-white transition">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/city-guides"
-                    className="hover:text-white transition"
-                  >
-                    City Guides
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:text-white transition">
-                    About
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <Link href="/privacy" className="hover:text-white transition">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="hover:text-white transition">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>
-              &copy; {new Date().getFullYear()} Eurotrip Planner. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
+      <footer className="py-6 mt-12 bg-gray-800 text-white text-center">
+        <p>&copy; {new Date().getFullYear()} EuroTrip Planner. Explore Europe!</p>
       </footer>
     </div>
   );
