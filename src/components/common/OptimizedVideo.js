@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import videoOptimizer from '../../lib/videoOptimizer';
 
 const OptimizedVideo = ({ 
   src, 
@@ -14,25 +13,7 @@ const OptimizedVideo = ({
 }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const [isIntersecting, setIsIntersecting] = useState(false);
   const videoRef = useRef(null);
-  const containerRef = useRef(null);
-
-  // Intersection Observer to only load video when visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleVideoLoad = () => {
     setVideoLoaded(true);
@@ -44,24 +25,8 @@ const OptimizedVideo = ({
     if (onError) onError();
   };
 
-  // Preload video when container becomes visible
-  useEffect(() => {
-    if (isIntersecting && !videoLoaded && !videoError) {
-      // Use video optimizer to preload
-      videoOptimizer.preloadVideo(src)
-        .then(() => {
-          if (videoRef.current) {
-            videoRef.current.load();
-          }
-        })
-        .catch(() => {
-          handleVideoError();
-        });
-    }
-  }, [isIntersecting, videoLoaded, videoError, src]);
-
   return (
-    <div ref={containerRef} className="relative">
+    <div className="relative">
       {/* Show fallback image while video is loading or if video fails */}
       {(!videoLoaded || videoError) && fallbackImage && (
         <img
@@ -80,7 +45,7 @@ const OptimizedVideo = ({
           loop
           autoPlay
           playsInline
-          preload="none" // Don't preload until visible
+          preload="metadata"
           onLoadedData={handleVideoLoad}
           onError={handleVideoError}
           {...props}
