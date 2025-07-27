@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .video-container {
+            margin: 20px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 4px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Video File Test</h1>
+    <p>Testing if video files are accessible and playable:</p>
+
+    <div class="video-container">
+        <h2>Pamplona Running of Bulls</h2>
+        <video controls preload="metadata">
+            <source src="/videos/compressed/pamplona-runningofbulls.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="pamplona-status" class="status"></div>
+    </div>
+
+    <div class="video-container">
+        <h2>Venice Gondola</h2>
+        <video controls preload="metadata">
+            <source src="/videos/compressed/venice-gondola.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="venice-status" class="status"></div>
+    </div>
+
+    <div class="video-container">
+        <h2>Lisbon Tram</h2>
+        <video controls preload="metadata">
+            <source src="/videos/compressed/lisbon-tram.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="lisbon-status" class="status"></div>
+    </div>
+
+    <script>
+        // Test video loading
+        const videos = [
+            { id: 'pamplona', src: '/videos/compressed/pamplona-runningofbulls.mp4' },
+            { id: 'venice', src: '/videos/compressed/venice-gondola.mp4' },
+            { id: 'lisbon', src: '/videos/compressed/lisbon-tram.mp4' }
+        ];
+
+        videos.forEach(video => {
+            const statusEl = document.getElementById(`${video.id}-status`);
+            
+            // Test if file exists
+            fetch(video.src, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        statusEl.textContent = `✅ File accessible (${response.headers.get('content-length')} bytes)`;
+                        statusEl.className = 'status success';
+                    } else {
+                        statusEl.textContent = `❌ File not accessible (${response.status})`;
+                        statusEl.className = 'status error';
+                    }
+                })
+                .catch(error => {
+                    statusEl.textContent = `❌ Error accessing file: ${error.message}`;
+                    statusEl.className = 'status error';
+                });
+        });
+    </script>
+</body>
+</html> 

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useCities } from '../hooks/useCityData';
 import OptimizedVideo from '../components/common/OptimizedVideo';
 import VideoPreloader from '../components/common/VideoPreloader';
+import { getVideoUrl, getImageUrl, isCDNEnabled, checkCDNHealth } from '../utils/cdnUtils';
 
 export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState({});
@@ -20,9 +21,9 @@ export default function Home() {
       country: 'Spain',
       month: 'July',
       flag: '🇪🇸',
-      videoSrc: '/videos/compressed/pamplona-runningofbulls.mp4',
-      thumbnailSrc: '/images/video-thumbnails/pamplona-runningofbulls-thumbnail.jpg',
-      fallbackImage: '/images/madrid-thumbnail.jpeg' // Using Madrid as fallback for Pamplona
+      videoSrc: getVideoUrl('/videos/compressed/pamplona-runningofbulls.mp4'),
+      thumbnailSrc: getImageUrl('/images/video-thumbnails/pamplona-runningofbulls-thumbnail.jpg'),
+      fallbackImage: getImageUrl('/images/madrid-thumbnail.jpeg') // Using Madrid as fallback for Pamplona
     },
     {
       id: 'venice',
@@ -30,9 +31,9 @@ export default function Home() {
       country: 'Italy',
       month: 'April',
       flag: '🇮🇹',
-      videoSrc: '/videos/compressed/venice-gondola.mp4',
-      thumbnailSrc: '/images/video-thumbnails/venice-gondola-thumbnail.jpg',
-      fallbackImage: '/images/venice-thumbnail.jpeg'
+      videoSrc: getVideoUrl('/videos/compressed/venice-gondola.mp4'),
+      thumbnailSrc: getImageUrl('/images/video-thumbnails/venice-gondola-thumbnail.jpg'),
+      fallbackImage: getImageUrl('/images/venice-thumbnail.jpeg')
     },
     {
       id: 'lisbon',
@@ -40,9 +41,9 @@ export default function Home() {
       country: 'Portugal',
       month: 'May',
       flag: '🇵🇹',
-      videoSrc: '/videos/compressed/lisbon-tram.mp4',
-      thumbnailSrc: '/images/video-thumbnails/lisbon-tram-thumbnail.jpg',
-      fallbackImage: '/images/lisbon-thumbnail.png'
+      videoSrc: getVideoUrl('/videos/compressed/lisbon-tram.mp4'),
+      thumbnailSrc: getImageUrl('/images/video-thumbnails/lisbon-tram-thumbnail.jpg'),
+      fallbackImage: getImageUrl('/images/lisbon-thumbnail.png')
     }
   ];
 
@@ -85,6 +86,13 @@ export default function Home() {
         if (timeout) clearTimeout(timeout);
       });
     };
+  }, []);
+
+  // Check CDN health on mount
+  useEffect(() => {
+    if (isCDNEnabled()) {
+      checkCDNHealth();
+    }
   }, []);
 
   const nextSlide = () => {
@@ -131,10 +139,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Preload videos and thumbnails for faster loading */}
+      {/* Preload videos for faster loading */}
       <VideoPreloader 
         videos={featuredCities.map(city => city.videoSrc)}
-        thumbnails={featuredCities.map(city => city.thumbnailSrc)}
+        thumbnails={[]} // Disable thumbnail preloading for now
       />
       
       {/* Top Navigation Bar */}
@@ -190,6 +198,18 @@ export default function Home() {
                 preload="metadata"
                 onLoadedData={() => handleVideoLoad(city.id)}
                 onError={() => handleVideoError(city.id)}
+                onCanPlay={async (event) => {
+                  // Ensure video plays when it's ready
+                  const video = event.target;
+                  if (video.paused) {
+                    try {
+                      await video.play();
+                    } catch (error) {
+                      console.log('Autoplay prevented for', city.name, ':', error);
+                      // Don't show error overlay for background videos, just let them stay paused
+                    }
+                  }
+                }}
               />
               
               {/* Minimal loading indicator - only show briefly */}
