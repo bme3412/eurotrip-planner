@@ -7,11 +7,9 @@ import React, {
   useCallback,
   useRef,
 } from 'react';
-import RegionFilter from '@/components/city-guides/RegionFilter';
-import CountryFilter from '@/components/city-guides/CountryFilter';
+import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
 import { getCitiesData } from '@/components/city-guides/cityData';
-import { regionThemes } from '@/components/city-guides/regionData';
 
 const INITIAL_LOAD = 12;
 const LOAD_INCREMENT = 8;
@@ -22,7 +20,7 @@ export default function CityGuidesPage() {
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [cities, setCities] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [allCountries, setAllCountries] = useState([]);
   const [error, setError] = useState(null);
   const [activeFilterType, setActiveFilterType] = useState('geographic');
@@ -65,12 +63,21 @@ export default function CityGuidesPage() {
 
       let matchesRegion = true;
       if (selectedRegion !== 'All') {
-        if (activeFilterType === 'geographic') {
-          const theme = regionThemes.find((t) => t.id === selectedRegion);
-          matchesRegion = theme?.countries?.includes(city.country) ?? false;
-        } else if (activeFilterType === 'region') {
-          matchesRegion = city.region === selectedRegion;
-        } else if (activeFilterType === 'travel' || activeFilterType === 'tourism') {
+        if (activeFilterType === 'euro-region') {
+          // Refined Euro-region filtering - 9 categories total
+          const euroRegionGroups = {
+            'Benelux': ['Belgium', 'Netherlands', 'Luxembourg'],
+            'Alpine': ['Austria', 'Switzerland'],
+            'Mediterranean': ['Italy', 'Spain', 'Portugal', 'Greece'],
+            'The Nordics': ['Denmark', 'Sweden', 'Norway', 'Finland'],
+            'Central Europe': ['Poland', 'Hungary', 'Czech Republic'],
+            'Wine Regions': ['France', 'Italy', 'Spain', 'Portugal'], // Major wine-producing countries
+            'Historic Capitals': ['France', 'Germany', 'Austria', 'Italy', 'Spain'], // Major historic capitals
+            'Luxury Coastlines': ['France', 'Italy', 'Spain'] // St Tropez, Cote d'Azur, Amalfi Coast, Ibiza
+          };
+          matchesRegion = euroRegionGroups[selectedRegion]?.includes(city.country) ?? false;
+        } else if (activeFilterType === 'travel') {
+          // Travel experience filtering - 9 categories total
           matchesRegion =
             city.tourismCategories?.includes(selectedRegion) ?? false;
         }
@@ -128,165 +135,159 @@ export default function CityGuidesPage() {
     setSelectedCountries([]);
   };
 
-  const filterLabel =
-    activeFilterType === 'geographic'
-      ? 'Region'
-      : activeFilterType === 'tourism'
-      ? 'Style'
-      : 'Filter';
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+  };
 
   /* ───────── render ───────── */
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* hero */}
-      <div className="relative h-64 overflow-hidden text-white">
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-blue-700/80 to-indigo-800/80" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Compact Hero Section */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-indigo-700/90 to-purple-800/90" />
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: 'url(/images/europe-map-bg.jpg)' }}
         />
-        <div className="relative z-20 container mx-auto flex h-full flex-col justify-center px-4">
-          <h1 className="text-3xl font-bold md:text-4xl">
-            Explore European Cities
-          </h1>
-          <p className="mt-1 max-w-2xl opacity-90">
-            Discover insider tips, interactive maps, and local recommendations
-            for Europe&apos;s most compelling destinations.
-          </p>
-
-          <div className="relative mt-4 max-w-lg">
-            <input
-              type="text"
-              placeholder="Search for a city or country..."
-              className="w-full rounded-lg bg-white/90 py-2 px-4 pr-10 text-gray-800 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <span className="absolute right-6 top-[11px] text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </span>
+        <div className="relative z-10 container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+              Discover European Cities
+            </h1>
+            <p className="text-lg md:text-xl mb-6 opacity-90 leading-relaxed">
+              Explore insider tips, interactive maps, and local recommendations
+              for Europe&apos;s most compelling destinations.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* filters & grid */}
-      <div className="container mx-auto px-4 py-6">
-        {/* active-filter chips */}
-        {(selectedRegion !== 'All' || selectedCountries.length > 0 || searchTerm) && (
-          <div className="mb-4 flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-gray-600">Active filters:</span>
+      {/* Main Content - Compact Layout */}
+      <div className="container mx-auto px-4 py-2">
+        {/* Compact Filter */}
+        <div className="mb-3">
+          <UnifiedFilter
+            selectedRegion={selectedRegion}
+            selectedCountries={selectedCountries}
+            handleRegionChange={handleRegionChange}
+            handleCountryChange={handleCountryChange}
+            countries={allCountries}
+            searchTerm={searchTerm}
+            onSearchChange={handleSearchChange}
+            onClearFilters={clearFilters}
+          />
+        </div>
 
-            {selectedRegion !== 'All' && (
-              <span className="flex items-center rounded-full bg-blue-100 px-2 py-1 text-blue-800">
-                {filterLabel}: {selectedRegion}
-                <button onClick={() => setSelectedRegion('All')} className="ml-1">
-                  ✕
-                </button>
-              </span>
+        {/* Compact Results Header */}
+        <div className="mb-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">
+                City Guides
+              </h2>
+              {cities.length > 0 && (
+                <p className="text-xs text-gray-600 mt-0.5">
+                  {filtered.length === 0 
+                    ? 'No cities match your criteria'
+                    : `Showing ${displayed.length} of ${filtered.length} cities`
+                  }
+                </p>
+              )}
+            </div>
+            {cities.length > 0 && filtered.length > 0 && (
+              <div className="flex items-center space-x-1 text-xs text-gray-500">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                <span>Grid</span>
+              </div>
             )}
+          </div>
+        </div>
 
-            {selectedCountries.map((c) => (
-              <span
-                key={c}
-                className="flex items-center rounded-full bg-green-100 px-2 py-1 text-green-800"
-              >
-                Country: {c}
-                <button onClick={() => handleCountryChange(c)} className="ml-1">
-                  ✕
-                </button>
-              </span>
-            ))}
-
-            {searchTerm && (
-              <span className="flex items-center rounded-full bg-purple-100 px-2 py-1 text-purple-800">
-                Search: &apos;{searchTerm}&apos;
-                <button onClick={() => setSearchTerm('')} className="ml-1">
-                  ✕
-                </button>
-              </span>
-            )}
-
-            <button onClick={clearFilters} className="ml-2 text-xs underline">
-              Clear all
+        {/* Error State */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+            <div className="flex items-center justify-center mb-2">
+              <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg>
+            </div>
+            <h3 className="text-base font-semibold text-red-800 mb-1">Oops! Something went wrong</h3>
+            <p className="text-red-600 mb-2 text-sm">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-red-600 text-white px-4 py-1.5 rounded-lg hover:bg-red-700 transition-colors text-sm"
+            >
+              Try Again
             </button>
           </div>
         )}
 
-        {/* filter controls */}
-        <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
-          <RegionFilter
-            selectedRegion={selectedRegion}
-            handleRegionChange={handleRegionChange}
-          />
-
-          <CountryFilter
-            selectedCountries={selectedCountries}
-            handleCountryChange={handleCountryChange}
-            countries={allCountries}
-          />
-        </div>
-
-        {/* results header */}
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-bold">City Guides</h2>
-          <span className="text-sm text-gray-500">
-            {loading
-              ? 'Loading…'
-              : `Showing ${displayed.length} of ${filtered.length}`}
-          </span>
-        </div>
-
-        {/* states */}
-        {loading ? (
-          <div className="flex h-64 items-center justify-center">
-            <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-t-2 border-blue-500" />
-          </div>
-        ) : error ? (
-          <div className="rounded-lg bg-white p-6 text-center shadow-md">
-            <p className="text-red-600">{error}</p>
-          </div>
-        ) : filtered.length === 0 ? (
-          <div className="rounded-lg bg-white p-6 text-center shadow-md">
-            <p className="text-gray-600">No cities match your criteria.</p>
+        {/* Empty State */}
+        {!error && cities.length > 0 && filtered.length === 0 && (
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+            <div className="flex items-center justify-center mb-3">
+              <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">No cities found</h3>
+            <p className="text-gray-600 mb-3 text-sm">
+              Try adjusting your search terms or filters to find more destinations.
+            </p>
             <button
               onClick={clearFilters}
-              className="mt-3 font-medium text-blue-600 hover:text-blue-800"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
             >
-              Clear all filters
+              Clear All Filters
             </button>
           </div>
-        ) : (
+        )}
+
+        {/* City Grid - Compact spacing */}
+        {cities.length > 0 && !error && (
           <>
-            {/* cards */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {displayed.map((city) => (
                 <CityCard key={city.id} city={city} />
               ))}
             </div>
 
-            {/* infinite-scroll sentinel */}
+            {/* Infinite Scroll Sentinel */}
             {hasMore && (
               <div
                 ref={observerRef}
-                className="flex h-20 items-center justify-center"
+                className="flex items-center justify-center py-4"
               >
-                <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-t-2 border-blue-500" />
+                <div className="flex items-center space-x-2 text-gray-600">
+                  <div className="w-5 h-5 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+                  <span className="text-xs">Loading more cities...</span>
+                </div>
+              </div>
+            )}
+
+            {/* End of Results */}
+            {!hasMore && displayed.length > 0 && (
+              <div className="text-center py-4">
+                <div className="inline-flex items-center space-x-2 text-gray-500">
+                  <div className="w-px h-3 bg-gray-300"></div>
+                  <span className="text-xs">You&apos;ve reached the end</span>
+                  <div className="w-px h-3 bg-gray-300"></div>
+                </div>
               </div>
             )}
           </>
+        )}
+
+        {/* Initial Loading State */}
+        {cities.length === 0 && !error && (
+          <div className="flex items-center justify-center py-8">
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-2"></div>
+              <p className="text-gray-600 text-sm">Loading amazing destinations...</p>
+            </div>
+          </div>
         )}
       </div>
     </div>
