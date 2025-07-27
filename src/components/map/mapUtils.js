@@ -1,4 +1,5 @@
 import { MONTH_NAMES } from './constants';
+import { cachedFetch, withCache, generateCacheKey, CACHE_CONFIG } from '@/lib/mapCache';
 
 /**
  * Fetch city rating for a specific date range
@@ -13,13 +14,9 @@ export const getCityRatingForDateRange = async (city, startDate, endDate) => {
     const countryName = city.country;
     const calendarPath = `/data/${countryName}/${cityName}/${cityName}-visit-calendar.json`;
     
-    const response = await fetch(calendarPath);
-    if (!response.ok) {
-      console.warn(`No calendar data found for ${cityName}`);
-      return 0;
-    }
-    
-    const calendar = await response.json();
+    // Use cached fetch for calendar data
+    const cacheKey = generateCacheKey('calendar', cityName, countryName);
+    const calendar = await cachedFetch(calendarPath, cacheKey, CACHE_CONFIG.CALENDAR_CACHE_DURATION);
     
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -194,13 +191,9 @@ export const getCityRatingForMonths = async (city, selectedMonths) => {
     const countryName = city.country;
     const calendarPath = `/data/${countryName}/${cityName}/${cityName}-visit-calendar.json`;
     
-    const response = await fetch(calendarPath);
-    if (!response.ok) {
-      console.warn(`No calendar data found for ${cityName}`);
-      return 0;
-    }
-    
-    const calendar = await response.json();
+    // Use cached fetch for calendar data
+    const cacheKey = generateCacheKey('calendar', cityName, countryName);
+    const calendar = await cachedFetch(calendarPath, cacheKey, CACHE_CONFIG.CALENDAR_CACHE_DURATION);
     
     // Define weights for different factors
     const weights = {
@@ -310,12 +303,9 @@ export const getCityCalendarInfo = async (city, startDate, endDate, useFlexibleD
     const countryName = city.country;
     const calendarPath = `/data/${countryName}/${cityName}/${cityName}-visit-calendar.json`;
     
-    const response = await fetch(calendarPath);
-    if (!response.ok) {
-      return null;
-    }
-    
-    const calendar = await response.json();
+    // Use cached fetch for calendar data
+    const cacheKey = generateCacheKey('calendar', cityName, countryName);
+    const calendar = await cachedFetch(calendarPath, cacheKey, CACHE_CONFIG.CALENDAR_CACHE_DURATION);
     
     const eventsMap = new Map();
     const allNotes = new Set();
@@ -444,3 +434,23 @@ function formatEvents(eventsMap) {
   }
   return events;
 }
+
+// Create cached versions of the rating functions
+export const getCityRatingForDateRangeCached = withCache(
+  getCityRatingForDateRange,
+  (city, startDate, endDate) => generateCacheKey('rating_date_range', city.title, startDate, endDate),
+  CACHE_CONFIG.RATING_CACHE_DURATION
+);
+
+export const getCityRatingForMonthsCached = withCache(
+  getCityRatingForMonths,
+  (city, selectedMonths) => generateCacheKey('rating_months', city.title, selectedMonths.join(',')),
+  CACHE_CONFIG.RATING_CACHE_DURATION
+);
+
+export const getCityCalendarInfoCached = withCache(
+  getCityCalendarInfo,
+  (city, startDate, endDate, useFlexibleDates, selectedMonths) => 
+    generateCacheKey('calendar_info', city.title, startDate, endDate, useFlexibleDates, selectedMonths.join(',')),
+  CACHE_CONFIG.CALENDAR_CACHE_DURATION
+);

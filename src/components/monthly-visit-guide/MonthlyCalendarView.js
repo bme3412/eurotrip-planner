@@ -33,6 +33,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
   const [displayMonths, setDisplayMonths] = useState(3); // Number of months to display at once
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
+  const [isLegendMinimized, setIsLegendMinimized] = useState(false);
 
   // Determine number of months to display based on screen size
   useEffect(() => {
@@ -249,7 +250,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
   return (
     <div>
       {/* Enhanced Calendar Header with Controls */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-3">
         <button
           className="p-2 rounded-full hover:bg-gray-100 transition-colors"
           onClick={goToPreviousMonths}
@@ -260,10 +261,10 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
           </svg>
         </button>
         <div className="text-center">
-          <h3 className="text-xl font-bold text-gray-800">
+          <h3 className="text-base font-bold text-gray-800">
             {visibleMonths[0]?.monthName} - {visibleMonths[visibleMonths.length - 1]?.monthName} {currentYear}
           </h3>
-          <p className="text-sm text-gray-600 mt-1">Click on highlighted days for event details</p>
+          <p className="text-xs text-gray-600">Click on highlighted days for event details</p>
         </div>
         <button
           className="p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -276,45 +277,64 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
         </button>
       </div>
       
-      {/* Enhanced Calendar Legend */}
-      <div className="mb-6 bg-gray-50 rounded-lg p-4">
-        <h4 className="text-sm font-semibold text-gray-700 mb-3">Visit Quality Legend</h4>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-          {Object.entries(RATING_LABELS).map(([rating, label]) => (
-            <div key={rating} className="flex items-center">
-              <div 
-                className="w-4 h-4 rounded-sm mr-2" 
-                style={{ backgroundColor: RATING_COLORS[rating] }}
-              ></div>
-              <div>
-                <div className="text-xs font-medium text-gray-800">{label}</div>
-                <div className="text-xs text-gray-500">{RATING_DESCRIPTIONS[rating]}</div>
+      {/* Enhanced Calendar Legend - Positioned on the right side with toggle */}
+      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-w-48 max-h-[80vh] overflow-y-auto">
+        <div className="flex items-center justify-between p-3 border-b border-gray-200">
+          <h4 className="text-sm font-semibold text-gray-700">Visit Quality Legend</h4>
+          <button
+            onClick={() => setIsLegendMinimized(!isLegendMinimized)}
+            className="p-1 hover:bg-gray-100 rounded transition-colors"
+            aria-label={isLegendMinimized ? "Expand legend" : "Minimize legend"}
+          >
+            <svg 
+              className={`w-4 h-4 text-gray-600 transition-transform ${isLegendMinimized ? 'rotate-180' : ''}`} 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+        
+        <div className={`transition-all duration-300 ease-in-out ${isLegendMinimized ? 'max-h-0 overflow-hidden' : 'max-h-96'}`}>
+          <div className="p-3 space-y-3">
+            {Object.entries(RATING_LABELS).reverse().map(([rating, label]) => (
+              <div key={rating} className="flex items-start">
+                <div 
+                  className="w-4 h-4 rounded-sm mr-3 mt-0.5 flex-shrink-0" 
+                  style={{ backgroundColor: RATING_COLORS[rating] }}
+                ></div>
+                <div>
+                  <div className="text-xs font-medium text-gray-800">{label}</div>
+                  <div className="text-xs text-gray-500 leading-tight">{RATING_DESCRIPTIONS[rating]}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       
       {/* Multiple Month Calendars */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         {visibleMonths.map((month, monthIdx) => (
           <div key={`${month.monthName}-${month.year}`} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             {/* Enhanced Month Header */}
             <div 
-              className="p-4 text-center"
+              className="p-3 text-center"
               style={{ 
                 backgroundColor: `${month.ratingColor}10`,
                 borderBottom: `3px solid ${month.ratingColor}` 
               }}
             >
-              <div className="text-lg font-bold text-gray-800">{month.monthName} {month.year}</div>
-              <div className="text-sm font-medium mt-1" style={{ color: month.ratingColor }}>
+              <div className="text-base font-bold text-gray-800">{month.monthName} {month.year}</div>
+              <div className="text-xs font-medium mt-1" style={{ color: month.ratingColor }}>
                 {month.ratingLabel} time to visit
               </div>
               <div className="text-xs text-gray-600 mt-1">
                 {month.ratingDescription}
               </div>
-              <div className="flex justify-center items-center gap-4 mt-2 text-xs">
+              <div className="flex justify-center items-center gap-3 mt-1 text-xs">
                 {month.tourismLevel && (
                   <div className="flex items-center">
                     <span className="mr-1">👥</span>
@@ -332,30 +352,30 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
             
             {/* Activity Types */}
             {month.activityTypes.length > 0 && (
-              <div className="bg-gray-50 px-3 py-2 border-b border-gray-200">
+              <div className="bg-gray-50 px-2 py-1 border-b border-gray-200">
                 <div className="text-xs font-medium text-gray-600 mb-1">Best Activities:</div>
                 <div className="flex flex-wrap gap-1">
-                  {month.activityTypes.slice(0, 4).map((activity, idx) => (
-                    <span key={idx} className="text-xs bg-white px-2 py-1 rounded-full border">
+                  {month.activityTypes.slice(0, 3).map((activity, idx) => (
+                    <span key={idx} className="text-xs bg-white px-1.5 py-0.5 rounded-full border">
                       {activity}
                     </span>
                   ))}
-                  {month.activityTypes.length > 4 && (
-                    <span className="text-xs text-gray-400">+{month.activityTypes.length - 4} more</span>
+                  {month.activityTypes.length > 3 && (
+                    <span className="text-xs text-gray-400">+{month.activityTypes.length - 3} more</span>
                   )}
                 </div>
               </div>
             )}
             
             {/* Days of Week */}
-            <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50 p-1">
+            <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50 p-0.5">
               {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                <div key={i} className="p-1">{day}</div>
+                <div key={i} className="p-0.5">{day}</div>
               ))}
             </div>
             
             {/* Calendar Days */}
-            <div className="grid grid-cols-7 gap-px p-1 bg-white">
+            <div className="grid grid-cols-7 gap-px p-0.5 bg-white">
               {month.days.map((day, dayIndex) => (
                 day.type === 'empty' ? (
                   <div key={`empty-${dayIndex}`} className="aspect-square" />

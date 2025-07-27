@@ -35,73 +35,70 @@ const CityOverview = ({ overview, cityName }) => {
     : `${cityName} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
   
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-6xl mx-auto space-y-8">
       {/* Header Section */}
-      <div className="text-center mb-10">
-        <div className="flex items-center justify-center gap-4 mb-6">
+      <div className="text-center mb-8">
+        <div className="flex items-center justify-center gap-4 mb-4">
           <span className="text-4xl">{cityIcon}</span>
           <h1 className="text-4xl font-bold text-gray-900">{displayName}</h1>
         </div>
-        <p className="text-xl text-blue-600 font-semibold mb-6">{nickname}</p>
-        <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-          {enhancedDescription}
-        </p>
-        
-        {/* Population info if available */}
-        {population && (
-          <div className="mt-6 text-sm text-gray-500 bg-gray-50 inline-block px-4 py-2 rounded-full">
-            Population: {population.city}M city, {population.metro}M metro area
+        <p className="text-xl text-blue-600 font-semibold">{nickname}</p>
+      </div>
+
+      {/* Two-Panel Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Left Panel - City Description */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 h-full">
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">About {displayName}</h2>
+          <p className="text-gray-700 leading-relaxed text-lg">
+            {enhancedDescription}
+          </p>
+        </div>
+
+        {/* Right Panel - Essential Information */}
+        {practicalInfo && (
+          <div className="bg-white rounded-2xl shadow-lg p-8 h-full">
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">Essential Information</h2>
+            
+            {/* Language & Currency */}
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <span className="text-2xl">🌍</span>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-800 mb-3">Language & Currency</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <span className="text-gray-600 text-sm">Language:</span>
+                      <p className="font-medium text-gray-800">{practicalInfo.language}</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm">Currency:</span>
+                      <p className="font-medium text-gray-800">{practicalInfo.currency}</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm">Timezone:</span>
+                      <p className="font-medium text-gray-800">{practicalInfo.timezone}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Getting Around */}
+              {practicalInfo.transport && (
+                <div className="flex items-start space-x-4">
+                  <span className="text-2xl">🚇</span>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-800 mb-3">Getting Around</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {practicalInfo.transport.public_transport}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
-
-      {/* Essential Information */}
-      {practicalInfo && (
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 p-8 rounded-xl shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Essential Information</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
-                <span className="text-blue-600">🌍</span>
-                Language & Currency
-              </h4>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="font-medium text-gray-700">Language:</span>
-                  <span className="text-gray-900">{practicalInfo.language}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="font-medium text-gray-700">Currency:</span>
-                  <span className="text-gray-900">{practicalInfo.currency}</span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="font-medium text-gray-700">Timezone:</span>
-                  <span className="text-gray-900">{practicalInfo.timezone}</span>
-                </div>
-              </div>
-            </div>
-            
-            {practicalInfo.transport && (
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
-                  <span className="text-blue-600">🚇</span>
-                  Getting Around
-                </h4>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  {practicalInfo.transport.public_transport}
-                </p>
-                {practicalInfo.transport.passes && (
-                  <div className="bg-blue-50 p-3 rounded-lg">
-                    <p className="text-sm text-blue-800 font-medium">
-                      💡 {practicalInfo.transport.passes}
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

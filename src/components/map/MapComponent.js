@@ -3,9 +3,9 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { COUNTRY_COLORS, MAJOR_CITIES, INITIAL_FILTERS } from './constants';
 import { 
-  getCityRatingForDateRange, 
-  getCityRatingForMonths, 
-  getCityCalendarInfo 
+  getCityRatingForDateRangeCached, 
+  getCityRatingForMonthsCached, 
+  getCityCalendarInfoCached 
 } from './mapUtils';
 import { generatePopupContent } from './mapPopup';
 import { 
@@ -21,6 +21,9 @@ import FilterContainer from './FilterContainer';
 import RankedListPanel from './RankedListPanel';
 import LoadingOverlay from '../common/LoadingOverlay';
 import CityDetailsPopup from './CityDetailsPopup';
+import CacheManager from './CacheManager';
+import DataPreloader from './DataPreloader';
+import { useMapData, useCityRatings, useCurrentFilters, useLoadingStates } from '@/context/MapDataContext';
 
 /**
  * Map Component
@@ -36,16 +39,20 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
   const isMoving = useRef(false);
   const mapInitialized = useRef(false); // Ref to track initialization
   
-  // State
+  // Global state from context
+  const { actions } = useMapData();
+  const cityRatings = useCityRatings();
+  const [currentFilters, setCurrentFilters] = useCurrentFilters();
+  const [loadingStates, setLoadingState] = useLoadingStates();
+  
+  // Local state
   const [showFilters, setShowFilters] = useState(true);
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [filteredDestinations, setFilteredDestinations] = useState([]);
-  const [cityRatings, setCityRatings] = useState({});
-  const [dateRangeLoading, setDateRangeLoading] = useState(false);
-  const [filters, setFilters] = useState(INITIAL_FILTERS);
   const [currentPopup, setCurrentPopup] = useState(null);
   const [showRankedListPanel, setShowRankedListPanel] = useState(false);
   const [selectedCityForDetails, setSelectedCityForDetails] = useState(null);
+  const [showCacheManager, setShowCacheManager] = useState(false);
 
   // Memoized values
   const countries = useMemo(() => {
@@ -118,12 +125,12 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
   useEffect(() => {
     let results = [...destinations];
     
-    if (!filters.countries.includes('All')) {
-      results = results.filter(city => filters.countries.includes(city.country));
+    if (!currentFilters.countries.includes('All')) {
+      results = results.filter(city => currentFilters.countries.includes(city.country));
     }
     
-    if (filters.searchTerm) {
-      const term = filters.searchTerm.toLowerCase();
+    if (currentFilters.searchTerm) {
+      const term = currentFilters.searchTerm.toLowerCase();
       results = results.filter(city => 
         city.title?.toLowerCase().includes(term) || 
         city.country?.toLowerCase().includes(term) ||
@@ -132,14 +139,14 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
     }
     
     // Apply rating filters if we have date selection
-    if (filters.minRating > 0) {
+    if (currentFilters.minRating > 0) {
       const hasDateFilters = 
-        (!filters.useFlexibleDates && filters.startDate && filters.endDate) || 
-        (filters.useFlexibleDates && filters.selectedMonths.length > 0);
+        (!currentFilters.useFlexibleDates && currentFilters.startDate && currentFilters.endDate) || 
+        (currentFilters.useFlexibleDates && currentFilters.selectedMonths.length > 0);
       
       if (hasDateFilters) {
         // Round to first decimal place for more consistent filtering
-        const ratingToUse = parseInt(filters.minRating);
+        const ratingToUse = parseInt(currentFilters.minRating);
         
         // Filter based on ratings
         const filteredByRating = results.filter(city => {
@@ -153,33 +160,33 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
     }
     
     setFilteredDestinations(results);
-  }, [destinations, filters, cityRatings]);
+  }, [destinations, currentFilters, cityRatings]);
 
   // Fetch ratings for all cities when date range changes
   useEffect(() => {
     const fetchAllRatings = async () => {
       // Check if we need to fetch ratings
       const shouldFetchRatings = 
-        (!filters.useFlexibleDates && filters.startDate && filters.endDate) || 
-        (filters.useFlexibleDates && filters.selectedMonths.length > 0);
+        (!currentFilters.useFlexibleDates && currentFilters.startDate && currentFilters.endDate) || 
+        (currentFilters.useFlexibleDates && currentFilters.selectedMonths.length > 0);
         
       if (!shouldFetchRatings) {
         // Clear ratings and return
-        setCityRatings({});
+        actions.setCityRatings({});
         return;
       }
       
-      setDateRangeLoading(true);
+      setLoadingState('ratings', true);
       
       try {
         const ratings = {};
         const promises = destinations.map(async (city) => {
           try {
             let rating;
-            if (filters.useFlexibleDates) {
-              rating = await getCityRatingForMonths(city, filters.selectedMonths);
+            if (currentFilters.useFlexibleDates) {
+              rating = await getCityRatingForMonthsCached(city, currentFilters.selectedMonths);
             } else {
-              rating = await getCityRatingForDateRange(city, filters.startDate, filters.endDate);
+              rating = await getCityRatingForDateRangeCached(city, currentFilters.startDate, currentFilters.endDate);
             }
             ratings[city.title] = rating;
           } catch (error) {
@@ -189,16 +196,16 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         });
         
         await Promise.all(promises);
-        setCityRatings(ratings);
+        actions.setCityRatings(ratings);
       } catch (error) {
         console.error("Error fetching ratings:", error);
       } finally {
-        setDateRangeLoading(false);
+        setLoadingState('ratings', false);
       }
     };
     
     fetchAllRatings();
-  }, [destinations, filters.startDate, filters.endDate, filters.useFlexibleDates, filters.selectedMonths]);
+  }, [destinations, currentFilters.startDate, currentFilters.endDate, currentFilters.useFlexibleDates, currentFilters.selectedMonths, actions, setLoadingState]);
 
   // Update markers when destinations or filters change
   useEffect(() => {
@@ -276,14 +283,14 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
     
     try {
       let calendarInfo = null;
-      if ((filters.startDate && filters.endDate) || 
-          (filters.useFlexibleDates && filters.selectedMonths.length > 0)) {
-        calendarInfo = await getCityCalendarInfo(
+      if ((currentFilters.startDate && currentFilters.endDate) || 
+          (currentFilters.useFlexibleDates && currentFilters.selectedMonths.length > 0)) {
+        calendarInfo = await getCityCalendarInfoCached(
           city, 
-          filters.startDate, 
-          filters.endDate, 
-          filters.useFlexibleDates, 
-          filters.selectedMonths
+          currentFilters.startDate, 
+          currentFilters.endDate, 
+          currentFilters.useFlexibleDates, 
+          currentFilters.selectedMonths
         );
       }
       
@@ -310,7 +317,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       }
       
       // Create popup content
-      const popupContent = generatePopupContent(city, calendarInfo, countryColor, filters);
+      const popupContent = generatePopupContent(city, calendarInfo, countryColor, currentFilters);
       
       // Create and set up popup in the center of the viewport
       const popup = createPopup(mapboxGLRef.current, popupContent);
@@ -359,29 +366,29 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       currentPopup.remove();
       setCurrentPopup(null);
     }
-    setFilters(prev => ({
+    setCurrentFilters(prev => ({
       ...prev,
       searchTerm: value
     }));
-  }, [currentPopup]);
+  }, [currentPopup, setCurrentFilters]);
 
   const handleDateRangeChange = useCallback((field, value) => {
     if (currentPopup) {
       currentPopup.remove();
       setCurrentPopup(null);
     }
-    setFilters(prev => ({
+    setCurrentFilters(prev => ({
       ...prev,
       [field]: value
     }));
-  }, [currentPopup]);
+  }, [currentPopup, setCurrentFilters]);
 
   const handleMonthSelection = useCallback((month, selected) => {
     if (currentPopup) {
       currentPopup.remove();
       setCurrentPopup(null);
     }
-    setFilters(prev => {
+    setCurrentFilters(prev => {
       const currentMonths = prev.selectedMonths || [];
       let newMonths;
       if (selected) {
@@ -394,36 +401,36 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         selectedMonths: newMonths
       };
     });
-  }, [currentPopup]);
+  }, [currentPopup, setCurrentFilters]);
 
   const toggleDateMode = useCallback(() => {
     if (currentPopup) {
       currentPopup.remove();
       setCurrentPopup(null);
     }
-    setFilters(prev => ({
+    setCurrentFilters(prev => ({
       ...prev,
       useFlexibleDates: !prev.useFlexibleDates
     }));
-  }, [currentPopup]);
+  }, [currentPopup, setCurrentFilters]);
 
   const handleRatingChange = useCallback((value) => {
     if (currentPopup) {
       currentPopup.remove();
       setCurrentPopup(null);
     }
-    setFilters(prev => ({
+    setCurrentFilters(prev => ({
       ...prev,
       minRating: parseInt(value)
     }));
-  }, [currentPopup]);
+  }, [currentPopup, setCurrentFilters]);
 
   const toggleCountry = useCallback((country) => {
     if (currentPopup) {
       currentPopup.remove();
       setCurrentPopup(null);
     }
-    setFilters(prev => {
+    setCurrentFilters(prev => {
       if (country === 'All') {
         return {
           ...prev,
@@ -444,7 +451,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         countries: newCountries
       };
     });
-  }, [currentPopup]);
+  }, [currentPopup, setCurrentFilters]);
 
   const handleToggleCountryDropdown = useCallback(() => {
     setShowCountryDropdown(prev => !prev);
@@ -467,6 +474,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
 
   return (
     <div className="relative h-screen">
+      <DataPreloader destinations={destinations} />
       <div ref={mapContainer} className="absolute top-0 bottom-0 w-full" style={{ height: '100%' }} />
       
       <div className="absolute top-4 left-4 z-10 flex flex-col items-start">
@@ -474,9 +482,9 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         {showFilters && (
           <FilterContainer 
             countries={['All', ...Object.keys(destinations.reduce((acc, d) => ({ ...acc, [d.country]: true }), {}))]}
-            filters={filters}
+            filters={currentFilters}
             showCountryDropdown={showCountryDropdown}
-            dateRangeLoading={dateRangeLoading}
+            dateRangeLoading={loadingStates.ratings}
             destinationCount={filteredDestinations.length} 
             cityRatings={cityRatings}
             onToggleCountryDropdown={handleToggleCountryDropdown}
@@ -507,16 +515,31 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         <CityDetailsPopup
           city={selectedCityForDetails}
           dateFilters={{
-            startDate: filters.startDate,
-            endDate: filters.endDate,
-            useFlexibleDates: filters.useFlexibleDates,
-            selectedMonths: filters.selectedMonths
+            startDate: currentFilters.startDate,
+            endDate: currentFilters.endDate,
+            useFlexibleDates: currentFilters.useFlexibleDates,
+            selectedMonths: currentFilters.selectedMonths
           }}
           onClose={handleCloseCityDetails}
         />
       )}
       
-      <LoadingOverlay isLoading={dateRangeLoading} text="Calculating best travel times..." />
+      <LoadingOverlay isLoading={loadingStates.ratings} text="Calculating best travel times..." />
+
+      {/* Cache Manager for debugging - only visible in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="absolute bottom-4 right-4 z-10">
+          <button
+            onClick={() => setShowCacheManager(!showCacheManager)}
+            className="bg-gray-800 text-white px-3 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors"
+            title="Cache Manager"
+          >
+            🗄️ Cache
+          </button>
+        </div>
+      )}
+
+      <CacheManager isVisible={showCacheManager} />
     </div>
   );
 }

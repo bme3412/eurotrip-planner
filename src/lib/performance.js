@@ -1,6 +1,148 @@
 /**
- * Performance monitoring utilities
+ * Performance Monitoring Utility
+ * Tracks cache performance and map operation metrics
  */
+
+class PerformanceMonitor {
+  constructor() {
+    this.metrics = {
+      cacheHits: 0,
+      cacheMisses: 0,
+      apiCalls: 0,
+      mapOperations: 0,
+      averageResponseTime: 0,
+      totalResponseTime: 0,
+      responseCount: 0
+    };
+    
+    this.operationTimers = new Map();
+    this.history = [];
+  }
+
+  /**
+   * Start timing an operation
+   */
+  startTimer(operationName) {
+    this.operationTimers.set(operationName, performance.now());
+  }
+
+  /**
+   * End timing an operation and record metrics
+   */
+  endTimer(operationName, success = true) {
+    const startTime = this.operationTimers.get(operationName);
+    if (!startTime) return;
+
+    const duration = performance.now() - startTime;
+    this.operationTimers.delete(operationName);
+
+    // Update metrics
+    this.metrics.mapOperations++;
+    this.metrics.totalResponseTime += duration;
+    this.metrics.responseCount++;
+    this.metrics.averageResponseTime = this.metrics.totalResponseTime / this.metrics.responseCount;
+
+    // Record in history
+    this.history.push({
+      operation: operationName,
+      duration,
+      timestamp: Date.now(),
+      success
+    });
+
+    // Keep only last 100 entries
+    if (this.history.length > 100) {
+      this.history = this.history.slice(-100);
+    }
+
+    return duration;
+  }
+
+  /**
+   * Record cache hit
+   */
+  recordCacheHit() {
+    this.metrics.cacheHits++;
+  }
+
+  /**
+   * Record cache miss
+   */
+  recordCacheMiss() {
+    this.metrics.cacheMisses++;
+  }
+
+  /**
+   * Record API call
+   */
+  recordApiCall() {
+    this.metrics.apiCalls++;
+  }
+
+  /**
+   * Get cache hit rate
+   */
+  getCacheHitRate() {
+    const total = this.metrics.cacheHits + this.metrics.cacheMisses;
+    return total > 0 ? (this.metrics.cacheHits / total) * 100 : 0;
+  }
+
+  /**
+   * Get performance summary
+   */
+  getPerformanceSummary() {
+    return {
+      cacheHitRate: this.getCacheHitRate(),
+      averageResponseTime: this.metrics.averageResponseTime,
+      totalOperations: this.metrics.mapOperations,
+      totalApiCalls: this.metrics.apiCalls,
+      cacheHits: this.metrics.cacheHits,
+      cacheMisses: this.metrics.cacheMisses
+    };
+  }
+
+  /**
+   * Get recent performance history
+   */
+  getRecentHistory(limit = 20) {
+    return this.history.slice(-limit);
+  }
+
+  /**
+   * Reset all metrics
+   */
+  reset() {
+    this.metrics = {
+      cacheHits: 0,
+      cacheMisses: 0,
+      apiCalls: 0,
+      mapOperations: 0,
+      averageResponseTime: 0,
+      totalResponseTime: 0,
+      responseCount: 0
+    };
+    this.history = [];
+    this.operationTimers.clear();
+  }
+
+  /**
+   * Export metrics for debugging
+   */
+  exportMetrics() {
+    return {
+      metrics: this.metrics,
+      history: this.history,
+      cacheHitRate: this.getCacheHitRate(),
+      timestamp: Date.now()
+    };
+  }
+}
+
+// Create singleton instance
+const performanceMonitor = new PerformanceMonitor();
+
+// Export the singleton and class
+export { performanceMonitor as default, PerformanceMonitor };
 
 // Web Vitals tracking
 export function trackWebVitals(metric) {

@@ -95,7 +95,6 @@ function CityPageClient({ cityData, cityName }) {
     { id: 'overview', label: 'Overview' },
     { id: 'map', label: 'Map' },
     { id: 'monthly', label: 'Monthly Guide' },
-    { id: 'visit', label: 'When to Visit' },
     { id: 'attractions', label: 'Attractions' },
     { id: 'neighborhoods', label: 'Neighborhoods' },
     { id: 'food', label: 'Food & Drink' },
@@ -120,9 +119,13 @@ function CityPageClient({ cityData, cityName }) {
           />
         );
       case 'monthly':
-        return <MonthlyGuideSection monthlyData={safeMonthlyEvents} cityName={cityName} city={cityName} />;
-      case 'visit':
-        return <CityVisitSection summary={summary} cityName={cityName} countryName={country} monthlyData={visitCalendar} />;
+        return <MonthlyGuideSection 
+          monthlyData={safeMonthlyEvents} 
+          cityName={cityName} 
+          city={cityName}
+          visitCalendar={visitCalendar}
+          countryName={country}
+        />;
       case 'attractions':
         return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
       case 'neighborhoods':
