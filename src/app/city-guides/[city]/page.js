@@ -382,7 +382,7 @@ export default async function CityPage({ params }) {
           </section>
 
           <CityVisitSection summary={summary || {}} cityName={displayCityName} />
-          <MonthlyGuideSection monthlyEvents={safeMonthlyEvents} cityName={displayCityName} /> 
+          <MonthlyGuideSection monthlyData={safeMonthlyEvents} cityName={displayCityName} /> 
         </div>
       </main>
 

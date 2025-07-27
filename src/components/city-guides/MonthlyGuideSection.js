@@ -2,8 +2,8 @@
 // src/components/city-guides/MonthlyGuideSection.js
 import React, { useState, useEffect } from 'react';
 
-const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
-  console.log(`MonthlyGuideSection for ${city} with data:`, monthlyEvents);
+const MonthlyGuideSection = ({ city, cityName, monthlyData }) => {
+  console.log(`MonthlyGuideSection for ${city} with data:`, monthlyData);
   
   // State for showing all experiences/activities
   const [showAllExperiences, setShowAllExperiences] = useState(false);
@@ -22,7 +22,7 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
   };
   
   // Get available periods (months/seasons) and sort them in chronological order
-  const availablePeriods = Object.keys(monthlyEvents).sort((a, b) => {
+  const availablePeriods = Object.keys(monthlyData).sort((a, b) => {
     const aLower = a.toLowerCase();
     const bLower = b.toLowerCase();
     
@@ -84,17 +84,17 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
   useEffect(() => {
     if (availablePeriods.length > 0 && !availablePeriods.includes(activeTab)) {
       setActiveTab(availablePeriods[0]);
-    } else if (availablePeriods.length === 0 && Object.keys(monthlyEvents).length > 0) {
-       // If monthlyEvents has data but availablePeriods somehow didn't populate, retry finding tab
+    } else if (availablePeriods.length === 0 && Object.keys(monthlyData).length > 0) {
+       // If monthlyData has data but availablePeriods somehow didn't populate, retry finding tab
        setActiveTab(findInitialTab());
     } else if (availablePeriods.length === 0) {
-       // Handle case where monthlyEvents is truly empty or null after initial render
+       // Handle case where monthlyData is truly empty or null after initial render
        setActiveTab(null); // Or some default state
     }
-  }, [availablePeriods, activeTab, monthlyEvents]);
+  }, [availablePeriods, activeTab, monthlyData]);
   
   // Get current active data
-  const activeData = activeTab ? monthlyEvents[activeTab] : {};
+  const activeData = activeTab ? monthlyData[activeTab] : {};
   
   // UTILITY FUNCTIONS TO EXTRACT AND RENDER DIFFERENT DATA TYPES
   
