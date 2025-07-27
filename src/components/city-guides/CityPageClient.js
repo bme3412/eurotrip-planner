@@ -10,6 +10,7 @@ import SeasonalActivities from "./SeasonalActivities";
 import CityVisitSection from "./CityVisitSection";
 import MonthlyGuideSection from "./MonthlyGuideSection";
 import CityMapLoader from "./CityMapLoader";
+import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription } from "@/utils/cityDataUtils";
 
 // Default coordinates for various European regions
 const DEFAULT_COORDINATES = {
@@ -62,8 +63,15 @@ function CityPageClient({ cityData, cityName }) {
     seasonalActivities = {},
     monthlyEvents: rawMonthlyEvents = {}, 
     summary = {},
+    visitCalendar = {},
     country = 'Unknown'
   } = cityData || {};
+
+  // Get dynamic header information
+  const headerInfo = getCityHeaderInfo(cityData);
+  const displayName = getCityDisplayName(cityName, overview);
+  const nickname = getCityNickname(overview);
+  const description = getCityDescription(overview, cityName);
 
   // Process data safely
   const safeAttractions = (attractions?.sites && Array.isArray(attractions.sites)) 
@@ -112,9 +120,9 @@ function CityPageClient({ cityData, cityName }) {
           />
         );
       case 'monthly':
-        return <MonthlyGuideSection monthlyData={safeMonthlyEvents} cityName={cityName} />;
+        return <MonthlyGuideSection monthlyData={safeMonthlyEvents} cityName={cityName} city={cityName} />;
       case 'visit':
-        return <CityVisitSection summary={summary} cityName={cityName} />;
+        return <CityVisitSection summary={summary} cityName={cityName} countryName={country} monthlyData={visitCalendar} />;
       case 'attractions':
         return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
       case 'neighborhoods':
@@ -137,12 +145,12 @@ function CityPageClient({ cityData, cityName }) {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="text-lg font-semibold">
-              {country} {cityName}
+              {country} {displayName}
             </div>
             <div className="flex gap-6 text-sm">
-              <span>Best time: May-Sept</span>
-              <span>Avg. visit: 2-3 days</span>
-              <span>Currency: Euro (€)</span>
+              <span>Best time: {headerInfo.bestTime}</span>
+              <span>Avg. visit: {headerInfo.avgVisit}</span>
+              <span>Currency: {headerInfo.currency}</span>
             </div>
           </div>
         </div>

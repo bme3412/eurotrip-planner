@@ -153,18 +153,39 @@ async function getCityData(cityName) {
       culinaryGuide,
       connections,
       seasonalActivities,
-      monthlyEvents,
-      summary
+      summary,
+      visitCalendar
     ] = await Promise.all([
-      readWithFallbacks(baseDir, ['overview.json', 'city_overview.json']),
-      readWithFallbacks(baseDir, ['attractions.json', 'sites.json']),
-      readWithFallbacks(baseDir, ['neighborhoods.json', 'areas.json']),
-      readWithFallbacks(baseDir, ['culinary_guide.json', 'food.json']),
-      readWithFallbacks(baseDir, ['connections.json', 'transport.json']),
-      readWithFallbacks(baseDir, ['seasonal_activities.json', 'activities.json']),
-      readWithFallbacks(baseDir, ['monthly_guide.json', 'monthly_events.json']),
-      readWithFallbacks(baseDir, ['summary.json', 'visit_summary.json'])
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-overview.json`, `${cityName.toLowerCase()}_overview.json`, 'overview.json', 'city_overview.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_attractions.json`, 'attractions.json', 'sites.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_neighborhoods.json`, 'neighborhoods.json', 'areas.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_culinary_guide.json`, 'culinary_guide.json', 'food.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_connections.json`, 'connections.json', 'transport.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json']),
+      readWithFallbacks(baseDir, ['summary.json', 'visit_summary.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-visit-calendar.json`, 'visit-calendar.json'])
     ]);
+
+    // Load monthly data from individual files
+    const monthlyDir = path.join(baseDir, 'monthly');
+    const monthlyFiles = ['january.json', 'february.json', 'march.json', 'april.json', 'may.json', 'june.json', 
+                         'july.json', 'august.json', 'september.json', 'october.json', 'november.json', 'december.json'];
+    
+    const monthlyData = {};
+    
+    for (const fileName of monthlyFiles) {
+      const filePath = path.join(monthlyDir, fileName);
+      if (await pathExists(filePath)) {
+        const monthData = await readJsonFile(filePath);
+        if (monthData) {
+          // Extract the month name from the file content
+          const monthName = Object.keys(monthData)[0];
+          if (monthName) {
+            monthlyData[monthName.toLowerCase()] = monthData[monthName];
+          }
+        }
+      }
+    }
 
     return {
       cityName: cityName.charAt(0).toUpperCase() + cityName.slice(1),
@@ -175,8 +196,9 @@ async function getCityData(cityName) {
       culinaryGuide,
       connections,
       seasonalActivities,
-      monthlyEvents,
-      summary
+      monthlyEvents: monthlyData,
+      summary,
+      visitCalendar
     };
   } catch (error) {
     console.error(`Error loading data for ${cityName}:`, error);
@@ -185,7 +207,7 @@ async function getCityData(cityName) {
 }
 
 export default async function CityPage({ params }) {
-  const { city } = params;
+  const { city } = await params;
   const cityName = decodeURIComponent(city);
   
   const cityData = await getCityData(cityName);
