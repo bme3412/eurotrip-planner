@@ -154,47 +154,30 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
   const getEvents = (data) => {
     let events = [];
     
-    // Case 1: Events as an array of objects with name/description
-    if (data.events && Array.isArray(data.events)) {
-      if (data.events.length > 0) {
-        // Check if events are objects or strings
-        if (typeof data.events[0] === 'object') {
-          events = [...events, ...data.events];
-        } else if (typeof data.events[0] === 'string') {
-          // Convert string events to objects
-          events = [...events, ...data.events.map(e => ({ name: e }))]
-        }
-      }
+    // Case 1: Direct events array
+    if (Array.isArray(data.events)) {
+      events = data.events;
     }
     
     // Case 2: Events in first_half/second_half structure
-    if (data.first_half && data.first_half.events) {
-      const firstHalfEvents = Array.isArray(data.first_half.events) 
-        ? data.first_half.events 
-        : [data.first_half.events];
-        
-      events = [...events, ...firstHalfEvents.map(e => typeof e === 'string' ? { name: e } : e)];
+    if (data.first_half && data.first_half.events_holidays) {
+      events = [...events, ...data.first_half.events_holidays];
+    }
+    if (data.second_half && data.second_half.events_holidays) {
+      events = [...events, ...data.second_half.events_holidays];
     }
     
-    if (data.second_half && data.second_half.events) {
-      const secondHalfEvents = Array.isArray(data.second_half.events) 
-        ? data.second_half.events 
-        : [data.second_half.events];
-        
-      events = [...events, ...secondHalfEvents.map(e => typeof e === 'string' ? { name: e } : e)];
+    // Case 3: Events as holidays
+    if (data.holidays && Array.isArray(data.holidays)) {
+      events = [...events, ...data.holidays];
     }
     
-    // Case 3: events_holidays field
-    if (data.events_holidays && Array.isArray(data.events_holidays)) {
-      events = [...events, ...data.events_holidays];
-    }
-    
-    // Case 4: festivals field
+    // Case 4: Events as festivals
     if (data.festivals && Array.isArray(data.festivals)) {
-      events = [...events, ...data.festivals.map(f => typeof f === 'string' ? { name: f } : f)];
+      events = [...events, ...data.festivals];
     }
     
-    return events.length > 0 ? events : null;
+    return events;
   };
   
   // 4. Extract activities/experiences
@@ -202,120 +185,83 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
     let activities = [];
     
     // Case 1: Direct activities array
-    if (data.activities && Array.isArray(data.activities)) {
-      activities = [...activities, ...data.activities.map(a => {
-        if (typeof a === 'string') return { activity: a };
-        if (a.name && !a.activity) return { ...a, activity: a.name };
-        return a;
-      })];
+    if (Array.isArray(data.activities)) {
+      activities = data.activities;
     }
     
-    // Case 2: Unique experiences array
-    if (data.unique_experiences && Array.isArray(data.unique_experiences)) {
-      activities = [...activities, ...data.unique_experiences.map(e => {
-        if (typeof e === 'string') return { activity: e };
-        if (e.name && !e.activity) return { ...e, activity: e.name };
-        return e;
-      })];
-    }
-    
-    // Case 3: Things to do array
-    if (data.things_to_do && Array.isArray(data.things_to_do)) {
-      activities = [...activities, ...data.things_to_do.map(t => {
-        if (typeof t === 'string') return { activity: t };
-        if (t.name && !t.activity) return { ...t, activity: t.name };
-        return t;
-      })];
-    }
-    
-    // Case 4: Recommendations array
-    if (data.recommendations && Array.isArray(data.recommendations)) {
-      activities = [...activities, ...data.recommendations.map(r => {
-        if (typeof r === 'string') return { activity: r };
-        if (r.name && !r.activity) return { ...r, activity: r.name };
-        return r;
-      })];
-    }
-    
-    // Case 5: first_half/second_half structure
+    // Case 2: Activities in first_half/second_half structure
     if (data.first_half && data.first_half.unique_experiences) {
-      activities = [...activities, ...data.first_half.unique_experiences.map(e => {
-        if (typeof e === 'string') return { activity: e };
-        return e;
-      })];
+      activities = [...activities, ...data.first_half.unique_experiences];
     }
-    
     if (data.second_half && data.second_half.unique_experiences) {
-      activities = [...activities, ...data.second_half.unique_experiences.map(e => {
-        if (typeof e === 'string') return { activity: e };
-        return e;
-      })];
+      activities = [...activities, ...data.second_half.unique_experiences];
     }
     
-    return activities.length > 0 ? activities : null;
+    // Case 3: Experiences as alternative field
+    if (data.experiences && Array.isArray(data.experiences)) {
+      activities = [...activities, ...data.experiences];
+    }
+    
+    // Case 4: Things to do
+    if (data.things_to_do && Array.isArray(data.things_to_do)) {
+      activities = [...activities, ...data.things_to_do];
+    }
+    
+    return activities;
   };
   
-  // 5. Extract pros/cons or reasons to visit/avoid
+  // 5. Extract reasons to visit/reconsider
   const getReasons = (data) => {
     const reasons = {
-      pros: [],
-      cons: []
+      toVisit: [],
+      toReconsider: []
     };
     
-    // Case 1: Direct pros/cons arrays
-    if (data.pros && Array.isArray(data.pros)) {
-      reasons.pros = data.pros.map(p => typeof p === 'string' ? { reason: p } : p);
-    }
-    
-    if (data.cons && Array.isArray(data.cons)) {
-      reasons.cons = data.cons.map(c => typeof c === 'string' ? { reason: c } : c);
-    }
-    
-    // Case 2: Reasons to visit/reconsider
+    // Case 1: Direct reasons structure
     if (data.reasons_to_visit && Array.isArray(data.reasons_to_visit)) {
-      reasons.pros = data.reasons_to_visit;
+      reasons.toVisit = data.reasons_to_visit;
     }
-    
     if (data.reasons_to_reconsider && Array.isArray(data.reasons_to_reconsider)) {
-      reasons.cons = data.reasons_to_reconsider;
+      reasons.toReconsider = data.reasons_to_reconsider;
     }
     
-    // Case 3: Advantages/disadvantages
-    if (data.advantages && Array.isArray(data.advantages)) {
-      reasons.pros = data.advantages.map(a => typeof a === 'string' ? { reason: a } : a);
+    // Case 2: Pros and cons
+    if (data.pros && Array.isArray(data.pros)) {
+      reasons.toVisit = [...reasons.toVisit, ...data.pros];
+    }
+    if (data.cons && Array.isArray(data.cons)) {
+      reasons.toReconsider = [...reasons.toReconsider, ...data.cons];
     }
     
-    if (data.disadvantages && Array.isArray(data.disadvantages)) {
-      reasons.cons = data.disadvantages.map(d => typeof d === 'string' ? { reason: d } : d);
-    }
-    
-    return reasons.pros.length > 0 || reasons.cons.length > 0 ? reasons : null;
+    return reasons;
   };
   
-  // RENDERING FUNCTIONS
+  // RENDER FUNCTIONS
   
-  // Render pros and cons
   const renderReasons = (reasons) => {
-    if (!reasons) return null;
+    if (!reasons.toVisit.length && !reasons.toReconsider.length) return null;
     
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        {reasons.pros.length > 0 && (
-          <div className="p-5 rounded-lg bg-green-50">
-            <h4 className="font-semibold text-lg mb-3 text-green-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {reasons.toVisit.length > 0 && (
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+              <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
               Reasons to Visit
             </h4>
-            <ul className="space-y-3">
-              {reasons.pros.map((item, index) => (
-                <li key={index} className="flex">
-                  <span className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5 mr-3 bg-green-100 text-green-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </span>
+            <ul className="space-y-2">
+              {reasons.toVisit.map((reason, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-green-500 mr-2 mt-1">✓</span>
                   <div>
-                    <p className="font-medium text-gray-800">{item.reason || item.text || item}</p>
-                    {item.details && <p className="text-sm text-gray-600 mt-1">{item.details}</p>}
+                    <span className="font-medium text-green-800">
+                      {reason.reason || reason.title || reason}
+                    </span>
+                    {reason.details && (
+                      <p className="text-sm text-green-700 mt-1">{reason.details}</p>
+                    )}
                   </div>
                 </li>
               ))}
@@ -323,22 +269,25 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
           </div>
         )}
         
-        {reasons.cons.length > 0 && (
-          <div className="p-5 rounded-lg bg-amber-50">
-            <h4 className="font-semibold text-lg mb-3 text-amber-700">
-              Reasons to Reconsider
+        {reasons.toReconsider.length > 0 && (
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-amber-800 mb-3 flex items-center">
+              <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+              </svg>
+              Things to Consider
             </h4>
-            <ul className="space-y-3">
-              {reasons.cons.map((item, index) => (
-                <li key={index} className="flex">
-                  <span className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5 mr-3 bg-amber-100 text-amber-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                  </span>
+            <ul className="space-y-2">
+              {reasons.toReconsider.map((reason, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-amber-500 mr-2 mt-1">⚠</span>
                   <div>
-                    <p className="font-medium text-gray-800">{item.reason || item.text || item}</p>
-                    {item.details && <p className="text-sm text-gray-600 mt-1">{item.details}</p>}
+                    <span className="font-medium text-amber-800">
+                      {reason.reason || reason.title || reason}
+                    </span>
+                    {reason.details && (
+                      <p className="text-sm text-amber-700 mt-1">{reason.details}</p>
+                    )}
                   </div>
                 </li>
               ))}
@@ -349,203 +298,139 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
     );
   };
   
-  // Render weather information
   const renderWeather = (weather) => {
     if (!weather) return null;
     
-    // Simple weather with just a description
-    if (weather.description) {
-      return (
-        <div className="mt-6 bg-blue-50 rounded-lg p-5">
-          <h4 className="font-semibold text-lg text-blue-700 mb-3">Weather</h4>
-          <p className="text-gray-700">{weather.description}</p>
-          
-          {(weather.temperature || weather.precipitation) && (
-            <div className="mt-3 pt-3 border-t border-blue-100 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {weather.temperature && (
-                <div>
-                  <p className="font-medium text-blue-800">Temperature</p>
-                  <p className="text-gray-700">{weather.temperature}</p>
-                </div>
-              )}
-              
-              {weather.precipitation && (
-                <div>
-                  <p className="font-medium text-blue-800">Precipitation</p>
-                  <p className="text-gray-700">{weather.precipitation}</p>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      );
-    }
-    
-    // More complex weather with first_half/second_half
-    if (weather.first_half) {
-      return (
-        <div className="mt-6 bg-blue-50 rounded-lg p-5">
-          <h4 className="font-semibold text-lg text-blue-700 mb-3">Weather</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    return (
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <h4 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+          <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+          Weather & Climate
+        </h4>
+        
+        {weather.first_half && weather.second_half ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h5 className="font-medium text-blue-800 mb-2">
-                {weather.first_half.date_range || 'Early Month'}
-              </h5>
-              <div className="text-gray-700">
-                {weather.first_half.average_temperature && (
-                  <p className="mb-2">
-                    <span className="font-medium">Temperature:</span> {' '}
-                    {typeof weather.first_half.average_temperature === 'object' ? (
-                      <>High: {weather.first_half.average_temperature.high}, Low: {weather.first_half.average_temperature.low}</>
-                    ) : (
-                      String(weather.first_half.average_temperature)
-                    )}
-                  </p>
-                )}
-                {weather.first_half.precipitation && (
-                  <p className="mb-2">
-                    <span className="font-medium">Precipitation:</span> {' '}
-                    {typeof weather.first_half.precipitation === 'string' ? 
-                      weather.first_half.precipitation : 
-                      JSON.stringify(weather.first_half.precipitation)}
-                  </p>
-                )}
-                {weather.first_half.description && (
-                  <p className="mb-2">{weather.first_half.description}</p>
-                )}
-              </div>
+              <h5 className="font-medium text-blue-700 mb-2">First Half</h5>
+              {weather.first_half.average_temperature && (
+                <p className="text-sm text-blue-600 mb-1">
+                  <span className="font-medium">Temperature:</span> {weather.first_half.average_temperature.high} / {weather.first_half.average_temperature.low}
+                </p>
+              )}
+              {weather.first_half.precipitation && (
+                <p className="text-sm text-blue-600 mb-1">
+                  <span className="font-medium">Precipitation:</span> {weather.first_half.precipitation}
+                </p>
+              )}
+              {weather.first_half.general_tips && (
+                <p className="text-sm text-blue-600">
+                  <span className="font-medium">Tips:</span> {weather.first_half.general_tips}
+                </p>
+              )}
             </div>
-            
-            {weather.second_half && (
-              <div>
-                <h5 className="font-medium text-blue-800 mb-2">
-                  {weather.second_half.date_range || 'Late Month'}
-                </h5>
-                <div className="text-gray-700">
-                  {weather.second_half.average_temperature && (
-                    <p className="mb-2">
-                      <span className="font-medium">Temperature:</span> {' '}
-                      {typeof weather.second_half.average_temperature === 'object' ? (
-                        <>High: {weather.second_half.average_temperature.high}, Low: {weather.second_half.average_temperature.low}</>
-                      ) : (
-                        String(weather.second_half.average_temperature)
-                      )}
-                    </p>
-                  )}
-                  {weather.second_half.precipitation && (
-                    <p className="mb-2">
-                      <span className="font-medium">Precipitation:</span> {' '}
-                      {typeof weather.second_half.precipitation === 'string' ? 
-                        weather.second_half.precipitation : 
-                        JSON.stringify(weather.second_half.precipitation)}
-                    </p>
-                  )}
-                  {weather.second_half.description && (
-                    <p className="mb-2">{weather.second_half.description}</p>
-                  )}
-                </div>
-              </div>
+            <div>
+              <h5 className="font-medium text-blue-700 mb-2">Second Half</h5>
+              {weather.second_half.average_temperature && (
+                <p className="text-sm text-blue-600 mb-1">
+                  <span className="font-medium">Temperature:</span> {weather.second_half.average_temperature.high} / {weather.second_half.average_temperature.low}
+                </p>
+              )}
+              {weather.second_half.precipitation && (
+                <p className="text-sm text-blue-600 mb-1">
+                  <span className="font-medium">Precipitation:</span> {weather.second_half.precipitation}
+                </p>
+              )}
+              {weather.second_half.general_tips && (
+                <p className="text-sm text-blue-600">
+                  <span className="font-medium">Tips:</span> {weather.second_half.general_tips}
+                </p>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div>
+            {weather.temperature && (
+              <p className="text-sm text-blue-600 mb-1">
+                <span className="font-medium">Temperature:</span> {weather.temperature}
+              </p>
+            )}
+            {weather.precipitation && (
+              <p className="text-sm text-blue-600 mb-1">
+                <span className="font-medium">Precipitation:</span> {weather.precipitation}
+              </p>
+            )}
+            {weather.description && (
+              <p className="text-sm text-blue-600">
+                {weather.description}
+              </p>
             )}
           </div>
-        </div>
-      );
-    }
-    
-    // Generic weather object with unknown structure
-    return (
-      <div className="mt-6 bg-blue-50 rounded-lg p-5">
-        <h4 className="font-semibold text-lg text-blue-700 mb-3">Weather</h4>
-        <div className="text-gray-700">
-          {Object.entries(weather).map(([key, value]) => {
-            // Skip first_half/second_half as we handle those separately
-            if (key === 'first_half' || key === 'second_half') return null;
-            
-            // Format the key for display
-            const displayKey = key.split('_').map(word => 
-              word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-            
-            // Format the value based on type
-            let displayValue;
-            if (typeof value === 'object') {
-              displayValue = JSON.stringify(value);
-            } else {
-              displayValue = value;
-            }
-            
-            return (
-              <p key={key} className="mb-2">
-                <span className="font-medium">{displayKey}:</span> {displayValue}
-              </p>
-            );
-          })}
-        </div>
+        )}
       </div>
     );
   };
   
-  // Render events and holidays
   const renderEvents = (events) => {
-    if (!events || events.length === 0) return null;
-    
-    // Split events for two columns
-    const middleIndex = Math.ceil(events.length / 2);
-    const leftColumnEvents = events.slice(0, middleIndex);
-    const rightColumnEvents = events.slice(middleIndex);
+    if (!events.length) return null;
     
     return (
-      <div className="mt-6 bg-purple-50 rounded-lg p-5">
-        <h4 className="font-semibold text-lg text-purple-700 mb-4">Events & Holidays</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            {leftColumnEvents.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                <h5 className="font-semibold text-gray-800">{event.name || event.title || event.event}</h5>
-                {event.date && <p className="text-sm text-purple-700 mt-1 font-medium">{event.date}</p>}
-                {event.description && <p className="text-sm text-gray-600 mt-2">{event.description}</p>}
-                {event.notes && (
-                  <div className="mt-2 pt-2 border-t border-purple-100">
-                    <p className="text-xs text-gray-500 italic">{event.notes}</p>
-                  </div>
+      <div className="mb-6">
+        <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+          <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Events & Holidays
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {events.map((event, index) => (
+            <div key={index} className="bg-white border border-gray-200 rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <h5 className="font-medium text-gray-800">
+                  {event.name || event.title || event}
+                </h5>
+                {event.date && (
+                  <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                    {event.date}
+                  </span>
                 )}
               </div>
-            ))}
-          </div>
-          <div className="space-y-4">
-            {rightColumnEvents.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                <h5 className="font-semibold text-gray-800">{event.name || event.title || event.event}</h5>
-                {event.date && <p className="text-sm text-purple-700 mt-1 font-medium">{event.date}</p>}
-                {event.description && <p className="text-sm text-gray-600 mt-2">{event.description}</p>}
-                {event.notes && (
-                  <div className="mt-2 pt-2 border-t border-purple-100">
-                    <p className="text-xs text-gray-500 italic">{event.notes}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+              {event.description && (
+                <p className="text-sm text-gray-600 mb-2">{event.description}</p>
+              )}
+              {event.notes && (
+                <p className="text-xs text-gray-500 bg-gray-50 p-2 rounded">
+                  <span className="font-medium">Note:</span> {event.notes}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     );
   };
   
-  // Render activities/experiences
   const renderActivities = (activities) => {
-    if (!activities || activities.length === 0) return null;
+    if (!activities.length) return null;
     
-    // Limit displayed activities based on state
     const displayActivities = showAllExperiences ? activities : activities.slice(0, 6);
     
     return (
-      <div className="mt-6 bg-indigo-50 rounded-lg p-5">
-        <h4 className="font-semibold text-lg text-indigo-700 mb-4">Recommended Activities</h4>
+      <div className="mb-6">
+        <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+          <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
+          </svg>
+          Unique Experiences & Activities
+        </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {displayActivities.map((activity, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-indigo-100">
+            <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col">
               <div className="flex items-start mb-3">
-                <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd" />
+                <div className="bg-indigo-100 p-2 rounded-lg mr-3 flex-shrink-0">
+                  <svg className="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
                   </svg>
                 </div>
                 <h5 className="font-medium text-indigo-800 leading-tight">
@@ -597,49 +482,97 @@ const MonthlyGuideSection = ({ city, cityName, monthlyEvents }) => {
     );
   };
   
-  return (
-    <div>
-      {/* Tab navigation */}
-      <div className="border-b border-gray-200 mb-6">
-        <div className="flex overflow-x-auto scrollbar-none py-2">
-          {availablePeriods.map((period) => (
-            <button
-              key={period}
-              className={`whitespace-nowrap px-4 py-2 font-medium text-sm rounded-t-lg mr-2 transition ${
-                activeTab === period
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
-              onClick={() => setActiveTab(period)}
-            >
-              {formatDisplayName(period)}
-            </button>
-          ))}
-        </div>
+  // If no monthly data available
+  if (!monthlyData || Object.keys(monthlyData).length === 0) {
+    return (
+      <div className="text-center py-12">
+        <svg className="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <h3 className="text-lg font-medium text-gray-900 mb-2">Monthly Guide Coming Soon</h3>
+                 <p className="text-gray-500">We&apos;re working on detailed monthly guides for {cityName}. Check back soon!</p>
       </div>
-
-      {/* Active tab content */}
-      <div>
-        <h3 className="text-xl font-bold text-gray-800 mb-4">
-          {cityName} in {formatDisplayName(activeTab)}
-        </h3>
+    );
+  }
+  
+  return (
+    <div className="space-y-6">
+      {/* Enhanced Tab Navigation */}
+      <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <div className="border-b border-gray-200">
+          <div className="flex overflow-x-auto scrollbar-none">
+            {availablePeriods.map((period) => (
+              <button
+                key={period}
+                className={`whitespace-nowrap px-6 py-4 font-medium text-sm transition-all duration-200 flex-shrink-0 ${
+                  activeTab === period
+                    ? 'bg-blue-600 text-white border-b-2 border-blue-600'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                }`}
+                onClick={() => setActiveTab(period)}
+              >
+                {formatDisplayName(period)}
+              </button>
+            ))}
+          </div>
+        </div>
         
-        {/* Description */}
-        {getDescription(activeData) && (
-          <p className="text-gray-700 mb-6">{getDescription(activeData)}</p>
-        )}
+        {/* Quick Navigation Pills */}
+        <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-medium text-gray-700">Quick Jump:</span>
+            <div className="flex space-x-2">
+              {['january', 'april', 'july', 'october'].map((quarterMonth) => {
+                const isAvailable = availablePeriods.some(p => p.toLowerCase() === quarterMonth);
+                const isActive = activeTab.toLowerCase() === quarterMonth;
+                return isAvailable ? (
+                  <button
+                    key={quarterMonth}
+                    className={`px-3 py-1 text-xs rounded-full transition-colors ${
+                      isActive 
+                        ? 'bg-blue-600 text-white' 
+                        : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                    onClick={() => setActiveTab(quarterMonth)}
+                  >
+                    {formatDisplayName(quarterMonth)}
+                  </button>
+                ) : null;
+              })}
+            </div>
+          </div>
+        </div>
         
-        {/* Pros and cons */}
-        {renderReasons(getReasons(activeData))}
-        
-        {/* Weather information */}
-        {renderWeather(getWeatherInfo(activeData))}
-        
-        {/* Events */}
-        {renderEvents(getEvents(activeData))}
-        
-        {/* Activities */}
-        {renderActivities(getActivities(activeData))}
+        {/* Active Tab Content */}
+        <div className="p-6">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              {cityName} in {formatDisplayName(activeTab)}
+            </h3>
+            <p className="text-gray-600">
+              Discover what makes {formatDisplayName(activeTab)} special in {cityName}
+            </p>
+          </div>
+          
+          {/* Description */}
+          {getDescription(activeData) && (
+            <div className="bg-gray-50 rounded-lg p-4 mb-6">
+              <p className="text-gray-700 leading-relaxed">{getDescription(activeData)}</p>
+            </div>
+          )}
+          
+          {/* Pros and cons */}
+          {renderReasons(getReasons(activeData))}
+          
+          {/* Weather information */}
+          {renderWeather(getWeatherInfo(activeData))}
+          
+          {/* Events */}
+          {renderEvents(getEvents(activeData))}
+          
+          {/* Activities */}
+          {renderActivities(getActivities(activeData))}
+        </div>
       </div>
     </div>
   );

@@ -14,22 +14,37 @@ const getIcon = (name) => {
 /**
  * CityOverview Component - Displays city information and highlights
  */
-const CityOverview = ({ cityData, cityDisplayName }) => {
-  if (!cityData) return <div className="py-4 text-center text-gray-500">City information unavailable</div>;
-
-  // Use hardcoded Paris data
-  const cityInfo = {
-    name: "Paris",
-    nickname: "City of Light ✨",
-    description: "The capital of France stands as a global icon of art, architecture, cuisine, and fashion. With its scenic riverbanks, historic monuments, and cultural treasures, Paris continues to enchant visitors with an atmosphere that balances historic grandeur with modern energy. From the iconic Eiffel Tower to charming café terraces, the city exemplifies joie de vivre. 🗼"
+const CityOverview = ({ overview, cityName }) => {
+  // Romantic description of Paris
+  const getRomanticDescription = (cityName) => {
+    if (cityName.toLowerCase().includes('paris')) {
+      return {
+        name: "Paris",
+        nickname: "The City of Light",
+        description: "Paris is a city of seasons, each offering distinct experiences. Spring brings cherry blossoms to the parks and outdoor dining returns to the streets. Summer transforms the Seine banks into Paris Plages with beach vibes and Bastille Day fireworks. Autumn offers golden light perfect for photography and fewer crowds at major attractions. Winter brings Christmas markets, cozy cafés, and the magic of holiday lights. The city's world-class museums, historic monuments, and culinary scene remain accessible year-round, but timing your visit can enhance your experience significantly.",
+        highlights: []
+      };
+    }
+    
+    // Default description for other cities
+    return {
+      name: cityName,
+      nickname: "A City of Dreams ✨",
+      description: overview?.brief_description || `${cityName} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`,
+      highlights: []
+    };
   };
+
+  const cityInfo = getRomanticDescription(cityName);
   
   return (
-    <>
-      <h2 className="text-2xl font-bold">{cityInfo.name}</h2>
-      <p className="text-gray-600 italic">{cityInfo.nickname}</p>
-      <p className="text-gray-700 mt-2">{cityInfo.description}</p>
-    </>
+    <div className="space-y-6">
+      <div className="text-center md:text-left">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">{cityInfo.name}</h2>
+        <p className="text-lg text-blue-600 italic font-medium mb-4">{cityInfo.nickname}</p>
+        <p className="text-gray-700 text-lg leading-relaxed">{cityInfo.description}</p>
+      </div>
+    </div>
   );
 };
 

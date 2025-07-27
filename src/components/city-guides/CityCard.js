@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { regionColors } from './cityData';
 
 // Country code to flag emoji mapping
 const countryToFlag = {
@@ -33,15 +32,24 @@ const countryToFlag = {
   'Slovakia': '🇸🇰'
 };
 
+// Region color mapping
+const regionColors = {
+  "Atlantic Europe": "#0EA5E9", // sky
+  "Mediterranean": "#F97316", // orange
+  "Central Europe": "#10B981", // emerald
+  "Imperial Cities": "#8B5CF6", // violet
+  "Alpine": "#3B82F6", // blue
+  "Celtic & Nordic": "#6366F1", // indigo
+  "Nordic": "#6366F1", // indigo
+  "Arctic": "#EC4899", // pink
+  "Atlantic Islands": "#F59E0B", // amber
+  "Other": "#6B7280", // gray
+};
+
 const CityCard = ({ city }) => {
   const getRegionColorClass = (regionName) => {
-    // Default color if regionColors is undefined or doesn't have this region
-    if (!regionColors || !regionColors[regionName]) {
-      return 'bg-blue-100 text-blue-800';
-    }
-    
     // Get hex color and map to Tailwind classes
-    const hexColor = regionColors[regionName];
+    const hexColor = regionColors[regionName] || regionColors["Other"];
     
     switch(hexColor) {
       case '#F59E0B': return 'bg-amber-100 text-amber-800';
@@ -52,17 +60,18 @@ const CityCard = ({ city }) => {
       case '#EC4899': return 'bg-pink-100 text-pink-800';
       case '#0EA5E9': return 'bg-sky-100 text-sky-800';
       case '#F97316': return 'bg-orange-100 text-orange-800';
+      case '#6B7280': return 'bg-gray-100 text-gray-800';
       default: return 'bg-blue-100 text-blue-800';
     }
   };
   
   // Get flag emoji for the city's country
   const getFlagEmoji = (country) => {
-    return countryToFlag[country] || '';
+    return countryToFlag[country] || '🏳️';
   };
   
-  // Default thumbnail path if not provided
-  const thumbnailPath = city.thumbnail || '/images/cities/default-city.jpg';
+  // Use the thumbnail path from our API or fallback to placeholder
+  const thumbnailPath = city.thumbnail || '/images/city-placeholder.svg';
   
   return (
     <div className="relative group">
@@ -78,9 +87,13 @@ const CityCard = ({ city }) => {
               style={{ objectFit: 'cover' }}
               className="transition-transform group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              onError={(e) => {
+                // Fallback to placeholder on error
+                e.target.src = '/images/city-placeholder.svg';
+              }}
             />
             
-            {/* Gradient overlay - placed inside or alongside Image depending on styling needs */}
+            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
             
             {/* Content absolutely positioned over the image */}
@@ -89,7 +102,7 @@ const CityCard = ({ city }) => {
             </div>
             
             <div className={`absolute top-3 right-3 px-2 py-1 text-xs font-medium rounded-full ${getRegionColorClass(city.region)} z-20`}>
-              {city.region}
+              {city.region || 'Europe'}
             </div>
             
             <h3 className="absolute bottom-3 left-3 text-white font-bold text-xl drop-shadow-sm z-20">

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 
-// Rating color mapping
+// Enhanced rating color mapping with better descriptions
 const RATING_COLORS = {
-  5: '#4ade80', // Excellent - Green
-  4: '#86efac', // Good - Light green
-  3: '#fde047', // Average - Yellow
-  2: '#fdba74', // Below Average - Orange
-  1: '#f87171'  // Poor - Red
+  5: '#10b981', // Excellent - Soft green
+  4: '#34d399', // Good - Light green
+  3: '#fbbf24', // Average - Soft amber
+  2: '#fb923c', // Below Average - Soft orange
+  1: '#ef4444'  // Poor - Soft red
 };
 
 const RATING_LABELS = {
@@ -17,6 +17,14 @@ const RATING_LABELS = {
   1: 'Poor'
 };
 
+const RATING_DESCRIPTIONS = {
+  5: 'Perfect conditions, special events, ideal weather, moderate crowds',
+  4: 'Very favorable conditions, pleasant weather, manageable crowds',
+  3: 'Standard conditions, typical weather, moderate to high tourism',
+  2: 'Less ideal conditions, possibly unpleasant weather or very high crowds',
+  1: 'Unfavorable conditions, extreme weather, overcrowded or limited activities'
+};
+
 const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMonth(), city, country }) => {
   const [currentStartMonth, setCurrentStartMonth] = useState(initialMonth);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -24,6 +32,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [displayMonths, setDisplayMonths] = useState(3); // Number of months to display at once
   const [activeTooltip, setActiveTooltip] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
 
   // Determine number of months to display based on screen size
   useEffect(() => {
@@ -66,8 +75,6 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
 
     loadDetailedCalendarData();
   }, [city, country]);
-
-  // (Remaining code below remains unchanged...)
 
   // Add click outside handler to close tooltip
   useEffect(() => {
@@ -145,6 +152,19 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     return totalDays > 0 ? Math.round(totalScore / totalDays) : 3;
   };
 
+  // Get activity types for the month
+  const getActivityTypes = (monthIndex) => {
+    if (!detailedCalendarData || !detailedCalendarData.activityTypes) return [];
+    
+    const monthName = getMonthName(monthIndex).toLowerCase();
+    const month = monthIndex + 1; // Convert to 1-12 range
+    
+    if (month >= 3 && month <= 5) return detailedCalendarData.activityTypes.spring || [];
+    if (month >= 6 && month <= 8) return detailedCalendarData.activityTypes.summer || [];
+    if (month >= 9 && month <= 11) return detailedCalendarData.activityTypes.autumn || [];
+    return detailedCalendarData.activityTypes.winter || [];
+  };
+
   // Toggle tooltip display for a day
   const toggleTooltip = (day, monthIndex, dayOfMonth) => {
     if (day.special) {
@@ -170,10 +190,13 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     const daysInMonth = new Date(actualYear, actualMonth + 1, 0).getDate();
     const firstDayOfMonth = new Date(actualYear, actualMonth, 1).getDay();
     const monthRating = getMonthRating(actualMonth);
+    const activityTypes = getActivityTypes(actualMonth);
     const days = [];
+    
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push({ type: 'empty' });
     }
+    
     for (let i = 1; i <= daysInMonth; i++) {
       let dayDetails = monthData ? getDayDetails(i, monthData) : null;
       const rating = dayDetails ? dayDetails.score : 3;
@@ -188,6 +211,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
         notes: dayDetails && dayDetails.notes
       });
     }
+    
     return {
       monthName: getMonthName(actualMonth),
       year: actualYear,
@@ -195,7 +219,11 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       rating: monthRating,
       ratingLabel: RATING_LABELS[monthRating],
       ratingColor: RATING_COLORS[monthRating],
-      tourismLevel: monthData?.tourismLevel
+      ratingDescription: RATING_DESCRIPTIONS[monthRating],
+      tourismLevel: monthData?.tourismLevel,
+      weatherHigh: monthData?.weatherHighC,
+      weatherLow: monthData?.weatherLowC,
+      activityTypes
     };
   };
 
@@ -220,8 +248,8 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
 
   return (
     <div>
-      {/* Calendar Header with Controls */}
-      <div className="flex items-center justify-between mb-4">
+      {/* Enhanced Calendar Header with Controls */}
+      <div className="flex items-center justify-between mb-6">
         <button
           className="p-2 rounded-full hover:bg-gray-100 transition-colors"
           onClick={goToPreviousMonths}
@@ -231,9 +259,12 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
         </button>
-        <h3 className="text-lg font-medium">
-          {visibleMonths[0]?.monthName} - {visibleMonths[visibleMonths.length - 1]?.monthName} {currentYear}
-        </h3>
+        <div className="text-center">
+          <h3 className="text-xl font-bold text-gray-800">
+            {visibleMonths[0]?.monthName} - {visibleMonths[visibleMonths.length - 1]?.monthName} {currentYear}
+          </h3>
+          <p className="text-sm text-gray-600 mt-1">Click on highlighted days for event details</p>
+        </div>
         <button
           className="p-2 rounded-full hover:bg-gray-100 transition-colors"
           onClick={goToNextMonths}
@@ -245,17 +276,20 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
         </button>
       </div>
       
-      {/* Calendar Legend */}
-      <div className="mb-4">
-        <h4 className="text-sm font-medium text-gray-500 mb-2">Calendar Legend</h4>
-        <div className="flex flex-wrap gap-2">
+      {/* Enhanced Calendar Legend */}
+      <div className="mb-6 bg-gray-50 rounded-lg p-4">
+        <h4 className="text-sm font-semibold text-gray-700 mb-3">Visit Quality Legend</h4>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           {Object.entries(RATING_LABELS).map(([rating, label]) => (
             <div key={rating} className="flex items-center">
               <div 
-                className="w-4 h-4 rounded-sm mr-1" 
+                className="w-4 h-4 rounded-sm mr-2" 
                 style={{ backgroundColor: RATING_COLORS[rating] }}
               ></div>
-              <span className="text-xs text-gray-600">{label}</span>
+              <div>
+                <div className="text-xs font-medium text-gray-800">{label}</div>
+                <div className="text-xs text-gray-500">{RATING_DESCRIPTIONS[rating]}</div>
+              </div>
             </div>
           ))}
         </div>
@@ -264,21 +298,54 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       {/* Multiple Month Calendars */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {visibleMonths.map((month, monthIdx) => (
-          <div key={`${month.monthName}-${month.year}`} className="border rounded-lg overflow-hidden">
-            {/* Month Header */}
+          <div key={`${month.monthName}-${month.year}`} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            {/* Enhanced Month Header */}
             <div 
-              className="p-3 text-center font-medium"
+              className="p-4 text-center"
               style={{ 
-                backgroundColor: `${month.ratingColor}40`,
-                borderBottom: `2px solid ${month.ratingColor}` 
+                backgroundColor: `${month.ratingColor}10`,
+                borderBottom: `3px solid ${month.ratingColor}` 
               }}
             >
-              <div className="text-lg">{month.monthName} {month.year}</div>
-              <div className="text-sm opacity-75">{month.ratingLabel} time to visit</div>
-              {month.tourismLevel && (
-                <div className="text-xs mt-1">Tourism Level: {month.tourismLevel}/10</div>
-              )}
+              <div className="text-lg font-bold text-gray-800">{month.monthName} {month.year}</div>
+              <div className="text-sm font-medium mt-1" style={{ color: month.ratingColor }}>
+                {month.ratingLabel} time to visit
+              </div>
+              <div className="text-xs text-gray-600 mt-1">
+                {month.ratingDescription}
+              </div>
+              <div className="flex justify-center items-center gap-4 mt-2 text-xs">
+                {month.tourismLevel && (
+                  <div className="flex items-center">
+                    <span className="mr-1">👥</span>
+                    <span>Tourism: {month.tourismLevel}/10</span>
+                  </div>
+                )}
+                {month.weatherHigh && month.weatherLow && (
+                  <div className="flex items-center">
+                    <span className="mr-1">🌡️</span>
+                    <span>{month.weatherLow}°-{month.weatherHigh}°C</span>
+                  </div>
+                )}
+              </div>
             </div>
+            
+            {/* Activity Types */}
+            {month.activityTypes.length > 0 && (
+              <div className="bg-gray-50 px-3 py-2 border-b border-gray-200">
+                <div className="text-xs font-medium text-gray-600 mb-1">Best Activities:</div>
+                <div className="flex flex-wrap gap-1">
+                  {month.activityTypes.slice(0, 4).map((activity, idx) => (
+                    <span key={idx} className="text-xs bg-white px-2 py-1 rounded-full border">
+                      {activity}
+                    </span>
+                  ))}
+                  {month.activityTypes.length > 4 && (
+                    <span className="text-xs text-gray-400">+{month.activityTypes.length - 4} more</span>
+                  )}
+                </div>
+              </div>
+            )}
             
             {/* Days of Week */}
             <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50 p-1">
@@ -295,41 +362,13 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
                 ) : (
                   <div
                     key={`day-${day.dayOfMonth}`}
-                    className="day-cell aspect-square flex items-center justify-center text-sm rounded-md relative cursor-pointer"
+                    className="day-cell aspect-square flex items-center justify-center text-sm rounded-md relative cursor-pointer hover:scale-105 transition-transform"
                     style={{ backgroundColor: day.color }}
                     onClick={() => toggleTooltip(day, (currentStartMonth + monthIdx) % 12, day.dayOfMonth)}
                   >
-                    <span className="font-medium">{day.dayOfMonth}</span>
+                    <span className="font-medium text-white drop-shadow-sm">{day.dayOfMonth}</span>
                     {day.special && (
-                      <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
-                    )}
-                    {activeTooltip && 
-                     activeTooltip.monthIndex === (currentStartMonth + monthIdx) % 12 && 
-                     activeTooltip.dayOfMonth === day.dayOfMonth && (
-                       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
-                         <div className="bg-white rounded-lg shadow-lg max-w-sm w-full p-4 m-4">
-                           <div className="flex justify-between items-start mb-2">
-                             <h3 className="text-lg font-medium text-gray-900">
-                               {getMonthName((currentStartMonth + monthIdx) % 12)} {day.dayOfMonth}
-                             </h3>
-                             <button 
-                               className="text-gray-500 hover:text-gray-700 focus:outline-none"
-                               onClick={(e) => {
-                                 e.stopPropagation();
-                                 setActiveTooltip(null);
-                               }}
-                             >
-                               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                               </svg>
-                             </button>
-                           </div>
-                           <div className="bg-purple-100 p-2 rounded mb-2">
-                             <h4 className="font-medium text-purple-700">{activeTooltip.event}</h4>
-                           </div>
-                           <p className="text-sm text-gray-700">{activeTooltip.notes}</p>
-                         </div>
-                       </div>
+                      <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full shadow-sm"></span>
                     )}
                   </div>
                 )
@@ -338,6 +377,43 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
           </div>
         ))}
       </div>
+
+      {/* Enhanced Tooltip Modal */}
+      {activeTooltip && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 m-4 max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-gray-900">
+                {getMonthName(activeTooltip.monthIndex)} {activeTooltip.dayOfMonth}
+              </h3>
+              <button 
+                className="text-gray-500 hover:text-gray-700 focus:outline-none p-1"
+                onClick={() => setActiveTooltip(null)}
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="bg-purple-100 p-4 rounded-lg mb-4">
+              <h4 className="font-bold text-purple-800 text-lg mb-2">{activeTooltip.event}</h4>
+              <p className="text-purple-700">{activeTooltip.notes}</p>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="mr-2">📅</span>
+                <span>Special Event Day</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="mr-2">💡</span>
+                <span>Click outside to close</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { useRouter } from 'next/navigation'; // Import the Next.js router
+import { useRouter } from 'next/navigation';
 
-// Import InteractiveHeader instead of HeaderSection
+// Import components only
 import InteractiveHeader from "./common/InteractiveHeader";
 import NavigationTabs from "./common/NavigationTabs";
 import PaginatedRow from "./planner/PaginatedRow";
@@ -12,28 +12,11 @@ import SeasonalRecommendations from "./planner/SeasonalRecommendations";
 import InterestCategories from "./planner/InterestCategories";
 import TripRouteDisplay from "./planner/TripRouteDisplay";
 
-// Import city data
-import { austriaCities } from "../../public/data/austriaData";
-import { belgiumCities } from "../../public/data/belgiumData";
-import { czechRepublicCities } from "../../public/data/czechrepublicData";
-import { franceCities } from "../../public/data/franceData";
-import { germanyCities } from "../../public/data/germanyData";
-import { hungaryCities } from "../../public/data/hungaryData";
-import { irelandCities } from "../../public/data/irelandData";
-import { italyCities } from "../../public/data/italyData";
-import { netherlandsCities } from "../../public/data/netherlandsData";
-import { polandCities } from "../../public/data/polandData";
-import { portugalCities } from "../../public/data/portugalData";
-import { spainCities } from "../../public/data/spainData";
-import { switzerlandCities } from "../../public/data/switzerlandData";
-import { ukCities } from "../../public/data/ukData";
-import { countryFlags } from "../../public/data/sharedData";
-
-// Import constants and utility functions
-import { calculateTripDuration } from "../../public/data/tripConstants";
+// Import hooks for data fetching
+import { useCities } from "../hooks/useCityData";
 
 const EuroTripPlanner = () => {
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
   
   // State management
   const [startCity, setStartCity] = useState("");
@@ -45,479 +28,109 @@ const EuroTripPlanner = () => {
   const [selectedCities, setSelectedCities] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  // Define European city categories
-  const cityCategories = [
+  // Fetch cities using our new API
+  const { cities: allCities, loading: citiesLoading, error: citiesError } = useCities();
+
+  // Define European city categories (simplified - these could also come from API)
+  const cityCategories = useMemo(() => [
     {
       section: "Summer Getaways",
-      items: [
-        {
-          title: "Barcelona",
-          country: "Spain",
-          flags: ["🇪🇸"],
-          description:
-            "Vibrant coastal city with stunning architecture and beaches",
-        },
-        {
-          title: "Nice",
-          country: "France",
-          flags: ["🇫🇷"],
-          description: "Elegant seaside city on the French Riviera",
-        },
-        {
-          title: "Mykonos",
-          country: "Greece",
-          flags: ["🇬🇷"],
-          description:
-            "Iconic island with whitewashed buildings and beautiful beaches",
-        },
-        {
-          title: "Split",
-          country: "Croatia",
-          flags: ["🇭🇷"],
-          description:
-            "Historic coastal city with Roman ruins and Mediterranean charm",
-        },
-        {
-          title: "Lisbon",
-          country: "Portugal",
-          flags: ["🇵🇹"],
-          description: "Colorful coastal capital with rich maritime history",
-        },
-        {
-          title: "Amalfi Coast",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Dramatic coastline with picturesque cliffside villages",
-        },
-        {
-          title: "Santorini",
-          country: "Greece",
-          flags: ["🇬🇷"],
-          description:
-            "Stunning island with blue-domed churches and volcanic views",
-        },
-        {
-          title: "Mallorca",
-          country: "Spain",
-          flags: ["🇪🇸"],
-          description:
-            "Balearic island with beautiful beaches and mountain scenery",
-        },
-        {
-          title: "Corsica",
-          country: "France",
-          flags: ["🇫🇷"],
-          description: "Mountainous Mediterranean island with pristine beaches",
-        },
-        {
-          title: "Sardinia",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description:
-            "Island paradise with turquoise waters and white sand beaches",
-        },
-        {
-          title: "Hvar",
-          country: "Croatia",
-          flags: ["🇭🇷"],
-          description:
-            "Sunny island with lavender fields and crystal-clear waters",
-        },
-        {
-          title: "Algarve",
-          country: "Portugal",
-          flags: ["🇵🇹"],
-          description:
-            "Southern coastal region with stunning cliffs and golden beaches",
-        },
-      ],
+      items: allCities.filter(city => 
+        ['barcelona', 'nice', 'split', 'lisbon', 'santorini', 'mykonos'].includes(city.id)
+      ).map(city => ({
+        title: city.name,
+        country: city.country,
+        flags: ["🌊"],
+        description: city.description || `Beautiful coastal destination in ${city.country}`,
+      }))
     },
     {
-      section: "Trending Destinations",
-      items: [
-        {
-          title: "Porto",
-          country: "Portugal",
-          flags: ["🇵🇹"],
-          description: "Historic port city known for wine and riverside charm",
-        },
-        {
-          title: "Dubrovnik",
-          country: "Croatia",
-          flags: ["🇭🇷"],
-          description: "Walled city with stunning Adriatic views",
-        },
-        {
-          title: "Reykjavík",
-          country: "Iceland",
-          flags: ["🇮🇸"],
-          description:
-            "Colorful capital with access to incredible natural wonders",
-        },
-        {
-          title: "Tbilisi",
-          country: "Georgia",
-          flags: ["🇬🇪"],
-          description:
-            "Ancient city with diverse architecture and thermal baths",
-        },
-        {
-          title: "Valencia",
-          country: "Spain",
-          flags: ["🇪🇸"],
-          description:
-            "Modern city with futuristic architecture and beautiful beaches",
-        },
-        {
-          title: "Ljubljana",
-          country: "Slovenia",
-          flags: ["🇸🇮"],
-          description:
-            "Charming capital with beautiful bridges and green spaces",
-        },
-        {
-          title: "Kotor",
-          country: "Montenegro",
-          flags: ["🇲🇪"],
-          description: "Coastal town with an impressive bay and medieval walls",
-        },
-        {
-          title: "Tallinn",
-          country: "Estonia",
-          flags: ["🇪🇪"],
-          description:
-            "Well-preserved medieval old town with digital innovation",
-        },
-        {
-          title: "Krakow",
-          country: "Poland",
-          flags: ["🇵🇱"],
-          description:
-            "Historic gem with one of Europe's largest medieval squares",
-        },
-        {
-          title: "Bologna",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description:
-            "Less touristy Italian city with rich culinary traditions",
-        },
-        {
-          title: "Ghent",
-          country: "Belgium",
-          flags: ["🇧🇪"],
-          description:
-            "Historic university town with beautiful medieval center",
-        },
-        {
-          title: "Lviv",
-          country: "Ukraine",
-          flags: ["🇺🇦"],
-          description:
-            "Cultural gem with Habsburg architecture and vibrant cafe scene",
-        },
-      ],
+      section: "Trending Destinations", 
+      items: allCities.filter(city =>
+        ['porto', 'dubrovnik', 'reykjavik', 'valencia', 'ljubljana', 'tallinn'].includes(city.id)
+      ).map(city => ({
+        title: city.name,
+        country: city.country,
+        flags: ["🔥"],
+        description: city.description || `Trending destination in ${city.country}`,
+      }))
     },
     {
       section: "Café Culture",
-      items: [
-        {
-          title: "Vienna",
-          country: "Austria",
-          flags: ["🇦🇹"],
-          description: "Elegant city of music with historic coffeehouses",
-        },
-        {
-          title: "Paris",
-          country: "France",
-          flags: ["🇫🇷"],
-          description: "Iconic city with charming cafés and patisseries",
-        },
-        {
-          title: "Copenhagen",
-          country: "Denmark",
-          flags: ["🇩🇰"],
-          description:
-            "Design-focused city with cozy cafés and hygge atmosphere",
-        },
-        {
-          title: "Amsterdam",
-          country: "Netherlands",
-          flags: ["🇳🇱"],
-          description: "Canal-lined city with unique café culture",
-        },
-        {
-          title: "Prague",
-          country: "Czech Republic",
-          flags: ["🇨🇿"],
-          description: "Fairytale city with historic cafés and beer halls",
-        },
-        {
-          title: "Budapest",
-          country: "Hungary",
-          flags: ["🇭🇺"],
-          description: "City of thermal baths with grand historic coffeehouses",
-        },
-        {
-          title: "Rome",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Espresso culture and piazza people-watching",
-        },
-        {
-          title: "Istanbul",
-          country: "Turkey",
-          flags: ["🇹🇷"],
-          description: "Traditional coffee houses and tea gardens",
-        },
-        {
-          title: "Lisbon",
-          country: "Portugal",
-          flags: ["🇵🇹"],
-          description: "Pastel de nata bakeries and historic cafés",
-        },
-        {
-          title: "Berlin",
-          country: "Germany",
-          flags: ["🇩🇪"],
-          description: "Hipster coffee scene and all-day café lounging",
-        },
-        {
-          title: "Stockholm",
-          country: "Sweden",
-          flags: ["🇸🇪"],
-          description: "Fika tradition with coffee and cinnamon buns",
-        },
-        {
-          title: "Milan",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Sophisticated coffee bars and aperitivo culture",
-        },
-      ],
+      items: allCities.filter(city => 
+        ['vienna', 'paris', 'copenhagen', 'amsterdam', 'prague', 'budapest'].includes(city.id)
+      ).map(city => ({
+        title: city.name,
+        country: city.country,
+        flags: ["☕"],
+        description: city.description || `Perfect for café lovers in ${city.country}`,
+      }))
     },
     {
       section: "Art & History",
-      items: [
-        {
-          title: "Florence",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Renaissance masterpiece with world-class art museums",
-        },
-        {
-          title: "Rome",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Eternal city with ancient ruins and artistic treasures",
-        },
-        {
-          title: "Berlin",
-          country: "Germany",
-          flags: ["🇩🇪"],
-          description:
-            "Dynamic capital with turbulent history and vibrant art scene",
-        },
-        {
-          title: "Athens",
-          country: "Greece",
-          flags: ["🇬🇷"],
-          description: "Ancient city with iconic archaeological sites",
-        },
-        {
-          title: "Madrid",
-          country: "Spain",
-          flags: ["🇪🇸"],
-          description: "Elegant capital with world-renowned art museums",
-        },
-        {
-          title: "Bruges",
-          country: "Belgium",
-          flags: ["🇧🇪"],
-          description:
-            "Medieval gem with picturesque canals and Gothic architecture",
-        },
-        {
-          title: "Vienna",
-          country: "Austria",
-          flags: ["🇦🇹"],
-          description: "Imperial splendor with outstanding art collections",
-        },
-        {
-          title: "London",
-          country: "UK",
-          flags: ["🇬🇧"],
-          description: "World-class museums and historical landmarks",
-        },
-        {
-          title: "St. Petersburg",
-          country: "Russia",
-          flags: ["🇷🇺"],
-          description: "Opulent palaces and the spectacular Hermitage Museum",
-        },
-        {
-          title: "Amsterdam",
-          country: "Netherlands",
-          flags: ["🇳🇱"],
-          description: "City of Rembrandt with remarkable art museums",
-        },
-        {
-          title: "Istanbul",
-          country: "Turkey",
-          flags: ["🇹🇷"],
-          description: "Byzantine and Ottoman heritage spanning two continents",
-        },
-        {
-          title: "Krakow",
-          country: "Poland",
-          flags: ["🇵🇱"],
-          description: "Preserved medieval core with rich Jewish heritage",
-        },
-      ],
+      items: allCities.filter(city => 
+        ['florence', 'rome', 'berlin', 'athens', 'madrid', 'bruges'].includes(city.id)
+      ).map(city => ({
+        title: city.name,
+        country: city.country,
+        flags: ["🎨"],
+        description: city.description || `Rich cultural heritage in ${city.country}`,
+      }))
     },
     {
       section: "Foodie Heaven",
-      items: [
-        {
-          title: "Bologna",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description:
-            "Culinary capital of Italy known for pasta and rich cuisine",
-        },
-        {
-          title: "San Sebastián",
-          country: "Spain",
-          flags: ["🇪🇸"],
-          description:
-            "Basque coastal city with the highest concentration of Michelin stars",
-        },
-        {
-          title: "Lyon",
-          country: "France",
-          flags: ["🇫🇷"],
-          description: "Gastronomic center of France with traditional bouchons",
-        },
-        {
-          title: "Naples",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Birthplace of pizza with vibrant street food culture",
-        },
-        {
-          title: "Istanbul",
-          country: "Turkey",
-          flags: ["🇹🇷"],
-          description:
-            "Transcontinental city with rich and diverse culinary traditions",
-        },
-        {
-          title: "Copenhagen",
-          country: "Denmark",
-          flags: ["🇩🇰"],
-          description: "Hub of New Nordic cuisine with innovative restaurants",
-        },
-        {
-          title: "Bordeaux",
-          country: "France",
-          flags: ["🇫🇷"],
-          description: "Wine capital with excellent regional cuisine",
-        },
-        {
-          title: "Porto",
-          country: "Portugal",
-          flags: ["🇵🇹"],
-          description: "Home of port wine with hearty Portuguese fare",
-        },
-        {
-          title: "Barcelona",
-          country: "Spain",
-          flags: ["🇪🇸"],
-          description: "Catalan cuisine paradise with vibrant food markets",
-        },
-        {
-          title: "Palermo",
-          country: "Italy",
-          flags: ["🇮🇹"],
-          description: "Sicilian street food and Arab-influenced cuisine",
-        },
-        {
-          title: "Brussels",
-          country: "Belgium",
-          flags: ["🇧🇪"],
-          description: "Chocolate, waffles, fries, and excellent beer culture",
-        },
-        {
-          title: "Athens",
-          country: "Greece",
-          flags: ["🇬🇷"],
-          description: "Mediterranean flavors with authentic mezze and seafood",
-        },
-      ],
-    },
-    // Other sections remain the same...
-  ];
-
-  // Combine all destination data
-  const allDestinations = useMemo(() => {
-    return [
-      ...austriaCities,
-      ...belgiumCities,
-      ...czechRepublicCities,
-      ...franceCities,
-      ...germanyCities,
-      ...hungaryCities,
-      ...irelandCities,
-      ...italyCities,
-      ...netherlandsCities,
-      ...polandCities,
-      ...portugalCities,
-      ...spainCities,
-      ...switzerlandCities,
-      ...ukCities,
-    ];
-  }, []);
+      items: allCities.filter(city => 
+        ['bologna', 'lyon', 'naples', 'copenhagen', 'barcelona', 'istanbul'].includes(city.id)
+      ).map(city => ({
+        title: city.name,
+        country: city.country,
+        flags: ["🍽️"],
+        description: city.description || `Culinary destination in ${city.country}`,
+      }))
+    }
+  ], [allCities]);
 
   // Update trip duration when dates change
   useEffect(() => {
-    const duration = calculateTripDuration(startDate, endDate);
-    setTripDuration(duration);
+    if (startDate && endDate) {
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+      const diffTime = Math.abs(end - start);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setTripDuration(diffDays);
+    }
   }, [startDate, endDate]);
 
   // Set initial city if one is entered
   useEffect(() => {
-    if (startCity && selectedCities.length === 0) {
-      const matchingCity = allDestinations.find(
-        (city) => city.city.toLowerCase() === startCity.toLowerCase()
+    if (startCity && selectedCities.length === 0 && allCities.length > 0) {
+      const matchingCity = allCities.find(
+        city => city.name.toLowerCase() === startCity.toLowerCase()
       );
 
       if (matchingCity) {
-        const flag = countryFlags[matchingCity.country] || "🇪🇺";
-        setSelectedCities([
-          { name: matchingCity.city, country: matchingCity.country, flag },
-        ]);
+        setSelectedCities([{
+          name: matchingCity.name,
+          country: matchingCity.country,
+          flag: "🇪🇺" // Default flag, could be enhanced
+        }]);
         setSelectedCountry(matchingCity.country);
       }
     }
-  }, [startCity, selectedCities.length, allDestinations]);
+  }, [startCity, selectedCities.length, allCities]);
 
-  // View city guide - Modified to use router to navigate to city guide page
+  // View city guide
   const viewCityGuide = (city) => {
     console.log("Viewing city guide for:", city.title);
-    
-    // Convert city name to slug format for the URL
     const citySlug = city.title.toLowerCase().replace(/\s+/g, '-');
-    
-    // Navigate to the city guide page
     router.push(`/city-guides/${citySlug}`);
   };
 
   // Add city to trip
   const addCityToTrip = (city) => {
-    const flag = countryFlags[city.country] || "🇪🇺";
     setSelectedCities([
       ...selectedCities,
-      { name: city.title, country: city.country, flag },
+      { name: city.title, country: city.country, flag: "🇪🇺" },
     ]);
   };
 
@@ -532,25 +145,55 @@ const EuroTripPlanner = () => {
   const getCategoryPlaces = () => {
     if (!selectedCategory) return [];
 
-    let categoryMap = {
-      beaches: "Summer Destinations",
-      cultural: "Art & History",
+    const categoryMap = {
+      beaches: "Summer Getaways",
+      cultural: "Art & History", 
       food: "Foodie Heaven",
       nature: "Nature & Adventure",
       urban: "Trending Destinations",
-      events: "Nightlife Hotspots",
+      events: "Café Culture",
     };
 
     const categoryName = categoryMap[selectedCategory] || selectedCategory;
-
-    return (
-      cityCategories.find((category) =>
-        category.section.toLowerCase().includes(categoryName.toLowerCase())
-      ) || { section: "No matches found", items: [] }
-    );
+    return cityCategories.find(category =>
+      category.section.toLowerCase().includes(categoryName.toLowerCase())
+    ) || { section: "No matches found", items: [] };
   };
 
   const categoryPlaces = getCategoryPlaces();
+
+  // Loading state
+  if (citiesLoading) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading destination data...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (citiesError) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Unable to Load Destinations
+          </h2>
+          <p className="text-gray-600 mb-4">{citiesError}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // Render different content based on active tab
   const renderTabContent = () => {
@@ -621,9 +264,7 @@ const EuroTripPlanner = () => {
               cities={selectedCities}
               removeCity={removeCityFromTrip}
               viewCityGuide={(city) => {
-                // Convert city name to slug format for the URL
                 const citySlug = city.name.toLowerCase().replace(/\s+/g, '-');
-                // Navigate to the city guide page
                 router.push(`/city-guides/${citySlug}`);
               }}
             />
@@ -632,9 +273,7 @@ const EuroTripPlanner = () => {
                 cities={selectedCities}
                 tripDuration={tripDuration}
                 viewCityGuide={(city) => {
-                  // Convert city name to slug format for the URL
                   const citySlug = city.name.toLowerCase().replace(/\s+/g, '-');
-                  // Navigate to the city guide page
                   router.push(`/city-guides/${citySlug}`);
                 }}
               />
@@ -689,8 +328,6 @@ const EuroTripPlanner = () => {
 
       <main className="max-w-7xl mx-auto px-6 py-8">
         <NavigationTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-
-        {/* Render the content based on the active tab */}
         {renderTabContent()}
       </main>
     </div>
