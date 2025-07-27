@@ -15,7 +15,7 @@ const InteractiveHeader = ({
   
   // Use a single, stable video that looks good as background
   const backgroundVideo = {
-    mp4Src: "/videos/florence-pontevechio.mp4", 
+    mp4Src: "/videos/compressed/florence-pontevechio.mp4", 
     location: "Florence",
     country: "Italy"
   };

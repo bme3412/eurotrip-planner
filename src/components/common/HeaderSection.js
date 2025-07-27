@@ -12,7 +12,7 @@ const HeaderSection = ({
   animatedText = false,
 }) => {
   const [isPaused, setIsPaused] = useState(false);
-  const defaultVideoSrc = '/europe_background.mp4';
+  const defaultVideoSrc = '/videos/compressed/florence-pontevechio.mp4';
   const videoSource = videoSrc || defaultVideoSrc;
   
   // Calculate height

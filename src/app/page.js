@@ -4,9 +4,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useCities } from '../hooks/useCityData';
 import OptimizedVideo from '../components/common/OptimizedVideo';
+import VideoPreloader from '../components/common/VideoPreloader';
 
 export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState({});
+  const [videoTimeouts, setVideoTimeouts] = useState({});
   const videoRefs = useRef({});
   const { cities, loading, error } = useCities({ limit: 20 });
 
@@ -18,7 +20,8 @@ export default function Home() {
       country: 'Spain',
       month: 'July',
       flag: '🇪🇸',
-      videoSrc: '/videos/pamplona-runningofbulls.mp4',
+      videoSrc: '/videos/compressed/pamplona-runningofbulls.mp4',
+      thumbnailSrc: '/images/video-thumbnails/pamplona-runningofbulls-thumbnail.jpg',
       fallbackImage: '/images/madrid-thumbnail.jpeg' // Using Madrid as fallback for Pamplona
     },
     {
@@ -27,7 +30,8 @@ export default function Home() {
       country: 'Italy',
       month: 'April',
       flag: '🇮🇹',
-      videoSrc: '/videos/venice-gondola.mp4',
+      videoSrc: '/videos/compressed/venice-gondola.mp4',
+      thumbnailSrc: '/images/video-thumbnails/venice-gondola-thumbnail.jpg',
       fallbackImage: '/images/venice-thumbnail.jpeg'
     },
     {
@@ -36,19 +40,52 @@ export default function Home() {
       country: 'Portugal',
       month: 'May',
       flag: '🇵🇹',
-      videoSrc: '/videos/lisbon-tram.mp4',
+      videoSrc: '/videos/compressed/lisbon-tram.mp4',
+      thumbnailSrc: '/images/video-thumbnails/lisbon-tram-thumbnail.jpg',
       fallbackImage: '/images/lisbon-thumbnail.png'
     }
   ];
 
   const handleVideoLoad = (cityId) => {
+    // Clear any timeout for this video
+    if (videoTimeouts[cityId]) {
+      clearTimeout(videoTimeouts[cityId]);
+    }
     setVideoLoaded(prev => ({ ...prev, [cityId]: true }));
   };
 
   const handleVideoError = (cityId) => {
+    // Clear any timeout for this video
+    if (videoTimeouts[cityId]) {
+      clearTimeout(videoTimeouts[cityId]);
+    }
     // If video fails to load, we'll use the fallback image
     setVideoLoaded(prev => ({ ...prev, [cityId]: 'error' }));
   };
+
+  const handleVideoTimeout = (cityId) => {
+    // If video takes too long, fall back to image
+    setVideoLoaded(prev => ({ ...prev, [cityId]: 'timeout' }));
+  };
+
+  // Set up timeouts for video loading
+  useEffect(() => {
+    featuredCities.forEach(city => {
+      // Set a timeout for video loading (1 second - faster since we have thumbnails)
+      const timeout = setTimeout(() => {
+        handleVideoTimeout(city.id);
+      }, 1000);
+      
+      setVideoTimeouts(prev => ({ ...prev, [city.id]: timeout }));
+    });
+
+    // Cleanup timeouts on unmount
+    return () => {
+      Object.values(videoTimeouts).forEach(timeout => {
+        if (timeout) clearTimeout(timeout);
+      });
+    };
+  }, []);
 
   const nextSlide = () => {
     // For now, just keep the current layout
@@ -94,6 +131,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50">
+      {/* Preload videos and thumbnails for faster loading */}
+      <VideoPreloader 
+        videos={featuredCities.map(city => city.videoSrc)}
+        thumbnails={featuredCities.map(city => city.thumbnailSrc)}
+      />
+      
       {/* Top Navigation Bar */}
       <nav className="fixed top-0 right-0 z-50 p-6">
         <div className="flex gap-3">
@@ -125,15 +168,36 @@ export default function Home() {
           
           {featuredCities.map((city, index) => (
             <div key={city.id} className="relative h-full w-1/3">
-              {/* Video Background Only */}
+              {/* Video Thumbnail - shown immediately (42-100KB, loads instantly) */}
+              <img
+                src={city.thumbnailSrc}
+                alt={`${city.name} background`}
+                className={`h-full w-full object-cover transition-opacity duration-700 ${
+                  videoLoaded[city.id] === true ? 'opacity-0' : 'opacity-100'
+                }`}
+              />
+              
+              {/* Video Background - loads in background with lazy loading */}
               <video
                 src={city.videoSrc}
-                className="h-full w-full object-cover"
+                className={`h-full w-full object-cover absolute inset-0 transition-opacity duration-700 ${
+                  videoLoaded[city.id] === true ? 'opacity-100' : 'opacity-0'
+                }`}
                 muted
                 loop
                 autoPlay
                 playsInline
+                preload="metadata"
+                onLoadedData={() => handleVideoLoad(city.id)}
+                onError={() => handleVideoError(city.id)}
               />
+              
+              {/* Minimal loading indicator - only show briefly */}
+              {!videoLoaded[city.id] && videoLoaded[city.id] !== 'error' && videoLoaded[city.id] !== 'timeout' && (
+                <div className="absolute top-4 right-4 z-30">
+                  <div className="animate-spin rounded-full h-6 w-6 border-2 border-white border-t-transparent"></div>
+                </div>
+              )}
               
               {/* Dark overlay for text readability */}
               <div className="absolute inset-0 bg-black bg-opacity-40"></div>
