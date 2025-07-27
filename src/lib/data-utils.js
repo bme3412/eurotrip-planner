@@ -1,6 +1,7 @@
 // Data utilities for city information management
 import fs from 'fs';
 import path from 'path';
+import { getImageUrl, isCDNEnabled } from '../utils/cdnUtils';
 
 /**
  * Unified city data structure interface
@@ -34,9 +35,23 @@ const CACHE_TTL = 1000 * 60 * 5; // 5 minutes
 
 /**
  * Generate thumbnail path for a city
+ * Updated to use CDN for optimized images
  */
 function generateThumbnailPath(cityId) {
-  // Try different image extensions and naming patterns
+  // If CDN is enabled, use optimized images from CloudFront
+  if (isCDNEnabled()) {
+    // Use the new optimized naming convention (city.jpeg)
+    return getImageUrl(`/images/${cityId}.jpeg`);
+  }
+  
+  // For local development, check optimized directory first
+  const optimizedPath = `/images/optimized/${cityId}.jpeg`;
+  const optimizedFullPath = path.join(process.cwd(), 'public', optimizedPath);
+  if (fs.existsSync(optimizedFullPath)) {
+    return optimizedPath;
+  }
+  
+  // Fallback to local files for development
   const possiblePaths = [
     `/images/${cityId}-thumbnail.jpeg`,
     `/images/${cityId}-thumbnail.jpg`, 

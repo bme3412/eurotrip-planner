@@ -5,16 +5,12 @@
 
 // Get CDN URL from environment or fallback to local
 const getCDNUrl = () => {
-  // In development, use local assets to avoid CORS issues
-  if (process.env.NODE_ENV === 'development') {
-    return '';
-  }
   return process.env.NEXT_PUBLIC_CDN_URL || '';
 };
 
 // Check if CDN is enabled
 export const isCDNEnabled = () => {
-  return !!process.env.NEXT_PUBLIC_CDN_URL;
+  return !!getCDNUrl();
 };
 
 // Get full URL for a video
@@ -31,11 +27,29 @@ export const getVideoUrl = (videoPath) => {
 // Get full URL for an image
 export const getImageUrl = (imagePath) => {
   const cdnUrl = getCDNUrl();
+  
+  // If CDN is enabled, use CloudFront
   if (cdnUrl && imagePath) {
     // Remove leading slash if present
     const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+    
+    // Map city images to the correct S3 path
+    if (cleanPath.startsWith('images/') && !cleanPath.includes('city-thumbnails/') && !cleanPath.includes('video-thumbnails/')) {
+      // Convert /images/paris.jpeg to /images/city-thumbnails/paris.jpeg
+      const cityName = cleanPath.replace('images/', '').replace('.jpeg', '');
+      return `${cdnUrl}/images/city-thumbnails/${cityName}.jpeg`;
+    }
+    
     return `${cdnUrl}/${cleanPath}`;
   }
+  
+  // For local development, map new format to old format
+  if (imagePath && imagePath.includes('/images/') && !imagePath.includes('-thumbnail')) {
+    // Convert /images/paris.jpeg to /images/paris-thumbnail.jpeg
+    const cityName = imagePath.replace('/images/', '').replace('.jpeg', '');
+    return `/images/${cityName}-thumbnail.jpeg`;
+  }
+  
   return imagePath;
 };
 

@@ -9,6 +9,7 @@ import {
   languageFamilies,
   getCountriesInRegion,
 } from "./regionData";
+import { getImageUrl, isCDNEnabled } from "../../utils/cdnUtils";
 
 // Define region colors for UI display
 export const regionColors = {
@@ -32,7 +33,9 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy, and culture.",
-      thumbnail: "/images/paris-thumbnail.jpeg",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/paris.jpeg')
+        : "/images/optimized/paris.jpeg",
       landmarks: ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral"],
       latitude: 48.8566,
       longitude: 2.3522,
@@ -50,7 +53,9 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Nice, located on the French Riviera, offers beautiful beaches, a Mediterranean climate, and a blend of French and Italian culture.",
-      thumbnail: "/images/nice-thumbnail.jpeg",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/nice.jpeg')
+        : "/images/optimized/nice.jpeg",
       landmarks: ["Promenade des Anglais", "Vieux Nice"],
       latitude: 43.7102,
       longitude: 7.262,
@@ -64,7 +69,9 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Lyon is renowned for its historical architecture, gastronomy, and Renaissance district at the confluence of the Rhône and Saône rivers.",
-      thumbnail: "/images/lyon-thumbnail.jpeg",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/lyon.jpeg')
+        : "/images/optimized/lyon.jpeg",
       landmarks: [
         "Basilica of Notre-Dame de Fourvière",
         "Parc de la Tête d'Or",
@@ -81,7 +88,9 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Marseille, France's oldest city and largest port, features vibrant multicultural neighborhoods and stunning calanques.",
-      thumbnail: "/images/marseille-thumbnail.jpeg",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/marseille.jpeg')
+        : "/images/optimized/marseille.jpeg",
       landmarks: ["Old Port", "Basilique Notre-Dame de la Garde"],
       latitude: 43.2965,
       longitude: 5.3698,
@@ -95,7 +104,9 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Bordeaux, the wine capital of the world, boasts elegant 18th-century architecture, world-class vineyards, and a vibrant riverfront.",
-      thumbnail: "/images/bordeaux-thumbnail.jpeg",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/bordeaux.jpeg')
+        : "/images/optimized/bordeaux.jpeg",
       landmarks: ["Place de la Bourse", "La Cité du Vin"],
       latitude: 44.8378,
       longitude: -0.5792,

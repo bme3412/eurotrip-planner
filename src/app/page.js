@@ -23,7 +23,7 @@ export default function Home() {
       flag: '🇪🇸',
       videoSrc: getVideoUrl('/videos/compressed/pamplona-runningofbulls.mp4'),
       thumbnailSrc: getImageUrl('/images/video-thumbnails/pamplona-runningofbulls-thumbnail.jpg'),
-      fallbackImage: getImageUrl('/images/madrid-thumbnail.jpeg') // Using Madrid as fallback for Pamplona
+      fallbackImage: getImageUrl('/images/madrid.jpeg') // Using Madrid as fallback for Pamplona
     },
     {
       id: 'venice',
@@ -33,7 +33,7 @@ export default function Home() {
       flag: '🇮🇹',
       videoSrc: getVideoUrl('/videos/compressed/venice-gondola.mp4'),
       thumbnailSrc: getImageUrl('/images/video-thumbnails/venice-gondola-thumbnail.jpg'),
-      fallbackImage: getImageUrl('/images/venice-thumbnail.jpeg')
+      fallbackImage: getImageUrl('/images/venice.jpeg')
     },
     {
       id: 'lisbon',
@@ -43,7 +43,7 @@ export default function Home() {
       flag: '🇵🇹',
       videoSrc: getVideoUrl('/videos/compressed/lisbon-tram.mp4'),
       thumbnailSrc: getImageUrl('/images/video-thumbnails/lisbon-tram-thumbnail.jpg'),
-      fallbackImage: getImageUrl('/images/lisbon-thumbnail.png')
+      fallbackImage: getImageUrl('/images/lisbon.jpeg')
     }
   ];
 

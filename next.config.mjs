@@ -9,6 +9,29 @@ const baseConfig = {
       './public/data/**/*' // Exclude everything under public/data
     ]
   },
+  // Configure external image domains for CDN
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dknnqxb2tbc80.cloudfront.net',
+        port: '',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dknnqxb2tbc80.cloudfront.net',
+        port: '',
+        pathname: '/city-thumbnails/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dknnqxb2tbc80.cloudfront.net',
+        port: '',
+        pathname: '/videos/**',
+      },
+    ],
+  },
   // Optimize video serving
   async headers() {
     return [

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getImageUrl, isCDNEnabled } from '../../utils/cdnUtils';
 
 // Country code to flag emoji mapping
 const countryToFlag = {
@@ -70,8 +71,9 @@ const CityCard = ({ city }) => {
     return countryToFlag[country] || '🏳️';
   };
   
-  // Use the thumbnail path from our API or fallback to placeholder
-  const thumbnailPath = city.thumbnail || '/images/city-placeholder.svg';
+  // Use CDN URL for thumbnail if available, otherwise use optimized local files or fallback
+  const thumbnailPath = city.thumbnail || 
+    (isCDNEnabled() ? getImageUrl(`/images/${city.id}.jpeg`) : `/images/optimized/${city.id}.jpeg`);
   
   return (
     <div className="group relative">
