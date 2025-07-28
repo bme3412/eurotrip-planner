@@ -11,9 +11,15 @@ const UnifiedFilter = ({
   countries = [],
   searchTerm,
   onSearchChange,
-  onClearFilters
+  onClearFilters,
+  activeFilterType,
+  onFilterTypeChange
 }) => {
-  const [activeFilterType, setActiveFilterType] = useState('euro-region');
+  const [internalActiveFilterType, setInternalActiveFilterType] = useState('euro-region');
+  
+  // Use the prop if provided, otherwise use internal state
+  const currentFilterType = activeFilterType || internalActiveFilterType;
+  const setCurrentFilterType = onFilterTypeChange || setInternalActiveFilterType;
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const countryDropdownRef = useRef(null);
 
@@ -65,7 +71,7 @@ const UnifiedFilter = ({
   };
 
   const handleFilterTypeChange = (filterType) => {
-    setActiveFilterType(filterType);
+    setCurrentFilterType(filterType);
     handleRegionChange('All', filterType);
   };
 
@@ -83,7 +89,7 @@ const UnifiedFilter = ({
 
   // Get filter options based on active filter type
   const getFilterOptions = () => {
-    switch (activeFilterType) {
+    switch (currentFilterType) {
       case 'euro-region':
         return getEuroRegionOptions();
       case 'travel-experience':
@@ -127,10 +133,10 @@ const UnifiedFilter = ({
         <div className="bg-gray-100 p-1 rounded-lg">
           <div className="flex space-x-1">
             <button
-              onClick={() => setActiveFilterType('euro-region')}
+              onClick={() => setCurrentFilterType('euro-region')}
               className={`
                 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
-                ${activeFilterType === 'euro-region'
+                ${currentFilterType === 'euro-region'
                   ? 'bg-white text-blue-600 shadow-sm'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }
@@ -139,10 +145,10 @@ const UnifiedFilter = ({
               🗺️ Regions
             </button>
             <button
-              onClick={() => setActiveFilterType('travel-experience')}
+              onClick={() => setCurrentFilterType('travel-experience')}
               className={`
                 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
-                ${activeFilterType === 'travel-experience'
+                ${currentFilterType === 'travel-experience'
                   ? 'bg-white text-blue-600 shadow-sm'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }
@@ -245,11 +251,11 @@ const UnifiedFilter = ({
       <div className="mt-3 transition-all duration-300 ease-in-out">
         <div 
           className="flex flex-wrap gap-2 transition-all duration-300 ease-in-out"
-          key={activeFilterType} // Force re-render for smooth transition
+          key={currentFilterType} // Force re-render for smooth transition
         >
           {getFilterOptions().map((option) => {
             const isSelected = 
-              activeFilterType === 'euro-region' 
+              currentFilterType === 'euro-region' 
                 ? selectedRegion === option 
                 : selectedRegion === option;
             
@@ -257,7 +263,7 @@ const UnifiedFilter = ({
               <button
                 key={option}
                 onClick={() => {
-                  if (activeFilterType === 'euro-region') {
+                  if (currentFilterType === 'euro-region') {
                     handleRegionChange(option);
                   } else {
                     handleRegionChange(option);
@@ -284,9 +290,9 @@ const UnifiedFilter = ({
           <div className="flex flex-wrap gap-2">
             {selectedRegion !== 'All' && (
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-blue-100 text-blue-800">
-                {activeFilterType === 'euro-region' ? 'Region' : 'Experience'}: {selectedRegion}
+                {currentFilterType === 'euro-region' ? 'Region' : 'Experience'}: {selectedRegion}
                 <button
-                  onClick={() => handleRegionChange('All', activeFilterType)}
+                  onClick={() => handleRegionChange('All', currentFilterType)}
                   className="ml-2 hover:text-blue-600"
                 >
                   ×

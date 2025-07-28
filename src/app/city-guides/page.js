@@ -61,8 +61,8 @@ export default function CityGuidesPage() {
       const matchesCountry =
         selectedCountries.length === 0 || selectedCountries.includes(city.country);
 
-      let matchesRegion = true;
-      if (selectedRegion !== 'All') {
+                  let matchesRegion = true;
+            if (selectedRegion !== 'All') {
         if (activeFilterType === 'euro-region') {
           // Refined Euro-region filtering - 9 categories total
           const euroRegionGroups = {
@@ -76,11 +76,11 @@ export default function CityGuidesPage() {
             'Luxury Coastlines': ['France', 'Italy', 'Spain'] // St Tropez, Cote d'Azur, Amalfi Coast, Ibiza
           };
           matchesRegion = euroRegionGroups[selectedRegion]?.includes(city.country) ?? false;
-        } else if (activeFilterType === 'travel') {
-          // Travel experience filtering - 9 categories total
-          matchesRegion =
-            city.tourismCategories?.includes(selectedRegion) ?? false;
-        }
+                      } else if (activeFilterType === 'travel-experience') {
+                // Travel experience filtering - 9 categories total
+                matchesRegion =
+                  city.tourismCategories?.includes(selectedRegion) ?? false;
+              }
       }
 
       return matchesSearch && matchesCountry && matchesRegion;
@@ -175,6 +175,8 @@ export default function CityGuidesPage() {
             searchTerm={searchTerm}
             onSearchChange={handleSearchChange}
             onClearFilters={clearFilters}
+            activeFilterType={activeFilterType}
+            onFilterTypeChange={setActiveFilterType}
           />
         </div>
 

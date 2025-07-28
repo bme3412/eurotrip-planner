@@ -43,6 +43,10 @@ export const getCitiesData = () => {
         "Historical Landmarks",
         "Cultural Tourism Hubs",
         "Gastronomic Destinations",
+        "Cultural",
+        "Food & Wine",
+        "Romance",
+        "Shopping"
       ],
       linguisticCategories: ["Romance"],
     },
@@ -59,7 +63,7 @@ export const getCitiesData = () => {
       landmarks: ["Promenade des Anglais", "Vieux Nice"],
       latitude: 43.7102,
       longitude: 7.262,
-      tourismCategories: ["Beach Destinations"],
+      tourismCategories: ["Beach Destinations", "Relaxation", "Romance", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -78,7 +82,7 @@ export const getCitiesData = () => {
       ],
       latitude: 45.764,
       longitude: 4.8357,
-      tourismCategories: ["Historical Landmarks", "Gastronomic Destinations"],
+      tourismCategories: ["Historical Landmarks", "Gastronomic Destinations", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -94,7 +98,7 @@ export const getCitiesData = () => {
       landmarks: ["Old Port", "Basilique Notre-Dame de la Garde"],
       latitude: 43.2965,
       longitude: 5.3698,
-      tourismCategories: ["Historical Landmarks", "Natural Landscapes"],
+      tourismCategories: ["Historical Landmarks", "Natural Landscapes", "Cultural", "Adventure"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -110,7 +114,7 @@ export const getCitiesData = () => {
       landmarks: ["Place de la Bourse", "La Cité du Vin"],
       latitude: 44.8378,
       longitude: -0.5792,
-      tourismCategories: ["Gastronomic Destinations", "Historical Landmarks"],
+      tourismCategories: ["Gastronomic Destinations", "Historical Landmarks", "Food & Wine", "Cultural"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -124,7 +128,7 @@ export const getCitiesData = () => {
       landmarks: ["Strasbourg Cathedral", "La Petite France"],
       latitude: 48.5734,
       longitude: 7.7521,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -138,7 +142,7 @@ export const getCitiesData = () => {
       landmarks: ["Place du Capitole", "Basilique Saint-Sernin"],
       latitude: 43.6047,
       longitude: 1.4442,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -152,7 +156,7 @@ export const getCitiesData = () => {
       landmarks: ["Château des Ducs de Bretagne", "Les Machines de l'Île"],
       latitude: 47.2184,
       longitude: -1.5536,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Family"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -166,7 +170,7 @@ export const getCitiesData = () => {
       landmarks: ["Place de la Comédie", "Promenade du Peyrou"],
       latitude: 43.6119,
       longitude: 3.8772,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -180,7 +184,7 @@ export const getCitiesData = () => {
       landmarks: ["Old Stock Exchange", "Palais des Beaux-Arts"],
       latitude: 50.6292,
       longitude: 3.0573,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
 
@@ -200,7 +204,7 @@ export const getCitiesData = () => {
       ],
       latitude: 52.52,
       longitude: 13.405,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -214,7 +218,7 @@ export const getCitiesData = () => {
       landmarks: ["Marienplatz", "English Garden", "Nymphenburg Palace"],
       latitude: 48.1351,
       longitude: 11.582,
-      tourismCategories: ["Historical Landmarks", "Gastronomic Destinations"],
+      tourismCategories: ["Historical Landmarks", "Gastronomic Destinations", "Cultural", "Food & Wine", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -228,7 +232,7 @@ export const getCitiesData = () => {
       landmarks: ["Port of Hamburg", "Elbphilharmonie"],
       latitude: 53.5511,
       longitude: 9.9937,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -242,7 +246,7 @@ export const getCitiesData = () => {
       landmarks: ["Cologne Cathedral", "Hohenzollern Bridge"],
       latitude: 50.9375,
       longitude: 6.9603,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -256,7 +260,7 @@ export const getCitiesData = () => {
       landmarks: ["Zwinger Palace", "Semper Opera House"],
       latitude: 51.0504,
       longitude: 13.7373,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Romance"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -270,7 +274,7 @@ export const getCitiesData = () => {
       landmarks: ["Römer", "Main Tower", "St. Bartholomew's Cathedral"],
       latitude: 50.1109,
       longitude: 8.6821,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -284,7 +288,7 @@ export const getCitiesData = () => {
       landmarks: ["Königsallee", "Altstadt"],
       latitude: 51.2277,
       longitude: 6.7735,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Shopping", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -298,7 +302,7 @@ export const getCitiesData = () => {
       landmarks: ["Mercedes-Benz Museum", "Wilhelma Zoo"],
       latitude: 48.7758,
       longitude: 9.1829,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Family"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -315,7 +319,7 @@ export const getCitiesData = () => {
       ],
       latitude: 49.4521,
       longitude: 11.0767,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Family"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -329,7 +333,7 @@ export const getCitiesData = () => {
       landmarks: ["St. Thomas Church", "Leipzig Opera House"],
       latitude: 51.3397,
       longitude: 12.3731,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -343,7 +347,7 @@ export const getCitiesData = () => {
       landmarks: ["Heidelberg Castle", "Old Bridge"],
       latitude: 49.3988,
       longitude: 8.6724,
-      tourismCategories: ["Historical Landmarks", "Natural Landscapes"],
+      tourismCategories: ["Historical Landmarks", "Natural Landscapes", "Cultural", "Romance"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -357,7 +361,7 @@ export const getCitiesData = () => {
       landmarks: ["Bremen Town Musicians Statue", "Schnoor Quarter"],
       latitude: 53.0793,
       longitude: 8.8017,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Family"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -371,7 +375,7 @@ export const getCitiesData = () => {
       landmarks: ["Herrenhausen Gardens", "New Town Hall"],
       latitude: 52.3759,
       longitude: 9.732,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural"],
       linguisticCategories: ["Germanic"],
     },
 
@@ -387,7 +391,7 @@ export const getCitiesData = () => {
       landmarks: ["Rijksmuseum", "Anne Frank House", "Historic Canals"],
       latitude: 52.3676,
       longitude: 4.9041,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -401,7 +405,7 @@ export const getCitiesData = () => {
       landmarks: ["Erasmus Bridge", "Cube Houses"],
       latitude: 51.9244,
       longitude: 4.4777,
-      tourismCategories: ["Urban Exploration"],
+      tourismCategories: ["Urban Exploration", "Cultural", "Adventure"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -415,7 +419,7 @@ export const getCitiesData = () => {
       landmarks: ["Dom Tower", "Scenic Canals"],
       latitude: 52.0907,
       longitude: 5.1214,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -429,7 +433,7 @@ export const getCitiesData = () => {
       landmarks: ["Philips Museum", "Strijp-S District"],
       latitude: 51.4416,
       longitude: 5.4697,
-      tourismCategories: ["Urban Exploration"],
+      tourismCategories: ["Urban Exploration", "Cultural", "Adventure"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -443,7 +447,7 @@ export const getCitiesData = () => {
       landmarks: ["Vrijthof Square", "St. Servatius Basilica"],
       latitude: 50.8514,
       longitude: 5.691,
-      tourismCategories: ["Historical Landmarks", "Cultural Tourism Hubs"],
+      tourismCategories: ["Historical Landmarks", "Cultural Tourism Hubs", "Cultural", "Food & Wine"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -457,7 +461,7 @@ export const getCitiesData = () => {
       landmarks: ["Oude Kerk", "Royal Delft Factory"],
       latitude: 51.999,
       longitude: 4.362,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Shopping"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -471,7 +475,7 @@ export const getCitiesData = () => {
       landmarks: ["Martinitoren", "Groninger Museum"],
       latitude: 53.2194,
       longitude: 6.5665,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -485,7 +489,7 @@ export const getCitiesData = () => {
       landmarks: ["Grote Markt", "Teylers Museum"],
       latitude: 52.3874,
       longitude: 4.6462,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Relaxation"],
       linguisticCategories: ["Germanic"],
     },
 
@@ -496,12 +500,12 @@ export const getCitiesData = () => {
       country: "Spain",
       region: "Mediterranean",
       description:
-        "Barcelona is known for its unique blend of modernist architecture, vibrant street life, and beautiful Mediterranean beaches.",
-      thumbnail: "/images/barcelona-thumbnail.png",
-      landmarks: ["Sagrada Família", "Park Güell", "La Rambla"],
+        "Barcelona is a vibrant city known for its unique architecture, particularly the works of Antoni Gaudí, and its rich cultural heritage.",
+      thumbnail: "/images/barcelona-thumbnail.jpeg",
+      landmarks: ["Sagrada Familia", "Park Güell", "La Rambla"],
       latitude: 41.3851,
       longitude: 2.1734,
-      tourismCategories: ["Historical Landmarks", "Beach Destinations"],
+      tourismCategories: ["Historical Landmarks", "Cultural Tourism Hubs", "Cultural", "Food & Wine", "Nightlife"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -515,7 +519,7 @@ export const getCitiesData = () => {
       landmarks: ["Royal Palace", "Prado Museum", "Retiro Park"],
       latitude: 40.4168,
       longitude: -3.7038,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -529,7 +533,7 @@ export const getCitiesData = () => {
       landmarks: ["Seville Cathedral", "Alcázar of Seville"],
       latitude: 37.3891,
       longitude: -5.9845,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Romance"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -543,7 +547,7 @@ export const getCitiesData = () => {
       landmarks: ["City of Arts and Sciences", "Valencia Cathedral"],
       latitude: 39.4699,
       longitude: -0.3763,
-      tourismCategories: ["Historical Landmarks", "Beach Destinations"],
+      tourismCategories: ["Historical Landmarks", "Beach Destinations", "Cultural", "Food & Wine", "Relaxation"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -557,7 +561,7 @@ export const getCitiesData = () => {
       landmarks: ["Alhambra", "Albaicín"],
       latitude: 37.1773,
       longitude: -3.5986,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Romance"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -571,7 +575,7 @@ export const getCitiesData = () => {
       landmarks: ["Guggenheim Museum", "Casco Viejo"],
       latitude: 43.263,
       longitude: -2.935,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Adventure"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -585,7 +589,7 @@ export const getCitiesData = () => {
       landmarks: ["Alcazaba", "Picasso Museum"],
       latitude: 36.7213,
       longitude: -4.4214,
-      tourismCategories: ["Beach Destinations", "Historical Landmarks"],
+      tourismCategories: ["Beach Destinations", "Historical Landmarks", "Cultural", "Relaxation"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -599,7 +603,7 @@ export const getCitiesData = () => {
       landmarks: ["Toledo Cathedral", "Alcázar of Toledo"],
       latitude: 39.8628,
       longitude: -4.0273,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural"],
       linguisticCategories: ["Romance"],
     },
 
@@ -615,7 +619,7 @@ export const getCitiesData = () => {
       landmarks: ["Colosseum", "Vatican City", "Trevi Fountain"],
       latitude: 41.9028,
       longitude: 12.4964,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -633,7 +637,7 @@ export const getCitiesData = () => {
       ],
       latitude: 45.4642,
       longitude: 9.19,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Shopping", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -647,7 +651,7 @@ export const getCitiesData = () => {
       landmarks: ["Florence Cathedral", "Uffizi Gallery", "Ponte Vecchio"],
       latitude: 43.7696,
       longitude: 11.2558,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Romance"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -661,7 +665,7 @@ export const getCitiesData = () => {
       landmarks: ["St. Mark's Basilica", "Grand Canal", "Rialto Bridge"],
       latitude: 45.4408,
       longitude: 12.3155,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Romance"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -679,7 +683,7 @@ export const getCitiesData = () => {
       ],
       latitude: 40.8518,
       longitude: 14.2681,
-      tourismCategories: ["Historical Landmarks", "Gastronomic Destinations"],
+      tourismCategories: ["Historical Landmarks", "Gastronomic Destinations", "Cultural", "Food & Wine", "Adventure"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -693,7 +697,7 @@ export const getCitiesData = () => {
       landmarks: ["Two Towers", "Archiginnasio"],
       latitude: 44.4949,
       longitude: 11.3426,
-      tourismCategories: ["Gastronomic Destinations", "Historical Landmarks"],
+      tourismCategories: ["Gastronomic Destinations", "Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -707,7 +711,7 @@ export const getCitiesData = () => {
       landmarks: ["Palermo Cathedral", "Quattro Canti"],
       latitude: 38.1157,
       longitude: 13.3615,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -721,7 +725,7 @@ export const getCitiesData = () => {
       landmarks: ["Mole Antonelliana", "Royal Palace of Turin"],
       latitude: 45.0703,
       longitude: 7.6869,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
     {
@@ -735,7 +739,7 @@ export const getCitiesData = () => {
       landmarks: ["Arena di Verona", "Juliet's House"],
       latitude: 45.4384,
       longitude: 10.9916,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Romance"],
       linguisticCategories: ["Romance"],
     },
 
@@ -755,7 +759,7 @@ export const getCitiesData = () => {
       ],
       latitude: 48.2082,
       longitude: 16.3738,
-      tourismCategories: ["Historical Landmarks", "Cultural Tourism Hubs"],
+      tourismCategories: ["Cultural", "Food & Wine", "Nightlife", "Shopping", "Family", "Romance"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -769,7 +773,7 @@ export const getCitiesData = () => {
       landmarks: ["Hohensalzburg Fortress", "Mirabell Palace"],
       latitude: 47.8095,
       longitude: 13.055,
-      tourismCategories: ["Historical Landmarks", "Natural Landscapes"],
+      tourismCategories: ["Cultural", "Family", "Romance", "Relaxation"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -783,7 +787,7 @@ export const getCitiesData = () => {
       landmarks: ["Golden Roof", "Innsbruck Cathedral"],
       latitude: 47.2692,
       longitude: 11.4041,
-      tourismCategories: ["Mountain & Skiing", "Natural Landscapes"],
+      tourismCategories: ["Adventure", "Family", "Relaxation"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -797,7 +801,7 @@ export const getCitiesData = () => {
       landmarks: ["Schlossberg", "Kunsthaus Graz"],
       latitude: 47.0707,
       longitude: 15.4395,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Cultural", "Food & Wine", "Family"],
       linguisticCategories: ["Germanic"],
     },
     {
@@ -811,7 +815,7 @@ export const getCitiesData = () => {
       landmarks: ["Pöstlingberg", "Ars Electronica Center"],
       latitude: 48.3069,
       longitude: 14.2858,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Cultural", "Adventure", "Nightlife", "Family"],
       linguisticCategories: ["Germanic"],
     },
 
@@ -827,7 +831,7 @@ export const getCitiesData = () => {
       landmarks: ["Grand Place", "Atomium", "Manneken Pis"],
       latitude: 50.8503,
       longitude: 4.3517,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Multilingual Areas"],
     },
     {
@@ -841,7 +845,7 @@ export const getCitiesData = () => {
       landmarks: ["Cathedral of Our Lady", "Antwerp Zoo"],
       latitude: 51.2194,
       longitude: 4.4025,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Shopping", "Food & Wine"],
       linguisticCategories: ["Multilingual Areas"],
     },
     {
@@ -855,7 +859,7 @@ export const getCitiesData = () => {
       landmarks: ["Belfry of Bruges", "Markt Square"],
       latitude: 51.2093,
       longitude: 3.2247,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Romance"],
       linguisticCategories: ["Multilingual Areas"],
     },
     {
@@ -869,7 +873,7 @@ export const getCitiesData = () => {
       landmarks: ["Gravensteen Castle", "St. Bavo's Cathedral"],
       latitude: 51.0543,
       longitude: 3.7174,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Nightlife"],
       linguisticCategories: ["Multilingual Areas"],
     },
     {
@@ -883,7 +887,7 @@ export const getCitiesData = () => {
       landmarks: ["Montagne de Bueren", "Liège-Guillemins Station"],
       latitude: 50.6326,
       longitude: 5.5797,
-      tourismCategories: ["Historical Landmarks"],
+      tourismCategories: ["Historical Landmarks", "Cultural", "Adventure"],
       linguisticCategories: ["Multilingual Areas"],
     },
 
@@ -894,12 +898,12 @@ export const getCitiesData = () => {
       country: "Denmark",
       region: "Celtic & Nordic",
       description:
-        "Copenhagen is a modern Scandinavian capital known for its design, cycling culture, and historic harbor.",
-      thumbnail: "/images/copenhagen-thumbnail.png",
-      landmarks: ["Tivoli Gardens", "Nyhavn", "The Little Mermaid"],
+        "Copenhagen combines historic charm with modern design, known for its cycling culture, sustainable living, and hygge lifestyle.",
+      thumbnail: "/images/copenhagen-thumbnail.jpeg",
+      landmarks: ["Nyhavn", "Tivoli Gardens", "Little Mermaid"],
       latitude: 55.6761,
       longitude: 12.5683,
-      tourismCategories: ["Historical Landmarks", "Urban Exploration"],
+      tourismCategories: ["Historical Landmarks", "Urban Exploration", "Cultural", "Food & Wine", "Family"],
       linguisticCategories: ["Germanic"],
     },
     {
