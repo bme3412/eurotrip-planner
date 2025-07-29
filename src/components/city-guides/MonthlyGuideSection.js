@@ -116,7 +116,6 @@ const CondensedYearView = ({ monthlyData, cityName, visitCalendar }) => {
 };
 
 const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, countryName }) => {
-  const [showAllExperiences, setShowAllExperiences] = useState(false);
   
   // Get today's date
   const today = new Date();
@@ -185,19 +184,7 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
     return reasons;
   };
   
-  // Extract activities
-  const getActivities = (data) => {
-    let activities = [];
-    
-    if (data.first_half && data.first_half.unique_experiences) {
-      activities = [...activities, ...data.first_half.unique_experiences];
-    }
-    if (data.second_half && data.second_half.unique_experiences) {
-      activities = [...activities, ...data.second_half.unique_experiences];
-    }
-    
-    return activities;
-  };
+
   
   // Render reasons section
   const renderReasons = (reasons) => {
@@ -256,58 +243,7 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
     );
   };
   
-  // Render activities section
-  const renderActivities = (activities) => {
-    if (!activities.length) return null;
-    
-    const displayActivities = showAllExperiences ? activities : activities.slice(0, 6);
-    
-    return (
-      <div className="mb-6">
-        <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-          <span className="text-blue-600 mr-2">🎯</span>
-          Unique Experiences
-        </h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {displayActivities.map((activity, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-              <h5 className="font-medium text-gray-800 mb-2">
-                {activity.activity || activity.name || activity.title || activity}
-              </h5>
-              {activity.where && (
-                <p className="text-sm text-gray-600 mb-2">📍 {activity.where}</p>
-              )}
-              {(activity.description || activity.details) && (
-                <p className="text-sm text-gray-600 mb-3">{activity.description || activity.details}</p>
-              )}
-              <div className="flex flex-wrap gap-2">
-                {activity.best_time && (
-                  <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
-                    {activity.best_time}
-                  </span>
-                )}
-                {activity.estimated_cost && (
-                  <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
-                    {activity.estimated_cost}
-                  </span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        {activities.length > 6 && (
-          <div className="text-center mt-6">
-            <button 
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors"
-              onClick={() => setShowAllExperiences(!showAllExperiences)}
-            >
-              {showAllExperiences ? 'Show Less' : `See ${activities.length - 6} More Activities`}
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  };
+
   
   // If no monthly data available
   if (!monthlyData || Object.keys(monthlyData).length === 0) {
@@ -388,9 +324,6 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
           
           {/* Reasons to visit/reconsider */}
           {renderReasons(getReasons(activeData))}
-          
-          {/* Activities */}
-          {renderActivities(getActivities(activeData))}
         </div>
       </div>
     </div>

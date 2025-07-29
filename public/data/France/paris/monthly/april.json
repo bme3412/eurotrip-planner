@@ -45,108 +45,51 @@
             }
         ],
         "first_half": {
-            "date_range": "April 1–15",
+            "date_range": "2025-04-01/2025-04-15",
             "weather": {
                 "average_temperature": {
-                    "high": "16°C",
-                    "low": "8°C"
+                    "high_celsius": 16,
+                    "low_celsius": 8
                 },
+                "humidity_percent": 68,
+                "wind_speed_kmh": 13,
                 "precipitation": "April can be quite rainy, with an average of 11 rainy days. Light showers are frequent but usually brief.",
-                "general_tips": "Pack a lightweight raincoat or umbrella and wear layers to adjust to fluctuating temperatures."
+                "general_tips": "Pack a lightweight raincoat or umbrella and wear layers to adjust to fluctuating temperatures.",
+                "sunrise": "07:10",
+                "sunset": "20:30"
             },
             "tourism_level": {
                 "crowds": "Tourists are moderate, with a slight increase around Easter. Locals begin enjoying outdoor spaces more.",
                 "pricing": "Prices for accommodations can be slightly higher during Easter, but generally, there are still good deals available.",
-                "overall_atmosphere": "The city feels lively and welcoming, with locals and tourists enjoying the early signs of spring."
+                "overall_atmosphere": "The city feels lively and welcoming, with locals and tourists enjoying the early signs of spring.",
+                "wait_time_minutes": {
+                    "eiffel_tower": 30,
+                    "louvre": 20
+                },
+                "public_transport_crowding": "Moderate, higher during Easter weekend"
             },
             "events_holidays": [
                 {
                     "name": "Easter Weekend",
-                    "date": "April 20-21, 2025",
+                    "date": "2025-04-20/2025-04-21",
                     "description": "Religious services, Easter egg hunts, and special brunches are popular throughout the city.",
-                    "notes": "Book accommodations and restaurants in advance as the city is bustling with activities."
+                    "notes": "Book accommodations and restaurants in advance as the city is bustling with activities.",
+                    "website": "https://en.parisinfo.com/discovering-paris/major-events/easter-in-paris",
+                    "category": "Holiday",
+                    "accessibility": "Most events are family-friendly and accessible."
                 },
                 {
                     "name": "Paris Marathon",
-                    "date": "April 6, 2025",
+                    "date": "2025-04-06",
                     "description": "One of the world's most scenic marathons, running past iconic landmarks.",
-                    "notes": "Expect road closures and large crowds; a great event for spectators."
+                    "notes": "Expect road closures and large crowds; a great event for spectators.",
+                    "website": "https://www.parismarathon.com/",
+                    "category": "Sports",
+                    "accessibility": "Wheelchair accessible for spectators."
                 }
             ],
-            "unique_experiences": [
-                {
-                    "activity": "Cherry Blossom Viewing",
-                    "where": "Jardin des Plantes or Parc de Sceaux",
-                    "description": "Experience the stunning cherry blossoms in full bloom, a favorite among locals and tourists alike.",
-                    "practical_tips": "Visit early in the morning to avoid crowds and capture beautiful photographs.",
-                    "best_time": "Morning",
-                    "estimated_cost": "Free",
-                    "weather_dependent": true
-                },
-                {
-                    "activity": "Seine River Cruise",
-                    "where": "Seine River",
-                    "description": "Cruise along the Seine to admire Paris' landmarks from the water, especially beautiful in the spring light.",
-                    "practical_tips": "Book tickets online for discounts and consider an evening cruise for illuminated views.",
-                    "best_time": "Late afternoon to evening",
-                    "estimated_cost": "Moderate",
-                    "weather_dependent": true
-                },
-                {
-                    "activity": "Visit Montmartre",
-                    "where": "Montmartre District",
-                    "description": "Explore the charming streets, visit the Sacré-Cœur, and enjoy street performances.",
-                    "practical_tips": "Wear comfortable shoes for walking uphill and avoid peak afternoon for a more relaxed experience.",
-                    "best_time": "Mid-morning",
-                    "estimated_cost": "Free to moderate",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Picnic at Champ de Mars",
-                    "where": "Champ de Mars, near the Eiffel Tower",
-                    "description": "Enjoy a picnic with a view of the Eiffel Tower, a quintessential Parisian experience.",
-                    "practical_tips": "Bring your own food from a nearby market and a blanket; evenings can be cooler.",
-                    "best_time": "Afternoon",
-                    "estimated_cost": "Low",
-                    "weather_dependent": true
-                },
-                {
-                    "activity": "Explore the Louvre",
-                    "where": "Louvre Museum",
-                    "description": "Visit the world's largest art museum with fewer crowds than peak summer months.",
-                    "practical_tips": "Purchase tickets online to skip the line and consider a guided tour for in-depth insights.",
-                    "best_time": "Early morning or late afternoon",
-                    "estimated_cost": "Moderate",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Attend a Cooking Class",
-                    "where": "Various locations",
-                    "description": "Learn to cook traditional French dishes with expert chefs, a hands-on cultural experience.",
-                    "practical_tips": "Book in advance, and check if the class is in English if necessary.",
-                    "best_time": "Afternoon",
-                    "estimated_cost": "Moderate to high",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Visit the Musée d'Orsay",
-                    "where": "Musée d'Orsay",
-                    "description": "Famous for its collection of Impressionist art, this museum is a must-visit for art lovers.",
-                    "practical_tips": "Visit on a weekday to avoid crowds and enjoy the beautiful architecture of the building.",
-                    "best_time": "Mid-morning",
-                    "estimated_cost": "Moderate",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Explore the Latin Quarter",
-                    "where": "Latin Quarter",
-                    "description": "Wander through this historic area known for its bohemian atmosphere, bookstores, and vibrant cafes.",
-                    "practical_tips": "Try to visit during a weekday to see local life at its most authentic.",
-                    "best_time": "Evening",
-                    "estimated_cost": "Free",
-                    "weather_dependent": false
-                }
-            ]
+
+            "local_foods_in_season": ["Asparagus", "Strawberries", "Radishes", "Artichokes"]
         },
         "second_half": {
             "date_range": "April 16–30",
@@ -175,80 +118,6 @@
                     "date": "Throughout April",
                     "description": "A series of classical music concerts held in various venues across Paris.",
                     "notes": "Check the schedule online and purchase tickets early for popular performances."
-                }
-            ],
-            "unique_experiences": [
-                {
-                    "activity": "Stroll Through the Luxembourg Gardens",
-                    "where": "Jardin du Luxembourg",
-                    "description": "These gardens are particularly beautiful in spring with blooming flowers and lively fountains.",
-                    "practical_tips": "Great for a leisurely walk or to relax with a book; avoid weekends for a quieter experience.",
-                    "best_time": "Morning",
-                    "estimated_cost": "Free",
-                    "weather_dependent": true
-                },
-                {
-                    "activity": "Bike Ride Along the Seine",
-                    "where": "Seine River Banks",
-                    "description": "Rent a bike and enjoy a scenic ride along the riverbanks, taking in the sights of Paris.",
-                    "practical_tips": "Use the Vélib' bike-sharing system for convenience; avoid rush hour traffic.",
-                    "best_time": "Late afternoon",
-                    "estimated_cost": "Low",
-                    "weather_dependent": true
-                },
-                {
-                    "activity": "Visit the Catacombs",
-                    "where": "Catacombs of Paris",
-                    "description": "Explore the underground ossuaries holding the remains of over six million people.",
-                    "practical_tips": "Purchase tickets in advance as lines can be long, and dress warmly due to cool underground temperatures.",
-                    "best_time": "Early morning",
-                    "estimated_cost": "Moderate",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Shop at Saint-Ouen Flea Market",
-                    "where": "Marché aux Puces de Saint-Ouen",
-                    "description": "Discover unique antiques and vintage items at one of the largest antique markets in the world.",
-                    "practical_tips": "Bargaining is common; visit early to find the best treasures.",
-                    "best_time": "Morning",
-                    "estimated_cost": "Variable",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Explore Le Marais",
-                    "where": "Le Marais District",
-                    "description": "A historic district known for its medieval streets, trendy boutiques, and vibrant LGBTQ+ community.",
-                    "practical_tips": "Visit on a weekday to avoid crowds and enjoy café terraces.",
-                    "best_time": "Afternoon",
-                    "estimated_cost": "Free",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Evening at Moulin Rouge",
-                    "where": "Moulin Rouge, Montmartre",
-                    "description": "Experience the world-famous cabaret show featuring dazzling performances.",
-                    "practical_tips": "Book tickets well in advance and dress smartly for the occasion.",
-                    "best_time": "Evening",
-                    "estimated_cost": "High",
-                    "weather_dependent": false
-                },
-                {
-                    "activity": "Visit the Palace of Versailles",
-                    "where": "Versailles, outskirts of Paris",
-                    "description": "Explore the opulent palace and its expansive gardens, a UNESCO World Heritage site.",
-                    "practical_tips": "Consider a guided tour for a comprehensive experience, and plan for a full day trip.",
-                    "best_time": "Early morning",
-                    "estimated_cost": "Moderate to high",
-                    "weather_dependent": true
-                },
-                {
-                    "activity": "Attend a Wine Tasting",
-                    "where": "Various wine bars",
-                    "description": "Sample a variety of French wines in a guided tasting session.",
-                    "practical_tips": "Book in advance, and choose a session that includes local snacks for a fuller experience.",
-                    "best_time": "Evening",
-                    "estimated_cost": "Moderate",
-                    "weather_dependent": false
                 }
             ]
         }

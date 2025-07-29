@@ -128,15 +128,15 @@ function CityPageClient({ cityData, cityName }) {
           countryName={country}
         />;
       case 'attractions':
-        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
+        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} monthlyData={safeMonthlyEvents} />;
       case 'neighborhoods':
         return <NeighborhoodsList neighborhoods={safeNeighborhoods} cityName={cityName} />;
       case 'transport':
         return <TransportConnections connections={connections} cityName={cityName} />;
       case 'things-to-do':
-        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
+        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} monthlyData={safeMonthlyEvents} />;
       case 'things-to-see':
-        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
+        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} monthlyData={safeMonthlyEvents} />;
       default:
         return <CityOverview overview={overview} cityName={cityName} />;
     }
