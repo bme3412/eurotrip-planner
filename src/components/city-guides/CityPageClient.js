@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import CityOverview from "./CityOverview";
 import AttractionsList from "./AttractionsList";
 import NeighborhoodsList from "./NeighborhoodsList";
@@ -92,14 +93,14 @@ function CityPageClient({ cityData, cityName }) {
   const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
 
   const tabs = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'map', label: 'Map' },
-    { id: 'monthly', label: 'Monthly Guide' },
-    { id: 'attractions', label: 'Attractions' },
-    { id: 'neighborhoods', label: 'Neighborhoods' },
-    { id: 'food', label: 'Food & Drink' },
-    { id: 'transport', label: 'Transport' },
-    { id: 'seasonal', label: 'Seasonal' }
+    { id: 'overview', label: 'Overview', icon: '🏛️' },
+    { id: 'map', label: 'Interactive Map', icon: '🗺️' },
+    { id: 'monthly', label: 'Monthly Guide', icon: '📅' },
+    { id: 'attractions', label: 'Attractions', icon: '🎯' },
+    { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' },
+    { id: 'transport', label: 'Getting Around', icon: '🚇' },
+    { id: 'things-to-do', label: 'Things to Do', icon: '🎭' },
+    { id: 'things-to-see', label: 'Things to See', icon: '👀' }
   ];
 
   const renderTabContent = () => {
@@ -130,50 +131,90 @@ function CityPageClient({ cityData, cityName }) {
         return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
       case 'neighborhoods':
         return <NeighborhoodsList neighborhoods={safeNeighborhoods} cityName={cityName} />;
-      case 'food':
-        return <CulinaryGuide guide={culinaryGuide} cityName={cityName} />;
       case 'transport':
         return <TransportConnections connections={connections} cityName={cityName} />;
-      case 'seasonal':
-        return <SeasonalActivities activities={seasonalActivities} cityName={cityName} />;
+      case 'things-to-do':
+        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
+      case 'things-to-see':
+        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} />;
       default:
         return <CityOverview overview={overview} cityName={cityName} />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Top Header Bar */}
-      <header className="bg-blue-900 text-white py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-semibold">
-              {country} {displayName}
-            </div>
-            <div className="flex gap-6 text-sm">
-              <span>Best time: {headerInfo.bestTime}</span>
-              <span>Avg. visit: {headerInfo.avgVisit}</span>
-              <span>Currency: {headerInfo.currency}</span>
+    <div className="min-h-screen bg-gray-50">
+      {/* Enhanced Hero Header */}
+      <header className="relative bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="relative container mx-auto px-4 py-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Breadcrumb */}
+            <nav className="mb-4">
+              <ol className="flex items-center space-x-2 text-sm opacity-80">
+                <li><Link href="/city-guides" className="hover:underline">City Guides</Link></li>
+                <li>/</li>
+                <li><Link href={`/city-guides?country=${country}`} className="hover:underline">{country}</Link></li>
+                <li>/</li>
+                <li className="font-medium">{displayName}</li>
+              </ol>
+            </nav>
+
+            {/* Main Header Content */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
+              <div className="flex-1">
+                <div className="flex items-center mb-4">
+                  <div className="text-5xl mr-4">✨</div>
+                  <div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-2">{displayName}</h1>
+                    {nickname && (
+                      <p className="text-xl md:text-2xl opacity-90">{nickname}</p>
+                    )}
+                  </div>
+                </div>
+                <p className="text-lg md:text-xl opacity-95 leading-relaxed max-w-3xl">
+                  {description}
+                </p>
+              </div>
+              
+              {/* Quick Stats */}
+              <div className="mt-6 lg:mt-0 lg:ml-8">
+                <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold">{headerInfo.bestTime}</div>
+                    <div className="text-sm opacity-80">Best Time</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold">{headerInfo.avgVisit}</div>
+                    <div className="text-sm opacity-80">Avg. Visit</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold">{headerInfo.currency}</div>
+                    <div className="text-sm opacity-80">Currency</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Navigation Tabs */}
-      <nav className="bg-white border-b border-gray-200">
+      {/* Enhanced Navigation Tabs */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex space-x-8 overflow-x-auto">
+          <div className="flex space-x-1 overflow-x-auto scrollbar-hide">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
+                className={`flex items-center space-x-2 py-4 px-4 border-b-2 font-medium text-sm whitespace-nowrap transition-all duration-200 ${
                   activeTab === tab.id
-                    ? 'border-blue-600 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-blue-600 text-blue-600 bg-blue-50'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50'
                 }`}
               >
-                {tab.label}
+                <span className="text-lg">{tab.icon}</span>
+                <span>{tab.label}</span>
               </button>
             ))}
           </div>
@@ -182,8 +223,28 @@ function CityPageClient({ cityData, cityName }) {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        {renderTabContent()}
+        <div className="max-w-7xl mx-auto">
+          {renderTabContent()}
+        </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-xl font-semibold mb-2">Explore More of {country}</h3>
+            <p className="text-gray-400 mb-4">
+              Discover other amazing cities and destinations in {country}
+            </p>
+            <Link 
+              href="/city-guides" 
+              className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors"
+            >
+              Browse All Cities
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

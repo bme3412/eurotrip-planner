@@ -99,29 +99,10 @@ const TransportConnections = ({ connections, currentCity = '' }) => {
   
   return (
     <div className="p-6">
-      {/* Header section with city name and statistics */}
+      {/* Header section with city name */}
       <div className="bg-gradient-to-r from-blue-700 to-indigo-800 rounded-lg shadow-lg p-6 mb-8 text-white">
-        <h2 className="text-2xl font-bold mb-3">Connections from {currentCity}</h2>
-        <p className="text-blue-100 mb-4">Discover direct connections to {stats.totalDestinations} destinations across {stats.countriesCount} countries</p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          <div className="text-center bg-blue-800 bg-opacity-50 rounded-lg p-3">
-            <div className="text-3xl font-bold">{stats.totalDestinations}</div>
-            <div className="text-xs uppercase tracking-wide mt-1">Destinations</div>
-          </div>
-          <div className="text-center bg-blue-800 bg-opacity-50 rounded-lg p-3">
-            <div className="text-3xl font-bold">{stats.countriesCount}</div>
-            <div className="text-xs uppercase tracking-wide mt-1">Countries</div>
-          </div>
-          <div className="text-center bg-blue-800 bg-opacity-50 rounded-lg p-3">
-            <div className="text-3xl font-bold">{stats.trainDestinations}</div>
-            <div className="text-xs uppercase tracking-wide mt-1">Train Routes</div>
-          </div>
-          <div className="text-center bg-blue-800 bg-opacity-50 rounded-lg p-3">
-            <div className="text-3xl font-bold">{stats.flightDestinations}</div>
-            <div className="text-xs uppercase tracking-wide mt-1">Flight Routes</div>
-          </div>
-        </div>
+        <h2 className="text-2xl font-bold mb-3">Getting Around {currentCity}</h2>
+        <p className="text-blue-100 mb-4">Transportation options and travel information</p>
       </div>
       
       {/* Filters and view toggle */}

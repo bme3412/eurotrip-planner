@@ -2,6 +2,119 @@
 import React, { useState, useEffect } from 'react';
 import MonthlyCalendarView from "../monthly-visit-guide/MonthlyCalendarView";
 
+// New component for condensed 12-month overview
+const CondensedYearView = ({ monthlyData, cityName, visitCalendar }) => {
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  // Get month data from visit calendar
+  const getMonthData = (monthName) => {
+    if (!visitCalendar || !visitCalendar.months) return null;
+    return visitCalendar.months[monthName.toLowerCase()];
+  };
+
+  // Get day details from the calendar data
+  const getDayDetails = (day, monthData) => {
+    if (!monthData || !monthData.ranges) return null;
+    const range = monthData.ranges.find(r => r.days.includes(day));
+    if (!range) return null;
+    return {
+      score: range.score,
+      special: range.special || false
+    };
+  };
+
+  // Rating colors to match the main calendar
+  const RATING_COLORS = {
+    5: '#10b981', // Excellent - Soft green
+    4: '#34d399', // Good - Light green
+    3: '#fbbf24', // Average - Soft amber
+    2: '#fb923c', // Below Average - Soft orange
+    1: '#ef4444'  // Poor - Soft red
+  };
+
+  // Generate calendar for a specific month
+  const generateMonthCalendar = (monthIndex) => {
+    const currentYear = new Date().getFullYear();
+    const monthData = getMonthData(months[monthIndex]);
+    const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
+    const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
+    const days = [];
+    
+    // Add empty days for padding
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      days.push({ type: 'empty' });
+    }
+    
+    // Add actual days
+    for (let i = 1; i <= daysInMonth; i++) {
+      let dayDetails = monthData ? getDayDetails(i, monthData) : null;
+      const rating = dayDetails ? dayDetails.score : 3;
+      days.push({
+        type: 'day',
+        dayOfMonth: i,
+        rating,
+        color: RATING_COLORS[rating],
+        special: dayDetails && dayDetails.special
+      });
+    }
+    
+    return {
+      monthName: months[monthIndex],
+      days
+    };
+  };
+
+  return (
+    <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {months.map((_, monthIndex) => {
+          const calendar = generateMonthCalendar(monthIndex);
+          return (
+            <div key={monthIndex} className="border rounded-lg overflow-hidden">
+              {/* Month Header */}
+              <div className="bg-gray-50 p-2 text-center border-b">
+                <div className="text-xs font-medium text-gray-700">
+                  {calendar.monthName.substring(0, 3)}
+                </div>
+              </div>
+              
+              {/* Days of Week */}
+              <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50">
+                {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
+                  <div key={i} className="p-1">{day}</div>
+                ))}
+              </div>
+              
+              {/* Calendar Days */}
+              <div className="grid grid-cols-7 gap-px">
+                {calendar.days.map((day, dayIndex) => (
+                  day.type === 'empty' ? (
+                    <div key={`empty-${dayIndex}`} className="aspect-square" />
+                  ) : (
+                    <div
+                      key={`day-${day.dayOfMonth}`}
+                      className="aspect-square flex items-center justify-center text-xs relative"
+                      style={{ backgroundColor: day.color }}
+                    >
+                      <span className="text-white font-medium">{day.dayOfMonth}</span>
+                      {day.special && (
+                        <span className="absolute top-0.5 right-0.5 w-1 h-1 bg-red-500 rounded-full"></span>
+                      )}
+                    </div>
+                  )
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, countryName }) => {
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   
@@ -209,23 +322,29 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
   
   return (
     <div className="space-y-6">
-      {/* Combined Today's Date and When to Visit Section */}
-      {visitCalendar && Object.keys(visitCalendar).length > 0 && (
-        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center">
-              <span className="text-2xl mr-3">📅</span>
-              <div>
-                <p className="text-sm text-gray-600">Today&apos;s Date</p>
-                <p className="font-semibold text-gray-900">{todayFormatted}</p>
-              </div>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-600">Current Month</p>
-              <p className="font-semibold text-blue-600">{formatDisplayName(currentMonthName)}</p>
+      {/* Condensed Date Display */}
+      <div className="bg-white rounded-2xl shadow-xl p-4 mb-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <span className="text-xl mr-2">📅</span>
+            <div>
+              <p className="text-xs text-gray-600">Today&apos;s Date</p>
+              <p className="font-semibold text-gray-900 text-sm">{todayFormatted}</p>
             </div>
           </div>
-          
+          <div className="text-right">
+            <p className="text-xs text-gray-600">Current Month</p>
+            <p className="font-semibold text-blue-600 text-sm">{formatDisplayName(currentMonthName)}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 12-Month Overview */}
+      <CondensedYearView monthlyData={monthlyData} cityName={cityName} visitCalendar={visitCalendar} />
+
+      {/* Detailed 3-Month Calendar */}
+      {visitCalendar && Object.keys(visitCalendar).length > 0 && (
+        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
           <h3 className="text-lg font-semibold mb-4">When to Visit {cityName.charAt(0).toUpperCase() + cityName.slice(1)}</h3>
           <MonthlyCalendarView
             monthlyData={visitCalendar}
