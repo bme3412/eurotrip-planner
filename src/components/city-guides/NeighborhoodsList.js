@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-const NeighborhoodsList = ({ neighborhoods }) => {
+const NeighborhoodsList = ({ neighborhoods, cityName }) => {
   // Ensure we're working with the correct data structure
   const neighborhoodsList = Array.isArray(neighborhoods) ? neighborhoods : (neighborhoods?.neighborhoods || []);
   
@@ -10,6 +10,7 @@ const NeighborhoodsList = ({ neighborhoods }) => {
   const [filterCategory, setFilterCategory] = useState('all');
   const [sortBy, setSortBy] = useState('name');
   const [expandedNeighborhoods, setExpandedNeighborhoods] = useState({});
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
   
   // Add unique IDs to neighborhoods if they don't have them already
   const neighborhoodsWithIds = neighborhoodsList.map((neighborhood, index) => ({
@@ -123,35 +124,62 @@ const NeighborhoodsList = ({ neighborhoods }) => {
     if (score >= 2) return 'bg-orange-100 text-orange-800';
     return 'bg-red-100 text-red-800';
   };
+
+  // Get neighborhood icon based on name
+  const getNeighborhoodIcon = (name) => {
+    const nameLower = name.toLowerCase();
+    if (nameLower.includes('marais')) return '🏛️';
+    if (nameLower.includes('montmartre')) return '⛪';
+    if (nameLower.includes('latin')) return '📚';
+    if (nameLower.includes('champs')) return '🛍️';
+    if (nameLower.includes('eiffel')) return '🗼';
+    if (nameLower.includes('louvre')) return '🏛️';
+    if (nameLower.includes('seine')) return '🌊';
+    if (nameLower.includes('opera')) return '🎭';
+    if (nameLower.includes('bastille')) return '🏰';
+    if (nameLower.includes('republic')) return '🏛️';
+    return '🏘️';
+  };
   
   return (
     <div className="p-6">
-      {/* Search and filter section */}
-      <div className="bg-gray-50 p-5 rounded-lg shadow-sm mb-6">
-        <div className="flex flex-col space-y-5">
+      {/* Enhanced Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          {cityName} Neighborhoods
+        </h1>
+                  <p className="text-gray-600">
+            Discover the unique character and charm of {cityName}&apos;s most vibrant districts
+          </p>
+      </div>
+
+      {/* Enhanced Filters section */}
+      <div className="mb-8 bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl shadow-sm border border-purple-100">
+        <div className="flex flex-col space-y-4">
           {/* Search bar */}
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-              </svg>
+          <div className="w-full">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+              </div>
+              <input 
+                type="search" 
+                className="block w-full p-4 pl-12 text-gray-900 border border-gray-300 rounded-xl bg-white focus:ring-purple-500 focus:border-purple-500 shadow-sm" 
+                placeholder="Search neighborhoods in Paris..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
-            <input
-              type="text"
-              placeholder="Search by name, alternate names, or description..."
-              className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
           </div>
-          
-          {/* Two-column filter layout for larger screens */}
-          <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-            {/* Category filter */}
-            <div className="w-full md:w-1/2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Filter by Feature</label>
-              <select
-                className="p-2 border rounded-md w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        
+          {/* Filters row */}
+          <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 lg:space-x-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Filter by Feature</label>
+              <select 
+                className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
               >
@@ -162,11 +190,10 @@ const NeighborhoodsList = ({ neighborhoods }) => {
               </select>
             </div>
             
-            {/* Sort options */}
-            <div className="w-full md:w-1/2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Sort by</label>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Sort by</label>
               <select
-                className="p-2 border rounded-md w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
@@ -177,8 +204,34 @@ const NeighborhoodsList = ({ neighborhoods }) => {
                 <option value="nightlife">Best Nightlife</option>
               </select>
             </div>
+
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-2">View Mode</label>
+              <div className="flex border rounded-xl overflow-hidden">
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`flex-1 p-3 text-sm font-medium transition-colors ${
+                    viewMode === 'grid' 
+                      ? 'bg-purple-600 text-white' 
+                      : 'bg-white text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  Grid
+                </button>
+                <button
+                  onClick={() => setViewMode('list')}
+                  className={`flex-1 p-3 text-sm font-medium transition-colors ${
+                    viewMode === 'list' 
+                      ? 'bg-purple-600 text-white' 
+                      : 'bg-white text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  List
+                </button>
+              </div>
+            </div>
           </div>
-          
+
           {/* Atmosphere tags */}
           {allAtmospheres.length > 0 && (
             <div>
@@ -188,7 +241,7 @@ const NeighborhoodsList = ({ neighborhoods }) => {
                   <button
                     key={atmosphere}
                     onClick={() => setSearchTerm(atmosphere)}
-                    className="px-3 py-1 rounded-full text-sm flex items-center bg-gray-200 text-gray-800 hover:bg-gray-300"
+                    className="px-3 py-1 rounded-full text-sm flex items-center bg-white border border-purple-200 text-gray-800 hover:bg-purple-50 transition-colors"
                   >
                     <span className="mr-1">{getAtmosphereIcon(atmosphere)}</span>
                     {atmosphere}
@@ -201,353 +254,332 @@ const NeighborhoodsList = ({ neighborhoods }) => {
       </div>
       
       {/* Results count */}
-      <div className="mb-4 text-sm text-gray-500">
-        Showing {filteredNeighborhoods.length} of {neighborhoodsList.length} neighborhoods
+      <div className="mb-6 flex items-center justify-between">
+        <div className="text-sm text-gray-600">
+          Showing {filteredNeighborhoods.length} of {neighborhoodsList.length} neighborhoods
+        </div>
+        <div className="text-sm text-gray-500">
+          {filteredNeighborhoods.length > 0 && (
+            <span className="inline-flex items-center">
+              <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+              {filteredNeighborhoods.length} results found
+            </span>
+          )}
+        </div>
       </div>
       
-      {/* Table view with expandable rows */}
-      <div className="overflow-hidden rounded-lg shadow-md border border-gray-200">
-        <table className="w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Neighborhood</th>
-              <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Character</th>
-              <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Known For</th>
-              <th scope="col" className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Ratings</th>
-              <th scope="col" className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {filteredNeighborhoods.map((neighborhood, idx) => {
-              const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
-              const atmospheres = neighborhood.appeal?.atmosphere || neighborhood.atmosphere || [];
-              const isExpanded = expandedNeighborhoods[neighborhood.id] || false;
-              
-              return (
-                <React.Fragment key={neighborhood.id}>
-                  {/* Main neighborhood row */}
-                  <tr className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-4 py-4">
-                      <div className="text-sm font-medium text-gray-900">{neighborhood.name}</div>
-                      {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
-                        <div className="text-xs text-gray-500">
-                          {neighborhood.alternate_names.join(', ')}
-                        </div>
-                      )}
-                    </td>
-                    <td className="px-4 py-4 hidden md:table-cell">
-                      <div className="text-sm text-gray-700 max-w-xs line-clamp-2">
-                        {neighborhood.character ? (
-                          <span>{neighborhood.character.split('.')[0]}</span>
-                        ) : ''}
+      {/* Grid View */}
+      {viewMode === 'grid' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredNeighborhoods.map((neighborhood, idx) => {
+            const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
+            const atmospheres = neighborhood.appeal?.atmosphere || neighborhood.atmosphere || [];
+            const isExpanded = expandedNeighborhoods[neighborhood.id] || false;
+            
+            return (
+              <div key={neighborhood.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+                {/* Card Header */}
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center">
+                      <span className="text-2xl mr-3">{getNeighborhoodIcon(neighborhood.name)}</span>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 text-lg">{neighborhood.name}</h3>
+                        {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
+                          <p className="text-sm text-gray-500">{neighborhood.alternate_names[0]}</p>
+                        )}
                       </div>
-                      {atmospheres && atmospheres.length > 0 && (
-                        <div className="mt-1 flex flex-wrap gap-1">
-                          {Array.isArray(atmospheres) ? atmospheres.slice(0, 2).map((atmosphere, i) => (
-                            <span key={i} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
-                              {getAtmosphereIcon(atmosphere)} {atmosphere}
-                            </span>
-                          )) : ''}
-                        </div>
-                      )}
-                    </td>
-                    <td className="px-4 py-4 hidden md:table-cell">
-                      <div className="flex flex-wrap gap-1">
-                        {Array.isArray(knownFor) ? knownFor.slice(0, 2).map((item, i) => (
-                          <span key={i} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                            {item}
-                          </span>
-                        )) : knownFor}
-                      </div>
-                    </td>
-                    <td className="px-4 py-4 hidden sm:table-cell">
+                    </div>
+                    <div className="flex flex-col items-end space-y-1">
                       {neighborhood.categories && (
-                        <div className="flex flex-col items-center space-y-1">
-                          <div className="flex items-center space-x-1">
-                            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getScoreBadgeColor(neighborhood.categories.dining)}`}>
-                              🍽️ {neighborhood.categories.dining}
-                            </span>
-                            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getScoreBadgeColor(neighborhood.categories.shopping)}`}>
-                              🛍️ {neighborhood.categories.shopping}
-                            </span>
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${getScoreBadgeColor(neighborhood.categories.touristy)}`}>
+                          {neighborhood.categories.touristy}/5
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Quick Info */}
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="text-center p-2 bg-gray-50 rounded-lg">
+                      <div className="text-sm font-medium text-gray-900">
+                        {neighborhood.categories?.dining || 'N/A'}
+                      </div>
+                      <div className="text-xs text-gray-500">Dining</div>
+                    </div>
+                    <div className="text-center p-2 bg-gray-50 rounded-lg">
+                      <div className="text-sm font-medium text-gray-900">
+                        {neighborhood.categories?.shopping || 'N/A'}
+                      </div>
+                      <div className="text-xs text-gray-500">Shopping</div>
+                    </div>
+                  </div>
+                  
+                  {/* Description Preview */}
+                  <p className="text-gray-700 text-sm line-clamp-3 mb-4">
+                    {neighborhood.character}
+                  </p>
+                  
+                  {/* Atmosphere Tags */}
+                  {Array.isArray(atmospheres) && atmospheres.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {atmospheres.slice(0, 2).map((atmosphere, i) => (
+                        <span key={i} className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                          {getAtmosphereIcon(atmosphere)} {atmosphere}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Action Buttons */}
+                  <div className="flex space-x-2">
+                    <button 
+                      className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
+                        isExpanded 
+                          ? 'bg-purple-100 text-purple-800' 
+                          : 'bg-purple-600 text-white hover:bg-purple-700'
+                      }`}
+                      onClick={() => toggleExpanded(neighborhood.id)}
+                    >
+                      {isExpanded ? 'Hide Details' : 'View Details'}
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Expanded Details */}
+                {isExpanded && (
+                  <div className="border-t border-gray-100 bg-gray-50 p-6">
+                    <div className="space-y-4">
+                      {/* Categories ratings */}
+                      {neighborhood.categories && (
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
+                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.dining)}`}>
+                              <span className="text-sm">🍽️</span>
+                            </div>
+                            <div className="mt-1 text-xs font-medium">Dining</div>
+                            <div className="font-bold text-sm">{neighborhood.categories.dining}/5</div>
+                          </div>
+                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
+                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.shopping)}`}>
+                              <span className="text-sm">🛍️</span>
+                            </div>
+                            <div className="mt-1 text-xs font-medium">Shopping</div>
+                            <div className="font-bold text-sm">{neighborhood.categories.shopping}/5</div>
+                          </div>
+                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
+                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.nightlife)}`}>
+                              <span className="text-sm">🌃</span>
+                            </div>
+                            <div className="mt-1 text-xs font-medium">Nightlife</div>
+                            <div className="font-bold text-sm">{neighborhood.categories.nightlife}/5</div>
+                          </div>
+                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
+                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.cultural)}`}>
+                              <span className="text-sm">🎭</span>
+                            </div>
+                            <div className="mt-1 text-xs font-medium">Cultural</div>
+                            <div className="font-bold text-sm">{neighborhood.categories.cultural}/5</div>
                           </div>
                         </div>
                       )}
-                    </td>
-                    <td className="px-4 py-4 text-center">
+
+                      {/* Known For Section */}
+                      {Array.isArray(knownFor) && knownFor.length > 0 && (
+                        <div>
+                          <h4 className="font-medium text-gray-900 mb-2">Known For</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {knownFor.map((item, index) => (
+                              <span 
+                                key={index}
+                                className="bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Stay/Avoid Recommendations */}
+                      {(neighborhood.stay_here_if || neighborhood.avoid_if) && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {neighborhood.stay_here_if && neighborhood.stay_here_if.length > 0 && (
+                            <div className="bg-green-50 p-3 rounded-md">
+                              <h4 className="font-medium text-gray-900 mb-2 flex items-center">
+                                <span className="text-green-500 mr-2">✓</span>
+                                Stay Here If
+                              </h4>
+                              <ul className="space-y-1">
+                                {neighborhood.stay_here_if.map((item, index) => (
+                                  <li key={index} className="text-sm text-gray-700">• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          
+                          {neighborhood.avoid_if && neighborhood.avoid_if.length > 0 && (
+                            <div className="bg-red-50 p-3 rounded-md">
+                              <h4 className="font-medium text-gray-900 mb-2 flex items-center">
+                                <span className="text-red-500 mr-2">✕</span>
+                                Avoid If
+                              </h4>
+                              <ul className="space-y-1">
+                                {neighborhood.avoid_if.map((item, index) => (
+                                  <li key={index} className="text-sm text-gray-700">• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Insider Tips */}
+                      {neighborhood.insider_tips && neighborhood.insider_tips.length > 0 && (
+                        <div className="bg-blue-50 p-3 rounded-md">
+                          <h4 className="font-medium text-gray-900 mb-2 flex items-center">
+                            <span className="text-blue-500 mr-2">💡</span>
+                            Insider Tips
+                          </h4>
+                          <ul className="space-y-1">
+                            {neighborhood.insider_tips.map((tip, index) => (
+                              <li key={index} className="text-sm text-gray-700">• {tip}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+      
+      {/* List View */}
+      {viewMode === 'list' && (
+        <div className="space-y-4">
+          {filteredNeighborhoods.map((neighborhood, idx) => {
+            const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
+            const atmospheres = neighborhood.appeal?.atmosphere || neighborhood.atmosphere || [];
+            const isExpanded = expandedNeighborhoods[neighborhood.id] || false;
+            
+            return (
+              <div key={neighborhood.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <span className="text-2xl">{getNeighborhoodIcon(neighborhood.name)}</span>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 text-lg">{neighborhood.name}</h3>
+                        {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
+                          <p className="text-sm text-gray-500">{neighborhood.alternate_names.join(', ')}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-sm font-medium text-gray-900">
+                          {neighborhood.categories?.dining || 'N/A'}
+                        </div>
+                        <div className="text-xs text-gray-500">Dining</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-sm font-medium text-gray-900">
+                          {neighborhood.categories?.shopping || 'N/A'}
+                        </div>
+                        <div className="text-xs text-gray-500">Shopping</div>
+                      </div>
+                      {neighborhood.categories && (
+                        <div className="text-center">
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getScoreBadgeColor(neighborhood.categories.touristy)}`}>
+                            {neighborhood.categories.touristy}/5
+                          </span>
+                          <div className="text-xs text-gray-500 mt-1">Rating</div>
+                        </div>
+                      )}
                       <button 
-                        className={`px-3 py-1 rounded ${isExpanded ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'} hover:bg-blue-200 transition-colors duration-200`}
+                        className={`py-2 px-4 rounded-lg text-sm font-medium transition-colors ${
+                          isExpanded 
+                            ? 'bg-purple-100 text-purple-800' 
+                            : 'bg-purple-600 text-white hover:bg-purple-700'
+                        }`}
                         onClick={() => toggleExpanded(neighborhood.id)}
                       >
                         {isExpanded ? 'Hide' : 'Details'}
                       </button>
-                    </td>
-                  </tr>
-                  
-                  {/* Expanded details row */}
-                  {isExpanded && (
-                    <tr className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td colSpan="5" className="px-4 py-4 border-t border-gray-100">
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          {/* Detailed Description */}
-                          <p className="text-gray-700 mb-4">{neighborhood.character || neighborhood.description}</p>
-                          
-                          {/* Categories ratings */}
-                          {neighborhood.categories && (
-                            <div className="mb-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
-                              <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                                <div className={`mx-auto w-10 h-10 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.dining)}`}>
-                                  <span className="text-lg">🍽️</span>
-                                </div>
-                                <div className="mt-1 text-xs font-medium">Dining</div>
-                                <div className="font-bold">{neighborhood.categories.dining}/5</div>
-                              </div>
-                              <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                                <div className={`mx-auto w-10 h-10 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.shopping)}`}>
-                                  <span className="text-lg">🛍️</span>
-                                </div>
-                                <div className="mt-1 text-xs font-medium">Shopping</div>
-                                <div className="font-bold">{neighborhood.categories.shopping}/5</div>
-                              </div>
-                              <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                                <div className={`mx-auto w-10 h-10 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.nightlife)}`}>
-                                  <span className="text-lg">🌃</span>
-                                </div>
-                                <div className="mt-1 text-xs font-medium">Nightlife</div>
-                                <div className="font-bold">{neighborhood.categories.nightlife}/5</div>
-                              </div>
-                              <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                                <div className={`mx-auto w-10 h-10 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.cultural)}`}>
-                                  <span className="text-lg">🎭</span>
-                                </div>
-                                <div className="mt-1 text-xs font-medium">Cultural</div>
-                                <div className="font-bold">{neighborhood.categories.cultural}/5</div>
-                              </div>
-                            </div>
-                          )}
-                          
-                          {/* Grid layout for more details */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {/* Known For Section */}
-                            {Array.isArray(knownFor) && knownFor.length > 0 && (
-                              <div className="bg-white p-3 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                                  </svg>
-                                  Known For
-                                </h4>
-                                <div className="flex flex-wrap gap-2">
-                                  {knownFor.map((item, index) => (
-                                    <span 
-                                      key={`known-${neighborhood.id}-${index}`}
-                                      className="bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm"
-                                    >
-                                      {item}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                            
-                            {/* Atmosphere Section */}
-                            {Array.isArray(atmospheres) && atmospheres.length > 0 && (
-                              <div className="bg-white p-3 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                  </svg>
-                                  Atmosphere
-                                </h4>
-                                <div className="flex flex-wrap gap-2">
-                                  {atmospheres.map((atmosphere, i) => (
-                                    <span key={i} className="inline-flex items-center px-2 py-1 rounded text-sm font-medium bg-gray-100 text-gray-800">
-                                      {getAtmosphereIcon(atmosphere)} {atmosphere}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                            
-                            {/* Transit Information */}
-                            {neighborhood.practical_info?.transit && neighborhood.practical_info.transit.length > 0 && (
-                              <div className="bg-white p-3 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                                    <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H11a1 1 0 001-1v-1h3.05a2.5 2.5 0 014.9 0H20a1 1 0 001-1V5a1 1 0 00-1-1H3zM2 5a2 2 0 012-2h12a2 2 0 012 2v8h-.05a3.5 3.5 0 00-6.9 0h-2.1a3.5 3.5 0 00-6.9 0H2V5z" />
-                                  </svg>
-                                  Transit Stations
-                                </h4>
-                                <div className="flex flex-wrap gap-2">
-                                  {neighborhood.practical_info.transit.map((station, index) => (
-                                    <span 
-                                      key={`transit-${neighborhood.id}-${index}`}
-                                      className="bg-gray-100 text-gray-800 rounded-full px-3 py-1 text-sm"
-                                    >
-                                      🚇 {station}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                            
-                            {/* Location Information */}
-                            {neighborhood.location && neighborhood.location.description && (
-                              <div className="bg-white p-3 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-teal-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                  </svg>
-                                  Location
-                                </h4>
-                                <p className="text-sm text-gray-700">{neighborhood.location.description}</p>
-                                
-                                {neighborhood.location.borders && neighborhood.location.borders.length > 0 && (
-                                  <div className="mt-2">
-                                    <h5 className="text-sm font-medium text-gray-700">Borders:</h5>
-                                    <div className="flex flex-wrap gap-1 mt-1">
-                                      {neighborhood.location.borders.map((border, index) => (
-                                        <span key={`border-${index}`} className="text-xs bg-gray-100 px-2 py-0.5 rounded">
-                                          {border}
-                                        </span>
-                                      ))}
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                          
-                          {/* Conditional sections based on available data */}
-                          <div className="mt-4">
-                            {/* Top Attractions */}
-                            {neighborhood.highlights?.attractions && neighborhood.highlights.attractions.length > 0 && (
-                              <div className="mt-4">
-                                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                  </svg>
-                                  Top Attractions
-                                </h4>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
-                                  {neighborhood.highlights.attractions.slice(0, 4).map((attraction, index) => (
-                                    <div key={`attraction-${index}`} className="bg-white p-3 rounded-md shadow-sm">
-                                      <div className="flex justify-between">
-                                        <h5 className="font-medium text-gray-900">{attraction.name}</h5>
-                                        <span className="text-sm bg-gray-100 px-2 py-0.5 rounded">
-                                          {attraction.type}
-                                        </span>
-                                      </div>
-                                      {attraction.description && (
-                                        <p className="text-sm text-gray-600 mt-1">{attraction.description}</p>
-                                      )}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                            
-                            {/* Stay/Avoid Recommendations */}
-                            {(neighborhood.stay_here_if || neighborhood.avoid_if) && (
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                {/* Stay here if */}
-                                {neighborhood.stay_here_if && neighborhood.stay_here_if.length > 0 && (
-                                  <div className="bg-green-50 p-3 rounded-md">
-                                    <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                      </svg>
-                                      Stay Here If
-                                    </h4>
-                                    <ul className="space-y-1">
-                                      {neighborhood.stay_here_if.map((item, index) => (
-                                        <li key={`stay-${index}`} className="flex items-start">
-                                          <span className="text-green-500 mr-2">✓</span>
-                                          <span className="text-sm">{item}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
-                                
-                                {/* Avoid if */}
-                                {neighborhood.avoid_if && neighborhood.avoid_if.length > 0 && (
-                                  <div className="bg-red-50 p-3 rounded-md">
-                                    <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                                      </svg>
-                                      Avoid If
-                                    </h4>
-                                    <ul className="space-y-1">
-                                      {neighborhood.avoid_if.map((item, index) => (
-                                        <li key={`avoid-${index}`} className="flex items-start">
-                                          <span className="text-red-500 mr-2">✕</span>
-                                          <span className="text-sm">{item}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                            
-                            {/* Insider Tips */}
-                            {neighborhood.insider_tips && neighborhood.insider_tips.length > 0 && (
-                              <div className="mt-4 bg-blue-50 p-4 rounded-md">
-                                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                                  </svg>
-                                  Insider Tips
-                                </h4>
-                                <ul className="space-y-2">
-                                  {neighborhood.insider_tips.map((tip, index) => (
-                                    <li key={`tip-${index}`} className="flex items-start bg-white p-2 rounded-md">
-                                      <span className="text-blue-500 mr-2">💡</span>
-                                      <span>{tip}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  )}
-                </React.Fragment>
-              );
-            })}
-            
-            {filteredNeighborhoods.length === 0 && (
-              <tr>
-                <td colSpan="5" className="px-6 py-10 text-center">
-                  <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <h3 className="mt-2 text-sm font-medium text-gray-900">No neighborhoods found</h3>
-                  <p className="mt-1 text-sm text-gray-500">Try adjusting your search or filters.</p>
-                  <div className="mt-6">
-                    <button
-                      type="button"
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      onClick={() => {
-                        setSearchTerm('');
-                        setFilterCategory('all');
-                      }}
-                    >
-                      Reset filters
-                    </button>
+                    </div>
                   </div>
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+                  
+                  {/* Description Preview */}
+                  <p className="text-gray-700 text-sm mt-3 line-clamp-2">
+                    {neighborhood.character}
+                  </p>
+                </div>
+                
+                {/* Expanded Details */}
+                {isExpanded && (
+                  <div className="border-t border-gray-100 bg-gray-50 p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-2">Known For</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {Array.isArray(knownFor) ? knownFor.map((item, index) => (
+                            <span key={index} className="bg-blue-100 text-blue-800 rounded-full px-2 py-1 text-xs">
+                              {item}
+                            </span>
+                          )) : knownFor}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-2">Atmosphere</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {Array.isArray(atmospheres) ? atmospheres.map((atmosphere, i) => (
+                            <span key={i} className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                              {getAtmosphereIcon(atmosphere)} {atmosphere}
+                            </span>
+                          )) : atmospheres}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-2">Location</h4>
+                        <p className="text-sm text-gray-700">{neighborhood.location?.description || 'Location information not available'}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+      
+      {/* Empty State */}
+      {filteredNeighborhoods.length === 0 && (
+        <div className="text-center py-12 bg-gray-50 rounded-xl">
+          <svg className="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <h3 className="mt-4 text-lg font-medium text-gray-900">No neighborhoods found</h3>
+          <p className="mt-2 text-gray-600">Try adjusting your search or filter criteria.</p>
+          <div className="mt-6">
+            <button
+              type="button"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+              onClick={() => {
+                setSearchTerm('');
+                setFilterCategory('all');
+              }}
+            >
+              Reset filters
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
