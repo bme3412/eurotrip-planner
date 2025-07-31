@@ -172,28 +172,10 @@ function CityPageClient({ cityData, cityName }) {
                     )}
                   </div>
                 </div>
-                <p className="text-lg md:text-xl opacity-95 leading-relaxed max-w-3xl">
-                  {description}
-                </p>
+
               </div>
               
-              {/* Quick Stats */}
-              <div className="mt-6 lg:mt-0 lg:ml-8">
-                <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold">{headerInfo.bestTime}</div>
-                    <div className="text-sm opacity-80">Best Time</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold">{headerInfo.avgVisit}</div>
-                    <div className="text-sm opacity-80">Avg. Visit</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold">{headerInfo.currency}</div>
-                    <div className="text-sm opacity-80">Currency</div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

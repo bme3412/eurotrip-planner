@@ -34,7 +34,7 @@ const CityOverview = ({ overview, cityName }) => {
   
   // Enhanced description with more engaging content
   const enhancedDescription = overview?.brief_description 
-    ? `${overview.brief_description} From the iconic Eiffel Tower and world-renowned Louvre Museum to charming neighborhood cafés and the romantic Seine River, every corner of Paris tells a story. The city's unique blend of historic grandeur and contemporary energy creates an atmosphere that has inspired artists, writers, and dreamers for centuries.`
+    ? overview.brief_description
     : `${cityName} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
   
   return (
@@ -58,73 +58,11 @@ const CityOverview = ({ overview, cityName }) => {
         </div>
       </div>
 
-      {/* Quick Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-          <div className="text-2xl font-bold text-blue-600 mb-1">
-            {population?.city || 'N/A'}
-          </div>
-          <div className="text-sm text-gray-600">Million Residents</div>
-        </div>
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-          <div className="text-2xl font-bold text-green-600 mb-1">
-            {practicalInfo?.language || 'N/A'}
-          </div>
-          <div className="text-sm text-gray-600">Language</div>
-        </div>
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-          <div className="text-2xl font-bold text-purple-600 mb-1">
-            {practicalInfo?.currency || 'N/A'}
-          </div>
-          <div className="text-sm text-gray-600">Currency</div>
-        </div>
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-          <div className="text-2xl font-bold text-orange-600 mb-1">
-            {practicalInfo?.timezone || 'N/A'}
-          </div>
-          <div className="text-sm text-gray-600">Timezone</div>
-        </div>
-      </div>
 
-      {/* City Sections */}
-      {sections.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sections.map((section, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-              <div className="flex items-center mb-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-blue-600 text-lg">
-                    {section.icon === 'museum' && '🏛️'}
-                    {section.icon === 'palette' && '🎨'}
-                    {section.icon === 'restaurant' && '🍽️'}
-                    {section.icon === 'style' && '👗'}
-                    {!['museum', 'palette', 'restaurant', 'style'].includes(section.icon) && '✨'}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">{section.title}</h3>
-              </div>
-              <p className="text-gray-700 leading-relaxed">{section.content}</p>
-            </div>
-          ))}
-        </div>
-      )}
 
-      {/* Why Visit Section */}
-      {whyVisit && (
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Visit {displayName}?</h2>
-          <p className="text-gray-700 mb-6">{whyVisit.intro}</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyVisit.highlights?.map((highlight, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-2">{highlight.title}</h4>
-                <p className="text-sm text-gray-700">{highlight.content}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+
+
+
 
       {/* Seasonal Information */}
       {seasonalNotes && (
@@ -147,49 +85,7 @@ const CityOverview = ({ overview, cityName }) => {
         </div>
       )}
 
-      {/* Practical Information */}
-      {practicalInfo && (
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Practical Information</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Useful Phrases */}
-            {practicalInfo.useful_phrases && (
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Useful Phrases</h3>
-                <div className="space-y-2">
-                  {practicalInfo.useful_phrases.map((phrase, index) => (
-                    <div key={index} className="bg-gray-50 rounded p-3">
-                      <div className="font-medium text-gray-900">{phrase.phrase}</div>
-                      <div className="text-sm text-gray-600">{phrase.pronunciation}</div>
-                      <div className="text-xs text-gray-500">{phrase.meaning}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
-            {/* Transport Information */}
-            {practicalInfo.transport && (
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Getting Around</h3>
-                <div className="space-y-3">
-                  <div className="bg-gray-50 rounded p-3">
-                    <h4 className="font-medium text-gray-900 mb-1">Public Transport</h4>
-                    <p className="text-sm text-gray-700">{practicalInfo.transport.public_transport}</p>
-                  </div>
-                  {practicalInfo.transport.passes && (
-                    <div className="bg-gray-50 rounded p-3">
-                      <h4 className="font-medium text-gray-900 mb-1">Transport Passes</h4>
-                      <p className="text-sm text-gray-700">{practicalInfo.transport.passes}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -95,7 +95,8 @@ export default function CityMapWithMapbox({
   categories = [], 
   cityName = "City", 
   center = [0, 0], 
-  zoom = 12 
+  zoom = 12,
+  selectedAttraction = null
 }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -108,6 +109,74 @@ export default function CityMapWithMapbox({
   const [showCategoryFilter, setShowCategoryFilter] = useState(false);
   const [mapError, setMapError] = useState(null);
   const [categoriesProcessed, setCategoriesProcessed] = useState(false);
+  
+  // Handle selected attraction animation and map focus
+  useEffect(() => {
+    if (!map.current || !markersRef.current.length) return;
+    
+    markersRef.current.forEach(marker => {
+      const markerElement = marker.getElement();
+      const attractionName = markerElement.getAttribute('data-attraction-name');
+      
+      if (selectedAttraction && attractionName === selectedAttraction.name) {
+        // Animate the selected marker
+        markerElement.style.transform = 'scale(1.8)';
+        markerElement.style.zIndex = '1000';
+        markerElement.style.transition = 'all 0.4s ease';
+        markerElement.style.filter = 'drop-shadow(0 0 15px rgba(59, 130, 246, 0.9))';
+        
+        // Get marker coordinates and focus the map
+        const coordinates = marker.getLngLat();
+        if (coordinates) {
+          // Fly to the marker with appropriate zoom level
+          map.current.flyTo({
+            center: [coordinates.lng, coordinates.lat],
+            zoom: Math.max(map.current.getZoom(), 15), // Ensure minimum zoom of 15
+            duration: 1000,
+            essential: true
+          });
+        }
+      } else {
+        // Reset other markers
+        markerElement.style.transform = 'scale(1)';
+        markerElement.style.zIndex = '1';
+        markerElement.style.transition = 'all 0.3s ease';
+        markerElement.style.filter = 'none';
+      }
+    });
+    
+    // If no attraction is selected, zoom out to show all markers
+    if (!selectedAttraction) {
+      // Calculate bounds to include all attractions
+      const bounds = new mapboxglRef.current.LngLatBounds();
+      
+      attractions.forEach(attraction => {
+        let lng, lat;
+        if (attraction.coordinates) {
+          lng = attraction.coordinates.longitude || attraction.coordinates.lng;
+          lat = attraction.coordinates.latitude || attraction.coordinates.lat;
+        } else {
+          lng = attraction.longitude;
+          lat = attraction.latitude;
+        }
+        
+        if (lng && lat) {
+          bounds.extend([lng, lat]);
+        }
+      });
+      
+      // Add some padding to the bounds
+      bounds.extend([bounds.getWest() - 0.01, bounds.getSouth() - 0.01]);
+      bounds.extend([bounds.getEast() + 0.01, bounds.getNorth() + 0.01]);
+      
+      // Fly to the bounds with animation
+      map.current.fitBounds(bounds, {
+        padding: 50,
+        duration: 1000,
+        essential: true
+      });
+    }
+  }, [selectedAttraction, attractions]);
   
   // Convert existing categories to standard categories - called only from useEffect
   const processCategories = () => {
@@ -278,11 +347,12 @@ export default function CityMapWithMapbox({
         // Create custom marker element
         const markerEl = document.createElement('div');
         markerEl.className = 'custom-marker';
+        markerEl.setAttribute('data-attraction-name', attraction.name);
         markerEl.innerHTML = `
           <div class="marker-container">
             <div class="marker-pin"
-                style="background-color: ${color}; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-              <span class="marker-text">${index + 1}</span>
+                style="background-color: ${color}; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border: 2px solid white;">
+              <span class="marker-text" style="font-weight: bold; font-size: 11px; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">${index + 1}</span>
             </div>
             <div class="marker-pulse" style="background-color: ${color}"></div>
           </div>
@@ -569,51 +639,7 @@ export default function CityMapWithMapbox({
       {/* Map container */}
       <div ref={mapContainer} className="w-full h-full" />
       
-      {/* Category filter panel - only show if we have categories */}
-      {showCategoryFilter && categoriesProcessed && (
-        <div className="absolute top-4 left-4 z-10 bg-white p-4 rounded-lg shadow-lg max-w-xs max-h-[calc(100%-32px)] overflow-y-auto">
-          <h3 className="font-bold text-gray-800 mb-2 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clipRule="evenodd" />
-            </svg>
-            Filter By Category
-          </h3>
-          <div className="flex space-x-2 mb-3">
-            <button 
-              onClick={selectAllCategories}
-              className="text-xs bg-blue-600 hover:bg-blue-700 text-white py-1 px-2 rounded transition-colors duration-200"
-            >
-              All
-            </button>
-            <button 
-              onClick={clearAllCategories}
-              className="text-xs bg-gray-600 hover:bg-gray-700 text-white py-1 px-2 rounded transition-colors duration-200"
-            >
-              None
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {getFilterCategories().map((cat) => (
-              <button
-                key={cat.category || 'uncategorized'}
-                onClick={() => toggleCategory(cat.category || 'Other')}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
-                  activeCategories.includes(cat.category || 'Other')
-                    ? 'border-transparent text-white shadow-md' 
-                    : 'border-gray-300 text-gray-700 bg-gray-100 hover:bg-gray-200'
-                }`}
-                style={{
-                  backgroundColor: activeCategories.includes(cat.category || 'Other') 
-                    ? MAIN_CATEGORY_COLORS[cat.category] || MAIN_CATEGORY_COLORS['Other']
-                    : '',
-                }}
-              >
-                {cat.category || 'Other'} ({cat.sites?.length || 0})
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+
       
       {/* Loading indicator */}
       {(!mapLoaded || !styleLoaded) && (
@@ -636,28 +662,7 @@ export default function CityMapWithMapbox({
         </div>
       )}
       
-      {/* Legend for categories */}
-      {categoriesProcessed && (
-        <div className="absolute bottom-4 right-4 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
-          <h4 className="text-xs font-bold text-gray-700 mb-2 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-            </svg>
-            Legend
-          </h4>
-          <div className="grid grid-cols-2 gap-1">
-            {getLegendCategories().map((cat) => (
-              <div key={cat.category || 'uncategorized'} className="flex items-center space-x-1">
-                <div 
-                  className="w-3 h-3 rounded-full border border-white shadow-sm" 
-                  style={{ backgroundColor: MAIN_CATEGORY_COLORS[cat.category] || MAIN_CATEGORY_COLORS['Other'] }}
-                ></div>
-                <span className="text-xs text-gray-700 truncate">{cat.category || 'Other'}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+
 
       {/* Add CSS for custom markers and popups */}
       <style jsx global>{`
