@@ -106,7 +106,7 @@ function CityPageClient({ cityData, cityName }) {
   const renderTabContent = () => {
     switch (activeTab) {
       case 'overview':
-        return <CityOverview overview={overview} cityName={cityName} />;
+        return <CityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} />;
       case 'map':
         return (
           <CityMapLoader

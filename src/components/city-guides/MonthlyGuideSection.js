@@ -2,120 +2,40 @@
 import React, { useState, useEffect } from 'react';
 import MonthlyCalendarView from "../monthly-visit-guide/MonthlyCalendarView";
 
-// New component for condensed 12-month overview
-const CondensedYearView = ({ monthlyData, cityName, visitCalendar }) => {
-  const months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
-
-  // Get month data from visit calendar
-  const getMonthData = (monthName) => {
-    if (!visitCalendar || !visitCalendar.months) return null;
-    return visitCalendar.months[monthName.toLowerCase()];
-  };
-
-  // Get day details from the calendar data
-  const getDayDetails = (day, monthData) => {
-    if (!monthData || !monthData.ranges) return null;
-    const range = monthData.ranges.find(r => r.days.includes(day));
-    if (!range) return null;
-    return {
-      score: range.score,
-      special: range.special || false
-    };
-  };
-
-  // Rating colors to match the main calendar
-  const RATING_COLORS = {
-    5: '#10b981', // Excellent - Soft green
-    4: '#34d399', // Good - Light green
-    3: '#fbbf24', // Average - Soft amber
-    2: '#fb923c', // Below Average - Soft orange
-    1: '#ef4444'  // Poor - Soft red
-  };
-
-  // Generate calendar for a specific month
-  const generateMonthCalendar = (monthIndex) => {
-    const currentYear = new Date().getFullYear();
-    const monthData = getMonthData(months[monthIndex]);
-    const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
-    const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
-    const days = [];
-    
-    // Add empty days for padding
-    for (let i = 0; i < firstDayOfMonth; i++) {
-      days.push({ type: 'empty' });
-    }
-    
-    // Add actual days
-    for (let i = 1; i <= daysInMonth; i++) {
-      let dayDetails = monthData ? getDayDetails(i, monthData) : null;
-      const rating = dayDetails ? dayDetails.score : 3;
-      days.push({
-        type: 'day',
-        dayOfMonth: i,
-        rating,
-        color: RATING_COLORS[rating],
-        special: dayDetails && dayDetails.special
-      });
-    }
-    
-    return {
-      monthName: months[monthIndex],
-      days
-    };
-  };
-
-  return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {months.map((_, monthIndex) => {
-          const calendar = generateMonthCalendar(monthIndex);
-          return (
-            <div key={monthIndex} className="border rounded-lg overflow-hidden">
-              {/* Month Header */}
-              <div className="bg-gray-50 p-2 text-center border-b">
-                <div className="text-xs font-medium text-gray-700">
-                  {calendar.monthName.substring(0, 3)}
-                </div>
-              </div>
-              
-              {/* Days of Week */}
-              <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50">
-                {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                  <div key={i} className="p-1">{day}</div>
-                ))}
-              </div>
-              
-              {/* Calendar Days */}
-              <div className="grid grid-cols-7 gap-px">
-                {calendar.days.map((day, dayIndex) => (
-                  day.type === 'empty' ? (
-                    <div key={`empty-${dayIndex}`} className="aspect-square" />
-                  ) : (
-                    <div
-                      key={`day-${day.dayOfMonth}`}
-                      className="aspect-square flex items-center justify-center text-xs relative"
-                      style={{ backgroundColor: day.color }}
-                    >
-                      <span className="text-white font-medium">{day.dayOfMonth}</span>
-                      {day.special && (
-                        <span className="absolute top-0.5 right-0.5 w-1 h-1 bg-red-500 rounded-full"></span>
-                      )}
-                    </div>
-                  )
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
 const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, countryName }) => {
+  const [activeTooltip, setActiveTooltip] = useState(null);
+
+  // Add click outside handler to close tooltip
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (activeTooltip && !event.target.closest('.day-cell')) {
+        setActiveTooltip(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [activeTooltip]);
+
+  // Toggle tooltip display for a day
+  const toggleTooltip = (day, monthIndex, dayOfMonth, eventData) => {
+    if (day.special) {
+      if (activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === dayOfMonth) {
+        setActiveTooltip(null);
+      } else {
+        setActiveTooltip({
+          monthIndex,
+          dayOfMonth,
+          event: eventData.event,
+          notes: eventData.notes,
+          location: eventData.location,
+          time: eventData.time,
+          price: eventData.price,
+          crowdLevel: eventData.crowdLevel
+        });
+      }
+    }
+  };
   
   // Get today's date
   const today = new Date();
@@ -275,19 +195,160 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
         </div>
       </div>
 
-      {/* 12-Month Overview */}
-      <CondensedYearView monthlyData={monthlyData} cityName={cityName} visitCalendar={visitCalendar} />
-
-      {/* Detailed 3-Month Calendar */}
+      {/* Expanded When to Visit Section */}
       {visitCalendar && Object.keys(visitCalendar).length > 0 && (
         <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-          <h3 className="text-lg font-semibold mb-4">When to Visit {cityName.charAt(0).toUpperCase() + cityName.slice(1)}</h3>
-          <MonthlyCalendarView
-            monthlyData={visitCalendar}
-            initialMonth={new Date().getMonth()}
-            city={cityName}
-            country={countryName}
-          />
+          <h3 className="text-lg font-semibold mb-6">When to Visit {cityName.charAt(0).toUpperCase() + cityName.slice(1)}</h3>
+          
+          {/* All Months Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+            {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((monthName, monthIndex) => {
+              const monthData = visitCalendar.months[monthName.toLowerCase()];
+              if (!monthData) return null;
+              
+              // Calculate average score for the month
+              let totalScore = 0;
+              let totalRanges = 0;
+              if (monthData.ranges) {
+                monthData.ranges.forEach(range => {
+                  totalScore += range.score * range.days.length;
+                  totalRanges += range.days.length;
+                });
+              }
+              const averageScore = totalRanges > 0 ? Math.round(totalScore / totalRanges) : 3;
+              
+              // Get rating color and labels
+              const RATING_COLORS = {
+                5: '#10b981', // Excellent - Soft green
+                4: '#34d399', // Good - Light green
+                3: '#fbbf24', // Average - Soft amber
+                2: '#fb923c', // Below Average - Soft orange
+                1: '#ef4444'  // Poor - Soft red
+              };
+              
+              const RATING_LABELS = {
+                5: 'Excellent',
+                4: 'Good',
+                3: 'Average',
+                2: 'Below Average',
+                1: 'Poor'
+              };
+              
+              const RATING_DESCRIPTIONS = {
+                5: 'Perfect conditions, special events, ideal weather, moderate crowds',
+                4: 'Very favorable conditions, pleasant weather, manageable crowds',
+                3: 'Standard conditions, typical weather, moderate to high tourism',
+                2: 'Less ideal conditions, possibly unpleasant weather or very high crowds',
+                1: 'Unfavorable conditions, extreme weather, overcrowded or limited activities'
+              };
+              
+              return (
+                <div key={`${monthName}-${new Date().getFullYear()}`} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  {/* Enhanced Month Header */}
+                  <div 
+                    className="p-3 text-center"
+                    style={{ 
+                      backgroundColor: `${RATING_COLORS[averageScore]}10`,
+                      borderBottom: `3px solid ${RATING_COLORS[averageScore]}` 
+                    }}
+                  >
+                    <div className="text-base font-bold text-gray-800">{monthName} {new Date().getFullYear()}</div>
+                    <div className="text-xs font-medium mt-1" style={{ color: RATING_COLORS[averageScore] }}>
+                      {RATING_LABELS[averageScore]} time to visit
+                    </div>
+                    <div className="text-xs text-gray-600 mt-1">
+                      {RATING_DESCRIPTIONS[averageScore]}
+                    </div>
+                    <div className="flex justify-center items-center gap-3 mt-1 text-xs">
+                      {monthData.tourismLevel && (
+                        <div className="flex items-center">
+                          <span className="mr-1">👥</span>
+                          <span>Tourism: {monthData.tourismLevel}/10</span>
+                        </div>
+                      )}
+                      {monthData.weatherHighC && monthData.weatherLowC && (
+                        <div className="flex items-center">
+                          <span className="mr-1">🌡️</span>
+                          <span>{monthData.weatherLowC}°-{monthData.weatherHighC}°C</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Activity Types */}
+                  {monthData.activityTypes && monthData.activityTypes.length > 0 && (
+                    <div className="bg-gray-50 px-2 py-1 border-b border-gray-200">
+                      <div className="text-xs font-medium text-gray-600 mb-1">Best Activities:</div>
+                      <div className="flex flex-wrap gap-1">
+                        {monthData.activityTypes.slice(0, 3).map((activity, idx) => (
+                          <span key={idx} className="text-xs bg-white px-1.5 py-0.5 rounded-full border">
+                            {activity}
+                          </span>
+                        ))}
+                        {monthData.activityTypes.length > 3 && (
+                          <span className="text-xs text-gray-400">+{monthData.activityTypes.length - 3} more</span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Days of Week */}
+                  <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50 p-0.5">
+                    {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
+                      <div key={i} className="p-0.5">{day}</div>
+                    ))}
+                  </div>
+                  
+                  {/* Calendar Days */}
+                  <div className="grid grid-cols-7 gap-px p-0.5 bg-white">
+                    {(() => {
+                      const currentYear = new Date().getFullYear();
+                      const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
+                      const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
+                      const days = [];
+                      
+                      // Add empty days for padding
+                      for (let i = 0; i < firstDayOfMonth; i++) {
+                        days.push({ type: 'empty' });
+                      }
+                      
+                                             // Add actual days
+                       for (let i = 1; i <= daysInMonth; i++) {
+                         let dayDetails = monthData.ranges ? monthData.ranges.find(r => r.days.includes(i)) : null;
+                         const rating = dayDetails ? dayDetails.score : 3;
+                         days.push({
+                           type: 'day',
+                           dayOfMonth: i,
+                           rating,
+                           color: RATING_COLORS[rating],
+                           special: dayDetails && dayDetails.special,
+                           eventData: dayDetails || null
+                         });
+                       }
+                      
+                                               return days.map((day, dayIndex) => (
+                           day.type === 'empty' ? (
+                             <div key={`empty-${dayIndex}`} className="aspect-square" />
+                           ) : (
+                             <div
+                               key={`day-${day.dayOfMonth}`}
+                               className={`day-cell aspect-square flex items-center justify-center text-sm rounded-md relative cursor-pointer hover:scale-105 transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
+                               style={{ backgroundColor: day.color }}
+                               onClick={() => toggleTooltip(day, monthIndex, day.dayOfMonth, day.eventData)}
+                             >
+                               <span className="font-medium text-white drop-shadow-sm">{day.dayOfMonth}</span>
+                               {day.special && (
+                                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full shadow-sm"></span>
+                               )}
+                             </div>
+                           )
+                         ));
+                    })()}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -326,6 +387,65 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
           {renderReasons(getReasons(activeData))}
         </div>
       </div>
+
+      {/* Enhanced Professional Event Modal */}
+      {activeTooltip && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-lg shadow-lg max-w-md w-full mx-4">
+            {/* Header */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][activeTooltip.monthIndex]} {activeTooltip.dayOfMonth}
+                </h3>
+                <p className="text-sm text-gray-500">Special Event</p>
+              </div>
+              <button 
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+                onClick={() => setActiveTooltip(null)}
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="p-6">
+              <h4 className="text-xl font-medium text-gray-900 mb-4">{activeTooltip.event}</h4>
+              <p className="text-gray-600 leading-relaxed mb-4">{activeTooltip.notes}</p>
+              
+              {/* Event Details */}
+              <div className="space-y-3">
+                {activeTooltip.location && (
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mr-3">📍</span>
+                    <span className="text-sm text-gray-700">{activeTooltip.location}</span>
+                  </div>
+                )}
+                {activeTooltip.time && (
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mr-3">🕒</span>
+                    <span className="text-sm text-gray-700">{activeTooltip.time}</span>
+                  </div>
+                )}
+                {activeTooltip.price && (
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mr-3">💰</span>
+                    <span className="text-sm text-gray-700">{activeTooltip.price}</span>
+                  </div>
+                )}
+                {activeTooltip.crowdLevel && (
+                  <div className="flex items-center">
+                    <span className="text-gray-400 mr-3">👥</span>
+                    <span className="text-sm text-gray-700">Crowds: {activeTooltip.crowdLevel}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
