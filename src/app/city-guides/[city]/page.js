@@ -146,9 +146,17 @@ async function getCityData(cityName) {
   };
 
   try {
+    // Load critical data first, defer non-essential data
     const [
       overview,
-      attractions,
+      attractions
+    ] = await Promise.all([
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-overview.json`, `${cityName.toLowerCase()}_overview.json`, 'overview.json', 'city_overview.json']),
+      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_attractions.json`, 'attractions.json', 'sites.json'])
+    ]);
+
+    // Load remaining data in parallel but separately
+    const [
       neighborhoods,
       culinaryGuide,
       connections,
@@ -156,8 +164,6 @@ async function getCityData(cityName) {
       summary,
       visitCalendar
     ] = await Promise.all([
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-overview.json`, `${cityName.toLowerCase()}_overview.json`, 'overview.json', 'city_overview.json']),
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_attractions.json`, 'attractions.json', 'sites.json']),
       readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_neighborhoods.json`, 'neighborhoods.json', 'areas.json']),
       readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_culinary_guide.json`, 'culinary_guide.json', 'food.json']),
       readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_connections.json`, 'connections.json', 'transport.json']),
@@ -166,22 +172,28 @@ async function getCityData(cityName) {
       readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-visit-calendar.json`, 'visit-calendar.json'])
     ]);
 
-    // Load monthly data from individual files
+    // Load monthly data more efficiently - only load current and next month initially
     const monthlyDir = path.join(baseDir, 'monthly');
-    const monthlyFiles = ['january.json', 'february.json', 'march.json', 'april.json', 'may.json', 'june.json', 
-                         'july.json', 'august.json', 'september.json', 'october.json', 'november.json', 'december.json'];
+    const currentMonth = new Date().getMonth();
+    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
+                       'july', 'august', 'september', 'october', 'november', 'december'];
     
     const monthlyData = {};
     
-    for (const fileName of monthlyFiles) {
-      const filePath = path.join(monthlyDir, fileName);
+    // Load only current and next month for faster initial load
+    const priorityMonths = [
+      monthNames[currentMonth],
+      monthNames[(currentMonth + 1) % 12]
+    ];
+    
+    for (const monthName of priorityMonths) {
+      const filePath = path.join(monthlyDir, `${monthName}.json`);
       if (await pathExists(filePath)) {
         const monthData = await readJsonFile(filePath);
         if (monthData) {
-          // Extract the month name from the file content
-          const monthName = Object.keys(monthData)[0];
-          if (monthName) {
-            monthlyData[monthName.toLowerCase()] = monthData[monthName];
+          const monthKey = Object.keys(monthData)[0];
+          if (monthKey) {
+            monthlyData[monthKey.toLowerCase()] = monthData[monthKey];
           }
         }
       }

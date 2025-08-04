@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import CityOverview from "./CityOverview";
 import AttractionsList from "./AttractionsList";
@@ -53,6 +53,7 @@ const CITY_COORDINATES = {
 
 function CityPageClient({ cityData, cityName }) {
   const [activeTab, setActiveTab] = useState('overview');
+  const [componentLoaded, setComponentLoaded] = useState(false);
 
   // Extract data with defaults
   const { 
@@ -74,73 +75,151 @@ function CityPageClient({ cityData, cityName }) {
   const nickname = getCityNickname(overview);
   const description = getCityDescription(overview, cityName);
 
-  // Process data safely
-  const safeAttractions = (attractions?.sites && Array.isArray(attractions.sites)) 
-                          ? attractions.sites 
-                          : [];
-  const safeCategories = safeAttractions
-      .map(site => site.category)
-      .filter((value, index, self) => value && self.indexOf(value) === index);
+  // Memoize safe data processing to prevent re-renders
+  const safeAttractions = useMemo(() => 
+    (attractions?.sites && Array.isArray(attractions.sites)) 
+      ? attractions.sites 
+      : [], [attractions]);
 
-  const safeNeighborhoods = (neighborhoods?.neighborhoods && Array.isArray(neighborhoods.neighborhoods))
-                             ? neighborhoods.neighborhoods
-                             : [];
+  const safeCategories = useMemo(() => 
+    safeAttractions
+      .map(site => site.category)
+      .filter((value, index, self) => value && self.indexOf(value) === index), 
+    [safeAttractions]);
+
+  const safeNeighborhoods = useMemo(() => 
+    (neighborhoods?.neighborhoods && Array.isArray(neighborhoods.neighborhoods))
+      ? neighborhoods.neighborhoods
+      : [], [neighborhoods]);
                              
-  const safeMonthlyEvents = rawMonthlyEvents !== null && typeof rawMonthlyEvents === 'object' 
-                           ? rawMonthlyEvents 
-                           : {}; 
+  const safeMonthlyEvents = useMemo(() => 
+    rawMonthlyEvents !== null && typeof rawMonthlyEvents === 'object' 
+      ? rawMonthlyEvents 
+      : {}, [rawMonthlyEvents]); 
 
   const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
 
+  // Lazy load heavy components
+  const [loadedTabs, setLoadedTabs] = useState(new Set(['overview']));
+
   const tabs = [
     { id: 'overview', label: 'Overview', icon: '🏛️' },
-    { id: 'map', label: 'Interactive Map', icon: '🗺️' },
+    { id: 'map', label: 'Interactive Map', icon: '🗺️', heavy: true },
     { id: 'monthly', label: 'Monthly Guide', icon: '📅' },
-    { id: 'attractions', label: 'Attractions', icon: '🎯' },
+    { id: 'attractions', label: 'Attractions', icon: '🎯', heavy: true },
     { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' },
     { id: 'transport', label: 'Getting Around', icon: '🚇' },
-    { id: 'things-to-do', label: 'Things to Do', icon: '🎭' },
-    { id: 'things-to-see', label: 'Things to See', icon: '👀' }
+    { id: 'things-to-do', label: 'Things to Do', icon: '🎭', heavy: true },
+    { id: 'things-to-see', label: 'Things to See', icon: '👀', heavy: true }
   ];
 
+  // Load component on mount
+  useEffect(() => {
+    setComponentLoaded(true);
+  }, []);
+
+  // Handle tab switching with lazy loading
+  const handleTabSwitch = (tabId) => {
+    setActiveTab(tabId);
+    const tab = tabs.find(t => t.id === tabId);
+    if (tab?.heavy && !loadedTabs.has(tabId)) {
+      setLoadedTabs(prev => new Set([...prev, tabId]));
+    }
+  };
+
+  // Memoize heavy data processing
+  const memoizedData = useMemo(() => ({
+    safeAttractions,
+    safeCategories,
+    safeNeighborhoods,
+    safeMonthlyEvents
+  }), [safeAttractions, safeCategories, safeNeighborhoods, safeMonthlyEvents]);
+
   const renderTabContent = () => {
+    // Show loading for heavy components that haven't been loaded yet
+    const currentTab = tabs.find(t => t.id === activeTab);
+    if (currentTab?.heavy && !loadedTabs.has(activeTab)) {
+      return (
+        <div className="flex items-center justify-center py-16">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading {currentTab.label.toLowerCase()}...</p>
+          </div>
+        </div>
+      );
+    }
+
     switch (activeTab) {
       case 'overview':
         return <CityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} />;
       case 'map':
-        return (
+        return loadedTabs.has('map') ? (
           <CityMapLoader
-            attractions={safeAttractions}
-            categories={safeCategories} 
+            attractions={memoizedData.safeAttractions}
+            categories={memoizedData.safeCategories} 
             cityName={cityName}
             center={center}
             zoom={12} 
             title={`${cityName} Interactive Map`}
             subtitle="Explore attractions, neighborhoods, and more"
           />
-        );
+        ) : null;
       case 'monthly':
         return <MonthlyGuideSection 
-          monthlyData={safeMonthlyEvents} 
+          monthlyData={memoizedData.safeMonthlyEvents} 
           cityName={cityName} 
           city={cityName}
           visitCalendar={visitCalendar}
           countryName={country}
         />;
       case 'attractions':
-        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} monthlyData={safeMonthlyEvents} />;
+        return loadedTabs.has('attractions') ? (
+          <AttractionsList 
+            attractions={memoizedData.safeAttractions} 
+            categories={memoizedData.safeCategories} 
+            cityName={cityName} 
+            monthlyData={memoizedData.safeMonthlyEvents} 
+          />
+        ) : null;
       case 'neighborhoods':
-        return <NeighborhoodsList neighborhoods={safeNeighborhoods} cityName={cityName} />;
+        return <NeighborhoodsList neighborhoods={memoizedData.safeNeighborhoods} cityName={cityName} />;
       case 'transport':
         return <TransportConnections connections={connections} cityName={cityName} />;
       case 'things-to-do':
-        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} monthlyData={safeMonthlyEvents} />;
+        return loadedTabs.has('things-to-do') ? (
+          <AttractionsList 
+            attractions={memoizedData.safeAttractions} 
+            categories={memoizedData.safeCategories} 
+            cityName={cityName} 
+            monthlyData={memoizedData.safeMonthlyEvents} 
+          />
+        ) : null;
       case 'things-to-see':
-        return <AttractionsList attractions={safeAttractions} categories={safeCategories} cityName={cityName} monthlyData={safeMonthlyEvents} />;
+        return loadedTabs.has('things-to-see') ? (
+          <AttractionsList 
+            attractions={memoizedData.safeAttractions} 
+            categories={memoizedData.safeCategories} 
+            cityName={cityName} 
+            monthlyData={memoizedData.safeMonthlyEvents} 
+          />
+        ) : null;
       default:
         return <CityOverview overview={overview} cityName={cityName} />;
     }
   };
+
+  // Show immediate loading state if component isn't ready
+  if (!componentLoaded) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-6"></div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">Loading {displayName}</h2>
+          <p className="text-gray-600">Preparing your city guide...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -160,23 +239,7 @@ function CityPageClient({ cityData, cityName }) {
               </ol>
             </nav>
 
-            {/* Main Header Content */}
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-4">
-                  <div className="text-5xl mr-4">✨</div>
-                  <div>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-2">{displayName}</h1>
-                    {nickname && (
-                      <p className="text-xl md:text-2xl opacity-90">{nickname}</p>
-                    )}
-                  </div>
-                </div>
-
-              </div>
-              
-
-            </div>
+            {/* Main Header Content - Removed for space saving */}
           </div>
         </div>
       </header>
@@ -188,7 +251,7 @@ function CityPageClient({ cityData, cityName }) {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabSwitch(tab.id)}
                 className={`flex items-center space-x-2 py-4 px-4 border-b-2 font-medium text-sm whitespace-nowrap transition-all duration-200 ${
                   activeTab === tab.id
                     ? 'border-blue-600 text-blue-600 bg-blue-50'

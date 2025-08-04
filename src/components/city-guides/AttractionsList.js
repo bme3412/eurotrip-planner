@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 
 const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => {
@@ -30,8 +30,8 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
     { value: 'december', label: 'December', icon: '❄️' }
   ];
 
-  // Get month from date
-  const getMonthFromDate = (dateString) => {
+  // Memoize callback functions to prevent re-renders
+  const getMonthFromDate = useCallback((dateString) => {
     if (!dateString) return null;
     const date = new Date(dateString);
     const monthNames = [
@@ -39,7 +39,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
       'july', 'august', 'september', 'october', 'november', 'december'
     ];
     return monthNames[date.getMonth()];
-  };
+  }, []);
 
   // Check if date is in range
   const isDateInRange = (dateString, start, end) => {
@@ -51,7 +51,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
   };
 
   // Seasonal scoring system
-  const getSeasonalScore = (attraction, month) => {
+  const getSeasonalScore = useCallback((attraction, month) => {
     if (month === 'all') return 0;
     
     let score = 0;
@@ -111,10 +111,10 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
     }
 
     return score;
-  };
+  }, [monthlyData]);
 
   // Get effective month for scoring
-  const getEffectiveMonth = () => {
+  const getEffectiveMonth = useCallback(() => {
     if (dateFilterType === 'exact' && selectedDate) {
       return getMonthFromDate(selectedDate);
     } else if (dateFilterType === 'range' && startDate && endDate) {
@@ -124,7 +124,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
       return selectedMonth;
     }
     return 'all';
-  };
+  }, [dateFilterType, selectedDate, startDate, endDate, selectedMonth, getMonthFromDate]);
 
   // Toggle expanded state for an attraction
   const toggleExpanded = (attractionId) => {
@@ -134,24 +134,26 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
     }));
   };
   
-  // Filter and sort attractions
-  const filteredAttractions = attractions
-    .filter(attraction => 
-      searchTerm === '' || attraction.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      attraction.description?.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .map(attraction => ({
-      ...attraction,
-      seasonalScore: getSeasonalScore(attraction, getEffectiveMonth())
-    }))
-    .sort((a, b) => {
-      // Always sort by seasonal score when date filtering is active
-      if (dateFilterType !== 'none') {
-        return (b.seasonalScore || 0) - (a.seasonalScore || 0);
-      }
-      // Default sort by cultural significance
-      return (b.ratings?.cultural_significance || 0) - (a.ratings?.cultural_significance || 0);
-    });
+  // Memoize heavy filtering and sorting operations
+  const filteredAttractions = useMemo(() => {
+    return attractions
+      .filter(attraction => 
+        searchTerm === '' || attraction.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        attraction.description?.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .map(attraction => ({
+        ...attraction,
+        seasonalScore: getSeasonalScore(attraction, getEffectiveMonth())
+      }))
+      .sort((a, b) => {
+        // Always sort by seasonal score when date filtering is active
+        if (dateFilterType !== 'none') {
+          return (b.seasonalScore || 0) - (a.seasonalScore || 0);
+        }
+        // Default sort by cultural significance
+        return (b.ratings?.cultural_significance || 0) - (a.ratings?.cultural_significance || 0);
+      });
+  }, [attractions, searchTerm, dateFilterType, getEffectiveMonth, getSeasonalScore]);
   
   // Format price range for display
   const getPriceIcon = (priceRange) => {
