@@ -3,349 +3,651 @@
         {
             "city": "Paris",
             "country": "France",
-            "whyGo": "The iconic French capital with world-famous monuments, museums, and cuisine.",
+            "whyGo": "The iconic French capital with world-famous monuments, museums, and cuisine. Experience the Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, and the vibrant culture of one of the world's most beautiful cities.",
             "directWithinCountryTrain": {
                 "stationInCannes": "Gare de Cannes",
                 "journeyTime": "5h15m",
-                "frequency": "Several daily"
+                "frequency": "Several daily",
+                "operator": "SNCF TGV",
+                "price_range": "€60-120",
+                "booking_tips": "Book in advance for best prices, especially during peak season. Direct trains available but some require changes."
             },
             "intraEuropeFlight": {
                 "airportsInCannes": [
                     "Nice Côte d'Azur"
                 ],
                 "approxFlightTime": "1h30m",
-                "frequency": "Multiple daily"
+                "frequency": "Multiple daily",
+                "airlines": ["Air France", "EasyJet", "Transavia"],
+                "price_range": "€80-200",
+                "booking_tips": "Book 2-3 months in advance for best rates. Consider flying from Nice for more options."
             }
         },
         {
             "city": "Nice",
             "country": "France",
-            "whyGo": "Beautiful Mediterranean city with stunning Promenade des Anglais, vibrant Old Town, and excellent museums.",
+            "whyGo": "Beautiful Mediterranean city with stunning Promenade des Anglais, vibrant Old Town, and excellent museums. Perfect for day trips or as a base for exploring the French Riviera.",
             "directWithinCountryTrain": {
                 "stationInCannes": "Gare de Cannes",
                 "journeyTime": "30m",
-                "frequency": "Every 30 minutes"
+                "frequency": "Every 30 minutes",
+                "operator": "SNCF TER",
+                "price_range": "€8-12",
+                "booking_tips": "No advance booking required for regional trains. Tickets available at station or online."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "45m",
+                "frequency": "Every 20 minutes",
+                "operator": "Lignes d'Azur",
+                "price_range": "€2-4",
+                "booking_tips": "Bus 200 runs frequently along the coast. Purchase tickets onboard or at kiosks."
             }
         },
         {
             "city": "Monaco",
             "country": "Monaco",
-            "whyGo": "Glamorous microstate known for its casino, yacht-filled harbor, and Formula 1 Grand Prix.",
+            "whyGo": "Glamorous microstate known for its casino, yacht-filled harbor, and Formula 1 Grand Prix. Experience the luxury and excitement of Monte Carlo.",
             "directWithinCountryTrain": {
                 "stationInCannes": "Gare de Cannes",
                 "journeyTime": "1h",
-                "frequency": "Hourly"
+                "frequency": "Hourly",
+                "operator": "SNCF TER",
+                "price_range": "€12-18",
+                "booking_tips": "Trains run along the scenic coast. Consider visiting during the Grand Prix for extra excitement."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "1h15m",
+                "frequency": "Every 30 minutes",
+                "operator": "Lignes d'Azur",
+                "price_range": "€3-5",
+                "booking_tips": "Bus 100 offers scenic coastal views. Purchase tickets onboard."
             }
         },
         {
             "city": "Antibes",
             "country": "France",
-            "whyGo": "Charming coastal town with 16th-century ramparts, Picasso Museum, and beautiful beaches.",
+            "whyGo": "Charming coastal town with 16th-century ramparts, Picasso Museum, and beautiful beaches. A perfect blend of history and Mediterranean charm.",
             "directWithinCountryTrain": {
                 "stationInCannes": "Gare de Cannes",
                 "journeyTime": "15m",
-                "frequency": "Every 30 minutes"
+                "frequency": "Every 30 minutes",
+                "operator": "SNCF TER",
+                "price_range": "€5-8",
+                "booking_tips": "Very frequent service. No advance booking needed for regional trains."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "25m",
+                "frequency": "Every 15 minutes",
+                "operator": "Lignes d'Azur",
+                "price_range": "€2-3",
+                "booking_tips": "Bus 200 runs frequently. Perfect for spontaneous day trips."
             }
         },
         {
             "city": "Saint-Tropez",
             "country": "France",
-            "whyGo": "Legendary coastal village known for its beaches, luxury yachts, and artistic heritage.",
+            "whyGo": "Legendary coastal village known for its beaches, luxury yachts, and artistic heritage. Experience the glamour and charm of the French Riviera's most famous resort.",
             "directWithinCountryFerry": {
                 "portInCannes": "Port de Cannes",
                 "journeyTime": "1h",
-                "frequency": "Several daily (summer only)"
+                "frequency": "Several daily (summer only)",
+                "operator": "Trans Côte d'Azur",
+                "price_range": "€25-35",
+                "booking_tips": "Ferry service operates May-September. Book in advance during peak season."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "1h30m",
+                "frequency": "Several daily",
+                "operator": "Rapides Côte d'Azur",
+                "price_range": "€8-12",
+                "booking_tips": "Year-round service. Purchase tickets at the bus station."
             }
         },
         {
             "city": "Grasse",
             "country": "France",
-            "whyGo": "World's perfume capital with historic perfumeries, museums, and beautiful Provençal landscape.",
+            "whyGo": "World's perfume capital with historic perfumeries, museums, and beautiful Provençal landscape. Discover the art of perfume making in this charming hilltop town.",
             "directWithinCountryTrain": {
                 "stationInCannes": "Gare de Cannes",
                 "journeyTime": "40m",
-                "frequency": "Hourly"
+                "frequency": "Hourly",
+                "operator": "SNCF TER",
+                "price_range": "€8-12",
+                "booking_tips": "Scenic journey through the hills. Visit during spring for the best weather."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "50m",
+                "frequency": "Every 2 hours",
+                "operator": "Rapides Côte d'Azur",
+                "price_range": "€4-6",
+                "booking_tips": "More frequent than train. Purchase tickets onboard."
             }
         },
         {
             "city": "Marseille",
             "country": "France",
-            "whyGo": "France's oldest city with vibrant multicultural atmosphere, historic port, and dramatic coastline.",
+            "whyGo": "France's oldest city with vibrant multicultural atmosphere, historic port, and dramatic coastline. Experience the authentic Mediterranean culture and cuisine.",
             "directWithinCountryTrain": {
                 "stationInCannes": "Gare de Cannes",
                 "journeyTime": "2h15m",
-                "frequency": "Hourly"
-            }
-        },
-        {
-            "city": "Aix-en-Provence",
-            "country": "France",
-            "whyGo": "Elegant university town with tree-lined boulevards, thermal springs, and Cézanne's studio.",
-            "directWithinCountryTrain": {
-                "stationInCannes": "Gare de Cannes",
-                "journeyTime": "1h50m",
-                "frequency": "Every 2 hours"
-            }
-        },
-        {
-            "city": "Menton",
-            "country": "France",
-            "whyGo": "Colorful seaside town on the Italian border known for its gardens, microclimate, and lemon festival.",
-            "directWithinCountryTrain": {
-                "stationInCannes": "Gare de Cannes",
-                "journeyTime": "1h15m",
-                "frequency": "Hourly"
-            }
-        },
-        {
-            "city": "Saint-Paul-de-Vence",
-            "country": "France",
-            "whyGo": "Stunning medieval hilltop village with famous contemporary art museum and artistic heritage.",
-            "directWithinCountryBus": {
-                "stationInCannes": "Gare Routière de Cannes",
-                "journeyTime": "1h",
-                "frequency": "Several daily"
-            }
-        },
-        {
-            "city": "Milan",
-            "country": "Italy",
-            "whyGo": "A global capital of fashion and design with stunning cathedral and rich cultural heritage.",
-            "intraEuropeTrain": {
-                "stationInCannes": "Gare de Cannes",
-                "journeyTime": "5h30m",
-                "frequency": "Daily"
-            },
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h",
-                "frequency": "Multiple daily"
-            }
-        },
-        {
-            "city": "Genoa",
-            "country": "Italy",
-            "whyGo": "Historic port city with magnificent palaces, maritime museum, and birthplace of Christopher Columbus.",
-            "intraEuropeTrain": {
-                "stationInCannes": "Gare de Cannes",
-                "journeyTime": "3h30m",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Turin",
-            "country": "Italy",
-            "whyGo": "Elegant city with baroque architecture, renowned Egyptian Museum, and chocolate traditions.",
-            "intraEuropeTrain": {
-                "stationInCannes": "Gare de Cannes",
-                "journeyTime": "4h45m",
-                "frequency": "Daily"
-            },
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Barcelona",
-            "country": "Spain",
-            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h15m",
-                "frequency": "Multiple daily"
-            }
-        },
-        {
-            "city": "London",
-            "country": "United Kingdom",
-            "whyGo": "A leading global city with strengths in the arts, commerce, and culture.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h10m",
-                "frequency": "Multiple daily"
-            }
-        },
-        {
-            "city": "Amsterdam",
-            "country": "Netherlands",
-            "whyGo": "Famous for its artistic heritage, elaborate canal system, and cycling culture.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Geneva",
-            "country": "Switzerland",
-            "whyGo": "A global city with Red Cross headquarters and stunning lake views.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Rome",
-            "country": "Italy",
-            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h15m",
-                "frequency": "Multiple daily"
-            }
-        },
-        {
-            "city": "Lisbon",
-            "country": "Portugal",
-            "whyGo": "Known for its colorful buildings, historic trams, and rich maritime heritage.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h30m",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Dublin",
-            "country": "Ireland",
-            "whyGo": "Known for its literary heritage, lively pubs, and friendly atmosphere.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h45m",
-                "frequency": "3-4 times weekly"
-            }
-        },
-        {
-            "city": "Berlin",
-            "country": "Germany",
-            "whyGo": "Dynamic city known for its art scene, modern landmarks, and vibrant nightlife.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Prague",
-            "country": "Czech Republic",
-            "whyGo": "Known for its medieval Old Town, baroque architecture, and vibrant cultural scene.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h45m",
-                "frequency": "3-4 times weekly"
-            }
-        },
-        {
-            "city": "Vienna",
-            "country": "Austria",
-            "whyGo": "Known for its imperial palaces, classical music legacy, and café culture.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "1h45m",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Marrakech",
-            "country": "Morocco",
-            "whyGo": "Vibrant North African city known for its medina, souks, and mix of cultures.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h45m",
-                "frequency": "3-4 times weekly"
-            }
-        },
-        {
-            "city": "Istanbul",
-            "country": "Turkey",
-            "whyGo": "Transcontinental city bridging Europe and Asia with rich Byzantine and Ottoman heritage.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "3h",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Copenhagen",
-            "country": "Denmark",
-            "whyGo": "Renowned for its design, bicycle culture, and exceptional dining scene.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h15m",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Athens",
-            "country": "Greece",
-            "whyGo": "Ancient city with world-famous archaeological sites like the Acropolis.",
-            "intraEuropeFlight": {
-                "airportsInCannes": [
-                    "Nice Côte d'Azur"
-                ],
-                "approxFlightTime": "2h30m",
-                "frequency": "Daily"
-            }
-        },
-        {
-            "city": "Corsica",
-            "country": "France",
-            "whyGo": "Mediterranean island with stunning beaches, mountain landscapes, and unique cultural heritage.",
-            "directWithinCountryFerry": {
-                "portInCannes": "Port de Cannes",
-                "journeyTime": "4h",
-                "frequency": "Daily (summer season)"
+                "frequency": "Hourly",
+                "operator": "SNCF TER",
+                "price_range": "€25-35",
+                "booking_tips": "Scenic coastal route. Book in advance for better prices."
             },
             "intraEuropeFlight": {
                 "airportsInCannes": [
                     "Nice Côte d'Azur"
                 ],
                 "approxFlightTime": "45m",
-                "frequency": "Multiple daily"
+                "frequency": "Daily",
+                "airlines": ["Air France"],
+                "price_range": "€100-150",
+                "booking_tips": "Short flight but train may be more convenient and scenic."
             }
         },
         {
-            "city": "Venice",
+            "city": "Aix-en-Provence",
+            "country": "France",
+            "whyGo": "Elegant university town with tree-lined boulevards, thermal springs, and Cézanne's studio. Experience the refined culture and beautiful architecture of Provence.",
+            "directWithinCountryTrain": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "1h50m",
+                "frequency": "Every 2 hours",
+                "operator": "SNCF TER",
+                "price_range": "€20-30",
+                "booking_tips": "Requires change at Marseille. Book in advance for better rates."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "2h30m",
+                "frequency": "3 daily",
+                "operator": "Rapides Côte d'Azur",
+                "price_range": "€15-20",
+                "booking_tips": "Direct service available. Purchase tickets at bus station."
+            }
+        },
+        {
+            "city": "Menton",
+            "country": "France",
+            "whyGo": "Colorful seaside town on the Italian border known for its gardens, microclimate, and lemon festival. Experience the unique blend of French and Italian cultures.",
+            "directWithinCountryTrain": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "1h15m",
+                "frequency": "Hourly",
+                "operator": "SNCF TER",
+                "price_range": "€12-18",
+                "booking_tips": "Scenic coastal route. Visit during the Lemon Festival in February for extra charm."
+            },
+            "bus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "1h45m",
+                "frequency": "Every 2 hours",
+                "operator": "Lignes d'Azur",
+                "price_range": "€4-6",
+                "booking_tips": "Bus 100 offers beautiful coastal views. Purchase tickets onboard."
+            }
+        },
+        {
+            "city": "Saint-Paul-de-Vence",
+            "country": "France",
+            "whyGo": "Stunning medieval hilltop village with famous contemporary art museum and artistic heritage. Experience the charm of one of France's most beautiful villages.",
+            "directWithinCountryBus": {
+                "stationInCannes": "Gare Routière de Cannes",
+                "journeyTime": "1h",
+                "frequency": "Several daily",
+                "operator": "Rapides Côte d'Azur",
+                "price_range": "€6-8",
+                "booking_tips": "Bus 400 serves the village. Purchase tickets at the bus station."
+            },
+            "car": {
+                "journeyTime": "45m",
+                "distance": "25km",
+                "route": "A8 motorway",
+                "price_range": "€15-25 (fuel)",
+                "booking_tips": "Parking available in the village. Consider car rental for flexibility."
+            }
+        },
+        {
+            "city": "Milan",
             "country": "Italy",
-            "whyGo": "Legendary city of canals, Renaissance art, and Gothic architecture.",
+            "whyGo": "A global capital of fashion and design with stunning cathedral and rich cultural heritage. Experience the sophistication and style of Italy's most dynamic city.",
+            "intraEuropeTrain": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "operator": "SNCF/Trenitalia",
+                "price_range": "€80-120",
+                "booking_tips": "Requires change at Ventimiglia. Book well in advance for best prices."
+            },
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "airlines": ["EasyJet", "Air France", "Alitalia"],
+                "price_range": "€60-150",
+                "booking_tips": "Book 2-3 months in advance for best rates. Consider flying from Nice for more options."
+            }
+        },
+        {
+            "city": "Genoa",
+            "country": "Italy",
+            "whyGo": "Historic port city with magnificent palaces, maritime museum, and birthplace of Christopher Columbus. Experience the authentic Italian port culture.",
+            "intraEuropeTrain": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "3h30m",
+                "frequency": "Daily",
+                "operator": "SNCF/Trenitalia",
+                "price_range": "€50-80",
+                "booking_tips": "Scenic coastal route. Book in advance for better prices."
+            },
             "intraEuropeFlight": {
                 "airportsInCannes": [
                     "Nice Côte d'Azur"
                 ],
                 "approxFlightTime": "1h15m",
-                "frequency": "Daily"
+                "frequency": "Daily",
+                "airlines": ["EasyJet", "Alitalia"],
+                "price_range": "€80-120",
+                "booking_tips": "Short flight but train offers scenic coastal views."
+            }
+        },
+        {
+            "city": "Turin",
+            "country": "Italy",
+            "whyGo": "Elegant city with baroque architecture, renowned Egyptian Museum, and chocolate traditions. Experience the refined culture of northern Italy.",
+            "intraEuropeTrain": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "4h45m",
+                "frequency": "Daily",
+                "operator": "SNCF/Trenitalia",
+                "price_range": "€70-100",
+                "booking_tips": "Requires change at Ventimiglia. Book well in advance."
+            },
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "airlines": ["EasyJet", "Alitalia"],
+                "price_range": "€70-120",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces. Experience the vibrant culture and stunning architecture of Catalonia's capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "airlines": ["Vueling", "EasyJet", "Air France"],
+                "price_range": "€80-150",
+                "booking_tips": "Book 2-3 months in advance for best rates. Consider flying from Nice for more options."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "operator": "SNCF/RENFE",
+                "price_range": "€120-180",
+                "booking_tips": "Long journey but scenic route through France and Spain."
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, and culture. Experience the energy and diversity of one of the world's most dynamic capitals.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Multiple daily",
+                "airlines": ["British Airways", "EasyJet", "Air France"],
+                "price_range": "€120-250",
+                "booking_tips": "Book 3-4 months in advance for best rates. Consider flying from Nice for more options."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "operator": "SNCF/Eurostar",
+                "price_range": "€200-300",
+                "booking_tips": "Requires change in Paris. Book well in advance for best prices."
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and cycling culture. Experience the charm and creativity of the Netherlands' capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "airlines": ["KLM", "EasyJet", "Transavia"],
+                "price_range": "€100-180",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "operator": "SNCF/Thalys",
+                "price_range": "€150-250",
+                "booking_tips": "Requires change in Paris. Book well in advance."
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city with Red Cross headquarters and stunning lake views. Experience the international atmosphere and natural beauty of Switzerland's French-speaking region.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "airlines": ["Swiss", "EasyJet"],
+                "price_range": "€80-150",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "4h",
+                "frequency": "Daily",
+                "operator": "SNCF/CFF",
+                "price_range": "€80-120",
+                "booking_tips": "Scenic route through the Alps. Book in advance for better prices."
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture. Experience the history and grandeur of Italy's capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "airlines": ["Alitalia", "EasyJet", "Air France"],
+                "price_range": "€80-160",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "operator": "SNCF/Trenitalia",
+                "price_range": "€100-150",
+                "booking_tips": "Requires change at Ventimiglia. Book well in advance."
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its colorful buildings, historic trams, and rich maritime heritage. Experience the charm and culture of Portugal's vibrant capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "airlines": ["TAP Portugal", "EasyJet"],
+                "price_range": "€120-200",
+                "booking_tips": "Book 3-4 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "12h",
+                "frequency": "Daily",
+                "operator": "SNCF/CP",
+                "price_range": "€200-300",
+                "booking_tips": "Very long journey requiring multiple changes. Flight recommended."
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Known for its literary heritage, lively pubs, and friendly atmosphere. Experience the warmth and culture of Ireland's capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "3-4 times weekly",
+                "airlines": ["Aer Lingus", "Ryanair"],
+                "price_range": "€150-250",
+                "booking_tips": "Limited frequency. Book well in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "12h",
+                "frequency": "Daily",
+                "operator": "SNCF/Eurostar",
+                "price_range": "€250-350",
+                "booking_tips": "Very long journey requiring multiple changes. Flight recommended."
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic city known for its art scene, modern landmarks, and vibrant nightlife. Experience the energy and creativity of Germany's capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "airlines": ["Lufthansa", "EasyJet", "Air France"],
+                "price_range": "€120-200",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "operator": "SNCF/DB",
+                "price_range": "€180-280",
+                "booking_tips": "Requires multiple changes. Book well in advance."
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its medieval Old Town, baroque architecture, and vibrant cultural scene. Experience the fairy-tale charm of the Czech capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "3-4 times weekly",
+                "airlines": ["Czech Airlines", "EasyJet"],
+                "price_range": "€130-220",
+                "booking_tips": "Limited frequency. Book well in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "10h",
+                "frequency": "Daily",
+                "operator": "SNCF/CD",
+                "price_range": "€200-300",
+                "booking_tips": "Very long journey requiring multiple changes. Flight recommended."
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its imperial palaces, classical music legacy, and café culture. Experience the elegance and culture of Austria's capital.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "airlines": ["Austrian Airlines", "EasyJet"],
+                "price_range": "€120-200",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "9h",
+                "frequency": "Daily",
+                "operator": "SNCF/ÖBB",
+                "price_range": "€180-280",
+                "booking_tips": "Requires multiple changes. Book well in advance."
+            }
+        },
+        {
+            "city": "Marrakech",
+            "country": "Morocco",
+            "whyGo": "Vibrant North African city known for its medina, souks, and mix of cultures. Experience the exotic charm and rich heritage of Morocco.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "3-4 times weekly",
+                "airlines": ["Royal Air Maroc", "EasyJet"],
+                "price_range": "€150-250",
+                "booking_tips": "Limited frequency. Book well in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "Not available",
+                "frequency": "N/A",
+                "operator": "N/A",
+                "price_range": "N/A",
+                "booking_tips": "No direct train service available. Flight recommended."
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Transcontinental city bridging Europe and Asia with rich Byzantine and Ottoman heritage. Experience the unique blend of cultures and history.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Daily",
+                "airlines": ["Turkish Airlines", "EasyJet"],
+                "price_range": "€180-300",
+                "booking_tips": "Book 3-4 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "Not available",
+                "frequency": "N/A",
+                "operator": "N/A",
+                "price_range": "N/A",
+                "booking_tips": "No direct train service available. Flight recommended."
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Renowned for its design, bicycle culture, and exceptional dining scene. Experience the Scandinavian lifestyle and innovation.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "airlines": ["SAS", "EasyJet", "Norwegian"],
+                "price_range": "€140-240",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "12h",
+                "frequency": "Daily",
+                "operator": "SNCF/DSB",
+                "price_range": "€250-350",
+                "booking_tips": "Very long journey requiring multiple changes. Flight recommended."
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient city with world-famous archaeological sites like the Acropolis. Experience the cradle of Western civilization and Mediterranean culture.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "airlines": ["Aegean Airlines", "EasyJet"],
+                "price_range": "€150-250",
+                "booking_tips": "Book 3-4 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "Not available",
+                "frequency": "N/A",
+                "operator": "N/A",
+                "price_range": "N/A",
+                "booking_tips": "No direct train service available. Flight recommended."
+            }
+        },
+        {
+            "city": "Corsica",
+            "country": "France",
+            "whyGo": "Mediterranean island with stunning beaches, mountain landscapes, and unique cultural heritage. Experience the wild beauty and authentic island life.",
+            "directWithinCountryFerry": {
+                "portInCannes": "Port de Cannes",
+                "journeyTime": "4h",
+                "frequency": "Daily (summer season)",
+                "operator": "Corsica Ferries",
+                "price_range": "€40-80",
+                "booking_tips": "Ferry service operates April-October. Book in advance during peak season."
+            },
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Multiple daily",
+                "airlines": ["Air Corsica", "Air France"],
+                "price_range": "€80-150",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Legendary city of canals, Renaissance art, and Gothic architecture. Experience the magical atmosphere of the floating city.",
+            "intraEuropeFlight": {
+                "airportsInCannes": [
+                    "Nice Côte d'Azur"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "airlines": ["EasyJet", "Alitalia"],
+                "price_range": "€80-160",
+                "booking_tips": "Book 2-3 months in advance for best rates."
+            },
+            "train": {
+                "stationInCannes": "Gare de Cannes",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "operator": "SNCF/Trenitalia",
+                "price_range": "€120-180",
+                "booking_tips": "Requires change at Ventimiglia. Book well in advance."
             }
         }
     ]
