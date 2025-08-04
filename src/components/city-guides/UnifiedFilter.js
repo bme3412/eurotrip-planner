@@ -15,11 +15,9 @@ const UnifiedFilter = ({
   activeFilterType,
   onFilterTypeChange
 }) => {
-  const [internalActiveFilterType, setInternalActiveFilterType] = useState('euro-region');
-  
-  // Use the prop if provided, otherwise use internal state
-  const currentFilterType = activeFilterType || internalActiveFilterType;
-  const setCurrentFilterType = onFilterTypeChange || setInternalActiveFilterType;
+  // Use the prop directly - no internal state needed
+  const currentFilterType = activeFilterType || 'euro-region';
+  const setCurrentFilterType = onFilterTypeChange;
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const countryDropdownRef = useRef(null);
 
@@ -49,30 +47,37 @@ const UnifiedFilter = ({
       'Mediterranean',
       'The Nordics',
       'Central Europe',
-      'Wine Regions',
       'Historic Capitals',
       'Luxury Coastlines'
     ];
   };
 
-  // Travel experience options
+  // Travel experience options - updated to match actual tourismCategories in city data
   const getTravelStyleOptions = () => {
     return [
       'All Experiences',
       'Cultural',
-      'Adventure',
-      'Relaxation',
+      'Historical Landmarks',
       'Food & Wine',
+      'Wine Regions',
+      'Urban Exploration',
       'Nightlife',
       'Shopping',
       'Family',
-      'Romance'
+      'Romance',
+      'Adventure',
+      'Relaxation',
+      'Beach Destinations',
+      'Gastronomic Destinations',
+      'Cultural Tourism Hubs',
+      'Natural Landscapes',
+      'Adventure Travel'
     ];
   };
 
   const handleFilterTypeChange = (filterType) => {
     setCurrentFilterType(filterType);
-    handleRegionChange('All', filterType);
+    handleRegionChange(filterType === 'euro-region' ? 'All Regions' : 'All Experiences', filterType);
   };
 
   const getCountryButtonLabel = () => {
@@ -85,7 +90,7 @@ const UnifiedFilter = ({
     return `${selectedCountries.length} Countries`;
   };
 
-  const hasActiveFilters = selectedRegion !== 'All' || selectedCountries.length > 0 || searchTerm;
+  const hasActiveFilters = (selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') || selectedCountries.length > 0 || searchTerm;
 
   // Get filter options based on active filter type
   const getFilterOptions = () => {
@@ -133,7 +138,7 @@ const UnifiedFilter = ({
         <div className="bg-gray-100 p-1 rounded-lg">
           <div className="flex space-x-1">
             <button
-              onClick={() => setCurrentFilterType('euro-region')}
+              onClick={() => handleFilterTypeChange('euro-region')}
               className={`
                 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
                 ${currentFilterType === 'euro-region'
@@ -145,7 +150,7 @@ const UnifiedFilter = ({
               🗺️ Regions
             </button>
             <button
-              onClick={() => setCurrentFilterType('travel-experience')}
+              onClick={() => handleFilterTypeChange('travel-experience')}
               className={`
                 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
                 ${currentFilterType === 'travel-experience'
@@ -184,13 +189,8 @@ const UnifiedFilter = ({
                 {/* All Countries option */}
                 <button
                   onClick={() => {
-                    if (selectedCountries.length === 0) {
-                      // If none selected, select all
-                      handleCountryChange('All');
-                    } else {
-                      // If some selected, clear all
-                      setSelectedCountries([]);
-                    }
+                    // Clear all country selections
+                    handleCountryChange('clear-all');
                   }}
                   className="w-full flex items-center justify-between px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm border-b border-gray-100"
                 >
@@ -263,11 +263,7 @@ const UnifiedFilter = ({
               <button
                 key={option}
                 onClick={() => {
-                  if (currentFilterType === 'euro-region') {
-                    handleRegionChange(option);
-                  } else {
-                    handleRegionChange(option);
-                  }
+                  handleRegionChange(option, currentFilterType);
                 }}
                 className={`
                   px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
@@ -288,11 +284,11 @@ const UnifiedFilter = ({
       {hasActiveFilters && (
         <div className="mt-3 pt-3 border-t border-gray-100">
           <div className="flex flex-wrap gap-2">
-            {selectedRegion !== 'All' && (
+            {selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences' && (
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-blue-100 text-blue-800">
                 {currentFilterType === 'euro-region' ? 'Region' : 'Experience'}: {selectedRegion}
                 <button
-                  onClick={() => handleRegionChange('All', currentFilterType)}
+                  onClick={() => handleRegionChange(currentFilterType === 'euro-region' ? 'All Regions' : 'All Experiences', currentFilterType)}
                   className="ml-2 hover:text-blue-600"
                 >
                   ×

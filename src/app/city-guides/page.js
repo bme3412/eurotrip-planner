@@ -17,13 +17,13 @@ const LOAD_INCREMENT = 8;
 export default function CityGuidesPage() {
   /* ───────── state ───────── */
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('All');
+  const [selectedRegion, setSelectedRegion] = useState('All Regions');
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(false);
   const [allCountries, setAllCountries] = useState([]);
   const [error, setError] = useState(null);
-  const [activeFilterType, setActiveFilterType] = useState('geographic');
+  const [activeFilterType, setActiveFilterType] = useState('euro-region');
 
   const [itemsToShow, setItemsToShow] = useState(INITIAL_LOAD);
   const [displayed, setDisplayed] = useState([]);
@@ -49,6 +49,15 @@ export default function CityGuidesPage() {
 
   /* ───────── filtering ───────── */
   const filtered = useMemo(() => {
+    // Debug logging
+    console.log('Filtering with:', {
+      selectedRegion,
+      activeFilterType,
+      selectedCountries,
+      searchTerm,
+      citiesCount: cities.length
+    });
+    
     return cities.filter((city) => {
       const matchesSearch =
         !searchTerm ||
@@ -62,7 +71,7 @@ export default function CityGuidesPage() {
         selectedCountries.length === 0 || selectedCountries.includes(city.country);
 
                   let matchesRegion = true;
-            if (selectedRegion !== 'All') {
+            if (selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') {
         if (activeFilterType === 'euro-region') {
           // Refined Euro-region filtering - 9 categories total
           const euroRegionGroups = {
@@ -71,19 +80,57 @@ export default function CityGuidesPage() {
             'Mediterranean': ['Italy', 'Spain', 'Portugal', 'Greece'],
             'The Nordics': ['Denmark', 'Sweden', 'Norway', 'Finland'],
             'Central Europe': ['Poland', 'Hungary', 'Czech Republic'],
-            'Wine Regions': ['France', 'Italy', 'Spain', 'Portugal'], // Major wine-producing countries
-            'Historic Capitals': ['France', 'Germany', 'Austria', 'Italy', 'Spain'], // Major historic capitals
-            'Luxury Coastlines': ['France', 'Italy', 'Spain'] // St Tropez, Cote d'Azur, Amalfi Coast, Ibiza
+            'Historic Capitals': ['France', 'Germany', 'Austria', 'Italy', 'Spain'] // Major historic capitals
           };
-          matchesRegion = euroRegionGroups[selectedRegion]?.includes(city.country) ?? false;
+          
+          if (selectedRegion === 'Luxury Coastlines') {
+            // Luxury Coastlines should show coastal cities from France, Italy, Spain, Portugal, Greece
+            const luxuryCoastlineCountries = ['France', 'Italy', 'Spain', 'Portugal', 'Greece'];
+            const isFromLuxuryCoastlineCountry = luxuryCoastlineCountries.includes(city.country);
+            const hasCoastalCategories = city.tourismCategories?.includes('Beach Destinations') ?? false;
+            matchesRegion = isFromLuxuryCoastlineCountry && hasCoastalCategories;
+          } else if (selectedRegion === 'Historic Capitals') {
+            // Historic Capitals should show specific historic capital cities
+            const historicCapitalCities = [
+              'paris', 'rome', 'madrid', 'berlin', 'vienna', 'prague', 'budapest', 
+              'warsaw', 'athens', 'lisbon', 'dublin', 'copenhagen', 'stockholm', 
+              'oslo', 'helsinki', 'amsterdam', 'brussels', 'bern', 'zurich'
+            ];
+            matchesRegion = historicCapitalCities.includes(city.id);
+          } else {
+            matchesRegion = euroRegionGroups[selectedRegion]?.includes(city.country) ?? false;
+          }
                       } else if (activeFilterType === 'travel-experience') {
-                // Travel experience filtering - 9 categories total
-                matchesRegion =
-                  city.tourismCategories?.includes(selectedRegion) ?? false;
+                // Travel experience filtering - check if city has the selected tourism category
+                if (selectedRegion === 'Wine Regions') {
+                  // Wine Regions should show cities with Food & Wine category
+                  matchesRegion = city.tourismCategories?.includes('Food & Wine') ?? false;
+                } else {
+                  // Other travel experiences check for the exact category
+                  matchesRegion = city.tourismCategories?.includes(selectedRegion) ?? false;
+                }
+              } else {
+                // Fallback for any other filter types - default to no filtering
+                matchesRegion = true;
               }
       }
 
-      return matchesSearch && matchesCountry && matchesRegion;
+      const result = matchesSearch && matchesCountry && matchesRegion;
+      
+      // Debug logging for specific cities
+      if (city.name === 'Paris' || city.name === 'Barcelona') {
+        console.log(`${city.name} filtering:`, {
+          matchesSearch,
+          matchesCountry,
+          matchesRegion,
+          result,
+          cityCountry: city.country,
+          selectedRegion,
+          activeFilterType
+        });
+      }
+      
+      return result;
     });
   }, [cities, searchTerm, selectedCountries, selectedRegion, activeFilterType]);
 
@@ -124,14 +171,19 @@ export default function CityGuidesPage() {
     if (type) setActiveFilterType(type);
   };
 
-  const handleCountryChange = (c) =>
-    setSelectedCountries((prev) =>
-      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
-    );
+  const handleCountryChange = (c) => {
+    if (c === 'clear-all') {
+      setSelectedCountries([]);
+    } else {
+      setSelectedCountries((prev) =>
+        prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
+      );
+    }
+  };
 
   const clearFilters = () => {
     setSearchTerm('');
-    setSelectedRegion('All');
+    setSelectedRegion('All Regions');
     setSelectedCountries([]);
   };
 

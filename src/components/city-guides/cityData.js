@@ -501,7 +501,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Barcelona is a vibrant city known for its unique architecture, particularly the works of Antoni Gaudí, and its rich cultural heritage.",
-      thumbnail: "/images/barcelona-thumbnail.jpeg",
+      thumbnail: "/images/barcelona-thumbnail.png",
       landmarks: ["Sagrada Familia", "Park Güell", "La Rambla"],
       latitude: 41.3851,
       longitude: 2.1734,
