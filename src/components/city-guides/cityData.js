@@ -187,6 +187,22 @@ export const getCitiesData = () => {
       tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine"],
       linguisticCategories: ["Romance"],
     },
+    {
+      id: "cannes",
+      name: "Cannes",
+      country: "France",
+      region: "Mediterranean",
+      description:
+        "Cannes, the glamorous resort town on the French Riviera, is famous for its international film festival, luxury boutiques, and stunning Mediterranean beaches.",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/cannes.jpeg')
+        : "/images/optimized/cannes.jpeg",
+      landmarks: ["La Croisette", "Palais des Festivals", "Le Suquet"],
+      latitude: 43.5528,
+      longitude: 7.0174,
+      tourismCategories: ["Beach Destinations", "Luxury Coastlines", "Relaxation", "Romance", "Shopping"],
+      linguisticCategories: ["Romance"],
+    },
 
     // GERMANY
     {
@@ -899,7 +915,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Copenhagen combines historic charm with modern design, known for its cycling culture, sustainable living, and hygge lifestyle.",
-      thumbnail: "/images/copenhagen-thumbnail.jpeg",
+      thumbnail: "/images/copenhagen-thumbnail.png",
       landmarks: ["Nyhavn", "Tivoli Gardens", "Little Mermaid"],
       latitude: 55.6761,
       longitude: 12.5683,
