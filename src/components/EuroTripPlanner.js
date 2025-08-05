@@ -257,6 +257,82 @@ const EuroTripPlanner = () => {
           </section>
         );
 
+      case "Custom":
+        return (
+          <section>
+            <div className="bg-white rounded-xl p-8 shadow-md">
+              <h2 className="text-2xl font-bold text-slate-800 mb-6">
+                Custom Trip Planning
+              </h2>
+              <p className="text-slate-600 mb-8">
+                Create your own custom itinerary by selecting specific cities and dates.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-slate-800">Trip Details</h3>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Start Date
+                    </label>
+                    <input
+                      type="date"
+                      value={startDate}
+                      onChange={(e) => setStartDate(e.target.value)}
+                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      End Date
+                    </label>
+                    <input
+                      type="date"
+                      value={endDate}
+                      onChange={(e) => setEndDate(e.target.value)}
+                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    />
+                  </div>
+                  {tripDuration > 0 && (
+                    <div className="bg-indigo-50 p-4 rounded-lg">
+                      <p className="text-indigo-800 font-medium">
+                        Trip Duration: {tripDuration} days
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-slate-800">Selected Cities</h3>
+                  {selectedCities.length > 0 ? (
+                    <div className="space-y-2">
+                      {selectedCities.map((city, index) => (
+                        <div key={index} className="flex items-center justify-between bg-slate-50 p-3 rounded-lg">
+                          <span className="font-medium">{city.title}</span>
+                          <button
+                            onClick={() => removeCityFromTrip(index)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-slate-500">No cities selected yet</p>
+                  )}
+                </div>
+              </div>
+              <div className="mt-8">
+                <button
+                  onClick={() => setActiveTab("Explore")}
+                  className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+                >
+                  Browse Cities to Add
+                </button>
+              </div>
+            </div>
+          </section>
+        );
+
       case "My Trip":
         return (
           <section>

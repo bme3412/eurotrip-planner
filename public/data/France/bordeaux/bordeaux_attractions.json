@@ -2,394 +2,509 @@
     "sites": [
       {
         "name": "Place de la Bourse",
-        "type": "Square",
-        "description": "One of Bordeaux's most iconic landmarks, this elegant 18th-century square represents the city's prosperity during the Age of Enlightenment. Its masterpiece is the Miroir d'Eau (Water Mirror), the world's largest reflecting pool that creates stunning mirror images of the surrounding architecture.",
-        "indoor": false,
-        "best_time": "Evening",
-        "price_range": "Free",
-        "seasonal_notes": "The Water Mirror is most spectacular at sunset. In summer, children play in the mist cycles. Winter evenings offer beautiful reflections with fewer crowds.",
-        "booking_tips": "No booking required. Visit during the misting cycles (every 15 minutes) for the best experience.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 5
-        },
-        "latitude": 44.8418,
-        "longitude": -0.5695
-      },
-      {
-        "name": "La Cité du Vin",
-        "type": "Museum",
-        "description": "This modern, iconic museum is dedicated to the universal culture of wine. Its striking architecture resembles wine swirling in a glass. Inside, interactive exhibits explore the history and culture of wine throughout civilizations. The experience concludes with a wine tasting on the panoramic 8th-floor Belvedere.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Expensive",
-        "seasonal_notes": "Less crowded on weekdays. Special exhibitions change seasonally. Summer brings more tourists.",
-        "booking_tips": "Book tickets online to avoid queues. The admission includes one glass of wine at the Belvedere with stunning city views.",
-        "ratings": {
-          "cost_estimate": 22,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 5
-        },
-        "latitude": 44.8597,
-        "longitude": -0.5526
-      },
-      {
-        "name": "Bordeaux Cathedral",
-        "type": "Cathedral",
-        "description": "Officially known as Cathédrale Saint-André de Bordeaux, this Gothic cathedral dates back to the 11th century. It features impressive flying buttresses and the 15th-century Tour Pey-Berland bell tower. The cathedral was a stop on the pilgrimage route to Santiago de Compostela and hosted royal weddings.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "The cathedral is less crowded in the early morning. The adjacent Pey-Berland Tower can be climbed for panoramic views (paid separately).",
-        "booking_tips": "No booking required for the cathedral. For the tower, tickets can be purchased on-site.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 5
-        },
-        "latitude": 44.8377,
-        "longitude": -0.5771
-      },
-      {
-        "name": "Rue Sainte-Catherine",
-        "type": "Street",
-        "description": "Europe's longest pedestrian shopping street stretches for 1.2 kilometers through the heart of Bordeaux. Lined with both international brands and local boutiques, cafés, and pastry shops, it connects Place de la Comédie to Place de la Victoire.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Extremely busy during summer and holiday seasons. Winter brings beautiful Christmas decorations and markets.",
-        "booking_tips": "No booking required. The side streets offer charming cafés with less tourist traffic.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 3
-        },
-        "latitude": 44.8412,
-        "longitude": -0.5734
-      },
-      {
-        "name": "Grand Théâtre de Bordeaux",
-        "type": "Opera House",
-        "description": "This magnificent neoclassical opera house, built in 1780, features a stunning colonnade of Corinthian columns and statues representing the nine Muses and three Greek goddesses. Its opulent interior with a blue and gold auditorium is considered one of the most beautiful in Europe.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Guided tours available most days. Check the performance schedule if you wish to attend a show.",
-        "booking_tips": "Book guided tours in advance. For performances, reserve weeks ahead, especially for popular operas and ballets.",
-        "ratings": {
-          "cost_estimate": 12,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 5
-        },
-        "latitude": 44.8433,
-        "longitude": -0.5738
-      },
-      {
-        "name": "La Grosse Cloche",
-        "type": "Historical Monument",
-        "description": "This medieval bell tower and gateway is one of the oldest belfries in France and a symbol of Bordeaux. Built in the 15th century as part of the old city hall, it features a large bell weighing 7,800 kg and an astronomical clock from 1759.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "The interior can be visited on specific days with guided tours. Good lighting for photos in the morning.",
-        "booking_tips": "The exterior can be viewed anytime. Check the Bordeaux tourism office for interior tour schedules.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 0.5,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8366,
-        "longitude": -0.5714
-      },
-      {
-        "name": "Musée d'Aquitaine",
-        "type": "Museum",
-        "description": "This comprehensive museum traces the history of Bordeaux and the Aquitaine region from prehistoric times to the present day. Highlights include Gallo-Roman artifacts, medieval sculptures, 18th-century maritime trade exhibits, and displays on the city's controversial involvement in the slave trade.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Temporary exhibitions change seasonally. Less crowded on weekday afternoons.",
-        "booking_tips": "No advance booking required. Free on the first Sunday of each month.",
-        "ratings": {
-          "cost_estimate": 8,
-          "suggested_duration_hours": 2.5,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8366,
-        "longitude": -0.5753
-      },
-      {
-        "name": "Darwin Ecosystem",
-        "type": "Cultural Space",
-        "description": "This former military barracks has been transformed into an eco-friendly urban space dedicated to sustainable entrepreneurship, alternative culture, and organic living. It houses a coworking space, skate park, urban farm, restaurants, and France's largest organic grocery store.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Busiest on weekends when the food market and special events take place. The outdoor areas are weather-dependent.",
-        "booking_tips": "No booking required to visit. Restaurant reservations recommended for weekend dining.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 3
-        },
-        "latitude": 44.8492,
-        "longitude": -0.5604
-      },
-      {
-        "name": "Pont de Pierre",
-        "type": "Bridge",
-        "description": "Bordeaux's oldest bridge, built under Napoleon's orders between 1810 and 1822, spans the Garonne River with 17 arches (reportedly corresponding to the number of letters in 'Napoleon Bonaparte'). It offers beautiful views of the riverfront and the Place de la Bourse.",
+        "type": "Historic Square",
+        "description": "Bordeaux's most iconic landmark, this magnificent 18th-century square represents the pinnacle of French classical architecture. Designed by Jacques Gabriel and his son Ange-Jacques Gabriel between 1730-1755, it showcases the city's prosperity during the Age of Enlightenment. The square's masterpiece is the Miroir d'Eau (Water Mirror), the world's largest reflecting pool at 3,450 square meters, creating stunning mirror images of the surrounding architecture. The square features the Hôtel des Fermes (Customs House) and Hôtel de la Bourse (Stock Exchange), both adorned with elaborate sculptures and Corinthian columns.",
         "indoor": false,
         "best_time": "Sunset",
         "price_range": "Free",
-        "seasonal_notes": "Beautiful at sunset when the stone takes on a golden hue. Currently pedestrian and bicycle access only.",
-        "booking_tips": "No booking required. Great photo opportunities of the city skyline from the middle of the bridge.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 0.5,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8387,
-        "longitude": -0.5659
-      },
-      {
-        "name": "Jardin Public",
-        "type": "Park",
-        "description": "This 18th-century English-style garden offers a peaceful retreat in the heart of the city. With its ornamental lake, centuries-old trees, children's playground, and botanical garden, it's a favorite relaxation spot for locals and visitors alike.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Especially beautiful in spring when flowers bloom and in autumn for fall colors. The Natural History Museum is located at the park's edge.",
-        "booking_tips": "No booking required. Bring a picnic to enjoy on the lawns.",
+        "seasonal_notes": "The Water Mirror operates from March to October, with misting cycles every 15 minutes. Summer evenings offer the most spectacular reflections. Winter brings beautiful illuminations but no water features.",
+        "booking_tips": "No booking required. Visit during misting cycles (every 15 minutes) for the best experience. Arrive 30 minutes before sunset for optimal photography.",
         "ratings": {
           "cost_estimate": 0,
           "suggested_duration_hours": 1.5,
-          "cultural_significance": 3
+          "cultural_significance": 5,
+          "photography_opportunity": 5,
+          "family_friendly": 4
         },
-        "latitude": 44.8477,
-        "longitude": -0.5786
+        "latitude": 44.8418,
+        "longitude": -0.5695,
+        "address": "Place de la Bourse, 33000 Bordeaux, France",
+        "accessibility": "Wheelchair accessible with ramps and paved surfaces",
+        "nearby_transport": "Tram B and C - Porte de Bourgogne station"
       },
       {
-        "name": "CAPC Musée d'Art Contemporain",
-        "type": "Museum",
-        "description": "Housed in a former colonial warehouse, this contemporary art museum features rotating exhibitions by international artists as well as a permanent collection of over 1,300 works from the 1960s to the present day. The massive central space with its vaulted ceilings hosts large-scale installations.",
+        "name": "La Cité du Vin",
+        "type": "Interactive Museum",
+        "description": "This architectural marvel, designed by XTU Architects and opened in 2016, is dedicated to the universal culture of wine. The building's striking design resembles wine swirling in a glass, with golden aluminum panels that shimmer in sunlight. Inside, 20 themed areas across 3,000 square meters offer immersive experiences exploring wine history, production, and culture throughout civilizations. The experience culminates with a wine tasting on the panoramic 8th-floor Belvedere, offering 360-degree views of Bordeaux and the Garonne River. The museum houses over 1,400 works of art and historical objects related to wine.",
         "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Exhibitions change regularly. The rooftop offers views of the port area.",
-        "booking_tips": "No advance booking required. Free on the first Sunday of each month.",
+        "best_time": "Morning",
+        "price_range": "€22",
+        "seasonal_notes": "Less crowded on weekdays. Special exhibitions change seasonally. Summer brings more tourists. The rooftop terrace is particularly beautiful during sunset.",
+        "booking_tips": "Book tickets online to avoid queues. The admission includes one glass of wine at the Belvedere. Audio guides available in 8 languages.",
         "ratings": {
-          "cost_estimate": 8,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
+          "cost_estimate": 22,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 5,
+          "interactive_experience": 5,
+          "educational_value": 5
         },
-        "latitude": 44.8497,
-        "longitude": -0.5719
+        "latitude": 44.8597,
+        "longitude": -0.5526,
+        "address": "1 Esplanade de Pontac, 33300 Bordeaux, France",
+        "accessibility": "Fully accessible with elevators and adapted facilities",
+        "nearby_transport": "Tram B - Cité du Vin station"
       },
       {
-        "name": "Basilique Saint-Michel",
-        "type": "Basilica",
-        "description": "This Gothic basilica with its separate 114-meter bell tower is a UNESCO World Heritage site. Built between the 14th and 16th centuries, it features stunning stained glass windows and a rich interior. The surrounding square hosts a popular market several days a week.",
+        "name": "Cathédrale Saint-André de Bordeaux",
+        "type": "Gothic Cathedral",
+        "description": "Officially known as Cathédrale Saint-André de Bordeaux, this magnificent Gothic cathedral dates back to the 11th century, though most of the current structure was built between the 12th and 16th centuries. It features impressive flying buttresses, a 15th-century Tour Pey-Berland bell tower (separate from the main building), and stunning stained glass windows. The cathedral was a crucial stop on the pilgrimage route to Santiago de Compostela and hosted royal weddings, including that of Eleanor of Aquitaine and Louis VII. The interior houses remarkable 14th-century frescoes and a magnificent 18th-century organ.",
         "indoor": true,
         "best_time": "Morning",
         "price_range": "Free",
-        "seasonal_notes": "Visit on market days (Monday, Thursday, Saturday) to experience the vibrant local atmosphere. The bell tower can be climbed for panoramic views (paid separately).",
-        "booking_tips": "No booking required for the basilica. The bell tower requires tickets purchased on-site.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8327,
-        "longitude": -0.5662
-      },
-      {
-        "name": "Bordeaux Wine School",
-        "type": "Education",
-        "description": "Located in the heart of Bordeaux, this institution offers wine workshops and tasting courses for everyone from casual enthusiasts to professionals. Learn about wine classification, regional terroirs, and proper tasting techniques from expert instructors.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Expensive",
-        "seasonal_notes": "Classes available year-round with special harvest-related sessions in autumn. Book well in advance in summer.",
-        "booking_tips": "Reserve classes online weeks in advance. Sessions available in multiple languages.",
-        "ratings": {
-          "cost_estimate": 45,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8411,
-        "longitude": -0.5739
-      },
-      {
-        "name": "Les Quais",
-        "type": "Riverfront",
-        "description": "Bordeaux's revitalized riverfront stretches for 4.5 km along the Garonne, offering walking and cycling paths, gardens, playgrounds, and cafés. Once an industrial port area, it's now the city's favorite promenade and gathering place for locals and visitors.",
-        "indoor": false,
-        "best_time": "Evening",
-        "price_range": "Free",
-        "seasonal_notes": "Popular for evening strolls year-round. Summer brings outdoor activities and pop-up bars. Sunday afternoons are especially lively.",
-        "booking_tips": "No booking required. Bike rentals available at various points along the quays.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8378,
-        "longitude": -0.5683
-      },
-      {
-        "name": "Marché des Capucins",
-        "type": "Market",
-        "description": "Known as 'the belly of Bordeaux,' this covered market is the city's gastronomic heart. Local vendors sell fresh produce, meats, cheeses, and seafood, while small eateries offer oysters, wine, and regional specialties in a bustling atmosphere.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Open Tuesday to Sunday mornings, with Sunday being the busiest and most atmospheric day. Closed Mondays.",
-        "booking_tips": "No booking required. Arrive before noon for the best selection and to secure a table at the popular food stalls.",
+        "seasonal_notes": "The cathedral is less crowded in the early morning. The adjacent Pey-Berland Tower can be climbed for panoramic views (€8). Sunday mass at 10:30 AM offers a spiritual experience.",
+        "booking_tips": "No booking required for the cathedral. For the tower, tickets can be purchased on-site. Guided tours available in multiple languages.",
         "ratings": {
           "cost_estimate": 0,
           "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
+          "cultural_significance": 5,
+          "architectural_interest": 5,
+          "spiritual_atmosphere": 4
         },
-        "latitude": 44.8312,
-        "longitude": -0.5701
+        "latitude": 44.8377,
+        "longitude": -0.5771,
+        "address": "Place Pey-Berland, 33000 Bordeaux, France",
+        "accessibility": "Limited accessibility due to historic architecture",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
       },
       {
-        "name": "Base Sous-Marine",
-        "type": "Cultural Space",
-        "description": "This massive concrete submarine base, built by the Germans during World War II, has been transformed into a unique cultural venue. The brutalist structure now hosts contemporary art exhibitions, digital installations, and performances in its cavernous spaces.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "The constant temperature makes it a good indoor option in extreme weather. Special sound and light installations often held in evening hours.",
-        "booking_tips": "Check the current exhibition schedule online. Some special events require advance booking.",
-        "ratings": {
-          "cost_estimate": 10,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8653,
-        "longitude": -0.5508
-      },
-      {
-        "name": "Bordeaux Wine Museum (Musée du Vin et du Négoce)",
-        "type": "Museum",
-        "description": "Located in the historic wine merchants' district, this small museum explores the history of Bordeaux's wine trade from the Middle Ages to the present. Housed in the ancient cellars of a wine merchant's house, it features historical artifacts, interactive displays, and concludes with a wine tasting.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Open year-round. Less crowded than La Cité du Vin and offers a more historical perspective.",
-        "booking_tips": "No advance booking required. The entrance fee includes a tasting of two wines.",
-        "ratings": {
-          "cost_estimate": 12,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8451,
-        "longitude": -0.5714
-      },
-      {
-        "name": "Place des Quinconces",
-        "type": "Square",
-        "description": "One of Europe's largest city squares, featuring the impressive Monument aux Girondins with its towering column and dramatic fountains. The square hosts festivals, markets, and fairs throughout the year, including a large fun fair twice annually.",
+        "name": "Rue Sainte-Catherine",
+        "type": "Pedestrian Shopping Street",
+        "description": "Europe's longest pedestrian shopping street stretches for 1.2 kilometers through the heart of Bordeaux, connecting Place de la Comédie to Place de la Victoire. Lined with over 250 shops, including international brands, local boutiques, cafés, and pastry shops, it's the city's premier shopping destination. The street dates back to Roman times and was named after a 4th-century martyr. Today it features a mix of historic architecture and modern retail, with several notable buildings including the 18th-century Hôtel de Ville and the Grand Théâtre.",
         "indoor": false,
         "best_time": "Afternoon",
         "price_range": "Free",
-        "seasonal_notes": "Check the event calendar for special activities. The fun fair typically runs in October-November and March-April.",
-        "booking_tips": "No booking required. Tram lines B and C stop at Quinconces for easy access.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8458,
-        "longitude": -0.5746
-      },
-      {
-        "name": "Porte Cailhau",
-        "type": "Historical Monument",
-        "description": "This ornate 15th-century city gate was built to commemorate King Charles VIII's victory at Fornovo. Standing 35 meters high, it once served as the main entrance to the city from the river port. Today, visitors can climb its tower for views of the old town and river.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "The interior museum has limited hours. The exterior is well-lit in the evening for photographs.",
-        "booking_tips": "No advance booking required. Small museum inside explains medieval defensive architecture.",
-        "ratings": {
-          "cost_estimate": 5,
-          "suggested_duration_hours": 0.5,
-          "cultural_significance": 4
-        },
-        "latitude": 44.8384,
-        "longitude": -0.5695
-      },
-      {
-        "name": "Chartrons District",
-        "type": "District",
-        "description": "Historically home to wine merchants and foreign traders, this elegant neighborhood now combines antique shops, art galleries, trendy boutiques, and excellent dining options. Its charming streets and riverside promenade offer a glimpse into Bordeaux's commercial past.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "The antique shops along Rue Notre-Dame are closed on Mondays. Sunday morning brings a popular market to the riverfront.",
-        "booking_tips": "No booking required. The district is perfect for a self-guided walking tour.",
+        "seasonal_notes": "Extremely busy during summer and holiday seasons. Winter brings beautiful Christmas decorations and markets. Side streets offer charming cafés with less tourist traffic.",
+        "booking_tips": "No booking required. The side streets offer charming cafés with less tourist traffic. Visit early morning for photography without crowds.",
         "ratings": {
           "cost_estimate": 0,
           "suggested_duration_hours": 2.5,
-          "cultural_significance": 4
+          "cultural_significance": 4,
+          "shopping_experience": 5,
+          "people_watching": 4
         },
-        "latitude": 44.8510,
-        "longitude": -0.5699
+        "latitude": 44.8412,
+        "longitude": -0.5734,
+        "address": "Rue Sainte-Catherine, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with smooth paving",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
       },
       {
-        "name": "Pey-Berland Tower",
-        "type": "Monument",
-        "description": "This Gothic bell tower, separate from Bordeaux Cathedral, offers panoramic views of the city from its 229-step climb. Built in the 15th century, it houses the 19th-century bell 'La Cloche Pey-Berland' which weighs over 11 tons.",
+        "name": "Grand Théâtre de Bordeaux",
+        "type": "Neoclassical Opera House",
+        "description": "This magnificent neoclassical opera house, built between 1773-1780 by architect Victor Louis, features a stunning colonnade of 12 Corinthian columns and statues representing the nine Muses and three Greek goddesses (Juno, Venus, and Minerva). Its opulent interior with a blue and gold auditorium seating 1,100 people is considered one of the most beautiful in Europe. The theater has hosted world premieres and continues to be a major cultural venue. The building's acoustics are renowned, and the ceiling features a magnificent chandelier weighing 1.2 tons.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "€12",
+        "seasonal_notes": "Guided tours available most days. Check the performance schedule if you wish to attend a show. The theater is particularly beautiful during the Bordeaux cultural season (September-June).",
+        "booking_tips": "Book guided tours in advance. For performances, reserve weeks ahead, especially for popular operas and ballets. Backstage tours available on certain days.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5,
+          "architectural_beauty": 5,
+          "acoustic_quality": 5
+        },
+        "latitude": 44.8433,
+        "longitude": -0.5738,
+        "address": "Place de la Comédie, 33000 Bordeaux, France",
+        "accessibility": "Limited accessibility due to historic architecture",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
+      },
+      {
+        "name": "La Grosse Cloche",
+        "type": "Medieval Bell Tower",
+        "description": "This medieval bell tower and gateway, built between 1440-1466, is one of the oldest belfries in France and a symbol of Bordeaux. Originally part of the old city hall, it features a large bell weighing 7,800 kg cast in 1775 and an astronomical clock from 1759. The tower stands 40 meters high and was used to signal important events and curfews. The bell, named 'La Cloche de la Liberté,' was rung to announce the French Revolution. The tower's architecture combines Gothic and Renaissance elements, with decorative sculptures and a distinctive copper dome.",
         "indoor": false,
         "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Climb early to avoid both heat and crowds. Closed in strong winds or bad weather.",
-        "booking_tips": "Tickets purchased on-site. Combined tickets with other monuments available.",
+        "price_range": "Free",
+        "seasonal_notes": "The interior can be visited on specific days with guided tours. Good lighting for photos in the morning. The tower is illuminated at night.",
+        "booking_tips": "The exterior can be viewed anytime. Check the Bordeaux tourism office for interior tour schedules. Photography is best in morning light.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4,
+          "historical_interest": 5,
+          "photography_opportunity": 4
+        },
+        "latitude": 44.8366,
+        "longitude": -0.5714,
+        "address": "Rue Saint-James, 33000 Bordeaux, France",
+        "accessibility": "Exterior viewing only, fully accessible",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Musée d'Aquitaine",
+        "type": "Regional History Museum",
+        "description": "This comprehensive museum traces the history of Bordeaux and the Aquitaine region from prehistoric times to the present day. Housed in a former university building, it features over 70,000 artifacts including Gallo-Roman sculptures, medieval religious art, 18th-century maritime trade exhibits, and displays on the city's controversial involvement in the slave trade. Highlights include the Venus de Laussel (22,000 BC), Roman mosaics, and a detailed section on Bordeaux's wine trade history. The museum also hosts temporary exhibitions on regional archaeology and history.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "€8",
+        "seasonal_notes": "Temporary exhibitions change seasonally. Less crowded on weekday afternoons. The museum is particularly interesting during archaeological discovery seasons.",
+        "booking_tips": "No advance booking required. Free on the first Sunday of each month. Audio guides available in multiple languages.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 4,
+          "educational_value": 5,
+          "collection_quality": 4
+        },
+        "latitude": 44.8366,
+        "longitude": -0.5753,
+        "address": "20 Cours Pasteur, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with elevators and adapted facilities",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
+      },
+      {
+        "name": "Darwin Ecosystem",
+        "type": "Urban Cultural Hub",
+        "description": "This former military barracks (Caserne Niel) has been transformed into an eco-friendly urban space dedicated to sustainable entrepreneurship, alternative culture, and organic living. The 3.5-hectare site houses a coworking space, skate park, urban farm, restaurants, and France's largest organic grocery store (Biocoop). The complex includes street art installations, a beer garden, and hosts regular cultural events. Darwin is a model of urban regeneration and sustainable development, attracting creative professionals and environmentally conscious visitors.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Busiest on weekends when the food market and special events take place. The outdoor areas are weather-dependent. Summer brings outdoor concerts and festivals.",
+        "booking_tips": "No booking required to visit. Restaurant reservations recommended for weekend dining. Check their website for event schedules.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3,
+          "sustainability_focus": 5,
+          "community_atmosphere": 4
+        },
+        "latitude": 44.8492,
+        "longitude": -0.5604,
+        "address": "87 Quai des Queyries, 33100 Bordeaux, France",
+        "accessibility": "Partially accessible with some uneven surfaces",
+        "nearby_transport": "Tram A - Stalingrad station"
+      },
+      {
+        "name": "Pont de Pierre",
+        "type": "Historic Bridge",
+        "description": "Bordeaux's oldest bridge, built under Napoleon's orders between 1810 and 1822, spans the Garonne River with 17 arches (reportedly corresponding to the number of letters in 'Napoleon Bonaparte'). The bridge is 486 meters long and was the first permanent crossing of the Garonne in Bordeaux. It offers beautiful views of the riverfront and the Place de la Bourse. The bridge was originally designed for both road and rail traffic but is now pedestrian and bicycle only. The stone construction gives it a golden hue at sunset.",
+        "indoor": false,
+        "best_time": "Sunset",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful at sunset when the stone takes on a golden hue. Currently pedestrian and bicycle access only. The bridge is illuminated at night.",
+        "booking_tips": "No booking required. Great photo opportunities of the city skyline from the middle of the bridge. Best photography during golden hour.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4,
+          "photography_opportunity": 5,
+          "romantic_atmosphere": 4
+        },
+        "latitude": 44.8387,
+        "longitude": -0.5659,
+        "address": "Pont de Pierre, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with smooth surfaces",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Jardin Public",
+        "type": "Historic Public Garden",
+        "description": "This 18th-century English-style garden, designed by landscape architect Jacques de Vaucanson, offers a peaceful retreat in the heart of the city. The 11-hectare park features an ornamental lake, centuries-old trees, children's playground, and botanical garden with over 3,000 plant species. The garden includes a natural history museum, a library, and several statues including one of Michel de Montaigne. The park is a favorite relaxation spot for locals and visitors alike, with beautiful seasonal flower displays and walking paths.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Especially beautiful in spring when flowers bloom and in autumn for fall colors. The Natural History Museum is located at the park's edge. Summer brings outdoor concerts.",
+        "booking_tips": "No booking required. Bring a picnic to enjoy on the lawns. The park is perfect for morning walks and bird watching.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3,
+          "natural_beauty": 5,
+          "family_friendly": 5
+        },
+        "latitude": 44.8477,
+        "longitude": -0.5786,
+        "address": "Place du Champ de Mars, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with paved paths and ramps",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
+      },
+      {
+        "name": "CAPC Musée d'Art Contemporain",
+        "type": "Contemporary Art Museum",
+        "description": "Housed in a former colonial warehouse (Entrepôt Lainé) built in 1824, this contemporary art museum features rotating exhibitions by international artists as well as a permanent collection of over 1,300 works from the 1960s to the present day. The massive central space with its vaulted ceilings hosts large-scale installations. The museum focuses on conceptual art, minimalism, and contemporary movements. The building itself is an architectural masterpiece, with its industrial heritage providing a unique backdrop for contemporary art.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "€8",
+        "seasonal_notes": "Exhibitions change regularly. The rooftop offers views of the port area. The museum is particularly interesting during the Bordeaux contemporary art biennial.",
+        "booking_tips": "No advance booking required. Free on the first Sunday of each month. Guided tours available in multiple languages.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4,
+          "artistic_quality": 5,
+          "architectural_interest": 4
+        },
+        "latitude": 44.8497,
+        "longitude": -0.5719,
+        "address": "7 Rue Ferrère, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with elevators and adapted facilities",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Basilique Saint-Michel",
+        "type": "Gothic Basilica",
+        "description": "This Gothic basilica with its separate 114-meter bell tower is a UNESCO World Heritage site. Built between the 14th and 16th centuries, it features stunning stained glass windows, a rich interior with medieval sculptures, and a magnificent 15th-century organ. The basilica is known for its Flamboyant Gothic architecture and houses important religious relics. The surrounding square hosts a popular market several days a week, creating a vibrant atmosphere. The bell tower can be climbed for panoramic views of the city.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Visit on market days (Monday, Thursday, Saturday) to experience the vibrant local atmosphere. The bell tower can be climbed for panoramic views (€6).",
+        "booking_tips": "No booking required for the basilica. The bell tower requires tickets purchased on-site. Guided tours available.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4,
+          "architectural_beauty": 5,
+          "spiritual_atmosphere": 4
+        },
+        "latitude": 44.8327,
+        "longitude": -0.5662,
+        "address": "Place Meynard, 33000 Bordeaux, France",
+        "accessibility": "Limited accessibility due to historic architecture",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "École du Vin de Bordeaux",
+        "type": "Wine Education Center",
+        "description": "Located in the heart of Bordeaux, this prestigious institution offers wine workshops and tasting courses for everyone from casual enthusiasts to professionals. The school is operated by the Bordeaux Wine Council (CIVB) and provides comprehensive education about wine classification, regional terroirs, and proper tasting techniques. Courses cover Bordeaux's unique appellation system, grape varieties, and the region's winemaking traditions. The facility includes state-of-the-art tasting rooms and a comprehensive wine library.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "€45",
+        "seasonal_notes": "Classes available year-round with special harvest-related sessions in autumn. Book well in advance in summer. The school offers seasonal wine appreciation courses.",
+        "booking_tips": "Reserve classes online weeks in advance. Sessions available in multiple languages. Private tastings can be arranged for groups.",
+        "ratings": {
+          "cost_estimate": 45,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4,
+          "educational_value": 5,
+          "wine_quality": 5
+        },
+        "latitude": 44.8411,
+        "longitude": -0.5739,
+        "address": "3 Cours du 30 Juillet, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with modern facilities",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
+      },
+      {
+        "name": "Les Quais de Bordeaux",
+        "type": "Riverfront Promenade",
+        "description": "Bordeaux's revitalized riverfront stretches for 4.5 km along the Garonne, offering walking and cycling paths, gardens, playgrounds, and cafés. Once an industrial port area, it's now the city's favorite promenade and gathering place for locals and visitors. The quays feature modern landscaping, public art installations, and several cultural venues. The area includes the Miroir d'Eau, the CAPC Museum, and numerous restaurants and bars. The promenade is particularly beautiful at sunset and during the Bordeaux Plages summer festival.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Popular for evening strolls year-round. Summer brings outdoor activities and pop-up bars. Sunday afternoons are especially lively with markets and events.",
+        "booking_tips": "No booking required. Bike rentals available at various points along the quays. The promenade is perfect for sunset walks.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4,
+          "scenic_beauty": 5,
+          "recreational_opportunities": 5
+        },
+        "latitude": 44.8378,
+        "longitude": -0.5683,
+        "address": "Quai des Chartrons, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with smooth paths and ramps",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Marché des Capucins",
+        "type": "Historic Covered Market",
+        "description": "Known as 'the belly of Bordeaux,' this covered market is the city's gastronomic heart. Built in 1882, it houses over 80 vendors selling fresh produce, meats, cheeses, and seafood. The market includes several small eateries offering oysters, wine, and regional specialties in a bustling atmosphere. The market is particularly famous for its oyster bars and fresh seafood. The building's iron and glass architecture is a fine example of 19th-century market hall design.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open Tuesday to Sunday mornings, with Sunday being the busiest and most atmospheric day. Closed Mondays. The market is busiest during oyster season (September-April).",
+        "booking_tips": "No booking required. Arrive before noon for the best selection and to secure a table at the popular food stalls. Bring cash for market purchases.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4,
+          "culinary_experience": 5,
+          "local_atmosphere": 5
+        },
+        "latitude": 44.8312,
+        "longitude": -0.5701,
+        "address": "Place des Capucins, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with ramps and smooth surfaces",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Base Sous-Marine",
+        "type": "Cultural Venue",
+        "description": "This massive concrete submarine base, built by the Germans during World War II, has been transformed into a unique cultural venue. The brutalist structure, covering 43,000 square meters, now hosts contemporary art exhibitions, digital installations, and performances in its cavernous spaces. The base was designed to protect U-boats from Allied bombing and features 11 massive pens. The venue's industrial heritage provides a dramatic backdrop for contemporary art and cultural events.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "€10",
+        "seasonal_notes": "The constant temperature makes it a good indoor option in extreme weather. Special sound and light installations often held in evening hours. The venue hosts the Bordeaux contemporary art biennial.",
+        "booking_tips": "Check the current exhibition schedule online. Some special events require advance booking. The venue is particularly impressive during sound and light shows.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4,
+          "architectural_interest": 5,
+          "unique_experience": 5
+        },
+        "latitude": 44.8653,
+        "longitude": -0.5508,
+        "address": "Boulevard Alfred Daney, 33300 Bordeaux, France",
+        "accessibility": "Partially accessible with some uneven surfaces",
+        "nearby_transport": "Tram B - Bassins à Flot station"
+      },
+      {
+        "name": "Musée du Vin et du Négoce",
+        "type": "Wine History Museum",
+        "description": "Located in the historic wine merchants' district, this small museum explores the history of Bordeaux's wine trade from the Middle Ages to the present. Housed in the ancient cellars of a wine merchant's house dating from 1720, it features historical artifacts, interactive displays, and concludes with a wine tasting. The museum showcases the development of Bordeaux's wine classification system, the role of négociants, and the evolution of wine production techniques. The building itself is a fine example of 18th-century merchant architecture.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "€12",
+        "seasonal_notes": "Open year-round. Less crowded than La Cité du Vin and offers a more historical perspective. The museum is particularly interesting during harvest season.",
+        "booking_tips": "No advance booking required. The entrance fee includes a tasting of two wines. Guided tours available in multiple languages.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4,
+          "historical_interest": 5,
+          "wine_education": 4
+        },
+        "latitude": 44.8451,
+        "longitude": -0.5714,
+        "address": "41 Rue Borie, 33000 Bordeaux, France",
+        "accessibility": "Limited accessibility due to historic building",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Place des Quinconces",
+        "type": "Historic Square",
+        "description": "One of Europe's largest city squares (126,000 square meters), featuring the impressive Monument aux Girondins with its towering column and dramatic fountains. The square hosts festivals, markets, and fairs throughout the year, including a large fun fair twice annually. The monument commemorates the Girondins, a political group during the French Revolution. The square is surrounded by beautiful 18th-century buildings and offers views of the Garonne River. It's a major transportation hub and gathering place for events.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Check the event calendar for special activities. The fun fair typically runs in October-November and March-April. The square is particularly beautiful during sunset.",
+        "booking_tips": "No booking required. Tram lines B and C stop at Quinconces for easy access. The square is perfect for people watching and photography.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4,
+          "architectural_interest": 4,
+          "event_venue": 5
+        },
+        "latitude": 44.8458,
+        "longitude": -0.5746,
+        "address": "Place des Quinconces, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with smooth surfaces",
+        "nearby_transport": "Tram B and C - Quinconces station"
+      },
+      {
+        "name": "Porte Cailhau",
+        "type": "Medieval City Gate",
+        "description": "This ornate 15th-century city gate was built to commemorate King Charles VIII's victory at Fornovo in 1495. Standing 35 meters high, it once served as the main entrance to the city from the river port. The gate features elaborate Gothic and Renaissance architectural elements, including decorative sculptures and a distinctive conical roof. Today, visitors can climb its tower for views of the old town and river. The gate is one of the few remaining medieval structures in Bordeaux and represents the city's defensive architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "€5",
+        "seasonal_notes": "The interior museum has limited hours. The exterior is well-lit in the evening for photographs. The gate is particularly beautiful during sunset.",
+        "booking_tips": "No advance booking required. Small museum inside explains medieval defensive architecture. The tower climb offers excellent photo opportunities.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4,
+          "historical_interest": 5,
+          "photography_opportunity": 4
+        },
+        "latitude": 44.8384,
+        "longitude": -0.5695,
+        "address": "Place du Palais, 33000 Bordeaux, France",
+        "accessibility": "Limited accessibility due to historic architecture",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Quartier des Chartrons",
+        "type": "Historic District",
+        "description": "Historically home to wine merchants and foreign traders, this elegant neighborhood now combines antique shops, art galleries, trendy boutiques, and excellent dining options. Its charming streets and riverside promenade offer a glimpse into Bordeaux's commercial past. The district features beautiful 18th-century architecture, including former wine warehouses and merchant houses. The area is known for its Sunday market along the riverfront and its concentration of antique shops along Rue Notre-Dame.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "The antique shops along Rue Notre-Dame are closed on Mondays. Sunday morning brings a popular market to the riverfront. The district is beautiful year-round.",
+        "booking_tips": "No booking required. The district is perfect for a self-guided walking tour. Visit on Sunday for the market experience.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 4,
+          "shopping_experience": 4,
+          "architectural_beauty": 5
+        },
+        "latitude": 44.8510,
+        "longitude": -0.5699,
+        "address": "Quartier des Chartrons, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with smooth streets and sidewalks",
+        "nearby_transport": "Tram A - Porte de Bourgogne station"
+      },
+      {
+        "name": "Tour Pey-Berland",
+        "type": "Gothic Bell Tower",
+        "description": "This Gothic bell tower, separate from Bordeaux Cathedral, offers panoramic views of the city from its 229-step climb. Built in the 15th century, it houses the 19th-century bell 'La Cloche Pey-Berland' which weighs over 11 tons. The tower stands 66 meters high and features beautiful Gothic architecture with flying buttresses and decorative sculptures. The climb to the top provides spectacular 360-degree views of Bordeaux and the surrounding countryside. The tower is a UNESCO World Heritage site.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "€8",
+        "seasonal_notes": "Climb early to avoid both heat and crowds. Closed in strong winds or bad weather. The tower is particularly beautiful during sunset.",
+        "booking_tips": "Tickets purchased on-site. Combined tickets with other monuments available. The climb is strenuous but rewarding.",
         "ratings": {
           "cost_estimate": 8,
           "suggested_duration_hours": 1,
-          "cultural_significance": 3
+          "cultural_significance": 3,
+          "view_quality": 5,
+          "architectural_interest": 4
         },
         "latitude": 44.8377,
-        "longitude": -0.5766
+        "longitude": -0.5766,
+        "address": "Place Pey-Berland, 33000 Bordeaux, France",
+        "accessibility": "Limited accessibility due to narrow spiral staircase",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
       },
       {
         "name": "Musée des Beaux-Arts de Bordeaux",
-        "type": "Museum",
-        "description": "Housed in a stunning neoclassical building, this museum features an extensive collection of paintings, sculptures, and decorative arts spanning from the Renaissance to the modern era. It also hosts temporary exhibitions showcasing both local and international artists.",
+        "type": "Fine Arts Museum",
+        "description": "Housed in a stunning neoclassical building designed by Charles Burguet, this museum features an extensive collection of paintings, sculptures, and decorative arts spanning from the Renaissance to the modern era. The collection includes works by Rubens, Delacroix, Matisse, and Picasso, as well as important regional artists. The museum also hosts temporary exhibitions showcasing both local and international artists. The building itself is an architectural masterpiece with beautiful galleries and courtyards.",
         "indoor": true,
         "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekday afternoons are ideal for a quieter visit. Special exhibitions often draw art enthusiasts during the summer.",
-        "booking_tips": "Tickets can be purchased online or at the museum's entrance. Check for combined ticket offers with other Bordeaux attractions.",
+        "price_range": "€12",
+        "seasonal_notes": "Weekday afternoons are ideal for a quieter visit. Special exhibitions often draw art enthusiasts during the summer. The museum is particularly beautiful during the Bordeaux cultural season.",
+        "booking_tips": "Tickets can be purchased online or at the museum's entrance. Check for combined ticket offers with other Bordeaux attractions. Guided tours available.",
         "ratings": {
           "cost_estimate": 12,
           "suggested_duration_hours": 2,
-          "cultural_significance": 5
+          "cultural_significance": 5,
+          "artistic_quality": 5,
+          "architectural_beauty": 4
         },
         "latitude": 44.8380,
-        "longitude": -0.5765
+        "longitude": -0.5765,
+        "address": "20 Cours d'Albret, 33000 Bordeaux, France",
+        "accessibility": "Fully accessible with elevators and adapted facilities",
+        "nearby_transport": "Tram A - Hôtel de Ville station"
       },
       {
-        "name": "Cap Sciences Bordeaux",
-        "type": "Museum",
-        "description": "An interactive science museum dedicated to engaging visitors with hands-on exhibits and multimedia presentations that explore scientific and technological advancements. Located in the Bassins à Flot district, it offers a unique look at contemporary science.",
+        "name": "Cap Sciences",
+        "type": "Science Museum",
+        "description": "An interactive science museum dedicated to engaging visitors with hands-on exhibits and multimedia presentations that explore scientific and technological advancements. Located in the Bassins à Flot district, it offers a unique look at contemporary science through interactive displays, workshops, and temporary exhibitions. The museum focuses on making science accessible to all ages through engaging exhibits on topics ranging from robotics to environmental science. The building features modern architecture with large exhibition spaces.",
         "indoor": true,
         "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Less crowded during weekdays. Special workshops and temporary exhibitions are frequently held.",
-        "booking_tips": "Tickets are available online. Group discounts and family packages may be offered.",
+        "price_range": "€10",
+        "seasonal_notes": "Less crowded during weekdays. Special workshops and temporary exhibitions are frequently held. The museum is particularly popular with families during school holidays.",
+        "booking_tips": "Tickets are available online. Group discounts and family packages may be offered. Check the website for special events and workshops.",
         "ratings": {
           "cost_estimate": 10,
           "suggested_duration_hours": 2,
-          "cultural_significance": 4
+          "cultural_significance": 4,
+          "educational_value": 5,
+          "family_friendly": 5
         },
         "latitude": 44.8400,
-        "longitude": -0.5740
+        "longitude": -0.5740,
+        "address": "20 Quai de Bacalan, 33300 Bordeaux, France",
+        "accessibility": "Fully accessible with modern facilities",
+        "nearby_transport": "Tram B - Bassins à Flot station"
       }
     ]
   }

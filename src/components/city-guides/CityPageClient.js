@@ -43,6 +43,7 @@ const CITY_COORDINATES = {
   barcelona: [2.1734, 41.3851],
   munich: [11.582, 48.1351],
   prague: [14.4378, 50.0755],
+  brno: [16.6068, 49.1951],
   milan: [9.19, 45.4642],
   florence: [11.2558, 43.7696],
   salzburg: [13.055, 47.8095],

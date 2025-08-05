@@ -2,65 +2,128 @@
   "months": {
     "january": {
       "name": "January",
+      "weather": {
+        "highC": 8,
+        "lowC": 3,
+        "avgC": 5.5,
+        "precipitation": "High (120mm average)",
+        "sunshine_hours": 3,
+        "rainy_days": 15,
+        "conditions": "Cold, damp, frequent rain and fog"
+      },
+      "tourism": {
+        "level": 3,
+        "crowds": "Low to moderate",
+        "prices": "Lowest of the year",
+        "availability": "Excellent for hotels and restaurants"
+      },
       "ranges": [
         {
           "days": [1],
           "score": 2,
           "special": true,
-          "event": "New Year's Day",
-          "notes": "Holiday crowds, chilly weather, many closures"
+          "event": "New Year's Day (Jour de l'An)",
+          "notes": "National holiday with most businesses closed. Limited dining options, but some wine bars open. Cold weather (2-6°C) with potential frost. Many locals away on vacation.",
+          "activities": ["Limited dining", "Quiet city exploration", "Museum visits"],
+          "closures": ["Most shops", "Banks", "Government offices", "Many restaurants"],
+          "special_offers": "Hotel rates at yearly lows"
         },
         {
           "days": [2, 3, 4, 5],
           "score": 2,
-          "notes": "Cold weather, post-holiday lull"
+          "notes": "Post-holiday lull with cold weather (1-7°C). Many locals still on vacation. Reduced public transport frequency. Good for budget travelers.",
+          "activities": ["Indoor museums", "Wine tastings", "Café culture", "Shopping sales"],
+          "weather_notes": "Frequent rain showers, occasional frost in early morning",
+          "transportation": "Reduced tram frequency, normal bus service"
         },
         {
           "days": [6],
           "score": 3,
           "special": true,
-          "event": "Epiphany",
-          "notes": "Epiphany celebrations, winter sales begin"
+          "event": "Epiphany (Épiphanie)",
+          "notes": "Traditional celebration with galette des rois cakes in bakeries. Winter sales officially begin. Cultural events at churches. Temperature 3-8°C.",
+          "activities": ["Epiphany celebrations", "Sales shopping", "Church visits", "Pastry tasting"],
+          "special_foods": ["Galette des rois", "King cake"],
+          "cultural_events": "Epiphany masses at Cathédrale Saint-André"
         },
         {
           "days": [7, 8, 9, 10, 11, 12, 13, 14],
           "score": 2,
-          "notes": "Chilly temperatures, occasional frost"
+          "notes": "Chilly temperatures (2-7°C) with occasional frost. Regular business hours resume. Good for indoor activities and wine tourism.",
+          "activities": ["Wine museum visits", "Indoor attractions", "Thermal baths", "Shopping"],
+          "weather_notes": "Frequent rain, foggy mornings, limited sunshine",
+          "indoor_recommendations": ["Musée du Vin", "CAPC Museum", "Grand Théâtre tours"]
         },
         {
           "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
           "score": 2,
-          "notes": "Low season, fewer crowds, lower prices"
+          "notes": "Low season with minimal crowds. Cold weather (1-8°C) but good for budget travel. Many wine châteaux offer winter tastings.",
+          "activities": ["Wine château visits", "Indoor museums", "Thermal spas", "Budget shopping"],
+          "price_advantages": "Lowest hotel rates, discounted wine tours",
+          "weather_notes": "Coldest period, frequent rain, occasional snow flurries"
         }
       ],
-      "weatherHighC": 8,
-      "weatherLowC": 3,
-      "tourismLevel": 3
+      "special_considerations": {
+        "clothing": "Heavy winter coats, waterproof shoes, warm layers",
+        "transportation": "Trams run normally, some reduced bus frequency",
+        "dining": "Many restaurants closed for winter break, book ahead",
+        "attractions": "Indoor attractions ideal, outdoor activities limited"
+      }
     },
     "february": {
       "name": "February",
+      "weather": {
+        "highC": 9,
+        "lowC": 3,
+        "avgC": 6,
+        "precipitation": "High (110mm average)",
+        "sunshine_hours": 4,
+        "rainy_days": 13,
+        "conditions": "Cold, damp, occasional sunny spells"
+      },
+      "tourism": {
+        "level": 4,
+        "crowds": "Low to moderate",
+        "prices": "Low to moderate",
+        "availability": "Good for hotels and restaurants"
+      },
       "ranges": [
         {
           "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
           "score": 2,
-          "notes": "Winter weather persists, cool and damp"
+          "notes": "Winter weather persists with cold temperatures (2-8°C). Cool and damp conditions. School holidays may bring some families. Good for indoor activities.",
+          "activities": ["Indoor museums", "Wine tastings", "Shopping", "Café culture"],
+          "weather_notes": "Frequent rain, foggy mornings, limited sunshine",
+          "school_holidays": "Some regions have winter breaks",
+          "indoor_recommendations": ["Musée d'Aquitaine", "CAPC Museum", "Wine bars"]
         },
         {
           "days": [14],
           "score": 3,
           "special": true,
-          "event": "Valentine's Day",
-          "notes": "Romantic dining events, busy restaurants"
+          "event": "Valentine's Day (Saint-Valentin)",
+          "notes": "Romantic dining events and special menus at restaurants. Wine bars offer couple packages. Temperature 3-9°C. Book restaurants well in advance.",
+          "activities": ["Romantic dining", "Wine tastings", "Couple spa treatments", "Evening walks"],
+          "dining_specials": "Special Valentine's menus at fine dining restaurants",
+          "romantic_venues": ["La Grande Maison", "Le Chapon Fin", "Wine bars in Saint-Pierre"],
+          "booking_advice": "Restaurants book up 2-3 weeks in advance"
         },
         {
           "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
           "score": 2,
-          "notes": "Cold conditions, occasional school breaks"
+          "notes": "Cold conditions (2-9°C) with occasional school breaks. Some winter sales continue. Good for budget travel and wine tourism.",
+          "activities": ["Wine château visits", "Indoor attractions", "Shopping sales", "Thermal spas"],
+          "weather_notes": "Coldest month, frequent rain, occasional sunny spells",
+          "price_advantages": "Continued sales, lower hotel rates",
+          "school_holidays": "Some regions have winter breaks this period"
         }
       ],
-      "weatherHighC": 9,
-      "weatherLowC": 3,
-      "tourismLevel": 4
+      "special_considerations": {
+        "clothing": "Heavy winter coats, waterproof shoes, warm layers",
+        "transportation": "Normal tram and bus service",
+        "dining": "Restaurants open normal hours, book ahead for weekends",
+        "attractions": "Indoor attractions ideal, wine tours available"
+      }
     },
     "march": {
       "name": "March",
