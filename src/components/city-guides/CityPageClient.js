@@ -152,7 +152,7 @@ function CityPageClient({ cityData, cityName }) {
 
     switch (activeTab) {
       case 'overview':
-        return <CityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} />;
+        return <CityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} monthlyData={memoizedData.safeMonthlyEvents} />;
       case 'map':
         return loadedTabs.has('map') ? (
           <CityMapLoader

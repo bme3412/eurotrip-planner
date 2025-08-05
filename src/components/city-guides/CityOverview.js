@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
 
-const CityOverview = ({ overview, cityName, visitCalendar }) => {
+const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
 
   // Add click outside handler to close tooltip
@@ -244,6 +244,103 @@ const CityOverview = ({ overview, cityName, visitCalendar }) => {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Things to Do Section */}
+      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Things to Do</h2>
+        <div className="columns-1 md:columns-2 gap-3 space-y-3">
+          {(() => {
+            // Try to get dynamic data from monthly files
+            if (monthlyData && Object.keys(monthlyData).length > 0) {
+              const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+              const monthData = monthlyData[currentMonth];
+              if (monthData && monthData.things_to_do) {
+                return monthData.things_to_do.map((activity, index) => (
+                  <div key={index} className="flex items-center justify-between py-2 px-3 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors break-inside-avoid mb-3">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium text-gray-900 text-sm truncate">{activity.activity}</h3>
+                      <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{activity.optimal_time}</p>
+                    </div>
+                    <span className="text-xs text-blue-600 font-medium ml-2 flex-shrink-0">{activity.cost}</span>
+                  </div>
+                ));
+              }
+            }
+            
+            // Fallback to static Paris data
+            return [
+              {
+                activity: "Ice Skate at Hôtel de Ville",
+                optimal_time: "January - outdoor skating rink with city hall backdrop",
+                cost: "€8"
+              },
+              {
+                activity: "Take a Cooking Class in Le Marais",
+                optimal_time: "February - learn French cuisine in historic district",
+                cost: "€80-€120"
+              },
+              {
+                activity: "Visit the Catacombs",
+                optimal_time: "March - underground tunnels with millions of bones",
+                cost: "€14"
+              },
+              {
+                activity: "Picnic at Luxembourg Gardens",
+                optimal_time: "April - spring blooms and palace views",
+                cost: "Free"
+              },
+              {
+                activity: "Climb Arc de Triomphe",
+                optimal_time: "May - panoramic views of 12 radiating avenues",
+                cost: "€13"
+              },
+              {
+                activity: "Bike Along the Seine",
+                optimal_time: "June - riverside paths with iconic landmarks",
+                cost: "€15"
+              },
+              {
+                activity: "Attend a Classical Concert at Sainte-Chapelle",
+                optimal_time: "July - music in the stunning Gothic chapel",
+                cost: "€45"
+              },
+              {
+                activity: "Explore the Covered Passages",
+                optimal_time: "August - historic shopping arcades with hidden cafes",
+                cost: "Free"
+              },
+              {
+                activity: "Take a Seine River Dinner Cruise",
+                optimal_time: "September - gourmet meal with illuminated city views",
+                cost: "€80-€150"
+              },
+              {
+                activity: "Visit the Musée Rodin Gardens",
+                optimal_time: "October - outdoor sculptures in autumn colors",
+                cost: "€12"
+              },
+              {
+                activity: "Shop at Marché aux Puces",
+                optimal_time: "November - world's largest antique market",
+                cost: "Free"
+              },
+              {
+                activity: "See the Eiffel Tower Sparkle",
+                optimal_time: "December - hourly light show from dusk to dawn",
+                cost: "Free"
+              }
+            ].map((activity, index) => (
+              <div key={index} className="flex items-center justify-between py-2 px-3 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors break-inside-avoid mb-3">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-medium text-gray-900 text-sm truncate">{activity.activity}</h3>
+                  <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{activity.optimal_time}</p>
+                </div>
+                <span className="text-xs text-blue-600 font-medium ml-2 flex-shrink-0">{activity.cost}</span>
+              </div>
+            ));
+          })()}
         </div>
       </div>
 

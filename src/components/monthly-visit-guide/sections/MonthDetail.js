@@ -290,6 +290,68 @@ const MonthDetail = ({ monthData, monthName }) => {
         </div>
       )}
       
+      {/* Things to Do Section */}
+      {monthData.things_to_do && monthData.things_to_do.length > 0 && (
+        <div className="mb-6">
+          <h4 className="text-lg font-medium mb-3">Things to Do in {monthName}</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {monthData.things_to_do.map((activity, index) => (
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                <div className="flex items-start justify-between mb-2">
+                  <h5 className="font-semibold text-gray-900 text-sm leading-tight">{activity.activity}</h5>
+                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full ml-2 flex-shrink-0">
+                    {activity.cost}
+                  </span>
+                </div>
+                
+                {activity.description && (
+                  <p className="text-xs text-gray-600 mb-2 line-clamp-2">{activity.description}</p>
+                )}
+                
+                <div className="space-y-1">
+                  {activity.optimal_time && (
+                    <div className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-green-600 mt-0.5 mr-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <p className="text-xs text-gray-600">{activity.optimal_time}</p>
+                    </div>
+                  )}
+                  
+                  {activity.location && (
+                    <div className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-purple-600 mt-0.5 mr-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <p className="text-xs text-gray-600">{activity.location}</p>
+                    </div>
+                  )}
+                  
+                  {activity.duration && (
+                    <div className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-orange-600 mt-0.5 mr-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <p className="text-xs text-gray-600">{activity.duration}</p>
+                    </div>
+                  )}
+                  
+                  {activity.tips && (
+                    <div className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-yellow-600 mt-0.5 mr-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                      <p className="text-xs text-gray-600 line-clamp-2">{activity.tips}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Activities Section */}
       {monthData.activities && monthData.activities.length > 0 && (
         <div className="mb-8">
