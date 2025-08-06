@@ -125,7 +125,7 @@ export const useAsyncData = (asyncFn, deps = [], options = {}) => {
     if (asyncFn) {
       execute();
     }
-  }, deps);
+  }, [asyncFn, execute, ...deps]);
 
   const refetch = useCallback(() => {
     return execute();

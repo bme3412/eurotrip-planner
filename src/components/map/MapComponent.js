@@ -101,7 +101,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         mapInitialized.current = false; // Reset on unmount
       }
     };
-  }, []);
+  }, [viewState, onViewStateChange, updateMarkers]);
 
   // Update map view when viewState changes from parent
   useEffect(() => {
@@ -119,7 +119,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         isMoving.current = false;
       }, 100);
     }
-  }, [viewState.longitude, viewState.latitude, viewState.zoom, viewState.bearing, viewState.pitch]);
+  }, [viewState]);
 
   // Effect for filtering destinations
   useEffect(() => {
@@ -211,12 +211,12 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
   useEffect(() => {
     if (!mapInstance.current || !mapboxGLRef.current) return;
     updateMarkers();
-  }, [filteredDestinations]);
+  }, [filteredDestinations, updateMarkers]);
 
   /**
    * Update markers on the map
    */
-  const updateMarkers = async () => {
+  const updateMarkers = useCallback(async () => {
     if (!mapInstance.current || !mapboxGLRef.current) return;
     
     const citiesToShow = filteredDestinations.length > 0 ? filteredDestinations : destinations;
@@ -254,7 +254,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       
       markersRef.current.push(marker);
     }
-  };
+  }, [filteredDestinations, destinations, onMarkerClick, handleMarkerClick]);
 
   /**
    * Handle marker click
@@ -263,7 +263,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
    * @param {number} markerSize - Marker size
    * @param {string} countryColor - Country color
    */
-  const handleMarkerClick = async (city, markerElement, markerSize, countryColor) => {
+  const handleMarkerClick = useCallback(async (city, markerElement, markerSize, countryColor) => {
     // If the popup for this city is already open, exit early
     if (currentPopup && currentPopup.cityTitle === city.title) {
       return;
@@ -343,7 +343,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         loadingEl.parentNode.removeChild(loadingEl);
       }
     }
-  };
+  }, [currentPopup, onMarkerClick, currentFilters]);
 
   /**
    * Filter event handlers

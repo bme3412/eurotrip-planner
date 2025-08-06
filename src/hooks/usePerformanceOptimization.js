@@ -91,7 +91,7 @@ export const useExpensiveCalculation = (calculateFn, deps, options = {}) => {
     }
 
     return result;
-  }, deps);
+  }, [calculateFn, cacheSize, enableCache, enableLogging, ...deps]);
 
   const clearCache = useCallback(() => {
     cacheRef.current.clear();
@@ -167,7 +167,7 @@ export const useIntersectionObserver = (options = {}) => {
     return () => {
       observer.unobserve(element);
     };
-  }, [options.threshold, options.rootMargin]);
+  }, [options]);
 
   return {
     elementRef,
@@ -336,8 +336,8 @@ export const useLazyComponent = (importFn, preloadCondition = null) => {
     setError(null);
     
     try {
-      const module = await importFn();
-      setComponent(() => module.default || module);
+      const loadedModule = await importFn();
+      setComponent(() => loadedModule.default || loadedModule);
       preloadedRef.current = true;
     } catch (err) {
       setError(err);

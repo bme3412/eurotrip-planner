@@ -38,7 +38,7 @@ export const useMonthlyData = (country, cityName) => {
     if (country && cityName) {
       loadMonthlyData();
     }
-  }, [loadMonthlyData]);
+  }, [loadMonthlyData, country, cityName]);
 
   // Memoized derived data
   const processedData = useMemo(() => {

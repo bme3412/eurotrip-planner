@@ -81,7 +81,7 @@ export function useCities(options = {}) {
 
   useEffect(() => {
     fetchCities(options);
-  }, [fetchCities, options.search, options.country, options.limit]);
+  }, [fetchCities, options]);
 
   return {
     cities,

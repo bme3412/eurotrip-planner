@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { useMapData } from '@/context/MapDataContext';
 import { 
   getCityRatingForDateRangeCached, 
@@ -28,7 +28,7 @@ const DataPreloader = ({ destinations = [] }) => {
   }));
 
   // Preload city ratings for common date ranges
-  const preloadCityRatings = async () => {
+  const preloadCityRatings = useCallback(async () => {
     if (isPreloading.current) return;
     isPreloading.current = true;
     
@@ -95,10 +95,10 @@ const DataPreloader = ({ destinations = [] }) => {
     } finally {
       isPreloading.current = false;
     }
-  };
+  }, [allCities, actions]);
 
   // Preload calendar data for popular cities
-  const preloadCalendarData = async () => {
+  const preloadCalendarData = useCallback(async () => {
     const popularCities = allCities.slice(0, 15); // Preload top 15 cities
     
     try {
@@ -131,7 +131,7 @@ const DataPreloader = ({ destinations = [] }) => {
     } catch (error) {
       console.error('Error in preloadCalendarData:', error);
     }
-  };
+  }, [allCities, actions]);
 
   // Start preloading when component mounts
   useEffect(() => {
@@ -142,7 +142,7 @@ const DataPreloader = ({ destinations = [] }) => {
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [preloadCityRatings, preloadCalendarData]);
 
   // Preload data when filters change (for current filter state)
   useEffect(() => {
@@ -173,7 +173,7 @@ const DataPreloader = ({ destinations = [] }) => {
       
       Promise.allSettled(promises);
     }
-  }, [state.currentFilters.startDate, state.currentFilters.endDate, state.currentFilters.useFlexibleDates, state.currentFilters.selectedMonths]);
+  }, [actions, allCities, state]);
 
   // This component doesn't render anything
   return null;

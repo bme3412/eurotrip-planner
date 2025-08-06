@@ -145,10 +145,11 @@ const OptimizedMapComponent = ({ viewState, onViewStateChange, destinations, onM
 
   // Optimized marker update function
   const updateMarkers = useCallback(async () => {
-    if (!mapInstance.current || !processedDestinations) return;
+    if (!mapInstance.current || !processedDestinations || !mapData?.mapboxgl) return;
 
     const map = mapInstance.current;
     const { createMarkerElement } = await import('./mapService');
+    const mapboxgl = mapData.mapboxgl;
 
     // Remove markers that are no longer needed
     markersRef.current.forEach((marker, id) => {
@@ -177,7 +178,7 @@ const OptimizedMapComponent = ({ viewState, onViewStateChange, destinations, onM
         markersRef.current.set(destination.id, marker);
       }
     });
-  }, [processedDestinations, onMarkerClick, immediateUpdate]);
+  }, [processedDestinations, onMarkerClick, immediateUpdate, mapData]);
 
   // Initialize map on mount
   useEffect(() => {
@@ -242,7 +243,7 @@ const OptimizedMapComponent = ({ viewState, onViewStateChange, destinations, onM
           Showing {processedDestinations.length} destinations
           {debouncedSearch && (
             <span className="text-blue-600 ml-1">
-              for "{debouncedSearch}"
+              for &quot;{debouncedSearch}&quot;
             </span>
           )}
         </div>

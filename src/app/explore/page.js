@@ -3,13 +3,26 @@
 import React, { useState, useMemo } from "react";
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import dynamic from 'next/dynamic';
 
 // Import city data from cityData.js
 import { getCitiesData } from '@/components/city-guides/cityData';
 
-// Import the lazy map component with proper Suspense boundaries
-import LazyMapComponentWrapper from '@/components/map/LazyMapComponent';
+// Import the lazy map component with proper Suspense boundaries using Next.js dynamic
+const LazyMapComponentWrapper = dynamic(
+  () => import('@/components/map/LazyMapComponent'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center h-full">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading Interactive Map...</p>
+        </div>
+      </div>
+    )
+  }
+);
 
 export default function ExplorePage() {
   const router = useRouter();
