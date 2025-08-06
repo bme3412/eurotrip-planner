@@ -254,7 +254,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       
       markersRef.current.push(marker);
     }
-  }, [filteredDestinations, destinations, onMarkerClick, handleMarkerClick]);
+  }, [filteredDestinations, destinations, onMarkerClick]);
 
   /**
    * Handle marker click
