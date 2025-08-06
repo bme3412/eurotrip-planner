@@ -316,7 +316,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       </div>
       
       {/* Multiple Month Calendars */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {visibleMonths.map((month, monthIdx) => (
           <div key={`${month.monthName}-${month.year}`} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             {/* Enhanced Month Header */}

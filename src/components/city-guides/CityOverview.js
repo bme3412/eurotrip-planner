@@ -100,6 +100,31 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
       {/* 12-Month Calendar Container */}
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Best Time to Visit</h2>
+        
+        {/* Color Legend */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-6 p-3 bg-gray-50 rounded-lg">
+          <div className="flex items-center">
+            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#10b981'}}></div>
+            <span className="text-xs text-gray-700 font-medium">Perfect Time</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#34d399'}}></div>
+            <span className="text-xs text-gray-700 font-medium">Great Weather</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#fbbf24'}}></div>
+            <span className="text-xs text-gray-700 font-medium">Decent Visit</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#fb923c'}}></div>
+            <span className="text-xs text-gray-700 font-medium">Consider Carefully</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#ef4444'}}></div>
+            <span className="text-xs text-gray-700 font-medium">Avoid if Possible</span>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {Array.from({ length: 12 }, (_, monthIndex) => {
             const months = [

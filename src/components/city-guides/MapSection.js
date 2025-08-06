@@ -1,25 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
+import React, { useState, useEffect } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
-// Dynamically import the map component on the client side
-// Using dynamic import with no SSR for reliable rendering
-const CityMapWithMapbox = dynamic(
-  () => import('./CityMapWithMapbox'),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-full flex items-center justify-center bg-gray-100">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-500">Loading interactive map...</p>
-        </div>
-      </div>
-    )
-  }
-);
+import LazyMapWithMapbox from './LazyMapWithMapbox';
 
 export default function MapSection({ 
   attractions = [], 
@@ -56,7 +39,7 @@ export default function MapSection({
       
       <div style={{ height: `${height}px` }}>
         {isClient && (
-          <CityMapWithMapbox 
+          <LazyMapWithMapbox 
             attractions={attractions} 
             categories={categories}
             cityName={cityName}

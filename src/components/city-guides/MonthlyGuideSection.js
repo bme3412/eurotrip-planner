@@ -1,6 +1,99 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import MonthlyCalendarView from "../monthly-visit-guide/MonthlyCalendarView";
+import SingleMonthView from './SingleMonthView';
+
+// Dynamic Monthly Content Component for any city
+const DynamicMonthlyContent = ({ monthlyData, cityName, countryName }) => {
+  // Generate monthly highlights based on the data
+  const generateMonthlyHighlights = () => {
+    if (!monthlyData || typeof monthlyData !== 'object') return [];
+    
+    const highlights = [];
+    const months = ['january', 'february', 'march', 'april', 'may', 'june', 
+                   'july', 'august', 'september', 'october', 'november', 'december'];
+    
+    months.forEach((month, index) => {
+      const monthData = monthlyData[month];
+      if (monthData && monthData.events && monthData.events.length > 0) {
+        const topEvents = monthData.events.slice(0, 2); // Get top 2 events
+        highlights.push({
+          month: month.charAt(0).toUpperCase() + month.slice(1),
+          monthIndex: index,
+          events: topEvents,
+          weather: monthData.weather || null,
+          tips: monthData.tips || []
+        });
+      }
+    });
+    
+    return highlights;
+  };
+
+  const highlights = generateMonthlyHighlights();
+
+  if (highlights.length === 0) return null;
+
+  return (
+    <div className="mt-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+          Year-Round Guide to {cityName}
+        </h3>
+        <p className="text-gray-600">
+          Discover the best times to visit and what makes each month special in {cityName}
+        </p>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {highlights.map((highlight) => (
+          <div key={highlight.month} className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+              <h4 className="font-semibold text-lg text-gray-800">{highlight.month}</h4>
+            </div>
+            
+            {highlight.weather && (
+              <div className="mb-3 text-sm text-gray-600">
+                <span className="font-medium">Weather:</span> {highlight.weather.description || 'Pleasant'}
+                {highlight.weather.temp_range && (
+                  <span className="ml-2">({highlight.weather.temp_range})</span>
+                )}
+              </div>
+            )}
+
+            <div className="space-y-2">
+              {highlight.events.map((event, idx) => (
+                <div key={idx} className="border-l-2 border-blue-200 pl-3 py-1">
+                  <div className="font-medium text-sm text-gray-800">{event.event || event.name || event.title}</div>
+                  {event.location && (
+                    <div className="text-xs text-gray-500">📍 {event.location}</div>
+                  )}
+                  {event.notes && (
+                    <div className="text-xs text-gray-600 mt-1">{event.notes}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {highlight.tips && highlight.tips.length > 0 && (
+              <div className="mt-3 pt-3 border-t border-gray-100">
+                <div className="text-xs text-blue-600 font-medium mb-1">💡 Tip:</div>
+                <div className="text-xs text-gray-600">{highlight.tips[0]}</div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 text-center">
+        <p className="text-sm text-gray-500">
+          Planning your trip to {cityName}? Each month offers unique experiences and local events.
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, countryName }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -178,215 +271,23 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
   
   return (
     <div className="space-y-6">
-      {/* Condensed Date Display */}
-      <div className="bg-white rounded-2xl shadow-xl p-4 mb-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <span className="text-xl mr-2">📅</span>
-            <div>
-              <p className="text-xs text-gray-600">Today&apos;s Date</p>
-              <p className="font-semibold text-gray-900 text-sm">{todayFormatted}</p>
-            </div>
-          </div>
-          <div className="text-right">
-            <p className="text-xs text-gray-600">Current Month</p>
-            <p className="font-semibold text-blue-600 text-sm">{formatDisplayName(currentMonthName)}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Expanded When to Visit Section */}
+      {/* Single Month View */}
       {visitCalendar && Object.keys(visitCalendar).length > 0 && (
-        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-          <h3 className="text-lg font-semibold mb-6">When to Visit {cityName.charAt(0).toUpperCase() + cityName.slice(1)}</h3>
-          
-          {/* All Months Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-            {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((monthName, monthIndex) => {
-              const monthData = visitCalendar.months[monthName.toLowerCase()];
-              if (!monthData) return null;
-              
-              // Calculate average score for the month
-              let totalScore = 0;
-              let totalRanges = 0;
-              if (monthData.ranges) {
-                monthData.ranges.forEach(range => {
-                  totalScore += range.score * range.days.length;
-                  totalRanges += range.days.length;
-                });
-              }
-              const averageScore = totalRanges > 0 ? Math.round(totalScore / totalRanges) : 3;
-              
-              // Get rating color and labels
-              const RATING_COLORS = {
-                5: '#10b981', // Excellent - Soft green
-                4: '#34d399', // Good - Light green
-                3: '#fbbf24', // Average - Soft amber
-                2: '#fb923c', // Below Average - Soft orange
-                1: '#ef4444'  // Poor - Soft red
-              };
-              
-              const RATING_LABELS = {
-                5: 'Excellent',
-                4: 'Good',
-                3: 'Average',
-                2: 'Below Average',
-                1: 'Poor'
-              };
-              
-              const RATING_DESCRIPTIONS = {
-                5: 'Perfect conditions, special events, ideal weather, moderate crowds',
-                4: 'Very favorable conditions, pleasant weather, manageable crowds',
-                3: 'Standard conditions, typical weather, moderate to high tourism',
-                2: 'Less ideal conditions, possibly unpleasant weather or very high crowds',
-                1: 'Unfavorable conditions, extreme weather, overcrowded or limited activities'
-              };
-              
-              return (
-                <div key={`${monthName}-${new Date().getFullYear()}`} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  {/* Enhanced Month Header */}
-                  <div 
-                    className="p-3 text-center"
-                    style={{ 
-                      backgroundColor: `${RATING_COLORS[averageScore]}10`,
-                      borderBottom: `3px solid ${RATING_COLORS[averageScore]}` 
-                    }}
-                  >
-                    <div className="text-base font-bold text-gray-800">{monthName} {new Date().getFullYear()}</div>
-                    <div className="text-xs font-medium mt-1" style={{ color: RATING_COLORS[averageScore] }}>
-                      {RATING_LABELS[averageScore]} time to visit
-                    </div>
-                    <div className="text-xs text-gray-600 mt-1">
-                      {RATING_DESCRIPTIONS[averageScore]}
-                    </div>
-                    <div className="flex justify-center items-center gap-3 mt-1 text-xs">
-                      {monthData.tourismLevel && (
-                        <div className="flex items-center">
-                          <span className="mr-1">👥</span>
-                          <span>Tourism: {monthData.tourismLevel}/10</span>
-                        </div>
-                      )}
-                      {monthData.weatherHighC && monthData.weatherLowC && (
-                        <div className="flex items-center">
-                          <span className="mr-1">🌡️</span>
-                          <span>{monthData.weatherLowC}°-{monthData.weatherHighC}°C</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Activity Types */}
-                  {monthData.activityTypes && monthData.activityTypes.length > 0 && (
-                    <div className="bg-gray-50 px-2 py-1 border-b border-gray-200">
-                      <div className="text-xs font-medium text-gray-600 mb-1">Best Activities:</div>
-                      <div className="flex flex-wrap gap-1">
-                        {monthData.activityTypes.slice(0, 3).map((activity, idx) => (
-                          <span key={idx} className="text-xs bg-white px-1.5 py-0.5 rounded-full border">
-                            {activity}
-                          </span>
-                        ))}
-                        {monthData.activityTypes.length > 3 && (
-                          <span className="text-xs text-gray-400">+{monthData.activityTypes.length - 3} more</span>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                  
-                  {/* Days of Week */}
-                  <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50 p-0.5">
-                    {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                      <div key={i} className="p-0.5">{day}</div>
-                    ))}
-                  </div>
-                  
-                  {/* Calendar Days */}
-                  <div className="grid grid-cols-7 gap-px p-0.5 bg-white">
-                    {(() => {
-                      const currentYear = new Date().getFullYear();
-                      const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
-                      const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
-                      const days = [];
-                      
-                      // Add empty days for padding
-                      for (let i = 0; i < firstDayOfMonth; i++) {
-                        days.push({ type: 'empty' });
-                      }
-                      
-                                             // Add actual days
-                       for (let i = 1; i <= daysInMonth; i++) {
-                         let dayDetails = monthData.ranges ? monthData.ranges.find(r => r.days.includes(i)) : null;
-                         const rating = dayDetails ? dayDetails.score : 3;
-                         days.push({
-                           type: 'day',
-                           dayOfMonth: i,
-                           rating,
-                           color: RATING_COLORS[rating],
-                           special: dayDetails && dayDetails.special,
-                           eventData: dayDetails || null
-                         });
-                       }
-                      
-                                               return days.map((day, dayIndex) => (
-                           day.type === 'empty' ? (
-                             <div key={`empty-${dayIndex}`} className="aspect-square" />
-                           ) : (
-                             <div
-                               key={`day-${day.dayOfMonth}`}
-                               className={`day-cell aspect-square flex items-center justify-center text-sm rounded-md relative cursor-pointer hover:scale-105 transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
-                               style={{ backgroundColor: day.color }}
-                               onClick={() => toggleTooltip(day, monthIndex, day.dayOfMonth, day.eventData)}
-                             >
-                               <span className="font-medium text-white drop-shadow-sm">{day.dayOfMonth}</span>
-                               {day.special && (
-                                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full shadow-sm"></span>
-                               )}
-                             </div>
-                           )
-                         ));
-                    })()}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <SingleMonthView 
+          visitCalendar={visitCalendar}
+          cityName={cityName}
+          monthlyData={monthlyData}
+        />
       )}
 
-      {/* Month Navigation */}
-      <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-        <div className="border-b border-gray-200">
-          <div className="flex overflow-x-auto scrollbar-none">
-            {availablePeriods.map((period) => (
-              <button
-                key={period}
-                className={`whitespace-nowrap px-6 py-4 font-medium text-sm transition-all duration-200 flex-shrink-0 ${
-                  activeTab === period
-                    ? 'bg-blue-600 text-white border-b-2 border-blue-600'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
-                }`}
-                onClick={() => setActiveTab(period)}
-              >
-                {formatDisplayName(period)}
-              </button>
-            ))}
-          </div>
-        </div>
-        
-        {/* Content */}
-        <div className="p-6">
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">
-              {cityName.charAt(0).toUpperCase() + cityName.slice(1)} in {formatDisplayName(activeTab)}
-            </h3>
-            <p className="text-gray-600">
-              Discover what makes {formatDisplayName(activeTab)} special in {cityName.charAt(0).toUpperCase() + cityName.slice(1)}
-            </p>
-          </div>
-          
-          {/* Reasons to visit/reconsider */}
-          {renderReasons(getReasons(activeData))}
-        </div>
-      </div>
+      {/* Dynamic City Monthly Content */}
+      {monthlyData && Object.keys(monthlyData).length > 0 && (
+        <DynamicMonthlyContent 
+          monthlyData={monthlyData}
+          cityName={cityName}
+          countryName={countryName}
+        />
+      )}
 
       {/* Enhanced Professional Event Modal */}
       {activeTooltip && (

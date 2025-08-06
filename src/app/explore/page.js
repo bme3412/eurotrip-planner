@@ -2,18 +2,14 @@
 
 import React, { useState, useMemo } from "react";
 import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Import city data from cityData.js
 import { getCitiesData } from '@/components/city-guides/cityData';
 
-// Dynamically import the Map component with no SSR
-const Map = dynamic(() => import('@/components/map/MapComponent'), { 
-  ssr: false,
-  loading: () => <p>Loading map...</p>
-});
+// Import the lazy map component with proper Suspense boundaries
+import LazyMapComponentWrapper from '@/components/map/LazyMapComponent';
 
 export default function ExplorePage() {
   const router = useRouter();
@@ -56,7 +52,7 @@ export default function ExplorePage() {
     <div className="h-screen w-full flex flex-col">
       {/* Main content with map taking full height */}
       <main className="flex-grow relative">
-        <Map 
+        <LazyMapComponentWrapper 
           viewState={viewState}
           onViewStateChange={setViewState}
           destinations={allDestinations}

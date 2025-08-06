@@ -1,17 +1,27 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
-import CityOverview from "./CityOverview";
-import AttractionsList from "./AttractionsList";
-import NeighborhoodsList from "./NeighborhoodsList";
-import CulinaryGuide from "./CulinaryGuide";
-import TransportConnections from "./TransportConnections";
-import SeasonalActivities from "./SeasonalActivities";
-import CityVisitSection from "./CityVisitSection";
-import MonthlyGuideSection from "./MonthlyGuideSection";
-import CityMapLoader from "./CityMapLoader";
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription } from "@/utils/cityDataUtils";
+import { preloadComponent } from '@/utils/chunkOptimization';
+import { useMonthlyData } from '@/hooks/useMonthlyData';
+import { useUIState } from '@/hooks/useUIState';
+
+// Lazy imports for better code splitting
+import {
+  LazyCityOverview,
+  LazyAttractionsList,
+  LazyNeighborhoodsList,
+  LazyCulinaryGuide,
+  LazyTransportConnections,
+  LazySeasonalActivities,
+  LazyMonthlyGuideSection,
+  LazyMapSection,
+  TabSuspenseWrapper,
+  MapSuspenseWrapper,
+  TabLoader,
+  MapLoader
+} from '@/components/common/LazyComponents';
 
 // Default coordinates for various European regions
 const DEFAULT_COORDINATES = {
@@ -55,6 +65,10 @@ const CITY_COORDINATES = {
 function CityPageClient({ cityData, cityName }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [componentLoaded, setComponentLoaded] = useState(false);
+  
+  // Use optimized hooks for monthly data and UI state
+  const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError } = useMonthlyData(cityData?.country || 'Unknown', cityName);
+  const { actions: uiActions } = useUIState();
 
   // Extract data with defaults
   const { 
@@ -64,7 +78,6 @@ function CityPageClient({ cityData, cityName }) {
     culinaryGuide = {},
     connections = {},
     seasonalActivities = {},
-    monthlyEvents: rawMonthlyEvents = {}, 
     summary = {},
     visitCalendar = {},
     country = 'Unknown'
@@ -94,38 +107,54 @@ function CityPageClient({ cityData, cityName }) {
       : [], [neighborhoods]);
                              
   const safeMonthlyEvents = useMemo(() => 
-    rawMonthlyEvents !== null && typeof rawMonthlyEvents === 'object' 
-      ? rawMonthlyEvents 
-      : {}, [rawMonthlyEvents]); 
+    monthlyData && typeof monthlyData === 'object' 
+      ? monthlyData 
+      : {}, [monthlyData]); 
 
   const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
 
-  // Lazy load heavy components
-  const [loadedTabs, setLoadedTabs] = useState(new Set(['overview']));
-
   const tabs = [
     { id: 'overview', label: 'Overview', icon: '🏛️' },
-    { id: 'map', label: 'Interactive Map', icon: '🗺️', heavy: true },
-    { id: 'monthly', label: 'Monthly Guide', icon: '📅' },
-    { id: 'attractions', label: 'Attractions', icon: '🎯', heavy: true },
+    { id: 'map', label: 'Interactive Map', icon: '🗺️' },
+    { 
+      id: 'monthly', 
+      label: monthlyDataLoading ? 'Monthly Guide...' : 'Monthly Guide', 
+      icon: monthlyDataLoading ? '⏳' : monthlyDataError ? '⚠️' : '📅' 
+    },
+    { id: 'attractions', label: 'Experiences', icon: '🎯' },
     { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' },
-    { id: 'transport', label: 'Getting Around', icon: '🚇' },
-    { id: 'things-to-do', label: 'Things to Do', icon: '🎭', heavy: true },
-    { id: 'things-to-see', label: 'Things to See', icon: '👀', heavy: true }
+    { id: 'transport', label: 'Getting Around', icon: '🚇' }
   ];
 
-  // Load component on mount
+  // Load component and preload components on mount
   useEffect(() => {
     setComponentLoaded(true);
+    
+    // Aggressively preload all tab components immediately
+    const preloadAllComponents = async () => {
+      try {
+        // Preload all components in parallel for faster switching
+        await Promise.allSettled([
+          import('@/components/city-guides/CityOverview'),
+          import('@/components/city-guides/AttractionsList'),
+          import('@/components/city-guides/NeighborhoodsList'),
+          import('@/components/city-guides/MonthlyGuideSection'),
+          import('@/components/city-guides/TransportConnections'),
+          // Map section will still use MapSuspenseWrapper for proper loading
+          import('@/components/city-guides/MapSection')
+        ]);
+      } catch (error) {
+        // Silently handle preload errors - components will load when needed
+        console.log('Some components preloaded with errors, will load on demand');
+      }
+    };
+
+    preloadAllComponents();
   }, []);
 
-  // Handle tab switching with lazy loading
+  // Handle tab switching - simplified since components are preloaded
   const handleTabSwitch = (tabId) => {
     setActiveTab(tabId);
-    const tab = tabs.find(t => t.id === tabId);
-    if (tab?.heavy && !loadedTabs.has(tabId)) {
-      setLoadedTabs(prev => new Set([...prev, tabId]));
-    }
   };
 
   // Memoize heavy data processing
@@ -137,75 +166,113 @@ function CityPageClient({ cityData, cityName }) {
   }), [safeAttractions, safeCategories, safeNeighborhoods, safeMonthlyEvents]);
 
   const renderTabContent = () => {
-    // Show loading for heavy components that haven't been loaded yet
-    const currentTab = tabs.find(t => t.id === activeTab);
-    if (currentTab?.heavy && !loadedTabs.has(activeTab)) {
-      return (
-        <div className="flex items-center justify-center py-16">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading {currentTab.label.toLowerCase()}...</p>
-          </div>
-        </div>
-      );
-    }
-
     switch (activeTab) {
       case 'overview':
-        return <CityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} monthlyData={memoizedData.safeMonthlyEvents} />;
+        return (
+          <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
+            <LazyCityOverview 
+              overview={overview} 
+              cityName={cityName} 
+              visitCalendar={visitCalendar} 
+              monthlyData={memoizedData.safeMonthlyEvents} 
+            />
+          </Suspense>
+        );
+        
       case 'map':
-        return loadedTabs.has('map') ? (
-          <CityMapLoader
-            attractions={memoizedData.safeAttractions}
-            categories={memoizedData.safeCategories} 
-            cityName={cityName}
-            center={center}
-            zoom={12} 
-            title={`${cityName} Interactive Map`}
-            subtitle="Explore attractions, neighborhoods, and more"
-          />
-        ) : null;
+        return (
+          <MapSuspenseWrapper>
+            <LazyMapSection
+              attractions={memoizedData.safeAttractions}
+              categories={memoizedData.safeCategories} 
+              cityName={cityName}
+              center={center}
+              zoom={12} 
+              title={`${cityName} Interactive Map`}
+              subtitle="Explore attractions, neighborhoods, and more"
+            />
+          </MapSuspenseWrapper>
+        );
+        
       case 'monthly':
-        return <MonthlyGuideSection 
-          monthlyData={memoizedData.safeMonthlyEvents} 
-          cityName={cityName} 
-          city={cityName}
-          visitCalendar={visitCalendar}
-          countryName={country}
-        />;
+        if (monthlyDataLoading) {
+          return (
+            <div className="flex items-center justify-center py-16">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
+                <p className="text-gray-600">Loading monthly guide for {cityName}...</p>
+              </div>
+            </div>
+          );
+        }
+        
+        if (monthlyDataError) {
+          return (
+            <div className="flex items-center justify-center py-16">
+              <div className="text-center">
+                <div className="text-yellow-600 text-4xl mb-4">⚠️</div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Monthly Guide Unavailable</h3>
+                <p className="text-gray-600 mb-4">
+                  We couldn&apos;t load the monthly guide for {cityName} at this time.
+                </p>
+                <p className="text-sm text-gray-500">
+                  You can still explore other sections like attractions and neighborhoods.
+                </p>
+              </div>
+            </div>
+          );
+        }
+        
+        return (
+          <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
+            <LazyMonthlyGuideSection 
+              monthlyData={memoizedData.safeMonthlyEvents} 
+              cityName={cityName} 
+              city={cityName}
+              visitCalendar={visitCalendar}
+              countryName={country}
+            />
+          </Suspense>
+        );
+        
       case 'attractions':
-        return loadedTabs.has('attractions') ? (
-          <AttractionsList 
-            attractions={memoizedData.safeAttractions} 
-            categories={memoizedData.safeCategories} 
-            cityName={cityName} 
-            monthlyData={memoizedData.safeMonthlyEvents} 
-          />
-        ) : null;
+        return (
+          <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
+            <LazyAttractionsList 
+              attractions={memoizedData.safeAttractions} 
+              categories={memoizedData.safeCategories} 
+              cityName={cityName} 
+              monthlyData={memoizedData.safeMonthlyEvents} 
+            />
+          </Suspense>
+        );
+        
       case 'neighborhoods':
-        return <NeighborhoodsList neighborhoods={memoizedData.safeNeighborhoods} cityName={cityName} />;
+        return (
+          <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
+            <LazyNeighborhoodsList 
+              neighborhoods={memoizedData.safeNeighborhoods} 
+              cityName={cityName} 
+            />
+          </Suspense>
+        );
+        
       case 'transport':
-        return <TransportConnections connections={connections} cityName={cityName} />;
-      case 'things-to-do':
-        return loadedTabs.has('things-to-do') ? (
-          <AttractionsList 
-            attractions={memoizedData.safeAttractions} 
-            categories={memoizedData.safeCategories} 
-            cityName={cityName} 
-            monthlyData={memoizedData.safeMonthlyEvents} 
-          />
-        ) : null;
-      case 'things-to-see':
-        return loadedTabs.has('things-to-see') ? (
-          <AttractionsList 
-            attractions={memoizedData.safeAttractions} 
-            categories={memoizedData.safeCategories} 
-            cityName={cityName} 
-            monthlyData={memoizedData.safeMonthlyEvents} 
-          />
-        ) : null;
+        return (
+          <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
+            <LazyTransportConnections 
+              connections={connections} 
+              cityName={cityName} 
+            />
+          </Suspense>
+        );
+
       default:
-        return <CityOverview overview={overview} cityName={cityName} />;
+        return (
+          <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
+            <LazyCityOverview overview={overview} cityName={cityName} />
+          </Suspense>
+        );
     }
   };
 
