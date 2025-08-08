@@ -1,0 +1,757 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 1, 
+          "special": true, 
+          "event": "New Year's Day", 
+          "notes": "Major holiday - most attractions closed, cold weather (-2 to 2°C), post-celebration cleanup, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 1,
+            "business": 1,
+            "budget": 2,
+            "luxury": 1
+          },
+          "attractions": {
+            "praguecastle": "Closed",
+            "charlesbridge": "Open but cold",
+            "oldtownsquare": "Limited access",
+            "restaurants": "Limited options",
+            "museums": "Closed"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with fewer crowds", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4], 
+          "score": 2, 
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, very cold (0-4°C)", 
+          "location": "Shopping districts", 
+          "time": "All day", 
+          "price": "Lower prices", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 2
+          },
+          "attractions": {
+            "praguecastle": "Open, minimal queues",
+            "nationalmuseum": "Open, excellent for culture lovers",
+            "charlesbridge": "Open, clear views", 
+            "shopping": "Sales up to 50% off",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for winter shopping sales", "Perfect museum conditions", "Bring warm clothing", "Limited daylight 8:00am-4:30pm"]
+        },
+        {
+          "days": [5, 6], 
+          "score": 3, 
+          "special": true, 
+          "event": "Three Kings Day (Epiphany)", 
+          "notes": "Traditional Czech celebration, bakeries busy with special pastries, winter atmosphere", 
+          "location": "Bakeries and churches citywide", 
+          "time": "All day", 
+          "price": "Special pastries 20-40 CZK", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          },
+          "culturalSignificance": "Important Czech tradition - try traditional Three Kings cake at local bakeries",
+          "considerations": ["Book restaurant tables in advance", "Try traditional Czech pastries", "Perfect photography opportunity"]
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 2, 
+          "notes": "Coldest period (-1 to 3°C), possible snow, ideal for indoor activities, very low tourism", 
+          "location": "Museums and galleries", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "nationalmuseum": "Excellent - no crowds",
+            "praguecastle": "Perfect conditions",
+            "jewishmuseum": "Indoor exhibits recommended",
+            "pubs": "Cozy atmosphere", 
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for castle tours", "Traditional pubs are sanctuaries", "Early sunset around 4:30pm"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 2, 
+          "special": true,
+          "event": "Winter Festival Period",
+          "notes": "Gradual warming (0-5°C), excellent cultural conditions, winter activities", 
+          "location": "Cultural venues, Christmas markets ending", 
+          "time": "All day", 
+          "price": "Lower prices continue", 
+          "crowdLevel": "Low",
+          "winterActivities": ["Museum visits", "Traditional pub experiences", "Classical concerts", "Winter photography"],
+          "considerations": ["Days beginning to lengthen", "Warm clothing still essential", "Great cultural immersion", "Czech winter traditions"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 2,
+        "lowC": -2,
+        "avgC": 0,
+        "realFeelC": -4,
+        "rainfallMm": 23,
+        "rainDays": 5,
+        "snowDays": 8,
+        "sunshineHours": 2,
+        "daylightHours": 8,
+        "sunrise": "08:00",
+        "sunset": "16:30",
+        "humidity": 85,
+        "windKmh": 12
+      },
+      "tourismLevel": 2,
+      "priceLevel": "Low",
+      "crowdLevel": "Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5], 
+          "score": 2, 
+          "notes": "Winter continues, cold (0-4°C), fewer crowds, excellent museum time", 
+          "location": "Museums and galleries", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 2, 
+          "notes": "Pre-Valentine's period, gradual warming (2-6°C), winter activities", 
+          "location": "Cultural venues, shopping areas", 
+          "time": "All day", 
+          "price": "End of sales", 
+          "crowdLevel": "Low",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate", "dates": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
+            "description": "Winter school holidays - increased family tourism"
+          },
+          "considerations": ["Castle tour queues increase slightly", "Family-friendly activities busier", "Book family restaurants ahead"]
+        },
+        {
+          "days": [14], 
+          "score": 4, 
+          "special": true, 
+          "event": "Valentine's Day", 
+          "notes": "Romantic atmosphere, special dining events, busy restaurants, book 2-3 weeks ahead", 
+          "location": "Restaurants citywide, river cruises", 
+          "time": "Evening 7pm-11pm", 
+          "price": "Premium (dinner 1500-3000 CZK/person)", 
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "romanticVenues": {
+            "restaurants": ["Bellevue", "Augustine Restaurant", "U Zlaté studně", "Terasa U Prince"],
+            "activities": ["Vltava dinner cruise", "Prague Castle sunset", "Charles Bridge evening walk"],
+            "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 40-60% markup"]
+          },
+          "considerations": ["Reserve restaurants by late January", "Charles Bridge romantic but cold", "River cruises book fast"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 3, 
+          "notes": "Post-Valentine's, school holidays continue, gradually warming (3-7°C), spring hints", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low-Moderate",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate"}
+          },
+          "considerations": ["Days noticeably longer", "Early spring activities possible", "Good time for family visits"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 4,
+        "lowC": 0,
+        "avgC": 2,
+        "realFeelC": -1,
+        "rainfallMm": 23,
+        "rainDays": 6,
+        "snowDays": 6,
+        "sunshineHours": 3,
+        "daylightHours": 9.5,
+        "sunrise": "07:30",
+        "sunset": "17:00",
+        "humidity": 80,
+        "windKmh": 11
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Early spring transition, variable weather (3-10°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 7:00am-6:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Spring awakening, pleasant temperatures (5-12°C), perfect for walking", 
+          "location": "Historic center and parks", 
+          "time": "Full day exploration", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "springActivities": ["Castle garden visits", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for Charles Bridge walks", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "special": true, 
+          "event": "Spring Equinox & Easter Preparations", 
+          "notes": "Spring officially arrives, excellent conditions (6-13°C), Easter preparations begin", 
+          "location": "Old Town Square, Easter markets", 
+          "time": "Optimal 9am-6pm", 
+          "price": "Free for outdoor activities", 
+          "crowdLevel": "Moderate-High",
+          "easterPreparations": {
+            "markets": "Easter decorations at Old Town Square",
+            "traditions": "Czech Easter customs begin",
+            "foods": "Traditional Easter bread (mazanec) available"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Easter preparations begin", "Weekend crowds for markets", "Perfect for photography", "Outdoor dining fully returns"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 10,
+        "lowC": 3,
+        "avgC": 6.5,
+        "realFeelC": 5,
+        "rainfallMm": 28,
+        "rainDays": 8,
+        "snowDays": 2,
+        "sunshineHours": 4.5,
+        "daylightHours": 11.5,
+        "sunrise": "07:00",
+        "sunset": "18:30",
+        "humidity": 75,
+        "windKmh": 10
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "schoolHolidays": {
+        "spring": {"dates": [25, 26, 27, 28, 29, 30, 31], "impact": "Moderate-High", "zones": "All zones"}
+      }
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 3, 
+          "special": true, 
+          "event": "April Fool's Day", 
+          "notes": "Fun cultural atmosphere, spring weather, Easter preparations", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free cultural fun", 
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Czech April Fool's traditions, playful atmosphere throughout the city"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 5, 
+          "special": true, 
+          "event": "Easter Markets Peak Season", 
+          "notes": "Easter markets in full swing, ideal weather (8-15°C), traditional Czech Easter celebrations", 
+          "location": "Old Town Square and Wenceslas Square", 
+          "time": "Golden hour 7am-9am, 5pm-7pm", 
+          "price": "Free for viewing", 
+          "crowdLevel": "High at popular spots",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "easterTraditions": {
+            "decorations": "Painted eggs, traditional crafts",
+            "foods": "Mazanec (Easter bread), lamb dishes",
+            "activities": "Easter markets, folk performances"
+          },
+          "photographyTips": ["Golden hour lighting", "Arrive early for fewer crowds", "Capture traditional crafts", "Weather-dependent - check daily"],
+          "considerations": ["Easter celebrations last 3-4 days", "Weather dependent timing", "Weekends extremely crowded", "Book restaurant tables in advance"]
+        },
+        {
+          "days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "notes": "Perfect spring conditions (10-16°C), comfortable temperatures, ideal sightseeing", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6:00am-7:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "schoolHolidays": {
+            "spring": {"active": true, "impact": "High", "dates": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]},
+            "easter": {"dates": "Variable - typically mid-April", "impact": "Very High"}
+          },
+          "optimalActivities": ["Historic walking tours", "Outdoor dining", "Castle visits", "River cruises", "Garden walks"],
+          "considerations": ["Spring rain showers possible", "Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 14,
+        "lowC": 6,
+        "avgC": 10,
+        "realFeelC": 11,
+        "rainfallMm": 38,
+        "rainDays": 8,
+        "sunshineHours": 6,
+        "daylightHours": 13,
+        "sunrise": "06:30",
+        "sunset": "19:30",
+        "humidity": 70,
+        "windKmh": 9,
+        "uvIndex": 4
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High",
+      "specialConsiderations": {
+        "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
+        "schoolHolidays": "Two weeks of increased family tourism from all regions",
+        "weather": "Most stable spring weather but sudden showers possible"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day", "notes": "Many closures but special events, traditional celebrations", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [8], "score": 3, "special": true, "event": "Liberation Day", "notes": "Some closures, commemorations, historical significance", "location": "Historic sites", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15], "score": 5, "notes": "Excellent weather (12-18°C), spring flowers, outdoor dining, perfect for sightseeing", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 5, "special": true, "event": "Prague Spring Festival", "notes": "International music festival, warm weather (14-20°C), outdoor cafés thriving", "location": "Concert venues citywide", "time": "All day", "price": "Concert tickets 500-2000 CZK", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 9,
+      "weatherAvgC": 13.5,
+      "rainfallMm": 77,
+      "sunshineHours": 7.5,
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent weather (15-22°C), long daylight, pre-peak season", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 4, "notes": "Warming up, tourism increasing, still manageable crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [21], "score": 5, "special": true, "event": "Summer Solstice", "notes": "Longest day of the year, outdoor celebrations, beer garden season begins", "location": "Beer gardens, parks", "time": "Evening", "price": "Free", "crowdLevel": "High"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Summer begins, increasing tourism, warm weather (16-23°C)", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "High"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 13,
+      "weatherAvgC": 17.5,
+      "rainfallMm": 73,
+      "sunshineHours": 8.5,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 3, "notes": "Peak tourism season, warm weather (17-24°C), crowded attractions", "location": "Citywide", "time": "All day", "price": "Expensive", "crowdLevel": "Very High"},
+        {"days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Summer Beer Festival Season", "notes": "Hot weather (18-25°C), peak tourism, crowded, outdoor beer gardens active", "location": "Beer gardens, Old Town Square", "time": "All day", "price": "Festival tickets 200-500 CZK", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 15,
+      "weatherAvgC": 19.5,
+      "rainfallMm": 66,
+      "sunshineHours": 9,
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 2, "special": true, "event": "Summer Festivals & Assumption Day", "notes": "Hot weather (17-25°C), outdoor festivals, many locals on vacation, some closures", "location": "Festival venues, beer gardens", "time": "All day", "price": "Festival passes 300-800 CZK", "crowdLevel": "High"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Still warm, crowds decreasing as European vacations end, more manageable", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 15,
+      "weatherAvgC": 19.5,
+      "rainfallMm": 62,
+      "sunshineHours": 8.5,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent post-peak season, warm weather continues (14-20°C), fewer crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Autumn Beer Festival", "notes": "Pleasant temperatures, reduced crowds, cultural events, beer celebrations", "location": "Beer gardens, cultural venues", "time": "All day", "price": "Moderate", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 12,
+      "weatherAvgC": 16,
+      "rainfallMm": 40,
+      "sunshineHours": 7,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [28], "score": 4, "special": true, "event": "Czech Independence Day", "notes": "National holiday, cultural events, fall colors beginning", "location": "Wenceslas Square, cultural venues", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Comfortable temperatures (9-15°C), beautiful autumn atmosphere, golden light", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 29, 30, 31], "score": 4, "special": true, "event": "Wine Harvest Season", "notes": "Fall colors, harvest activities, traditional Czech celebrations, autumn charm", "location": "Prague vineyards, Old Town", "time": "Daytime", "price": "Wine tours 800-1500 CZK", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 15,
+      "weatherLowC": 8,
+      "weatherAvgC": 11.5,
+      "rainfallMm": 31,
+      "sunshineHours": 5.5,
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Holiday, some closures but special cemetery visits, traditional observances", "location": "Cemeteries citywide", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [17], "score": 4, "special": true, "event": "Velvet Revolution Day", "notes": "National holiday, commemorations, historical significance", "location": "Wenceslas Square", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 3, "special": true, "event": "Christmas Markets Begin", "notes": "Festive atmosphere begins, cooler weather (4-10°C), holiday preparations", "location": "Old Town Square", "time": "All day", "price": "Free", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 4,
+      "weatherAvgC": 7,
+      "rainfallMm": 32,
+      "sunshineHours": 3.5,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "special": true, "event": "Christmas Markets", "notes": "Festive atmosphere, holiday decorations, mulled wine (svařák), traditional treats", "location": "Old Town Square", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 3, "notes": "Holiday events, Christmas shopping crowds, festive lights", "location": "Shopping districts", "time": "All day", "price": "Standard", "crowdLevel": "High"},
+        {"days": [24, 25], "score": 2, "special": true, "event": "Christmas", "notes": "Many closures but special atmosphere, family celebrations", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Low"},
+        {"days": [26], "score": 3, "special": true, "event": "St. Stephen's Day", "notes": "Public holiday, gradual reopening, post-Christmas atmosphere", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - busy tourist period, sales begin", "location": "Shopping districts", "time": "All day", "price": "Sales", "crowdLevel": "High"},
+        {"days": [31], "score": 3, "special": true, "event": "New Year's Eve", "notes": "Special events but very crowded, fireworks at Old Town Square", "location": "Old Town Square", "time": "Evening", "price": "Expensive", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 7,
+      "weatherLowC": 1,
+      "weatherAvgC": 4,
+      "rainfallMm": 25,
+      "sunshineHours": 2,
+      "tourismLevel": 7,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Easter Markets",
+      "Historic Walking Tours",
+      "Castle and Gardens",
+      "Cultural Events",
+      "Outdoor Dining",
+      "River Cruises",
+      "Vltava Walks",
+      "Traditional Markets",
+      "Photography Tours",
+      "Beer Tasting"
+    ],
+    "summer": [
+      "Beer Gardens",
+      "Outdoor Festivals",
+      "Castle Tours",
+      "Garden Parties",
+      "Music Festivals",
+      "Cycling Tours",
+      "Rooftop Dining",
+      "Picnics in Parks",
+      "Evening River Cruises",
+      "Outdoor Concerts"
+    ],
+    "autumn": [
+      "Museum Visits",
+      "Cultural Events",
+      "Wine Tasting",
+      "Theater Performances",
+      "Fall Foliage Walks",
+      "Harvest Festivals",
+      "Historic Tours",
+      "Cooking Classes",
+      "Art Exhibitions",
+      "Traditional Pubs"
+    ],
+    "winter": [
+      "Christmas Markets",
+      "Classical Concerts",
+      "Museum Visits",
+      "Cozy Pubs",
+      "Historical Sites",
+      "Theater Shows",
+      "Indoor Tours",
+      "Shopping",
+      "Beer Spa",
+      "Traditional Czech Dining"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["February 14th", "June 21st", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "January"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
+      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
+      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Fine dining", "Private castle tours", "Exclusive events", "Luxury shopping"],
+      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "activityCategories": {
+    "outdoor": {
+      "optimal": ["April", "May", "June", "September", "October"],
+      "activities": ["Walking tours", "River cruises", "Garden visits", "Cycling", "Outdoor dining", "Photography"],
+      "weatherDependent": true
+    },
+    "cultural": {
+      "yearRound": true,
+      "peak": ["September", "October", "November", "December", "January"],
+      "activities": ["Museums", "Galleries", "Theater", "Concerts", "Exhibitions"],
+      "seasonalHighlights": {
+        "autumn": "New exhibition seasons",
+        "winter": "Classical concert season",
+        "spring": "Festival season"
+      }
+    },
+    "shopping": {
+      "sales": {
+        "winter": "January-February",
+        "summer": "July-August"
+      },
+      "luxury": "Year-round but avoid August",
+      "markets": {
+        "christmas": "December",
+        "easter": "April",
+        "farmers": "Year-round weekends"
+      }
+    },
+    "dining": {
+      "outdoor": ["April", "May", "June", "July", "August", "September", "October"],
+      "seasonal": {
+        "spring": "Easter specialties, fresh herbs",
+        "summer": "Beer garden dining, seasonal produce",
+        "autumn": "Game dishes, wine harvest",
+        "winter": "Comfort food, holiday specialties"
+      }
+    },
+    "festivals": {
+      "beer": {
+        "summerFestival": "July-August",
+        "autumnFestival": "September"
+      },
+      "cultural": {
+        "pragueSpring": "May-June",
+        "easter": "April",
+        "christmas": "December"
+      },
+      "seasonal": {
+        "spring": "Easter celebrations, Prague Spring Festival",
+        "summer": "Beer festivals, outdoor concerts",
+        "autumn": "Harvest festivals, cultural events",
+        "winter": "Christmas markets, classical concerts"
+      }
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 16 hours",
+      "shortest": "December 21st - 8 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "metro": {
+        "airConditioning": "Modern trains have AC, older lines limited",
+        "crowds": "Peak July-August",
+        "strikes": "Rare, usually advance notice"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (heat)"
+      },
+      "cycling": {
+        "bikeSharing": "Available year-round",
+        "optimal": "April-October",
+        "winter": "Possible but cold and icy"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August", "December"],
+        "events": ["Prague Spring Festival", "Beer festivals", "Christmas markets", "New Year's"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 2-3 months ahead for best rates"
+      },
+      "airConditioning": "Essential July-August, many historic hotels lack AC"
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["February 14th", "Easter weekend", "December 24th", "December 31st"],
+        "recommended": "High season (June-August)",
+        "timeline": "2-4 weeks ahead for popular restaurants"
+      },
+      "closures": {
+        "august": "Some local restaurants close for owner vacations",
+        "holidays": "Christmas Day, New Year's Day, Easter Sunday",
+        "sunday": "Many traditional pubs have limited hours"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter sales, cozy pubs, authentic local experience",
+    "february": "Fewer crowds, cultural immersion, romantic atmosphere",
+    "march": "Spring awakening, Easter preparations, perfect temperatures",
+    "april": "Easter markets peak, ideal weather, traditional celebrations",
+    "may": "Perfect conditions, Prague Spring Festival, optimal sightseeing",
+    "june": "Longest days, beer garden season, pre-peak crowds",
+    "july": "Peak summer, beer festivals, outdoor celebrations",
+    "august": "Hot weather, outdoor festivals, many locals away",
+    "september": "Post-peak perfection, autumn festivals, ideal conditions",
+    "october": "Autumn beauty, harvest celebrations, comfortable temperatures",
+    "november": "Cozy atmosphere, Christmas markets begin, cultural season",
+    "december": "Christmas magic, holiday markets, festive atmosphere"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, occasional rain",
+      "summer": "Warm to hot, occasional thunderstorms, pleasant evenings",
+      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
+      "winter": "Cold but rarely extreme, occasional snow, indoor activities recommended"
+    },
+    "transportation": {
+      "metro": "Efficient year-round, some lines have limited air-conditioning",
+      "walking": "Best in spring and autumn, challenging in extreme weather",
+      "cycling": "Excellent in spring and autumn, bike lanes available",
+      "boats": "Scenic year-round, limited winter options"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    }
+  }
+}

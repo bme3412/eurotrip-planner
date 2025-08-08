@@ -2,56 +2,275 @@
     "July": {
         "reasons_to_visit": [
             {
-                "reason": "Warmest Weather",
-                "details": "July offers the warmest temperatures perfect for all outdoor activities and late evening strolls."
+                "reason": "Summer Beer Festivals",
+                "details": "Experience the vibrant Czech beer culture with outdoor beer festivals, traditional pub events, and special summer beer varieties throughout Plzen."
             },
             {
-                "reason": "Summer Festivals",
-                "details": "Peak festival season with outdoor concerts, street festivals, and cultural events."
+                "reason": "Summer Sales",
+                "details": "Enjoy the summer sales where you can find great bargains in local crafts, traditional Czech goods, and souvenirs across Plzen's shops."
             },
             {
-                "reason": "Vibrant Atmosphere",
-                "details": "City comes alive with outdoor dining, street performers, and bustling beer gardens."
+                "reason": "Pleasant Weather",
+                "details": "July is typically warm and sunny, perfect for outdoor activities, brewery tours, and enjoying alfresco dining in Republic Square."
             },
             {
-                "reason": "Extended Hours",
-                "details": "Many attractions and venues extend their hours during peak summer season."
+                "reason": "Outdoor Concerts",
+                "details": "Catch live music under the stars at various outdoor venues and festivals, providing a unique Czech cultural experience."
             },
             {
-                "reason": "Perfect for Walking",
-                "details": "Ideal weather for exploring the city on foot and discovering hidden gems."
+                "reason": "Beer Garden Culture",
+                "details": "Enjoy the transformation of Republic Square and brewery district into vibrant beer gardens with traditional Czech atmosphere."
+            },
+            {
+                "reason": "Cultural Festivals",
+                "details": "Attend various cultural festivals and events celebrating Czech traditions, music, and local heritage throughout the city."
             }
         ],
-        "reasons_to_avoid": [
+        "reasons_to_reconsider": [
             {
-                "reason": "Maximum Crowds",
-                "details": "July is the busiest month with overwhelming crowds at major tourist sites."
+                "reason": "High Tourist Season",
+                "details": "Expect large crowds at popular attractions like the brewery and cathedral, leading to long queues and potentially higher accommodation costs."
             },
             {
-                "reason": "Heat Waves",
-                "details": "Occasional hot weather can make midday sightseeing uncomfortable."
+                "reason": "Hot Weather",
+                "details": "Temperatures can soar, and some older buildings lack air conditioning, which might be uncomfortable for those sensitive to heat."
             },
             {
-                "reason": "Expensive Everything",
-                "details": "Peak season pricing affects all aspects of travel from hotels to meals."
-            },
-            {
-                "reason": "Booking Challenges",
-                "details": "Popular venues and accommodations are often fully booked months in advance."
+                "reason": "Peak Season Pricing",
+                "details": "Accommodation and dining prices are at their highest during July, affecting overall travel budget."
             }
         ],
+        "first_half": {
+            "date_range": "July 1–15",
+            "weather": {
+                "average_temperature": {
+                    "high": "24°C",
+                    "low": "15°C"
+                },
+                "precipitation": "Light rain is possible but not frequent; generally sunny days.",
+                "general_tips": "Dress in light layers, carry sunglasses and sunscreen, and keep a light raincoat for unexpected showers."
+            },
+            "tourism_level": {
+                "crowds": "High at major attractions like the brewery and cathedral; calmer in local neighborhoods.",
+                "pricing": "Accommodation and flights can be pricey; book in advance for the best deals.",
+                "overall_atmosphere": "Lively and bustling with a mix of tourists and locals enjoying summer activities."
+            },
+            "events_holidays": [
+                {
+                    "name": "Summer Beer Festival",
+                    "date": "Throughout month",
+                    "description": "Outdoor beer festivals featuring fresh Pilsner Urquell, traditional Czech food, and live music in Republic Square.",
+                    "notes": "Visit in the evening for the best atmosphere. Book restaurant tables in advance."
+                },
+                {
+                    "name": "Czech Cultural Festival",
+                    "date": "July 10-15",
+                    "description": "Traditional Czech cultural celebrations with music, dance, and local customs.",
+                    "notes": "Check local schedules for specific events. Many events are free."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Brewery Summer Tour",
+                    "where": "Pilsner Urquell Brewery",
+                    "description": "Explore the historic brewery with fresh beer tastings and underground tunnel exploration.",
+                    "practical_tips": "Book tours in advance. Visit early morning to avoid crowds.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€15-€25",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Beer Garden Experience",
+                    "where": "Republic Square and brewery district",
+                    "description": "Enjoy fresh Pilsner Urquell in traditional Czech beer gardens with local pub food.",
+                    "practical_tips": "Visit in the evening for the best atmosphere. Try traditional Czech dishes.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€15-€30",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Cathedral Tower Climb",
+                    "where": "St. Bartholomew's Cathedral",
+                    "description": "Climb the 102.6-meter tower for panoramic summer views of Plzen and the surrounding countryside.",
+                    "practical_tips": "Visit early morning for the best light and fewer crowds.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€5",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Historic Walking Tour",
+                    "where": "Old Town and Republic Square",
+                    "description": "Explore Plzen's medieval streets and 13th-century architecture with guided tours.",
+                    "practical_tips": "Book guided tours in advance. Wear comfortable shoes for cobblestone streets.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€10-€20",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Traditional Czech Pub Crawl",
+                    "where": "Various traditional pubs",
+                    "description": "Experience authentic Czech pub culture with guided visits to traditional establishments.",
+                    "practical_tips": "Join organized pub crawls for the best experience. Pace yourself with the beer.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€25-€40",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Outdoor Market Shopping",
+                    "where": "Republic Square",
+                    "description": "Browse local crafts, traditional Czech goods, and souvenirs at the vibrant summer markets.",
+                    "practical_tips": "Visit on weekdays for fewer crowds. Bargaining is acceptable for crafts.",
+                    "best_time": "Morning",
+                    "estimated_cost": "Varies",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Traditional Czech Dining",
+                    "where": "Various restaurants in Old Town",
+                    "description": "Experience authentic Czech cuisine at traditional restaurants with summer specialties.",
+                    "practical_tips": "Reserve tables in advance. Try traditional dishes like goulash and svíčková.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€20-€40",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Outdoor Concert Experience",
+                    "where": "Various locations",
+                    "description": "Experience live music in beautiful outdoor settings as part of several summer festivals.",
+                    "practical_tips": "Check event schedules. Bring a blanket for seating.",
+                    "best_time": "Evening",
+                    "estimated_cost": "Free to moderate",
+                    "weather_dependent": true
+                }
+            ]
+        },
+        "second_half": {
+            "date_range": "July 16–31",
+            "weather": {
+                "average_temperature": {
+                    "high": "26°C",
+                    "low": "16°C"
+                },
+                "precipitation": "Generally dry with occasional thunderstorms.",
+                "general_tips": "Hydrate well, use sunblock, and stay cool during peak afternoon heat."
+            },
+            "tourism_level": {
+                "crowds": "Remain high, especially at tourist hotspots and during events.",
+                "pricing": "Continues to be high; last-minute deals can be scarce.",
+                "overall_atmosphere": "Festive and energetic, with many outdoor activities and events."
+            },
+            "events_holidays": [
+                {
+                    "name": "Plzen Beer Garden Festival",
+                    "date": "Throughout month",
+                    "description": "Continued beer garden culture with traditional Czech atmosphere and live music.",
+                    "notes": "Family-friendly; many events are free."
+                },
+                {
+                    "name": "Czech Folk Music Festival",
+                    "date": "July 25-31",
+                    "description": "Traditional Czech folk music performances and cultural celebrations.",
+                    "notes": "Check local schedules for specific events and locations."
+                },
+                {
+                    "name": "Summer Cultural Events",
+                    "date": "Late July",
+                    "description": "Various cultural events including classical concerts, art exhibitions, and traditional performances.",
+                    "notes": "Book tickets in advance for popular performances."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Underground Tunnel Exploration",
+                    "where": "Pilsner Urquell Brewery",
+                    "description": "Explore the 9-kilometer network of historic underground beer tunnels used for storage.",
+                    "practical_tips": "Book guided tours in advance. Wear comfortable walking shoes.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€20-€30",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Wine Tasting",
+                    "where": "Various wine bars and cellars",
+                    "description": "Experience Czech wines with tastings guided by local sommeliers.",
+                    "practical_tips": "Book tastings in advance. Consider pairing with Czech cheese.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€25-€50",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Explore the Old Town",
+                    "where": "Historic center",
+                    "description": "Visit iconic sites like the cathedral and Republic Square with their stunning medieval architecture.",
+                    "practical_tips": "Early morning visits are less crowded. Wear comfortable walking shoes.",
+                    "best_time": "Morning",
+                    "estimated_cost": "Free",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Traditional Czech Cooking Class",
+                    "where": "Various culinary schools",
+                    "description": "Learn to prepare classic Czech dishes in a hands-on class taught by local chefs.",
+                    "practical_tips": "Book classes in advance. Check for classes taught in English if needed.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€60-€100",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Day Trip to Nearby Castles",
+                    "where": "Castles around Plzen",
+                    "description": "Visit historic castles and chateaux in the Plzen region for a taste of Czech history.",
+                    "practical_tips": "Travel by car or organized tour. Purchase tickets in advance.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€20-€40",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Bike Tour through Plzen",
+                    "where": "Various starting points",
+                    "description": "See Plzen from a different perspective while cycling through its scenic streets and parks.",
+                    "practical_tips": "Rent bikes in advance. Follow guided tours for best routes.",
+                    "best_time": "Morning or late afternoon",
+                    "estimated_cost": "€20-€40",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit the Plzen Historical Museum",
+                    "where": "Old Town",
+                    "description": "Explore the comprehensive museum showcasing the history of Plzen and the region.",
+                    "practical_tips": "Purchase tickets online to skip lines. Allow 2-3 hours for the full experience.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€8",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Evening Stroll in Old Town",
+                    "where": "Historic center",
+                    "description": "Enjoy the peaceful summer atmosphere of the medieval streets with evening lighting.",
+                    "practical_tips": "Visit in the evening for the best light displays and cooler temperatures.",
+                    "best_time": "Evening",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                }
+            ]
+        },
         "weather": {
-            "temperature_range": "16°C to 25°C (61°F to 77°F)",
+            "temperature_range": "15°C to 26°C (59°F to 79°F)",
             "rainfall": "Low",
             "snow": "None",
             "daylight_hours": "16-17 hours"
         },
         "activities": [
-            "Summer festivals and events",
+            "Summer beer festivals and events",
+            "Brewery tours and tastings",
             "Extended sightseeing hours",
             "Outdoor dining and nightlife",
-            "River activities",
-            "Street festival participation"
+            "Beer garden culture",
+            "Traditional pub experiences",
+            "Cultural festival participation",
+            "Historic walking tours",
+            "Outdoor concerts and performances",
+            "Traditional Czech dining"
         ]
     }
 }

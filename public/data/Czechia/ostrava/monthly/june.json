@@ -2,52 +2,241 @@
     "June": {
         "reasons_to_visit": [
             {
-                "reason": "Peak Weather",
-                "details": "June offers the best weather conditions with warm temperatures and minimal rainfall."
+                "reason": "Pleasant Weather",
+                "details": "June in Ostrava offers mild and enjoyable weather, perfect for exploring the city's industrial heritage sites and green spaces. The average temperatures make it comfortable to visit outdoor attractions and enjoy the city's parks and recreational areas."
             },
             {
-                "reason": "White Nights",
-                "details": "Longest days of the year provide maximum daylight for sightseeing and photography."
+                "reason": "Colours of Ostrava Festival",
+                "details": "The internationally renowned Colours of Ostrava music festival typically takes place in July, but June sees the city preparing for this major cultural event with various pre-festival activities and performances."
             },
             {
-                "reason": "Festival Season",
-                "details": "Multiple outdoor festivals, concerts, and cultural events throughout the city."
+                "reason": "Industrial Heritage Tours",
+                "details": "June provides ideal conditions for exploring Ostrava's unique industrial heritage, including the Dolní Vítkovice complex and Landek Park mining museum, with comfortable temperatures for outdoor exploration."
             },
             {
-                "reason": "Perfect for Romance",
-                "details": "Warm evenings and beautiful sunset lighting make June ideal for couples."
+                "reason": "Beer Garden Culture",
+                "details": "June marks the peak of beer garden season in Ostrava, with numerous outdoor venues offering local Czech beers and traditional cuisine in a relaxed atmosphere."
             },
             {
-                "reason": "Full Activity Access",
-                "details": "All seasonal attractions, river cruises, and outdoor activities are fully operational."
+                "reason": "Cultural Festivals",
+                "details": "June hosts various cultural events including the Ostrava Days contemporary music festival and various outdoor concerts and performances throughout the city."
             }
         ],
-        "reasons_to_avoid": [
+        "reasons_to_reconsider": [
             {
-                "reason": "Peak Crowds",
-                "details": "June is one of the busiest months with long lines at popular attractions."
+                "reason": "Increased Tourist Crowds",
+                "details": "As June is the start of the high tourist season, popular attractions like Dolní Vítkovice and the city center can become crowded, which might lead to longer wait times."
             },
             {
-                "reason": "Highest Prices",
-                "details": "Peak season pricing for accommodations, dining, and activities."
+                "reason": "Higher Accommodation Costs",
+                "details": "With the influx of tourists and festival-goers, accommodation prices can surge, making it more expensive to find budget-friendly lodging options."
             },
             {
-                "reason": "Advance Booking Required",
-                "details": "Popular restaurants and attractions require reservations well in advance."
+                "reason": "Occasional Rain Showers",
+                "details": "Despite the generally pleasant weather, June can experience occasional rain showers, which might disrupt outdoor plans and industrial heritage tours."
             }
         ],
-        "weather": {
-            "temperature_range": "14°C to 23°C (57°F to 73°F)",
-            "rainfall": "Low-Moderate",
-            "snow": "None",
-            "daylight_hours": "16-17 hours"
+        "first_half": {
+            "date_range": "June 1–15",
+            "weather": {
+                "average_temperature": {
+                    "high": "21°C",
+                    "low": "12°C"
+                },
+                "precipitation": "Rainfall is moderate, with occasional showers. It's wise to carry an umbrella.",
+                "general_tips": "Pack light layers and a waterproof jacket. Comfortable walking shoes are recommended for exploring industrial sites."
+            },
+            "tourism_level": {
+                "crowds": "Moderate to high, especially around major landmarks like Dolní Vítkovice and the city center.",
+                "pricing": "Accommodation and flight prices start to rise as the high season approaches.",
+                "overall_atmosphere": "Lively and bustling with a mix of locals and tourists enjoying the city's industrial heritage and cultural offerings."
+            },
+            "events_holidays": [
+                {
+                    "name": "Ostrava Days Contemporary Music Festival",
+                    "date": "Various dates in June",
+                    "description": "An international festival of contemporary classical music featuring world-renowned performers and composers.",
+                    "notes": "Check the festival schedule for specific dates and venues. Tickets are required for most performances."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Explore Dolní Vítkovice",
+                    "where": "Dolní Vítkovice Complex",
+                    "description": "Visit the UNESCO-listed industrial heritage site featuring blast furnaces, gasometers, and the Bolt Tower observation deck.",
+                    "practical_tips": "Book guided tours in advance. Wear comfortable shoes for walking on industrial terrain.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€8-€15",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit Landek Park Mining Museum",
+                    "where": "Landek Hill",
+                    "description": "Explore the largest mining museum in the Czech Republic with underground tours and mining equipment displays.",
+                    "practical_tips": "Book underground tours in advance. Bring warm clothing as underground areas are cool.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€10-€15",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Stroll through Silesian Ostrava Castle",
+                    "where": "Silesian Ostrava District",
+                    "description": "Visit the historic castle with its museum and beautiful gardens, offering views of the city.",
+                    "practical_tips": "Check opening hours and museum exhibitions. The castle grounds are perfect for photography.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€5",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Beer Garden Experience",
+                    "where": "Various locations",
+                    "description": "Enjoy local Czech beers and traditional cuisine in Ostrava's outdoor beer gardens.",
+                    "practical_tips": "Try local specialties like Ostrava-style goulash. Beer gardens are busiest in the evening.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€10-€20",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit the New City Hall Viewing Tower",
+                    "where": "City Center",
+                    "description": "Climb the viewing tower for panoramic views of Ostrava and the surrounding industrial landscape.",
+                    "practical_tips": "Visit on clear days for the best views. The tower can be windy.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€3",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Explore the Ostrava Zoo",
+                    "where": "Michálkovice District",
+                    "description": "Visit one of the largest zoos in the Czech Republic with over 400 species of animals.",
+                    "practical_tips": "Allow 3-4 hours for a complete visit. Bring water and comfortable walking shoes.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€8",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Industrial Architecture Photography",
+                    "where": "Various industrial sites",
+                    "description": "Capture the unique industrial architecture and heritage sites throughout the city.",
+                    "practical_tips": "Early morning and golden hour provide the best lighting. Respect private property boundaries.",
+                    "best_time": "Early morning or evening",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit the Ostrava Museum",
+                    "where": "City Center",
+                    "description": "Learn about the city's history, industrial development, and cultural heritage.",
+                    "practical_tips": "Check for special exhibitions. The museum offers insights into Ostrava's transformation.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€4",
+                    "weather_dependent": false
+                }
+            ]
         },
-        "activities": [
-            "Outdoor festivals and concerts",
-            "River cruises and boat trips",
-            "Beer garden culture",
-            "Romantic evening walks",
-            "Photography with optimal lighting"
-        ]
+        "second_half": {
+            "date_range": "June 16–30",
+            "weather": {
+                "average_temperature": {
+                    "high": "23°C",
+                    "low": "14°C"
+                },
+                "precipitation": "There's slightly less rain compared to early June, but carrying an umbrella is still advisable.",
+                "general_tips": "Light clothing is suitable, but a sweater for cooler evenings is recommended."
+            },
+            "tourism_level": {
+                "crowds": "High, particularly at popular attractions and during major events.",
+                "pricing": "Prices for accommodation and flights remain high, often with limited availability.",
+                "overall_atmosphere": "Vibrant and energetic, with a festive spirit as summer begins and festival season approaches."
+            },
+            "events_holidays": [
+                {
+                    "name": "Colours of Ostrava Pre-Festival Events",
+                    "date": "Late June",
+                    "description": "Various pre-festival activities and performances leading up to the main Colours of Ostrava festival.",
+                    "notes": "Check local event listings for specific dates and venues. Many events are free."
+                },
+                {
+                    "name": "Ostrava Cultural Summer",
+                    "date": "Throughout June",
+                    "description": "A series of outdoor concerts, theater performances, and cultural events throughout the city.",
+                    "notes": "Events are often free and take place in various parks and public spaces."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Cycling the Ostrava Industrial Trail",
+                    "where": "Various industrial sites",
+                    "description": "Explore the city's industrial heritage by bicycle, following designated cycling routes.",
+                    "practical_tips": "Rent bicycles from local shops. The trails are well-marked and suitable for all skill levels.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€15-€20",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit the Michal Mine",
+                    "where": "Michálkovice District",
+                    "description": "Explore this preserved coal mine with guided tours showing the working conditions of miners.",
+                    "practical_tips": "Book tours in advance. Wear warm clothing as the mine is cool underground.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€12",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Evening Walk along the Ostravice River",
+                    "where": "Ostravice River",
+                    "description": "Enjoy a peaceful evening stroll along the riverbanks, taking in the city's industrial skyline.",
+                    "practical_tips": "The river walk is well-lit and safe. Bring a camera for sunset photos.",
+                    "best_time": "Evening",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit the Antonín Dvořák Theatre",
+                    "where": "City Center",
+                    "description": "Attend a performance at this beautiful historic theater, home to the National Moravian-Silesian Theatre.",
+                    "practical_tips": "Book tickets in advance. Dress appropriately for the theater.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€15-€30",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Explore the Lower Vítkovice Area",
+                    "where": "Lower Vítkovice",
+                    "description": "Discover the revitalized industrial area with cafes, galleries, and cultural spaces.",
+                    "practical_tips": "Visit the Gong multifunctional hall and the Bolt Tower. Allow several hours to explore fully.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€5-€10",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Local Craft Beer Tasting",
+                    "where": "Various locations",
+                    "description": "Sample local craft beers and learn about Czech brewing traditions.",
+                    "practical_tips": "Visit local breweries and beer pubs. Try regional specialties.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€15-€25",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit the Ostrava Planetarium",
+                    "where": "Křivé Lake Area",
+                    "description": "Enjoy astronomy shows and educational programs at the city's planetarium.",
+                    "practical_tips": "Check the schedule for shows in English. The planetarium is popular with families.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€6",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Explore the Poruba District",
+                    "where": "Poruba District",
+                    "description": "Walk through this planned socialist-era district with its distinctive architecture and wide boulevards.",
+                    "practical_tips": "The district showcases post-war urban planning. Visit the main square and surrounding areas.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": false
+                }
+            ]
+        }
     }
 }

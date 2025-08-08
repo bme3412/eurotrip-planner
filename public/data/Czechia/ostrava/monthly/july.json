@@ -2,56 +2,271 @@
     "July": {
         "reasons_to_visit": [
             {
-                "reason": "Warmest Weather",
-                "details": "July offers the warmest temperatures perfect for all outdoor activities and late evening strolls."
+                "reason": "Summer Festival Season",
+                "details": "Experience the vibrant summer festival season with outdoor concerts, street festivals, and cultural events at Dolní Vítkovice and other venues throughout the city."
             },
             {
-                "reason": "Summer Festivals",
-                "details": "Peak festival season with outdoor concerts, street festivals, and cultural events."
+                "reason": "Summer Sales",
+                "details": "Enjoy the bi-annual sales event where you can find great bargains in fashion, electronics, and more across Ostrava stores."
             },
             {
-                "reason": "Vibrant Atmosphere",
-                "details": "City comes alive with outdoor dining, street performers, and bustling beer gardens."
+                "reason": "Pleasant Weather",
+                "details": "July is typically warm and sunny, perfect for outdoor activities, exploring industrial heritage sites, and enjoying alfresco dining."
             },
             {
-                "reason": "Extended Hours",
-                "details": "Many attractions and venues extend their hours during peak summer season."
+                "reason": "Outdoor Cinema",
+                "details": "Catch a film under the stars at outdoor cinema events held at Dolní Vítkovice, providing a unique movie-watching experience in an industrial setting."
             },
             {
-                "reason": "Perfect for Walking",
-                "details": "Ideal weather for exploring the city on foot and discovering hidden gems."
+                "reason": "Industrial Heritage Tours",
+                "details": "Perfect weather for exploring Dolní Vítkovice and other industrial heritage sites with guided tours and photography opportunities."
+            },
+            {
+                "reason": "Music Festivals",
+                "details": "Attend various music festivals and cultural events, offering free and ticketed performances from local and international artists."
             }
         ],
-        "reasons_to_avoid": [
+        "reasons_to_reconsider": [
             {
-                "reason": "Maximum Crowds",
-                "details": "July is the busiest month with overwhelming crowds at major tourist sites."
+                "reason": "High Tourist Season",
+                "details": "Expect large crowds at popular industrial heritage sites, leading to long queues and potentially higher accommodation costs."
             },
             {
-                "reason": "Heat Waves",
-                "details": "Occasional hot weather can make midday sightseeing uncomfortable."
+                "reason": "Hot Weather",
+                "details": "Temperatures can soar, and some industrial heritage sites may be hot during midday tours, which might be uncomfortable for those sensitive to heat."
             },
             {
-                "reason": "Expensive Everything",
-                "details": "Peak season pricing affects all aspects of travel from hotels to meals."
-            },
-            {
-                "reason": "Booking Challenges",
-                "details": "Popular venues and accommodations are often fully booked months in advance."
+                "reason": "Possible Transport Delays",
+                "details": "Summer maintenance and increased tourism can affect public transport schedules; it's wise to have backup options."
             }
         ],
+        "first_half": {
+            "date_range": "July 1–15",
+            "weather": {
+                "average_temperature": {
+                    "high": "24°C",
+                    "low": "14°C"
+                },
+                "precipitation": "Light rain is possible but not frequent; generally sunny days.",
+                "general_tips": "Dress in light layers, carry sunglasses and sunscreen, and keep a light raincoat for unexpected showers."
+            },
+            "tourism_level": {
+                "crowds": "High at major attractions like Dolní Vítkovice and Ostrava Zoo; calmer in local neighborhoods.",
+                "pricing": "Accommodation and flights can be pricey; book in advance for the best deals.",
+                "overall_atmosphere": "Lively and bustling with a mix of tourists and locals enjoying summer activities."
+            },
+            "events_holidays": [
+                {
+                    "name": "Ostrava Music Festival",
+                    "date": "Throughout month",
+                    "description": "Held in various venues including Dolní Vítkovice, this festival features music performances from international and local artists.",
+                    "notes": "Tickets are often free; bring a picnic to enjoy the day."
+                },
+                {
+                    "name": "Bastille Day",
+                    "date": "July 14, 2025",
+                    "description": "French cultural celebrations with events, fireworks, and various festivities throughout the city.",
+                    "notes": "Arrive early for a good viewing spot; public transport may be crowded."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Visit Dolní Vítkovice",
+                    "where": "Dolní Vítkovice UNESCO site",
+                    "description": "Explore the iconic industrial heritage site with guided tours of blast furnaces and mining facilities.",
+                    "practical_tips": "Book guided tours in advance. Wear comfortable walking shoes and bring water.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€15-€25",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Stroll through City Center",
+                    "where": "Masaryk Square and surrounding streets",
+                    "description": "Wander the charming streets, visit historic buildings, and enjoy street performances.",
+                    "practical_tips": "Wear comfortable shoes; avoid midday crowds.",
+                    "best_time": "Morning or late afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Industrial Heritage Photography",
+                    "where": "Dolní Vítkovice, Michal Mine",
+                    "description": "Capture the dramatic industrial heritage sites with summer lighting and golden hour photography.",
+                    "practical_tips": "Get permits for professional photography and visit during golden hour for best lighting.",
+                    "best_time": "Golden hour",
+                    "estimated_cost": "€5-€15",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Explore the Ostrava Museum",
+                    "where": "Ostrava Museum",
+                    "description": "Discover exhibits on industrial heritage and local history in a cool indoor setting.",
+                    "practical_tips": "Visit on a weekday to avoid crowds; purchase tickets online.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€8-€12",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Picnic in Komenského Gardens",
+                    "where": "Komenského Gardens",
+                    "description": "Relax in the beautifully manicured gardens and enjoy a classic Czech picnic.",
+                    "practical_tips": "Bring your own food and drinks; avoid weekends if possible.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Shop at Local Markets",
+                    "where": "Central market area",
+                    "description": "Browse local markets offering fresh produce, crafts, and traditional Czech goods.",
+                    "practical_tips": "Haggle prices for the best deals; watch out for pickpockets.",
+                    "best_time": "Morning",
+                    "estimated_cost": "Varies",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Savor Traditional Czech Cuisine",
+                    "where": "Various restaurants",
+                    "description": "Dine at traditional Czech restaurants and enjoy iconic dishes like goulash and svíčková.",
+                    "practical_tips": "Make reservations; try local specialties for an authentic experience.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€20-€40",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Attend an Open-Air Concert",
+                    "where": "Various locations",
+                    "description": "Experience live music in beautiful outdoor settings as part of several summer festivals.",
+                    "practical_tips": "Check event schedules; bring a blanket for seating.",
+                    "best_time": "Evening",
+                    "estimated_cost": "Free to moderate",
+                    "weather_dependent": true
+                }
+            ]
+        },
+        "second_half": {
+            "date_range": "July 16–31",
+            "weather": {
+                "average_temperature": {
+                    "high": "26°C",
+                    "low": "15°C"
+                },
+                "precipitation": "Generally dry with occasional thunderstorms.",
+                "general_tips": "Hydrate well, use sunblock, and stay cool during peak afternoon heat."
+            },
+            "tourism_level": {
+                "crowds": "Remain high, especially at tourist hotspots and during events.",
+                "pricing": "Continues to be high; last-minute deals can be scarce.",
+                "overall_atmosphere": "Festive and energetic, with many outdoor activities and events."
+            },
+            "events_holidays": [
+                {
+                    "name": "Summer Street Food Festival",
+                    "date": "Throughout month",
+                    "description": "Temporary food markets throughout the city, offering local and international cuisine.",
+                    "notes": "Family-friendly; free access to markets."
+                },
+                {
+                    "name": "Industrial Heritage Photography Workshop",
+                    "date": "Late July",
+                    "description": "Professional photography workshop focusing on industrial heritage with summer lighting techniques.",
+                    "notes": "Limited spots available, book in advance for this unique photography opportunity."
+                },
+                {
+                    "name": "Ostrava Cultural Festival",
+                    "date": "Late July",
+                    "description": "A major cultural festival featuring a diverse lineup of performances and exhibitions.",
+                    "notes": "Purchase tickets in advance; public transport recommended."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Visit Michal Mine",
+                    "where": "Michal Mine",
+                    "description": "Explore the underground mining facilities with guided tours of the preserved industrial site.",
+                    "practical_tips": "Book tours in advance as group sizes are limited. Wear comfortable walking shoes.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€12-€18",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Attend a Wine Tasting",
+                    "where": "Various wine bars and restaurants",
+                    "description": "Sample exquisite Moravian wines and learn about the regions they come from.",
+                    "practical_tips": "Reserve in advance; consider a guided tour for more insights.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€20-€40",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Explore the City Hall Tower",
+                    "where": "City Hall Tower",
+                    "description": "Climb to the top for panoramic views of Ostrava and the surrounding industrial landscape.",
+                    "practical_tips": "Book tickets online to skip the queue; go early or late to avoid long lines.",
+                    "best_time": "Late afternoon",
+                    "estimated_cost": "€5-€8",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Enjoy an Evening at Stodolní Street",
+                    "where": "Stodolní Street",
+                    "description": "Experience the famous entertainment district with its vibrant nightlife and numerous bars and clubs.",
+                    "practical_tips": "Start early and explore different venues throughout the evening.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€20-€50",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Take a Day Trip to Moravian Wine Region",
+                    "where": "Nearby Moravian wine regions",
+                    "description": "Visit nearby wine regions for tastings and tours of local vineyards and cellars.",
+                    "practical_tips": "Book wine tours in advance and consider transportation to the wine regions.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€30-€60",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Bike Tour through Ostrava",
+                    "where": "Various starting points",
+                    "description": "See Ostrava from a different perspective while cycling through its scenic streets and industrial heritage sites.",
+                    "practical_tips": "Rent bikes in advance; follow guided tours for best routes.",
+                    "best_time": "Morning or late afternoon",
+                    "estimated_cost": "€20-€40",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit Ostrava Zoo",
+                    "where": "Ostrava Zoo",
+                    "description": "Discover various animals and enjoy the beautiful gardens with summer blooms.",
+                    "practical_tips": "Purchase skip-the-line tickets; less crowded on weekday afternoons.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€10-€15",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Attend a Rooftop Bar",
+                    "where": "Various locations",
+                    "description": "Enjoy panoramic views of the city while sipping cocktails at one of Ostrava's rooftop bars.",
+                    "practical_tips": "Arrive early to secure a good spot; some places may require reservations.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€15-€30",
+                    "weather_dependent": true
+                }
+            ]
+        },
         "weather": {
-            "temperature_range": "16°C to 25°C (61°F to 77°F)",
+            "temperature_range": "14°C to 26°C (57°F to 79°F)",
             "rainfall": "Low",
             "snow": "None",
             "daylight_hours": "16-17 hours"
         },
         "activities": [
             "Summer festivals and events",
-            "Extended sightseeing hours",
+            "Industrial heritage tours",
             "Outdoor dining and nightlife",
-            "River activities",
-            "Street festival participation"
+            "Photography workshops",
+            "Street festival participation",
+            "Wine tasting experiences"
         ]
     }
 }

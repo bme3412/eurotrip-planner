@@ -3,43 +3,294 @@
         "reasons_to_visit": [
             {
                 "reason": "Spring Awakening",
-                "details": "March marks the beginning of spring with longer days and gradually warming temperatures."
+                "details": "March marks the beginning of spring in Ostrava, with parks and green spaces starting to bloom, offering pleasant conditions for exploring the city's industrial heritage sites and outdoor attractions."
             },
             {
-                "reason": "Easter Preparations",
-                "details": "Traditional Easter markets begin appearing in Old Town Square with local crafts and seasonal treats."
+                "reason": "Easter Traditions",
+                "details": "Experience traditional Czech Easter celebrations with local markets, decorated eggs, and seasonal treats throughout the city, particularly in the historic center."
+            },
+            {
+                "reason": "Industrial Heritage Tours",
+                "details": "March provides comfortable temperatures for exploring Ostrava's unique industrial heritage sites like Dolní Vítkovice and Landek Park without the summer crowds."
+            },
+            {
+                "reason": "Cultural Events",
+                "details": "The month hosts various cultural events including classical music performances at the Antonín Dvořák Theatre and contemporary art exhibitions."
             },
             {
                 "reason": "Moderate Crowds",
-                "details": "Tourist numbers start increasing but remain manageable, offering a good balance of atmosphere and accessibility."
+                "details": "March is not peak tourist season, meaning shorter lines at major attractions and a more relaxed pace to explore the city's industrial and cultural sites."
             },
             {
-                "reason": "Cultural Season",
-                "details": "Spring cultural events and festivals begin, offering diverse entertainment options."
+                "reason": "Affordable Accommodation",
+                "details": "During March, accommodation prices in Ostrava are more affordable compared to the summer months, making it a budget-friendly time to visit."
+            },
+            {
+                "reason": "Beer Culture",
+                "details": "Indoor beer halls and pubs offer warm refuge from spring weather while experiencing authentic Czech beer culture and local cuisine."
             }
         ],
-        "reasons_to_avoid": [
+        "reasons_to_reconsider": [
             {
                 "reason": "Unpredictable Weather",
-                "details": "March weather can be variable with sudden changes between winter and spring conditions."
+                "details": "March weather in Ostrava can be quite unpredictable, with sudden changes between winter and spring conditions, requiring layered clothing."
             },
             {
                 "reason": "Muddy Conditions",
-                "details": "Snow melt and spring rains can create muddy conditions in parks and outdoor areas."
+                "details": "Snow melt and spring rains can create muddy conditions in parks and outdoor areas, particularly around industrial heritage sites."
+            },
+            {
+                "reason": "Limited Daylight",
+                "details": "Days are still relatively short in March, which could limit sightseeing time, especially for outdoor industrial tours and photography."
+            },
+            {
+                "reason": "Indoor Focus",
+                "details": "Some outdoor industrial sites may have limited access or require indoor alternatives during inclement weather."
             }
         ],
-        "weather": {
-            "temperature_range": "2°C to 9°C (36°F to 48°F)",
-            "rainfall": "Moderate",
-            "snow": "Occasional",
-            "daylight_hours": "11-12 hours"
+        "first_half": {
+            "date_range": "March 1–15",
+            "weather": {
+                "average_temperature": {
+                    "high": "8°C",
+                    "low": "1°C"
+                },
+                "precipitation": "Expect occasional rain and snow showers with about 10-12 rainy days on average; it's advisable to carry an umbrella and wear waterproof footwear.",
+                "general_tips": "Dress in layers to adjust to fluctuating temperatures, and carry a waterproof jacket for industrial site visits."
+            },
+            "tourism_level": {
+                "crowds": "Moderate tourist density, particularly at popular sites like Dolní Vítkovice and the city center, with locals enjoying early spring activities.",
+                "pricing": "Hotel prices are moderate, with potential deals on accommodations compared to the summer peak season.",
+                "overall_atmosphere": "The city begins to buzz with early spring excitement, as locals and visitors alike enjoy the longer daylight hours and milder weather."
+            },
+            "events_holidays": [
+                {
+                    "name": "Easter Markets",
+                    "date": "Throughout March",
+                    "description": "Traditional Easter markets appear in the city center with local crafts, decorated eggs, and seasonal Czech treats.",
+                    "notes": "Markets are busiest on weekends. Try traditional Easter foods like mazanec (Easter bread) and decorated eggs."
+                },
+                {
+                    "name": "International Women's Day",
+                    "date": "March 8",
+                    "description": "Celebrated throughout the city with cultural events, exhibitions, and special performances.",
+                    "notes": "Check local venues for special events and performances celebrating women's achievements."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Explore Dolní Vítkovice",
+                    "where": "Dolní Vítkovice Complex",
+                    "description": "Visit the UNESCO-listed industrial heritage site featuring blast furnaces, gasometers, and the Bolt Tower observation deck.",
+                    "practical_tips": "Book guided tours in advance. Wear comfortable, waterproof shoes for walking on industrial terrain.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€8-€15",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit Landek Park Mining Museum",
+                    "where": "Landek Hill",
+                    "description": "Explore the largest mining museum in the Czech Republic with underground tours and mining equipment displays.",
+                    "practical_tips": "Book underground tours in advance. Bring warm clothing as underground areas are cool year-round.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€10-€15",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Easter Market Shopping",
+                    "where": "City Center",
+                    "description": "Browse traditional Easter markets for handcrafted decorations, local foods, and seasonal treats.",
+                    "practical_tips": "Markets are busiest on weekends. Try traditional Czech Easter specialties.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€5-€20",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit the Ostrava Museum",
+                    "where": "City Center",
+                    "description": "Learn about the city's history, industrial development, and cultural heritage in this comprehensive museum.",
+                    "practical_tips": "Check for special exhibitions. The museum offers insights into Ostrava's transformation from industrial center to cultural hub.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€4",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Indoor Beer Tasting",
+                    "where": "Various locations",
+                    "description": "Sample local Czech beers and traditional cuisine in Ostrava's cozy indoor beer halls and pubs.",
+                    "practical_tips": "Try local specialties like Ostrava-style goulash. Beer halls are warm and welcoming in March.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€10-€20",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit the New City Hall Viewing Tower",
+                    "where": "City Center",
+                    "description": "Climb the viewing tower for panoramic views of Ostrava and the surrounding industrial landscape.",
+                    "practical_tips": "Visit on clear days for the best views. The tower can be windy in March.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€3",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Industrial Architecture Photography",
+                    "where": "Various industrial sites",
+                    "description": "Capture the unique industrial architecture and heritage sites throughout the city in early spring light.",
+                    "practical_tips": "Early morning and late afternoon provide the best lighting. Respect private property boundaries.",
+                    "best_time": "Early morning or late afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Visit Silesian Ostrava Castle",
+                    "where": "Silesian Ostrava District",
+                    "description": "Visit the historic castle with its museum and beautiful gardens, offering views of the city.",
+                    "practical_tips": "Check opening hours and museum exhibitions. The castle grounds are perfect for photography.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€5",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Attend a Classical Concert",
+                    "where": "Antonín Dvořák Theatre",
+                    "description": "Enjoy classical music performances at this beautiful historic theater, home to the National Moravian-Silesian Theatre.",
+                    "practical_tips": "Book tickets in advance. Dress appropriately for the theater.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€15-€30",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Explore the Ostrava Zoo",
+                    "where": "Michálkovice District",
+                    "description": "Visit one of the largest zoos in the Czech Republic with over 400 species of animals.",
+                    "practical_tips": "Allow 3-4 hours for a complete visit. Bring warm clothing as some areas are outdoors.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€8",
+                    "weather_dependent": true
+                }
+            ]
         },
-        "activities": [
-            "Easter market visits",
-            "Early spring walking tours",
-            "Indoor and outdoor mix",
-            "Cultural events",
-            "Photography with changing light"
-        ]
+        "second_half": {
+            "date_range": "March 16–31",
+            "weather": {
+                "average_temperature": {
+                    "high": "10°C",
+                    "low": "3°C"
+                },
+                "precipitation": "Rainfall decreases slightly, but occasional showers remain common. Snow is less frequent but still possible.",
+                "general_tips": "Continue to dress in layers and carry an umbrella. A light scarf can be useful for windy days."
+            },
+            "tourism_level": {
+                "crowds": "Slightly increasing as Easter approaches, but still manageable compared to summer months.",
+                "pricing": "Some price increases as demand rises, especially closer to Easter. Consider booking activities and accommodations in advance.",
+                "overall_atmosphere": "The city feels more lively as spring sets in, with more locals and tourists enjoying outdoor spaces."
+            },
+            "events_holidays": [
+                {
+                    "name": "Easter Celebrations",
+                    "date": "March 30-31, 2025",
+                    "description": "Traditional Czech Easter celebrations with decorated eggs, Easter markets, and special church services.",
+                    "notes": "Many shops and attractions may have limited hours on Easter Sunday. Check schedules in advance."
+                },
+                {
+                    "name": "Spring Cultural Events",
+                    "date": "Throughout late March",
+                    "description": "Various cultural events including art exhibitions, music performances, and theater productions.",
+                    "notes": "Check local event listings for specific dates and venues. Many events are free or low-cost."
+                }
+            ],
+            "unique_experiences": [
+                {
+                    "activity": "Visit the Michal Mine",
+                    "where": "Michálkovice District",
+                    "description": "Explore this preserved coal mine with guided tours showing the working conditions of miners.",
+                    "practical_tips": "Book tours in advance. Wear warm clothing as the mine is cool underground.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€12",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Spring Walk along the Ostravice River",
+                    "where": "Ostravice River",
+                    "description": "Enjoy a peaceful walk along the riverbanks, taking in the early spring scenery and city views.",
+                    "practical_tips": "The river walk is well-maintained. Bring a camera for early spring photography.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": true
+                },
+                {
+                    "activity": "Explore the Lower Vítkovice Area",
+                    "where": "Lower Vítkovice",
+                    "description": "Discover the revitalized industrial area with cafes, galleries, and cultural spaces.",
+                    "practical_tips": "Visit the Gong multifunctional hall and the Bolt Tower. Allow several hours to explore fully.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€5-€10",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit the Ostrava Planetarium",
+                    "where": "Křivé Lake Area",
+                    "description": "Enjoy astronomy shows and educational programs at the city's planetarium.",
+                    "practical_tips": "Check the schedule for shows in English. The planetarium is popular with families.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€6",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Local Craft Beer Tasting",
+                    "where": "Various locations",
+                    "description": "Sample local craft beers and learn about Czech brewing traditions in cozy indoor settings.",
+                    "practical_tips": "Visit local breweries and beer pubs. Try regional specialties and seasonal brews.",
+                    "best_time": "Evening",
+                    "estimated_cost": "€15-€25",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Explore the Poruba District",
+                    "where": "Poruba District",
+                    "description": "Walk through this planned socialist-era district with its distinctive architecture and wide boulevards.",
+                    "practical_tips": "The district showcases post-war urban planning. Visit the main square and surrounding areas.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Attend a Contemporary Art Exhibition",
+                    "where": "Various galleries",
+                    "description": "Visit local galleries and art spaces showcasing contemporary Czech and international artists.",
+                    "practical_tips": "Check gallery schedules for special exhibitions. Many galleries offer free admission.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "Free-€10",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit the Ostrava City Library",
+                    "where": "City Center",
+                    "description": "Explore this modern library building with its impressive architecture and cultural events.",
+                    "practical_tips": "Check for special exhibitions and cultural events. The library often hosts free performances.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "Free",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Traditional Czech Cooking Class",
+                    "where": "Various locations",
+                    "description": "Learn to cook traditional Czech dishes with guidance from local chefs.",
+                    "practical_tips": "Book classes in advance. Classes vary in length and complexity.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€30-€60",
+                    "weather_dependent": false
+                },
+                {
+                    "activity": "Visit the Ostrava Technical Museum",
+                    "where": "Various locations",
+                    "description": "Explore exhibits showcasing the city's industrial heritage and technological innovations.",
+                    "practical_tips": "Check opening hours and special exhibitions. The museum offers insights into Ostrava's industrial past.",
+                    "best_time": "Morning",
+                    "estimated_cost": "€5-€8",
+                    "weather_dependent": false
+                }
+            ]
+        }
     }
 }

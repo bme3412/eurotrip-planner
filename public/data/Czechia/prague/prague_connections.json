@@ -1,0 +1,561 @@
+{
+    "destinations": [
+        {
+            "city": "Brno",
+            "country": "Czech Republic",
+            "whyGo": "Czech Republic's second largest city with modern architecture, vibrant cultural scene, and excellent universities.",
+            "directWithinCountryTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "2h30m",
+                "frequency": "Hourly",
+                "trainType": "ČD",
+                "priceRange": "€8-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-180"
+            }
+        },
+        {
+            "city": "Ostrava",
+            "country": "Czech Republic",
+            "whyGo": "Industrial heritage city with unique mining museums, contemporary culture, and vibrant nightlife.",
+            "directWithinCountryTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "3h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD",
+                "priceRange": "€12-30"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-200"
+            }
+        },
+        {
+            "city": "České Budějovice",
+            "country": "Czech Republic",
+            "whyGo": "Historic city known for Budweiser beer, beautiful Renaissance architecture, and gateway to South Bohemia.",
+            "directWithinCountryTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "2h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD",
+                "priceRange": "€8-20"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "N/A",
+                "priceRange": "N/A"
+            }
+        },
+        {
+            "city": "Plzen",
+            "country": "Czech Republic",
+            "whyGo": "The birthplace of Pilsner beer with historic brewery tours, beautiful cathedral, and charming old town.",
+            "directWithinCountryTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "1h30m",
+                "frequency": "Hourly",
+                "trainType": "ČD",
+                "priceRange": "€5-15"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "N/A",
+                "priceRange": "N/A"
+            }
+        },
+        {
+            "city": "Karlovy Vary",
+            "country": "Czech Republic",
+            "whyGo": "Famous spa town with thermal springs, elegant architecture, and international film festival.",
+            "directWithinCountryTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "3h15m",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD",
+                "priceRange": "€8-20"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "N/A",
+                "priceRange": "N/A"
+            }
+        },
+        {
+            "city": "Český Krumlov",
+            "country": "Czech Republic",
+            "whyGo": "Medieval fairy-tale town with stunning castle and UNESCO World Heritage old town.",
+            "directWithinCountryTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "3h",
+                "frequency": "Daily",
+                "trainType": "ČD",
+                "priceRange": "€10-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "N/A",
+                "priceRange": "N/A"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "4h",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD/ÖBB",
+                "priceRange": "€25-60"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest celebration, beer halls, excellent museums, and beautiful architecture blending tradition and modernity.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "trainType": "ČD/DB",
+                "priceRange": "€35-80"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h10m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic capital blending history and modernity with vibrant arts scene, museums, and nightlife.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "4h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD/DB",
+                "priceRange": "€25-70"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Hourly",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Dresden",
+            "country": "Germany",
+            "whyGo": "Baroque jewel with stunning architecture, excellent museums, and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "2h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD/DB",
+                "priceRange": "€15-40"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "N/A",
+                "priceRange": "N/A"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline, excellent museums, historic old town, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "trainType": "ČD/DB",
+                "priceRange": "€40-90"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Nuremberg",
+            "country": "Germany",
+            "whyGo": "Historic city with medieval architecture, famous Christmas markets, and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "trainType": "ČD/DB",
+                "priceRange": "€30-70"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-190"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for its well-preserved medieval old town, excellent museums, beautiful lake setting, and high quality of life.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "12h",
+                "frequency": "Daily",
+                "trainType": "ČD/SBB",
+                "priceRange": "€60-140"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h20m",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage along the Danube.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "trainType": "ČD/MÁV",
+                "priceRange": "€25-65"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Charming capital with medieval old town, hilltop castle, and Danube riverfront.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "4h15m",
+                "frequency": "Every 2 hours",
+                "trainType": "ČD/ŽSSK",
+                "priceRange": "€20-50"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-190"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "8h30m",
+                "frequency": "Daily",
+                "trainType": "ČD/PKP",
+                "priceRange": "€30-75"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Krakow",
+            "country": "Poland",
+            "whyGo": "Historic city with stunning medieval old town, Wawel Castle, and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "trainType": "ČD/PKP",
+                "priceRange": "€25-60"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€75-180"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "14h",
+                "frequency": "Daily",
+                "trainType": "ČD/NS",
+                "priceRange": "€80-180"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Vibrant capital of Belgium and the European Union, known for its historic Grand Place, Art Nouveau architecture, and excellent beer culture.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "15h",
+                "frequency": "Daily",
+                "trainType": "ČD/SNCB",
+                "priceRange": "€90-200"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInPrague": "Praha hlavní nádraží",
+                "journeyTime": "16h",
+                "frequency": "Daily",
+                "trainType": "ČD/SNCF",
+                "priceRange": "€100-220"
+            },
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-260"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, finance, and culture, featuring iconic landmarks and diverse neighborhoods.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art, vibrant cultural scene, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, vibrant cultural scene, and bike-friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, Scandinavian design culture, and Nobel Prize heritage.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, modern architecture, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant capital with rich literary heritage, excellent pubs, friendly atmosphere, and Georgian architecture.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, excellent cuisine, and maritime heritage.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient capital with Acropolis, rich history, excellent museums, and gateway to Greek islands.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where East meets West with stunning mosques, Grand Bazaar, Bosphorus views, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInPrague": [
+                    "Václav Havel Airport Prague"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        }
+    ]
+}
+}
