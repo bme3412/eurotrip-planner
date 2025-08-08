@@ -1,6 +1,27 @@
 {
     "October": {
         "summary": "October in Graz is a vibrant autumn month with changing leaves in parks and surrounding hills. The city takes on rich golden and red hues, particularly in Stadtpark and around Schlossberg. With comfortable temperatures, harvest celebrations, and seasonal Styrian cuisine, it's an atmospheric time to visit before the winter crowds arrive for Christmas markets.",
+        "weather_overview": {
+            "temperature_range": {
+                "early_october": "7-16°C",
+                "mid_october": "5-13°C",
+                "late_october": "3-10°C"
+            },
+            "precipitation": {
+                "average_rainfall": "55mm",
+                "rainy_days": "12-15 days",
+                "fog_probability": "Moderate (especially mornings)"
+            },
+            "sunlight": {
+                "daylight_hours": "10-12 hours",
+                "sunrise": "6:30-7:00 AM",
+                "sunset": "6:00-7:30 PM"
+            },
+            "wind": {
+                "average_speed": "12-18 km/h",
+                "prevailing_direction": "West/Southwest"
+            }
+        },
         "reasons_to_visit": [
             {
                 "reason": "Beautiful Autumn Foliage",
@@ -29,6 +50,10 @@
             {
                 "reason": "Wine Harvest Events",
                 "details": "Participate in wine-related events and tastings featuring Styria's new wine production, with special menus at local restaurants and day-trip opportunities to nearby wine regions."
+            },
+            {
+                "reason": "Cultural Festival Season",
+                "details": "Experience the Steirischer Herbst (Styrian Autumn Festival), one of Europe's oldest contemporary arts festivals, with installations and performances throughout the city."
             }
         ],
         "reasons_to_reconsider": [
@@ -51,8 +76,218 @@
             {
                 "reason": "Increased Chance of Rain",
                 "details": "October sees more precipitation than summer months, requiring flexible planning and appropriate clothing for potential rainy days."
+            },
+            {
+                "reason": "Foggy Mornings",
+                "details": "Morning fog along the Mur River can limit visibility and photography opportunities, though it often creates atmospheric conditions."
             }
         ],
+        "transportation": {
+            "airport": {
+                "name": "Graz Airport (GRZ)",
+                "distance": "10 km from city center",
+                "transport_options": [
+                    {
+                        "method": "Bus 630",
+                        "duration": "20-25 minutes",
+                        "cost": "€2.40",
+                        "frequency": "Every 30 minutes"
+                    },
+                    {
+                        "method": "Taxi",
+                        "duration": "15-20 minutes",
+                        "cost": "€25-35",
+                        "notes": "Available 24/7"
+                    }
+                ]
+            },
+            "public_transport": {
+                "tram_system": {
+                    "lines": "8 tram lines covering the city",
+                    "frequency": "Every 6-10 minutes",
+                    "cost": "€2.40 per ride",
+                    "day_pass": "€5.20"
+                },
+                "bus_system": {
+                    "coverage": "Comprehensive network including suburbs",
+                    "frequency": "Every 10-15 minutes",
+                    "cost": "€2.40 per ride"
+                },
+                "bike_sharing": {
+                    "system": "Nextbike",
+                    "stations": "50+ locations",
+                    "cost": "€1 per 30 minutes",
+                    "availability": "Good - pleasant autumn weather for cycling"
+                }
+            },
+            "walking": {
+                "city_center": "Highly walkable, compact historic center",
+                "distances": "Most attractions within 15-20 minute walks",
+                "safety": "Very safe, well-lit streets",
+                "accessibility": "Good, though some historic areas have cobblestones"
+            }
+        },
+        "accommodation": {
+            "budget_options": [
+                {
+                    "type": "Hostels",
+                    "examples": ["A&O Graz Hauptbahnhof", "Jugendherberge Graz"],
+                    "price_range": "€25-45 per night",
+                    "location": "Near train station and city center"
+                },
+                {
+                    "type": "Budget Hotels",
+                    "examples": ["Hotel Weitzer", "Hotel Daniel"],
+                    "price_range": "€60-90 per night",
+                    "location": "City center and near attractions"
+                }
+            ],
+            "mid_range_options": [
+                {
+                    "type": "Boutique Hotels",
+                    "examples": ["Hotel Gollner", "Hotel Wiesler"],
+                    "price_range": "€100-150 per night",
+                    "location": "Historic center, excellent locations"
+                },
+                {
+                    "type": "Business Hotels",
+                    "examples": ["Mercure Graz City", "Ibis Graz City"],
+                    "price_range": "€80-120 per night",
+                    "location": "Convenient for business travelers"
+                }
+            ],
+            "luxury_options": [
+                {
+                    "type": "Historic Hotels",
+                    "examples": ["Grand Hotel Wiesler", "Hotel Erzherzog Johann"],
+                    "price_range": "€200-300 per night",
+                    "location": "Premium locations in historic center"
+                }
+            ],
+            "seasonal_notes": {
+                "availability": "Good availability, shoulder season",
+                "pricing": "Shoulder season rates, 20-30% cheaper than summer",
+                "booking_tips": "Book 2-3 weeks in advance for best rates, especially during festival periods"
+            }
+        },
+        "dining": {
+            "traditional_austrian": [
+                {
+                    "name": "Gasthaus Lendplatz",
+                    "specialties": ["Wiener Schnitzel", "Tafelspitz", "Styrian specialties"],
+                    "price_range": "€16-26 per main",
+                    "location": "Lendplatz 8",
+                    "atmosphere": "Traditional, cozy"
+                },
+                {
+                    "name": "Landhauskeller",
+                    "specialties": ["Austrian classics", "Local wines"],
+                    "price_range": "€20-32 per main",
+                    "location": "Schmiedgasse 9",
+                    "atmosphere": "Historic cellar, romantic"
+                }
+            ],
+            "modern_austrian": [
+                {
+                    "name": "Der Steirer",
+                    "specialties": ["Contemporary Austrian", "Seasonal menu"],
+                    "price_range": "€25-40 per main",
+                    "location": "Sackstraße 8",
+                    "atmosphere": "Modern, stylish"
+                },
+                {
+                    "name": "Aiola Upstairs",
+                    "specialties": ["Austrian with international twist", "Great views"],
+                    "price_range": "€22-35 per main",
+                    "location": "Schlossberg 2",
+                    "atmosphere": "Rooftop dining, panoramic views"
+                }
+            ],
+            "autumn_cafes": [
+                {
+                    "name": "Café Sacher",
+                    "specialties": ["Sachertorte", "Viennese coffee culture"],
+                    "price_range": "€8-15 for coffee and cake",
+                    "location": "Herrengasse 6",
+                    "atmosphere": "Elegant, historic"
+                },
+                {
+                    "name": "Café Promenade",
+                    "specialties": ["Local pastries", "People watching"],
+                    "price_range": "€6-12 for coffee and cake",
+                    "location": "Sporgasse 25",
+                    "atmosphere": "Charming, central location"
+                }
+            ],
+            "seasonal_specialties": {
+                "october_highlights": [
+                    "Pumpkin dishes with Styrian pumpkin seed oil",
+                    "New wine (Sturm) - partially fermented wine",
+                    "Roasted chestnuts",
+                    "Game dishes (venison, wild boar)",
+                    "Fresh apples and pears",
+                    "Mushroom specialties",
+                    "Harvest soups and stews"
+                ]
+            }
+        },
+        "shopping": {
+            "traditional_markets": [
+                {
+                    "name": "Kaiser-Josef-Markt",
+                    "products": ["Autumn produce", "Pumpkins and squashes", "Apples and pears", "Mushrooms", "Local cheeses"],
+                    "hours": "Monday-Saturday 6:00-13:00",
+                    "location": "Kaiser-Josef-Platz",
+                    "best_day": "Saturday morning"
+                },
+                {
+                    "name": "Lendplatz Market",
+                    "products": ["Organic produce", "Artisan foods", "Crafts", "Autumn specialties"],
+                    "hours": "Monday-Saturday 6:00-13:00",
+                    "location": "Lendplatz",
+                    "best_day": "Saturday morning"
+                }
+            ],
+            "shopping_districts": [
+                {
+                    "area": "Herrengasse",
+                    "stores": ["International brands", "Department stores", "Souvenirs"],
+                    "atmosphere": "Main shopping street, pedestrian zone"
+                },
+                {
+                    "area": "Sporgasse",
+                    "stores": ["Boutiques", "Local designers", "Antique shops"],
+                    "atmosphere": "Historic street, unique finds"
+                },
+                {
+                    "area": "Lend District",
+                    "stores": ["Alternative fashion", "Vintage shops", "Design stores"],
+                    "atmosphere": "Trendy, creative neighborhood"
+                }
+            ],
+            "souvenirs": [
+                {
+                    "item": "Styrian pumpkin seed oil",
+                    "where": "Farmers' markets, specialty shops",
+                    "price": "€8-15 per bottle"
+                },
+                {
+                    "item": "Local wines",
+                    "where": "Wine shops, markets",
+                    "price": "€8-25 per bottle"
+                },
+                {
+                    "item": "Handcrafted items",
+                    "where": "Markets, craft shops",
+                    "price": "€10-50"
+                },
+                {
+                    "item": "Autumn produce preserves",
+                    "where": "Markets, specialty shops",
+                    "price": "€5-15"
+                }
+            ]
+        },
         "first_half": {
             "date_range": "October 1–15",
             "weather": {
@@ -61,31 +296,42 @@
                     "low": "7°C"
                 },
                 "precipitation": "Variable conditions with generally pleasant, sunny days interspersed with occasional rainy periods. Morning fog possible, especially along the Mur River, typically clearing by midday.",
-                "general_tips": "Pack layers for temperature fluctuations, including light sweaters, a medium jacket, and waterproof outer layer. Comfortable walking shoes and a small umbrella are essential."
+                "general_tips": "Pack layers for temperature fluctuations, including light sweaters, a medium jacket, and waterproof outer layer. Comfortable walking shoes and a small umbrella are essential.",
+                "detailed_forecast": {
+                    "week_1": "Mild start with temperatures 7-16°C, occasional rain",
+                    "week_2": "Gradual cooling to 5-13°C, more variable weather"
+                }
             },
             "tourism_level": {
                 "crowds": "Moderate to Low - Noticeably fewer tourists than summer with good availability at attractions and restaurants.",
                 "pricing": "Shoulder season rates for accommodation, often with good value and availability.",
-                "overall_atmosphere": "Pleasant autumn mood with locals returning to normal rhythms after summer holidays. Cultural venues active with new seasons starting."
+                "overall_atmosphere": "Pleasant autumn mood with locals returning to normal rhythms after summer holidays. Cultural venues active with new seasons starting.",
+                "student_life": "University semester in full swing, cultural events and festivals"
             },
             "events_holidays": [
                 {
                     "name": "Steirischer Herbst (Styrian Autumn Festival)",
                     "date": "Late September through mid-October (check specific program)",
                     "description": "Contemporary arts festival with installations, performances, and exhibitions throughout the city, often in unexpected locations.",
-                    "notes": "One of Europe's oldest festivals of contemporary art. Program and venues vary by year."
+                    "notes": "One of Europe's oldest festivals of contemporary art. Program and venues vary by year.",
+                    "locations": ["Various venues across the city"],
+                    "cost": "€15-€25 per event / Festival passes available"
                 },
                 {
                     "name": "Austrian National Holiday",
                     "date": "October 26",
                     "description": "Public holiday celebrating Austrian neutrality. Many museums offer free or reduced entry, and special events may take place.",
-                    "notes": "Shops closed. Public transportation runs on holiday schedule. Some attractions may have special opening hours."
+                    "notes": "Shops closed. Public transportation runs on holiday schedule. Some attractions may have special opening hours.",
+                    "locations": ["City-wide", "Museums and cultural venues"],
+                    "cost": "Free or reduced museum entry"
                 },
                 {
                     "name": "Harvest Thanksgiving (Erntedankfest)",
                     "date": "Usually first Sunday in October",
                     "description": "Religious celebrations at churches with harvest decorations and sometimes small processions, especially in districts outside the city center.",
-                    "notes": "Not a major tourist event but culturally interesting if you encounter it."
+                    "notes": "Not a major tourist event but culturally interesting if you encounter it.",
+                    "locations": ["Various churches throughout the city"],
+                    "cost": "Free"
                 }
             ],
             "unique_experiences": [
@@ -96,7 +342,9 @@
                     "practical_tips": "Morning visits often feature atmospheric mist. The park connects to the Botanical Gardens of the University of Graz, which also offers lovely autumn scenes.",
                     "best_time": "Mid-morning or afternoon on sunny days",
                     "estimated_cost": "Free",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1-2 hours",
+                    "highlights": ["Autumn foliage", "Historic monuments", "Botanical gardens"]
                 },
                 {
                     "activity": "Climb Schlossberg for Autumn Views",
@@ -105,7 +353,9 @@
                     "practical_tips": "Either climb the stairs (good exercise) or take the funicular (Schlossbergbahn) or glass elevator (Schlossberglift). Multiple viewing platforms offer different perspectives.",
                     "best_time": "Late afternoon for golden light on clear days",
                     "estimated_cost": "Free to climb / €2-€5 for funicular or lift",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1-1.5 hours",
+                    "highlights": ["Panoramic views", "Autumn colors", "Historic clock tower"]
                 },
                 {
                     "activity": "Visit the Farmers' Markets for Autumn Produce",
@@ -114,7 +364,9 @@
                     "practical_tips": "Markets operate primarily in the mornings until early afternoon. Saturday mornings offer the fullest experience but are busiest. Try local Sturm (partially fermented new wine) if available.",
                     "best_time": "8-11 AM, especially on Saturdays",
                     "estimated_cost": "Free to browse, €10-€20 for small purchases",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1 hour",
+                    "highlights": ["Autumn produce", "Local specialties", "Cultural experience"]
                 },
                 {
                     "activity": "Explore the UNESCO Old Town",
@@ -123,7 +375,9 @@
                     "practical_tips": "Don't miss the hidden courtyards. The tourist information center on Herrengasse offers excellent walking maps highlighting architectural points of interest.",
                     "best_time": "Midday to early afternoon",
                     "estimated_cost": "Free (self-guided) / €15-€20 (guided tour)",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "2-3 hours",
+                    "highlights": ["Historic architecture", "Hidden courtyards", "Autumn atmosphere"]
                 },
                 {
                     "activity": "Visit Eggenberg Palace and Gardens",
@@ -132,7 +386,9 @@
                     "practical_tips": "The palace interior is only accessible via guided tour (book ahead), but the gardens can be visited separately. The peacocks that roam the grounds add to the atmosphere.",
                     "best_time": "Afternoon for best light in the gardens",
                     "estimated_cost": "€15-€20 (full ticket) / €2 (gardens only)",
-                    "weather_dependent": "Partially (gardens are)"
+                    "weather_dependent": "Partially (gardens are)",
+                    "duration": "2-3 hours",
+                    "highlights": ["Baroque architecture", "Autumn gardens", "Peacocks"]
                 },
                 {
                     "activity": "Visit the Kunsthaus Graz ('Friendly Alien')",
@@ -141,7 +397,9 @@
                     "practical_tips": "Combined tickets available with other Universalmuseum Joanneum sites. The top-floor café offers interesting city views. Good option for rainy days.",
                     "best_time": "Anytime during opening hours",
                     "estimated_cost": "€10-€15",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Contemporary art", "Unique architecture", "City views"]
                 },
                 {
                     "activity": "Walk Along the Mur River",
@@ -150,7 +408,9 @@
                     "practical_tips": "The path connects many of Graz's highlights. Walking from Hauptplatz south past the Kunsthaus to Augarten park makes a good route.",
                     "best_time": "Afternoon",
                     "estimated_cost": "Free",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1-1.5 hours",
+                    "highlights": ["Riverside views", "Autumn reflections", "City landmarks"]
                 }
             ]
         },
@@ -162,31 +422,42 @@
                     "low": "5°C"
                 },
                 "precipitation": "Increasing chance of rain and morning fog. Cooler temperatures, especially in the mornings and evenings. Autumn colors remain but may begin to fade by month's end.",
-                "general_tips": "Warmer layers needed, especially for mornings and evenings. Waterproof jacket, scarf, and umbrella recommended. Consider gloves for early mornings or evening outings."
+                "general_tips": "Warmer layers needed, especially for mornings and evenings. Waterproof jacket, scarf, and umbrella recommended. Consider gloves for early mornings or evening outings.",
+                "detailed_forecast": {
+                    "week_3": "Cooler temperatures 5-13°C, more rain and fog",
+                    "week_4": "Late autumn 3-10°C, fading autumn colors"
+                }
             },
             "tourism_level": {
                 "crowds": "Low - One of the quietest periods in the tourist calendar before the Christmas market season.",
                 "pricing": "Off-season rates widely available, good value for accommodation.",
-                "overall_atmosphere": "Calm, authentic feel with predominantly local activity. Cultural life in full swing with concerts, theater, and exhibitions."
+                "overall_atmosphere": "Calm, authentic feel with predominantly local activity. Cultural life in full swing with concerts, theater, and exhibitions.",
+                "student_life": "University cultural events and indoor activities"
             },
             "events_holidays": [
                 {
                     "name": "Long Night of Museums",
                     "date": "Mid/Late October (check specific date)",
                     "description": "Many museums and galleries stay open late (until midnight) with special exhibitions, performances, and a single ticket providing access to multiple venues.",
-                    "notes": "Popular event that creates a festive atmosphere throughout the city center. Advance ticket purchase recommended."
+                    "notes": "Popular event that creates a festive atmosphere throughout the city center. Advance ticket purchase recommended.",
+                    "locations": ["Various museums across the city"],
+                    "cost": "€15-€20 for all-access ticket"
                 },
                 {
                     "name": "Reformation Day Events",
                     "date": "October 31",
                     "description": "Protestant churches may hold special services or cultural events marking Reformation Day.",
-                    "notes": "Not a public holiday but culturally observed in some communities."
+                    "notes": "Not a public holiday but culturally observed in some communities.",
+                    "locations": ["Protestant churches in the city"],
+                    "cost": "Free"
                 },
                 {
                     "name": "Preparation for All Saints' Day",
                     "date": "Late October",
                     "description": "Flower shops and markets begin selling arrangements for All Saints' Day (November 1), when locals traditionally visit cemeteries.",
-                    "notes": "St. Peter Cemetery and St. Leonhard Cemetery are particularly atmospheric during this period."
+                    "notes": "St. Peter Cemetery and St. Leonhard Cemetery are particularly atmospheric during this period.",
+                    "locations": ["Flower shops", "Cemeteries"],
+                    "cost": "Free to observe"
                 }
             ],
             "unique_experiences": [
@@ -197,7 +468,9 @@
                     "practical_tips": "Many restaurants offer special autumn menus highlighting seasonal ingredients. Reservations recommended for dinner at popular establishments.",
                     "best_time": "Evening (from 6 PM onwards)",
                     "estimated_cost": "€20-€40 per person for dinner with wine",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Local wines", "Seasonal cuisine", "Traditional atmosphere"]
                 },
                 {
                     "activity": "Day Trip to South Styrian Wine Road",
@@ -206,7 +479,9 @@
                     "practical_tips": "Easiest with a car, though some tour options are available. Many wine taverns require reservations during this popular season.",
                     "best_time": "Daytime (set off in morning for full day)",
                     "estimated_cost": "€30-€60 depending on transportation and consumption",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "Full day",
+                    "highlights": ["Vineyard scenery", "Wine tasting", "Rural landscapes"]
                 },
                 {
                     "activity": "Visit the Landeszeughaus (Provincial Armory)",
@@ -215,7 +490,9 @@
                     "practical_tips": "Guided tours recommended to fully appreciate the collection. Photography restrictions apply. Combined tickets available with other Universalmuseum Joanneum sites.",
                     "best_time": "Morning or early afternoon",
                     "estimated_cost": "€10-€12",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-1.5 hours",
+                    "highlights": ["Historic weapons", "Armor collection", "Medieval history"]
                 },
                 {
                     "activity": "Attend a Concert or Opera",
@@ -224,7 +501,9 @@
                     "practical_tips": "Check program schedules and book tickets in advance. Dress semi-formally for evening performances at the Opera House.",
                     "best_time": "Evening performances (typically 7:30 PM)",
                     "estimated_cost": "€20-€80 depending on venue and seating",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "2-3 hours",
+                    "highlights": ["Classical music", "Cultural experience", "Historic venues"]
                 },
                 {
                     "activity": "Warm Up in Traditional Cafés",
@@ -233,7 +512,9 @@
                     "practical_tips": "Café culture in Austria involves lingering - it's perfectly acceptable to spend hours over a single coffee. Newspapers are often provided.",
                     "best_time": "Afternoon",
                     "estimated_cost": "€8-€15 for coffee and cake",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Coffee culture", "Traditional pastries", "Historic atmosphere"]
                 },
                 {
                     "activity": "Explore the Graz Cathedral and Mausoleum",
@@ -242,7 +523,9 @@
                     "practical_tips": "The cathedral is free to enter; the mausoleum has an entrance fee. Both offer a peaceful respite from the autumn weather.",
                     "best_time": "Morning or early afternoon",
                     "estimated_cost": "Free (Cathedral) / €6-€8 (Mausoleum)",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1 hour",
+                    "highlights": ["Gothic architecture", "Religious art", "Autumn light"]
                 },
                 {
                     "activity": "Visit Mariatrost Basilica",
@@ -251,8 +534,51 @@
                     "practical_tips": "Accessible by tram line 1. The climb up the hill steps can be atmospheric with fallen leaves, but may be slippery when wet.",
                     "best_time": "Early afternoon for best light",
                     "estimated_cost": "Public transport ticket / Free to visit",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "2-3 hours",
+                    "highlights": ["Baroque architecture", "Autumn views", "Peaceful atmosphere"]
+                },
+                {
+                    "activity": "Visit the Natural History Museum",
+                    "where": "Joanneumsviertel",
+                    "description": "Explore fascinating exhibits on Styrian geology, wildlife, and natural history in this impressive museum complex.",
+                    "practical_tips": "Part of the Universalmuseum Joanneum. Combined tickets available with other museums. Perfect indoor activity for rainy autumn days.",
+                    "best_time": "Anytime during opening hours",
+                    "estimated_cost": "€10-€12",
+                    "weather_dependent": false,
+                    "duration": "2-3 hours",
+                    "highlights": ["Natural history", "Interactive exhibits", "Educational experience"]
                 }
+            ]
+        },
+        "practical_tips": {
+            "packing_essentials": [
+                "Layered clothing for variable temperatures",
+                "Waterproof jacket or umbrella",
+                "Comfortable walking shoes",
+                "Light sweater and medium jacket",
+                "Scarf and light gloves for evenings"
+            ],
+            "money_saving_tips": [
+                "Use public transport day passes (€5.20)",
+                "Visit museums on free admission days",
+                "Eat at markets and casual restaurants",
+                "Book accommodation in advance for better rates",
+                "Walk between nearby attractions"
+            ],
+            "weather_preparation": [
+                "Check weather forecast daily",
+                "Have indoor and outdoor activity options",
+                "Bring waterproof gear for rain",
+                "Dress in layers for temperature changes",
+                "Plan museum visits for rainy days"
+            ],
+            "local_customs": [
+                "Greet with 'Grüß Gott' or 'Servus'",
+                "Remove shoes when entering homes",
+                "Tipping 5-10% in restaurants",
+                "Respect quiet hours (10 PM - 6 AM)",
+                "Use formal 'Sie' with strangers"
             ]
         }
     }

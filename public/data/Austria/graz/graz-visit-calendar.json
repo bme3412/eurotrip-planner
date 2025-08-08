@@ -1,314 +1,1271 @@
 {
-    "months": {
-      "january": {
-        "name": "January",
-        "ranges": [
-          {
-            "days": [1],
-            "score": 3,
-            "special": true,
-            "event": "New Year's Day (Neujahrstag)",
-            "notes": "Public holiday. Many businesses closed. Cold winter weather."
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 1,
+          "special": true,
+          "event": "New Year's Day (Neujahrstag)",
+          "notes": "Major holiday - most attractions closed, cold weather (0-4°C), post-celebration cleanup, limited transport",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 1,
+            "business": 1,
+            "budget": 2,
+            "luxury": 1
           },
-          {
-            "days": [6],
-            "score": 3,
-            "special": true,
-            "event": "Epiphany (Heilige Drei Könige)",
-            "notes": "Public holiday. Winter continues."
-           },
-          {
-            "days": [2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-            "score": 3,
-            "notes": "Coldest month, potential for snow but less reliable than alpine regions. Fewer city tourists. Good time for museums, cozy cafes. Nearby skiing possible but depends on conditions."
-          }
-        ],
-        "weatherHighC": 3,
-        "weatherLowC": -4,
-        "tourismLevel": 4
+          "attractions": {
+            "eggenbergPalace": "Closed",
+            "kunsthaus": "Closed",
+            "landeszeughaus": "Closed",
+            "schlossberg": "Open but cold",
+            "museums": "Most closed"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with fewer crowds", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4],
+          "score": 2,
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, very cold (-2-3°C)",
+          "location": "Shopping districts",
+          "time": "All day",
+          "price": "Lower prices",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 2
+          },
+          "attractions": {
+            "eggenbergPalace": "Open, minimal queues",
+            "kunsthaus": "Open, excellent for art lovers",
+            "landeszeughaus": "Open, clear views",
+            "shopping": "Sales up to 70% off",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for luxury shopping sales", "Perfect museum conditions", "Bring warm clothing", "Limited daylight 8:00am-5:00pm"]
+        },
+        {
+          "days": [5, 6],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany (Heilige Drei Könige)",
+          "notes": "Traditional celebrations, bakeries busy, winter sales peak",
+          "location": "Bakeries citywide",
+          "time": "All day",
+          "price": "Traditional pastries 3-8€",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          },
+          "culturalSignificance": "Important Austrian tradition - try traditional pastries at local bakeries",
+          "considerations": ["Book restaurant tables in advance", "Try traditional Austrian pastries", "Perfect photography opportunity"]
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 2,
+          "notes": "Coldest period (-4-2°C), possible snow, ideal for indoor activities, very low tourism",
+          "location": "Museums and galleries",
+          "time": "Daytime 9am-6pm",
+          "price": "Standard",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "eggenbergPalace": "Excellent - no crowds",
+            "kunsthaus": "Perfect conditions",
+            "landeszeughaus": "Indoor exhibits recommended",
+            "cafes": "Cozy atmosphere",
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for museum marathons", "Cafés are sanctuaries", "Early sunset around 5:00pm"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 2,
+          "notes": "Gradual warming (0-4°C), excellent museum conditions, winter activities available",
+          "location": "Museums and indoor venues",
+          "time": "All day",
+          "price": "Lower prices continue",
+          "crowdLevel": "Low",
+          "considerations": ["Warm clothing still essential", "Great cultural photography", "Days beginning to lengthen", "Perfect for indoor cultural activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 3,
+        "lowC": -4,
+        "avgC": -0.5,
+        "realFeelC": -3,
+        "rainfallMm": 45,
+        "rainDays": 10,
+        "snowDays": 8,
+        "sunshineHours": 2.5,
+        "daylightHours": 8.5,
+        "sunrise": "08:00",
+        "sunset": "17:00",
+        "humidity": 85,
+        "windKmh": 12
       },
-      "february": {
-        "name": "February",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
-            "score": 3,
-            "special": true,
-            "event": "Carnival (Fasching) - dates vary",
-            "notes": "Winter continues, cold but days start getting slightly longer. Carnival events (parades, balls) may occur leading up to Ash Wednesday. Good for indoor cultural activities."
-          }
-        ],
-        "weatherHighC": 6,
-        "weatherLowC": -3,
-        "tourismLevel": 4
-      },
-      "march": {
-        "name": "March",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-            "score": 4,
-            "special": true,
-            "event": "Easter Markets & Holy Week (if Easter falls in March/early April)",
-            "notes": "Transition to spring. Temperatures rising but can still be chilly. Potential for early Easter markets. Parks start showing green. Fewer tourists than peak season."
-          }
-        ],
-        "weatherHighC": 11,
-        "weatherLowC": 0,
-        "tourismLevel": 5
-      },
-      "april": {
-        "name": "April",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-            "score": 4,
-            "special": true,
-            "event": "Easter Markets, Easter Monday (Public Holiday - date varies)",
-            "notes": "Spring fully arrives. Parks and gardens (Eggenberg) are beautiful. Pleasant weather for city walks and exploring courtyards. Outdoor cafes begin opening."
-          }
-        ],
-        "weatherHighC": 16,
-        "weatherLowC": 4,
-        "tourismLevel": 6
-      },
-      "may": {
-        "name": "May",
-        "ranges": [
-          {
-            "days": [1],
-            "score": 4,
-            "special": true,
-            "event": "Labor Day (Staatsfeiertag)",
-            "notes": "Public holiday. Generally pleasant spring weather."
-          },
-           {
-             "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-             "score": 5,
-             "special": true,
-             "event": "Springfestival (dates vary, often late May/early June), Ascension Day, Whit Monday (Public Holidays - dates vary)",
-             "notes": "Excellent month. Warm weather, lush greenery. Ideal for exploring the city, parks, Mur river path. Start of festival season."
-           }
-        ],
-        "weatherHighC": 21,
-        "weatherLowC": 9,
-        "tourismLevel": 7
-      },
-      "june": {
-        "name": "June",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-            "score": 5,
-            "special": true,
-            "event": "Styriarte Music Festival starts, Corpus Christi (Public Holiday - date varies)",
-            "notes": "Start of summer. Warm, long days. Ideal for outdoor activities, visiting lakes (Schwarzlsee), enjoying beer gardens. Styriarte brings classical music."
-          }
-        ],
-        "weatherHighC": 24,
-        "weatherLowC": 12,
-        "tourismLevel": 8
-      },
-      "july": {
-        "name": "July",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-            "score": 4,
-            "special": true,
-            "event": "Styriarte continues, La Strada Street Theatre Festival (usually late July/early Aug)",
-            "notes": "Peak summer month. Warmest temperatures, can be hot and humid. Busy with tourists and festivals. Great for outdoor activities but expect crowds."
-          }
-        ],
-        "weatherHighC": 26,
-        "weatherLowC": 14,
-        "tourismLevel": 9
-      },
-      "august": {
-        "name": "August",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-            "score": 4,
-            "special": true,
-            "event": "La Strada Street Theatre Festival may continue",
-            "notes": "High summer season. Warm weather continues. Busy tourist period."
-          },
-          {
-            "days": [15],
-            "score": 4,
-            "special": true,
-            "event": "Assumption Day (Mariä Himmelfahrt)",
-            "notes": "Public holiday. Peak summer tourism. Many locals may take vacation."
-          },
-          {
-            "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-            "score": 4,
-            "notes": "Late summer. Still warm, good for outdoor activities. Graz Food Festival often occurs this month."
-          }
-        ],
-        "weatherHighC": 25,
-        "weatherLowC": 13,
-        "tourismLevel": 9
-      },
-      "september": {
-        "name": "September",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-            "score": 5,
-            "special": true,
-            "event": "Aufsteirern Festival, Steirischer Herbst begins (dates vary)",
-            "notes": "Often beautiful, sunny 'Indian summer' days. Ideal for city exploration, hiking, visiting the wine region. Major cultural festivals start."
-          }
-        ],
-        "weatherHighC": 21,
-        "weatherLowC": 10,
-        "tourismLevel": 8
-      },
-      "october": {
-        "name": "October",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-            "score": 4,
-            "special": true,
-            "event": "Steirischer Herbst continues, Lange Nacht der Museen, Graz Marathon, Klanglicht (dates vary)",
-            "notes": "Autumn colors. Cooler but often pleasant weather. Good time for cultural events, museums, city walks. Wine region is beautiful."
-          },
-          {
-            "days": [26],
-            "score": 4,
-            "special": true,
-            "event": "National Holiday (Nationalfeiertag)",
-            "notes": "Public holiday. Cultural events continue."
-          },
-          {
-            "days": [27, 28, 29, 30, 31],
-            "score": 4,
-            "notes": "Late autumn. Days getting shorter and colder. Prepare for possibility of rain."
-          }
-        ],
-        "weatherHighC": 15,
-        "weatherLowC": 5,
-        "tourismLevel": 6
-      },
-      "november": {
-        "name": "November",
-        "ranges": [
-          {
-            "days": [1],
-            "score": 3,
-            "special": true,
-            "event": "All Saints' Day (Allerheiligen)",
-            "notes": "Public holiday. Quiet day, many businesses closed."
-          },
-          {
-            "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-            "score": 3,
-            "notes": "Often grey, cold, and potentially damp. Low tourist season. Good for indoor activities like museums and cafes."
-          },
-          {
-            "days": [24, 25, 26, 27, 28, 29, 30],
-            "score": 4,
-            "special": true,
-            "event": "Graz Advent Markets Open",
-            "notes": "Christmas markets begin opening towards the end of the month, bringing a festive atmosphere despite the weather."
-          }
-        ],
-        "weatherHighC": 8,
-        "weatherLowC": 1,
-        "tourismLevel": 5
-      },
-      "december": {
-        "name": "December",
-        "ranges": [
-          {
-            "days": [1, 2, 3, 4, 5, 6, 7],
-            "score": 5,
-            "special": true,
-            "event": "Advent Markets & St. Nicholas Day (Nikolaustag)",
-            "notes": "Full festive swing. Christmas markets are the main attraction. Cozy atmosphere. Book accommodation early."
-          },
-          {
-            "days": [8],
-            "score": 4,
-            "special": true,
-            "event": "Immaculate Conception (Mariä Empfängnis)",
-            "notes": "Public holiday, but markets and some shops may be open due to Christmas shopping season. Very busy."
-          },
-          {
-            "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-            "score": 5,
-            "special": true,
-            "event": "Peak Christmas Market Season",
-            "notes": "Magical time to visit for the festive atmosphere. Very popular, expect crowds."
-          },
-          {
-            "days": [24, 25, 26],
-            "score": 3,
-            "special": true,
-            "event": "Christmas Eve & Christmas Days",
-            "notes": "Public holidays. Most things closed, including markets (some close early on 24th). Very quiet family time."
-          },
-          {
-            "days": [27, 28, 29, 30],
-            "score": 3,
-            "notes": "Inter-holiday period. Some visitors, city relatively quiet compared to pre-Christmas."
-          },
-          {
-            "days": [31],
-            "score": 4,
-            "special": true,
-            "event": "New Year's Eve (Silvester)",
-            "notes": "Celebrations in the city, often events on Hauptplatz. Restaurants booked out."
-          }
-        ],
-        "weatherHighC": 4,
-        "weatherLowC": -3,
-        "tourismLevel": 8
+      "tourismLevel": 3,
+      "priceLevel": "Low",
+      "crowdLevel": "Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
       }
     },
-    "activityTypes": {
-       "spring": [
-         "Exploring Eggenberg Palace gardens as they bloom",
-         "Walking or cycling the Murradweg (River Mur path)",
-         "Visiting farmers markets (Lendplatz, Kaiser-Josef-Platz)",
-         "Enjoying outdoor cafes in the Old Town",
-         "Attending Springfestival (late spring)",
-         "Hiking on lower trails around Graz (e.g., Platte, Plabutsch)"
-       ],
-       "summer": [
-         "Attending festivals (Styriarte, La Strada, Aufsteirern)",
-         "Swimming at Schwarzlsee or other nearby lakes",
-         "Exploring the Old Town and Lend district",
-         "Hiking in the surrounding hills and mountains",
-         "Enjoying beer gardens (e.g., Gösser Bräu)",
-         "Taking the Schlossberg lift/funicular for views",
-         "Outdoor dining"
-       ],
-       "autumn": [
-         "Attending cultural festivals (Steirischer Herbst, Klanglicht)",
-         "Visiting the South Styrian Wine Route (wine tasting, Buschenschanken)",
-         "Enjoying autumn colours in parks (Stadtpark, Eggenberg)",
-         "Exploring museums (Kunsthaus, Joanneumsviertel, Armoury)",
-         "Hiking with pleasant temperatures",
-         "Visiting farmers markets for harvest produce (pumpkin!)"
-       ],
-       "winter": [
-         "Visiting the numerous Advent/Christmas markets",
-         "Ice skating (e.g., Landhaus courtyard rink)",
-         "Enjoying the festive lights and atmosphere in the Old Town",
-         "Visiting museums and indoor attractions",
-         "Enjoying traditional Styrian food in cozy restaurants",
-         "Taking day trips to nearby ski resorts (conditions permitting)"
-       ]
-     },
-    "scoreDescription": {
-      "5": "Excellent: Ideal conditions, significant positive events, pleasant weather, potentially moderate crowds or peak festive season",
-      "4": "Good: Favorable conditions, good weather, possibly some key events, manageable or higher crowds (summer/Advent)",
-      "3": "Average: Standard or transitional conditions, typical weather (can be cold/hot), fewer major events or public holidays with closures",
-      "2": "Below Average: Less ideal conditions, potential for unfavorable weather (cold/damp), fewer activities",
-      "1": "Poor: Generally unfavorable conditions for typical tourism (rarely applicable)"
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5],
+          "score": 2,
+          "notes": "Winter continues, cold (0-6°C), fewer crowds, excellent museum time",
+          "location": "Museums and covered passages",
+          "time": "Daytime 9am-6pm",
+          "price": "Standard",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 2,
+          "notes": "Pre-Valentine's period, gradual warming (2-7°C), winter sales ending",
+          "location": "Shopping areas, cultural venues",
+          "time": "All day",
+          "price": "End of sales",
+          "crowdLevel": "Low",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate", "dates": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
+            "description": "Austrian school holidays - increased family tourism"
+          },
+          "considerations": ["Museum queues increase slightly", "Family-friendly activities busier", "Book family restaurants ahead"]
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Valentine's Day",
+          "notes": "Romantic atmosphere, special dining events, busy restaurants, book 2-3 weeks ahead",
+          "location": "Restaurants citywide, historic venues",
+          "time": "Evening 7pm-11pm",
+          "price": "Premium (dinner 60-150€/person)",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "romanticVenues": {
+            "restaurants": ["Eckstein by Albert", "Landhauskeller", "Der Steirer", "Traditional Austrian venues"],
+            "activities": ["Eggenberg Palace evening tour", "Schlossberg sunset", "Historic city walk"],
+            "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 30-50% markup"]
+          },
+          "considerations": ["Reserve restaurants by late January", "Avoid tourist traps", "Historic venues book fast"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "notes": "Post-Valentine's, school holidays continue, gradually warming (3-8°C), spring hints",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Low-Moderate",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate"}
+          },
+          "considerations": ["Days noticeably longer", "Early spring flowers in parks", "Good time for family activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 6,
+        "lowC": -3,
+        "avgC": 1.5,
+        "realFeelC": 0,
+        "rainfallMm": 40,
+        "rainDays": 8,
+        "snowDays": 5,
+        "sunshineHours": 3.5,
+        "daylightHours": 10,
+        "sunrise": "07:30",
+        "sunset": "17:30",
+        "humidity": 80,
+        "windKmh": 13
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Early spring transition, variable weather (0-11°C), increasing daylight",
+          "location": "Citywide",
+          "time": "Extended daylight 7:00am-7:00pm",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 4,
+          "notes": "Spring awakening, pleasant temperatures (5-14°C), perfect for walking",
+          "location": "Parks and gardens",
+          "time": "Full day exploration",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "springActivities": ["Garden visits", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for Mur river walks", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Spring Equinox & Easter Markets (if Easter falls in March)",
+          "notes": "Spring officially arrives, excellent conditions (8-15°C), Easter markets if applicable",
+          "location": "Hauptplatz, Eggenberg Palace gardens, city center",
+          "time": "Optimal 10am-6pm",
+          "price": "Free for markets",
+          "crowdLevel": "Moderate-High",
+          "easterMarkets": {
+            "hauptplatz": "Traditional Easter market",
+            "eggenbergGardens": "Spring garden awakening",
+            "cityCenter": "Easter decorations and activities"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Easter dates vary annually", "Weekend crowds for markets", "Perfect for photography", "Outdoor dining fully returns"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 11,
+        "lowC": 0,
+        "avgC": 5.5,
+        "realFeelC": 4,
+        "rainfallMm": 50,
+        "rainDays": 11,
+        "snowDays": 2,
+        "sunshineHours": 5,
+        "daylightHours": 12,
+        "sunrise": "07:00",
+        "sunset": "19:00",
+        "humidity": 75,
+        "windKmh": 12
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "schoolHolidays": {
+        "easter": {"dates": "Variable", "impact": "Moderate-High", "zones": "All zones"}
+      }
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "April Fool's Day (Aprilscherz)",
+          "notes": "Fun cultural atmosphere, spring in full bloom, perfect spring weather",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free cultural fun",
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Playful atmosphere throughout the city"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 5,
+          "special": true,
+          "event": "Spring Peak Season",
+          "notes": "Spring in full spectacular bloom, ideal weather (8-16°C), photography paradise",
+          "location": "All parks and gardens citywide",
+          "time": "Golden hour 7am-9am, 6pm-8pm",
+          "price": "Free for viewing",
+          "crowdLevel": "High at popular spots",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "springLocations": {
+            "eggenbergGardens": "Magnificent spring blooms",
+            "stadtpark": "Central park awakening",
+            "schlossberg": "Hilltop spring views",
+            "hauptplatz": "City center spring atmosphere"
+          },
+          "photographyTips": ["Golden hour lighting", "Arrive early for fewer crowds", "Bring macro lens", "Weather-dependent - check daily"],
+          "considerations": ["Peak bloom lasts only 7-10 days", "Weather dependent timing", "Weekends extremely crowded", "Book photography tours in advance"]
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Easter Monday (if Easter falls in April)",
+          "notes": "Public holiday, family activities, spring celebrations, festive atmosphere",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "High",
+          "easterActivities": {
+            "markets": "Easter markets in full swing",
+            "gardens": "Eggenberg Palace gardens",
+            "family": "Family-friendly activities"
+          },
+          "considerations": ["Book family activities early", "Use public transport", "Festive atmosphere throughout city", "Hotels may be busy"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "notes": "Perfect spring conditions (10-18°C), comfortable temperatures, ideal sightseeing",
+          "location": "Citywide",
+          "time": "Extended daylight 6:30am-8:00pm",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "schoolHolidays": {
+            "easter": {"active": true, "impact": "High", "dates": "Variable"},
+            "spring": {"dates": "Variable", "impact": "Moderate"}
+          },
+          "optimalActivities": ["Walking tours", "Outdoor dining", "Park picnics", "River walks", "Cycling tours"],
+          "considerations": ["Spring rain showers possible", "Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 16,
+        "lowC": 4,
+        "avgC": 10,
+        "realFeelC": 11,
+        "rainfallMm": 50,
+        "rainDays": 10,
+        "sunshineHours": 6.5,
+        "daylightHours": 13.5,
+        "sunrise": "06:30",
+        "sunset": "20:00",
+        "humidity": 70,
+        "windKmh": 11,
+        "uvIndex": 5
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High",
+      "specialConsiderations": {
+        "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
+        "schoolHolidays": "Variable dates affect family tourism",
+        "weather": "Most stable spring weather but sudden showers possible"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 4,
+          "special": true,
+          "event": "Labor Day (Staatsfeiertag)",
+          "notes": "Public holiday, pleasant spring weather, some closures but outdoor activities available",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "special": true,
+          "event": "Springfestival (dates vary, often late May/early June), Ascension Day, Whit Monday (Public Holidays - dates vary)",
+          "notes": "Excellent month. Warm weather (9-21°C), lush greenery. Ideal for exploring the city, parks, Mur river path. Start of festival season.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 5,
+            "luxury": 4
+          },
+          "springfestival": {
+            "description": "Major electronic music and art festival",
+            "venues": "Various venues across Graz",
+            "booking": "Book accommodation early",
+            "atmosphere": "International festival atmosphere"
+          },
+          "optimalActivities": ["Walking tours", "Outdoor dining", "Park visits", "River walks", "Festival attendance"],
+          "considerations": ["Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead", "Festival dates vary annually"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 21,
+        "lowC": 9,
+        "avgC": 15,
+        "realFeelC": 16,
+        "rainfallMm": 75,
+        "rainDays": 12,
+        "sunshineHours": 7.5,
+        "daylightHours": 15,
+        "sunrise": "05:30",
+        "sunset": "20:30",
+        "humidity": 70,
+        "windKmh": 10,
+        "uvIndex": 6
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Styriarte Music Festival starts, Corpus Christi (Public Holiday - date varies)",
+          "notes": "Start of summer. Warm, long days (12-24°C). Ideal for outdoor activities, visiting lakes (Schwarzlsee), enjoying beer gardens. Styriarte brings classical music.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          },
+          "styriarte": {
+            "description": "Prestigious classical music festival",
+            "venues": "Historic venues including Eggenberg Palace",
+            "booking": "Book tickets well in advance",
+            "atmosphere": "Sophisticated cultural experience"
+          },
+          "summerActivities": ["Outdoor dining", "Lake swimming", "Festival attendance", "Beer gardens", "River activities"],
+          "considerations": ["Long daylight hours", "Perfect for outdoor activities", "Festival crowds", "Book accommodation early"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 24,
+        "lowC": 12,
+        "avgC": 18,
+        "realFeelC": 19,
+        "rainfallMm": 65,
+        "rainDays": 11,
+        "sunshineHours": 8.5,
+        "daylightHours": 16,
+        "sunrise": "05:00",
+        "sunset": "21:00",
+        "humidity": 65,
+        "windKmh": 9,
+        "uvIndex": 7
+      },
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Styriarte continues, La Strada Street Theatre Festival (usually late July/early Aug)",
+          "notes": "Peak summer month. Warmest temperatures (14-26°C), can be hot and humid. Busy with tourists and festivals. Great for outdoor activities but expect crowds.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Expensive",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          },
+          "laStrada": {
+            "description": "International street theatre festival",
+            "venues": "Squares and streets across Graz",
+            "booking": "Most events free, some indoor shows require tickets",
+            "atmosphere": "Vibrant, family-friendly festival"
+          },
+          "summerHighlights": ["Outdoor festivals", "Lake swimming", "Beer gardens", "Street performances", "Outdoor dining"],
+          "considerations": ["Hot weather possible", "Very crowded", "Book accommodation early", "Stay hydrated"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 26,
+        "lowC": 14,
+        "avgC": 20,
+        "realFeelC": 22,
+        "rainfallMm": 60,
+        "rainDays": 10,
+        "sunshineHours": 9,
+        "daylightHours": 15.5,
+        "sunrise": "05:15",
+        "sunset": "20:45",
+        "humidity": 60,
+        "windKmh": 8,
+        "uvIndex": 8
+      },
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 4,
+          "special": true,
+          "event": "La Strada Street Theatre Festival may continue",
+          "notes": "High summer season. Warm weather continues (13-25°C). Busy tourist period.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Expensive",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [15],
+          "score": 4,
+          "special": true,
+          "event": "Assumption Day (Mariä Himmelfahrt)",
+          "notes": "Public holiday. Peak summer tourism. Many locals may take vacation.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Late summer. Still warm (12-25°C), good for outdoor activities. Graz Food Festival often occurs this month.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "foodFestival": {
+            "description": "Local food and wine festival",
+            "venues": "Various locations in Graz",
+            "booking": "Some events require advance booking",
+            "atmosphere": "Local culinary celebration"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 25,
+        "lowC": 13,
+        "avgC": 19,
+        "realFeelC": 21,
+        "rainfallMm": 55,
+        "rainDays": 9,
+        "sunshineHours": 8.5,
+        "daylightHours": 14.5,
+        "sunrise": "05:45",
+        "sunset": "20:15",
+        "humidity": 65,
+        "windKmh": 9,
+        "uvIndex": 7
+      },
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Aufsteirern Festival, Steirischer Herbst begins (dates vary)",
+          "notes": "Often beautiful, sunny 'Indian summer' days (10-21°C). Ideal for city exploration, hiking, visiting the wine region. Major cultural festivals start.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 5,
+            "luxury": 4
+          },
+          "aufsteirern": {
+            "description": "Largest folk culture festival in Austria",
+            "venues": "Various locations in Graz",
+            "booking": "Very popular, expect crowds",
+            "atmosphere": "Traditional Austrian culture celebration"
+          },
+          "steirischerHerbst": {
+            "description": "Avant-garde contemporary arts festival",
+            "venues": "Various cultural venues",
+            "booking": "Book tickets for specific events",
+            "atmosphere": "International contemporary arts"
+          },
+          "autumnActivities": ["Cultural festivals", "Wine tasting", "Hiking", "City exploration", "Outdoor dining"],
+          "considerations": ["Perfect weather", "Cultural festival season", "Book events early", "Wine region visits"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 21,
+        "lowC": 10,
+        "avgC": 15.5,
+        "realFeelC": 16,
+        "rainfallMm": 55,
+        "rainDays": 10,
+        "sunshineHours": 7,
+        "daylightHours": 12.5,
+        "sunrise": "06:30",
+        "sunset": "19:30",
+        "humidity": 70,
+        "windKmh": 10,
+        "uvIndex": 5
+      },
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+          "score": 4,
+          "special": true,
+          "event": "Steirischer Herbst continues, Lange Nacht der Museen, Graz Marathon, Klanglicht (dates vary)",
+          "notes": "Autumn colors. Cooler but often pleasant weather (5-15°C). Good time for cultural events, museums, city walks. Wine region is beautiful.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "klanglicht": {
+            "description": "Light art festival illuminating the city",
+            "venues": "Historic buildings and public spaces",
+            "booking": "Free event, popular",
+            "atmosphere": "Magical light installations"
+          },
+          "culturalEvents": ["Steirischer Herbst", "Museum Night", "Light festival", "Marathon"],
+          "considerations": ["Autumn colors", "Cultural festival season", "Book events early", "Wine region visits"]
+        },
+        {
+          "days": [26],
+          "score": 4,
+          "special": true,
+          "event": "National Holiday (Nationalfeiertag)",
+          "notes": "Public holiday. Cultural events continue.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 1,
+            "budget": 4,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Late autumn. Days getting shorter and colder (3-12°C). Prepare for possibility of rain.",
+          "location": "Citywide",
+          "time": "Daytime",
+          "price": "Standard",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 15,
+        "lowC": 5,
+        "avgC": 10,
+        "realFeelC": 9,
+        "rainfallMm": 65,
+        "rainDays": 12,
+        "sunshineHours": 5.5,
+        "daylightHours": 10.5,
+        "sunrise": "07:15",
+        "sunset": "18:15",
+        "humidity": 75,
+        "windKmh": 11,
+        "uvIndex": 3
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day (Allerheiligen)",
+          "notes": "Public holiday. Quiet day, many businesses closed.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 3,
+          "notes": "Often grey, cold, and potentially damp (1-8°C). Low tourist season. Good for indoor activities like museums and cafes.",
+          "location": "Museums and indoor venues",
+          "time": "Daytime",
+          "price": "Standard",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "indoorActivities": ["Museums", "Galleries", "Cafes", "Indoor shopping", "Cultural venues"],
+          "considerations": ["Cold weather", "Short days", "Indoor activities recommended", "Fewer crowds"]
+        },
+        {
+          "days": [24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "special": true,
+          "event": "Graz Advent Markets Open",
+          "notes": "Christmas markets begin opening towards the end of the month, bringing a festive atmosphere despite the weather.",
+          "location": "City center",
+          "time": "Afternoon/Evening",
+          "price": "Free",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "christmasMarkets": {
+            "description": "Traditional Austrian Christmas markets",
+            "venues": "Hauptplatz and other locations",
+            "booking": "No booking required",
+            "atmosphere": "Festive Christmas atmosphere"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 8,
+        "lowC": 1,
+        "avgC": 4.5,
+        "realFeelC": 2,
+        "rainfallMm": 60,
+        "rainDays": 13,
+        "sunshineHours": 3.5,
+        "daylightHours": 9,
+        "sunrise": "07:30",
+        "sunset": "17:00",
+        "humidity": 80,
+        "windKmh": 12,
+        "uvIndex": 2
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 5,
+          "special": true,
+          "event": "Advent Markets & St. Nicholas Day (Nikolaustag)",
+          "notes": "Full festive swing. Christmas markets are the main attraction. Cozy atmosphere. Book accommodation early.",
+          "location": "City center",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 5
+          },
+          "christmasMarkets": {
+            "description": "Multiple Christmas markets across the city",
+            "venues": "Hauptplatz, Landhaus courtyard, various locations",
+            "booking": "No booking required",
+            "atmosphere": "Traditional Austrian Christmas magic"
+          }
+        },
+        {
+          "days": [8],
+          "score": 4,
+          "special": true,
+          "event": "Immaculate Conception (Mariä Empfängnis)",
+          "notes": "Public holiday, but markets and some shops may be open due to Christmas shopping season. Very busy.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 5,
+          "special": true,
+          "event": "Peak Christmas Market Season",
+          "notes": "Magical time to visit for the festive atmosphere. Very popular, expect crowds.",
+          "location": "City center",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 5
+          },
+          "festiveActivities": ["Christmas markets", "Ice skating", "Festive lights", "Traditional food", "Holiday shopping"],
+          "considerations": ["Very crowded", "Book accommodation early", "Festive atmosphere", "Traditional Austrian Christmas"]
+        },
+        {
+          "days": [24, 25, 26],
+          "score": 3,
+          "special": true,
+          "event": "Christmas Eve & Christmas Days",
+          "notes": "Public holidays. Most things closed, including markets (some close early on 24th). Very quiet family time.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          }
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 3,
+          "notes": "Inter-holiday period. Some visitors, city relatively quiet compared to pre-Christmas.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "New Year's Eve (Silvester)",
+          "notes": "Celebrations in the city, often events on Hauptplatz. Restaurants booked out.",
+          "location": "Hauptplatz and city center",
+          "time": "Evening",
+          "price": "Expensive",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 3,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "newYearCelebrations": {
+            "description": "New Year's celebrations in Hauptplatz",
+            "venues": "Hauptplatz and various venues",
+            "booking": "Restaurants require advance booking",
+            "atmosphere": "Festive New Year's atmosphere"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 4,
+        "lowC": -3,
+        "avgC": 0.5,
+        "realFeelC": -2,
+        "rainfallMm": 65,
+        "rainDays": 12,
+        "snowDays": 6,
+        "sunshineHours": 2,
+        "daylightHours": 8,
+        "sunrise": "08:00",
+        "sunset": "16:30",
+        "humidity": 85,
+        "windKmh": 13,
+        "uvIndex": 1
+      },
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
     }
-  } 
+  },
+  "activityTypes": {
+    "spring": [
+      "Exploring Eggenberg Palace gardens as they bloom",
+      "Walking or cycling the Murradweg (River Mur path)",
+      "Visiting farmers markets (Lendplatz, Kaiser-Josef-Platz)",
+      "Enjoying outdoor cafes in the Old Town",
+      "Attending Springfestival (late spring)",
+      "Hiking on lower trails around Graz (e.g., Platte, Plabutsch)",
+      "Cherry blossom viewing in parks",
+      "Outdoor dining and terrace culture",
+      "Photography tours of historic architecture",
+      "Wine tasting in South Styrian region"
+    ],
+    "summer": [
+      "Attending festivals (Styriarte, La Strada, Aufsteirern)",
+      "Swimming at Schwarzlsee or other nearby lakes",
+      "Exploring the Old Town and Lend district",
+      "Hiking in the surrounding hills and mountains",
+      "Enjoying beer gardens (e.g., Gösser Bräu)",
+      "Taking the Schlossberg lift/funicular for views",
+      "Outdoor dining",
+      "Bike tours of the city",
+      "River activities on the Mur",
+      "Open-air concerts and performances"
+    ],
+    "autumn": [
+      "Attending cultural festivals (Steirischer Herbst, Klanglicht)",
+      "Visiting the South Styrian Wine Route (wine tasting, Buschenschanken)",
+      "Enjoying autumn colours in parks (Stadtpark, Eggenberg)",
+      "Exploring museums (Kunsthaus, Joanneumsviertel, Armoury)",
+      "Hiking with pleasant temperatures",
+      "Visiting farmers markets for harvest produce (pumpkin!)",
+      "Fall foliage photography",
+      "Indoor cultural activities",
+      "Traditional Austrian cooking classes",
+      "Historical tours of the city"
+    ],
+    "winter": [
+      "Visiting the numerous Advent/Christmas markets",
+      "Ice skating (e.g., Landhaus courtyard rink)",
+      "Enjoying the festive lights and atmosphere in the Old Town",
+      "Visiting museums and indoor attractions",
+      "Enjoying traditional Styrian food in cozy restaurants",
+      "Taking day trips to nearby ski resorts (conditions permitting)",
+      "Hot chocolate at traditional cafes",
+      "Indoor concerts and cultural events",
+      "Exploring covered markets and passages",
+      "Winter photography of historic architecture"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["February 14th", "June 21st", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "January"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
+      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
+      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Fine dining", "Cultural events", "Private tours", "Luxury shopping"],
+      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "activityCategories": {
+    "outdoor": {
+      "optimal": ["April", "May", "June", "September", "October"],
+      "activities": ["Walking tours", "River walks", "Garden visits", "Cycling", "Outdoor dining", "Photography"],
+      "weatherDependent": true
+    },
+    "cultural": {
+      "yearRound": true,
+      "peak": ["September", "October", "November", "December", "January"],
+      "activities": ["Museums", "Galleries", "Theater", "Concerts", "Exhibitions"],
+      "seasonalHighlights": {
+        "autumn": "Steirischer Herbst festival",
+        "winter": "Classical concert season",
+        "spring": "Springfestival"
+      }
+    },
+    "shopping": {
+      "sales": {
+        "winter": "January-February",
+        "summer": "July-August"
+      },
+      "luxury": "Year-round but avoid August",
+      "markets": {
+        "christmas": "December",
+        "farmers": "Year-round"
+      }
+    },
+    "dining": {
+      "outdoor": ["April", "May", "June", "July", "August", "September", "October"],
+      "seasonal": {
+        "spring": "Asparagus, fresh herbs",
+        "summer": "Local produce, seasonal specialties",
+        "autumn": "Pumpkin, game, wine harvest",
+        "winter": "Comfort food, holiday specialties"
+      }
+    },
+    "festivals": {
+      "music": {
+        "springfestival": "Late May",
+        "styriarte": "June-July",
+        "classicalSeason": "September-May"
+      },
+      "cultural": {
+        "steirischerHerbst": "September-October",
+        "klanglicht": "October",
+        "laStrada": "July-August"
+      },
+      "seasonal": {
+        "aufsteirern": "September",
+        "wineHarvest": "October"
+      }
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 16 hours",
+      "shortest": "December 21st - 8 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "tram": {
+        "airConditioning": "Limited - challenging in summer",
+        "crowds": "Peak July-August",
+        "strikes": "Possible any time, more common autumn/winter"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (heat)"
+      },
+      "cycling": {
+        "cityBikes": "Available year-round",
+        "optimal": "April-October",
+        "winter": "Possible but cold and slippery"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August", "December"],
+        "events": ["Springfestival", "Major holidays", "Cultural festivals", "New Year's"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 2-3 months ahead for best rates"
+      },
+      "airConditioning": "Essential July-August, many historic hotels lack AC"
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["February 14th", "December 24th", "December 31st"],
+        "recommended": "High season (June-August)",
+        "timeline": "2-4 weeks ahead for popular restaurants"
+      },
+      "closures": {
+        "august": "Many local restaurants close for owner vacations",
+        "holidays": "Christmas Day, New Year's Day, May 1st",
+        "sunday": "Many traditional restaurants closed Sunday evening"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter sales, cozy museums, authentic local experience",
+    "february": "Valentine's romance, fewer crowds, cultural immersion",
+    "march": "Spring awakening, Easter markets, perfect temperatures",
+    "april": "Spring peak, ideal weather, Easter celebrations",
+    "may": "Perfect conditions, Springfestival, optimal sightseeing",
+    "june": "Longest days, Styriarte festival, pre-peak crowds",
+    "july": "Peak summer, La Strada festival, outdoor activities",
+    "august": "Hot weather, festivals continue, many locals away",
+    "september": "Post-peak perfection, Steirischer Herbst, ideal conditions",
+    "october": "Autumn beauty, Klanglicht, comfortable temperatures",
+    "november": "Cozy atmosphere, cultural season, indoor activities",
+    "december": "Christmas magic, Advent markets, festive atmosphere"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, occasional rain",
+      "summer": "Warm to hot, occasional heatwaves, evening thunderstorms possible",
+      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
+      "winter": "Cold but rarely extreme, occasional snow, indoor activities recommended"
+    },
+    "transportation": {
+      "tram": "Efficient year-round, air-conditioned in summer",
+      "walking": "Best in spring and autumn, challenging in extreme weather",
+      "cycling": "Excellent in spring and autumn, bike lanes available",
+      "buses": "Scenic year-round, heated in winter"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    }
+  }
+} 

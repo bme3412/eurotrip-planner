@@ -1,6 +1,27 @@
 {
     "November": {
         "summary": "November in Graz is a quiet transitional month as autumn fades into early winter. The vibrant fall colors give way to a more subdued atmosphere, with shorter days and cooler temperatures. The month culminates in the enchanting opening of Christmas markets in late November, bringing festive lights and holiday spirit to the historic UNESCO city center.",
+        "weather_overview": {
+            "temperature_range": {
+                "early_november": "3-10°C",
+                "mid_november": "2-8°C",
+                "late_november": "1-7°C"
+            },
+            "precipitation": {
+                "average_rainfall": "60mm",
+                "rainy_days": "15-18 days",
+                "snow_probability": "Low (5-10% chance)"
+            },
+            "sunlight": {
+                "daylight_hours": "9-10 hours",
+                "sunrise": "6:45-7:15 AM",
+                "sunset": "4:30-5:00 PM"
+            },
+            "wind": {
+                "average_speed": "15-20 km/h",
+                "prevailing_direction": "West/Northwest"
+            }
+        },
         "reasons_to_visit": [
             {
                 "reason": "Christmas Markets Begin",
@@ -25,6 +46,14 @@
             {
                 "reason": "Atmospheric Old Town",
                 "details": "The medieval and Renaissance streets of Graz take on a mysteriously beautiful quality in November's mist and early evening darkness, particularly when illuminated by the first of the Christmas lights."
+            },
+            {
+                "reason": "Cozy Indoor Culture",
+                "details": "Experience Graz's warm indoor culture with traditional coffee houses, historic wine cellars, and cozy restaurants perfect for the cooler weather."
+            },
+            {
+                "reason": "Pre-Christmas Atmosphere",
+                "details": "Witness the city's transformation as it prepares for Christmas, with early decorations, advent calendars, and the beginning of the festive season."
             }
         ],
         "reasons_to_reconsider": [
@@ -47,8 +76,233 @@
             {
                 "reason": "'In-Between' Season Feel",
                 "details": "The month lacks both the golden autumn colors of October and the full Christmas atmosphere of December, creating a somewhat transitional feeling in the city's rhythm and energy."
+            },
+            {
+                "reason": "Cold and Wet Conditions",
+                "details": "Frequent rain, fog, and cold temperatures can make outdoor exploration uncomfortable, requiring proper winter clothing and waterproof gear."
             }
         ],
+        "transportation": {
+            "airport": {
+                "name": "Graz Airport (GRZ)",
+                "distance": "10 km from city center",
+                "transport_options": [
+                    {
+                        "method": "Bus 630",
+                        "duration": "20-25 minutes",
+                        "cost": "€2.40",
+                        "frequency": "Every 30 minutes"
+                    },
+                    {
+                        "method": "Taxi",
+                        "duration": "15-20 minutes",
+                        "cost": "€25-35",
+                        "notes": "Available 24/7"
+                    }
+                ]
+            },
+            "public_transport": {
+                "tram_system": {
+                    "lines": "8 tram lines covering the city",
+                    "frequency": "Every 6-10 minutes",
+                    "cost": "€2.40 per ride",
+                    "day_pass": "€5.20"
+                },
+                "bus_system": {
+                    "coverage": "Comprehensive network including suburbs",
+                    "frequency": "Every 10-15 minutes",
+                    "cost": "€2.40 per ride"
+                },
+                "bike_sharing": {
+                    "system": "Nextbike",
+                    "stations": "50+ locations",
+                    "cost": "€1 per 30 minutes",
+                    "availability": "Limited - weather dependent, cold conditions"
+                }
+            },
+            "walking": {
+                "city_center": "Highly walkable, compact historic center",
+                "distances": "Most attractions within 15-20 minute walks",
+                "safety": "Very safe, well-lit streets",
+                "accessibility": "Good, though some historic areas have cobblestones"
+            }
+        },
+        "accommodation": {
+            "budget_options": [
+                {
+                    "type": "Hostels",
+                    "examples": ["A&O Graz Hauptbahnhof", "Jugendherberge Graz"],
+                    "price_range": "€20-35 per night",
+                    "location": "Near train station and city center"
+                },
+                {
+                    "type": "Budget Hotels",
+                    "examples": ["Hotel Weitzer", "Hotel Daniel"],
+                    "price_range": "€50-80 per night",
+                    "location": "City center and near attractions"
+                }
+            ],
+            "mid_range_options": [
+                {
+                    "type": "Boutique Hotels",
+                    "examples": ["Hotel Gollner", "Hotel Wiesler"],
+                    "price_range": "€80-120 per night",
+                    "location": "Historic center, excellent locations"
+                },
+                {
+                    "type": "Business Hotels",
+                    "examples": ["Mercure Graz City", "Ibis Graz City"],
+                    "price_range": "€70-100 per night",
+                    "location": "Convenient for business travelers"
+                }
+            ],
+            "luxury_options": [
+                {
+                    "type": "Historic Hotels",
+                    "examples": ["Grand Hotel Wiesler", "Hotel Erzherzog Johann"],
+                    "price_range": "€150-250 per night",
+                    "location": "Premium locations in historic center"
+                }
+            ],
+            "seasonal_notes": {
+                "availability": "Excellent availability, low season",
+                "pricing": "Lowest seasonal rates, 30-40% cheaper than summer",
+                "booking_tips": "Book 1-2 weeks in advance for best rates, Christmas market packages available late November"
+            }
+        },
+        "dining": {
+            "traditional_austrian": [
+                {
+                    "name": "Gasthaus Lendplatz",
+                    "specialties": ["Wiener Schnitzel", "Tafelspitz", "Styrian specialties"],
+                    "price_range": "€15-25 per main",
+                    "location": "Lendplatz 8",
+                    "atmosphere": "Traditional, cozy"
+                },
+                {
+                    "name": "Landhauskeller",
+                    "specialties": ["Austrian classics", "Local wines"],
+                    "price_range": "€18-30 per main",
+                    "location": "Schmiedgasse 9",
+                    "atmosphere": "Historic cellar, romantic"
+                }
+            ],
+            "modern_austrian": [
+                {
+                    "name": "Der Steirer",
+                    "specialties": ["Contemporary Austrian", "Seasonal menu"],
+                    "price_range": "€22-35 per main",
+                    "location": "Sackstraße 8",
+                    "atmosphere": "Modern, stylish"
+                },
+                {
+                    "name": "Aiola Upstairs",
+                    "specialties": ["Austrian with international twist", "Great views"],
+                    "price_range": "€20-30 per main",
+                    "location": "Schlossberg 2",
+                    "atmosphere": "Rooftop dining, panoramic views"
+                }
+            ],
+            "cozy_cafes": [
+                {
+                    "name": "Café Sacher",
+                    "specialties": ["Sachertorte", "Viennese coffee culture"],
+                    "price_range": "€8-15 for coffee and cake",
+                    "location": "Herrengasse 6",
+                    "atmosphere": "Elegant, historic"
+                },
+                {
+                    "name": "Café Promenade",
+                    "specialties": ["Local pastries", "People watching"],
+                    "price_range": "€6-12 for coffee and cake",
+                    "location": "Sporgasse 25",
+                    "atmosphere": "Charming, central location"
+                }
+            ],
+            "seasonal_specialties": {
+                "november_highlights": [
+                    "Game dishes (venison, wild boar)",
+                    "Pumpkin specialties",
+                    "Roasted chestnuts",
+                    "New wine (Sturm) if still available",
+                    "Martinigansl (St. Martin's goose)",
+                    "Seasonal soups and stews"
+                ]
+            }
+        },
+        "shopping": {
+            "traditional_markets": [
+                {
+                    "name": "Kaiser-Josef-Markt",
+                    "products": ["Winter produce", "Local cheeses", "Breads", "Preserves"],
+                    "hours": "Monday-Saturday 6:00-13:00",
+                    "location": "Kaiser-Josef-Platz",
+                    "best_day": "Saturday morning"
+                },
+                {
+                    "name": "Lendplatz Market",
+                    "products": ["Organic produce", "Artisan foods", "Crafts", "Winter specialties"],
+                    "hours": "Monday-Saturday 6:00-13:00",
+                    "location": "Lendplatz",
+                    "best_day": "Saturday morning"
+                }
+            ],
+            "christmas_markets": [
+                {
+                    "name": "Hauptplatz Christmas Market",
+                    "products": ["Handcrafted gifts", "Christmas decorations", "Food and drinks"],
+                    "hours": "Daily 10:00-20:00 (late November onwards)",
+                    "location": "Hauptplatz",
+                    "atmosphere": "Largest market, festive atmosphere"
+                },
+                {
+                    "name": "Franziskanerplatz Christmas Market",
+                    "products": ["Arts and crafts", "Handmade items", "Specialty foods"],
+                    "hours": "Daily 10:00-20:00 (late November onwards)",
+                    "location": "Franziskanerplatz",
+                    "atmosphere": "More artisanal, quieter"
+                }
+            ],
+            "shopping_districts": [
+                {
+                    "area": "Herrengasse",
+                    "stores": ["International brands", "Department stores", "Souvenirs"],
+                    "atmosphere": "Main shopping street, pedestrian zone"
+                },
+                {
+                    "area": "Sporgasse",
+                    "stores": ["Boutiques", "Local designers", "Antique shops"],
+                    "atmosphere": "Historic street, unique finds"
+                },
+                {
+                    "area": "Lend District",
+                    "stores": ["Alternative fashion", "Vintage shops", "Design stores"],
+                    "atmosphere": "Trendy, creative neighborhood"
+                }
+            ],
+            "souvenirs": [
+                {
+                    "item": "Styrian pumpkin seed oil",
+                    "where": "Farmers' markets, specialty shops",
+                    "price": "€8-15 per bottle"
+                },
+                {
+                    "item": "Local wines",
+                    "where": "Wine shops, markets",
+                    "price": "€8-25 per bottle"
+                },
+                {
+                    "item": "Christmas market crafts",
+                    "where": "Christmas markets",
+                    "price": "€10-50"
+                },
+                {
+                    "item": "Traditional Austrian sweets",
+                    "where": "Bakeries, Christmas markets",
+                    "price": "€5-15"
+                }
+            ]
+        },
         "first_half": {
             "date_range": "November 1–15",
             "weather": {
@@ -57,31 +311,42 @@
                     "low": "3°C"
                 },
                 "precipitation": "Often damp and grey with frequent overcast skies and occasional rain. Fog commonly forms along the Mur River, especially in mornings. First frost is possible in outlying areas.",
-                "general_tips": "Pack warm clothing including a waterproof coat, warm layers, scarf, hat, and comfortable waterproof footwear. An umbrella is essential. Gloves are recommended for evening outings."
+                "general_tips": "Pack warm clothing including a waterproof coat, warm layers, scarf, hat, and comfortable waterproof footwear. An umbrella is essential. Gloves are recommended for evening outings.",
+                "detailed_forecast": {
+                    "week_1": "Cool start with temperatures 3-10°C, frequent rain and fog",
+                    "week_2": "Gradual cooling to 2-8°C, more overcast days"
+                }
             },
             "tourism_level": {
                 "crowds": "Very Low - One of the quietest periods all year in the city.",
                 "pricing": "Generally the lowest prices for accommodation and good restaurant availability.",
-                "overall_atmosphere": "Quiet and contemplative. The city feels authentically local with a slow-paced, occasionally melancholy mood."
+                "overall_atmosphere": "Quiet and contemplative. The city feels authentically local with a slow-paced, occasionally melancholy mood.",
+                "student_life": "University semester in full swing, indoor cultural events"
             },
             "events_holidays": [
                 {
                     "name": "All Saints' Day (Allerheiligen)",
                     "date": "November 1",
                     "description": "Public holiday when locals visit cemeteries with flowers and candles. St. Peter Cemetery and St. Leonhard Cemetery are particularly atmospheric.",
-                    "notes": "Shops closed, but most museums and restaurants remain open. Public transport runs on a holiday schedule."
+                    "notes": "Shops closed, but most museums and restaurants remain open. Public transport runs on a holiday schedule.",
+                    "locations": ["St. Peter Cemetery", "St. Leonhard Cemetery", "Various churches"],
+                    "cost": "Free"
                 },
                 {
                     "name": "All Souls' Day (Allerseelen)",
                     "date": "November 2",
                     "description": "Not a public holiday, but cemetery visits continue. A contemplative atmosphere persists in the city.",
-                    "notes": "Regular business hours resumed, though some family-owned shops might still be closed."
+                    "notes": "Regular business hours resumed, though some family-owned shops might still be closed.",
+                    "locations": ["Cemeteries throughout the city"],
+                    "cost": "Free"
                 },
                 {
                     "name": "Martinifest (St. Martin's Day)",
                     "date": "November 11",
                     "description": "Traditional celebration with children's lantern processions in some neighborhoods. Restaurants may offer special goose dinners (Martinigansl).",
-                    "notes": "Not a public holiday, but a cultural tradition worth experiencing if you encounter it."
+                    "notes": "Not a public holiday, but a cultural tradition worth experiencing if you encounter it.",
+                    "locations": ["Various neighborhoods", "Participating restaurants"],
+                    "cost": "Free for processions, €25-€40 for special dinners"
                 }
             ],
             "unique_experiences": [
@@ -92,7 +357,9 @@
                     "practical_tips": "Guided tours recommended to fully appreciate the collection. The building is heated but can still be cool, so keep a layer on. Photography restrictions apply.",
                     "best_time": "Morning or early afternoon",
                     "estimated_cost": "€10-€12",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-1.5 hours",
+                    "highlights": ["Historic weapons", "Armor collection", "Medieval history"]
                 },
                 {
                     "activity": "Visit the Kunsthaus Graz ('Friendly Alien')",
@@ -101,7 +368,9 @@
                     "practical_tips": "Combined tickets available with other Universalmuseum Joanneum sites. The top-floor café offers interesting city views and a warm retreat.",
                     "best_time": "Anytime during opening hours",
                     "estimated_cost": "€10-€15",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Contemporary art", "Unique architecture", "City views"]
                 },
                 {
                     "activity": "Wander the Quiet UNESCO Old Town",
@@ -110,7 +379,9 @@
                     "practical_tips": "Dress warmly. The narrow streets can channel cold winds. Duck into courtyards and passages to discover hidden architectural gems.",
                     "best_time": "Late morning to early afternoon for best light",
                     "estimated_cost": "Free",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1-2 hours",
+                    "highlights": ["Historic architecture", "Hidden courtyards", "Quiet atmosphere"]
                 },
                 {
                     "activity": "Warm Up in Traditional Cafés",
@@ -119,7 +390,9 @@
                     "practical_tips": "Café culture in Austria involves lingering - it's perfectly acceptable to spend hours over a single coffee. Newspapers are often provided.",
                     "best_time": "Afternoon",
                     "estimated_cost": "€8-€15 for coffee and cake",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Coffee culture", "Traditional pastries", "Historic atmosphere"]
                 },
                 {
                     "activity": "Visit the Graz Cathedral and Mausoleum",
@@ -128,7 +401,9 @@
                     "practical_tips": "The cathedral is free to enter; the mausoleum has an entrance fee. Both can be cool inside, so keep a layer on.",
                     "best_time": "Morning or early afternoon",
                     "estimated_cost": "Free (Cathedral) / €6-€8 (Mausoleum)",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1 hour",
+                    "highlights": ["Gothic architecture", "Religious art", "Imperial history"]
                 },
                 {
                     "activity": "Sample New Wine and Seasonal Cuisine",
@@ -137,7 +412,20 @@
                     "practical_tips": "Reservations recommended for dinner, especially at renowned establishments. Look for restaurants offering 'Martinigansl' around November 11th.",
                     "best_time": "Evening (from 6 PM)",
                     "estimated_cost": "€20-€35 per person for dinner",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Seasonal specialties", "Local wines", "Traditional atmosphere"]
+                },
+                {
+                    "activity": "Visit the Natural History Museum",
+                    "where": "Joanneumsviertel",
+                    "description": "Explore fascinating exhibits on Styrian geology, wildlife, and natural history in this impressive museum complex.",
+                    "practical_tips": "Part of the Universalmuseum Joanneum. Combined tickets available with other museums. Perfect indoor activity for cold days.",
+                    "best_time": "Anytime during opening hours",
+                    "estimated_cost": "€10-€12",
+                    "weather_dependent": false,
+                    "duration": "2-3 hours",
+                    "highlights": ["Natural history", "Interactive exhibits", "Educational experience"]
                 }
             ]
         },
@@ -149,31 +437,42 @@
                     "low": "1°C"
                 },
                 "precipitation": "Increasingly cold with continued overcast days. Rain remains common, with occasional early snow possible but rarely settling in the city center. Morning frost becomes more frequent.",
-                "general_tips": "Winter clothing essential, including hat, scarf, and gloves for evening market visits. Layers recommended for moving between heated indoor spaces and cold outdoors."
+                "general_tips": "Winter clothing essential, including hat, scarf, and gloves for evening market visits. Layers recommended for moving between heated indoor spaces and cold outdoors.",
+                "detailed_forecast": {
+                    "week_3": "Cold and damp 2-8°C, frequent rain and fog",
+                    "week_4": "Winter-like 1-7°C, possible early snow"
+                }
             },
             "tourism_level": {
                 "crowds": "Low, but noticeably increasing once Christmas markets open, especially on weekends and evenings.",
                 "pricing": "Generally low, though weekend rates may begin to rise with market openings. Some hotels offer special Christmas market packages.",
-                "overall_atmosphere": "The city transforms as Christmas lights appear and markets open, bringing warmth and festivity to the previously quiet streets."
+                "overall_atmosphere": "The city transforms as Christmas lights appear and markets open, bringing warmth and festivity to the previously quiet streets.",
+                "student_life": "University events and cultural activities continue indoors"
             },
             "events_holidays": [
                 {
                     "name": "Opening of Graz Christmas Markets",
                     "date": "Mid-to-late November (check exact dates)",
                     "description": "Markets open in Hauptplatz (the largest), Franziskanerplatz (arts and crafts focus), Glockenspielplatz, and other smaller locations throughout the historic center.",
-                    "notes": "Opening ceremonies often include music and sometimes special events. Markets generally operate daily from around 10 AM to 8 PM (later on weekends)."
+                    "notes": "Opening ceremonies often include music and sometimes special events. Markets generally operate daily from around 10 AM to 8 PM (later on weekends).",
+                    "locations": ["Hauptplatz", "Franziskanerplatz", "Glockenspielplatz", "Färberplatz"],
+                    "cost": "Free entry, food and drinks extra"
                 },
                 {
                     "name": "Start of Advent Season",
                     "date": "Late November/Early December",
                     "description": "The city becomes increasingly festive with advent wreaths in shop windows, special baked goods appearing in bakeries, and occasional choir performances.",
-                    "notes": "Advent begins on the fourth Sunday before Christmas (check calendar for exact date)."
+                    "notes": "Advent begins on the fourth Sunday before Christmas (check calendar for exact date).",
+                    "locations": ["City-wide", "Churches", "Bakeries"],
+                    "cost": "Free to observe"
                 },
                 {
                     "name": "Ice Nativity Planning",
                     "date": "Late November",
                     "description": "Preparations begin for Graz's famous ice nativity scene (Eiskrippe) in the Landhaushof courtyard, though it typically doesn't open until December.",
-                    "notes": "While the ice nativity itself may not be ready, the historic Landhaushof courtyard is worth visiting."
+                    "notes": "While the ice nativity itself may not be ready, the historic Landhaushof courtyard is worth visiting.",
+                    "locations": ["Landhaushof courtyard"],
+                    "cost": "Free"
                 }
             ],
             "unique_experiences": [
@@ -184,7 +483,9 @@
                     "practical_tips": "Dress very warmly, especially for evening visits. Markets are less crowded on weekday afternoons. Each market has its own character - Hauptplatz is the largest, Franziskanerplatz more artisanal.",
                     "best_time": "Late afternoon into evening (4-7 PM) for best atmosphere with lights",
                     "estimated_cost": "Free entry / €5-€15 for food and drinks / Variable for purchases",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "2-3 hours",
+                    "highlights": ["Festive atmosphere", "Handcrafted gifts", "Seasonal treats"]
                 },
                 {
                     "activity": "See the Rathaus Advent Calendar",
@@ -193,7 +494,9 @@
                     "practical_tips": "Best viewed after dark. Combine with a market visit and warm drink.",
                     "best_time": "Evening, after 5 PM",
                     "estimated_cost": "Free",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "15-30 minutes",
+                    "highlights": ["Advent calendar", "Historic building", "Evening atmosphere"]
                 },
                 {
                     "activity": "Climb Schlossberg for Winter Views",
@@ -202,7 +505,9 @@
                     "practical_tips": "Consider taking the funicular (Schlossbergbahn) or glass elevator (Schlossberglift) up and walking down. Paths can be slippery in cold weather.",
                     "best_time": "Late morning or early afternoon for best winter light",
                     "estimated_cost": "€2-€5 for funicular or lift / Free to climb stairs",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1-1.5 hours",
+                    "highlights": ["Panoramic views", "Winter scenery", "Christmas markets below"]
                 },
                 {
                     "activity": "Visit Eggenberg Palace Interior",
@@ -211,7 +516,9 @@
                     "practical_tips": "Limited winter opening hours apply - check in advance and book ahead if possible. The gardens have reduced access in winter.",
                     "best_time": "Morning or afternoon (limited hours)",
                     "estimated_cost": "€15-€20",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Baroque architecture", "State rooms", "Indoor activity"]
                 },
                 {
                     "activity": "Attend an Advent Concert",
@@ -220,7 +527,9 @@
                     "practical_tips": "Check local listings for specific events. Advance tickets recommended for popular venues like the Stefaniensaal or major churches.",
                     "best_time": "Evening performances",
                     "estimated_cost": "€15-€40 depending on venue and performance",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "1-2 hours",
+                    "highlights": ["Classical music", "Atmospheric venues", "Cultural experience"]
                 },
                 {
                     "activity": "Visit the Farmers' Markets for Winter Produce",
@@ -229,7 +538,9 @@
                     "practical_tips": "Markets operate in the morning only and finish around 1 PM. Bundle up as they're open-air. Saturday has the fullest offering.",
                     "best_time": "8-11 AM, especially Saturdays",
                     "estimated_cost": "Free to browse, purchases extra",
-                    "weather_dependent": true
+                    "weather_dependent": true,
+                    "duration": "1 hour",
+                    "highlights": ["Winter produce", "Local specialties", "Cultural experience"]
                 },
                 {
                     "activity": "Indulge in Hot Chocolate or Seasonal Coffee Variations",
@@ -238,8 +549,51 @@
                     "practical_tips": "Try specialty cafés like Tribeka or traditional spots like Café Sacher. Christmas markets offer simpler but atmospheric options.",
                     "best_time": "Afternoon or evening",
                     "estimated_cost": "€4-€7 per drink",
-                    "weather_dependent": false
+                    "weather_dependent": false,
+                    "duration": "30-60 minutes",
+                    "highlights": ["Warm drinks", "Seasonal flavors", "Cozy atmosphere"]
+                },
+                {
+                    "activity": "Visit the Landeszeughaus (Provincial Armory)",
+                    "where": "Herrengasse 16",
+                    "description": "Visit the world's largest historic armory with an impressive collection of 32,000 weapons and suits of armor from the 15th-18th centuries.",
+                    "practical_tips": "Guided tours recommended to fully appreciate the collection. Photography restrictions apply. Excellent indoor activity for inclement weather.",
+                    "best_time": "Afternoon",
+                    "estimated_cost": "€10-€12",
+                    "weather_dependent": false,
+                    "duration": "1-1.5 hours",
+                    "highlights": ["Historic weapons", "Armor collection", "Medieval history"]
                 }
+            ]
+        },
+        "practical_tips": {
+            "packing_essentials": [
+                "Warm waterproof coat or jacket",
+                "Thermal layers and warm sweaters",
+                "Hat, scarf, and gloves",
+                "Waterproof boots or shoes",
+                "Umbrella for rain protection"
+            ],
+            "money_saving_tips": [
+                "Use public transport day passes (€5.20)",
+                "Visit museums on free admission days",
+                "Eat at markets and casual restaurants",
+                "Book accommodation in advance for better rates",
+                "Walk between nearby attractions"
+            ],
+            "weather_preparation": [
+                "Check weather forecast daily",
+                "Have indoor and outdoor activity options",
+                "Bring waterproof gear for rain",
+                "Dress in layers for temperature changes",
+                "Plan museum visits for rainy days"
+            ],
+            "local_customs": [
+                "Greet with 'Grüß Gott' or 'Servus'",
+                "Remove shoes when entering homes",
+                "Tipping 5-10% in restaurants",
+                "Respect quiet hours (10 PM - 6 AM)",
+                "Use formal 'Sie' with strangers"
             ]
         }
     }

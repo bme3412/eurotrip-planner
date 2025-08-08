@@ -3,112 +3,369 @@
         {
             "city": "Vienna",
             "country": "Austria",
-            "whyGo": "Imperial history, vibrant arts scene, coffee houses",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, elegant coffee house culture, and rich Habsburg heritage. Home to Schönbrunn Palace, the Vienna State Opera, and the historic Innere Stadt.",
             "directWithinCountryTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 2.5 hours",
-                "frequency": "Hourly"
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "2h30m",
+                "frequency": "Hourly",
+                "trainType": "Railjet",
+                "priceRange": "€25-60"
             },
             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 2.5-3 hours",
-                 "frequency": "Multiple times daily"
-             }
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "2h45m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€15-35"
+            },
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-200"
+            }
         },
         {
             "city": "Salzburg",
             "country": "Austria",
-            "whyGo": "Mozart's birthplace, Sound of Music tours, Alpine backdrop",
+            "whyGo": "Mozart's birthplace with stunning Baroque architecture, Sound of Music tours, Alpine backdrop, and UNESCO-listed historic center. Famous for its annual Salzburg Festival and Hohensalzburg Fortress.",
             "directWithinCountryTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 4 hours",
-                "frequency": "Multiple times daily"
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "4h",
+                "frequency": "Multiple times daily",
+                "trainType": "Railjet/Regional",
+                "priceRange": "€35-80"
             },
-             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 4-5 hours",
-                 "frequency": "Multiple times daily"
-             }
+            "intraEuropeBus": {
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "4h15m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€20-45"
+            }
         },
         {
             "city": "Munich",
             "country": "Germany",
-            "whyGo": "Bavarian culture, beer gardens, museums",
+            "whyGo": "Bavarian culture with world-famous Oktoberfest, beer gardens, excellent museums, and beautiful architecture blending tradition and modernity. Gateway to the Alps and Bavaria.",
             "intraEuropeTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 6 hours",
-                "frequency": "Multiple times daily (some direct, some changes)"
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "6h",
+                "frequency": "Multiple times daily (some direct, some changes)",
+                "trainType": "Railjet/ICE",
+                "priceRange": "€45-120"
             },
             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 5-6 hours",
-                 "frequency": "Multiple times daily"
-             },
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "5h30m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€25-60"
+            },
             "intraEuropeFlight": {
-                "originAirports": ["Graz Airport"],
-                "approxFlightTime": "Approx. 1 hour",
-                "frequency": "Often daily"
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h",
+                "frequency": "Often daily",
+                "priceRange": "€90-250"
             }
         },
-         {
+        {
             "city": "Ljubljana",
             "country": "Slovenia",
-            "whyGo": "Charming capital, Dragon Bridge, Tivoli Park",
+            "whyGo": "Charming capital with Dragon Bridge, Tivoli Park, medieval castle, and vibrant cultural scene. Known for its green initiatives and excellent food culture.",
             "intraEuropeTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 3-3.5 hours",
-                "frequency": "Multiple times daily (often with changes)"
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "3h15m",
+                "frequency": "Multiple times daily (often with changes)",
+                "trainType": "Regional/InterCity",
+                "priceRange": "€20-50"
             },
             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 2.5-3 hours",
-                 "frequency": "Multiple times daily"
-             }
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "2h45m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€15-35"
+            }
         },
         {
             "city": "Zagreb",
             "country": "Croatia",
-            "whyGo": "Croatian capital, historic Upper Town, museums",
-             "intraEuropeTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 4-4.5 hours",
-                "frequency": "Daily or multiple times daily (some direct, some changes)"
+            "whyGo": "Croatian capital with historic Upper Town, excellent museums, vibrant café culture, and gateway to Croatia's beautiful coastline and islands.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "4h15m",
+                "frequency": "Daily or multiple times daily (some direct, some changes)",
+                "trainType": "Regional/InterCity",
+                "priceRange": "€25-65"
             },
             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 2.5-3 hours",
-                 "frequency": "Multiple times daily"
-             }
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "2h45m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€18-40"
+            }
         },
         {
             "city": "Budapest",
             "country": "Hungary",
-            "whyGo": "Thermal baths, Parliament Building, Danube views",
+            "whyGo": "Stunning architecture with thermal baths, Parliament Building, Danube views, and vibrant nightlife. Rich cultural heritage and excellent cuisine.",
             "intraEuropeTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 4.5-5.5 hours",
-                "frequency": "Multiple times daily (usually with changes)"
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "4h45m",
+                "frequency": "Multiple times daily (usually with changes)",
+                "trainType": "Railjet/InterCity",
+                "priceRange": "€30-75"
             },
             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 4.5-5 hours",
-                 "frequency": "Multiple times daily"
-             }
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "4h30m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€20-50"
+            }
         },
         {
             "city": "Maribor",
             "country": "Slovenia",
-            "whyGo": "Second largest Slovenian city, wine region, Drava river",
-             "intraEuropeTrain": {
-                "originPointName": "Graz Central Station",
-                "journeyTime": "Approx. 1 hour",
-                "frequency": "Multiple times daily"
+            "whyGo": "Second largest Slovenian city with wine region, Drava river, medieval architecture, and excellent food culture. Gateway to the Pohorje mountains.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "1h",
+                "frequency": "Multiple times daily",
+                "trainType": "Regional",
+                "priceRange": "€8-20"
             },
             "intraEuropeBus": {
-                 "originPointName": "Graz Bus Terminal",
-                 "journeyTime": "Approx. 1-1.5 hours",
-                 "frequency": "Multiple times daily"
-             }
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "1h15m",
+                "frequency": "Multiple times daily",
+                "priceRange": "€5-15"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "The unique city of canals, gondolas, St. Mark's Square, and historic palaces. World-famous for its romantic atmosphere and artistic heritage.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily (with changes)",
+                "trainType": "Railjet/InterCity",
+                "priceRange": "€40-100"
+            },
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Seasonal",
+                "priceRange": "€120-300"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, vibrant cultural scene, and excellent beer culture. Known for its Gothic architecture and rich history.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "7h",
+                "frequency": "Daily (with changes)",
+                "trainType": "Railjet/InterCity",
+                "priceRange": "€45-110"
+            },
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Seasonal",
+                "priceRange": "€100-280"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Charming capital with medieval old town, hilltop castle, Danube riverfront, and excellent wine culture. Perfect blend of history and modernity.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "3h30m",
+                "frequency": "Multiple times daily",
+                "trainType": "Railjet/InterCity",
+                "priceRange": "€25-60"
+            },
+            "intraEuropeBus": {
+                "busTerminalInGraz": "Graz Bus Terminal",
+                "journeyTime": "3h",
+                "frequency": "Multiple times daily",
+                "priceRange": "€15-40"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for its well-preserved medieval old town, excellent museums, beautiful lake setting, and high quality of life. Financial hub with stunning Alpine backdrop.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily (with changes)",
+                "trainType": "Railjet/IC",
+                "priceRange": "€50-130"
+            },
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Seasonal",
+                "priceRange": "€110-280"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, excellent cuisine, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "7h",
+                "frequency": "Daily (with changes)",
+                "trainType": "Railjet/InterCity",
+                "priceRange": "€45-120"
+            },
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Seasonal",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renaissance art and architecture, world-class museums, charming medieval streets, and birthplace of the Italian Renaissance. Home to the Uffizi Gallery and Duomo.",
+            "intraEuropeTrain": {
+                "stationInGraz": "Graz Central Station",
+                "journeyTime": "8h",
+                "frequency": "Daily (with changes)",
+                "trainType": "Railjet/InterCity",
+                "priceRange": "€50-140"
+            },
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h40m",
+                "frequency": "Seasonal",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life. Home to the Colosseum, Trevi Fountain, and Sistine Chapel.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h",
+                "frequency": "Seasonal",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces, vibrant cultural scene, Mediterranean beaches, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Seasonal",
+                "priceRange": "€130-350"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, excellent cuisine, and romantic atmosphere. Home to the Eiffel Tower, Louvre, and Notre-Dame.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Seasonal",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene. Known for its liberal atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Seasonal",
+                "priceRange": "€100-290"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, finance, and culture, featuring iconic landmarks and diverse neighborhoods.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Seasonal",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic capital with rich history, excellent museums, vibrant nightlife, and fascinating blend of East and West German heritage.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Seasonal",
+                "priceRange": "€90-260"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, vibrant cultural scene, and fascinating blend of old and new architecture.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Seasonal",
+                "priceRange": "€90-260"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, vibrant cultural scene, and high quality of life.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h",
+                "frequency": "Seasonal",
+                "priceRange": "€120-340"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, Scandinavian design culture, and stunning waterfront architecture.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Seasonal",
+                "priceRange": "€130-360"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant capital with rich literary heritage, excellent pubs, friendly atmosphere, and fascinating history.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Seasonal",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where East meets West with stunning mosques, Grand Bazaar, rich cultural heritage, and fascinating blend of European and Asian influences.",
+            "intraEuropeFlight": {
+                "airportsInGraz": ["Graz Airport"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Seasonal",
+                "priceRange": "€140-380"
+            }
         }
     ]
 } 
