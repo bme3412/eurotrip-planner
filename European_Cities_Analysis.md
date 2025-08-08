@@ -53,21 +53,6 @@ Cities with full directory structures containing attractions, connections, culin
 #### **Denmark** (3 cities)
 - Aarhus, Copenhagen, Odense
 
-### JS File Cities (44 cities)
-Cities defined in JavaScript data files without full directory structures:
-
-#### **Poland** (11 cities)
-- Warsaw, Kraków, Gdańsk, Wrocław, Poznań, Łódź, Lublin, Katowice, Szczecin, Toruń, Bydgoszcz
-
-#### **United Kingdom** (10 cities)
-- London, Manchester, Edinburgh, Birmingham, Glasgow, Liverpool, Bristol, Cambridge, Oxford, Newcastle
-
-#### **Hungary** (10 cities)
-- Budapest, Debrecen, Szeged, Miskolc, Pécs, Győr, Nyíregyháza, Kecskemét, Szombathely, Eger
-
-#### **Czech Republic** (8 cities)
-- Prague, Brno, Ostrava, Plzeň, Olomouc, Český Krumlov, Liberec, Hradec Králové
-
 ---
 
 ## Expansion Recommendations
@@ -78,16 +63,12 @@ Priority additions that would significantly improve European coverage:
 #### **Eastern European Capitals**
 - **Romania**: Bucharest (capital), Cluj-Napoca, Timișoara, Constanța
 - **Bulgaria**: Sofia (capital), Plovdiv, Varna
-- **Serbia**: Belgrade (capital), Novi Sad
-- **Croatia**: Zagreb (capital), Split, Dubrovnik
-- **Slovenia**: Ljubljana (capital), Maribor
-- **Slovakia**: Bratislava (capital), Košice
+
 - **Lithuania**: Vilnius (capital), Kaunas
 - **Latvia**: Riga (capital), Daugavpils
 - **Estonia**: Tallinn (capital), Tartu
 
-#### **Nordic Extensions**
-- **Iceland**: Reykjavik (capital)
+
 
 #### **Microstates & Special Territories**
 - **Luxembourg**: Luxembourg City
@@ -108,27 +89,6 @@ Important for comprehensive Southeastern European coverage:
 
 ### **Tier 3: Additional Cities in Existing Countries**
 Expand coverage in countries you already have:
-
-#### **Germany** (missing major cities)
-- Bonn, Aachen, Rostock, Freiburg, Würzburg, Regensburg
-
-#### **France** (missing regional centers)
-- Rennes, Tours, Dijon, Reims, Avignon, Grenoble
-
-#### **Italy** (missing important ports/regions)
-- Genoa, Bari, Catania, Trieste, Pisa, Rimini
-
-#### **Spain** (missing regional capitals)
-- Zaragoza, Vigo, Gijón, Santander, Palma (Mallorca)
-
-#### **United Kingdom** (missing historic/regional centers)
-- York, Bath, Canterbury, Cardiff (Wales), Belfast (Northern Ireland)
-
-#### **Netherlands** (missing university/historic cities)
-- Nijmegen, Tilburg, Breda, Leiden
-
-#### **Poland** (missing regional centers)
-- Białystok, Rzeszów, Olsztyn
 
 ### **Tier 4: Transcontinental & Neighboring Regions**
 For truly comprehensive European coverage:
