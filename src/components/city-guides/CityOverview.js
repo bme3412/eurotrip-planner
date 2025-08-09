@@ -277,7 +277,26 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
         <h2 className="text-xl font-bold text-gray-900 mb-3">Things to Do</h2>
         <div className="columns-1 md:columns-2 gap-3 space-y-3">
           {(() => {
-            // Try to get dynamic data from monthly files
+            // Try to get dynamic data from overview monthly_activities first
+            if (overview?.monthly_activities) {
+              const activities = Object.entries(overview.monthly_activities).map(([month, activity]) => ({
+                activity: activity.title,
+                optimal_time: `${month.charAt(0).toUpperCase() + month.slice(1)} - ${activity.description}`,
+                cost: activity.price
+              }));
+              
+              return activities.map((activity, index) => (
+                <div key={index} className="flex items-center justify-between py-2 px-3 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors break-inside-avoid mb-3">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-medium text-gray-900 text-sm truncate">{activity.activity}</h3>
+                    <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{activity.optimal_time}</p>
+                  </div>
+                  <span className="text-xs text-blue-600 font-medium ml-2 flex-shrink-0">{activity.cost}</span>
+                </div>
+              ));
+            }
+            
+            // Try to get dynamic data from monthly files as fallback
             if (monthlyData && Object.keys(monthlyData).length > 0) {
               const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
               const monthData = monthlyData[currentMonth];
