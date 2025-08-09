@@ -1,0 +1,684 @@
+{
+  "sites": [
+    {
+      "name": "Tower of London",
+      "type": "Historic Castle", 
+      "description": "A historic castle on the north bank of the River Thames, home to the Crown Jewels and over 1,000 years of British history. This UNESCO World Heritage Site has served as a royal palace, prison, and fortress.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Expensive",
+      "seasonal_notes": "Very busy during summer months. Early morning visits recommended to see the Crown Jewels without crowds.",
+      "booking_tips": "Book online in advance for discounted tickets. Consider the Yeoman Warder tours for fascinating historical stories.",
+      "ratings": {
+        "cost_estimate": 30,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5081,
+      "longitude": -0.0759
+    },
+    {
+      "name": "Tower Bridge",
+      "type": "Bridge",
+      "description": "An iconic Victorian Gothic bascule bridge with glass floor walkways offering spectacular views over London. The bridge opens regularly for river traffic.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Moderate",
+      "seasonal_notes": "Beautiful when illuminated at night. Check the bridge lift schedule for viewing opportunities.",
+      "booking_tips": "Book online for exhibition access. Free to walk across the bridge itself.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5055,
+      "longitude": -0.0754
+    },
+    {
+      "name": "Big Ben & Houses of Parliament",
+      "type": "Government Building",
+      "description": "The iconic clock tower and seat of the UK Parliament. Currently undergoing restoration but remains one of London's most recognizable landmarks.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Tours available when Parliament is sitting. Check schedule for public access.",
+      "booking_tips": "Free to view from outside. Parliamentary tours must be booked well in advance.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4994,
+      "longitude": -0.1245
+    },
+    {
+      "name": "Westminster Abbey",
+      "type": "Abbey",
+      "description": "A Gothic abbey church where British monarchs have been crowned for nearly 1,000 years. The burial place of many famous figures including Charles Dickens and Isaac Newton.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Expensive",
+      "seasonal_notes": "Very popular with tourists. Audio guide included with admission provides excellent historical context.",
+      "booking_tips": "Book online to skip queues. Check for special services which may affect visiting hours.",
+      "ratings": {
+        "cost_estimate": 27,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4994,
+      "longitude": -0.1274
+    },
+    {
+      "name": "Buckingham Palace",
+      "type": "Royal Palace",
+      "description": "The official London residence of the British monarch. Famous for the Changing of the Guard ceremony and summer opening of the State Rooms.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Expensive",
+      "seasonal_notes": "State Rooms open during summer months only. Changing of the Guard occurs on specific days.",
+      "booking_tips": "Book State Rooms tours well in advance. Free to view from outside and watch ceremony.",
+      "ratings": {
+        "cost_estimate": 32,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5014,
+      "longitude": -0.1419
+    },
+    {
+      "name": "London Eye",
+      "type": "Observation Wheel",
+      "description": "A giant Ferris wheel on the South Bank of the Thames offering panoramic views across London. Each rotation takes approximately 30 minutes.",
+      "indoor": false,
+      "best_time": "Sunset",
+      "price_range": "Expensive",
+      "seasonal_notes": "Clear days offer the best views. Sunset rides are particularly spectacular but book early.",
+      "booking_tips": "Fast-track tickets available online. Weather dependent, so check conditions before visiting.",
+      "ratings": {
+        "cost_estimate": 35,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5033,
+      "longitude": -0.1196
+    },
+    {
+      "name": "British Museum",
+      "type": "Museum",
+      "description": "One of the world's greatest museums, housing artifacts from around the globe including the Rosetta Stone, Egyptian mummies, and Greek sculptures.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Free admission but donations appreciated. Very busy during school holidays and weekends.",
+      "booking_tips": "Free timed entry slots during busy periods. Audio guides and tours available for a fee.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 4,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5194,
+      "longitude": -0.1270
+    },
+    {
+      "name": "Tate Modern",
+      "type": "Art Gallery",
+      "description": "The world's most popular modern art gallery, housed in a former power station on the South Bank. Features works by Picasso, Warhol, and Hockney.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Free permanent collection. Special exhibitions require tickets. The viewing level offers great Thames views.",
+      "booking_tips": "Free entry to permanent collection. Book special exhibitions in advance.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5076,
+      "longitude": -0.0994
+    },
+    {
+      "name": "National Gallery",
+      "type": "Art Gallery",
+      "description": "Houses one of the world's finest collections of European paintings from the 13th to 19th centuries, including works by Van Gogh, Da Vinci, and Turner.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Free admission but donations welcome. Less crowded on weekday mornings.",
+      "booking_tips": "Free entry. Audio guides available. Located in Trafalgar Square, perfect for combining with other central attractions.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5089,
+      "longitude": -0.1283
+    },
+    {
+      "name": "St. Paul's Cathedral",
+      "type": "Cathedral",
+      "description": "Sir Christopher Wren's baroque masterpiece with an iconic dome that dominates London's skyline. Climb to the Whispering Gallery and Golden Gallery for stunning views.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Expensive",
+      "seasonal_notes": "Climbing the dome requires good fitness. Audio guide included with admission.",
+      "booking_tips": "Book online for discounted tickets. Allow extra time if planning to climb to the galleries.",
+      "ratings": {
+        "cost_estimate": 25,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5138,
+      "longitude": -0.0984
+    },
+    {
+      "name": "Shakespeare's Globe Theatre",
+      "type": "Theatre",
+      "description": "A faithful reconstruction of the original Globe Theatre where Shakespeare's plays were performed. Offers tours and authentic Shakespearean performances.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Performance season runs from spring to autumn. Standing tickets ('groundlings') offer an authentic experience.",
+      "booking_tips": "Book performances well in advance. Tours available year-round when no performances scheduled.",
+      "ratings": {
+        "cost_estimate": 18,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5081,
+      "longitude": -0.0972
+    },
+    {
+      "name": "Hyde Park",
+      "type": "Park",
+      "description": "One of London's largest parks featuring Speaker's Corner, the Serpentine Lake, and Hyde Park Corner. Perfect for walks, cycling, and outdoor activities.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Beautiful in all seasons. Spring brings blooming flowers, autumn offers colorful leaves.",
+      "booking_tips": "No booking required. Pedal boats available on the Serpentine during warmer months.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5074,
+      "longitude": -0.1657
+    },
+    {
+      "name": "Regent's Park",
+      "type": "Park",
+      "description": "An elegant park featuring the famous rose garden, London Zoo, and outdoor theatre. Known for its beautiful landscaping and recreational facilities.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Rose garden is spectacular in summer. Open-air theatre operates during summer months.",
+      "booking_tips": "No booking required for park access. Zoo and theatre require separate tickets.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5313,
+      "longitude": -0.1548
+    },
+    {
+      "name": "Kew Gardens",
+      "type": "Botanical Garden",
+      "description": "UNESCO World Heritage botanical gardens featuring the world's largest collection of living plants, iconic Victorian glasshouses, and tree canopy walkway.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Expensive",
+      "seasonal_notes": "Different seasons offer unique displays. Spring bulbs and autumn colors are particularly spectacular.",
+      "booking_tips": "Book online for discounted admission. Allow a full day to explore properly.",
+      "ratings": {
+        "cost_estimate": 20,
+        "suggested_duration_hours": 4,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4776,
+      "longitude": -0.2947
+    },
+    {
+      "name": "Camden Market",
+      "type": "Market",
+      "description": "A vibrant alternative market known for its eclectic mix of food, fashion, and crafts. Popular with young people and tourists seeking unique items.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Busiest on weekends. Great atmosphere with street food from around the world.",
+      "booking_tips": "No booking required. Bring cash for smaller vendors. Try the diverse street food options.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5431,
+      "longitude": -0.1439
+    },
+    {
+      "name": "Borough Market",
+      "type": "Food Market",
+      "description": "London's oldest food market offering artisanal foods, fresh produce, and international cuisine. A paradise for food lovers and gastronomes.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Best selection available Thursday to Saturday. Can get very crowded during lunch hours.",
+      "booking_tips": "No booking required. Bring appetite and cash. Sample foods before buying.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5051,
+      "longitude": -0.0909
+    },
+    {
+      "name": "Covent Garden",
+      "type": "District",
+      "description": "A historic market area known for street performers, boutique shopping, restaurants, and the Royal Opera House. Retains its Victorian market hall charm.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Street performances happen throughout the day. Christmas decorations are particularly spectacular.",
+      "booking_tips": "No booking required. Perfect for combining shopping, dining, and entertainment.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5118,
+      "longitude": -0.1226
+    },
+    {
+      "name": "Notting Hill",
+      "type": "District",
+      "description": "A charming neighborhood known for its colorful houses, Portobello Road Market, and multicultural atmosphere. Famous from the Hugh Grant film.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Portobello Market is busiest on Saturdays. August bank holiday hosts the famous Carnival.",
+      "booking_tips": "No booking required. Best explored on foot. Saturday is the best day for the full market experience.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5152,
+      "longitude": -0.2058
+    },
+    {
+      "name": "Greenwich",
+      "type": "Historic District",
+      "description": "Home to the Prime Meridian, Royal Observatory, National Maritime Museum, and Cutty Sark. A UNESCO World Heritage Site with beautiful park views.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Great views from the Royal Observatory. Markets operate on weekends.",
+      "booking_tips": "Some attractions require separate tickets. Easy to reach by riverboat from central London.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 4,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4769,
+      "longitude": -0.0005
+    },
+    {
+      "name": "The Shard",
+      "type": "Skyscraper",
+      "description": "Western Europe's tallest building offering spectacular 360-degree views of London from its viewing galleries on floors 68-72.",
+      "indoor": true,
+      "best_time": "Sunset",
+      "price_range": "Expensive",
+      "seasonal_notes": "Clear days offer the best visibility. Sunset visits are popular but more expensive.",
+      "booking_tips": "Book online for better prices. Fast-track tickets available. Weather dependent views.",
+      "ratings": {
+        "cost_estimate": 35,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5045,
+      "longitude": -0.0865
+    },
+    {
+      "name": "Churchill War Rooms",
+      "type": "Museum",
+      "description": "The secret underground bunker where Winston Churchill and his government directed World War II. Preserved exactly as it was left in 1945.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Expensive",
+      "seasonal_notes": "Fascinating for history enthusiasts. Audio guide included provides excellent context.",
+      "booking_tips": "Book online to guarantee entry. Very popular so advance booking recommended.",
+      "ratings": {
+        "cost_estimate": 28,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5016,
+      "longitude": -0.1292
+    },
+    {
+      "name": "Victoria and Albert Museum",
+      "type": "Museum",
+      "description": "The world's largest museum of decorative arts and design, featuring fashion, jewelry, sculpture, photography, and textiles from around the globe.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Free admission but special exhibitions charge. Late opening on Fridays provides a quieter experience.",
+      "booking_tips": "Free entry to permanent collection. Book special exhibitions in advance.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4966,
+      "longitude": -0.1722
+    },
+    {
+      "name": "Natural History Museum",
+      "type": "Museum",
+      "description": "Famous for its dinosaur exhibits, mineral collection, and stunning Romanesque architecture. The building itself is as impressive as the collections.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Very popular with families during school holidays. The Darwin Centre offers behind-the-scenes tours.",
+      "booking_tips": "Free entry but timed slots required during busy periods. Book dinosaur gallery tickets in advance.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4967,
+      "longitude": -0.1764
+    },
+    {
+      "name": "Science Museum",
+      "type": "Museum",
+      "description": "Interactive exhibits covering space exploration, technology, medicine, and industry. Features flight simulators, historic spacecraft, and hands-on galleries.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Free entry to permanent galleries. Special exhibitions and experiences may charge.",
+      "booking_tips": "Free entry but book special experiences in advance. Great for families with children.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4978,
+      "longitude": -0.1742
+    },
+    {
+      "name": "Millennium Bridge",
+      "type": "Bridge",
+      "description": "A modern pedestrian suspension bridge linking St. Paul's Cathedral with Tate Modern. Offers excellent views of the Thames and city skyline.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Beautiful when illuminated at night. Perfect for photography with St. Paul's as backdrop.",
+      "booking_tips": "No booking required. Popular with joggers and pedestrians. Can be busy during peak times.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5097,
+      "longitude": -0.0985
+    },
+    {
+      "name": "Thames River Cruise",
+      "type": "Activity",
+      "description": "Boat cruises along the Thames offering unique perspectives of London's landmarks including Tower Bridge, Houses of Parliament, and London Eye.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Available year-round but more pleasant in warmer weather. Evening cruises offer illuminated views.",
+      "booking_tips": "Various operators offer different routes. Hop-on hop-off tickets provide flexibility.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    },
+    {
+      "name": "Hampstead Heath",
+      "type": "Park",
+      "description": "A large ancient heath offering some of the best views over London. Features swimming ponds, walking trails, and the historic Kenwood House.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Beautiful in all seasons. Parliament Hill offers spectacular city views, especially at sunset.",
+      "booking_tips": "No booking required. Wear appropriate footwear for walking. Swimming ponds open year-round.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5583,
+      "longitude": -0.1667
+    },
+    {
+      "name": "Leadenhall Market",
+      "type": "Historic Market",
+      "description": "A beautiful Victorian market with ornate roof and cobblestones. Famous as a filming location for Harry Potter and offers boutique shops and restaurants.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Busiest during lunch hours with City workers. Beautiful architecture makes it worth visiting even for browsing.",
+      "booking_tips": "No booking required. Perfect for combining with nearby attractions like the Tower of London.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5131,
+      "longitude": -0.0834
+    },
+    {
+      "name": "Southbank Centre",
+      "type": "Cultural Complex",
+      "description": "A major arts center featuring concert halls, galleries, restaurants, and outdoor events. Home to the National Theatre, Royal Festival Hall, and regular markets.",
+      "indoor": true,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Free outdoor events throughout the year. Christmas market is particularly popular.",
+      "booking_tips": "Many events are free. Book performances and exhibitions in advance.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5056,
+      "longitude": -0.1145
+    },
+    {
+      "name": "Piccadilly Circus",
+      "type": "Square",
+      "description": "Famous for its neon advertising displays and busy atmosphere. Known as the 'Times Square of London' and a popular meeting point.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Most impressive when illuminated at night. Always busy but particularly crowded during tourist season.",
+      "booking_tips": "No booking required. Great for photos but expect crowds. Nearby shopping on Regent Street.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5101,
+      "longitude": -0.1344
+    },
+    {
+      "name": "Oxford Street",
+      "type": "Shopping Street",
+      "description": "Europe's busiest shopping street featuring major department stores, international brands, and flagship stores including Selfridges and John Lewis.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Christmas lights and decorations are spectacular. Very crowded during sales periods.",
+      "booking_tips": "No booking required for browsing. Many stores offer tax-free shopping for tourists.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5154,
+      "longitude": -0.1447
+    },
+    {
+      "name": "Abbey Road Crossing",
+      "type": "Historic Landmark",
+      "description": "The famous zebra crossing made iconic by The Beatles' album cover. Located outside Abbey Road Studios where the band recorded most of their albums.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Popular with Beatles fans year-round. Be careful of traffic when recreating the famous photo.",
+      "booking_tips": "No booking required. Studio tours available separately but book well in advance.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5319,
+      "longitude": -0.1815
+    },
+    {
+      "name": "Chinatown",
+      "type": "District",
+      "description": "A vibrant area known for authentic Chinese restaurants, shops, and cultural events. Features traditional architecture and celebrates Chinese New Year spectacularly.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Chinese New Year celebrations are the highlight. Evening is best for dining and atmosphere.",
+      "booking_tips": "No booking required. Many restaurants don't take reservations. Try dim sum for lunch.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5118,
+      "longitude": -0.1308
+    },
+    {
+      "name": "Brick Lane",
+      "type": "Street",
+      "description": "Famous for its curry houses, vintage shops, street art, and multicultural atmosphere. Known as the heart of London's Bangladeshi community.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Sunday markets add extra vibrancy. Street art constantly evolving with new pieces.",
+      "booking_tips": "No booking required. Best explored on foot. Many curry houses offer competitive pricing.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5205,
+      "longitude": -0.0711
+    },
+    {
+      "name": "Royal Albert Hall",
+      "type": "Concert Hall",
+      "description": "An iconic Victorian concert hall hosting the famous BBC Proms and a variety of performances. The distinctive dome and architecture are impressive.",
+      "indoor": true,
+      "best_time": "Evening",
+      "price_range": "Expensive",
+      "seasonal_notes": "The Proms season (July-September) is particularly special. Tours available year-round.",
+      "booking_tips": "Book performances well in advance. Tours offer access to areas normally off-limits.",
+      "ratings": {
+        "cost_estimate": 40,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5009,
+      "longitude": -0.1773
+    },
+    {
+      "name": "Harrods",
+      "type": "Department Store",
+      "description": "The world's most famous department store known for luxury goods, elaborate food halls, and exceptional customer service. A shopping destination in itself.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Expensive",
+      "seasonal_notes": "Christmas displays are legendary. Egyptian Hall and food halls are worth seeing even without shopping.",
+      "booking_tips": "No booking required. Dress code enforced. Free to browse but expect luxury prices.",
+      "ratings": {
+        "cost_estimate": 50,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4994,
+      "longitude": -0.1634
+    },
+    {
+      "name": "Shoreditch",
+      "type": "District",
+      "description": "A trendy area known for street art, independent boutiques, craft beer bars, and vibrant nightlife. The heart of London's creative scene.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Street art constantly changing. Weekend markets and events add extra energy.",
+      "booking_tips": "No booking required. Best explored on foot. Many venues don't take reservations.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5225,
+      "longitude": -0.0812
+    },
+    {
+      "name": "King's Cross St. Pancras",
+      "type": "Transport Hub",
+      "description": "A beautifully restored Victorian railway station complex featuring shops, restaurants, and Platform 9¾ for Harry Potter fans.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Platform 9¾ shop can get very busy. The architecture and shopping areas are impressive year-round.",
+      "booking_tips": "No booking required. Free to explore. Eurostar and international connections available.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5308,
+      "longitude": -0.1238
+    },
+    {
+      "name": "Richmond Park",
+      "type": "Royal Park",
+      "description": "London's largest Royal Park famous for its deer herds, ancient trees, and panoramic views from Richmond Hill. A perfect escape from urban London.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Deer are most active in early morning and evening. Autumn brings spectacular colors.",
+      "booking_tips": "No booking required. Cycling and walking are popular. Keep distance from deer for safety.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4513,
+      "longitude": -0.2659
+    },
+    {
+      "name": "The Old Bailey",
+      "type": "Court House",
+      "description": "London's Central Criminal Court, famous for hosting major trials. The public galleries allow visitors to observe justice in action.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Court sessions vary by schedule. Check website for hearing times and availability.",
+      "booking_tips": "No booking required but strict security procedures. No bags or phones allowed inside.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5156,
+      "longitude": -0.1028
+    }
+  ]
+}
