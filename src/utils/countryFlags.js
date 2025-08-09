@@ -1,3 +1,6 @@
+// Comprehensive country name to emoji flag mapping for European countries
+// Include multiple name variants used across the app/manifest
+
 export const countryFlags = {
   // Core Western/Central/Nordic
   Austria: '🇦🇹',
@@ -55,9 +58,12 @@ export const countryFlags = {
   // Nordics & related
   Iceland: '🇮🇸',
 
-  // Southeast/Peripheral
+  // Mediterranean peripheral
   Greece: '🇬🇷',
   Cyprus: '🇨🇾',
-  Turkey: '🇹🇷'
+  Turkey: '🇹🇷',
 };
-  
+
+export const getFlagForCountry = (countryName) => countryFlags[countryName] || '🏳️';
+
+

@@ -9,10 +9,47 @@ import React, {
 } from 'react';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
-import { getCitiesData } from '@/components/city-guides/cityData';
+import { getCitiesData as getStaticCityData } from '@/components/city-guides/cityData';
+import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 
-const INITIAL_LOAD = 12;
-const LOAD_INCREMENT = 8;
+const INITIAL_LOAD = 24;
+const LOAD_INCREMENT = 24;
+
+// Normalize countries from manifest to UI labels used across components
+const COUNTRY_NORMALIZATION = {
+  UK: 'United Kingdom',
+  Czechia: 'Czech Republic',
+};
+
+const normalizeCountry = (country) => COUNTRY_NORMALIZATION[country] || country;
+
+// Region group mappings for the euro-region filter buttons
+const EURO_REGION_GROUPS = {
+  'Benelux': ['Belgium', 'Netherlands', 'Luxembourg'],
+  'Alpine': ['Austria', 'Switzerland'],
+  'Mediterranean': ['Italy', 'Spain', 'Portugal', 'Greece', 'France'],
+  'The Nordics': ['Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland'],
+  'Central Europe': ['Poland', 'Hungary', 'Czech Republic', 'Austria', 'Germany'],
+};
+
+// Curated list for the Historic Capitals filter
+const HISTORIC_CAPITALS = new Set([
+  'paris', 'rome', 'madrid', 'berlin', 'vienna', 'prague', 'budapest',
+  'warsaw', 'athens', 'lisbon', 'dublin', 'copenhagen', 'stockholm',
+  'oslo', 'helsinki', 'amsterdam', 'brussels', 'bern'
+]);
+
+// Coastal cities = curated union derived-from-static tourismCategories
+const COASTAL_CITY_IDS = (() => {
+  const derived = new Set(
+    getStaticCityData()
+      .filter(c => Array.isArray(c.tourismCategories) && c.tourismCategories.includes('Beach Destinations'))
+      .map(c => c.id)
+  );
+  const union = new Set(COASTAL_CITY_IDS_CURATED);
+  derived.forEach(id => union.add(id));
+  return union;
+})();
 
 export default function CityGuidesPage() {
   /* ───────── state ───────── */
@@ -20,7 +57,7 @@ export default function CityGuidesPage() {
   const [selectedRegion, setSelectedRegion] = useState('All Regions');
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [cities, setCities] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [error, setError] = useState(null);
   const [activeFilterType, setActiveFilterType] = useState('euro-region');
@@ -33,120 +70,93 @@ export default function CityGuidesPage() {
 
   /* ───────── data load ───────── */
   useEffect(() => {
-    try {
-      const data = getCitiesData();
-      setCities(data);
-      setAllCountries(
-        [...new Set(data.map((c) => c.country).filter(Boolean))].sort(),
-      );
-      setLoading(false);
-    } catch (err) {
-      console.error(err);
-      setError('Failed to load city data');
-      setLoading(false);
-    }
+    let cancelled = false;
+
+    const load = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(`/api/cities?limit=all`, { cache: 'no-store' });
+        const json = await res.json();
+        const list = (json?.data || []).map((c) => ({
+          id: c.id,
+          name: c.name,
+          country: normalizeCountry(c.country),
+          thumbnail: c.thumbnail,
+          region: c.region,
+          description: c.description,
+        }));
+
+        if (!cancelled) {
+          setCities(list);
+          setAllCountries([...new Set(list.map((x) => x.country).filter(Boolean))].sort());
+          setLoading(false);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          console.error('Failed to load cities from API:', err);
+          setError('Failed to load city data');
+          setLoading(false);
+        }
+      }
+    };
+
+    load();
+    return () => { cancelled = true; };
   }, []);
 
   /* ───────── filtering ───────── */
   const filtered = useMemo(() => {
-    // Debug logging
-    console.log('Filtering with:', {
-      selectedRegion,
-      activeFilterType,
-      selectedCountries,
-      searchTerm,
-      citiesCount: cities.length
-    });
-    
     return cities.filter((city) => {
       const matchesSearch =
         !searchTerm ||
         city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (city.country &&
-          city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (city.description &&
-          city.description.toLowerCase().includes(searchTerm.toLowerCase()));
+        (city.country && city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (city.description && city.description.toLowerCase().includes(searchTerm.toLowerCase()));
 
       const matchesCountry =
         selectedCountries.length === 0 || selectedCountries.includes(city.country);
 
-                  let matchesRegion = true;
-            if (selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') {
-        if (activeFilterType === 'euro-region') {
-          // Refined Euro-region filtering - 9 categories total
-          const euroRegionGroups = {
-            'Benelux': ['Belgium', 'Netherlands', 'Luxembourg'],
-            'Alpine': ['Austria', 'Switzerland'],
-            'Mediterranean': ['Italy', 'Spain', 'Portugal', 'Greece'],
-            'The Nordics': ['Denmark', 'Sweden', 'Norway', 'Finland'],
-            'Central Europe': ['Poland', 'Hungary', 'Czech Republic'],
-            'Historic Capitals': ['France', 'Germany', 'Austria', 'Italy', 'Spain'] // Major historic capitals
-          };
-          
-          if (selectedRegion === 'Luxury Coastlines') {
-            // Luxury Coastlines should show coastal cities from France, Italy, Spain, Portugal, Greece
-            const luxuryCoastlineCountries = ['France', 'Italy', 'Spain', 'Portugal', 'Greece'];
-            const isFromLuxuryCoastlineCountry = luxuryCoastlineCountries.includes(city.country);
-            const hasCoastalCategories = city.tourismCategories?.includes('Beach Destinations') ?? false;
-            matchesRegion = isFromLuxuryCoastlineCountry && hasCoastalCategories;
-          } else if (selectedRegion === 'Historic Capitals') {
-            // Historic Capitals should show specific historic capital cities
-            const historicCapitalCities = [
-              'paris', 'rome', 'madrid', 'berlin', 'vienna', 'prague', 'budapest', 
-              'warsaw', 'athens', 'lisbon', 'dublin', 'copenhagen', 'stockholm', 
-              'oslo', 'helsinki', 'amsterdam', 'brussels', 'bern', 'zurich'
-            ];
-            matchesRegion = historicCapitalCities.includes(city.id);
-          } else {
-            matchesRegion = euroRegionGroups[selectedRegion]?.includes(city.country) ?? false;
-          }
-                      } else if (activeFilterType === 'travel-experience') {
-                // Travel experience filtering - check if city has the selected tourism category
-                if (selectedRegion === 'Wine Regions') {
-                  // Wine Regions should show cities with Food & Wine category
-                  matchesRegion = city.tourismCategories?.includes('Food & Wine') ?? false;
-                } else {
-                  // Other travel experiences check for the exact category
-                  matchesRegion = city.tourismCategories?.includes(selectedRegion) ?? false;
-                }
-              } else {
-                // Fallback for any other filter types - default to no filtering
-                matchesRegion = true;
-              }
+      let matchesRegion = true;
+      if (activeFilterType === 'euro-region' && selectedRegion && selectedRegion !== 'All Regions') {
+        if (selectedRegion === 'Historic Capitals') {
+          matchesRegion = HISTORIC_CAPITALS.has(city.id);
+        } else if (selectedRegion === 'Beach Destinations') {
+          // Any city tagged as Beach Destinations across all countries
+          matchesRegion = COASTAL_CITY_IDS.has(city.id);
+        } else {
+          const countries = EURO_REGION_GROUPS[selectedRegion] || [];
+          matchesRegion = countries.includes(city.country);
+        }
       }
 
-      const result = matchesSearch && matchesCountry && matchesRegion;
-      
-      // Debug logging for specific cities
-      if (city.name === 'Paris' || city.name === 'Barcelona') {
-        console.log(`${city.name} filtering:`, {
-          matchesSearch,
-          matchesCountry,
-          matchesRegion,
-          result,
-          cityCountry: city.country,
-          selectedRegion,
-          activeFilterType
-        });
-      }
-      
-      return result;
+      return matchesSearch && matchesCountry && matchesRegion;
     });
   }, [cities, searchTerm, selectedCountries, selectedRegion, activeFilterType]);
 
+  // Sort by country, then by city name
+  const sorted = useMemo(() => {
+    const arr = [...filtered];
+    arr.sort((a, b) => {
+      const c = (a.country || '').localeCompare(b.country || '');
+      return c !== 0 ? c : a.name.localeCompare(b.name);
+    });
+    return arr;
+  }, [filtered]);
+
   /* ───────── infinite scroll ───────── */
   useEffect(() => {
-    setDisplayed(filtered.slice(0, INITIAL_LOAD));
+    setDisplayed(sorted.slice(0, INITIAL_LOAD));
     setItemsToShow(INITIAL_LOAD);
-    setHasMore(filtered.length > INITIAL_LOAD);
-  }, [filtered]);
+    setHasMore(sorted.length > INITIAL_LOAD);
+  }, [sorted]);
 
   const loadMore = useCallback(() => {
     const next = itemsToShow + LOAD_INCREMENT;
-    setDisplayed(filtered.slice(0, next));
+    setDisplayed(sorted.slice(0, next));
     setItemsToShow(next);
-    setHasMore(filtered.length > next);
-  }, [itemsToShow, filtered]);
+    setHasMore(sorted.length > next);
+  }, [itemsToShow, sorted]);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -194,7 +204,7 @@ export default function CityGuidesPage() {
   /* ───────── render ───────── */
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Compact Hero Section */}
+      {/* Hero */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-indigo-700/90 to-purple-800/90" />
         <div
@@ -203,20 +213,14 @@ export default function CityGuidesPage() {
         />
         <div className="relative z-10 container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-              Discover European Cities
-            </h1>
-            <p className="text-lg md:text-xl mb-6 opacity-90 leading-relaxed">
-              Explore insider tips, interactive maps, and local recommendations
-              for Europe&apos;s most compelling destinations.
-            </p>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">Discover European Cities</h1>
+            <p className="text-lg md:text-xl mb-6 opacity-90 leading-relaxed">Explore insider tips, interactive maps, and local recommendations for Europe&apos;s most compelling destinations.</p>
           </div>
         </div>
       </div>
 
-      {/* Main Content - Compact Layout */}
+      {/* Content */}
       <div className="container mx-auto px-4 py-2">
-        {/* Compact Filter */}
         <div className="mb-3">
           <UnifiedFilter
             selectedRegion={selectedRegion}
@@ -232,115 +236,67 @@ export default function CityGuidesPage() {
           />
         </div>
 
-        {/* Compact Results Header */}
         <div className="mb-3">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-bold text-gray-900">
-                City Guides
-              </h2>
-              {cities.length > 0 && (
+              <h2 className="text-lg font-bold text-gray-900">City Guides</h2>
+              {sorted.length > 0 && (
                 <p className="text-xs text-gray-600 mt-0.5">
-                  {filtered.length === 0 
+                  {sorted.length === 0
                     ? 'No cities match your criteria'
-                    : `Showing ${displayed.length} of ${filtered.length} cities`
-                  }
+                    : `Showing ${displayed.length} of ${sorted.length} cities`}
                 </p>
               )}
             </div>
-            {cities.length > 0 && filtered.length > 0 && (
-              <div className="flex items-center space-x-1 text-xs text-gray-500">
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <span>Grid</span>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Error State */}
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
-            <div className="flex items-center justify-center mb-2">
-              <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-              </svg>
-            </div>
-            <h3 className="text-base font-semibold text-red-800 mb-1">Oops! Something went wrong</h3>
-            <p className="text-red-600 mb-2 text-sm">{error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-red-600 text-white px-4 py-1.5 rounded-lg hover:bg-red-700 transition-colors text-sm"
-            >
-              Try Again
-            </button>
+        {/* Single unified grid */}
+        {displayed.length > 0 && !error && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {displayed.map((city) => (
+              <CityCard key={city.id} city={city} />
+            ))}
           </div>
         )}
 
-        {/* Empty State */}
-        {!error && cities.length > 0 && filtered.length === 0 && (
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
-            <div className="flex items-center justify-center mb-3">
-              <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
+        {/* Infinite Scroll Sentinel */}
+        {hasMore && (
+          <div ref={observerRef} className="flex items-center justify-center py-4">
+            <div className="flex items-center space-x-2 text-gray-600">
+              <div className="w-5 h-5 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+              <span className="text-xs">Loading more cities...</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">No cities found</h3>
-            <p className="text-gray-600 mb-3 text-sm">
-              Try adjusting your search terms or filters to find more destinations.
-            </p>
-            <button
-              onClick={clearFilters}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
-            >
-              Clear All Filters
-            </button>
           </div>
         )}
 
-        {/* City Grid - Compact spacing */}
-        {cities.length > 0 && !error && (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {displayed.map((city) => (
-                <CityCard key={city.id} city={city} />
-              ))}
+        {/* End of Results */}
+        {!hasMore && displayed.length > 0 && (
+          <div className="text-center py-4">
+            <div className="inline-flex items-center space-x-2 text-gray-500">
+              <div className="w-px h-3 bg-gray-300"></div>
+              <span className="text-xs">You&apos;ve reached the end</span>
+              <div className="w-px h-3 bg-gray-300"></div>
             </div>
-
-            {/* Infinite Scroll Sentinel */}
-            {hasMore && (
-              <div
-                ref={observerRef}
-                className="flex items-center justify-center py-4"
-              >
-                <div className="flex items-center space-x-2 text-gray-600">
-                  <div className="w-5 h-5 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-                  <span className="text-xs">Loading more cities...</span>
-                </div>
-              </div>
-            )}
-
-            {/* End of Results */}
-            {!hasMore && displayed.length > 0 && (
-              <div className="text-center py-4">
-                <div className="inline-flex items-center space-x-2 text-gray-500">
-                  <div className="w-px h-3 bg-gray-300"></div>
-                  <span className="text-xs">You&apos;ve reached the end</span>
-                  <div className="w-px h-3 bg-gray-300"></div>
-                </div>
-              </div>
-            )}
-          </>
+          </div>
         )}
 
-        {/* Initial Loading State */}
-        {cities.length === 0 && !error && (
+        {/* Initial Loading */}
+        {loading && !error && (
           <div className="flex items-center justify-center py-8">
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-2"></div>
               <p className="text-gray-600 text-sm">Loading amazing destinations...</p>
             </div>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {!loading && !error && sorted.length === 0 && (
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">No cities found</h3>
+            <p className="text-gray-600 mb-3 text-sm">Try adjusting your search terms or filters.</p>
+            <button onClick={clearFilters} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm">Clear All Filters</button>
           </div>
         )}
       </div>

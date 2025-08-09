@@ -1,37 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getImageUrl, isCDNEnabled } from '../../utils/cdnUtils';
+import { getFlagForCountry } from '../../utils/countryFlags';
 
-// Country code to flag emoji mapping
-const countryToFlag = {
-  'France': '🇫🇷',
-  'Germany': '🇩🇪',
-  'Netherlands': '🇳🇱',
-  'Spain': '🇪🇸',
-  'Italy': '🇮🇹',
-  'Austria': '🇦🇹',
-  'Belgium': '🇧🇪',
-  'Denmark': '🇩🇰',
-  'Ireland': '🇮🇪',
-  'Portugal': '🇵🇹',
-  'Greece': '🇬🇷',
-  'Sweden': '🇸🇪',
-  'Norway': '🇳🇴',
-  'Finland': '🇫🇮',
-  'Switzerland': '🇨🇭',
-  'Czech Republic': '🇨🇿',
-  'Hungary': '🇭🇺',
-  'Poland': '🇵🇱',
-  'Croatia': '🇭🇷',
-  'Estonia': '🇪🇪',
-  'Latvia': '🇱🇻',
-  'Lithuania': '🇱🇹',
-  'Slovenia': '🇸🇮',
-  'Slovakia': '🇸🇰'
-};
+// Flags are centralized in utils/countryFlags
 
 // Region color mapping with improved colors
 const regionColors = {
@@ -49,9 +24,7 @@ const regionColors = {
 
 const CityCard = ({ city }) => {
   const getRegionColorClass = (regionName) => {
-    // Get hex color and map to Tailwind classes
     const hexColor = regionColors[regionName] || regionColors["Other"];
-    
     switch(hexColor) {
       case '#F59E0B': return 'bg-amber-100 text-amber-800 border-amber-200';
       case '#10B981': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
@@ -66,14 +39,31 @@ const CityCard = ({ city }) => {
     }
   };
   
-  // Get flag emoji for the city's country
-  const getFlagEmoji = (country) => {
-    return countryToFlag[country] || '🏳️';
+  const getFlagEmoji = (country) => getFlagForCountry(country);
+
+  // Build a prioritized list of possible image sources
+  const fallbacks = useMemo(() => {
+    const id = city.id;
+    const sources = [];
+    if (city.thumbnail) sources.push(city.thumbnail);
+    // CDN mapped city thumbnail (e.g., images/city-thumbnails/{id}.jpeg)
+    const cdnSource = getImageUrl(`/images/${id}.jpeg`);
+    if (isCDNEnabled() && cdnSource) sources.push(cdnSource);
+    // Local optimized JPEG
+    sources.push(`/images/optimized/${id}.jpeg`);
+    // Legacy local thumbnail naming
+    sources.push(`/images/${id}-thumbnail.jpeg`);
+    // Final placeholder
+    sources.push('/images/city-placeholder.svg');
+    return sources;
+  }, [city]);
+
+  const [srcIndex, setSrcIndex] = useState(0);
+  const currentSrc = fallbacks[Math.min(srcIndex, fallbacks.length - 1)];
+
+  const handleImgError = () => {
+    setSrcIndex((prev) => (prev < fallbacks.length - 1 ? prev + 1 : prev));
   };
-  
-  // Use CDN URL for thumbnail if available, otherwise use optimized local files or fallback
-  const thumbnailPath = city.thumbnail || 
-    (isCDNEnabled() ? getImageUrl(`/images/${city.id}.jpeg`) : `/images/optimized/${city.id}.jpeg`);
   
   return (
     <div className="group relative">
@@ -81,52 +71,35 @@ const CityCard = ({ city }) => {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-100 hover:border-blue-200 hover:-translate-y-1">
           {/* Card image container */}
           <div className="relative h-48 overflow-hidden">
-            {/* Use next/image for optimized loading */}
             <Image
-              src={thumbnailPath}
+              src={currentSrc}
               alt={`${city.name}, ${city.country} - European city guide`}
               fill
               style={{ objectFit: 'cover' }}
               className="transition-transform duration-500 group-hover:scale-110"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-              onError={(e) => {
-                // Fallback to placeholder on error
-                e.target.src = '/images/city-placeholder.svg';
-              }}
+              onError={handleImgError}
             />
-            
-            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
-            
-            {/* Country flag badge */}
             <div className="absolute top-3 left-3 px-3 py-1.5 text-xs font-medium bg-white/95 backdrop-blur-sm rounded-full text-gray-800 z-20 shadow-sm">
               <span className="mr-1">{getFlagEmoji(city.country)}</span>
               {city.country}
             </div>
-            
-            {/* Region badge */}
             <div className={`absolute top-3 right-3 px-3 py-1.5 text-xs font-medium rounded-full border ${getRegionColorClass(city.region)} z-20 shadow-sm`}>
               {city.region || 'Europe'}
             </div>
-            
-            {/* City name */}
             <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
               <h3 className="text-white font-bold text-xl drop-shadow-lg">
                 {city.name}
               </h3>
             </div>
-
-            {/* Hover overlay */}
             <div className="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-15"></div>
           </div>
           
-          {/* Card body */}
           <div className="p-5">
             <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
               {city.description || "Explore this charming European destination with our comprehensive guide."}
             </p>
-            
-            {/* Action indicator */}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2 text-blue-600 text-sm font-medium">
                 <span>Explore Guide</span>
@@ -134,8 +107,6 @@ const CityCard = ({ city }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-              
-              {/* Quick stats if available */}
               {city.attractions && (
                 <div className="text-xs text-gray-500">
                   {city.attractions.length} attractions

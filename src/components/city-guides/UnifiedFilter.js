@@ -48,7 +48,7 @@ const UnifiedFilter = ({
       'The Nordics',
       'Central Europe',
       'Historic Capitals',
-      'Luxury Coastlines'
+      'Beach Destinations'
     ];
   };
 
