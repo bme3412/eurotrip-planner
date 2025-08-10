@@ -466,3 +466,39 @@ input[type="date"] {
   }
 }
 
+/* Minimal polish additions */
+:root {
+  --bg: 252 252 253;
+  --ink: 24 24 27;
+}
+html, body {
+  height: 100%;
+}
+body {
+  color: rgb(var(--ink));
+  background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 40%);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-soft transition transform hover:-translate-y-0.5 active:translate-y-0 bg-indigo-600 hover:bg-indigo-700;
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-zinc-800 bg-white ring-1 ring-black/10 shadow-soft transition hover:bg-zinc-50;
+}
+.card {
+  @apply rounded-2xl bg-white shadow-soft ring-1 ring-black/5;
+}
+.badge {
+  @apply inline-flex items-center rounded-full border border-black/10 px-2 py-0.5 text-xs font-medium text-zinc-700 bg-zinc-50;
+}
+.input {
+  @apply w-full rounded-full border border-black/10 bg-white px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-300;
+}
+.tab {
+  @apply rounded-full px-3 py-1.5 text-sm font-medium transition;
+}
+.tab-active {
+  @apply bg-indigo-600 text-white shadow;
+}
+

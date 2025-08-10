@@ -1,92 +1,79 @@
-'use client';
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import DateSelector from "../components/DateSelector";
+import ResultsGrid from "../components/ResultsGrid";
+import { useTripDates } from "../hooks/useTripDates";
 
-import React from 'react';
-import Link from 'next/link';
+export default function Page() {
+  const { dates, setDates, toQuery } = useTripDates(null);
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([]);
+  const [sortBy, setSortBy] = useState("score");
 
-export default function Home() {
-
-
-
-
-
-
+  const submit = async () => {
+    if (!dates) return;
+    setLoading(true);
+    try {
+      const res = await fetch("/api/suggestions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dates }),
+      });
+      const data = await res.json();
+      setResults(data.items ?? []);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <main className="min-h-screen bg-gray-50">
-
-      
-      {/* Top Navigation Bar */}
-      <nav className="fixed top-0 right-0 z-50 p-6">
-        <div className="flex gap-3">
-          <Link
-            href="/city-guides"
-            className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30"
-          >
-            City Guides
-          </Link>
-          <Link
-            href="/explore"
-            className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30"
-          >
-            Explore
-          </Link>
-          <Link
-            href="/start-planning"
-            className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30"
-          >
-            Start Planning
-          </Link>
-        </div>
-      </nav>
-
-      {/* Hero Section - Simple Clean Design */}
-      <section className="relative h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center">
-        <div className="text-center text-white px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-            Your Perfect European Adventure
+    <div className="min-h-screen flex flex-col">
+      {/* Hero */}
+      <header className="flex-1 flex items-center justify-center px-6 py-16 text-center">
+        <div className="w-full max-w-5xl">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            Tell us <span className="text-indigo-600">when</span>, we’ll tell you <span className="text-indigo-600">where</span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Discover iconic cities, hidden gems, and seamless travel connections across Europe.
+          <p className="mt-4 text-zinc-700 max-w-2xl mx-auto">
+            Enter your Europe trip dates — exact, a range, or simply a month — and we’ll surface the best cities, festivals, and experiences
+            for that moment in time.
           </p>
-          
-          {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/start-planning"
-              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm border border-white border-opacity-30 transform hover:scale-105"
-            >
-              Plan My Eurotrip
-            </Link>
-            <Link
-              href="/city-guides"
-              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm border border-white border-opacity-30 transform hover:scale-105"
-            >
-              Explore City Guides
-            </Link>
+
+          <div className="mt-8">
+            <DateSelector onChange={setDates} />
+            <div className="mt-6 flex justify-center gap-3">
+              <button onClick={submit} className="btn-primary">
+                {loading ? "Finding…" : "Find My Experiences"}
+              </button>
+              <Link href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} className="btn-secondary">
+                Browse City Guides
+              </Link>
+            </div>
+            <p className="mt-3 text-xs text-zinc-500">
+              No sign‑up required. Recommendations are ranked with a transparent scoring model.
+            </p>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Additional Content Sections */}
-      <div className="container mx-auto px-4 py-16">
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">Why Choose Our Planner?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold mb-3 text-blue-600">Personalized Itineraries</h3>
-              <p className="text-gray-700">Create custom travel plans based on your interests, timeline, and budget.</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold mb-3 text-blue-600">Local Insights</h3>
-              <p className="text-gray-700">Discover hidden gems and authentic experiences with our local recommendations.</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold mb-3 text-blue-600">Seasonal Guides</h3>
-              <p className="text-gray-700">Travel at the perfect time with our month-by-month destination guides.</p>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
+      {/* Results */}
+      {results?.length > 0 && (
+        <main className="px-6 pb-20">
+          <ResultsGrid results={results} sortBy={sortBy} setSortBy={setSortBy} />
+        </main>
+      )}
+
+      {/* Footer */}
+      <footer className="mt-auto border-t border-black/5 bg-white/70 backdrop-blur">
+        <div className="mx-auto max-w-6xl px-6 py-6 text-sm text-zinc-600 flex items-center justify-between">
+          <span>© {new Date().getFullYear()} Euro‑Trip</span>
+          <span>Seasonality • Crowd levels • Festival index</span>
+        </div>
+      </footer>
+    </div>
   );
 }
+

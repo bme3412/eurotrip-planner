@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import lineClamp from '@tailwindcss/line-clamp';
 const config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -26,9 +27,15 @@ const config = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial'],
+      },
+      boxShadow: {
+        soft: '0 10px 30px -10px rgba(0,0,0,0.15)',
+      },
     },
   },
-  plugins: [],
+  plugins: [lineClamp],
 }
 
 export default config

@@ -7,6 +7,9 @@ import React, {
   useCallback,
   useRef,
 } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import InlineDateControl from '@/components/InlineDateControl';
+import { parseDatesFromParams } from '@/hooks/useTripDates';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
 import { getCitiesData as getStaticCityData } from '@/components/city-guides/cityData';
@@ -67,6 +70,26 @@ export default function CityGuidesPage() {
   const [hasMore, setHasMore] = useState(false);
 
   const observerRef = useRef(null);
+
+  /* ───────── date init from URL ───────── */
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [tripDates, setTripDates] = useState(() => parseDatesFromParams(searchParams));
+
+  useEffect(() => {
+    const parsed = parseDatesFromParams(searchParams);
+    if (parsed) setTripDates(parsed);
+  }, [searchParams]);
+
+  const updateDates = useCallback((next) => {
+    setTripDates(next);
+    const p = new URLSearchParams();
+    if (next?.mode) p.set('mode', next.mode);
+    if (next?.start) p.set('start', next.start);
+    if (next?.end) p.set('end', next.end);
+    if (next?.month) p.set('month', next.month);
+    router.replace(`/city-guides?${p.toString()}`);
+  }, [router]);
 
   /* ───────── data load ───────── */
   useEffect(() => {
@@ -203,25 +226,22 @@ export default function CityGuidesPage() {
 
   /* ───────── render ───────── */
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
       {/* Hero */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-indigo-700/90 to-purple-800/90" />
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/images/europe-map-bg.jpg)' }}
-        />
-        <div className="relative z-10 container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">Discover European Cities</h1>
-            <p className="text-lg md:text-xl mb-6 opacity-90 leading-relaxed">Explore insider tips, interactive maps, and local recommendations for Europe&apos;s most compelling destinations.</p>
+      <div className="px-6 pt-12 pb-6 text-center">
+        <div className="mx-auto max-w-6xl">
+          <span className="badge bg-white/80">City Guides</span>
+          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900">Explore Europe, city by city</h1>
+          <p className="mt-3 text-base md:text-lg text-zinc-700 max-w-3xl mx-auto">Filter by region, experience, or country to find the perfect match for your dates.</p>
+          <div className="mt-2 text-xs text-zinc-500">
+            {sorted.length > 0 ? `${sorted.length} cities available` : (loading ? 'Loading cities…' : 'No cities found')}
           </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-2">
-        <div className="mb-3">
+      <div className="mx-auto max-w-6xl px-6 py-6">
+        <div className="mb-4">
           <UnifiedFilter
             selectedRegion={selectedRegion}
             selectedCountries={selectedCountries}
@@ -233,27 +253,19 @@ export default function CityGuidesPage() {
             onClearFilters={clearFilters}
             activeFilterType={activeFilterType}
             onFilterTypeChange={setActiveFilterType}
+            rightExtras={<InlineDateControl value={tripDates} onChange={updateDates} />}
           />
         </div>
 
-        <div className="mb-3">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-lg font-bold text-gray-900">City Guides</h2>
-              {sorted.length > 0 && (
-                <p className="text-xs text-gray-600 mt-0.5">
-                  {sorted.length === 0
-                    ? 'No cities match your criteria'
-                    : `Showing ${displayed.length} of ${sorted.length} cities`}
-                </p>
-              )}
-            </div>
-          </div>
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <h2 className="text-xl font-semibold">Your curated picks</h2>
         </div>
+
+        {/* Pill is now mounted inside the filter bar via rightExtras */}
 
         {/* Single unified grid */}
         {displayed.length > 0 && !error && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {displayed.map((city) => (
               <CityCard key={city.id} city={city} />
             ))}

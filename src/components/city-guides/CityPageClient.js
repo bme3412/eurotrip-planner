@@ -245,66 +245,53 @@ function CityPageClient({ cityData, cityName }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="relative bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative container mx-auto px-4 py-8">
-          <div className="max-w-6xl mx-auto">
-            <nav className="mb-4">
-              <ol className="flex items-center space-x-2 text-sm opacity-80">
-                <li><Link href="/city-guides" className="hover:underline">City Guides</Link></li>
-                <li>/</li>
-                <li><Link href={`/city-guides?country=${country}`} className="hover:underline">{country}</Link></li>
-                <li>/</li>
-                <li className="font-medium">{displayName}</li>
-              </ol>
-            </nav>
-          </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
+      {/* Hero (matches City Guides style) */}
+      <div className="px-6 pt-10 pb-6 text-center">
+        <div className="mx-auto max-w-6xl">
+          <span className="badge bg-white/80">City Guide</span>
+          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900">{displayName}</h1>
+          <p className="mt-3 text-base md:text-lg text-zinc-700 max-w-3xl mx-auto">{description}</p>
+          <div className="mt-2 text-xs text-zinc-500">{country}</div>
         </div>
-      </header>
+      </div>
 
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex space-x-1 overflow-x-auto scrollbar-hide">
+      {/* Tabs */}
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-100">
+          <div className="flex overflow-x-auto gap-1 p-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => handleTabSwitch(tab.id)}
                 onMouseEnter={() => preloadTab(tab.id)}
-                className={`flex items-center space-x-2 py-4 px-4 border-b-2 font-medium text-sm whitespace-nowrap transition-all duration-200 ${
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                   activeTab === tab.id
-                    ? 'border-blue-600 text-blue-600 bg-blue-50'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
                 }`}
               >
-                <span className="text-lg">{tab.icon}</span>
-                <span>{tab.label}</span>
+                <span className="mr-1">{tab.icon}</span>
+                {tab.label}
               </button>
             ))}
           </div>
         </div>
-      </nav>
+      </div>
 
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-7xl mx-auto">
-          {renderTabContent()}
-        </div>
-      </main>
+      {/* Content */}
+      <div className="mx-auto max-w-6xl px-6 py-6">
+        {renderTabContent()}
+      </div>
 
-      <footer className="bg-gray-900 text-white py-8 mt-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <h3 className="text-xl font-semibold mb-2">Explore More of {country}</h3>
-            <p className="text-gray-400 mb-4">Discover other amazing cities and destinations in {country}</p>
-            <Link 
-              href="/city-guides" 
-              className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors"
-            >
-              Browse All Cities
-            </Link>
-          </div>
+      {/* Footer CTA */}
+      <div className="mx-auto max-w-6xl px-6 pb-12">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+          <h3 className="text-lg font-semibold text-gray-900 mb-1">Explore more of {country}</h3>
+          <p className="text-gray-600 mb-3 text-sm">Browse other amazing cities and destinations.</p>
+          <Link href="/city-guides" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm">Browse All Cities</Link>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }

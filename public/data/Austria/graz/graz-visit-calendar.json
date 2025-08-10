@@ -74,7 +74,12 @@
             "luxury": 4
           },
           "culturalSignificance": "Important Austrian tradition - try traditional pastries at local bakeries",
-          "considerations": ["Book restaurant tables in advance", "Try traditional Austrian pastries", "Perfect photography opportunity"]
+          "traditionalVenues": {
+            "bakeries": ["Bäckerei Krainer", "Bäckerei Marien", "Bäckerei Kaiser"],
+            "specialties": ["Dreikönigskuchen", "Striezel", "Traditional Austrian pastries"],
+            "locations": "Throughout Graz, especially in Old Town and Lend district"
+          },
+          "considerations": ["Book restaurant tables in advance", "Try traditional Austrian pastries", "Perfect photography opportunity", "Visit early for best pastry selection"]
         },
         {
           "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -188,9 +193,11 @@
             "luxury": 5
           },
           "romanticVenues": {
-            "restaurants": ["Eckstein by Albert", "Landhauskeller", "Der Steirer", "Traditional Austrian venues"],
-            "activities": ["Eggenberg Palace evening tour", "Schlossberg sunset", "Historic city walk"],
-            "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 30-50% markup"]
+            "restaurants": ["Eckstein by Albert", "Landhauskeller", "Der Steirer", "Restaurant Steirerhof", "Gasthaus zur Post"],
+            "activities": ["Eggenberg Palace evening tour", "Schlossberg sunset", "Historic city walk", "Mur river evening stroll", "Wine tasting in South Styria"],
+            "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 30-50% markup"],
+            "reservations": "Essential - book 4-6 weeks ahead",
+            "specialPackages": "Many hotels offer Valentine's packages with champagne and dinner"
           },
           "considerations": ["Reserve restaurants by late January", "Avoid tourist traps", "Historic venues book fast"]
         },
@@ -271,9 +278,17 @@
           "price": "Free for markets",
           "crowdLevel": "Moderate-High",
           "easterMarkets": {
-            "hauptplatz": "Traditional Easter market",
-            "eggenbergGardens": "Spring garden awakening",
-            "cityCenter": "Easter decorations and activities"
+            "hauptplatz": "Traditional Easter market with local crafts and food",
+            "eggenbergGardens": "Spring garden awakening and Easter egg hunts",
+            "cityCenter": "Easter decorations and activities",
+            "specificVenues": {
+              "hauptplatz": "Main square Easter market",
+              "landhaus": "Landhaus courtyard decorations",
+              "eggenberg": "Palace gardens and Easter activities",
+              "lendplatz": "Local Easter market with regional specialties"
+            },
+            "traditionalFoods": ["Osterpinze", "Easter bread", "Traditional Austrian Easter dishes"],
+            "activities": ["Easter egg hunts", "Traditional crafts", "Spring garden tours", "Easter concerts"]
           },
           "travelerTypes": {
             "families": 4,
@@ -451,7 +466,16 @@
             "description": "Major electronic music and art festival",
             "venues": "Various venues across Graz",
             "booking": "Book accommodation early",
-            "atmosphere": "International festival atmosphere"
+            "atmosphere": "International festival atmosphere",
+            "specificVenues": {
+              "kunsthaus": "Contemporary art exhibitions",
+              "orpheum": "Electronic music performances",
+              "domImBerg": "Underground venue for experimental music",
+              "cafeCentraal": "Alternative music and art space"
+            },
+            "ticketInfo": "Various ticket options available, some events free",
+            "accommodation": "Book 3-4 months ahead, expect 40-60% price increase",
+            "transportation": "Tram network extended hours, night buses available"
           },
           "optimalActivities": ["Walking tours", "Outdoor dining", "Park visits", "River walks", "Festival attendance"],
           "considerations": ["Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead", "Festival dates vary annually"]
@@ -501,7 +525,17 @@
             "description": "Prestigious classical music festival",
             "venues": "Historic venues including Eggenberg Palace",
             "booking": "Book tickets well in advance",
-            "atmosphere": "Sophisticated cultural experience"
+            "atmosphere": "Sophisticated cultural experience",
+            "specificVenues": {
+              "eggenbergPalace": "Main venue for orchestral performances",
+              "landhaus": "Chamber music and smaller ensembles",
+              "dom": "Sacred music and organ concerts",
+              "mausoleum": "Intimate chamber music settings"
+            },
+            "ticketInfo": "Tickets range from 25€ to 120€, book 6-8 months ahead",
+            "accommodation": "Book 4-6 months ahead, expect 30-50% price increase",
+            "transportation": "Special shuttle services to Eggenberg Palace",
+            "dressCode": "Smart casual to formal, depending on venue"
           },
           "summerActivities": ["Outdoor dining", "Lake swimming", "Festival attendance", "Beer gardens", "River activities"],
           "considerations": ["Long daylight hours", "Perfect for outdoor activities", "Festival crowds", "Book accommodation early"]
@@ -551,7 +585,18 @@
             "description": "International street theatre festival",
             "venues": "Squares and streets across Graz",
             "booking": "Most events free, some indoor shows require tickets",
-            "atmosphere": "Vibrant, family-friendly festival"
+            "atmosphere": "Vibrant, family-friendly festival",
+            "specificVenues": {
+              "hauptplatz": "Main square performances",
+              "landhaus": "Courtyard theatre shows",
+              "eggenberg": "Palace gardens performances",
+              "lendplatz": "Alternative venue for experimental theatre",
+              "schlossberg": "Hilltop performances with city views"
+            },
+            "ticketInfo": "Most street performances free, indoor shows 15-35€",
+            "schedule": "Performances throughout the day, peak hours 2pm-8pm",
+            "familyActivities": "Children's theatre, workshops, interactive performances",
+            "transportation": "Tram network serves all venues, walking distances manageable"
           },
           "summerHighlights": ["Outdoor festivals", "Lake swimming", "Beer gardens", "Street performances", "Outdoor dining"],
           "considerations": ["Hot weather possible", "Very crowded", "Book accommodation early", "Stay hydrated"]
@@ -685,13 +730,37 @@
             "description": "Largest folk culture festival in Austria",
             "venues": "Various locations in Graz",
             "booking": "Very popular, expect crowds",
-            "atmosphere": "Traditional Austrian culture celebration"
+            "atmosphere": "Traditional Austrian culture celebration",
+            "specificVenues": {
+              "hauptplatz": "Main festival square with traditional music",
+              "landhaus": "Folk dance performances and workshops",
+              "eggenberg": "Traditional crafts and regional specialties",
+              "lendplatz": "Local food and wine from Styria",
+              "schlossberg": "Traditional music with city views"
+            },
+            "ticketInfo": "Most events free, some workshops require registration",
+            "traditionalActivities": ["Folk dancing", "Traditional music", "Craft demonstrations", "Regional food tasting"],
+            "regionalSpecialties": ["Styrian pumpkin seed oil", "Local wines", "Traditional costumes", "Folk art"],
+            "accommodation": "Book 6-8 months ahead, expect 50-80% price increase",
+            "transportation": "Extended tram hours, special festival buses"
           },
           "steirischerHerbst": {
             "description": "Avant-garde contemporary arts festival",
             "venues": "Various cultural venues",
             "booking": "Book tickets for specific events",
-            "atmosphere": "International contemporary arts"
+            "atmosphere": "International contemporary arts",
+            "specificVenues": {
+              "kunsthaus": "Contemporary art exhibitions",
+              "joanneumsviertel": "Museum quarter exhibitions",
+              "domImBerg": "Underground contemporary art",
+              "cafeCentraal": "Alternative art space",
+              "landhaus": "Installation art and performances"
+            },
+            "ticketInfo": "Individual event tickets 15-45€, festival passes available",
+            "contemporaryActivities": ["Modern art exhibitions", "Performance art", "Installations", "Contemporary theatre", "Experimental music"],
+            "internationalArtists": "Features artists from around the world",
+            "accommodation": "Book 4-6 months ahead, expect 30-50% price increase",
+            "transportation": "All venues accessible by tram, walking distances manageable"
           },
           "autumnActivities": ["Cultural festivals", "Wine tasting", "Hiking", "City exploration", "Outdoor dining"],
           "considerations": ["Perfect weather", "Cultural festival season", "Book events early", "Wine region visits"]
@@ -741,7 +810,20 @@
             "description": "Light art festival illuminating the city",
             "venues": "Historic buildings and public spaces",
             "booking": "Free event, popular",
-            "atmosphere": "Magical light installations"
+            "atmosphere": "Magical light installations",
+            "specificVenues": {
+              "hauptplatz": "Main square light projections",
+              "landhaus": "Historic building illumination",
+              "eggenberg": "Palace gardens light art",
+              "schlossberg": "Hilltop light installations",
+              "mur": "River bank light displays",
+              "oldTown": "Historic streets illuminated"
+            },
+            "ticketInfo": "Free event, no booking required",
+            "lightArtActivities": ["Building projections", "Interactive light installations", "Sound and light shows", "Night photography opportunities"],
+            "bestViewingTimes": "Sunset to midnight, peak viewing 8pm-11pm",
+            "photography": "Excellent for night photography, bring tripod",
+            "transportation": "Extended tram hours, walking recommended for full experience"
           },
           "culturalEvents": ["Steirischer Herbst", "Museum Night", "Light festival", "Marathon"],
           "considerations": ["Autumn colors", "Cultural festival season", "Book events early", "Wine region visits"]
@@ -865,7 +947,19 @@
             "description": "Traditional Austrian Christmas markets",
             "venues": "Hauptplatz and other locations",
             "booking": "No booking required",
-            "atmosphere": "Festive Christmas atmosphere"
+            "atmosphere": "Festive Christmas atmosphere",
+            "specificVenues": {
+              "hauptplatz": "Main Christmas market with traditional stalls",
+              "landhaus": "Courtyard market with regional specialties",
+              "eggenberg": "Palace gardens Christmas market",
+              "lendplatz": "Local market with Styrian products",
+              "schlossberg": "Hilltop market with city views"
+            },
+            "traditionalFoods": ["Glühwein", "Punsch", "Lebkuchen", "Roasted chestnuts", "Austrian Christmas cookies"],
+            "crafts": ["Handmade ornaments", "Traditional wooden toys", "Regional crafts", "Christmas decorations"],
+            "activities": ["Live music performances", "Children's activities", "Santa visits", "Traditional dancing"],
+            "bestTimes": "Afternoon to evening, weekends busiest",
+            "transportation": "Tram network serves all markets, walking distances manageable"
           }
         }
       ],
@@ -913,7 +1007,19 @@
             "description": "Multiple Christmas markets across the city",
             "venues": "Hauptplatz, Landhaus courtyard, various locations",
             "booking": "No booking required",
-            "atmosphere": "Traditional Austrian Christmas magic"
+            "atmosphere": "Traditional Austrian Christmas magic",
+            "specificVenues": {
+              "hauptplatz": "Main Christmas market with traditional stalls",
+              "landhaus": "Courtyard market with regional specialties",
+              "eggenberg": "Palace gardens Christmas market",
+              "lendplatz": "Local market with Styrian products",
+              "schlossberg": "Hilltop market with city views"
+            },
+            "traditionalFoods": ["Glühwein", "Punsch", "Lebkuchen", "Roasted chestnuts", "Austrian Christmas cookies"],
+            "crafts": ["Handmade ornaments", "Traditional wooden toys", "Regional crafts", "Christmas decorations"],
+            "activities": ["Live music performances", "Children's activities", "Santa visits", "Traditional dancing"],
+            "bestTimes": "Afternoon to evening, weekends busiest",
+            "transportation": "Tram network serves all markets, walking distances manageable"
           }
         },
         {
@@ -1014,7 +1120,19 @@
             "description": "New Year's celebrations in Hauptplatz",
             "venues": "Hauptplatz and various venues",
             "booking": "Restaurants require advance booking",
-            "atmosphere": "Festive New Year's atmosphere"
+            "atmosphere": "Festive New Year's atmosphere",
+            "specificVenues": {
+              "hauptplatz": "Main square countdown and fireworks",
+              "schlossberg": "Hilltop celebrations with city views",
+              "landhaus": "Courtyard celebrations",
+              "eggenberg": "Palace gardens New Year's events",
+              "restaurants": "Special New Year's menus throughout city"
+            },
+            "celebrations": ["Fireworks display", "Live music", "Champagne toasts", "Traditional Austrian celebrations"],
+            "restaurantBooking": "Book 2-3 months ahead, expect 50-100% price increase",
+            "accommodation": "Book 4-6 months ahead, expect 80-120% price increase",
+            "transportation": "Extended tram hours, night buses available, expect delays",
+            "safety": "Large crowds expected, plan transportation in advance"
           }
         }
       ],
@@ -1194,28 +1312,46 @@
       "tram": {
         "airConditioning": "Limited - challenging in summer",
         "crowds": "Peak July-August",
-        "strikes": "Possible any time, more common autumn/winter"
+        "strikes": "Possible any time, more common autumn/winter",
+        "lines": ["Lines 1, 3, 4, 5, 6, 7 serve city center", "Line 1 to Eggenberg Palace", "Line 4 to Kunsthaus"],
+        "frequency": "Every 5-10 minutes during day, 15-20 minutes evenings"
       },
       "walking": {
         "best": "April-June, September-October",
-        "challenging": "December-February (cold), July-August (heat)"
+        "challenging": "December-February (cold), July-August (heat)",
+        "distances": "Old Town walkable in 2-3 hours, Schlossberg climb: 15-20 minutes",
+        "paths": "Pedestrian zones in Old Town, Mur river paths"
       },
       "cycling": {
         "cityBikes": "Available year-round",
         "optimal": "April-October",
-        "winter": "Possible but cold and slippery"
+        "winter": "Possible but cold and slippery",
+        "bikePaths": "Murradweg along river, City center bike lanes, Schlossberg access limited"
+      },
+      "buses": {
+        "coverage": "Serve areas not reached by tram, Frequency: Every 15-30 minutes",
+        "routes": "Bus 30 to Eggenberg Palace, Bus 31 to Kunsthaus"
       }
     },
     "accommodation": {
       "peakPricing": {
         "months": ["June", "July", "August", "December"],
-        "events": ["Springfestival", "Major holidays", "Cultural festivals", "New Year's"]
+        "events": ["Springfestival", "Major holidays", "Cultural festivals", "New Year's"],
+        "priceIncrease": "40-80% above standard rates"
       },
       "valuePricing": {
         "months": ["January", "February", "March", "November"],
-        "strategy": "Book 2-3 months ahead for best rates"
+        "strategy": "Book 2-3 months ahead for best rates",
+        "discounts": "20-40% off peak season rates"
       },
-      "airConditioning": "Essential July-August, many historic hotels lack AC"
+      "airConditioning": "Essential July-August, many historic hotels lack AC",
+      "recommendedAreas": {
+        "oldTown": "Historic atmosphere, walking distance to attractions",
+        "lend": "Trendy district, good restaurants, slightly cheaper",
+        "eggenberg": "Quiet area, near palace, good for families",
+        "cityCenter": "Convenient location, good transport links"
+      },
+      "bookingTips": "Book 4-6 months ahead for festivals, Consider apartments for longer stays, Check for festival packages"
     },
     "dining": {
       "reservations": {
@@ -1227,6 +1363,19 @@
         "august": "Many local restaurants close for owner vacations",
         "holidays": "Christmas Day, New Year's Day, May 1st",
         "sunday": "Many traditional restaurants closed Sunday evening"
+      },
+      "regionalSpecialties": {
+        "styrian": ["Pumpkin seed oil", "Styrian wine", "Traditional Austrian dishes"],
+        "seasonal": ["Spring asparagus", "Summer local produce", "Autumn pumpkin dishes", "Winter comfort food"]
+      },
+      "recommendedVenues": {
+        "traditional": ["Landhauskeller", "Der Steirer", "Gasthaus zur Post"],
+        "contemporary": ["Eckstein by Albert", "Restaurant Steirerhof", "Cafe Centraal"],
+        "budget": ["Billa supermarket", "Local markets", "Student cafes"]
+      },
+      "diningTimes": {
+        "lunch": "12:00-14:00", "dinner": "18:00-22:00",
+        "tips": "Book ahead for dinner, lunch menus offer better value"
       }
     }
   },
@@ -1266,6 +1415,67 @@
       "peakPricing": ["June", "July", "August", "December"],
       "valuePricing": ["January", "February", "March", "November"],
       "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    },
+    "majorAttractions": {
+      "eggenbergPalace": {
+        "bestSeasons": ["Spring", "Summer", "Autumn"],
+        "peakHours": "10:00-14:00",
+        "tips": "Visit early morning or late afternoon for fewer crowds",
+        "seasonalHighlights": {
+          "spring": "Garden awakening, cherry blossoms",
+          "summer": "Full garden bloom, outdoor concerts",
+          "autumn": "Fall colors, harvest atmosphere",
+          "winter": "Indoor palace tours, Christmas markets"
+        }
+      },
+      "schlossberg": {
+        "bestSeasons": ["Spring", "Summer", "Autumn"],
+        "peakHours": "14:00-18:00",
+        "tips": "Climb early morning for sunrise views, evening for sunset",
+        "seasonalHighlights": {
+          "spring": "Wildflowers, comfortable climbing temperatures",
+          "summer": "Long daylight, evening atmosphere",
+          "autumn": "Fall colors, fewer crowds",
+          "winter": "Snow-covered views, ice possible on paths"
+        }
+      },
+      "kunsthaus": {
+        "bestSeasons": ["Year-round"],
+        "peakHours": "14:00-18:00",
+        "tips": "Visit during weekdays for fewer crowds",
+        "seasonalHighlights": {
+          "spring": "New exhibition season",
+          "summer": "Air-conditioned refuge from heat",
+          "autumn": "Cultural festival season",
+          "winter": "Indoor cultural activities"
+        }
+      },
+      "landeszeughaus": {
+        "bestSeasons": ["Year-round"],
+        "peakHours": "10:00-14:00",
+        "tips": "Combine with other Old Town attractions",
+        "seasonalHighlights": {
+          "spring": "Good for indoor/outdoor combination",
+          "summer": "Air-conditioned refuge",
+          "autumn": "Cultural season",
+          "winter": "Indoor historical exploration"
+        }
+      }
+    },
+    "localInsights": {
+      "bestPhotography": {
+        "sunrise": "Schlossberg for city views", "sunset": "Eggenberg Palace gardens",
+        "goldenHour": "Old Town streets", "night": "Hauptplatz and Landhaus"
+      },
+      "hiddenGems": {
+        "cafes": "Cafe Centraal for alternative atmosphere", "parks": "Stadtpark for local life",
+        "viewpoints": "Plabutsch for panoramic views", "markets": "Lendplatz for authentic local experience"
+      },
+      "culturalTips": {
+        "language": "Basic German helpful, English widely spoken in tourism",
+        "etiquette": "Greet with 'Grüß Gott', respect quiet hours",
+        "traditions": "Try pumpkin seed oil, attend local festivals", "customs": "Sunday is family day, many shops closed"
+      }
     }
   }
 } 

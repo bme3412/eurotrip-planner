@@ -1,20 +1,6 @@
 import { notFound } from "next/navigation";
-// Re-introduce fs/promises and path
 import fsPromises from "fs/promises";
-import path from "path"; 
-import Image from "next/image";
-import Link from "next/link";
-
-// Import components
-import CityOverview from "@/components/city-guides/CityOverview";
-import AttractionsList from "@/components/city-guides/AttractionsList";
-import NeighborhoodsList from "@/components/city-guides/NeighborhoodsList";
-import CulinaryGuide from "@/components/city-guides/CulinaryGuide";
-import TransportConnections from "@/components/city-guides/TransportConnections";
-import SeasonalActivities from "@/components/city-guides/SeasonalActivities";
-import CityVisitSection from "@/components/city-guides/CityVisitSection";
-import MonthlyGuideSection from "@/components/city-guides/MonthlyGuideSection";
-import CityMapLoader from "@/components/city-guides/CityMapLoader"; 
+import path from "path";
 import CityPageClient from "@/components/city-guides/CityPageClient";
 
 // Function to capitalize the first letter of each word
@@ -26,43 +12,7 @@ const capitalize = (str) => {
     .join(" ");
 };
 
-// Default coordinates for various European regions
-const DEFAULT_COORDINATES = {
-  France: [2.3522, 48.8566], // Paris
-  Nice: [7.262, 43.7102], // Nice, France
-  Italy: [12.4964, 41.9028], // Rome
-  Germany: [13.405, 52.52], // Berlin
-  Spain: [-3.7038, 40.4168], // Madrid
-  Netherlands: [4.9041, 52.3676], // Amsterdam
-  Belgium: [4.3517, 50.8503], // Brussels
-  Austria: [16.3738, 48.2082], // Vienna
-  Denmark: [12.5683, 55.6761], // Copenhagen
-  Ireland: [-6.2603, 53.3498], // Dublin
-  default: [9.19, 48.66], // Central Europe
-};
-
-// Add city-specific coordinates using lowercase keys
-const CITY_COORDINATES = {
-  paris: [2.3522, 48.8566],
-  nice: [7.262, 43.7102],
-  rome: [12.4964, 41.9028],
-  berlin: [13.405, 52.52],
-  madrid: [-3.7038, 40.4168],
-  amsterdam: [4.9041, 52.3676],
-  brussels: [4.3517, 50.8503],
-  vienna: [16.3738, 48.2082],
-  copenhagen: [12.5683, 55.6761],
-  dublin: [-6.2603, 53.3498],
-  barcelona: [2.1734, 41.3851],
-  munich: [11.582, 48.1351],
-  prague: [14.4378, 50.0755],
-  milan: [9.19, 45.4642],
-  florence: [11.2558, 43.7696],
-  salzburg: [13.055, 47.8095],
-  innsbruck: [11.4041, 47.2692],
-  antwerp: [4.4024, 51.2194],
-  seville: [-5.9845, 37.3891],
-};
+// This file provides server-side data loading and passes it to the client UI component.
 
 // Helper to check if a file path exists (optional but good practice)
 async function pathExists(filePath) {

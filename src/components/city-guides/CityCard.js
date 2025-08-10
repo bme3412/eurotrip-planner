@@ -68,7 +68,7 @@ const CityCard = ({ city }) => {
   return (
     <div className="group relative">
       <Link href={`/city-guides/${city.id}`} className="block">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-100 hover:border-blue-200 hover:-translate-y-1">
+        <div className="card overflow-hidden transition duration-300 hover:-translate-y-0.5">
           {/* Card image container */}
           <div className="relative h-48 overflow-hidden">
             <Image
@@ -97,11 +97,11 @@ const CityCard = ({ city }) => {
           </div>
           
           <div className="p-5">
-            <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+            <p className="text-zinc-600 text-sm leading-relaxed line-clamp-2 mb-3">
               {city.description || "Explore this charming European destination with our comprehensive guide."}
             </p>
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2 text-blue-600 text-sm font-medium">
+              <div className="flex items-center space-x-2 text-indigo-600 text-sm font-medium">
                 <span>Explore Guide</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

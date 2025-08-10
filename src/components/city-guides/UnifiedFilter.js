@@ -13,7 +13,8 @@ const UnifiedFilter = ({
   onSearchChange,
   onClearFilters,
   activeFilterType,
-  onFilterTypeChange
+  onFilterTypeChange,
+  rightExtras,
 }) => {
   // Use the prop directly - no internal state needed
   const currentFilterType = activeFilterType || 'euro-region';
@@ -106,10 +107,10 @@ const UnifiedFilter = ({
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-3 transition-all duration-300">
-      {/* Compact Horizontal Layout */}
+      {/* Top row: search + tabs + countries + right-aligned extras */}
       <div className="flex flex-wrap items-center gap-3">
-        {/* Search Bar - Compact with fixed width */}
-        <div className="w-48">
+        {/* Search Bar - slightly wider for readability */}
+        <div className="w-56">
           <div className="relative">
             <input
               type="text"
@@ -134,7 +135,7 @@ const UnifiedFilter = ({
           </div>
         </div>
 
-        {/* Filter Type Tabs - Larger */}
+        {/* Filter Type Tabs */}
         <div className="bg-gray-100 p-1 rounded-lg">
           <div className="flex space-x-1">
             <button
@@ -164,7 +165,7 @@ const UnifiedFilter = ({
           </div>
         </div>
 
-        {/* Country Filter - Larger */}
+        {/* Country Filter — sits immediately after the tabs */}
         <div className="relative" ref={countryDropdownRef}>
           <button
             onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
@@ -236,6 +237,16 @@ const UnifiedFilter = ({
           )}
         </div>
 
+        {/* Spacer pushes extras to the far right on large screens */}
+        <div className="flex-1" />
+
+        {/* Extras on the bar (e.g., Add dates pill) */}
+        {rightExtras && (
+          <div className="ml-auto">
+            {rightExtras}
+          </div>
+        )}
+
         {/* Clear Filters - Larger */}
         {hasActiveFilters && (
           <button
@@ -247,9 +258,9 @@ const UnifiedFilter = ({
         )}
       </div>
 
-      {/* Filter Options with Smooth Transitions */}
-      <div className="mt-3 transition-all duration-300 ease-in-out">
-        <div 
+      {/* Second row: filter option chips */}
+      <div className="mt-4 transition-all duration-300 ease-in-out">
+        <div
           className="flex flex-wrap gap-2 transition-all duration-300 ease-in-out"
           key={currentFilterType} // Force re-render for smooth transition
         >
@@ -280,9 +291,9 @@ const UnifiedFilter = ({
         </div>
       </div>
 
-      {/* Active Filters Display - Larger */}
+      {/* Active Filters */}
       {hasActiveFilters && (
-        <div className="mt-3 pt-3 border-t border-gray-100">
+        <div className="mt-4 pt-3 border-t border-gray-100">
           <div className="flex flex-wrap gap-2">
             {selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences' && (
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-blue-100 text-blue-800">
