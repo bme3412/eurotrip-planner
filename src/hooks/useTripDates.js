@@ -10,6 +10,8 @@ export function serializeDates(dates) {
   if (dates.start) p.set("start", dates.start);
   if (dates.end) p.set("end", dates.end);
   if (dates.month) p.set("month", dates.month);
+  if (dates.amount) p.set("amount", String(dates.amount));
+  if (dates.unit) p.set("unit", dates.unit);
   return p.toString();
 }
 
@@ -18,9 +20,12 @@ export function parseDatesFromParams(searchParams) {
   const start = searchParams.get("start");
   const end = searchParams.get("end");
   const month = searchParams.get("month");
+  const amount = searchParams.get("amount");
+  const unit = searchParams.get("unit");
   if (!mode) return null;
   if (mode === "month" && month) return { mode, month };
-  if ((mode === "exact" || mode === "range") && (start || end)) return { mode, start, end };
+  if (mode === "dates" && (start || end)) return { mode, start, end };
+  if (mode === "duration" && (amount || unit)) return { mode, amount, unit };
   return null;
 }
 

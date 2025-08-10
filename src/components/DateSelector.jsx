@@ -2,20 +2,20 @@
 import { useState } from "react";
 
 const tabs = [
-  { key: "exact", label: "Exact dates" },
-  { key: "range", label: "Date range" },
+  { key: "dates", label: "Dates" },
+  { key: "duration", label: "Duration" },
   { key: "month", label: "Month" },
 ];
 
 export default function DateSelector({ onChange }) {
-  const [mode, setMode] = useState("exact");
-  const [exact, setExact] = useState({ start: "", end: "" });
-  const [range, setRange] = useState({ start: "", end: "" });
+  const [mode, setMode] = useState("dates");
+  const [dates, setDates] = useState({ start: "", end: "" });
+  const [duration, setDuration] = useState({ amount: "", unit: "days" });
   const [month, setMonth] = useState("");
 
   const pushChange = () => {
-    if (mode === "exact") onChange?.({ mode, ...exact });
-    if (mode === "range") onChange?.({ mode, ...range });
+    if (mode === "dates") onChange?.({ mode, ...dates });
+    if (mode === "duration") onChange?.({ mode, ...duration });
     if (mode === "month") onChange?.({ mode, month });
   };
 
@@ -34,19 +34,15 @@ export default function DateSelector({ onChange }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {mode !== "month" && (
+        {mode === "dates" && (
           <>
             <div className="md:col-span-1">
               <label className="mb-1 block text-sm font-medium">Start</label>
               <input
                 type="date"
                 className="input"
-                value={(mode === "exact" ? exact.start : range.start) || ""}
-                onChange={(e) =>
-                  mode === "exact"
-                    ? setExact({ ...exact, start: e.target.value })
-                    : setRange({ ...range, start: e.target.value })
-                }
+                value={dates.start || ""}
+                onChange={(e) => setDates({ ...dates, start: e.target.value })}
               />
             </div>
             <div className="md:col-span-1">
@@ -54,13 +50,37 @@ export default function DateSelector({ onChange }) {
               <input
                 type="date"
                 className="input"
-                value={(mode === "exact" ? exact.end : range.end) || ""}
-                onChange={(e) =>
-                  mode === "exact"
-                    ? setExact({ ...exact, end: e.target.value })
-                    : setRange({ ...range, end: e.target.value })
-                }
+                value={dates.end || ""}
+                onChange={(e) => setDates({ ...dates, end: e.target.value })}
               />
+            </div>
+          </>
+        )}
+
+        {mode === "duration" && (
+          <>
+            <div className="md:col-span-1">
+              <label className="mb-1 block text-sm font-medium">Length</label>
+              <input
+                type="number"
+                min="1"
+                className="input"
+                value={duration.amount}
+                onChange={(e) => setDuration({ ...duration, amount: e.target.value })}
+                placeholder="e.g. 10"
+              />
+            </div>
+            <div className="md:col-span-1">
+              <label className="mb-1 block text-sm font-medium">Unit</label>
+              <select
+                className="input"
+                value={duration.unit}
+                onChange={(e) => setDuration({ ...duration, unit: e.target.value })}
+              >
+                <option value="days">Days</option>
+                <option value="weeks">Weeks</option>
+                <option value="months">Months</option>
+              </select>
             </div>
           </>
         )}
@@ -83,7 +103,7 @@ export default function DateSelector({ onChange }) {
       </div>
 
       <p className="mt-3 text-sm text-zinc-600 text-center">
-        Tip: You can choose exact dates, a flexible range, or a single month. We’ll match seasonal highlights, festivals, and fewer‑crowd gems.
+        Tip: Choose specific dates, a duration (days/weeks/months), or a single month. We’ll match seasonal highlights, festivals, and fewer‑crowd gems.
       </p>
     </div>
   );
