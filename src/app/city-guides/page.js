@@ -1,6 +1,7 @@
 'use client';
 
 import React, {
+  Suspense,
   useState,
   useEffect,
   useMemo,
@@ -54,7 +55,7 @@ const COASTAL_CITY_IDS = (() => {
   return union;
 })();
 
-export default function CityGuidesPage() {
+function CityGuidesContent() {
   /* ───────── state ───────── */
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All Regions');
@@ -313,5 +314,13 @@ export default function CityGuidesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function CityGuidesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-sm text-zinc-600">Loading city guides…</div>}>
+      <CityGuidesContent />
+    </Suspense>
   );
 }
