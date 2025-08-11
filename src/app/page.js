@@ -34,26 +34,28 @@ export default function Page() {
       {/* Hero */}
       <header className="flex-1 flex items-center justify-center px-6 py-16 text-center">
         <div className="w-full max-w-5xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            Tell us <span className="text-indigo-600">when</span>, we’ll tell you <span className="text-indigo-600">where</span>
+          <div className="inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-medium tracking-wide bg-indigo-50 text-indigo-700 ring-1 ring-indigo-100">
+            Eurotrip planner & itinerary resources
+          </div>
+          <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight">
+            Plan your Eurotrip — tell us <span className="text-indigo-600">when</span>, we’ll tell you <span className="text-indigo-600">where</span>
           </h1>
           <p className="mt-4 text-zinc-700 max-w-2xl mx-auto">
-            Enter your Europe trip dates — exact, a range, or simply a month — and we’ll surface the best cities, festivals, and experiences
-            for that moment in time.
+            Enter your dates and we rank the best European cities, festivals, and experiences for that moment in time. Build an itinerary in minutes.
           </p>
 
           <div className="mt-8">
             <DateSelector onChange={setDates} />
             <div className="mt-6 flex justify-center gap-3">
               <button onClick={submit} className="btn-primary">
-                {loading ? "Finding…" : "Find My Experiences"}
+                {loading ? "Finding…" : "Top Itineraries"}
               </button>
               <Link href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} className="btn-secondary">
                 Browse City Guides
               </Link>
             </div>
             <p className="mt-3 text-xs text-zinc-500">
-              No sign‑up required. Recommendations are ranked with a transparent scoring model.
+              Free to start. Pro unlocks AI itineraries, exports, and saved trips. Recommendations are ranked with a transparent scoring model.
             </p>
           </div>
         </div>

@@ -33,8 +33,8 @@ export default function DateSelector({ onChange }) {
   };
 
   return (
-    <div className="w-full max-w-3xl">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="w-full max-w-md mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         <div className="md:col-span-1">
           <label className="mb-1 block text-sm font-medium">Check‑in</label>
           <input
@@ -55,13 +55,13 @@ export default function DateSelector({ onChange }) {
             min={dates.start || undefined}
           />
         </div>
-        <div className="md:col-span-1 flex items-end">
+        <div className="md:col-span-2 mt-1">
           <button onClick={pushChange} className="btn-primary w-full">Set Dates</button>
         </div>
       </div>
 
       {/* Quick presets */}
-      <div className="mt-3 flex flex-wrap gap-2 justify-center">
+      <div className="mt-5 flex flex-wrap gap-3 justify-center">
         <button
           type="button"
           className="tab bg-white/70 ring-1 ring-black/5 text-sm"
@@ -112,7 +112,7 @@ export default function DateSelector({ onChange }) {
         </button>
       </div>
 
-      <p className="mt-3 text-sm text-zinc-600 text-center">
+      <p className="mt-4 text-sm text-zinc-600 text-center">
         Choose your check‑in and check‑out dates to see the best time‑matched recommendations.
       </p>
     </div>

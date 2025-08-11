@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import MonthlyCalendarView from "../monthly-visit-guide/MonthlyCalendarView";
 import SingleMonthView from './SingleMonthView';
+import MonthlyTabbedView from './MonthlyTabbedView';
 
 // Dynamic Monthly Content Component for any city
 const DynamicMonthlyContent = ({ monthlyData, cityName, countryName }) => {
@@ -271,11 +272,10 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
   
   return (
     <div className="space-y-6">
-      {/* Single Month View */}
+      {/* Tabbed Monthly View */}
       {visitCalendar && Object.keys(visitCalendar).length > 0 && (
-        <SingleMonthView 
+        <MonthlyTabbedView
           visitCalendar={visitCalendar}
-          cityName={cityName}
           monthlyData={monthlyData}
         />
       )}

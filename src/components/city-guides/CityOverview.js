@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
+import { TierPanel, ListItem, Chip } from '@/components/common/Primitives';
 
 const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -39,23 +40,23 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
 
   const cityIcon = getCityIcon(cityName);
   
-  // Toggle tooltip display for a day
+  // Build tooltip data for a given day
+  const buildTooltipData = (day, monthIndex, dayOfMonth) => ({
+    monthIndex,
+    dayOfMonth,
+    event: day.event,
+    notes: day.notes,
+    weather: day.weather,
+    crowdLevel: day.crowdLevel,
+    price: day.price
+  });
+
+  // Toggle tooltip via click (mobile-friendly)
   const toggleTooltip = (day, monthIndex, dayOfMonth) => {
-    if (day.special) {
-      if (activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === dayOfMonth) {
-        setActiveTooltip(null);
-      } else {
-        setActiveTooltip({
-          monthIndex,
-          dayOfMonth,
-          event: day.event,
-          notes: day.notes,
-          weather: day.weather,
-          crowdLevel: day.crowdLevel,
-          price: day.price
-        });
-      }
-    }
+    if (!day) return;
+    const next = buildTooltipData(day, monthIndex, dayOfMonth);
+    const isSame = activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === dayOfMonth;
+    setActiveTooltip(isSame ? null : next);
   };
   
   // Extract data from overview
@@ -100,6 +101,11 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
       {/* 12-Month Calendar Container */}
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Best Time to Visit</h2>
+        {overview?.best_time_to_visit?.summary && (
+          <p className="text-sm text-gray-700 mb-5 leading-relaxed">
+            {overview.best_time_to_visit.summary}
+          </p>
+        )}
         
         {/* Color Legend */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-6 p-3 bg-gray-50 rounded-lg">
@@ -231,7 +237,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
             }
             
             return (
-              <div key={monthIndex} className="border rounded-lg overflow-hidden">
+              <div key={monthIndex} className="border rounded-lg">
                 {/* Month Header */}
                 <div className="bg-gray-50 p-2 text-center border-b">
                   <div className="text-xs font-medium text-gray-700">
@@ -247,7 +253,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
                 </div>
                 
                 {/* Calendar Days */}
-                <div className="grid grid-cols-7 gap-px">
+                <div className="grid grid-cols-7 gap-px overflow-visible">
                   {days.map((day, dayIndex) => (
                     day.type === 'empty' ? (
                       <div key={`empty-${dayIndex}`} className="aspect-square" />
@@ -257,10 +263,45 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
                         className={`day-cell aspect-square flex items-center justify-center text-xs relative cursor-pointer hover:scale-105 transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
                         style={{ backgroundColor: day.color }}
                         onClick={() => toggleTooltip(day, monthIndex, day.dayOfMonth)}
+                        onMouseEnter={() => setActiveTooltip(buildTooltipData(day, monthIndex, day.dayOfMonth))}
+                        onMouseLeave={() => setActiveTooltip(null)}
+                        aria-label={`Day ${day.dayOfMonth}${day.event ? `: ${day.event}` : ''}`}
                       >
                         <span className="text-white font-medium">{day.dayOfMonth}</span>
                         {day.special && (
                           <span className="absolute top-0.5 right-0.5 w-1 h-1 bg-red-500 rounded-full"></span>
+                        )}
+
+                        {/* Inline hover tooltip (desktop) */}
+                        {activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === day.dayOfMonth && (
+                          <div className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full z-40 w-56">
+                            <div className="rounded-lg shadow-lg bg-white ring-1 ring-black/5 p-3">
+                              {activeTooltip.event && (
+                                <div className="text-sm font-semibold text-gray-900 mb-1 truncate" title={activeTooltip.event}>{activeTooltip.event}</div>
+                              )}
+                              {activeTooltip.notes && (
+                                <div className="text-xs text-gray-600 mb-2 line-clamp-3" title={activeTooltip.notes}>{activeTooltip.notes}</div>
+                              )}
+                              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                                {activeTooltip.weather && (
+                                  <div className="flex items-center text-[11px] text-gray-700">
+                                    <span className="mr-1">🌡️</span>{activeTooltip.weather}
+                                  </div>
+                                )}
+                                {activeTooltip.crowdLevel && (
+                                  <div className="flex items-center text-[11px] text-gray-700">
+                                    <span className="mr-1">👥</span>{activeTooltip.crowdLevel}
+                                  </div>
+                                )}
+                                {activeTooltip.price && (
+                                  <div className="flex items-center text-[11px] text-gray-700">
+                                    <span className="mr-1">💰</span>{activeTooltip.price}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                            <div className="mx-auto h-2 w-2 rotate-45 bg-white shadow translate-y-[-5px]"></div>
+                          </div>
                         )}
                       </div>
                     )
@@ -273,9 +314,115 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
       </div>
 
       {/* Things to Do Section */}
-      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Things to Do</h2>
-        <div className="columns-1 md:columns-2 gap-3 space-y-3">
+      <div className="bg-white rounded-2xl p-6 shadow ring-1 ring-gray-100">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 mb-4">Things to Do</h2>
+        {overview?.things_to_do_tiers ? (
+          <div className="space-y-6">
+            {(() => {
+              const tierOrder = [
+                'Must Do',
+                'Best in Summer',
+                'Best in Winter',
+                'Rainy Day Favorites',
+                'Local Experiences'
+              ];
+
+              const TIER_STYLES = {
+                'must do': {
+                  icon: '⭐',
+                  container: 'from-emerald-50 to-white border-emerald-200',
+                  badge: 'bg-emerald-100 text-emerald-800'
+                },
+                'best in summer': {
+                  icon: '☀️',
+                  container: 'from-amber-50 to-white border-amber-200',
+                  badge: 'bg-amber-100 text-amber-800'
+                },
+                'best in winter': {
+                  icon: '❄️',
+                  container: 'from-sky-50 to-white border-sky-200',
+                  badge: 'bg-sky-100 text-sky-800'
+                },
+                'rainy day favorites': {
+                  icon: '☔',
+                  container: 'from-indigo-50 to-white border-indigo-200',
+                  badge: 'bg-indigo-100 text-indigo-800'
+                },
+                'local experiences': {
+                  icon: '❤️',
+                  container: 'from-rose-50 to-white border-rose-200',
+                  badge: 'bg-rose-100 text-rose-800'
+                },
+                default: {
+                  icon: '•',
+                  container: 'from-gray-50 to-white border-gray-200',
+                  badge: 'bg-gray-100 text-gray-800'
+                }
+              };
+
+              const orderedEntries = Object.entries(overview.things_to_do_tiers)
+                .sort((a, b) => tierOrder.indexOf(a[0]) - tierOrder.indexOf(b[0]));
+
+              // Build a short intro for each tier from overview JSON
+              const buildTierIntro = (tierName) => {
+                const name = tierName.toLowerCase();
+                if (name === 'best in summer' && seasonalNotes?.summer) {
+                  const { months, description, highlights = [] } = seasonalNotes.summer;
+                  const hl = Array.isArray(highlights) && highlights.length > 0 ? `Highlights: ${highlights.slice(0,2).join(', ')}.` : '';
+                  return `Prime months: ${months}. ${description} ${hl}`.trim();
+                }
+                if (name === 'best in winter' && seasonalNotes?.winter) {
+                  const { months, description, highlights = [] } = seasonalNotes.winter;
+                  const hl = Array.isArray(highlights) && highlights.length > 0 ? `Highlights: ${highlights.slice(0,2).join(', ')}.` : '';
+                  return `Prime months: ${months}. ${description} ${hl}`.trim();
+                }
+                if (name === 'must do') return 'Essential Paris experiences that define the city—iconic, memorable, and easy to recommend.';
+                if (name === 'local experiences') return 'Everyday Paris: markets, bakeries, neighborhood strolls, and small delights favored by locals.';
+                if (name === 'rainy day favorites') return 'Cozy, mostly indoor picks that shine when the weather turns—museums, passages, and cafés.';
+                return '';
+              };
+
+              const buildItemSubtitle = (item) => {
+                const parts = [];
+                if (item.optimal_time) parts.push(item.optimal_time);
+                if (item.cost) parts.push(`Cost: ${item.cost}`);
+                return parts.join(' • ');
+              };
+
+              return orderedEntries.map(([tierName, items]) => {
+                const style = TIER_STYLES[tierName.toLowerCase()] || TIER_STYLES.default;
+                const tone = (
+                  tierName.toLowerCase() === 'must do' ? 'emerald' :
+                  tierName.toLowerCase() === 'best in summer' ? 'amber' :
+                  tierName.toLowerCase() === 'best in winter' ? 'sky' :
+                  tierName.toLowerCase() === 'rainy day favorites' ? 'indigo' :
+                  tierName.toLowerCase() === 'local experiences' ? 'rose' : 'gray'
+                );
+                return (
+                  <TierPanel key={tierName} title={tierName} count={Array.isArray(items) ? items.length : undefined} icon={style.icon} tone={tone}>
+                    {buildTierIntro(tierName) && (
+                      <p className="text-[13px] text-gray-700 mb-3 leading-relaxed">
+                        {buildTierIntro(tierName)}
+                      </p>
+                    )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {(items || []).map((item, index) => (
+                        <ListItem
+                          key={`${tierName}-${index}`}
+                          title={item.activity}
+                          subtitle={buildItemSubtitle(item)}
+                          icon={style.icon}
+                          right={item.cost ? <Chip tone={tone}>{item.cost}</Chip> : null}
+                        />
+                      ))}
+                    </div>
+                  </TierPanel>
+                );
+              });
+            })()}
+          </div>
+        ) : (
+          <div className="columns-1 md:columns-2 gap-3 space-y-3">
           {(() => {
             // Try to get dynamic data from overview monthly_activities first
             if (overview?.monthly_activities) {
@@ -385,12 +532,13 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
               </div>
             ));
           })()}
-        </div>
+          </div>
+        )}
       </div>
 
-      {/* Minimal Event Modal */}
+      {/* Mobile-friendly Event Modal (only renders on small screens via CSS) */}
       {activeTooltip && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 md:hidden">
           <div className="bg-white rounded-lg shadow-lg max-w-md w-full mx-4">
             {/* Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
