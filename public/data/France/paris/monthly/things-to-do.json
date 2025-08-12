@@ -1,0 +1,326 @@
+{
+  "city": "Paris",
+  "country": "France",
+  "last_updated": "2025-08-12",
+  "categories": [
+    {
+      "id": "must-do",
+      "title": "Must Do",
+      "description": "Essential Paris experiences that define the city—iconic, memorable, and easy to recommend.",
+      "items": [
+        {
+          "id": "eiffel-tower-sparkle",
+          "activity": "See the Eiffel Tower sparkle",
+          "description": "Watch the tower's glittering lights at the top of the hour after dusk.",
+          "optimal_time": "Hourly after dusk, year-round",
+          "cost": "Free (exterior)",
+          "duration": "30–60 min",
+          "neighborhood": "7th arrondissement",
+          "tags": ["Iconic", "Evening", "Outdoor", "Photo-op"],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [48.8584, 2.2945]
+        },
+        {
+          "id": "louvre-highlights",
+          "activity": "Wander the Louvre highlights",
+          "description": "A focused route to see Mona Lisa, Winged Victory, and Venus de Milo without the overwhelm.",
+          "optimal_time": "Weekday mornings; winter for fewer crowds",
+          "cost": "€17",
+          "duration": "2–3 hours",
+          "neighborhood": "1st arrondissement",
+          "tags": ["Museum", "Art", "Indoor"],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [48.8606, 2.3376]
+        },
+        {
+          "id": "montmartre-sunset",
+          "activity": "Sunset at Sacré‑Cœur & Montmartre",
+          "description": "Golden views over Paris from the basilica, followed by a wander through cobbled streets.",
+          "optimal_time": "Clear evenings, spring–fall",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "18th arrondissement",
+          "tags": ["Viewpoint", "Romantic", "Outdoor"],
+          "season": "spring-fall",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [48.8867, 2.3431]
+        },
+        {
+          "id": "seine-ile-cite-stroll",
+          "activity": "Stroll the Seine and Île de la Cité",
+          "description": "Walk the car‑free riverbanks and bridges, catching street music and sunset reflections.",
+          "optimal_time": "Late afternoon golden hour",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "1st/4th",
+          "tags": ["Walking", "Local Life", "Free"],
+          "season": "spring-fall",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [48.8546, 2.3477]
+        }
+      ]
+    },
+    {
+      "id": "best-in-summer",
+      "title": "Best in Summer",
+      "description": "Prime months: July–August. Outdoor films, riverside life, and long golden evenings.",
+      "items": [
+        {
+          "id": "luxembourg-picnic",
+          "activity": "Picnic at Luxembourg or Tuileries Gardens",
+          "description": "Baguettes, pastries, and people‑watching under chestnut trees.",
+          "optimal_time": "May–September",
+          "cost": "Free",
+          "duration": "2–3 hours",
+          "neighborhood": "6th/1st",
+          "tags": ["Outdoor", "Relaxing", "Family-friendly"],
+          "season": "summer",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "seine-cruise-twilight",
+          "activity": "Seine cruise at twilight",
+          "description": "Cruise past illuminated landmarks as the city lights come on.",
+          "optimal_time": "June–August long evenings",
+          "cost": "€15–€25",
+          "duration": "1 hour",
+          "neighborhood": "Seine River",
+          "tags": ["Evening", "Scenic", "Romantic"],
+          "season": "summer",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "open-air-cinema-villette",
+          "activity": "Open‑air cinema at Parc de la Villette",
+          "description": "Bring a blanket and join locals for movies under the stars.",
+          "optimal_time": "July–August",
+          "cost": "€0–€7",
+          "duration": "2–3 hours",
+          "neighborhood": "19th arrondissement",
+          "tags": ["Entertainment", "Local", "Evening"],
+          "season": "summer",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "paris-plages",
+          "activity": "Paris Plages urban beach",
+          "description": "Pop‑up riverside beaches with deckchairs, games, and concerts.",
+          "optimal_time": "July–August",
+          "cost": "Free",
+          "duration": "1–3 hours",
+          "neighborhood": "Seine Riverbanks",
+          "tags": ["Outdoor", "Festival", "Family-friendly"],
+          "season": "summer",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "best-in-winter",
+      "title": "Best in Winter",
+      "description": "Cozy culture, lights, and seasonal treats during the crisp months.",
+      "items": [
+        {
+          "id": "tuileries-christmas-market",
+          "activity": "Tuileries or La Défense Christmas Markets",
+          "description": "Mulled wine, crafts, and festive rides.",
+          "optimal_time": "Late Nov–Dec",
+          "cost": "Free entry",
+          "duration": "1–2 hours",
+          "neighborhood": "1st/La Défense",
+          "tags": ["Seasonal", "Food & Drink", "Shopping"],
+          "season": "winter",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "hotel-de-ville-ice-skate",
+          "activity": "Ice skate at Hôtel de Ville",
+          "description": "Outdoor rink beside Paris City Hall when the season allows.",
+          "optimal_time": "Dec–Jan (when installed)",
+          "cost": "€8–€12",
+          "duration": "1 hour",
+          "neighborhood": "4th arrondissement",
+          "tags": ["Outdoor", "Seasonal", "Family-friendly"],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "angelina-hot-chocolate",
+          "activity": "Hot chocolate at Angelina",
+          "description": "Thick, velvety chocolat chaud to warm up a winter afternoon.",
+          "optimal_time": "Nov–Feb",
+          "cost": "€8–€10",
+          "duration": "30–60 min",
+          "neighborhood": "1st arrondissement",
+          "tags": ["Cafe", "Treat", "Indoor"],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "covered-passages-walk",
+          "activity": "Covered passages walk",
+          "description": "Glass‑roofed 19th‑century arcades filled with boutiques and cafés.",
+          "optimal_time": "Rainy/cold days",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "2nd/9th",
+          "tags": ["Architecture", "Indoor", "Walking"],
+          "season": "winter",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "rainy-day-favorites",
+      "title": "Rainy Day Favorites",
+      "description": "Cozy, mostly indoor picks for when the weather turns.",
+      "items": [
+        {
+          "id": "musee-dorsay-highlights",
+          "activity": "Musée d'Orsay highlights",
+          "description": "Masterpieces of Impressionism in a Beaux‑Arts railway station.",
+          "optimal_time": "Weekday mornings",
+          "cost": "€16",
+          "duration": "2 hours",
+          "neighborhood": "7th arrondissement",
+          "tags": ["Museum", "Art", "Indoor"],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "passage-des-panoramas",
+          "activity": "Cafe‑hop in Passage des Panoramas",
+          "description": "Antique signage, stamp shops, and cozy cafés under glass.",
+          "optimal_time": "Rainy afternoons",
+          "cost": "€5–€15",
+          "duration": "1–2 hours",
+          "neighborhood": "2nd arrondissement",
+          "tags": ["Indoor", "Cafe", "Historic"],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "shakespeare-company",
+          "activity": "Browse Shakespeare & Company",
+          "description": "Beloved English‑language bookshop with literary history.",
+          "optimal_time": "Anytime, quieter mornings",
+          "cost": "Free",
+          "duration": "30–60 min",
+          "neighborhood": "5th arrondissement",
+          "tags": ["Books", "Indoor", "Local"],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "atelier-des-lumieres",
+          "activity": "Atelier des Lumières digital art",
+          "description": "Immersive projections set to music inside a foundry.",
+          "optimal_time": "Advance booking recommended",
+          "cost": "€16–€20",
+          "duration": "1 hour",
+          "neighborhood": "11th arrondissement",
+          "tags": ["Art", "Immersive", "Indoor"],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "local-experiences",
+      "title": "Local Experiences",
+      "description": "Everyday Paris: markets, bakeries, canals, and neighborhood evenings.",
+      "items": [
+        {
+          "id": "marche-bastille-morning",
+          "activity": "Morning market at Marché Bastille (Thu/Sun)",
+          "description": "Seasonal produce, cheeses, and street food with locals.",
+          "optimal_time": "Morning, Thu & Sun",
+          "cost": "Free entry",
+          "duration": "1–2 hours",
+          "neighborhood": "11th arrondissement",
+          "tags": ["Market", "Food", "Local"],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "marais-boulangerie-crawl",
+          "activity": "Boulangerie crawl in Le Marais",
+          "description": "Taste your way through croissants, baguettes, and pastries.",
+          "optimal_time": "Morning to early afternoon",
+          "cost": "€5–€15",
+          "duration": "1–2 hours",
+          "neighborhood": "3rd/4th",
+          "tags": ["Food", "Self-guided", "Local"],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "canal-saint-martin",
+          "activity": "Canal Saint‑Martin stroll",
+          "description": "Trendy boutiques, street art, and iron footbridges.",
+          "optimal_time": "Afternoon to sunset",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "10th arrondissement",
+          "tags": ["Walking", "Local Life", "Free"],
+          "season": "spring-fall",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "oberkampf-wine-bars",
+          "activity": "Natural wine bar hop in Oberkampf",
+          "description": "Casual spots pouring exciting bottles; perfect small‑plates scene.",
+          "optimal_time": "Evenings",
+          "cost": "€6–€12 per glass",
+          "duration": "2–3 hours",
+          "neighborhood": "11th arrondissement",
+          "tags": ["Nightlife", "Wine", "Local"],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    }
+  ]
+}

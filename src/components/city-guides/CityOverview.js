@@ -1,10 +1,17 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
-import { TierPanel, ListItem, Chip } from '@/components/common/Primitives';
+import { Chip } from '@/components/common/Primitives';
+import Image from 'next/image';
+import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
+  const [activeTier, setActiveTier] = useState('All');
+  const [showFreeOnly, setShowFreeOnly] = useState(false);
+  const [thingsToDo, setThingsToDo] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(6);
 
   // Add click outside handler to close tooltip
   useEffect(() => {
@@ -39,6 +46,211 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
   };
 
   const cityIcon = getCityIcon(cityName);
+  
+  // Load rich Things-to-Do data from public JSON, if available
+  useEffect(() => {
+    const loadThingsToDo = async () => {
+      try {
+        const country = (overview?.country || '').trim() || 'France';
+        const citySlug = (cityName || '').toLowerCase();
+        const url = `/data/${country}/${citySlug}/monthly/things-to-do.json`;
+        const res = await fetch(url);
+        if (!res.ok) return; // fall back silently
+        const json = await res.json();
+        if (json && Array.isArray(json.categories)) {
+          setThingsToDo(json);
+        }
+      } catch (_) {
+        // ignore and use fallback
+      }
+    };
+    loadThingsToDo();
+  }, [cityName, overview?.country]);
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeTier, showFreeOnly]);
+
+  const renderPaginationControls = (localPage, totalItems) => {
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    const start = (localPage - 1) * pageSize + 1;
+    const end = Math.min(totalItems, localPage * pageSize);
+
+    const makePageBtn = (p) => (
+      <button
+        key={`p-${p}`}
+        onClick={() => setCurrentPage(p)}
+        className={`px-3 py-1.5 text-sm rounded-md border ${p === localPage ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+        aria-current={p === localPage ? 'page' : undefined}
+      >
+        {p}
+      </button>
+    );
+
+    const pageButtons = () => {
+      const buttons = [];
+      const windowSize = 5;
+      const first = 1;
+      const last = totalPages;
+      const startPage = Math.max(first, localPage - 2);
+      const endPage = Math.min(last, startPage + windowSize - 1);
+      if (startPage > first) {
+        buttons.push(makePageBtn(first));
+        if (startPage > first + 1) buttons.push(<span key="dots-start" className="px-1 text-gray-400">…</span>);
+      }
+      for (let p = startPage; p <= endPage; p++) buttons.push(makePageBtn(p));
+      if (endPage < last) {
+        if (endPage < last - 1) buttons.push(<span key="dots-end" className="px-1 text-gray-400">…</span>);
+        buttons.push(makePageBtn(last));
+      }
+      return buttons;
+    };
+
+    return (
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="text-sm text-gray-600">Showing {start}-{end} of {totalItems}</div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setCurrentPage(Math.max(1, localPage - 1))}
+            className="inline-flex items-center gap-1 px-3 py-1.5 text-sm rounded-md border bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+            disabled={localPage === 1}
+          >
+            <ChevronLeft className="h-4 w-4" /> Prev
+          </button>
+          {pageButtons()}
+          <button
+            onClick={() => setCurrentPage(Math.min(totalPages, localPage + 1))}
+            className="inline-flex items-center gap-1 px-3 py-1.5 text-sm rounded-md border bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+            disabled={localPage === totalPages}
+          >
+            Next <ChevronRight className="h-4 w-4" />
+          </button>
+          <select
+            value={pageSize}
+            onChange={(e) => { setPageSize(Number(e.target.value)); setCurrentPage(1); }}
+            className="ml-2 text-sm border-gray-300 rounded-md"
+          >
+            <option value={6}>6 / page</option>
+            <option value={9}>9 / page</option>
+            <option value={12}>12 / page</option>
+          </select>
+        </div>
+      </div>
+    );
+  };
+
+  // Visual style helpers for stronger, punchier UI
+  const TONE_STYLES = {
+    emerald: {
+      headerBg: 'bg-gradient-to-br from-blue-100 to-blue-200',
+      accentBar: 'bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600',
+      ring: 'ring-blue-200',
+      labelBg: 'bg-emerald-50',
+      labelText: 'text-emerald-700',
+      labelBorder: 'border-emerald-200',
+      chipSoft: 'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200',
+      chipSolid: 'bg-blue-700 text-white border-blue-700',
+      icon: 'text-blue-600'
+    },
+    amber: {
+      headerBg: 'bg-gradient-to-br from-blue-100 to-blue-200',
+      accentBar: 'bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600',
+      ring: 'ring-blue-200',
+      labelBg: 'bg-amber-50',
+      labelText: 'text-amber-700',
+      labelBorder: 'border-amber-200',
+      chipSoft: 'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200',
+      chipSolid: 'bg-blue-700 text-white border-blue-700',
+      icon: 'text-blue-600'
+    },
+    sky: {
+      headerBg: 'bg-gradient-to-br from-blue-100 to-blue-200',
+      accentBar: 'bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600',
+      ring: 'ring-blue-200',
+      labelBg: 'bg-sky-50',
+      labelText: 'text-sky-700',
+      labelBorder: 'border-sky-200',
+      chipSoft: 'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200',
+      chipSolid: 'bg-blue-700 text-white border-blue-700',
+      icon: 'text-blue-600'
+    },
+    indigo: {
+      headerBg: 'bg-gradient-to-br from-blue-100 to-blue-200',
+      accentBar: 'bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600',
+      ring: 'ring-blue-200',
+      labelBg: 'bg-indigo-50',
+      labelText: 'text-indigo-700',
+      labelBorder: 'border-indigo-200',
+      chipSoft: 'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200',
+      chipSolid: 'bg-blue-700 text-white border-blue-700',
+      icon: 'text-blue-600'
+    },
+    rose: {
+      headerBg: 'bg-gradient-to-br from-blue-100 to-blue-200',
+      accentBar: 'bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600',
+      ring: 'ring-blue-200',
+      labelBg: 'bg-rose-50',
+      labelText: 'text-rose-700',
+      labelBorder: 'border-rose-200',
+      chipSoft: 'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200',
+      chipSolid: 'bg-blue-700 text-white border-blue-700',
+      icon: 'text-blue-600'
+    },
+    gray: {
+      headerBg: 'bg-gradient-to-br from-blue-100 to-blue-200',
+      accentBar: 'bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600',
+      ring: 'ring-blue-200',
+      labelBg: 'bg-gray-50',
+      labelText: 'text-gray-700',
+      labelBorder: 'border-gray-200',
+      chipSoft: 'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200',
+      chipSolid: 'bg-blue-700 text-white border-blue-700',
+      icon: 'text-blue-600'
+    }
+  };
+
+  const TIER_META = {
+    'Must Do': { tone: 'emerald', Icon: Medal },
+    'Best in Summer': { tone: 'amber', Icon: Sun },
+    'Best in Winter': { tone: 'sky', Icon: Snowflake },
+    'Rainy Day Favorites': { tone: 'indigo', Icon: Umbrella },
+    'Local Experiences': { tone: 'rose', Icon: Heart }
+  };
+
+  // Button-specific styles that keep the structure polished but allow tier color accents
+  const BUTTON_STYLES = {
+    emerald: {
+      active: 'bg-emerald-600 text-white border-emerald-600 focus:ring-emerald-500',
+      inactive: 'text-emerald-700 bg-white border-emerald-300 hover:bg-emerald-50',
+      icon: 'text-emerald-600'
+    },
+    amber: {
+      active: 'bg-amber-600 text-white border-amber-600 focus:ring-amber-500',
+      inactive: 'text-amber-700 bg-white border-amber-300 hover:bg-amber-50',
+      icon: 'text-amber-600'
+    },
+    sky: {
+      active: 'bg-sky-600 text-white border-sky-600 focus:ring-sky-500',
+      inactive: 'text-sky-700 bg-white border-sky-300 hover:bg-sky-50',
+      icon: 'text-sky-600'
+    },
+    indigo: {
+      active: 'bg-indigo-600 text-white border-indigo-600 focus:ring-indigo-500',
+      inactive: 'text-indigo-700 bg-white border-indigo-300 hover:bg-indigo-50',
+      icon: 'text-indigo-600'
+    },
+    rose: {
+      active: 'bg-rose-600 text-white border-rose-600 focus:ring-rose-500',
+      inactive: 'text-rose-700 bg-white border-rose-300 hover:bg-rose-50',
+      icon: 'text-rose-600'
+    },
+    gray: {
+      active: 'bg-gray-900 text-white border-gray-900 focus:ring-gray-500',
+      inactive: 'text-gray-700 bg-white border-gray-300 hover:bg-gray-50',
+      icon: 'text-gray-500'
+    }
+  };
   
   // Build tooltip data for a given day
   const buildTooltipData = (day, monthIndex, dayOfMonth) => ({
@@ -313,226 +525,270 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
         </div>
       </div>
 
-      {/* Things to Do Section */}
+      {/* Things to Do (reimagined with tier chips and cards) */}
       <div className="bg-white rounded-2xl p-6 shadow ring-1 ring-gray-100">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900 mb-4">Things to Do</h2>
-        {overview?.things_to_do_tiers ? (
-          <div className="space-y-6">
-            {(() => {
-              const tierOrder = [
-                'Must Do',
-                'Best in Summer',
-                'Best in Winter',
-                'Rainy Day Favorites',
-                'Local Experiences'
-              ];
+        <div className="mb-4">
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Things to Do</h2>
+        </div>
+        {(thingsToDo?.categories && thingsToDo.categories.length > 0) ? (
+          (() => {
+            const categories = thingsToDo.categories;
+            const availableTiers = categories.map(c => c.title);
 
-              const TIER_STYLES = {
-                'must do': {
-                  icon: '⭐',
-                  container: 'from-emerald-50 to-white border-emerald-200',
-                  badge: 'bg-emerald-100 text-emerald-800'
-                },
-                'best in summer': {
-                  icon: '☀️',
-                  container: 'from-amber-50 to-white border-amber-200',
-                  badge: 'bg-amber-100 text-amber-800'
-                },
-                'best in winter': {
-                  icon: '❄️',
-                  container: 'from-sky-50 to-white border-sky-200',
-                  badge: 'bg-sky-100 text-sky-800'
-                },
-                'rainy day favorites': {
-                  icon: '☔',
-                  container: 'from-indigo-50 to-white border-indigo-200',
-                  badge: 'bg-indigo-100 text-indigo-800'
-                },
-                'local experiences': {
-                  icon: '❤️',
-                  container: 'from-rose-50 to-white border-rose-200',
-                  badge: 'bg-rose-100 text-rose-800'
-                },
-                default: {
-                  icon: '•',
-                  container: 'from-gray-50 to-white border-gray-200',
-                  badge: 'bg-gray-100 text-gray-800'
-                }
-              };
+            const toneForTier = (tier) => {
+              return (TIER_META[tier]?.tone) || 'gray';
+            };
 
-              const orderedEntries = Object.entries(overview.things_to_do_tiers)
-                .sort((a, b) => tierOrder.indexOf(a[0]) - tierOrder.indexOf(b[0]));
+            const iconForTier = (tier) => {
+              const M = TIER_META[tier];
+              if (!M) return null;
+              const Ico = M.Icon;
+              const tone = toneForTier(tier);
+              const colorClass = TONE_STYLES[tone]?.icon || 'text-gray-600';
+              return <Ico className={`h-5 w-5 ${colorClass}`} />;
+            };
 
-              // Build a short intro for each tier from overview JSON
-              const buildTierIntro = (tierName) => {
-                const name = tierName.toLowerCase();
-                if (name === 'best in summer' && seasonalNotes?.summer) {
-                  const { months, description, highlights = [] } = seasonalNotes.summer;
-                  const hl = Array.isArray(highlights) && highlights.length > 0 ? `Highlights: ${highlights.slice(0,2).join(', ')}.` : '';
-                  return `Prime months: ${months}. ${description} ${hl}`.trim();
-                }
-                if (name === 'best in winter' && seasonalNotes?.winter) {
-                  const { months, description, highlights = [] } = seasonalNotes.winter;
-                  const hl = Array.isArray(highlights) && highlights.length > 0 ? `Highlights: ${highlights.slice(0,2).join(', ')}.` : '';
-                  return `Prime months: ${months}. ${description} ${hl}`.trim();
-                }
-                if (name === 'must do') return 'Essential Paris experiences that define the city—iconic, memorable, and easy to recommend.';
-                if (name === 'local experiences') return 'Everyday Paris: markets, bakeries, neighborhood strolls, and small delights favored by locals.';
-                if (name === 'rainy day favorites') return 'Cozy, mostly indoor picks that shine when the weather turns—museums, passages, and cafés.';
-                return '';
-              };
+            const allItems = categories.flatMap(cat => (cat.items || []).map(it => ({...it, __tier: cat.title})));
+            const filteredItems = (activeTier === 'All' ? allItems : (categories.find(c => c.title === activeTier)?.items || []).map(it => ({...it, __tier: activeTier})))
+              .filter(it => !showFreeOnly || it.isFree || (it.cost && String(it.cost).toLowerCase().includes('free')));
+            const totalItems = filteredItems.length;
+            const startIdx = (currentPage - 1) * pageSize;
+            const selectedItems = filteredItems.slice(startIdx, startIdx + pageSize);
 
-              const buildItemSubtitle = (item) => {
-                const parts = [];
-                if (item.optimal_time) parts.push(item.optimal_time);
-                if (item.cost) parts.push(`Cost: ${item.cost}`);
-                return parts.join(' • ');
-              };
+            const renderRating = (item) => {
+              const rating = typeof item.rating === 'number' ? item.rating : 0;
+              const fullStars = Math.round(rating);
+              const stars = Array.from({ length: 5 }, (_, i) => (i < fullStars ? '★' : '☆')).join('');
+              const label = rating ? `${rating.toFixed(1)} (${item.rating_count || 0})` : 'Rate this';
+              return (
+                <div className="flex items-center gap-2 text-amber-500">
+                  <span className="text-sm leading-none">{stars}</span>
+                  <span className="text-xs text-gray-600">{label}</span>
+                </div>
+              );
+            };
 
-              return orderedEntries.map(([tierName, items]) => {
-                const style = TIER_STYLES[tierName.toLowerCase()] || TIER_STYLES.default;
-                const tone = (
-                  tierName.toLowerCase() === 'must do' ? 'emerald' :
-                  tierName.toLowerCase() === 'best in summer' ? 'amber' :
-                  tierName.toLowerCase() === 'best in winter' ? 'sky' :
-                  tierName.toLowerCase() === 'rainy day favorites' ? 'indigo' :
-                  tierName.toLowerCase() === 'local experiences' ? 'rose' : 'gray'
-                );
+            return (
+              <div className="space-y-5">
+                {/* Filter chips */}
+                <div className="flex flex-wrap gap-2">
+                  {["All", ...availableTiers].map(tier => {
+                    const tone = tier === 'All' ? 'gray' : (TIER_META[tier]?.tone || 'gray');
+                    const style = BUTTON_STYLES[tone];
+                    const isActive = activeTier === tier;
+                    return (
+                      <button
+                        key={tier}
+                        onClick={() => setActiveTier(tier)}
+                        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm border transition-colors shadow-sm focus:outline-none focus:ring-2 ${isActive ? style.active : style.inactive}`}
+                        aria-pressed={isActive}
+                      >
+                        {tier === 'All' ? <Star className={`h-5 w-5 ${style.icon}`} /> : iconForTier(tier)}
+                        {tier}
+                      </button>
+                    );
+                  })}
+                  {(() => {
+                    const style = BUTTON_STYLES['emerald'];
+                    const isActive = showFreeOnly;
+                    return (
+                      <button
+                        onClick={() => setShowFreeOnly(v => !v)}
+                        className={`ml-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm border transition-colors shadow-sm focus:outline-none focus:ring-2 ${isActive ? style.active : style.inactive}`}
+                        aria-pressed={isActive}
+                        title="Show only free activities"
+                      >
+                        <span className="font-medium">Free</span>
+                      </button>
+                    );
+                  })()}
+                </div>
+
+                {/* Grid of cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {selectedItems.map((item, idx) => {
+                    const tone = toneForTier(item.__tier);
+                    const ST = TONE_STYLES[tone];
                 return (
-                  <TierPanel key={tierName} title={tierName} count={Array.isArray(items) ? items.length : undefined} icon={style.icon} tone={tone}>
-                    {buildTierIntro(tierName) && (
-                      <p className="text-[13px] text-gray-700 mb-3 leading-relaxed">
-                        {buildTierIntro(tierName)}
-                      </p>
-                    )}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {(items || []).map((item, index) => (
-                        <ListItem
-                          key={`${tierName}-${index}`}
-                          title={item.activity}
-                          subtitle={buildItemSubtitle(item)}
-                          icon={style.icon}
-                          right={item.cost ? <Chip tone={tone}>{item.cost}</Chip> : null}
-                        />
-                      ))}
-                    </div>
-                  </TierPanel>
+                      <div key={idx} className={`group overflow-hidden rounded-2xl border bg-white shadow-sm hover:shadow-md transition-all ring-1 ${ST.ring}`}>
+                        {/* Header with subtle accent bar */}
+                        <div className={`h-1 w-full ${ST.accentBar}`}></div>
+                        {/* Media area: show image when available; otherwise neutral placeholder */}
+                        <div className="relative w-full aspect-[16/9] bg-gray-100">
+                          {item.image ? (
+                            <Image src={item.image} alt={item.activity} fill className="object-cover" />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-xs">Image coming soon</div>
+                          )}
+                          <div className={`absolute top-2 left-2 inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-md border ${ST.chipSoft}`}>
+                            {item.cost || '—'}
+                          </div>
+                          <div className="absolute top-2 right-2 opacity-90">
+                            {/* Category emblem: a small pill with icon and text, colored by category */}
+                            {(() => {
+                              const tone = toneForTier(item.__tier);
+                              const style = BUTTON_STYLES[tone] || BUTTON_STYLES.gray;
+                              return (
+                                <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-[11px] rounded-md border ${style.inactive}`}>
+                                  {iconForTier(item.__tier)}
+                                  {item.__tier}
+                                </span>
+                              );
+                            })()}
+                          </div>
+                        </div>
+                        <div className="p-5 space-y-3">
+                          <div className="flex items-center justify-between">
+                            <h3 className="text-base font-bold text-gray-900 line-clamp-2 pr-2">{item.activity}</h3>
+                            <span className={`text-[10px] uppercase tracking-wide font-semibold ${ST.labelText} ${ST.labelBg} border ${ST.labelBorder} px-2 py-0.5 rounded-md`}>{item.__tier}</span>
+                          </div>
+                          {item.description && (
+                            <p className="text-sm text-gray-700 line-clamp-2">{item.description}</p>
+                          )}
+                          {item.optimal_time && (
+                            <p className="text-xs text-gray-500">{item.optimal_time}</p>
+                          )}
+                          <div className="flex items-center justify-between">
+                            <div className="flex flex-wrap gap-1.5">
+                              {item.neighborhood && (
+                                <span className="text-[11px] bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full">{item.neighborhood}</span>
+                              )}
+                              {(() => {
+                                // Color-coded tag pills: map known keywords to tier tones
+                                const keywordTone = (t) => {
+                                  const low = String(t).toLowerCase();
+                                  if (/(summer|sun|outdoor|picnic|evening)/.test(low)) return 'amber';
+                                  if (/(winter|cold|indoor|cozy)/.test(low)) return 'sky';
+                                  if (/(rain|rainy|umbrella|museum|indoor)/.test(low)) return 'indigo';
+                                  if (/(local|market|neighborhood|wine)/.test(low)) return 'rose';
+                                  if (/(must|iconic|highlight)/.test(low)) return 'emerald';
+                                  return 'gray';
+                                };
+                                const makePill = (label, tone) => (
+                                  <span key={label} className={`text-[11px] px-2 py-0.5 rounded-full border ${BUTTON_STYLES[tone].inactive}`}>{label}</span>
+                                );
+                                const pills = [];
+                                if (Array.isArray(item.tags)) {
+                                  item.tags.slice(0, 3).forEach(tag => pills.push(makePill(tag, keywordTone(tag))));
+                                }
+                                // Add the tier as a pill as well
+                                if (item.__tier) pills.unshift(makePill(item.__tier, TIER_META[item.__tier]?.tone || 'gray'));
+                                return pills;
+                              })()}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 );
-              });
-            })()}
+                  })}
           </div>
-        ) : (
-          <div className="columns-1 md:columns-2 gap-3 space-y-3">
-          {(() => {
-            // Try to get dynamic data from overview monthly_activities first
-            if (overview?.monthly_activities) {
-              const activities = Object.entries(overview.monthly_activities).map(([month, activity]) => ({
-                activity: activity.title,
-                optimal_time: `${month.charAt(0).toUpperCase() + month.slice(1)} - ${activity.description}`,
-                cost: activity.price
-              }));
-              
-              return activities.map((activity, index) => (
-                <div key={index} className="flex items-center justify-between py-2 px-3 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors break-inside-avoid mb-3">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-gray-900 text-sm truncate">{activity.activity}</h3>
-                    <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{activity.optimal_time}</p>
+
+                {/* Pagination */}
+                {renderPaginationControls(currentPage, totalItems)}
+
+                {selectedItems.length === 0 && (
+                  <div className="text-sm text-gray-600">No activities match the current filters.</div>
+                )}
                   </div>
-                  <span className="text-xs text-blue-600 font-medium ml-2 flex-shrink-0">{activity.cost}</span>
+            );
+          })()
+        ) : overview?.things_to_do_tiers ? (
+          (() => {
+            const tierOrder = ['Must Do','Best in Summer','Best in Winter','Rainy Day Favorites','Local Experiences'];
+            const availableTiers = tierOrder.filter(t => overview.things_to_do_tiers[t]);
+
+            const toneForTier = (tier) => {
+              const t = tier.toLowerCase();
+              if (t === 'must do') return 'emerald';
+              if (t === 'best in summer') return 'amber';
+              if (t === 'best in winter') return 'sky';
+              if (t === 'rainy day favorites') return 'indigo';
+              if (t === 'local experiences') return 'rose';
+              return 'gray';
+            };
+
+            const iconForTier = (tier) => {
+              const t = tier.toLowerCase();
+              if (t === 'must do') return '⭐';
+              if (t === 'best in summer') return '☀️';
+              if (t === 'best in winter') return '❄️';
+              if (t === 'rainy day favorites') return '☔';
+              if (t === 'local experiences') return '❤️';
+              return '•';
+            };
+
+            const allItems = availableTiers.flatMap(tier => (overview.things_to_do_tiers[tier] || []).map(it => ({...it, __tier: tier})));
+            const selectedItems = (activeTier === 'All' ? allItems : (overview.things_to_do_tiers[activeTier] || []).map(it => ({...it, __tier: activeTier})))
+              .filter(it => !showFreeOnly || (it.cost && String(it.cost).toLowerCase().includes('free')));
+
+            return (
+              <div className="space-y-5">
+                {/* Filter chips */}
+                <div className="flex flex-wrap gap-2">
+                  {["All", ...availableTiers].map(tier => (
+                    <button
+                      key={tier}
+                      onClick={() => setActiveTier(tier)}
+                      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm border transition-colors ${activeTier === tier ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                      aria-pressed={activeTier === tier}
+                    >
+                      <span className="text-base">{iconForTier(tier)}</span>
+                      {tier}
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => setShowFreeOnly(v => !v)}
+                    className={`ml-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm border transition-colors ${showFreeOnly ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                    aria-pressed={showFreeOnly}
+                    title="Show only free activities"
+                  >
+                    💶 Free Activities
+                  </button>
                 </div>
-              ));
-            }
-            
-            // Try to get dynamic data from monthly files as fallback
-            if (monthlyData && Object.keys(monthlyData).length > 0) {
-              const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
-              const monthData = monthlyData[currentMonth];
-              if (monthData && monthData.things_to_do) {
-                return monthData.things_to_do.map((activity, index) => (
-                  <div key={index} className="flex items-center justify-between py-2 px-3 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors break-inside-avoid mb-3">
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-gray-900 text-sm truncate">{activity.activity}</h3>
-                      <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{activity.optimal_time}</p>
+
+                {/* Grid of cards (legacy overview data) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {selectedItems.map((item, idx) => {
+                    const tone = toneForTier(item.__tier);
+                    return (
+                      <div key={idx} className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+                        {/* Media placeholder */}
+                        <div className={`h-36 bg-gradient-to-br from-${tone}-50 to-white flex items-end justify-between p-3`}> 
+                          <div className="text-xs px-2 py-1 rounded-full bg-black/50 text-white">
+                            {item.cost || '—'}
+                          </div>
+                          <div className="text-xl">{iconForTier(item.__tier)}</div>
+                        </div>
+                        <div className="p-4 space-y-2">
+                          <div className="flex items-center justify-between">
+                            <h3 className="font-semibold text-gray-900 line-clamp-2 pr-2">{item.activity}</h3>
+                            <span className={`text-[10px] uppercase tracking-wide font-medium text-${tone}-700 bg-${tone}-100 px-2 py-0.5 rounded-full`}>{item.__tier}</span>
+                          </div>
+                          {item.optimal_time && (
+                            <p className="text-sm text-gray-600 line-clamp-2">{item.optimal_time}</p>
+                          )}
+                          <div className="flex flex-wrap gap-2 pt-1">
+                            {item.cost && (
+                              <Chip tone={tone}>{item.cost}</Chip>
+                            )}
+                            {item.optimal_time && (
+                              <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{item.optimal_time.split(' ')[0]}</span>
+                            )}
+                          </div>
                     </div>
-                    <span className="text-xs text-blue-600 font-medium ml-2 flex-shrink-0">{activity.cost}</span>
                   </div>
-                ));
-              }
-            }
-            
-            // Fallback to static Paris data
-            return [
-              {
-                activity: "Ice Skate at Hôtel de Ville",
-                optimal_time: "January - outdoor skating rink with city hall backdrop",
-                cost: "€8"
-              },
-              {
-                activity: "Take a Cooking Class in Le Marais",
-                optimal_time: "February - learn French cuisine in historic district",
-                cost: "€80-€120"
-              },
-              {
-                activity: "Visit the Catacombs",
-                optimal_time: "March - underground tunnels with millions of bones",
-                cost: "€14"
-              },
-              {
-                activity: "Picnic at Luxembourg Gardens",
-                optimal_time: "April - spring blooms and palace views",
-                cost: "Free"
-              },
-              {
-                activity: "Climb Arc de Triomphe",
-                optimal_time: "May - panoramic views of 12 radiating avenues",
-                cost: "€13"
-              },
-              {
-                activity: "Bike Along the Seine",
-                optimal_time: "June - riverside paths with iconic landmarks",
-                cost: "€15"
-              },
-              {
-                activity: "Attend a Classical Concert at Sainte-Chapelle",
-                optimal_time: "July - music in the stunning Gothic chapel",
-                cost: "€45"
-              },
-              {
-                activity: "Explore the Covered Passages",
-                optimal_time: "August - historic shopping arcades with hidden cafes",
-                cost: "Free"
-              },
-              {
-                activity: "Take a Seine River Dinner Cruise",
-                optimal_time: "September - gourmet meal with illuminated city views",
-                cost: "€80-€150"
-              },
-              {
-                activity: "Visit the Musée Rodin Gardens",
-                optimal_time: "October - outdoor sculptures in autumn colors",
-                cost: "€12"
-              },
-              {
-                activity: "Shop at Marché aux Puces",
-                optimal_time: "November - world's largest antique market",
-                cost: "Free"
-              },
-              {
-                activity: "See the Eiffel Tower Sparkle",
-                optimal_time: "December - hourly light show from dusk to dawn",
-                cost: "Free"
-              }
-            ].map((activity, index) => (
-              <div key={index} className="flex items-center justify-between py-2 px-3 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors break-inside-avoid mb-3">
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-medium text-gray-900 text-sm truncate">{activity.activity}</h3>
-                  <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{activity.optimal_time}</p>
+                    );
+                  })}
                 </div>
-                <span className="text-xs text-blue-600 font-medium ml-2 flex-shrink-0">{activity.cost}</span>
+
+                {selectedItems.length === 0 && (
+                  <div className="text-sm text-gray-600">No activities match the current filters.</div>
+                )}
               </div>
-            ));
-          })()}
-          </div>
+            );
+          })()
+        ) : (
+          <div className="text-sm text-gray-600">No activities available.</div>
         )}
       </div>
 
