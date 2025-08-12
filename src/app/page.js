@@ -41,20 +41,15 @@ export default function Page() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero */}
-      <header className="flex-1 flex items-center justify-center px-6 py-16 text-center">
+      <header className="flex-1 flex items-center justify-center px-6 py-12 text-center">
         <div className="w-full max-w-5xl">
-          <div className="inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-medium tracking-wide bg-indigo-50 text-indigo-700 ring-1 ring-indigo-100">
-            Eurotrip planner • date‑aware city rankings
-          </div>
-          <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight">
+          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold tracking-tight">
             Plan your Eurotrip in minutes — tell us <span className="text-indigo-600">when</span>, we’ll tell you <span className="text-indigo-600">where</span>
           </h1>
           <p className="mt-4 text-zinc-700 max-w-2xl mx-auto">
             Transparent scoring that blends weather, crowds, and real events. Your <span className="font-semibold">first itinerary is free</span>.
           </p>
-          <div className="mt-3 text-xs text-zinc-500">
-            Transparent scoring • Real events • Exports & rescheduling with Pro
-          </div>
+          
 
           <div className="mt-8">
             <DateSelector onChange={setDates} />
