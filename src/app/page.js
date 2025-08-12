@@ -44,7 +44,7 @@ export default function Page() {
       <header className="flex-1 flex items-center justify-center px-6 py-10 text-center">
         <div className="w-full max-w-5xl">
           <h1 className="mt-0 text-4xl md:text-6xl font-extrabold tracking-tight">
-            Plan your <span className="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">Eurotrip</span> in minutes — tell us <span className="text-indigo-600">when</span>, we’ll tell you <span className="text-indigo-600">where</span>
+            Plan your <span className="bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">Eurotrip</span> in minutes — tell us <span className="text-indigo-600">when</span>, we’ll tell you <span className="text-indigo-600">where</span>
           </h1>
           <p className="mt-4 text-zinc-700 max-w-2xl mx-auto">
             Transparent scoring that blends weather, crowds, and real events. Your <span className="font-semibold">first itinerary is free</span>.
