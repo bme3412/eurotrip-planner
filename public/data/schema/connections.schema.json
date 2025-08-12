@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "connections.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cityId"],
+  "properties": {
+    "cityId": { "type": "string" },
+    "airports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "name"],
+        "properties": {
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "toCenter": {
+            "type": "object",
+            "properties": {
+              "mode": { "type": "string", "enum": ["train", "bus", "taxi", "rideshare", "metro"] },
+              "timeMin": { "type": "integer", "minimum": 1, "maximum": 300 },
+              "costEstimate": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "railHubs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "lines": { "type": "array", "items": { "type": "string" } },
+          "timeTo": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["destination", "timeMin"],
+              "properties": {
+                "destination": { "type": "string" },
+                "timeMin": { "type": "integer", "minimum": 10, "maximum": 1000 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dayTrips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["destination", "mode", "travelTimeMin", "summary"],
+        "properties": {
+          "destination": { "type": "string" },
+          "mode": { "type": "string", "enum": ["train", "bus", "car", "ferry"] },
+          "travelTimeMin": { "type": "integer", "minimum": 15, "maximum": 600 },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "transitTips": { "type": "array", "items": { "type": "string" } }
+  }
+}
+
+

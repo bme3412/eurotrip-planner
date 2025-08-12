@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "city_overview.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "cityName", "country", "coordinates", "summary", "meta"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "cityName": { "type": "string" },
+    "country": { "type": "string" },
+    "coordinates": {
+      "type": "object",
+      "required": ["lat", "lng"],
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lng": { "type": "number", "minimum": -180, "maximum": 180 }
+      },
+      "additionalProperties": false
+    },
+    "summary": { "type": "string", "minLength": 10 },
+    "practicalInfo": {
+      "type": "object",
+      "properties": {
+        "currency": { "type": "string" },
+        "visitDuration": { "type": "string" },
+        "language": { "type": "string" },
+        "priceIndex": { "type": "number", "minimum": 1, "maximum": 5 },
+        "safetyIndex": { "type": "number", "minimum": 1, "maximum": 5 },
+        "connectivityScore": { "type": "number", "minimum": 1, "maximum": 5 }
+      },
+      "additionalProperties": false
+    },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "meta": {
+      "type": "object",
+      "required": ["lastUpdated", "dataVersion"],
+      "properties": {
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "dataVersion": { "type": "string" },
+        "language": { "type": "string", "default": "en" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
+
+

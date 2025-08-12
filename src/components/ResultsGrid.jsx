@@ -1,4 +1,5 @@
-import ResultCard from "./ResultCard";
+import dynamic from "next/dynamic";
+const ResultCard = dynamic(() => import("./ResultCard"));
 
 export default function ResultsGrid({ results, sortBy, setSortBy }) {
   const sorted = [...results].sort((a, b) => {

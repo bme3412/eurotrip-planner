@@ -97,6 +97,7 @@ export const Input = forwardRef(({
           ref={ref}
           className={inputClasses}
           {...props}
+          readOnly={props.readOnly ?? (props.onChange ? false : (props.value !== undefined))}
         />
       </div>
       {error && (

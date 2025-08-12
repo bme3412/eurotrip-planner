@@ -172,3 +172,48 @@ Implement minimally: add auth + billing + a single premium API route (`/api/ai/g
 - Architecture diagram, vendor matrix, DPA list
 - Entitlements schema + webhook event map
 - Runbooks: AI cost control, webhook recovery, affiliate QA
+
+## Addendum – 2025-08-12: Rankings Engine and Vector DB Integration Compliance
+
+### Alignment with plan
+- The proposed deterministic rankings engine (date/window scoring using `public/data/**` weather/crowd/events) aligns with the plan’s core AI itinerary feature and data use guidance.
+- RAG over `public/data/**` for itinerary composition and chat is in scope; vector DB usage is supported (primary: pgvector; Pinecone as an alternative at scale).
+- Caching and per‑query keys, server‑only AI calls, and explainable outputs match plan guardrails.
+
+### Adjustments to remain compliant
+- Vector DB choice: start with pgvector on Neon Postgres; add Pinecone adapter later if scale/latency requires.
+- Pro gating: place itinerary generation and advanced AI features behind `pro` entitlements; keep a limited free trial.
+- Security: keep model keys and vector DB creds in server env; no client exposure.
+- Limits/cost: implement per‑IP/per‑user rate limits, usage counters, streaming responses, and caching for popular queries.
+- Observability: add tracing (Langfuse) and error monitoring (Sentry); track latency/cost.
+- Compliance: GDPR/VAT via chosen billing provider; consent banner; privacy policy.
+
+### Minimal delivery checklist (rankings + RAG)
+- API surface:
+  - `/api/ai/generate` (Pro‑gated itinerary generator, cached)
+  - `/api/ai/chat` (already present; add RAG grounding)
+  - `/api/usage` (usage counters)
+  - `/api/webhooks/{stripe|lemonsqueezy}` (subscription events → entitlements)
+- Rankings engine:
+  - Deterministic composite score per city for user dates/months
+  - Factors: base day/month scores, events bonus, weather comfort, crowds penalty, interest match; user‑tunable weights
+  - Explainability payload (why this city) and data‑coverage guardrails
+- Embeddings/RAG:
+  - Nightly embeddings job over `public/data/**` (attractions, neighborhoods, seasonal activities, visit calendars)
+  - Store vectors in pgvector; include metadata filters (`city_id`, `country`, `category`, `months[]`, `tags[]`)
+  - Retrieval → rerank with deterministic signals → compose itinerary modules
+- Ops:
+  - Rate limits + usage counters; cache by (dates, interests, candidate cities) hash
+  - Tracing/analytics; error monitoring; server‑only secrets
+
+### Vector DB notes
+- Start: pgvector (Neon) to reduce vendor surface; keep Pinecone as a drop‑in for larger indices/latency SLAs.
+- Retrieval pattern: hybrid (metadata filters + vector similarity), MMR for diversity, deterministic rerank with rankings engine outputs.
+
+### Data privacy and content scope
+- Ground only on `public/data/**`; avoid personal data in embeddings.
+- Provide citations/snippets for itinerary justifications.
+
+### Future extensions (non‑blocking)
+- Add value proxies (`priceIndex`, `connectivityScore`) to `overview.meta` to refine rankings.
+- Itinerary path optimization using routing APIs with travel‑time penalties; keep results explainable.
