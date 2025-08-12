@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
 
 const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => {
@@ -259,6 +259,22 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
     }
   };
   
+  // Basic virtualization for grid/list: only render the first N, and progressively increase as user scrolls
+  const [visibleCount, setVisibleCount] = useState(24);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
+      if (el.getBoundingClientRect().bottom < window.innerHeight + 800) {
+        setVisibleCount((n) => Math.min(n + 24, filteredAttractions.length));
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [filteredAttractions.length]);
+
   return (
     <div className="p-6">
       {/* Enhanced Header */}
@@ -421,8 +437,8 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
 
       {/* Grid View */}
       {viewMode === 'grid' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredAttractions.map((attraction, idx) => {
+        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredAttractions.slice(0, visibleCount).map((attraction, idx) => {
             const attractionId = attraction.id || `attraction-${idx}`;
             const isExpanded = expandedAttractions[attractionId] || false;
             
@@ -542,8 +558,8 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
       
       {/* List View */}
       {viewMode === 'list' && (
-        <div className="space-y-4">
-          {filteredAttractions.map((attraction, idx) => {
+        <div ref={containerRef} className="space-y-4">
+          {filteredAttractions.slice(0, visibleCount).map((attraction, idx) => {
             const attractionId = attraction.id || `attraction-${idx}`;
             const isExpanded = expandedAttractions[attractionId] || false;
             
