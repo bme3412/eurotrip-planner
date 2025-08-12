@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import DateSelector from "../../../components/DateSelector";
 
 export default function AuroraPreview() {
@@ -59,7 +60,7 @@ export default function AuroraPreview() {
                 key={it.id}
                 className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur ring-1 ring-white/10 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.12)] transition"
               >
-                <img src={it.image} alt={it.title} className="h-48 w-full object-cover opacity-95" />
+                <Image src={it.image} alt={it.title} width={1200} height={600} className="h-48 w-full object-cover opacity-95" />
                 <div className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-cyan-200 ring-1 ring-cyan-200/30">
                   #{i + 1} • {it.score.toFixed(1)}
                 </div>

@@ -272,22 +272,15 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
   
   return (
     <div className="space-y-6">
-      {/* Tabbed Monthly View */}
-      {visitCalendar && Object.keys(visitCalendar).length > 0 && (
-        <MonthlyTabbedView
-          visitCalendar={visitCalendar}
-          monthlyData={monthlyData}
-        />
-      )}
+      {/* Tabbed Monthly View – render even if visitCalendar is missing; component will synthesize defaults */}
+      <MonthlyTabbedView
+        visitCalendar={visitCalendar}
+        monthlyData={monthlyData}
+        cityName={cityName}
+        countryName={countryName}
+      />
 
-      {/* Dynamic City Monthly Content */}
-      {monthlyData && Object.keys(monthlyData).length > 0 && (
-        <DynamicMonthlyContent 
-          monthlyData={monthlyData}
-          cityName={cityName}
-          countryName={countryName}
-        />
-      )}
+      {/* Dynamic highlight grid disabled to match streamlined Monthly Guide layout */}
 
       {/* Enhanced Professional Event Modal */}
       {activeTooltip && (

@@ -27,22 +27,22 @@ export default function DateRangePopover({ value, onChange }) {
     <Popover className="relative">
       {({ open, close }) => (
         <>
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-            <Popover.Button className="input flex items-center justify-between h-11 px-3" style={{ width: 220 }}>
+          <Popover.Button as="div" className="flex flex-wrap items-center justify-center gap-2 md:gap-3 cursor-pointer select-none">
+            <div className="input flex items-center justify-between h-11 px-3" style={{ width: 220 }}>
               <span className="text-left">
                 <span className="block text-xs text-zinc-500">Check‑in</span>
                 <span className="block">{display.start || "Select date"}</span>
               </span>
               <span className="text-zinc-400">📅</span>
-            </Popover.Button>
-            <Popover.Button className="input flex items-center justify-between h-11 px-3" style={{ width: 220 }}>
+            </div>
+            <div className="input flex items-center justify-between h-11 px-3" style={{ width: 220 }}>
               <span className="text-left">
                 <span className="block text-xs text-zinc-500">Check‑out</span>
                 <span className="block">{display.end || "Select date"}</span>
               </span>
               <span className="text-zinc-400">📅</span>
-            </Popover.Button>
-          </div>
+            </div>
+          </Popover.Button>
 
           <Transition
             as={Fragment}

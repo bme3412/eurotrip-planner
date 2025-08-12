@@ -20,6 +20,12 @@ const baseConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'dknnqxb2tbc80.cloudfront.net',
         port: '',
         pathname: '/city-thumbnails/**',

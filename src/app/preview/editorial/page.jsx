@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import DateSelector from "../../../components/DateSelector";
 
 export default function EditorialPreview() {
@@ -52,7 +53,7 @@ export default function EditorialPreview() {
           <div className="mx-auto max-w-5xl grid gap-6 sm:grid-cols-2">
             {results.map((it, i) => (
               <article key={it.id} className="rounded-xl bg-white ring-1 ring-zinc-200 hover:-translate-y-0.5 transition shadow-sm">
-                <img src={it.image} alt={it.title} className="h-56 w-full object-cover" />
+                <Image src={it.image} alt={it.title} width={1200} height={600} className="h-56 w-full object-cover" />
                 <div className="p-5">
                   <div className="flex items-center justify-between">
                     <h3 className="font-serif text-2xl">{it.title}</h3>

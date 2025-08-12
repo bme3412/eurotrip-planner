@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import DateSelector from "../../../components/DateSelector";
 
 export default function MetroPreview() {
@@ -63,7 +64,7 @@ export default function MetroPreview() {
                 key={it.id}
                 className="group relative overflow-hidden rounded-2xl border-2 border-zinc-900 bg-white hover:-translate-y-0.5 transition"
               >
-                <img src={it.image} alt={it.title} className="h-48 w-full object-cover" />
+                <Image src={it.image} alt={it.title} width={1200} height={600} className="h-48 w-full object-cover" />
                 <div className="absolute left-4 top-4 bg-blue-600 text-white text-xs font-black tracking-widest px-2 py-1 rounded">
                   #{i + 1} • {it.score.toFixed(1)}
                 </div>
