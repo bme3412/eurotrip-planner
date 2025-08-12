@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:data && next build",
+    "build": "npm run build:data && npm run build:cities && next build",
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "build:data": "node scripts/generateMonthlyIndex.mjs"
+    "build:data": "node scripts/generateMonthlyIndex.mjs",
+    "build:cities": "node scripts/generateCityIndex.mjs"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.4",
