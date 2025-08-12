@@ -53,6 +53,23 @@ const baseConfig = {
         ],
       },
       {
+        source: '/data/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/json; charset=utf-8',
+          },
+        ],
+      },
+      {
         source: '/images/video-thumbnails/:path*',
         headers: [
           {

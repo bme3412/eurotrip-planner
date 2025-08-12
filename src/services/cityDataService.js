@@ -41,7 +41,7 @@ export async function getOptimalVisitData(cityName, countryName) {
         for (const month of monthNames) {
           try {
             const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
-            const response = await fetch(`${monthlyPath}/${month}.json`);
+            const response = await fetch(`${monthlyPath}/${month}.json`, { cache: 'force-cache' });
             
             if (response.ok) {
               const data = await response.json();
@@ -60,7 +60,7 @@ export async function getOptimalVisitData(cityName, countryName) {
           for (const season of seasons) {
             try {
               const capitalizedSeason = season.charAt(0).toUpperCase() + season.slice(1);
-              const response = await fetch(`${monthlyPath}/${season}.json`);
+              const response = await fetch(`${monthlyPath}/${season}.json`, { cache: 'force-cache' });
               
               if (response.ok) {
                 const data = await response.json();
@@ -77,7 +77,7 @@ export async function getOptimalVisitData(cityName, countryName) {
         // Some cities might have a combined file with all months
         if (Object.keys(monthlyData).length === 0) {
           try {
-            const response = await fetch(`/data/${formattedCountry}/${formattedCity}/${formattedCity}_monthly_data.json`);
+            const response = await fetch(`/data/${formattedCountry}/${formattedCity}/${formattedCity}_monthly_data.json`, { cache: 'force-cache' });
             
             if (response.ok) {
               monthlyData = await response.json();

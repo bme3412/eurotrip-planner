@@ -64,7 +64,11 @@ const CITY_COORDINATES = {
 function CityPageClient({ cityData, cityName }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [componentLoaded, setComponentLoaded] = useState(false);
-  const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError } = useMonthlyData(cityData?.country || 'Unknown', cityName);
+  const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError, refetch: loadAllMonthly } = useMonthlyData(
+    cityData?.country || 'Unknown',
+    cityName,
+    { initialData: cityData?.monthlyEvents || {}, autoLoad: false }
+  );
   const { actions: uiActions } = useUIState();
 
   const {
@@ -133,6 +137,8 @@ function CityPageClient({ cityData, cityName }) {
         break;
       case 'monthly':
         import('@/components/city-guides/MonthlyGuideSection');
+        // Hint data fetch early on hover
+        loadAllMonthly();
         break;
       case 'attractions':
         import('@/components/city-guides/AttractionsList');
@@ -147,6 +153,13 @@ function CityPageClient({ cityData, cityName }) {
         break;
     }
   };
+
+  // On first open of Monthly tab, fetch full monthly index (if not already loaded)
+  useEffect(() => {
+    if (activeTab === 'monthly') {
+      loadAllMonthly();
+    }
+  }, [activeTab, loadAllMonthly]);
 
   const memoizedData = useMemo(() => ({
     safeAttractions,

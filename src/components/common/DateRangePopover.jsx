@@ -27,7 +27,7 @@ export default function DateRangePopover({ value, onChange }) {
     <Popover className="relative">
       {({ open, close }) => (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 justify-items-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
             <Popover.Button className="input flex items-center justify-between h-11 px-3" style={{ width: 220 }}>
               <span className="text-left">
                 <span className="block text-xs text-zinc-500">Check‑in</span>

@@ -11,6 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://dknnqxb2tbc80.cloudfront.net" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://dknnqxb2tbc80.cloudfront.net" />
+      </head>
       <body className="min-h-screen bg-gray-50 font-sans antialiased">
         <Providers>
           <div className="mx-auto max-w-6xl px-6 py-4 flex justify-end">

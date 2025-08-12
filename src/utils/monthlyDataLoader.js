@@ -1,4 +1,5 @@
 'use client';
+import { getDataUrl } from '@/utils/cdnUtils';
 
 /**
  * Monthly data loader utility
@@ -7,6 +8,7 @@
 
 // Cache for monthly data to avoid repeated fetches
 const monthlyDataCache = new Map();
+const inflightRequests = new Map();
 
 export const loadMonthlyDataCached = async (country, cityName) => {
   const cacheKey = `${country}_${cityName}`.toLowerCase();
@@ -16,45 +18,63 @@ export const loadMonthlyDataCached = async (country, cityName) => {
     return monthlyDataCache.get(cacheKey);
   }
 
+  // De-dupe concurrent requests
+  if (inflightRequests.has(cacheKey)) {
+    return inflightRequests.get(cacheKey);
+  }
+
   try {
     const normalizedCity = cityName.toLowerCase();
-    
-    // The monthly data is stored as individual month files in a monthly/ subdirectory
-    const months = [
-      'january', 'february', 'march', 'april', 'may', 'june',
-      'july', 'august', 'september', 'october', 'november', 'december'
-    ];
+    const indexPath = getDataUrl(`/data/${country}/${normalizedCity}/monthly/index.json`);
 
-    const monthlyData = {};
-    let loadedCount = 0;
-
-    // Load each month's data individually
-    for (const month of months) {
+    const promise = (async () => {
+      // Try consolidated index first
       try {
-        const monthPath = `/data/${country}/${normalizedCity}/monthly/${month}.json`;
-        const response = await fetch(monthPath);
-        
-        if (response.ok) {
-          const monthData = await response.json();
-          // The JSON file contains the month as a top-level key, so merge it directly
-          Object.assign(monthlyData, monthData);
-          loadedCount++;
+        const indexRes = await fetch(indexPath, { cache: 'force-cache' });
+        if (indexRes.ok) {
+          const allData = await indexRes.json();
+          monthlyDataCache.set(cacheKey, allData);
+          return allData;
         }
-      } catch (monthError) {
-        // Continue loading other months even if one fails
-        console.warn(`Failed to load ${month} data for ${cityName}:`, monthError);
+      } catch (e) {
+        // fall through to per-month loader
       }
-    }
 
-    if (loadedCount === 0) {
-      console.warn(`No monthly data found for ${cityName} in ${country}`);
-    } else {
-      console.log(`Loaded ${loadedCount}/12 months of data for ${cityName}`);
-    }
+      // Fallback: load each month individually
+      const months = [
+        'january', 'february', 'march', 'april', 'may', 'june',
+        'july', 'august', 'september', 'october', 'november', 'december'
+      ];
 
-    // Cache the result (even if partially empty)
-    monthlyDataCache.set(cacheKey, monthlyData);
-    return monthlyData;
+      const monthlyData = {};
+      let loadedCount = 0;
+
+      await Promise.allSettled(
+        months.map(async (month) => {
+          const monthPath = getDataUrl(`/data/${country}/${normalizedCity}/monthly/${month}.json`);
+          const response = await fetch(monthPath, { cache: 'force-cache' });
+          if (response.ok) {
+            const monthData = await response.json();
+            Object.assign(monthlyData, monthData);
+            loadedCount++;
+          }
+        })
+      );
+
+      if (loadedCount === 0) {
+        console.warn(`No monthly data found for ${cityName} in ${country}`);
+      } else {
+        console.log(`Loaded ${loadedCount}/12 months of data for ${cityName}`);
+      }
+
+      monthlyDataCache.set(cacheKey, monthlyData);
+      return monthlyData;
+    })();
+
+    inflightRequests.set(cacheKey, promise);
+    const result = await promise;
+    inflightRequests.delete(cacheKey);
+    return result;
 
   } catch (error) {
     console.error(`Error loading monthly data for ${cityName}:`, error);
@@ -81,10 +101,13 @@ export const getMonthlyDataCacheStats = () => {
 export const hasMonthlyData = async (country, cityName) => {
   try {
     const normalizedCity = cityName.toLowerCase();
-    // Just check if January data exists as a quick test
-    const testPath = `/data/${country}/${normalizedCity}/monthly/january.json`;
+    // Prefer index.json; fallback to January probe
+    const testPath = `/data/${country}/${normalizedCity}/monthly/index.json`;
     const response = await fetch(testPath, { method: 'HEAD' });
-    return response.ok;
+    if (response.ok) return true;
+    const janPath = `/data/${country}/${normalizedCity}/monthly/january.json`;
+    const janRes = await fetch(janPath, { method: 'HEAD' });
+    return janRes.ok;
   } catch (error) {
     return false;
   }

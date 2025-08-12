@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DateRangePopover from "./common/DateRangePopover";
 
 export default function DateSelector({ onChange }) {
@@ -29,17 +29,18 @@ export default function DateSelector({ onChange }) {
     return { start, end };
   }
 
-  const pushChange = () => {
-    onChange?.({ mode: "dates", ...dates });
-  };
+  // Auto-propagate when both start and end are selected
+  useEffect(() => {
+    if (dates && dates.start && dates.end) {
+      onChange?.({ mode: "dates", ...dates });
+    }
+  }, [dates, onChange]);
 
   return (
     <div className="w-full max-w-3xl mx-auto">
       <DateRangePopover value={dates} onChange={(next) => setDates(next)} />
-      <div className="mt-3 flex justify-center">
-        <button onClick={pushChange} className="btn-primary" style={{ width: 220 }}>Set Dates</button>
-      </div>
-      
+      {/* Add a bit more white space before CTAs */}
+      <div className="h-3" />
     </div>
   );
 }

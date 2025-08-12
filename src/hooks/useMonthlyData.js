@@ -7,9 +7,10 @@ import { loadMonthlyDataCached } from '@/utils/monthlyDataLoader';
  * Custom hook for managing monthly data loading and caching
  * Consolidates monthly data logic used across multiple components
  */
-export const useMonthlyData = (country, cityName) => {
-  const [monthlyData, setMonthlyData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+export const useMonthlyData = (country, cityName, options = {}) => {
+  const { initialData = null, autoLoad = true } = options;
+  const [monthlyData, setMonthlyData] = useState(initialData || {});
+  const [isLoading, setIsLoading] = useState(!initialData);
   const [error, setError] = useState(null);
 
   const loadMonthlyData = useCallback(async () => {
@@ -35,10 +36,11 @@ export const useMonthlyData = (country, cityName) => {
   }, [country, cityName]);
 
   useEffect(() => {
-    if (country && cityName) {
+    if (!autoLoad) return;
+    if (country && cityName && !initialData) {
       loadMonthlyData();
     }
-  }, [loadMonthlyData, country, cityName]);
+  }, [loadMonthlyData, country, cityName, autoLoad, initialData]);
 
   // Memoized derived data
   const processedData = useMemo(() => {
