@@ -1,4 +1,4 @@
-'use client';
+'use server';
 
 export function EventsSection({ events }) {
   if (!events || events.length === 0) return (

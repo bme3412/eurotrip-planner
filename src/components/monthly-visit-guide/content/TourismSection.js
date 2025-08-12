@@ -1,4 +1,4 @@
-'use client';
+'use server';
 
 export function TourismSection({ tourism }) {
   if (!tourism) return null;

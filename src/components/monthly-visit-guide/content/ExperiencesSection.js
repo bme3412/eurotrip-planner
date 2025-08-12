@@ -1,4 +1,4 @@
-'use client';
+'use server';
 
 export function ExperiencesSection({ experiences }) {
   if (!experiences || experiences.length === 0) return (
