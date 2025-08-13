@@ -68,6 +68,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               id: `${slugify(it?.name)}-${idx}`,
               name: it?.name,
               description: it?.description,
+              image: it?.image || it?.image_url || it?.photo || it?.photo_url || null,
               type: (it?.themes && it.themes[0]) || 'activity',
               category: key,
               latitude: it?.lat,
@@ -417,6 +418,11 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             
             return (
               <div key={attractionId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+                {attraction.image && (
+                  <div className="relative w-full h-44">
+                    <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
+                  </div>
+                )}
                 {/* Card Header */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
@@ -568,6 +574,11 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             
             return (
               <div key={attractionId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                {attraction.image && (
+                  <div className="relative w-full h-40">
+                    <Image src={attraction.image} alt={attraction.name} fill sizes="100vw" className="object-cover" />
+                  </div>
+                )}
                 <div className="p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">

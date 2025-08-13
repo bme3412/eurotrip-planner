@@ -37,61 +37,84 @@ export async function getOptimalVisitData(cityName, countryName) {
       let usesSeasonalData = false;
       
       try {
-        // Attempt to load individual month files first
-        for (const month of monthNames) {
+        // 1) Prefer a single combined file to minimize requests
+        try {
+          const combinedRes = await fetch(`/data/${formattedCountry}/${formattedCity}/${formattedCity}_monthly_data.json`, { cache: 'force-cache' });
+          if (combinedRes.ok) {
+            monthlyData = await combinedRes.json();
+            return { data: monthlyData, usesSeasonalData };
+          }
+        } catch (_) {
+          // fallthrough to granular files
+        }
+
+        // 2) Fetch all month files in parallel
+        const monthFetches = monthNames.map(async (month) => {
+          const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
           try {
-            const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
             const response = await fetch(`${monthlyPath}/${month}.json`, { cache: 'force-cache' });
-            
             if (response.ok) {
               const data = await response.json();
-              monthlyData[capitalizedMonth] = data;
+              return [capitalizedMonth, data];
             }
-          } catch (err) {
-            // Individual month file not found, we'll try seasonal data next
-            console.log(`Month data not found for ${month} in ${cityName}`);
+          } catch (_) {
+            // ignore
           }
-        }
-        
-        // If we didn't find any monthly data, try seasonal data
+          return null;
+        });
+
+        const monthResults = await Promise.all(monthFetches);
+        monthResults.forEach((entry) => {
+          if (entry) {
+            const [cap, data] = entry;
+            monthlyData[cap] = data;
+          }
+        });
+
+        // 3) If no monthly data, try seasonal files in parallel
         if (Object.keys(monthlyData).length === 0) {
           const seasons = ['spring', 'summer', 'fall', 'winter'];
-          
-          for (const season of seasons) {
+          const seasonFetches = seasons.map(async (season) => {
+            const capitalizedSeason = season.charAt(0).toUpperCase() + season.slice(1);
             try {
-              const capitalizedSeason = season.charAt(0).toUpperCase() + season.slice(1);
               const response = await fetch(`${monthlyPath}/${season}.json`, { cache: 'force-cache' });
-              
               if (response.ok) {
                 const data = await response.json();
-                monthlyData[capitalizedSeason] = data;
-                usesSeasonalData = true;
+                return [capitalizedSeason, data];
               }
-            } catch (err) {
-              console.log(`Season data not found for ${season} in ${cityName}`);
+            } catch (_) {
+              // ignore
             }
-          }
+            return null;
+          });
+
+          const seasonResults = await Promise.all(seasonFetches);
+          seasonResults.forEach((entry) => {
+            if (entry) {
+              const [cap, data] = entry;
+              monthlyData[cap] = data;
+              usesSeasonalData = true;
+            }
+          });
         }
-        
-        // If we still don't have any data, try the combined approach
-        // Some cities might have a combined file with all months
+
+        // 4) If still empty, try combined once more (in case of transient error)
         if (Object.keys(monthlyData).length === 0) {
           try {
             const response = await fetch(`/data/${formattedCountry}/${formattedCity}/${formattedCity}_monthly_data.json`, { cache: 'force-cache' });
-            
             if (response.ok) {
               monthlyData = await response.json();
             }
-          } catch (err) {
-            console.log(`Combined monthly data not found for ${cityName}`);
+          } catch (_) {
+            // ignore
           }
         }
-        
+
         return {
           data: monthlyData,
           usesSeasonalData
         };
-        
+
       } catch (err) {
         console.error(`Error loading monthly data for ${cityName}:`, err);
         return null;

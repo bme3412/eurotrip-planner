@@ -90,19 +90,19 @@ const CityVisitCalendar = ({ city, cityData = null }) => {
             
             let data = null;
             
-            // Try to load data from a visit calendar JSON file first
-            for (const path of possiblePaths) {
-              if (path.endsWith('.json')) {
+            // Try to load data from a visit calendar JSON file first (parallelize)
+            const jsonPaths = possiblePaths.filter(p => p.endsWith('.json'));
+            if (jsonPaths.length > 0) {
+              const results = await Promise.all(jsonPaths.map(async (p) => {
                 try {
-                  const response = await fetch(path);
-                  if (response.ok) {
-                    data = await response.json();
-                    break;
-                  }
+                  const res = await fetch(p, { cache: 'force-cache' });
+                  if (res.ok) return await res.json();
                 } catch (e) {
-                  console.log(`Failed to load from ${path}: ${e.message}`);
+                  console.log(`Failed to load from ${p}: ${e.message}`);
                 }
-              }
+                return null;
+              }));
+              data = results.find(Boolean) || null;
             }
             
             // If we failed to load a single JSON file, try to load monthly data
@@ -116,24 +116,26 @@ const CityVisitCalendar = ({ city, cityData = null }) => {
                 'spring', 'summer', 'fall', 'winter'
               ];
               
-              // Try to fetch each month
-              for (const month of months) {
+              // Try to fetch each month in parallel
+              const monthResults = await Promise.all(months.map(async (month) => {
                 try {
-                  const response = await fetch(`/data/${country}/${normalizedCity}/monthly/${month}.json`);
+                  const response = await fetch(`/data/${country}/${normalizedCity}/monthly/${month}.json`, { cache: 'force-cache' });
                   if (response.ok) {
                     const monthData = await response.json();
-                    
-                    // Handle different data structures
-                    if (monthData[month.charAt(0).toUpperCase() + month.slice(1)]) {
-                      monthlyData[month] = monthData[month.charAt(0).toUpperCase() + month.slice(1)];
-                    } else {
-                      monthlyData[month] = monthData;
-                    }
+                    const cap = month.charAt(0).toUpperCase() + month.slice(1);
+                    return [month, monthData[cap] ? monthData[cap] : monthData];
                   }
                 } catch (e) {
                   console.log(`Failed to load ${month}: ${e.message}`);
                 }
-              }
+                return null;
+              }));
+              monthResults.forEach((entry) => {
+                if (entry) {
+                  const [key, value] = entry;
+                  monthlyData[key] = value;
+                }
+              });
               
               // If we found any monthly data, use it
               if (Object.keys(monthlyData).length > 0) {
