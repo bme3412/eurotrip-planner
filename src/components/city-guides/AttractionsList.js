@@ -3,15 +3,16 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
 
-const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => {
+const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = 50, forceList = false }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedAttractions, setExpandedAttractions] = useState({});
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+  const [viewMode, setViewMode] = useState(forceList || experiencesUrl ? 'list' : 'grid'); // 'grid' or 'list'
   const [dateFilterType, setDateFilterType] = useState('none'); // 'none', 'exact', 'range', 'month'
   const [selectedDate, setSelectedDate] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('all');
+  const [experiences, setExperiences] = useState(null);
   
   // Month options for filtering
   const months = [
@@ -29,6 +30,74 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
     { value: 'november', label: 'November', icon: '🍁' },
     { value: 'december', label: 'December', icon: '❄️' }
   ];
+  // Helper to compute 3 high-level factor buckets from raw factor scores
+  const computeAggregateFactors = useCallback((factors) => {
+    if (!factors || typeof factors !== 'object') return null;
+    const get = (k) => (typeof factors[k] === 'number' ? factors[k] : null);
+    const avg = (arr) => {
+      const vals = arr.map(get).filter((v) => typeof v === 'number');
+      if (vals.length === 0) return null;
+      return vals.reduce((a, b) => a + b, 0) / vals.length;
+    };
+    return {
+      culturalValue: avg(['cultural_historical_significance', 'uniqueness_to_paris', 'educational_value']),
+      experienceQuality: avg(['visitor_experience_quality', 'crowd_management', 'family_friendliness', 'photo_instagram_appeal']),
+      practicalEase: avg(['accessibility', 'weather_independence', 'value_for_money'])
+    };
+  }, []);
+
+  // Load enriched experiences JSON (optional): flatten categories and compute composite score
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      if (!experiencesUrl) return;
+      try {
+        const res = await fetch(experiencesUrl, { cache: 'no-store' });
+        if (!res.ok) return;
+        const json = await res.json();
+        const cats = json?.categories || {};
+        const out = [];
+        const slugify = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        Object.keys(cats).forEach((key) => {
+          const arr = Array.isArray(cats[key]) ? cats[key] : [];
+          arr.forEach((it, idx) => {
+            const total = it?.scores?.total_score ?? 0;
+            const { total_score, ...factors } = it?.scores || {};
+            const factorScores = factors;
+            out.push({
+              id: `${slugify(it?.name)}-${idx}`,
+              name: it?.name,
+              description: it?.description,
+              type: (it?.themes && it.themes[0]) || 'activity',
+              category: key,
+              latitude: it?.lat,
+              longitude: it?.lon,
+              website: it?.booking_url || null,
+              price_range: it?.pricing_tier || null,
+              ratings: {
+                cultural_significance: it?.scores?.cultural_historical_significance || null,
+                suggested_duration_hours: it?.duration_minutes ? (it.duration_minutes / 60) : null,
+                cost_estimate: it?.estimated_cost_eur || null,
+              },
+              compositeScore: typeof total === 'number' ? Number(total) : 0,
+              factorScores,
+              aggregates: computeAggregateFactors(factorScores)
+            });
+          });
+        });
+        out.sort((a, b) => (b.compositeScore || 0) - (a.compositeScore || 0));
+        const top = out.slice(0, limit);
+        if (!cancelled) setExperiences(top);
+      } catch (_) {}
+    }
+    load();
+    return () => { cancelled = true; };
+  }, [experiencesUrl, limit, computeAggregateFactors]);
+
+  // Choose data source
+  const dataSource = useMemo(() => {
+    return Array.isArray(experiences) && experiences.length > 0 ? experiences : attractions;
+  }, [experiences, attractions]);
 
   // Memoize callback functions to prevent re-renders
   const getMonthFromDate = useCallback((dateString) => {
@@ -136,7 +205,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
   
   // Memoize heavy filtering and sorting operations
   const filteredAttractions = useMemo(() => {
-    return attractions
+    return dataSource
       .filter(attraction => 
         searchTerm === '' || attraction.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         attraction.description?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -146,14 +215,14 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
         seasonalScore: getSeasonalScore(attraction, getEffectiveMonth())
       }))
       .sort((a, b) => {
-        // Always sort by seasonal score when date filtering is active
         if (dateFilterType !== 'none') {
           return (b.seasonalScore || 0) - (a.seasonalScore || 0);
         }
-        // Default sort by cultural significance
+        const comp = (b.compositeScore || 0) - (a.compositeScore || 0);
+        if (comp !== 0) return comp;
         return (b.ratings?.cultural_significance || 0) - (a.ratings?.cultural_significance || 0);
       });
-  }, [attractions, searchTerm, dateFilterType, getEffectiveMonth, getSeasonalScore]);
+  }, [dataSource, searchTerm, dateFilterType, getEffectiveMonth, getSeasonalScore]);
   
   // Format price range for display
   const getPriceIcon = (priceRange) => {
@@ -287,8 +356,8 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
         </p>
       </div>
 
-      {/* Enhanced Filters section */}
-      <div className="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-sm border border-blue-100">
+      {/* Filters (search only) */}
+      <div className="mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
         <div className="flex flex-col space-y-4">
           {/* Search bar */}
           <div className="w-full">
@@ -308,129 +377,33 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
             </div>
           </div>
         
-          {/* Date Filter Controls */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Date Filter Type</label>
-              <select 
-                className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                value={dateFilterType}
-                onChange={(e) => setDateFilterType(e.target.value)}
-              >
-                <option value="none">No Date Filter</option>
-                <option value="exact">Exact Date</option>
-                <option value="range">Date Range</option>
-                <option value="month">Month</option>
-              </select>
-            </div>
-
-            {/* Conditional date inputs based on filter type */}
-            {dateFilterType === 'exact' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select Date</label>
-                <input
-                  type="date"
-                  className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                  value={selectedDate}
-                  onChange={(e) => setSelectedDate(e.target.value)}
-                />
-              </div>
-            )}
-
-            {dateFilterType === 'range' && (
-              <>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
-                  <input
-                    type="date"
-                    className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
-                  <input
-                    type="date"
-                    className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
-                  />
-                </div>
-              </>
-            )}
-
-            {dateFilterType === 'month' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select Month</label>
-                <select
-                  className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                  value={selectedMonth}
-                  onChange={(e) => setSelectedMonth(e.target.value)}
-                >
-                  {months.map((month) => (
-                    <option key={month.value} value={month.value}>
-                      {month.icon} {month.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-
-          </div>
-
-          {/* Current filter display */}
-          {dateFilterType !== 'none' && (
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-blue-800">
-                  {getDateFilterDisplay()}
-                </span>
+          {/* View mode toggle (hidden when forceList) */}
+          <div className="flex justify-between items-center">
+            {!forceList && (
+              <div className="flex space-x-2">
                 <button
-                  onClick={() => {
-                    setDateFilterType('none');
-                    setSelectedDate('');
-                    setStartDate('');
-                    setEndDate('');
-                    setSelectedMonth('all');
-                  }}
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    viewMode === 'grid' 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                  }`}
+                  onClick={() => setViewMode('grid')}
                 >
-                  Clear Filter
+                  Grid View
+                </button>
+                <button
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    viewMode === 'list' 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                  }`}
+                  onClick={() => setViewMode('list')}
+                >
+                  List View
                 </button>
               </div>
-            </div>
-          )}
-
-          {/* View mode toggle */}
-          <div className="flex justify-between items-center">
-            <div className="flex space-x-2">
-              <button
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                  viewMode === 'grid' 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
-                }`}
-                onClick={() => setViewMode('grid')}
-              >
-                Grid View
-              </button>
-              <button
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                  viewMode === 'list' 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
-                }`}
-                onClick={() => setViewMode('list')}
-              >
-                List View
-              </button>
-            </div>
-            
-            <div className="text-sm text-gray-600">
-              {filteredAttractions.length} attraction{filteredAttractions.length !== 1 ? 's' : ''} found
-            </div>
+            )}
+            {/* Hide results count per request */}
           </div>
         </div>
       </div>
@@ -454,8 +427,13 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
                         <p className="text-sm text-gray-500">{attraction.type}</p>
                       </div>
                     </div>
-                    <div className="flex flex-col items-end space-y-1">
+                      <div className="flex flex-col items-end space-y-1">
                       <span className="text-lg">{getPriceIcon(attraction.price_range)}</span>
+                        {typeof attraction.compositeScore === 'number' && !Number.isNaN(attraction.compositeScore) && (
+                          <span className="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">
+                            {attraction.compositeScore.toFixed(2)}
+                          </span>
+                        )}
                       {attraction.ratings?.cultural_significance && (
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSignificanceColor(attraction.ratings.cultural_significance)}`}>
                           {attraction.ratings.cultural_significance.toFixed(1)}
@@ -485,24 +463,36 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
                     </div>
                   </div>
                   
-                  {/* Description Preview */}
-                  <p className="text-gray-700 text-sm line-clamp-3 mb-4">
+                  {/* Description Preview and 3 aggregated factors */}
+                  <p className="text-gray-700 text-sm mb-3">
                     {attraction.description}
                   </p>
+                  {attraction.aggregates && (
+                    <div className="grid grid-cols-3 gap-2 mb-4">
+                      <div className="text-center p-2 bg-gray-50 rounded-lg">
+                        <div className="text-sm font-semibold text-gray-900">
+                          {typeof attraction.aggregates.culturalValue === 'number' ? attraction.aggregates.culturalValue.toFixed(2) : '—'}
+                        </div>
+                        <div className="text-[11px] text-gray-500">Cultural Impact</div>
+                      </div>
+                      <div className="text-center p-2 bg-gray-50 rounded-lg">
+                        <div className="text-sm font-semibold text-gray-900">
+                          {typeof attraction.aggregates.experienceQuality === 'number' ? attraction.aggregates.experienceQuality.toFixed(2) : '—'}
+                        </div>
+                        <div className="text-[11px] text-gray-500">Visit Quality</div>
+                      </div>
+                      <div className="text-center p-2 bg-gray-50 rounded-lg">
+                        <div className="text-sm font-semibold text-gray-900">
+                          {typeof attraction.aggregates.practicalEase === 'number' ? attraction.aggregates.practicalEase.toFixed(2) : '—'}
+                        </div>
+                        <div className="text-[11px] text-gray-500">Logistics & Value</div>
+                      </div>
+                    </div>
+                  )}
                   
-                  {/* Action Buttons */}
-                  <div className="flex space-x-2">
-                    <button 
-                      className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
-                        isExpanded 
-                          ? 'bg-blue-100 text-blue-800' 
-                          : 'bg-blue-600 text-white hover:bg-blue-700'
-                      }`}
-                      onClick={() => toggleExpanded(attractionId)}
-                    >
-                      {isExpanded ? 'Hide Details' : 'View Details'}
-                    </button>
-                    {attraction.latitude && attraction.longitude && (
+                  {/* Map action only (no details toggle) */}
+                  {attraction.latitude && attraction.longitude && (
+                    <div className="flex">
                       <button 
                         className="py-2 px-3 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
                         onClick={() => {
@@ -511,45 +501,58 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
                       >
                         Map
                       </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Always-on details section */}
+                <div className="border-t border-gray-100 bg-gray-50 p-6">
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-1">Best Time</h4>
+                        <p className="text-sm text-gray-700">{attraction.best_time || '—'}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-1">Seasonal Notes</h4>
+                        <p className="text-sm text-gray-700">{attraction.seasonal_notes || '—'}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-1">Booking Tips</h4>
+                        <p className="text-sm text-gray-700">{attraction.booking_tips || '—'}</p>
+                      </div>
+                    </div>
+                    {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-2">Seasonal Appeal</h4>
+                        <div className="flex items-center space-x-2">
+                          <span className={`px-3 py-1 text-sm font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
+                            {attraction.seasonalScore} out of 5 stars
+                          </span>
+                          <span className="text-sm text-gray-600">for {getDateFilterDisplay()}</span>
+                        </div>
+                      </div>
+                    )}
+                    {attraction.factorScores && (
+                      <div>
+                        <h4 className="font-medium text-gray-900 mb-2">Score Breakdown</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {Object.entries(attraction.factorScores).map(([k, v]) => (
+                            <div key={k} className="flex items-center justify-between bg-white rounded border border-gray-200 px-2 py-1 text-xs">
+                              <span className="text-gray-600 capitalize">{k.replace(/_/g, ' ')}</span>
+                              <span className="font-semibold text-gray-900">{typeof v === 'number' ? v.toFixed(2) : String(v)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {attraction.website && (
+                      <div>
+                        <a href={attraction.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-medium">Visit Website →</a>
+                      </div>
                     )}
                   </div>
                 </div>
-                
-                {/* Expanded Details */}
-                {isExpanded && (
-                  <div className="border-t border-gray-100 bg-gray-50 p-6">
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Best Time to Visit</h4>
-                        <p className="text-sm text-gray-700">{attraction.best_time || "No specific information available"}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Seasonal Notes</h4>
-                        <p className="text-sm text-gray-700">{attraction.seasonal_notes || "No seasonal information available"}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Booking Tips</h4>
-                        <p className="text-sm text-gray-700">{attraction.booking_tips || "No specific booking tips available"}</p>
-                      </div>
-
-                      {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
-                        <div>
-                          <h4 className="font-medium text-gray-900 mb-2">Seasonal Appeal</h4>
-                          <div className="flex items-center space-x-2">
-                            <span className={`px-3 py-1 text-sm font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
-                              {attraction.seasonalScore} out of 5 stars
-                            </span>
-                            <span className="text-sm text-gray-600">
-                              for {getDateFilterDisplay()}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}
@@ -587,12 +590,12 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
                         </div>
                         <div className="text-xs text-gray-500">Price</div>
                       </div>
-                      {attraction.ratings?.cultural_significance && (
+                      {typeof attraction.compositeScore === 'number' && !Number.isNaN(attraction.compositeScore) && (
                         <div className="text-center">
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSignificanceColor(attraction.ratings.cultural_significance)}`}>
-                            {attraction.ratings.cultural_significance.toFixed(1)}
+                          <span className="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">
+                            {attraction.compositeScore.toFixed(2)}
                           </span>
-                          <div className="text-xs text-gray-500 mt-1">Rating</div>
+                          <div className="text-xs text-gray-500 mt-1">Overall</div>
                         </div>
                       )}
                       {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
@@ -603,60 +606,59 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData }) => 
                           <div className="text-xs text-gray-500 mt-1">Seasonal</div>
                         </div>
                       )}
-                      <button 
-                        className={`py-2 px-4 rounded-lg text-sm font-medium transition-colors ${
-                          isExpanded 
-                            ? 'bg-blue-100 text-blue-800' 
-                            : 'bg-blue-600 text-white hover:bg-blue-700'
-                        }`}
-                        onClick={() => toggleExpanded(attractionId)}
-                      >
-                        {isExpanded ? 'Hide' : 'Details'}
-                      </button>
                     </div>
                   </div>
-                  
-                  {/* Description Preview */}
-                  <p className="text-gray-700 text-sm mt-3 line-clamp-2">
-                    {attraction.description}
-                  </p>
-                </div>
-                
-                {/* Expanded Details */}
-                {isExpanded && (
-                  <div className="border-t border-gray-100 bg-gray-50 p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Best Time to Visit</h4>
-                        <p className="text-sm text-gray-700">{attraction.best_time || "No specific information available"}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Seasonal Notes</h4>
-                        <p className="text-sm text-gray-700">{attraction.seasonal_notes || "No seasonal information available"}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Booking Tips</h4>
-                        <p className="text-sm text-gray-700">{attraction.booking_tips || "No specific booking tips available"}</p>
-                      </div>
-                    </div>
-
-                    {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
-                      <div className="mt-4 pt-4 border-t border-gray-200">
-                        <h4 className="font-medium text-gray-900 mb-2">Seasonal Appeal</h4>
-                        <div className="flex items-center space-x-2">
-                          <span className={`px-3 py-1 text-sm font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
-                            {attraction.seasonalScore} out of 5 stars
-                          </span>
-                          <span className="text-sm text-gray-600">
-                            for {getDateFilterDisplay()}
-                          </span>
+                  <p className="text-gray-700 text-sm mt-3">{attraction.description}</p>
+                  {attraction.aggregates && (
+                    <div className="grid grid-cols-3 gap-2 mt-3">
+                      <div className="text-center p-2 bg-gray-50 rounded-lg">
+                        <div className="text-sm font-semibold text-gray-900">
+                          {typeof attraction.aggregates.culturalValue === 'number' ? attraction.aggregates.culturalValue.toFixed(2) : '—'}
                         </div>
+                        <div className="text-[11px] text-gray-500">Cultural Impact</div>
                       </div>
-                    )}
+                      <div className="text-center p-2 bg-gray-50 rounded-lg">
+                        <div className="text-sm font-semibold text-gray-900">
+                          {typeof attraction.aggregates.experienceQuality === 'number' ? attraction.aggregates.experienceQuality.toFixed(2) : '—'}
+                        </div>
+                        <div className="text-[11px] text-gray-500">Visit Quality</div>
+                      </div>
+                      <div className="text-center p-2 bg-gray-50 rounded-lg">
+                        <div className="text-sm font-semibold text-gray-900">
+                          {typeof attraction.aggregates.practicalEase === 'number' ? attraction.aggregates.practicalEase.toFixed(2) : '—'}
+                        </div>
+                        <div className="text-[11px] text-gray-500">Logistics & Value</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="border-t border-gray-100 bg-gray-50 p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-2">Best Time to Visit</h4>
+                      <p className="text-sm text-gray-700">{attraction.best_time || '—'}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-2">Seasonal Notes</h4>
+                      <p className="text-sm text-gray-700">{attraction.seasonal_notes || '—'}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-2">Booking Tips</h4>
+                      <p className="text-sm text-gray-700">{attraction.booking_tips || '—'}</p>
+                    </div>
                   </div>
-                )}
+                  {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
+                    <div className="mt-4 pt-4 border-t border-gray-200">
+                      <h4 className="font-medium text-gray-900 mb-2">Seasonal Appeal</h4>
+                      <div className="flex items-center space-x-2">
+                        <span className={`px-3 py-1 text-sm font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
+                          {attraction.seasonalScore} out of 5 stars
+                        </span>
+                        <span className="text-sm text-gray-600">for {getDateFilterDisplay()}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             );
           })}

@@ -1,7 +1,6 @@
 import './globals.css';
 import { Analytics } from "@vercel/analytics/next"
 import Providers from './Providers';
-import AuthButton from '../components/common/AuthButton';
 
 export const metadata = {
   title: "Eurotrip Planner & City Guides",
@@ -17,9 +16,6 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-screen bg-gray-50 font-sans antialiased">
         <Providers>
-          <div className="mx-auto max-w-6xl px-6 py-4 flex justify-end">
-            <AuthButton />
-          </div>
           {children}
         </Providers>
         <Analytics />

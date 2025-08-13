@@ -3,15 +3,17 @@ import React, { useState, useEffect } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
 import { Chip } from '@/components/common/Primitives';
 import Image from 'next/image';
-import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2 } from 'lucide-react';
 
-const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
+const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntroHero = false }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [activeTier, setActiveTier] = useState('All');
   const [showFreeOnly, setShowFreeOnly] = useState(false);
   const [thingsToDo, setThingsToDo] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
+  const [overviewParagraph, setOverviewParagraph] = useState(null);
 
   // Add click outside handler to close tooltip
   useEffect(() => {
@@ -54,7 +56,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
         const country = (overview?.country || '').trim() || 'France';
         const citySlug = (cityName || '').toLowerCase();
         const url = `/data/${country}/${citySlug}/monthly/things-to-do.json`;
-        const res = await fetch(url);
+        const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) return; // fall back silently
         const json = await res.json();
         if (json && Array.isArray(json.categories)) {
@@ -65,6 +67,24 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
       }
     };
     loadThingsToDo();
+  }, [cityName, overview?.country]);
+
+  // Load monthly overview paragraph (author-provided) if available
+  useEffect(() => {
+    const loadOverviewParagraph = async () => {
+      try {
+        const country = (overview?.country || '').trim() || 'France';
+        const citySlug = (cityName || '').toLowerCase();
+        const url = `/data/${country}/${citySlug}/monthly/monthly-taglines.json`;
+        const res = await fetch(url, { cache: 'force-cache' });
+        if (!res.ok) return;
+        const json = await res.json();
+        if (json && typeof json.overview_paragraph === 'string') {
+          setOverviewParagraph(json.overview_paragraph);
+        }
+      } catch (_) {}
+    };
+    loadOverviewParagraph();
   }, [cityName, overview?.country]);
 
   // Reset pagination when filters change
@@ -284,35 +304,49 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
     : `${cityName} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
   
   return (
-    <div className="max-w-7xl mx-auto space-y-8">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative p-8 md:p-12 text-white">
-          <div className="flex items-center mb-4">
-            <span className="text-4xl mr-3">{cityIcon}</span>
-            <div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-2">{displayName}</h1>
-              {nickname && (
-                <p className="text-xl md:text-2xl opacity-90">{nickname}</p>
-              )}
+    <div className="max-w-6xl mx-auto space-y-8">
+      {/* Optional intro header (hidden when a page-level hero is present) */}
+      {!hideIntroHero && (
+        <div className="relative bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+          <div className="relative p-6 md:p-8">
+            <div className="flex items-center mb-3">
+              <span className="text-3xl mr-3">{cityIcon}</span>
+              <div>
+                <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900">{displayName}</h1>
+                {nickname && (
+                  <p className="text-base md:text-lg text-gray-600">{nickname}</p>
+                )}
+              </div>
             </div>
+            <p className="text-[15.5px] md:text-[16.5px] leading-7 text-slate-700">
+              {enhancedDescription}
+            </p>
           </div>
-          <p className="text-lg md:text-xl opacity-95 leading-relaxed max-w-4xl">
-            {enhancedDescription}
-          </p>
         </div>
-      </div>
+      )}
 
 
 
 
 
 
+
+      {/* Best Time to Visit / Overview paragraph */}
+      {overviewParagraph && (
+        <div className="relative overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-500"></div>
+          <div className="p-6">
+            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mb-3">Best Time to Visit</h2>
+            <p className="max-w-5xl text-[15.5px] md:text-[16.5px] leading-8 text-slate-700 font-medium [text-wrap:pretty] first-letter:text-3xl first-letter:font-semibold first-letter:text-slate-900 first-letter:mr-2 first-letter:float-left first-line:tracking-tight">
+              {overviewParagraph}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* 12-Month Calendar Container */}
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Best Time to Visit</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Year at a Glance</h2>
         {overview?.best_time_to_visit?.summary && (
           <p className="text-sm text-gray-700 mb-5 leading-relaxed">
             {overview.best_time_to_visit.summary}
@@ -611,36 +645,45 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
                     const ST = TONE_STYLES[tone];
                 return (
                       <div key={idx} className={`group overflow-hidden rounded-2xl border bg-white shadow-sm hover:shadow-md transition-all ring-1 ${ST.ring}`}>
-                        {/* Header with subtle accent bar */}
-                        <div className={`h-1 w-full ${ST.accentBar}`}></div>
                         {/* Media area: show image when available; otherwise neutral placeholder */}
                         <div className="relative w-full aspect-[16/9] bg-gray-100">
                           {item.image ? (
-                            <Image src={item.image} alt={item.activity} fill className="object-cover" />
+                            <Image
+                              src={item.image}
+                              alt={item.activity}
+                              fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              className="object-cover"
+                              style={{ objectPosition: item.imagePosition || 'center' }}
+                            />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-xs">Image coming soon</div>
                           )}
                           <div className={`absolute top-2 left-2 inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-md border ${ST.chipSoft}`}>
                             {item.cost || '—'}
                           </div>
-                          <div className="absolute top-2 right-2 opacity-90">
-                            {/* Category emblem: a small pill with icon and text, colored by category */}
+                          <div className="absolute top-2 right-2 opacity-95">
                             {(() => {
                               const tone = toneForTier(item.__tier);
                               const style = BUTTON_STYLES[tone] || BUTTON_STYLES.gray;
                               return (
-                                <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-[11px] rounded-md border ${style.inactive}`}>
+                                <button className={`h-8 w-8 rounded-full bg-white/90 border ${style.inactive} shadow-sm flex items-center justify-center hover:bg-white`}
+                                  aria-label={item.__tier}>
                                   {iconForTier(item.__tier)}
-                                  {item.__tier}
-                                </span>
+                                </button>
                               );
                             })()}
                           </div>
                         </div>
                         <div className="p-5 space-y-3">
-                          <div className="flex items-center justify-between">
+                          <div className="flex items-start justify-between gap-3">
                             <h3 className="text-base font-bold text-gray-900 line-clamp-2 pr-2">{item.activity}</h3>
-                            <span className={`text-[10px] uppercase tracking-wide font-semibold ${ST.labelText} ${ST.labelBg} border ${ST.labelBorder} px-2 py-0.5 rounded-md`}>{item.__tier}</span>
+                            {typeof item.rating === 'number' && (
+                              <div className="flex items-center gap-1 text-amber-500 text-xs font-semibold">
+                                <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
+                                <span className="text-gray-800">{item.rating.toFixed(1)}</span>
+                              </div>
+                            )}
                           </div>
                           {item.description && (
                             <p className="text-sm text-gray-700 line-clamp-2">{item.description}</p>
@@ -648,10 +691,18 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
                           {item.optimal_time && (
                             <p className="text-xs text-gray-500">{item.optimal_time}</p>
                           )}
+                          <div className="flex items-center gap-4 text-xs text-gray-600">
+                            {item.duration && (
+                              <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-gray-400" />{item.duration}</span>
+                            )}
+                            {item.neighborhood && (
+                              <span className="inline-flex items-center gap-1"><MapPin className="h-3.5 w-3.5 text-gray-400" />{item.neighborhood}</span>
+                            )}
+                          </div>
                           <div className="flex items-center justify-between">
                             <div className="flex flex-wrap gap-1.5">
                               {item.neighborhood && (
-                                <span className="text-[11px] bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full">{item.neighborhood}</span>
+                                <></>
                               )}
                               {(() => {
                                 // Color-coded tag pills: map known keywords to tier tones
@@ -790,6 +841,47 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData }) => {
         ) : (
           <div className="text-sm text-gray-600">No activities available.</div>
         )}
+      </div>
+
+      {/* Itineraries by Age + AI Upsell (below Things to Do, above footer) */}
+      <div className="mt-6 bg-white rounded-2xl p-6 shadow ring-1 ring-gray-100">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Itineraries</h2>
+          <span className="text-xs text-gray-500">Quick-start plans for different travelers</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="rounded-xl border border-gray-200 p-4">
+            <div className="flex items-center gap-2 mb-1 text-gray-900 font-semibold">
+              <CalendarDays className="h-4 w-4 text-gray-600" /> Family with Kids
+            </div>
+            <p className="text-sm text-gray-700">Parks, easy museums, and treats. Balanced days with breaks.</p>
+            <button className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-700">View sample day</button>
+          </div>
+          <div className="rounded-xl border border-gray-200 p-4">
+            <div className="flex items-center gap-2 mb-1 text-gray-900 font-semibold">
+              <CalendarDays className="h-4 w-4 text-gray-600" /> 48 Hours in Paris
+            </div>
+            <p className="text-sm text-gray-700">Iconic highlights, Seine strolls, and a memorable evening.</p>
+            <button className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-700">View outline</button>
+          </div>
+          <div className="rounded-xl border border-gray-200 p-4">
+            <div className="flex items-center gap-2 mb-1 text-gray-900 font-semibold">
+              <CalendarDays className="h-4 w-4 text-gray-600" /> 5‑Day Itinerary
+            </div>
+            <p className="text-sm text-gray-700">Balanced neighborhoods, day trips, and leisurely museum time.</p>
+            <button className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-700">View outline</button>
+          </div>
+        </div>
+
+        <div className="mt-5 flex items-center justify-between rounded-xl bg-indigo-50 border border-indigo-100 p-4">
+          <div>
+            <div className="text-gray-900 font-semibold flex items-center gap-2"><Wand2 className="h-4 w-4 text-indigo-600" /> Create your own itinerary</div>
+            <p className="text-sm text-gray-700">Tell us your dates and interests. Your first AI plan is free; Pro unlocks unlimited generates and exports.</p>
+          </div>
+          <Link href="/" className="shrink-0 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700">
+            Start with AI
+          </Link>
+        </div>
       </div>
 
       {/* Mobile-friendly Event Modal (only renders on small screens via CSS) */}

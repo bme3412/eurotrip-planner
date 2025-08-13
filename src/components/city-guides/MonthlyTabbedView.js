@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 
+// Original calendar palette
 const RATING_COLORS = { 5: '#10b981', 4: '#34d399', 3: '#fbbf24', 2: '#fb923c', 1: '#ef4444' };
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
@@ -141,6 +142,15 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   };
   const monthTagline = generateMonthTagline();
 
+  // Season chip based on tourism level (rough heuristic)
+  const seasonInfo = (() => {
+    const lvl = typeof m?.data?.tourismLevel === 'number' ? m.data.tourismLevel : null;
+    if (lvl == null) return null;
+    if (lvl >= 8) return { label: 'Peak Season', cls: 'bg-zinc-900 text-white' };
+    if (lvl >= 5) return { label: 'Shoulder Season', cls: 'bg-zinc-100 text-zinc-800 ring-1 ring-zinc-200' };
+    return { label: 'Low Season', cls: 'bg-zinc-100 text-zinc-800 ring-1 ring-zinc-200' };
+  })();
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Guide</h3>
@@ -153,7 +163,7 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
               key={mm.idx}
               onClick={() => { setSelectedIdx(mm.idx); setExpandedVisit(false); setExpandedConsider(false); setExpandedEvents(false); }}
               className={`px-3 py-1.5 rounded-full text-sm ring-1 transition ${
-                selectedIdx === mm.idx ? 'bg-indigo-600 text-white ring-indigo-600' : 'bg-white text-gray-700 ring-gray-200 hover:bg-gray-50'
+                selectedIdx === mm.idx ? 'bg-zinc-900 text-white ring-zinc-900' : 'bg-white text-gray-700 ring-gray-200 hover:bg-gray-50'
               }`}
             >
               {mm.name.slice(0,3)}
@@ -166,7 +176,12 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
       <section className="rounded-lg ring-1 ring-gray-100 overflow-hidden bg-white">
         {/* Compact month header (single visible tagline) */}
         <header className="px-4 py-3 bg-gray-50/60 border-b border-gray-100">
-          <div className="text-lg md:text-xl font-semibold text-gray-900">{m.name}</div>
+          <div className="flex items-center gap-2">
+            <div className="text-lg md:text-xl font-semibold text-gray-900">{m.name}</div>
+            {seasonInfo && (
+              <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-medium ${seasonInfo.cls}`}>{seasonInfo.label}</span>
+            )}
+          </div>
           <div className="mt-1 text-base md:text-lg text-gray-800 leading-snug">{monthTagline}</div>
         </header>
 
@@ -222,7 +237,7 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Reasons to Visit */}
               {visitList.length > 0 && (
-                <div className="rounded-lg bg-green-50 border border-green-200 p-4">
+                <div className="rounded-lg bg-white border border-gray-100 p-4">
                   <h4 className="text-green-800 font-semibold mb-2 flex items-center">
                     <span className="mr-2">✅</span>
                     Reasons to Visit
@@ -248,7 +263,7 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
 
               {/* Things to Consider */}
               {considerList.length > 0 && (
-                <div className="rounded-lg bg-amber-50 border border-amber-200 p-4">
+                <div className="rounded-lg bg-white border border-gray-100 p-4">
                   <h4 className="text-amber-800 font-semibold mb-2 flex items-center">
                     <span className="mr-2">⚠️</span>
                     Things to Consider
