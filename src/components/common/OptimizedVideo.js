@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 const OptimizedVideo = ({ 
   src, 
@@ -54,9 +55,11 @@ const OptimizedVideo = ({
     <div className="relative">
       {/* Show fallback image while video is loading or if video fails */}
       {(!videoLoaded || videoError) && fallbackImage && (
-        <img
+        <Image
           src={fallbackImage}
           alt={alt}
+          width={1920}
+          height={1080}
           className={className}
         />
       )}

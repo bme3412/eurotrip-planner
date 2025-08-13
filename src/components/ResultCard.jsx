@@ -1,10 +1,14 @@
+import Image from 'next/image';
+
 export default function ResultCard({ item, index }) {
   return (
     <article className="card overflow-hidden group">
       <div className="relative">
-        <img
+        <Image
           src={item.image}
           alt={item.title}
+          width={1200}
+          height={600}
           className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
         />
         <div className="absolute left-3 top-3">

@@ -13,9 +13,13 @@ const inflightRequests = new Map();
 export const loadMonthlyDataCached = async (country, cityName) => {
   const cacheKey = `${country}_${cityName}`.toLowerCase();
   
-  // Return cached data if available
+  // Return cached data if available and non-empty; otherwise refresh
   if (monthlyDataCache.has(cacheKey)) {
-    return monthlyDataCache.get(cacheKey);
+    const cached = monthlyDataCache.get(cacheKey);
+    if (cached && typeof cached === 'object' && Object.keys(cached).length > 0) {
+      return cached;
+    }
+    // fall through to reload if cache is empty
   }
 
   // De-dupe concurrent requests
@@ -24,20 +28,40 @@ export const loadMonthlyDataCached = async (country, cityName) => {
   }
 
   try {
+    // Build candidate directory casings to handle mixed-case folders in data
     const normalizedCity = cityName.toLowerCase();
-    const indexPath = getDataUrl(`/data/${country}/${normalizedCity}/monthly/index.json`);
+    const capitalizedCity = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    const candidates = Array.from(new Set([
+      normalizedCity,
+      cityName, // as provided (slug)
+      capitalizedCity
+    ]));
 
     const promise = (async () => {
-      // Try consolidated index first
-      try {
-        const indexRes = await fetch(indexPath, { cache: 'force-cache' });
-        if (indexRes.ok) {
-          const allData = await indexRes.json();
+      // Helper to try CDN path first, then local fallback
+      const tryJsonWithFallback = async (pathBuilder) => {
+        // CDN (via getDataUrl)
+        const cdnUrl = getDataUrl(pathBuilder());
+        try {
+          const res = await fetch(cdnUrl, { cache: 'force-cache' });
+          if (res.ok) return res.json();
+        } catch (e) { /* fall through */ }
+        // Local fallback (bypass CDN mapping)
+        try {
+          const localUrl = `/${pathBuilder().replace(/^\//, '')}`;
+          const res2 = await fetch(localUrl, { cache: 'force-cache' });
+          if (res2.ok) return res2.json();
+        } catch (e2) { /* ignore */ }
+        return null;
+      };
+
+      // Try consolidated index first across candidate casings
+      for (const candidate of candidates) {
+        const allData = await tryJsonWithFallback(() => `/data/${country}/${candidate}/monthly/index.json`);
+        if (allData && typeof allData === 'object' && Object.keys(allData).length > 0) {
           monthlyDataCache.set(cacheKey, allData);
           return allData;
         }
-      } catch (e) {
-        // fall through to per-month loader
       }
 
       // Fallback: load each month individually
@@ -49,14 +73,16 @@ export const loadMonthlyDataCached = async (country, cityName) => {
       const monthlyData = {};
       let loadedCount = 0;
 
+      // Fallback: try to load each month using the first casing that works
       await Promise.allSettled(
         months.map(async (month) => {
-          const monthPath = getDataUrl(`/data/${country}/${normalizedCity}/monthly/${month}.json`);
-          const response = await fetch(monthPath, { cache: 'force-cache' });
-          if (response.ok) {
-            const monthData = await response.json();
-            Object.assign(monthlyData, monthData);
-            loadedCount++;
+          for (const candidate of candidates) {
+            const monthData = await tryJsonWithFallback(() => `/data/${country}/${candidate}/monthly/${month}.json`);
+            if (monthData && typeof monthData === 'object' && Object.keys(monthData).length > 0) {
+              Object.assign(monthlyData, monthData);
+              loadedCount++;
+              return; // stop trying other candidates for this month
+            }
           }
         })
       );

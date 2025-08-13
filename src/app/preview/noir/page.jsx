@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import DateSelector from "../../../components/DateSelector";
 
 export default function NoirPreview() {
@@ -50,7 +51,7 @@ export default function NoirPreview() {
           <div className="mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((it, i) => (
               <article key={it.id} className="relative overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-zinc-800 hover:ring-fuchsia-400/40 transition shadow">
-                <img src={it.image} alt={it.title} className="h-48 w-full object-cover opacity-90" />
+                <Image src={it.image} alt={it.title} width={1200} height={600} className="h-48 w-full object-cover opacity-90" />
                 <div className="absolute left-3 top-3 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-fuchsia-300 ring-1 ring-fuchsia-400/40">
                   #{i + 1} • {it.score.toFixed(1)}
                 </div>

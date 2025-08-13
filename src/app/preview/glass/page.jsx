@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import DateSelector from "../../../components/DateSelector";
 
 export default function GlassPreview() {
@@ -54,7 +55,7 @@ export default function GlassPreview() {
           <div className="mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((it, i) => (
               <article key={it.id} className="relative overflow-hidden rounded-2xl bg-white/70 backdrop-blur ring-1 ring-zinc-200 shadow-sm hover:shadow-md transition">
-                <img src={it.image} alt={it.title} className="h-48 w-full object-cover" />
+                <Image src={it.image} alt={it.title} width={1200} height={600} className="h-48 w-full object-cover" />
                 <div className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium">
                   #{i + 1} • {it.score.toFixed(1)}
                 </div>

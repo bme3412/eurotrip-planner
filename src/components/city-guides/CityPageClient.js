@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription } from "@/utils/cityDataUtils";
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
+import Hero from '@/components/common/Hero';
 
 // Lazy imports for better code splitting
 import {
@@ -173,7 +175,7 @@ function CityPageClient({ cityData, cityName }) {
       case 'overview':
         return (
           <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
-            <LazyCityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} monthlyData={memoizedData.safeMonthlyEvents} />
+            <LazyCityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} monthlyData={memoizedData.safeMonthlyEvents} hideIntroHero={cityName?.toLowerCase() === 'paris'} />
           </Suspense>
         );
       case 'map':
@@ -221,7 +223,15 @@ function CityPageClient({ cityData, cityName }) {
       case 'attractions':
         return (
           <Suspense fallback={<div className="animate-pulse h-32 bg-gray-100 rounded"></div>}>
-            <LazyAttractionsList attractions={memoizedData.safeAttractions} categories={memoizedData.safeCategories} cityName={cityName} monthlyData={memoizedData.safeMonthlyEvents} />
+            <LazyAttractionsList
+              attractions={memoizedData.safeAttractions}
+              categories={memoizedData.safeCategories}
+              cityName={cityName}
+              monthlyData={memoizedData.safeMonthlyEvents}
+              experiencesUrl={`/data/France/${cityName.toLowerCase()}/${cityName.toLowerCase()}-experiences.json`}
+              limit={50}
+              forceList
+            />
           </Suspense>
         );
       case 'neighborhoods':
@@ -259,26 +269,39 @@ function CityPageClient({ cityData, cityName }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
-      {/* Hero (matches City Guides style) */}
-      <div className="px-6 pt-10 pb-6 text-center">
-        <div className="mx-auto max-w-6xl">
-          <span className="badge bg-white/80">City Guide</span>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900">{displayName}</h1>
-          <p className="mt-3 text-base md:text-lg text-zinc-700 max-w-3xl mx-auto">{description}</p>
-          <div className="mt-2 text-xs text-zinc-500">{country}</div>
+      {/* Hero */}
+      {cityName?.toLowerCase() === 'paris' ? (
+        <Hero
+          backgroundImageSrc="/images/optimized/paris-hero.jpeg"
+          backgroundAlt="Paris skyline with Eiffel Tower"
+          chipText="Discover the Timeless Elegance"
+          title="Paris"
+          subtitle="City of Light & Love"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : (
+        <div className="px-6 pt-10 pb-6 text-center">
+          <div className="mx-auto max-w-6xl">
+            <span className="badge bg-white/80">City Guide</span>
+            <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900">{displayName}</h1>
+            <p className="mt-3 text-base md:text-lg text-zinc-700 max-w-3xl mx-auto">{description}</p>
+            <div className="mt-2 text-xs text-zinc-500">{country}</div>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Tabs */}
       <div className="mx-auto max-w-6xl px-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-100">
-          <div className="flex overflow-x-auto gap-1 p-1">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
+          <div className="flex overflow-x-auto gap-1 p-2">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => handleTabSwitch(tab.id)}
                 onMouseEnter={() => preloadTab(tab.id)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-blue-600 text-white shadow-sm'
                     : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
