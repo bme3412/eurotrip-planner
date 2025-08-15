@@ -43,6 +43,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
     if (cityNameLower.includes('venice')) return "🛶";
     if (cityNameLower.includes('lisbon')) return "🌅";
     if (cityNameLower.includes('pamplona')) return "🐂";
+    if (cityNameLower.includes('reykjavik')) return "🌌";
     
     return "✨";
   };

@@ -1,0 +1,632 @@
+{
+    "destinations": [
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "France's gastronomic capital with Renaissance architecture, vibrant cultural scene, and strategic location between Paris and the Mediterranean.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "2h",
+                "frequency": "Hourly",
+                "trainType": "TGV",
+                "priceRange": "€25-80"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h10m",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "France's oldest city with vibrant multicultural atmosphere, historic port, and gateway to the Calanques National Park.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "3h20m",
+                "frequency": "Hourly",
+                "trainType": "TGV",
+                "priceRange": "€35-100"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "World-famous wine region with elegant 18th-century architecture, vibrant culinary scene, and UNESCO-listed historic center.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare Montparnasse",
+                "journeyTime": "2h10m",
+                "frequency": "Hourly",
+                "trainType": "TGV",
+                "priceRange": "€30-85"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Nantes",
+            "country": "France",
+            "whyGo": "Dynamic city with medieval architecture, vibrant cultural scene, and gateway to the Loire Valley châteaux.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare Montparnasse",
+                "journeyTime": "2h15m",
+                "frequency": "Hourly",
+                "trainType": "TGV",
+                "priceRange": "€30-90"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h20m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-230"
+            }
+        },
+        {
+            "city": "Lille",
+            "country": "France",
+            "whyGo": "Vibrant northern city with Flemish influences, excellent museums, and gateway to Belgium and the Netherlands.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "1h",
+                "frequency": "Every 30 minutes",
+                "trainType": "TGV",
+                "priceRange": "€20-60"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€70-180"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "European capital with stunning Gothic cathedral, picturesque half-timbered houses, and seat of European institutions.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "1h45m",
+                "frequency": "Hourly",
+                "trainType": "TGV",
+                "priceRange": "€25-75"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h10m",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "The 'Pink City' known for its aerospace industry, vibrant cultural scene, and beautiful brick architecture.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare Montparnasse",
+                "journeyTime": "4h20m",
+                "frequency": "Several daily",
+                "trainType": "TGV",
+                "priceRange": "€40-110"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Montpellier",
+            "country": "France",
+            "whyGo": "Dynamic university city with elegant medieval center, thriving cultural scene, and proximity to Mediterranean beaches.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "3h15m",
+                "frequency": "Multiple daily",
+                "trainType": "TGV",
+                "priceRange": "€35-95"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-240"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Beautiful Mediterranean city with stunning Promenade des Anglais, vibrant Old Town, and excellent museums.",
+            "directWithinCountryTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "5h45m",
+                "frequency": "Every 2 hours",
+                "trainType": "TGV",
+                "priceRange": "€50-130"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Vibrant capital of Belgium and the European Union, known for its historic Grand Place, Art Nouveau architecture, and excellent beer culture.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "1h30m",
+                "frequency": "Every 30 minutes",
+                "trainType": "Thalys",
+                "priceRange": "€35-90"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "4-5 times daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "3h20m",
+                "frequency": "Every 2 hours",
+                "trainType": "Thalys",
+                "priceRange": "€45-120"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Hourly",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, finance, and culture, featuring iconic landmarks and diverse neighborhoods.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare du Nord",
+                "journeyTime": "2h15m",
+                "frequency": "Hourly",
+                "trainType": "Eurostar",
+                "priceRange": "€60-200"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Hourly",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Luxembourg City",
+            "country": "Luxembourg",
+            "whyGo": "Known for its fortified medieval old town perched on sheer cliffs, modern European institutions, and multicultural atmosphere.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "2h15m",
+                "frequency": "Every 2 hours",
+                "trainType": "TGV",
+                "priceRange": "€40-100"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2 times daily",
+                "priceRange": "€75-190"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline, excellent museums, historic old town, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "3h45m",
+                "frequency": "6 times daily",
+                "trainType": "TGV",
+                "priceRange": "€50-130"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Hourly",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest celebration, beer halls, excellent museums, and beautiful architecture blending tradition and modernity.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de l'Est",
+                "journeyTime": "5h45m",
+                "frequency": "4 times daily",
+                "trainType": "TGV",
+                "priceRange": "€60-150"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Hourly",
+                "priceRange": "€90-240"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city with Red Cross headquarters, United Nations offices, beautiful lake setting, and excellent museums.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "3h5m",
+                "frequency": "Every 2 hours",
+                "trainType": "TGV Lyria",
+                "priceRange": "€45-120"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h5m",
+                "frequency": "Hourly",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for its well-preserved medieval old town, excellent museums, beautiful lake setting, and high quality of life.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "4h5m",
+                "frequency": "Every 2 hours",
+                "trainType": "TGV Lyria",
+                "priceRange": "€55-140"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-240"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "6h15m",
+                "frequency": "Twice daily",
+                "trainType": "TGV",
+                "priceRange": "€70-180"
+            },
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly",
+                    "Beauvais"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Hourly",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art, vibrant cultural scene, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h5m",
+                "frequency": "Hourly",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "The unique city of canals, gondolas, St. Mark's Square, and historic palaces.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renaissance art and architecture, world-class museums, and charming medieval streets.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-260"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-260"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€110-320"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€120-350"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant capital with rich literary heritage, excellent pubs, and friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-260"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Historic Scottish capital with stunning castle, medieval old town, and vibrant festivals.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€95-280"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient capital with Acropolis, rich history, excellent museums, and gateway to Greek islands.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "3h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€130-380"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where East meets West with stunning mosques, Grand Bazaar, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInParis": [
+                    "Charles de Gaulle",
+                    "Orly"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€120-350"
+            }
+        }
+    ]
+}
