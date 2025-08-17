@@ -99,7 +99,7 @@ export const preloadAssets = (assets) => {
     if (asset.endsWith('.mp4') || asset.endsWith('.webm')) {
       // Don't preload videos with link tags to avoid warnings
       return;
-    } else if (asset.endsWith('.jpg') || asset.endsWith('.jpeg') || asset.endsWith('.png')) {
+    } else if (asset.endsWith('.jpg') || asset.endsWith('.jpeg') || asset.endsWith('.jpeg')) {
       link.as = 'image';
     } else if (asset.endsWith('.css')) {
       link.as = 'style';

@@ -328,7 +328,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "A city steeped in history with medieval walls and architecture, Nuremberg is also famed for its traditional Christmas market.",
-      thumbnail: "/images/nuremberg-thumbnail.png",
+      thumbnail: "/images/nuremberg-thumbnail.jpeg",
       landmarks: [
         "Nuremberg Castle",
         "Documentation Centre Nazi Party Rally Grounds",
@@ -345,7 +345,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Leipzig is a cultural hub with a rich musical heritage, known for its connection to Bach, Mendelssohn, and the peaceful revolution of 1989.",
-      thumbnail: "/images/leipzig-thumbnail.png",
+      thumbnail: "/images/leipzig-thumbnail.jpeg",
       landmarks: ["St. Thomas Church", "Leipzig Opera House"],
       latitude: 51.3397,
       longitude: 12.3731,
@@ -359,7 +359,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Heidelberg is a picturesque university town, famous for its romantic castle ruins and historic old town along the Neckar River.",
-      thumbnail: "/images/heidelberg-thumbnail.png",
+      thumbnail: "/images/heidelberg-thumbnail.jpeg",
       landmarks: ["Heidelberg Castle", "Old Bridge"],
       latitude: 49.3988,
       longitude: 8.6724,
@@ -373,7 +373,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Bremen is a historic Hanseatic city known for its fairytale connection, maritime heritage, and distinctive Gothic architecture.",
-      thumbnail: "/images/bremen-thumbnail.png",
+      thumbnail: "/images/bremen-thumbnail.jpeg",
       landmarks: ["Bremen Town Musicians Statue", "Schnoor Quarter"],
       latitude: 53.0793,
       longitude: 8.8017,
@@ -387,7 +387,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Hannover combines urban innovation with natural beauty, featuring the Royal Gardens of Herrenhausen and a rebuilt historic center.",
-      thumbnail: "/images/hannover-thumbnail.png",
+      thumbnail: "/images/hannover-thumbnail.jpeg",
       landmarks: ["Herrenhausen Gardens", "New Town Hall"],
       latitude: 52.3759,
       longitude: 9.732,
@@ -445,7 +445,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "A hub for technology and design, Eindhoven is renowned for its innovation, being home to Philips and hosting the annual Dutch Design Week.",
-      thumbnail: "/images/eindhoven-thumbnail.png",
+      thumbnail: "/images/eindhoven-thumbnail.jpeg",
       landmarks: ["Philips Museum", "Strijp-S District"],
       latitude: 51.4416,
       longitude: 5.4697,
@@ -459,7 +459,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Maastricht, one of the oldest cities in the Netherlands, is famed for its picturesque squares, historical buildings, and lively culinary scene.",
-      thumbnail: "/images/maastricht-thumbnail.png",
+      thumbnail: "/images/maastricht-thumbnail.jpeg",
       landmarks: ["Vrijthof Square", "St. Servatius Basilica"],
       latitude: 50.8514,
       longitude: 5.691,
@@ -473,7 +473,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Delft is known for its iconic blue pottery, historic canals, and connection to the royal House of Orange-Nassau.",
-      thumbnail: "/images/delft-thumbnail.png",
+      thumbnail: "/images/delft-thumbnail.jpeg",
       landmarks: ["Oude Kerk", "Royal Delft Factory"],
       latitude: 51.999,
       longitude: 4.362,
@@ -487,7 +487,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Groningen is a vibrant university city in the north, known for its youthful energy, cycling culture, and historic architecture.",
-      thumbnail: "/images/groningen-thumbnail.png",
+      thumbnail: "/images/groningen-thumbnail.jpeg",
       landmarks: ["Martinitoren", "Groninger Museum"],
       latitude: 53.2194,
       longitude: 6.5665,
@@ -501,7 +501,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Haarlem offers historic charm with its medieval buildings, cobblestone streets, and proximity to tulip fields and coastal dunes.",
-      thumbnail: "/images/haarlem-thumbnail.png",
+      thumbnail: "/images/haarlem-thumbnail.jpeg",
       landmarks: ["Grote Markt", "Teylers Museum"],
       latitude: 52.3874,
       longitude: 4.6462,
@@ -517,7 +517,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Barcelona is a vibrant city known for its unique architecture, particularly the works of Antoni Gaudí, and its rich cultural heritage.",
-      thumbnail: "/images/barcelona-thumbnail.png",
+      thumbnail: "/images/barcelona-thumbnail.jpeg",
       landmarks: ["Sagrada Familia", "Park Güell", "La Rambla"],
       latitude: 41.3851,
       longitude: 2.1734,
@@ -559,7 +559,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Valencia blends futuristic architecture with historic charm, offering beautiful beaches and the birthplace of paella.",
-      thumbnail: "/images/valencia-thumbnail.png",
+      thumbnail: "/images/valencia-thumbnail.jpeg",
       landmarks: ["City of Arts and Sciences", "Valencia Cathedral"],
       latitude: 39.4699,
       longitude: -0.3763,
@@ -709,7 +709,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Bologna is known for its cuisine, medieval architecture, and the oldest university in the Western world.",
-      thumbnail: "/images/bologna-thumbnail.png",
+      thumbnail: "/images/bologna-thumbnail.jpeg",
       landmarks: ["Two Towers", "Archiginnasio"],
       latitude: 44.4949,
       longitude: 11.3426,
@@ -723,7 +723,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Palermo, Sicily's capital, showcases a unique blend of Arab-Norman architecture and Mediterranean flair.",
-      thumbnail: "/images/palermo-thumbnail.png",
+      thumbnail: "/images/palermo-thumbnail.jpeg",
       landmarks: ["Palermo Cathedral", "Quattro Canti"],
       latitude: 38.1157,
       longitude: 13.3615,
@@ -737,7 +737,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Turin combines French-influenced elegance with Italian character, known for its automotive industry and Egyptian Museum.",
-      thumbnail: "/images/turin-thumbnail.png",
+      thumbnail: "/images/turin-thumbnail.jpeg",
       landmarks: ["Mole Antonelliana", "Royal Palace of Turin"],
       latitude: 45.0703,
       longitude: 7.6869,
@@ -751,7 +751,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Verona, the setting for Shakespeare's Romeo and Juliet, enchants with its Roman arena, medieval squares, and romantic atmosphere.",
-      thumbnail: "/images/verona-thumbnail.png",
+      thumbnail: "/images/verona-thumbnail.jpeg",
       landmarks: ["Arena di Verona", "Juliet's House"],
       latitude: 45.4384,
       longitude: 10.9916,
@@ -767,7 +767,7 @@ export const getCitiesData = () => {
       region: "Imperial Cities",
       description:
         "Vienna exudes imperial charm with its classical music legacy, grand palaces, and vibrant coffeehouse culture.",
-      thumbnail: "/images/vienna-thumbnail.png",
+      thumbnail: "/images/vienna-thumbnail.jpeg",
       landmarks: [
         "Schönbrunn Palace",
         "St. Stephen's Cathedral",
@@ -785,7 +785,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Famous as the birthplace of Mozart, Salzburg enchants visitors with its baroque architecture and stunning alpine backdrop.",
-      thumbnail: "/images/salzburg-thumbnail.png",
+      thumbnail: "/images/salzburg-thumbnail.jpeg",
       landmarks: ["Hohensalzburg Fortress", "Mirabell Palace"],
       latitude: 47.8095,
       longitude: 13.055,
@@ -799,7 +799,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Nestled in the Alps, Innsbruck is renowned for its winter sports and picturesque mountain scenery.",
-      thumbnail: "/images/innsbruck-thumbnail.png",
+      thumbnail: "/images/innsbruck-thumbnail.jpeg",
       landmarks: ["Golden Roof", "Innsbruck Cathedral"],
       latitude: 47.2692,
       longitude: 11.4041,
@@ -813,7 +813,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Graz, Austria's second-largest city, features a UNESCO-listed Old Town, modern architecture, and a thriving university culture.",
-      thumbnail: "/images/graz-thumbnail.png",
+      thumbnail: "/images/graz-thumbnail.jpeg",
       landmarks: ["Schlossberg", "Kunsthaus Graz"],
       latitude: 47.0707,
       longitude: 15.4395,
@@ -827,7 +827,7 @@ export const getCitiesData = () => {
       region: "Central Europe",
       description:
         "Linz has transformed from an industrial city to a cultural center, known for its electronic arts festival and riverside views.",
-      thumbnail: "/images/linz-thumbnail.png",
+      thumbnail: "/images/linz-thumbnail.jpeg",
       landmarks: ["Pöstlingberg", "Ars Electronica Center"],
       latitude: 48.3069,
       longitude: 14.2858,
@@ -843,7 +843,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Brussels is the de facto capital of the European Union, celebrated for its historical sites, cuisine, and comic art culture.",
-      thumbnail: "/images/brussels-thumbnail.png",
+      thumbnail: "/images/brussels-thumbnail.jpeg",
       landmarks: ["Grand Place", "Atomium", "Manneken Pis"],
       latitude: 50.8503,
       longitude: 4.3517,
@@ -857,7 +857,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Antwerp is a vibrant port city with a rich history in diamond trade, art, and fashion.",
-      thumbnail: "/images/antwerp-thumbnail.png",
+      thumbnail: "/images/antwerp-thumbnail.jpeg",
       landmarks: ["Cathedral of Our Lady", "Antwerp Zoo"],
       latitude: 51.2194,
       longitude: 4.4025,
@@ -871,7 +871,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Bruges enchants visitors with its medieval architecture, romantic canals, and cobblestone streets that evoke a fairytale atmosphere.",
-      thumbnail: "/images/bruges-thumbnail.png",
+      thumbnail: "/images/bruges-thumbnail.jpeg",
       landmarks: ["Belfry of Bruges", "Markt Square"],
       latitude: 51.2093,
       longitude: 3.2247,
@@ -885,7 +885,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Ghent offers a perfect blend of historic charm and youthful energy, with its medieval architecture and vibrant university atmosphere.",
-      thumbnail: "/images/ghent-thumbnail.png",
+      thumbnail: "/images/ghent-thumbnail.jpeg",
       landmarks: ["Gravensteen Castle", "St. Bavo's Cathedral"],
       latitude: 51.0543,
       longitude: 3.7174,
@@ -899,7 +899,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Liège combines industrial heritage with cultural richness, set in the scenic valley of the Meuse River.",
-      thumbnail: "/images/liege-thumbnail.png",
+      thumbnail: "/images/liege-thumbnail.jpeg",
       landmarks: ["Montagne de Bueren", "Liège-Guillemins Station"],
       latitude: 50.6326,
       longitude: 5.5797,
@@ -915,7 +915,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Copenhagen combines historic charm with modern design, known for its cycling culture, sustainable living, and hygge lifestyle.",
-      thumbnail: "/images/copenhagen-thumbnail.png",
+      thumbnail: "/images/copenhagen-thumbnail.jpeg",
       landmarks: ["Nyhavn", "Tivoli Gardens", "Little Mermaid"],
       latitude: 55.6761,
       longitude: 12.5683,
@@ -929,7 +929,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Aarhus blends ancient Viking history with modern innovation, featuring cutting-edge museums and a bustling waterfront.",
-      thumbnail: "/images/aarhus-thumbnail.png",
+      thumbnail: "/images/aarhus-thumbnail.jpeg",
       landmarks: ["ARoS Art Museum", "Den Gamle By"],
       latitude: 56.1629,
       longitude: 10.2039,
@@ -943,7 +943,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Odense, the birthplace of Hans Christian Andersen, charms with its literary heritage, cobblestone streets, and historic homes.",
-      thumbnail: "/images/odense-thumbnail.png",
+      thumbnail: "/images/odense-thumbnail.jpeg",
       landmarks: ["Hans Christian Andersen Museum", "Saint Canute's Cathedral"],
       latitude: 55.4038,
       longitude: 10.4024,
@@ -977,7 +977,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Cork, Ireland's second city, offers a vibrant arts scene, maritime heritage, and serves as a gateway to the scenic southwest.",
-      thumbnail: "/images/cork-thumbnail.png",
+      thumbnail: "/images/cork-thumbnail.jpeg",
       landmarks: ["English Market", "Blarney Castle"],
       latitude: 51.8985,
       longitude: -8.4756,
@@ -991,7 +991,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Galway captivates with its bohemian spirit, traditional Irish music, and stunning location on the Wild Atlantic Way.",
-      thumbnail: "/images/galway-thumbnail.png",
+      thumbnail: "/images/galway-thumbnail.jpeg",
       landmarks: ["Galway Cathedral", "Spanish Arch"],
       latitude: 53.2707,
       longitude: -9.0568,
@@ -1005,7 +1005,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Limerick combines medieval history with Georgian elegance, situated along the majestic River Shannon.",
-      thumbnail: "/images/limerick-thumbnail.png",
+      thumbnail: "/images/limerick-thumbnail.jpeg",
       landmarks: ["King John's Castle", "Hunt Museum"],
       latitude: 52.668,
       longitude: -8.6305,
@@ -1021,7 +1021,7 @@ export const getCitiesData = () => {
       region: "Atlantic Islands",
       description:
         "Lisbon, perched on seven hills, offers a blend of traditional heritage and striking modernism, with a scenic riverside setting.",
-      thumbnail: "/images/lisbon-thumbnail.png",
+      thumbnail: "/images/lisbon-thumbnail.jpeg",
       landmarks: ["Belém Tower", "Jerónimos Monastery", "Alfama District"],
       latitude: 38.7223,
       longitude: -9.1393,
@@ -1035,7 +1035,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Porto is known for its historic center, vibrant wine culture, and dramatic riverside landscapes.",
-      thumbnail: "/images/porto-thumbnail.png",
+      thumbnail: "/images/porto-thumbnail.jpeg",
       landmarks: ["Dom Luís I Bridge", "Livraria Lello", "Clérigos Tower"],
       latitude: 41.1579,
       longitude: -8.6291,
@@ -1049,7 +1049,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Faro, the gateway to the Algarve, combines a historic old town with nearby golden beaches and natural reserves.",
-      thumbnail: "/images/faro-thumbnail.png",
+      thumbnail: "/images/faro-thumbnail.jpeg",
       landmarks: ["Arco da Vila", "Faro Cathedral"],
       latitude: 37.0194,
       longitude: -7.9304,
@@ -1063,7 +1063,7 @@ export const getCitiesData = () => {
       region: "Atlantic Europe",
       description:
         "Coimbra, home to one of Europe's oldest universities, offers rich academic traditions, medieval architecture, and Fado music.",
-      thumbnail: "/images/coimbra-thumbnail.png",
+      thumbnail: "/images/coimbra-thumbnail.jpeg",
       landmarks: ["University of Coimbra", "Old Cathedral of Coimbra"],
       latitude: 40.2056,
       longitude: -8.429,
@@ -1077,7 +1077,7 @@ export const getCitiesData = () => {
       region: "Atlantic Islands",
       description:
         "Funchal, the capital of Madeira Island, features subtropical gardens, volcanic landscapes, and a picturesque harbor.",
-      thumbnail: "/images/funchal-thumbnail.png",
+      thumbnail: "/images/funchal-thumbnail.jpeg",
       landmarks: ["Monte Cable Car", "Madeira Botanical Garden"],
       latitude: 32.6669,
       longitude: -16.9241,
@@ -1093,7 +1093,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Athens is a city where ancient history meets modern urban life, boasting iconic ruins and lively neighborhoods.",
-      thumbnail: "/images/athens-thumbnail.png",
+      thumbnail: "/images/athens-thumbnail.jpeg",
       landmarks: ["Acropolis", "Parthenon", "Plaka"],
       latitude: 37.9838,
       longitude: 23.7275,
@@ -1107,7 +1107,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Thessaloniki blends Byzantine heritage with a vibrant waterfront and cultural scene as Greece's second-largest city.",
-      thumbnail: "/images/thessaloniki-thumbnail.png",
+      thumbnail: "/images/thessaloniki-thumbnail.jpeg",
       landmarks: ["White Tower", "Rotunda"],
       latitude: 40.6401,
       longitude: 22.9444,
@@ -1121,7 +1121,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Heraklion, Crete's capital, combines ancient Minoan heritage with a lively modern atmosphere.",
-      thumbnail: "/images/heraklion-thumbnail.png",
+      thumbnail: "/images/heraklion-thumbnail.jpeg",
       landmarks: ["Palace of Knossos", "Heraklion Archaeological Museum"],
       latitude: 35.3387,
       longitude: 25.1442,
@@ -1135,7 +1135,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Rhodes Town features a UNESCO-listed medieval Old Town enclosed within impressive fortress walls.",
-      thumbnail: "/images/rhodes-thumbnail.png",
+      thumbnail: "/images/rhodes-thumbnail.jpeg",
       landmarks: ["Palace of the Grand Master", "Street of the Knights"],
       latitude: 36.4349,
       longitude: 28.2176,
@@ -1149,7 +1149,7 @@ export const getCitiesData = () => {
       region: "Mediterranean",
       description:
         "Santorini captivates with its iconic white-washed buildings perched on volcanic cliffs overlooking the azure Aegean Sea.",
-      thumbnail: "/images/santorini-thumbnail.png",
+      thumbnail: "/images/santorini-thumbnail.jpeg",
       landmarks: ["Oia Village", "Akrotiri Archaeological Site"],
       latitude: 36.3932,
       longitude: 25.4615,
@@ -1165,7 +1165,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Stockholm is built on a series of islands and is renowned for its stunning waterfront, historic core, and innovative design scene.",
-      thumbnail: "/images/stockholm-thumbnail.png",
+      thumbnail: "/images/stockholm-thumbnail.jpeg",
       landmarks: ["Gamla Stan", "Vasa Museum", "Royal Palace"],
       latitude: 59.3293,
       longitude: 18.0686,
@@ -1179,7 +1179,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Gothenburg offers maritime charm with its harbor, canals, and relaxed atmosphere as Sweden's second-largest city.",
-      thumbnail: "/images/gothenburg-thumbnail.png",
+      thumbnail: "/images/gothenburg-thumbnail.jpeg",
       landmarks: ["Liseberg Amusement Park", "Gothenburg Archipelago"],
       latitude: 57.7089,
       longitude: 11.9746,
@@ -1193,7 +1193,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Malmö combines historic roots with modern sustainability, connected to Copenhagen by the Öresund Bridge.",
-      thumbnail: "/images/malmo-thumbnail.png",
+      thumbnail: "/images/malmo-thumbnail.jpeg",
       landmarks: ["Turning Torso", "Malmö Castle"],
       latitude: 55.605,
       longitude: 13.0038,
@@ -1207,7 +1207,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Uppsala, Sweden's fourth-largest city, is known for its prestigious university, Gothic cathedral, and Viking heritage.",
-      thumbnail: "/images/uppsala-thumbnail.png",
+      thumbnail: "/images/uppsala-thumbnail.jpeg",
       landmarks: ["Uppsala Cathedral", "Uppsala University"],
       latitude: 59.8586,
       longitude: 17.6389,
@@ -1223,7 +1223,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Oslo offers a unique blend of modern architecture and natural beauty, set against a backdrop of fjords and forested hills.",
-      thumbnail: "/images/oslo-thumbnail.png",
+      thumbnail: "/images/oslo-thumbnail.jpeg",
       landmarks: [
         "Vigeland Sculpture Park",
         "Akershus Fortress",
@@ -1241,7 +1241,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Bergen enchants with its colorful wooden houses along the old wharf, surrounded by seven mountains and fjords.",
-      thumbnail: "/images/bergen-thumbnail.png",
+      thumbnail: "/images/bergen-thumbnail.jpeg",
       landmarks: ["Bryggen Hanseatic Wharf", "Mount Fløyen"],
       latitude: 60.3913,
       longitude: 5.3221,
@@ -1255,7 +1255,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Trondheim, Norway's third-largest city and former capital, features colorful warehouses and a stunning Gothic cathedral.",
-      thumbnail: "/images/trondheim-thumbnail.png",
+      thumbnail: "/images/trondheim-thumbnail.jpeg",
       landmarks: ["Nidaros Cathedral", "Old Town Bridge"],
       latitude: 63.4305,
       longitude: 10.3951,
@@ -1269,7 +1269,7 @@ export const getCitiesData = () => {
       region: "Arctic",
       description:
         "Tromsø, located above the Arctic Circle, offers northern lights viewing, midnight sun, and a vibrant cultural scene.",
-      thumbnail: "/images/tromso-thumbnail.png",
+      thumbnail: "/images/tromso-thumbnail.jpeg",
       landmarks: ["Arctic Cathedral", "Polaria"],
       latitude: 69.6492,
       longitude: 18.956,
@@ -1283,7 +1283,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Stavanger blends old-world charm with modern energy, serving as the gateway to spectacular fjords and the famous Pulpit Rock.",
-      thumbnail: "/images/stavanger-thumbnail.png",
+      thumbnail: "/images/stavanger-thumbnail.jpeg",
       landmarks: ["Old Stavanger", "Norwegian Petroleum Museum"],
       latitude: 58.969,
       longitude: 5.7331,
@@ -1299,7 +1299,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Helsinki is known for its design-driven culture, maritime charm, and a mix of modern and neoclassical architecture.",
-      thumbnail: "/images/helsinki-thumbnail.png",
+      thumbnail: "/images/helsinki-thumbnail.jpeg",
       landmarks: ["Helsinki Cathedral", "Suomenlinna", "Market Square"],
       latitude: 60.1699,
       longitude: 24.9384,
@@ -1313,7 +1313,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Tampere, located between two lakes, was a historical industrial center that has transformed into a hub for culture and technology.",
-      thumbnail: "/images/tampere-thumbnail.png",
+      thumbnail: "/images/tampere-thumbnail.jpeg",
       landmarks: ["Tampere Cathedral", "Särkänniemi Amusement Park"],
       latitude: 61.4978,
       longitude: 23.761,
@@ -1327,7 +1327,7 @@ export const getCitiesData = () => {
       region: "Celtic & Nordic",
       description:
         "Turku, Finland's oldest city and former capital, offers medieval heritage, an archipelago, and a lively cultural scene.",
-      thumbnail: "/images/turku-thumbnail.png",
+      thumbnail: "/images/turku-thumbnail.jpeg",
       landmarks: ["Turku Castle", "Turku Cathedral"],
       latitude: 60.4518,
       longitude: 22.2666,
@@ -1341,7 +1341,7 @@ export const getCitiesData = () => {
       region: "Arctic",
       description:
         'Rovaniemi, the "official hometown of Santa Claus," is the gateway to Lapland, offering Arctic adventures and Northern Lights.',
-      thumbnail: "/images/rovaniemi-thumbnail.png",
+      thumbnail: "/images/rovaniemi-thumbnail.jpeg",
       landmarks: ["Santa Claus Village", "Arktikum Science Museum"],
       latitude: 66.5039,
       longitude: 25.7294,
@@ -1357,7 +1357,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Zurich is Switzerland's financial center, offering a mix of medieval charm, modern amenities, and lakeside beauty.",
-      thumbnail: "/images/zurich-thumbnail.png",
+      thumbnail: "/images/zurich-thumbnail.jpeg",
       landmarks: ["Lake Zurich", "Old Town", "Bahnhofstrasse"],
       latitude: 47.3769,
       longitude: 8.5417,
@@ -1371,7 +1371,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Geneva, a global hub for diplomacy, combines French influence, a magnificent lakefront, and mountain views.",
-      thumbnail: "/images/geneva-thumbnail.png",
+      thumbnail: "/images/geneva-thumbnail.jpeg",
       landmarks: ["Jet d'Eau", "Palais des Nations"],
       latitude: 46.2044,
       longitude: 6.1432,
@@ -1385,7 +1385,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Basel, at the meeting point of three countries, is renowned for its art, architecture, and pharmaceutical industry.",
-      thumbnail: "/images/basel-thumbnail.png",
+      thumbnail: "/images/basel-thumbnail.jpeg",
       landmarks: ["Basel Minster", "Kunstmuseum Basel"],
       latitude: 47.5596,
       longitude: 7.5886,
@@ -1399,7 +1399,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Bern, Switzerland's capital, charms with its medieval old town, covered arcades, and scenic Aare River.",
-      thumbnail: "/images/bern-thumbnail.png",
+      thumbnail: "/images/bern-thumbnail.jpeg",
       landmarks: ["Clock Tower (Zytglogge)", "Federal Palace"],
       latitude: 46.948,
       longitude: 7.4474,
@@ -1413,7 +1413,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Lucerne offers picture-perfect lake and mountain scenery, with its iconic wooden bridge and well-preserved medieval core.",
-      thumbnail: "/images/lucerne-thumbnail.png",
+      thumbnail: "/images/lucerne-thumbnail.jpeg",
       landmarks: ["Chapel Bridge", "Lion Monument"],
       latitude: 47.0502,
       longitude: 8.3093,
@@ -1427,7 +1427,7 @@ export const getCitiesData = () => {
       region: "Alpine",
       description:
         "Lausanne, home to the International Olympic Committee, offers spectacular views of Lake Geneva and the Alps.",
-      thumbnail: "/images/lausanne-thumbnail.png",
+      thumbnail: "/images/lausanne-thumbnail.jpeg",
       landmarks: ["Lausanne Cathedral", "Olympic Museum"],
       latitude: 46.5197,
       longitude: 6.6336,

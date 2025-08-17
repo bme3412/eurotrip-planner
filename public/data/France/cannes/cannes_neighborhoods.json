@@ -1,600 +1,876 @@
 {
-  "neighborhoods": [
-    {
-      "name": "La Croisette",
-      "alternate_names": [
-        "Boulevard de la Croisette",
-        "The Promenade"
-      ],
-      "character": "The glamorous heart of Cannes, famous for its luxury hotels, designer boutiques, palm-lined promenade, and as the center of the Cannes Film Festival.",
-      "location": {
-        "central": true,
-        "description": "Stretching along the Mediterranean coastline, La Croisette is Cannes' most prestigious avenue, connecting the Film Festival Palace with the eastern beaches.",
-        "borders": [
-          "Le Suquet",
-          "Californie",
-          "City Center"
-        ],
-        "landmarks": [
-          "Palais des Festivals et des Congrès",
-          "Carlton Hotel",
-          "Palm Beach"
-        ]
-      },
-      "history": {
-        "overview": "Originally a simple fishing village path, La Croisette was transformed in the 19th century into a luxurious promenade that became synonymous with glamour and celebrity.",
-        "significance": "The embodiment of the French Riviera's elegance and the global symbol of Cannes as a luxury destination.",
-        "notable_events": [
-          "Cannes Film Festival annual red carpet",
-          "Belle Époque development of grand hotels"
-        ]
-      },
-      "practical_info": {
-        "transit": [
-          "Bus routes along the boulevard (Lines 1, 2, 8, 9)",
-          "Taxis readily available 24/7",
-          "Cannes train station nearby (15 min walk)",
-          "Bicycle rental available"
-        ],
-        "safety": "Very safe with security presence, particularly during major events and high season. Well-lit at night with regular police patrols.",
-        "best_time_to_visit": "Early morning for a peaceful stroll or evening for the vibrant atmosphere and sunset views. Avoid peak Film Festival times for quieter experience.",
-        "walkability": "Extremely walkable with wide sidewalks and dedicated pedestrian areas. Wheelchair accessible throughout most of the boulevard.",
-        "parking": "Multiple paid parking lots along the boulevard. Underground parking available at major hotels.",
-        "accessibility": "Most areas wheelchair accessible. Elevators available at major hotels and shopping centers."
-      },
-      "appeal": {
-        "known_for": [
-          "Luxury shopping",
-          "Celebrity sightings",
-          "Beach clubs",
-          "Film Festival"
-        ],
-        "atmosphere": [
-          "Glamorous",
-          "Sophisticated",
-          "Vibrant"
-        ],
-        "best_for": [
-          "Luxury travelers",
-          "Fashion enthusiasts",
-          "Celebrity watchers",
-          "Beach lovers"
-        ]
-      },
-      "categories": {
-        "touristy": 5,
-        "residential": 2,
-        "green_spaces": 3,
-        "shopping": 5,
-        "dining": 5,
-        "nightlife": 4,
-        "cultural": 4,
-        "historic": 3
-      },
-      "highlights": {
-        "attractions": [
-          {
-            "name": "Palais des Festivals et des Congrès",
-            "type": "Cultural venue",
-            "description": "The iconic venue hosting the Cannes Film Festival with its famous red carpet steps.",
-            "appeal": "A must-see landmark representing Cannes' cinematic heritage."
-          },
-          {
-            "name": "Carlton Beach",
-            "type": "Private beach club",
-            "description": "Elegant beach club affiliated with the historic Carlton hotel.",
-            "appeal": "Experience the Riviera lifestyle with premium beach service."
-          },
-          {
-            "name": "La Croisette Gardens",
-            "type": "Public gardens",
-            "description": "Manicured gardens with palm trees and sculptures along the boulevard.",
-            "appeal": "Offers serene spots amid the bustling promenade."
-          }
-        ],
-        "dining": [
-          {
-            "name": "La Palme d'Or",
-            "cuisine": "French Haute Cuisine",
-            "price_range": "€€€€",
-            "known_for": "Michelin-starred dining with Mediterranean views",
-            "atmosphere": "Elegant and refined"
-          },
-          {
-            "name": "Baoli",
-            "cuisine": "Mediterranean Fusion",
-            "price_range": "€€€",
-            "known_for": "Celebrity clientele and beachfront dining",
-            "atmosphere": "Trendy and exclusive"
-          },
-          {
-            "name": "Carlton Restaurant",
-            "cuisine": "Classic French",
-            "price_range": "€€€",
-            "known_for": "Historic setting with terrace views",
-            "atmosphere": "Sophisticated and timeless"
-          }
-        ],
-        "activities": [
-          {
-            "name": "Luxury Shopping",
-            "type": "Retail experience",
-            "description": "Browse international designer boutiques like Chanel, Dior, and Louis Vuitton.",
-            "suitable_for": [
-              "Fashion enthusiasts",
-              "Luxury shoppers"
+    "neighborhoods": [
+        {
+            "name": "La Croisette",
+            "alternate_names": [
+                "Boulevard de la Croisette",
+                "The Croisette"
+            ],
+            "character": "The glamorous heart of Cannes, featuring luxury hotels, designer boutiques, and the famous palm-lined promenade along the Mediterranean coast.",
+            "location": {
+                "central": true,
+                "description": "Located along the Mediterranean coast, stretching from the Palais des Festivals to the eastern edge of Cannes.",
+                "borders": [
+                    "Palais des Festivals",
+                    "Port Pierre Canto",
+                    "Mediterranean Sea"
+                ],
+                "landmarks": [
+                    "Palais des Festivals et des Congrès",
+                    "Hotel Carlton",
+                    "Hotel Martinez",
+                    "Grand Hyatt Cannes"
+                ]
+            },
+            "history": {
+                "overview": "Developed in the 19th century as a luxury resort area, La Croisette became the symbol of Cannes' glamorous reputation.",
+                "significance": "Home to the Cannes Film Festival and the most prestigious hotels and boutiques on the French Riviera.",
+                "notable_events": [
+                    "First Cannes Film Festival in 1946",
+                    "Development of luxury hotels in the 1920s"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Central bus stops along the boulevard",
+                    "Walking distance to Palais des Festivals",
+                    "Taxi stands at major hotels"
+                ],
+                "safety": "Very safe with constant foot traffic and security presence.",
+                "best_time_to_visit": "Evening for glamorous atmosphere, morning for shopping, sunset for promenade walks.",
+                "walkability": "Excellent with wide pedestrian promenade and flat terrain."
+            },
+            "appeal": {
+                "known_for": [
+                    "Film Festival",
+                    "Luxury shopping",
+                    "Beach clubs",
+                    "Celebrity spotting"
+                ],
+                "atmosphere": [
+                    "Glamorous",
+                    "Luxurious",
+                    "International",
+                    "Sophisticated"
+                ],
+                "best_for": [
+                    "Luxury travelers",
+                    "Film enthusiasts",
+                    "Shopping lovers",
+                    "Celebrity watchers"
+                ]
+            },
+            "categories": {
+                "touristy": 5,
+                "residential": 1,
+                "green_spaces": 3,
+                "shopping": 5,
+                "dining": 5,
+                "nightlife": 4,
+                "cultural": 5,
+                "historic": 4
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Palais des Festivals",
+                        "type": "Convention Center",
+                        "description": "Iconic venue of the Cannes Film Festival with famous red carpet steps.",
+                        "appeal": "Essential visit to walk the same steps as movie stars."
+                    },
+                    {
+                        "name": "La Croisette Promenade",
+                        "type": "Promenade",
+                        "description": "Famous palm-lined boulevard with luxury boutiques and Mediterranean views.",
+                        "appeal": "Perfect for people-watching and experiencing Cannes' glamour."
+                    },
+                    {
+                        "name": "Plage de la Croisette",
+                        "type": "Beach",
+                        "description": "Main beach with both public areas and exclusive beach clubs.",
+                        "appeal": "Swimming, sunbathing, and luxury beach experiences."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "La Palme d'Or",
+                        "cuisine": "French Haute Cuisine",
+                        "price_range": "€€€€",
+                        "known_for": "2 Michelin stars at Hotel Martinez",
+                        "atmosphere": "Ultra-luxurious fine dining"
+                    },
+                    {
+                        "name": "Astoux et Brun",
+                        "cuisine": "Seafood",
+                        "price_range": "€€",
+                        "known_for": "Famous seafood platters",
+                        "atmosphere": "Lively brasserie atmosphere"
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Red Carpet Walk",
+                        "type": "Cultural activity",
+                        "description": "Walk the famous red steps where movie stars make their entrance.",
+                        "suitable_for": [
+                            "Film enthusiasts",
+                            "Tourists",
+                            "Photographers"
+                        ]
+                    },
+                    {
+                        "name": "Luxury Shopping",
+                        "type": "Shopping",
+                        "description": "Browse designer boutiques and luxury brands.",
+                        "suitable_for": [
+                            "Luxury shoppers",
+                            "Fashion enthusiasts"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You want to be at the heart of Cannes' glamour and luxury",
+                "You're attending the Film Festival or business events",
+                "You prefer luxury accommodations and high-end shopping"
+            ],
+            "avoid_if": [
+                "You're on a budget",
+                "You prefer quiet, residential atmosphere",
+                "You want to avoid tourist crowds"
+            ],
+            "insider_tips": [
+                "Visit early morning to avoid crowds and get the best photos of the Palais.",
+                "Book beach club reservations well in advance during peak season.",
+                "The promenade is most magical during sunset hours."
             ]
-          },
-          {
-            "name": "Beach Club Day",
-            "type": "Leisure activity",
-            "description": "Spend a day at one of the prestigious private beaches with full service.",
-            "suitable_for": [
-              "Sunbathers",
-              "Couples",
-              "Social scene lovers"
+        },
+        {
+            "name": "Le Suquet",
+            "alternate_names": [
+                "Old Town",
+                "Historic Quarter"
+            ],
+            "character": "Cannes' charming historic quarter perched on a hill, featuring narrow cobblestone streets, authentic restaurants, and panoramic views over the bay.",
+            "location": {
+                "central": true,
+                "description": "Located on a hill overlooking the port and bay, connected to the modern city by steep streets and staircases.",
+                "borders": [
+                    "Port de Cannes",
+                    "Centre-ville",
+                    "Hillside residential areas"
+                ],
+                "landmarks": [
+                    "Église Notre-Dame de l'Espérance",
+                    "Musée de la Castre",
+                    "Place de la Castre",
+                    "Historic ramparts"
+                ]
+            },
+            "history": {
+                "overview": "The original settlement of Cannes, dating back to Roman times, with medieval fortifications and traditional Provençal architecture.",
+                "significance": "Historic heart of Cannes, preserving the authentic character before the luxury development of La Croisette.",
+                "notable_events": [
+                    "Roman settlement",
+                    "Medieval fortifications",
+                    "Traditional fishing village development"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Walking access from port area",
+                    "Steep climbs required",
+                    "Limited vehicle access"
+                ],
+                "safety": "Very safe with good lighting and regular foot traffic.",
+                "best_time_to_visit": "Afternoon for dining, evening for atmosphere, morning for peaceful exploration.",
+                "walkability": "Challenging due to steep hills and cobblestone streets, but very rewarding."
+            },
+            "appeal": {
+                "known_for": [
+                    "Historic architecture",
+                    "Authentic restaurants",
+                    "Panoramic views",
+                    "Local atmosphere"
+                ],
+                "atmosphere": [
+                    "Historic",
+                    "Authentic",
+                    "Charming",
+                    "Local"
+                ],
+                "best_for": [
+                    "History enthusiasts",
+                    "Food lovers",
+                    "Photography enthusiasts",
+                    "Culture seekers"
+                ]
+            },
+            "categories": {
+                "touristy": 3,
+                "residential": 4,
+                "green_spaces": 2,
+                "shopping": 2,
+                "dining": 5,
+                "nightlife": 3,
+                "cultural": 5,
+                "historic": 5
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Musée de la Castre",
+                        "type": "Museum",
+                        "description": "Medieval castle housing diverse collections with spectacular tower views.",
+                        "appeal": "Best panoramic views of Cannes and the bay from the tower."
+                    },
+                    {
+                        "name": "Église Notre-Dame de l'Espérance",
+                        "type": "Church",
+                        "description": "16th-century church with beautiful religious art and terrace views.",
+                        "appeal": "Historic religious site with stunning bay views."
+                    },
+                    {
+                        "name": "Historic Streets",
+                        "type": "Architecture",
+                        "description": "Narrow cobblestone streets with traditional Provençal buildings.",
+                        "appeal": "Authentic atmosphere and beautiful architecture."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Le Mesclun",
+                        "cuisine": "Contemporary Provençal",
+                        "price_range": "€€€",
+                        "known_for": "Famous bouillabaisse and Provençal cuisine",
+                        "atmosphere": "Intimate and sophisticated"
+                    },
+                    {
+                        "name": "Chez Vincent",
+                        "cuisine": "Traditional Provençal",
+                        "price_range": "€€",
+                        "known_for": "Authentic local dishes",
+                        "atmosphere": "Family bistro with checkered tablecloths"
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Historic Walking Tour",
+                        "type": "Cultural tour",
+                        "description": "Explore the medieval streets and learn about Cannes' history.",
+                        "suitable_for": [
+                            "History buffs",
+                            "Culture enthusiasts"
+                        ]
+                    },
+                    {
+                        "name": "Sunset Photography",
+                        "type": "Photography",
+                        "description": "Capture stunning sunset views over the bay from elevated positions.",
+                        "suitable_for": [
+                            "Photographers",
+                            "Romantic couples"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You want authentic local atmosphere and historic charm",
+                "You prefer walking to restaurants and cultural sites",
+                "You enjoy panoramic views and quiet evenings"
+            ],
+            "avoid_if": [
+                "You have mobility issues (steep hills)",
+                "You prefer modern accommodations",
+                "You want easy access to luxury shopping"
+            ],
+            "insider_tips": [
+                "Wear comfortable shoes for the steep cobblestone streets.",
+                "Many restaurants don't take reservations - arrive early for dinner.",
+                "Best photos are taken during golden hour from the church terrace."
             ]
-          }
-        ]
-      },
-      "stay_here_if": [
-        "You want to be at the center of Cannes' glamour and prestige",
-        "You enjoy luxury shopping and fine dining",
-        "You're attending the Film Festival or other major events"
-      ],
-      "avoid_if": [
-        "You're seeking authentic local experiences",
-        "You prefer quiet, residential areas",
-        "You're traveling on a budget"
-      ],
-      "insider_tips": [
-        "Visit during non-festival times for a more relaxed experience of La Croisette.",
-        "The public beaches at the eastern end are less crowded than the central areas.",
-        "Some hotel bars welcome non-guests for sunset cocktails with panoramic views."
-      ]
-    },
-    {
-      "name": "Le Suquet",
-      "alternate_names": [
-        "Old Town",
-        "Vieux Cannes"
-      ],
-      "character": "The historic heart of Cannes with charming cobblestone streets, panoramic views, and authentic Provençal character that contrasts with the modern glamour of La Croisette.",
-      "location": {
-        "central": true,
-        "description": "Perched on a hill overlooking the Bay of Cannes, Le Suquet is the original fishermen's quarter that predates the city's transformation into a resort destination.",
-        "borders": [
-          "La Croisette",
-          "Le Port",
-          "City Center"
-        ],
-        "landmarks": [
-          "Tour du Suquet",
-          "Notre-Dame d'Espérance",
-          "Musée de la Castre",
-          "Marché Forville"
-        ]
-      },
-      "history": {
-        "overview": "Dating back to Roman times, Le Suquet was initially a fortified settlement that protected the coast from invasions before evolving into a fishing village.",
-        "significance": "Represents the authentic roots of Cannes before its 19th-century transformation into a luxury resort town.",
-        "notable_events": [
-          "Medieval fortification development",
-          "Resistance against Barbary pirates",
-          "Annual Saint-Honorat celebrations"
-        ]
-      },
-      "practical_info": {
-        "transit": [
-          "Bus stops at the base of the hill",
-          "Best accessed on foot",
-          "Limited parking available"
-        ],
-        "safety": "Very safe neighborhood, though steep streets require caution, especially at night.",
-        "best_time_to_visit": "Early evening for spectacular sunset views over the bay or morning to visit the market.",
-        "walkability": "Highly walkable but with steep inclines and cobblestone streets that may challenge some visitors."
-      },
-      "appeal": {
-        "known_for": [
-          "Historic architecture",
-          "Panoramic views",
-          "Local restaurants",
-          "Authentic atmosphere"
-        ],
-        "atmosphere": [
-          "Charming",
-          "Romantic",
-          "Traditional"
-        ],
-        "best_for": [
-          "History enthusiasts",
-          "Photographers",
-          "Couples",
-          "Food lovers"
-        ]
-      },
-      "categories": {
-        "touristy": 4,
-        "residential": 4,
-        "green_spaces": 2,
-        "shopping": 3,
-        "dining": 4,
-        "nightlife": 3,
-        "cultural": 4,
-        "historic": 5
-      },
-      "highlights": {
-        "attractions": [
-          {
-            "name": "Tour du Suquet",
-            "type": "Historic tower",
-            "description": "Medieval watchtower offering 360-degree views of Cannes and the Mediterranean.",
-            "appeal": "The best viewpoint in Cannes for photography and orientation."
-          },
-          {
-            "name": "Notre-Dame d'Espérance",
-            "type": "Church",
-            "description": "15th-century Gothic church with maritime elements in its decoration.",
-            "appeal": "A peaceful sanctuary with historical significance to local fishermen."
-          },
-          {
-            "name": "Musée de la Castre",
-            "type": "Museum",
-            "description": "Housed in a medieval castle, featuring primitive art and Mediterranean antiquities.",
-            "appeal": "Combines cultural exhibits with spectacular views from the museum grounds."
-          }
-        ],
-        "dining": [
-          {
-            "name": "La Toque d'Or",
-            "cuisine": "Provençal",
-            "price_range": "€€",
-            "known_for": "Traditional local dishes with a modern twist",
-            "atmosphere": "Intimate with terrace dining"
-          },
-          {
-            "name": "Le Bistrot Gourmand",
-            "cuisine": "Mediterranean",
-            "price_range": "€€",
-            "known_for": "Fresh seafood and regional specialties",
-            "atmosphere": "Cozy and authentic"
-          },
-          {
-            "name": "Table 22",
-            "cuisine": "Creative French",
-            "price_range": "€€€",
-            "known_for": "Innovative menu in a historic setting",
-            "atmosphere": "Sophisticated yet welcoming"
-          }
-        ],
-        "activities": [
-          {
-            "name": "Historical Walking Tour",
-            "type": "Guided tour",
-            "description": "Explore the winding streets and discover the history of Cannes' oldest neighborhood.",
-            "suitable_for": [
-              "History buffs",
-              "Photographers",
-              "Cultural tourists"
+        },
+        {
+            "name": "Centre-ville",
+            "alternate_names": [
+                "City Center",
+                "Downtown"
+            ],
+            "character": "The bustling commercial heart of Cannes, featuring shopping streets, markets, and a mix of local and tourist amenities.",
+            "location": {
+                "central": true,
+                "description": "Located between La Croisette and Le Suquet, centered around Rue d'Antibes and Marché Forville.",
+                "borders": [
+                    "La Croisette",
+                    "Le Suquet",
+                    "Port de Cannes",
+                    "Residential areas"
+                ],
+                "landmarks": [
+                    "Marché Forville",
+                    "Rue d'Antibes",
+                    "Allées de la Liberté",
+                    "Place Gambetta"
+                ]
+            },
+            "history": {
+                "overview": "Developed as the commercial and administrative center of Cannes, connecting the historic quarter with the luxury resort area.",
+                "significance": "Practical heart of daily life in Cannes, serving both locals and visitors with essential services.",
+                "notable_events": [
+                    "Development of commercial district",
+                    "Market establishment",
+                    "Urban planning projects"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Central bus hub",
+                    "Walking distance to all major areas",
+                    "Parking available"
+                ],
+                "safety": "Very safe with constant activity and good lighting.",
+                "best_time_to_visit": "Morning for markets, afternoon for shopping, evening for dining.",
+                "walkability": "Excellent with pedestrian streets and flat terrain."
+            },
+            "appeal": {
+                "known_for": [
+                    "Shopping",
+                    "Markets",
+                    "Local life",
+                    "Practical amenities"
+                ],
+                "atmosphere": [
+                    "Bustling",
+                    "Commercial",
+                    "Local",
+                    "Practical"
+                ],
+                "best_for": [
+                    "Shoppers",
+                    "Market enthusiasts",
+                    "Practical travelers",
+                    "Local culture seekers"
+                ]
+            },
+            "categories": {
+                "touristy": 3,
+                "residential": 3,
+                "green_spaces": 2,
+                "shopping": 5,
+                "dining": 4,
+                "nightlife": 3,
+                "cultural": 3,
+                "historic": 3
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Marché Forville",
+                        "type": "Market",
+                        "description": "Vibrant covered market with fresh produce, local specialties, and flowers.",
+                        "appeal": "Authentic taste of local life and fresh ingredients."
+                    },
+                    {
+                        "name": "Rue d'Antibes",
+                        "type": "Shopping street",
+                        "description": "Main shopping street with mix of international brands and local boutiques.",
+                        "appeal": "More accessible shopping than La Croisette luxury boutiques."
+                    },
+                    {
+                        "name": "Allées de la Liberté",
+                        "type": "Square",
+                        "description": "Charming square with pétanque court and local atmosphere.",
+                        "appeal": "Authentic local experience and people-watching."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Côté Jardin",
+                        "cuisine": "Garden Bistro",
+                        "price_range": "€€",
+                        "known_for": "Garden terrace and fresh market ingredients",
+                        "atmosphere": "Peaceful and charming"
+                    },
+                    {
+                        "name": "Le Comptoir des Vins",
+                        "cuisine": "Wine Bar & Bistro",
+                        "price_range": "€€",
+                        "known_for": "Excellent wine selection and charcuterie",
+                        "atmosphere": "Cozy and sophisticated"
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Market Shopping",
+                        "type": "Cultural activity",
+                        "description": "Experience local life at the traditional Provençal market.",
+                        "suitable_for": [
+                            "Food lovers",
+                            "Culture seekers",
+                            "Photographers"
+                        ]
+                    },
+                    {
+                        "name": "Shopping Spree",
+                        "type": "Shopping",
+                        "description": "Browse shops ranging from local boutiques to international brands.",
+                        "suitable_for": [
+                            "Shoppers",
+                            "Fashion enthusiasts"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You want convenient access to shopping and markets",
+                "You prefer practical amenities and local atmosphere",
+                "You want to be central but not in the luxury district"
+            ],
+            "avoid_if": [
+                "You prefer luxury accommodations",
+                "You want to avoid commercial activity",
+                "You seek quiet residential atmosphere"
+            ],
+            "insider_tips": [
+                "Visit the market early morning for best selection and fewer crowds.",
+                "Rue d'Antibes offers better value than La Croisette luxury boutiques.",
+                "Many restaurants offer better prices than waterfront dining."
             ]
-          },
-          {
-            "name": "Marché Forville Visit",
-            "type": "Market experience",
-            "description": "Browse the daily market at the foot of Le Suquet for local produce, flowers, and Provençal specialties.",
-            "suitable_for": [
-              "Foodies",
-              "Cooking enthusiasts",
-              "Souvenir hunters"
+        },
+        {
+            "name": "Port de Cannes",
+            "alternate_names": [
+                "Old Port",
+                "Vieux Port"
+            ],
+            "character": "The historic fishing port transformed into a modern marina, featuring waterfront restaurants, boat watching, and maritime atmosphere.",
+            "location": {
+                "central": true,
+                "description": "Located at the base of Le Suquet, extending along the waterfront with the marina and fishing port.",
+                "borders": [
+                    "Le Suquet",
+                    "Centre-ville",
+                    "Mediterranean Sea"
+                ],
+                "landmarks": [
+                    "Marina",
+                    "Fishing port",
+                    "Waterfront promenade",
+                    "Boat charter companies"
+                ]
+            },
+            "history": {
+                "overview": "Traditional fishing port that has evolved into a modern marina while maintaining its maritime character.",
+                "significance": "Historic maritime heart of Cannes, connecting the city to the Mediterranean and islands.",
+                "notable_events": [
+                    "Traditional fishing heritage",
+                    "Marina development",
+                    "Tourism expansion"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Walking distance to center",
+                    "Boat connections to islands",
+                    "Waterfront promenades"
+                ],
+                "safety": "Very safe with good lighting and regular maritime activity.",
+                "best_time_to_visit": "Evening for dining and sunset views, morning for market activity, afternoon for boat watching.",
+                "walkability": "Excellent with flat waterfront promenades and good paths."
+            },
+            "appeal": {
+                "known_for": [
+                    "Marina views",
+                    "Seafood restaurants",
+                    "Boat watching",
+                    "Waterfront dining"
+                ],
+                "atmosphere": [
+                    "Maritime",
+                    "Romantic",
+                    "Scenic",
+                    "Active"
+                ],
+                "best_for": [
+                    "Maritime enthusiasts",
+                    "Couples",
+                    "Photography enthusiasts",
+                    "Seafood lovers"
+                ]
+            },
+            "categories": {
+                "touristy": 4,
+                "residential": 2,
+                "green_spaces": 2,
+                "shopping": 2,
+                "dining": 5,
+                "nightlife": 3,
+                "cultural": 3,
+                "historic": 4
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Marina",
+                        "type": "Marina",
+                        "description": "Modern marina hosting luxury yachts and pleasure craft.",
+                        "appeal": "Perfect for yacht watching and maritime photography."
+                    },
+                    {
+                        "name": "Fish Market",
+                        "type": "Market",
+                        "description": "Daily fresh fish market where local fishermen sell their catch.",
+                        "appeal": "Authentic maritime culture and fresh seafood."
+                    },
+                    {
+                        "name": "Waterfront Promenade",
+                        "type": "Walkway",
+                        "description": "Scenic walkway along the harbor with views of boats and sea.",
+                        "appeal": "Ideal for evening strolls and photography."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Waterfront Restaurants",
+                        "cuisine": "Seafood and Mediterranean",
+                        "price_range": "€€€",
+                        "known_for": "Fresh seafood and harbor views",
+                        "atmosphere": "Romantic and scenic"
+                    },
+                    {
+                        "name": "Port Cafés",
+                        "cuisine": "Casual dining",
+                        "price_range": "€€",
+                        "known_for": "Casual atmosphere and boat watching",
+                        "atmosphere": "Relaxed and maritime"
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Island Ferry Trips",
+                        "type": "Boat excursion",
+                        "description": "Take ferries to Île Sainte-Marguerite and Île Saint-Honorat.",
+                        "suitable_for": [
+                            "Families",
+                            "Nature lovers",
+                            "Day trippers"
+                        ]
+                    },
+                    {
+                        "name": "Sunset Photography",
+                        "type": "Photography",
+                        "description": "Capture stunning sunset views over the marina and boats.",
+                        "suitable_for": [
+                            "Photographers",
+                            "Romantic couples"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You love waterfront views and maritime atmosphere",
+                "You want easy access to island excursions",
+                "You prefer waterfront dining and boat watching"
+            ],
+            "avoid_if": [
+                "You prefer inland city atmosphere",
+                "You need extensive shopping options",
+                "You want to avoid maritime activity"
+            ],
+            "insider_tips": [
+                "Book island ferry tickets in advance during peak season.",
+                "Waterfront restaurants fill up quickly at sunset - reserve ahead.",
+                "Early morning offers the best light for maritime photography."
             ]
-          }
-        ]
-      },
-      "stay_here_if": [
-        "You prefer historic charm over modern luxury",
-        "You enjoy scenic views and authentic local cuisine",
-        "You want to experience the original character of Cannes"
-      ],
-      "avoid_if": [
-        "You have mobility issues (due to steep streets)",
-        "You want to be in the center of the modern action",
-        "You prefer contemporary accommodations with full amenities"
-      ],
-      "insider_tips": [
-        "Visit Marché Forville early (before 10 AM) for the best selection and to avoid crowds.",
-        "Many restaurants offer 'menu du jour' options that are better value than à la carte.",
-        "The streets are most atmospheric after sunset when the historic lighting creates a magical ambiance."
-      ]
-    },
-    {
-      "name": "Californie",
-      "alternate_names": [
-        "Super-Cannes",
-        "La Californie"
-      ],
-      "character": "An exclusive residential hillside neighborhood known for luxurious villas, spectacular views, and a peaceful atmosphere away from the tourist crowds.",
-      "location": {
-        "central": false,
-        "description": "Situated on the eastern slopes above Cannes, Californie offers elevated views of the Mediterranean while being just minutes from the city center.",
-        "borders": [
-          "La Croisette (lower section)",
-          "Palm Beach",
-          "Le Cannet"
-        ],
-        "landmarks": [
-          "Villa Eleana",
-          "Picasso's former residence",
-          "Luxury estates and gardens"
-        ]
-      },
-      "history": {
-        "overview": "Developed in the late 19th century as wealthy visitors sought private retreats above the growing resort town, Californie became known for its prestigious villas and artistic residents.",
-        "significance": "Represents the elite side of Cannes that attracted aristocrats, artists, and celebrities seeking privacy and spectacular views.",
-        "notable_events": [
-          "Picasso's residence in the 1950s",
-          "Development of architectural masterpieces",
-          "Expansion of luxury real estate"
-        ]
-      },
-      "practical_info": {
-        "transit": [
-          "Bus connections to city center",
-          "Taxi service recommended",
-          "Car advantageous for exploring"
-        ],
-        "safety": "Very safe, upscale residential area with security measures for many properties.",
-        "best_time_to_visit": "Daytime for appreciating the views and architecture.",
-        "walkability": "Moderately walkable but hilly with some streets lacking sidewalks; car recommended."
-      },
-      "appeal": {
-        "known_for": [
-          "Luxury villas",
-          "Panoramic views",
-          "Celebrity homes",
-          "Tranquil setting"
-        ],
-        "atmosphere": [
-          "Exclusive",
-          "Peaceful",
-          "Sophisticated"
-        ],
-        "best_for": [
-          "Luxury travelers",
-          "Privacy seekers",
-          "Architecture enthusiasts",
-          "Long-term stays"
-        ]
-      },
-      "categories": {
-        "touristy": 2,
-        "residential": 5,
-        "green_spaces": 4,
-        "shopping": 2,
-        "dining": 3,
-        "nightlife": 1,
-        "cultural": 3,
-        "historic": 3
-      },
-      "highlights": {
-        "attractions": [
-          {
-            "name": "Villa Views",
-            "type": "Scenic route",
-            "description": "A driving or walking tour of the neighborhood's famous villas and viewpoints.",
-            "appeal": "Offers glimpses of architectural treasures and Mediterranean panoramas."
-          },
-          {
-            "name": "Picasso's Former Residence",
-            "type": "Historic site",
-            "description": "The villa where Pablo Picasso lived and worked in his later years.",
-            "appeal": "A pilgrimage site for art lovers, though only viewable from outside."
-          }
-        ],
-        "dining": [
-          {
-            "name": "La Californie",
-            "cuisine": "Contemporary French",
-            "price_range": "€€€",
-            "known_for": "Refined dining with terrace views",
-            "atmosphere": "Elegant and discreet"
-          },
-          {
-            "name": "L'Oasis",
-            "cuisine": "Mediterranean Haute Cuisine",
-            "price_range": "€€€€",
-            "known_for": "Michelin-starred culinary experiences",
-            "atmosphere": "Sophisticated with garden seating"
-          }
-        ],
-        "activities": [
-          {
-            "name": "Photography Tour",
-            "type": "Self-guided activity",
-            "description": "Capture stunning views of Cannes, the Mediterranean, and architectural details.",
-            "suitable_for": [
-              "Photographers",
-              "Architecture enthusiasts",
-              "View seekers"
+        },
+        {
+            "name": "Quartier de la Californie",
+            "alternate_names": [
+                "La Californie",
+                "Hillside District"
+            ],
+            "character": "An upscale residential neighborhood on the hills overlooking Cannes, featuring beautiful Belle Époque villas and panoramic views.",
+            "location": {
+                "central": false,
+                "description": "Located on the hills east of the center, offering elevated views over Cannes and the Mediterranean.",
+                "borders": [
+                    "Centre-ville",
+                    "Eastern residential areas",
+                    "Hillside developments"
+                ],
+                "landmarks": [
+                    "Belle Époque villas",
+                    "Panoramic viewpoints",
+                    "Private gardens",
+                    "Residential estates"
+                ]
+            },
+            "history": {
+                "overview": "Developed in the late 19th century as an exclusive residential area for wealthy visitors and residents.",
+                "significance": "Represents the luxury residential development of Cannes during its golden age of tourism.",
+                "notable_events": [
+                    "Belle Époque villa construction",
+                    "Development of exclusive residential area"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Limited public transport",
+                    "Steep hillside roads",
+                    "Walking paths to center"
+                ],
+                "safety": "Very safe upscale residential area with good security.",
+                "best_time_to_visit": "Evening for sunset views, morning for clear vistas, any time for architecture appreciation.",
+                "walkability": "Challenging due to steep hills, but rewarding for views."
+            },
+            "appeal": {
+                "known_for": [
+                    "Belle Époque architecture",
+                    "Panoramic views",
+                    "Exclusive atmosphere",
+                    "Peaceful setting"
+                ],
+                "atmosphere": [
+                    "Exclusive",
+                    "Peaceful",
+                    "Sophisticated",
+                    "Residential"
+                ],
+                "best_for": [
+                    "Architecture enthusiasts",
+                    "View seekers",
+                    "Peaceful retreats",
+                    "Luxury travelers"
+                ]
+            },
+            "categories": {
+                "touristy": 1,
+                "residential": 5,
+                "green_spaces": 4,
+                "shopping": 1,
+                "dining": 2,
+                "nightlife": 1,
+                "cultural": 4,
+                "historic": 4
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Belle Époque Villas",
+                        "type": "Architecture",
+                        "description": "Collection of elegant 19th-century villas with period architectural details.",
+                        "appeal": "Perfect for architecture walks and photography."
+                    },
+                    {
+                        "name": "Panoramic Viewpoints",
+                        "type": "Scenic views",
+                        "description": "Multiple elevated positions offering stunning views of Cannes and the coast.",
+                        "appeal": "Best panoramic views of the city and Mediterranean."
+                    },
+                    {
+                        "name": "Private Gardens",
+                        "type": "Gardens",
+                        "description": "Beautiful private gardens and landscaping around the villas.",
+                        "appeal": "Peaceful green spaces with Mediterranean plants."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Villa Domergue",
+                        "cuisine": "Museum/Garden Café",
+                        "price_range": "€€",
+                        "known_for": "Garden setting and panoramic views",
+                        "atmosphere": "Cultural and scenic"
+                    },
+                    {
+                        "name": "Local Neighborhood Restaurants",
+                        "cuisine": "French and Mediterranean",
+                        "price_range": "€€€",
+                        "known_for": "Upscale dining in residential setting",
+                        "atmosphere": "Sophisticated and intimate"
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Architecture Walking Tour",
+                        "type": "Cultural tour",
+                        "description": "Explore the Belle Époque buildings and learn about their history.",
+                        "suitable_for": [
+                            "Architecture enthusiasts",
+                            "History buffs"
+                        ]
+                    },
+                    {
+                        "name": "Panoramic Photography",
+                        "type": "Photography",
+                        "description": "Capture sweeping views of Cannes, the coast, and surrounding landscape.",
+                        "suitable_for": [
+                            "Photographers",
+                            "View enthusiasts"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You appreciate historic architecture and refined atmosphere",
+                "You want panoramic views and peaceful residential setting",
+                "You prefer exclusive, upscale accommodations"
+            ],
+            "avoid_if": [
+                "You want to walk to restaurants and attractions",
+                "You prefer beachfront or city center locations",
+                "You have mobility issues (steep hills)"
+            ],
+            "insider_tips": [
+                "Best panoramic photos are taken during golden hour.",
+                "Some residential streets offer surprising viewpoints.",
+                "Access by car or taxi recommended due to steep terrain."
             ]
-          },
-          {
-            "name": "Garden Visits",
-            "type": "Botanical interest",
-            "description": "Some villas open their gardens for public visits during special events.",
-            "suitable_for": [
-              "Garden lovers",
-              "Design enthusiasts"
+        },
+        {
+            "name": "La Bocca",
+            "alternate_names": [
+                "Bocca District",
+                "Western Cannes"
+            ],
+            "character": "A more local and residential area west of central Cannes, offering authentic French Riviera atmosphere and beautiful beaches.",
+            "location": {
+                "central": false,
+                "description": "Located west of the center, extending toward the western edge of Cannes with access to beaches and residential areas.",
+                "borders": [
+                    "Centre-ville",
+                    "Western residential areas",
+                    "Mediterranean Sea"
+                ],
+                "landmarks": [
+                    "Plage de la Bocca",
+                    "Local residential areas",
+                    "Beach clubs",
+                    "Residential developments"
+                ]
+            },
+            "history": {
+                "overview": "Developed as a residential extension of Cannes, maintaining more local character than the tourist center.",
+                "significance": "Represents the authentic residential side of Cannes beyond the tourist areas.",
+                "notable_events": [
+                    "Residential development",
+                    "Local community growth"
+                ]
+            },
+            "practical_info": {
+                "transit": [
+                    "Local bus connections",
+                    "Walking distance to beaches",
+                    "Good road access"
+                ],
+                "safety": "Safe residential area with local community presence.",
+                "best_time_to_visit": "Morning for beach activities, afternoon for swimming, evening for local dining.",
+                "walkability": "Good for walking with flat terrain and beach access."
+            },
+            "appeal": {
+                "known_for": [
+                    "Local atmosphere",
+                    "Beautiful beaches",
+                    "Residential authenticity",
+                    "Less touristy"
+                ],
+                "atmosphere": [
+                    "Local",
+                    "Authentic",
+                    "Residential",
+                    "Peaceful"
+                ],
+                "best_for": [
+                    "Local culture seekers",
+                    "Beach lovers",
+                    "Peaceful stays",
+                    "Budget travelers"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "residential": 5,
+                "green_spaces": 3,
+                "shopping": 2,
+                "dining": 3,
+                "nightlife": 2,
+                "cultural": 2,
+                "historic": 2
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Plage de la Bocca",
+                        "type": "Beach",
+                        "description": "Long stretch of sandy beach popular with locals and families.",
+                        "appeal": "Less crowded than central beaches with authentic atmosphere."
+                    },
+                    {
+                        "name": "Local Residential Areas",
+                        "type": "Neighborhood",
+                        "description": "Authentic residential areas showing local French Riviera life.",
+                        "appeal": "Experience real local culture away from tourist areas."
+                    },
+                    {
+                        "name": "Beach Clubs",
+                        "type": "Beach facilities",
+                        "description": "Several beach clubs offering dining and water sports.",
+                        "appeal": "Organized beach activities and dining options."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Beach Restaurants",
+                        "cuisine": "Mediterranean and seafood",
+                        "price_range": "€€",
+                        "known_for": "Fresh seafood and beachside dining",
+                        "atmosphere": "Casual and scenic"
+                    },
+                    {
+                        "name": "Local Neighborhood Restaurants",
+                        "cuisine": "French and Mediterranean",
+                        "price_range": "€€",
+                        "known_for": "Authentic local cuisine",
+                        "atmosphere": "Family-friendly and local"
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Beach Activities",
+                        "type": "Beach recreation",
+                        "description": "Swimming, sunbathing, and water sports at local beaches.",
+                        "suitable_for": [
+                            "Families",
+                            "Beach lovers",
+                            "Water sports enthusiasts"
+                        ]
+                    },
+                    {
+                        "name": "Local Culture Experience",
+                        "type": "Cultural activity",
+                        "description": "Experience authentic local French Riviera life.",
+                        "suitable_for": [
+                            "Culture seekers",
+                            "Local immersion enthusiasts"
+                        ]
+                    }
+                ]
+            },
+            "stay_here_if": [
+                "You want authentic local atmosphere away from tourist crowds",
+                "You prefer beautiful beaches with local character",
+                "You want more affordable accommodations"
+            ],
+            "avoid_if": [
+                "You want to walk to major attractions and shopping",
+                "You prefer luxury accommodations",
+                "You want extensive nightlife options"
+            ],
+            "insider_tips": [
+                "Beach clubs offer day-use facilities and dining options.",
+                "Local restaurants offer better value than tourist areas.",
+                "Perfect area for families with children."
             ]
-          }
-        ]
-      },
-      "stay_here_if": [
-        "You value privacy and tranquility over central location",
-        "You appreciate spectacular views and architectural beauty",
-        "You prefer spacious accommodations and are traveling by car"
-      ],
-      "avoid_if": [
-        "You want to be within walking distance of attractions",
-        "You don't have transportation arranged",
-        "You're seeking lively nightlife and busy streets"
-      ],
-      "insider_tips": [
-        "Look for vacation villa rentals for an authentic Californie experience that hotels can't provide.",
-        "The winding Boulevard Leader provides some of the best viewpoints for photography.",
-        "Many luxury properties are available for events and weddings if booked well in advance."
-      ]
-    },
-    {
-      "name": "Palm Beach",
-      "alternate_names": [
-        "Pointe Croisette"
-      ],
-      "character": "A chic peninsula district offering beautiful beaches, water sports, upscale residences, and a more relaxed alternative to the bustle of central Cannes.",
-      "location": {
-        "central": false,
-        "description": "Located on the eastern end of Cannes on a small peninsula, Palm Beach combines residential calm with recreational opportunities and beach access.",
-        "borders": [
-          "La Croisette (eastern end)",
-          "Californie",
-          "Mediterranean Sea"
-        ],
-        "landmarks": [
-          "Palm Beach Casino",
-          "Port Canto",
-          "Plage du Midi",
-          "Square de Verdun"
-        ]
-      },
-      "history": {
-        "overview": "Developed later than central Cannes, Palm Beach became popular in the mid-20th century as a fashionable extension of the resort area with its casino and beach clubs.",
-        "significance": "Represents the recreational side of Cannes, balancing luxury with leisurely pursuits and water activities.",
-        "notable_events": [
-          "Opening of the Palm Beach Casino in the 1920s",
-          "Development of Marina Port Canto",
-          "Evolution into a watersports hub"
-        ]
-      },
-      "practical_info": {
-        "transit": [
-          "Bus routes connecting to city center",
-          "Water taxis from Port Canto",
-          "Walkable from La Croisette (20-30 minutes)"
-        ],
-        "safety": "Very safe area popular with families and water sports enthusiasts.",
-        "best_time_to_visit": "Summer months for beach activities; shoulder seasons for more peaceful enjoyment.",
-        "walkability": "Highly walkable peninsula with promenades and beach access points."
-      },
-      "appeal": {
-        "known_for": [
-          "Beaches",
-          "Water sports",
-          "Sailing",
-          "Upscale residential atmosphere"
-        ],
-        "atmosphere": [
-          "Relaxed",
-          "Sporty",
-          "Elegant"
-        ],
-        "best_for": [
-          "Beach lovers",
-          "Active travelers",
-          "Families",
-          "Boating enthusiasts"
-        ]
-      },
-      "categories": {
-        "touristy": 3,
-        "residential": 4,
-        "green_spaces": 3,
-        "shopping": 2,
-        "dining": 3,
-        "nightlife": 3,
-        "cultural": 2,
-        "historic": 2
-      },
-      "highlights": {
-        "attractions": [
-          {
-            "name": "Palm Beach Casino",
-            "type": "Entertainment venue",
-            "description": "Historic casino offering gaming, dining, and entertainment in an iconic setting.",
-            "appeal": "Combines glamour with gaming in a beautiful seaside location."
-          },
-          {
-            "name": "Port Canto",
-            "type": "Marina",
-            "description": "Modern marina hosting luxury yachts and offering boat excursions.",
-            "appeal": "Perfect for boat enthusiasts and those seeking maritime activities."
-          },
-          {
-            "name": "Palm Beach Public Beach",
-            "type": "Beach",
-            "description": "Wide, sandy beach with water sports rentals and facilities.",
-            "appeal": "Less crowded than central Cannes beaches with better swimming conditions."
-          }
-        ],
-        "dining": [
-          {
-            "name": "Plage Bijou",
-            "cuisine": "Mediterranean",
-            "price_range": "€€",
-            "known_for": "Beachfront dining with fresh seafood",
-            "atmosphere": "Casual chic"
-          },
-          {
-            "name": "La Guérite",
-            "cuisine": "Mediterranean",
-            "price_range": "€€€",
-            "known_for": "Island restaurant accessible by boat from Port Canto",
-            "atmosphere": "Exclusive and festive"
-          },
-          {
-            "name": "La Môme Plage",
-            "cuisine": "Modern French",
-            "price_range": "€€€",
-            "known_for": "Trendy beach club dining",
-            "atmosphere": "Stylish and energetic"
-          }
-        ],
-        "activities": [
-          {
-            "name": "Water Sports",
-            "type": "Outdoor activities",
-            "description": "Rentals for paddleboarding, jet skiing, parasailing, and more.",
-            "suitable_for": [
-              "Adventure seekers",
-              "Active travelers",
-              "Families"
-            ]
-          },
-          {
-            "name": "Sailing Excursions",
-            "type": "Maritime experience",
-            "description": "Day trips to Lérins Islands or coastal cruises from Port Canto.",
-            "suitable_for": [
-              "Couples",
-              "Photography enthusiasts",
-              "Nature lovers"
-            ]
-          }
-        ]
-      },
-      "stay_here_if": [
-        "You prefer beaches and water activities to city sightseeing",
-        "You want a balance of upscale amenities and relaxed atmosphere",
-        "You enjoy coastal walks and maritime views"
-      ],
-      "avoid_if": [
-        "You want to be in the heart of Cannes' cultural attractions",
-        "You prefer historic settings to modern developments",
-        "You're seeking extensive shopping options"
-      ],
-      "insider_tips": [
-        "The best sunset views are from the western side of the peninsula looking back toward Cannes and the Esterel mountains.",
-        "Book water sports equipment in advance during peak summer season.",
-        "The morning fish market at Port Canto offers the opportunity to purchase the day's catch directly from local fishermen."
-      ]
-    }
-  ]
+        }
+    ]
 }

@@ -9,7 +9,12 @@
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
     "build:data": "node scripts/generateMonthlyIndex.mjs",
-    "build:cities": "node scripts/generateCityIndex.mjs"
+    "build:cities": "node scripts/generateCityIndex.mjs",
+    "compress-images": "node scripts/compressImages.mjs",
+    "compress-images-simple": "node scripts/compressImagesSimple.mjs",
+    "convert-png-to-jpeg": "node scripts/convertPngToJpeg.mjs",
+    "move-thumbnails": "node scripts/moveThumbnails.mjs",
+    "replace-thumbnails": "node scripts/replaceThumbnails.mjs"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.4",
@@ -25,7 +30,8 @@
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-map-gl": "^8.0.2"
+    "react-map-gl": "^8.0.2",
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -77,7 +77,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
         const country = (overview?.country || '').trim() || 'France';
         const citySlug = (cityName || '').toLowerCase();
         const url = `/data/${country}/${citySlug}/monthly/monthly-taglines.json`;
-        const res = await fetch(url, { cache: 'force-cache' });
+        const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) return;
         const json = await res.json();
         if (json && typeof json.overview_paragraph === 'string') {

@@ -1,0 +1,490 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le 20123",
+                "cuisine_type": "Modern Corsican",
+                "signature_dishes": [
+                    "Aziminu (Corsican fish soup)",
+                    "Veal with olives and herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and contemporary with panoramic sea views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week in advance, especially during summer months",
+                "dress_code": "Smart casual",
+                "michelin_recognition": "Recommended",
+                "location": "Route des Iles Sanguinaires",
+                "local_tips": "Request a terrace table for stunning sunset views over the Gulf of Ajaccio"
+            },
+            {
+                "name": "U Fanale",
+                "cuisine_type": "Traditional Corsican",
+                "signature_dishes": [
+                    "Wild boar with chestnuts",
+                    "Fresh langoustines with local herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate and authentic with stone walls and maritime decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve well in advance for weekend dinners",
+                "dress_code": "Casual",
+                "location": "Old Town Ajaccio",
+                "local_tips": "Try their selection of local Corsican wines, especially Patrimonio reds"
+            },
+            {
+                "name": "L'Auberge du Cheval Blanc",
+                "cuisine_type": "French-Corsican Fusion",
+                "signature_dishes": [
+                    "Sea bass with Corsican herbs",
+                    "Lamb with local honey and thyme"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Cozy inn-style restaurant with traditional charm",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Lunch menu offers excellent value for quality cuisine",
+                "dress_code": "Smart casual",
+                "location": "Centre-ville",
+                "local_tips": "Their daily specials often feature fresh catch from local fishermen"
+            },
+            {
+                "name": "A Nepita",
+                "cuisine_type": "Contemporary Corsican",
+                "signature_dishes": [
+                    "Cannelloni with brocciu and herbs",
+                    "Red mullet with tapenade"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern bistro with local artwork and warm ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, so book ahead for authentic atmosphere",
+                "dress_code": "Casual",
+                "location": "Near Place Foch",
+                "local_tips": "Don't miss their fiadone dessert - a traditional Corsican cheesecake"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Da Mamma",
+                "cuisine_type": "Traditional Corsican",
+                "signature_dishes": [
+                    "Figatellu grilled with polenta",
+                    "Stuffed cabbage with brocciu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Family-run restaurant with authentic Corsican hospitality",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch to avoid crowds",
+                "dress_code": "Casual",
+                "location": "Rue du Roi de Rome",
+                "local_tips": "Try their homemade charcuterie platter featuring local coppa and lonzu"
+            },
+            {
+                "name": "Le Grand Café Napoléon",
+                "cuisine_type": "Brasserie/Corsican",
+                "signature_dishes": [
+                    "Fresh fish of the day",
+                    "Corsican meat platter"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with Belle Époque charm and outdoor terrace",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Perfect for people-watching on the main square",
+                "dress_code": "Casual",
+                "location": "Place Foch",
+                "local_tips": "Great spot for aperitif with views of Napoleon's statue"
+            },
+            {
+                "name": "U Pampasgiolu",
+                "cuisine_type": "Corsican Bistro",
+                "signature_dishes": [
+                    "Prisuttu and lonzu platter",
+                    "Wild boar stew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and cozy with exposed stone walls",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Excellent selection of Corsican cheeses, including rare aged varieties"
+            },
+            {
+                "name": "Le Bistrot Gourmand",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Octopus salad with Corsican olive oil",
+                    "Grilled sea bream"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern bistro with harbor views",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Terrace seating fills up quickly in summer",
+                "dress_code": "Casual",
+                "location": "Port area",
+                "local_tips": "Fresh seafood arrives daily from local fishing boats"
+            },
+            {
+                "name": "A Mandria di Pigna",
+                "cuisine_type": "Farm-to-table Corsican",
+                "signature_dishes": [
+                    "Grilled lamb with herbs de maquis",
+                    "Chestnut flour bread with brocciu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic farmhouse style with local produce focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Ingredients sourced daily from local farms",
+                "dress_code": "Casual",
+                "location": "Outskirts of Ajaccio",
+                "local_tips": "Try their pulenda (chestnut flour polenta) - a true Corsican specialty"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché d'Ajaccio Food Stalls",
+                "specialties": [
+                    "Panisses (chickpea fritters)",
+                    "Beignets de brocciu"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 7:00am-1:00pm",
+                "location": "Place Campinchi",
+                "seating": false,
+                "local_tips": "Try the fresh canistrelli biscuits from local vendors"
+            },
+            {
+                "name": "Port Food Trucks",
+                "specialties": [
+                    "Grilled figatellu sandwiches",
+                    "Fresh fish wraps"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:00am-9:00pm (seasonal)",
+                "location": "Port Charles Ornano",
+                "seating": false,
+                "local_tips": "Perfect for a quick meal while exploring the marina"
+            },
+            {
+                "name": "Glacier Traditionnel",
+                "specialties": [
+                    "Chestnut honey gelato",
+                    "Myrtle sorbet"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10:00am-11:00pm",
+                "location": "Cours Napoléon",
+                "seating": false,
+                "local_tips": "Unique Corsican flavors you won't find elsewhere"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de la Paix",
+                "specialty": "Traditional Corsican coffee culture",
+                "must_try": [
+                    "Corsican coffee with local honey",
+                    "Canistrelli biscuits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French café with local charm",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional pastries and light breakfast",
+                "local_tips": "Popular meeting spot for locals - great for people-watching"
+            },
+            {
+                "name": "Bar des Amis",
+                "specialty": "Local gathering place",
+                "must_try": [
+                    "Espresso",
+                    "Fresh pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic neighborhood café with regular locals",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Simple breakfast items",
+                "local_tips": "Experience authentic Corsican café culture"
+            },
+            {
+                "name": "Café Napoléon",
+                "specialty": "Historic setting",
+                "must_try": [
+                    "Macchiato",
+                    "Local almond cookies"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with Napoleon memorabilia",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Located near Napoleon's birthplace - perfect for history buffs"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Bilbo",
+                "type": "Wine Bar",
+                "specialty": "Corsican wines",
+                "signature_drinks": [
+                    "Patrimonio red wine",
+                    "Muscat du Cap Corse"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine cellar atmosphere with local vintages",
+                "best_time": "Evening",
+                "food_options": "Charcuterie and cheese platters",
+                "reservation_needed": false,
+                "local_tips": "Ask for recommendations on lesser-known Corsican producers"
+            },
+            {
+                "name": "Le Pub U Cardu",
+                "type": "Traditional Pub",
+                "specialty": "Local beers and spirits",
+                "signature_drinks": [
+                    "Pietra beer",
+                    "Liqueur de myrte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively pub with live music and local crowd",
+                "best_time": "Night",
+                "food_options": "Tapas and bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Try the myrte liqueur - a unique Corsican digestif"
+            },
+            {
+                "name": "Chez Tao",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails with local ingredients",
+                "signature_drinks": [
+                    "Maquis Mojito (with local herbs)",
+                    "Corsican Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern cocktail lounge with sea views",
+                "best_time": "Evening",
+                "food_options": "Gourmet tapas",
+                "reservation_needed": true,
+                "local_tips": "Sunset cocktails on the terrace are spectacular"
+            },
+            {
+                "name": "L'Alivi Bar",
+                "type": "Beach Bar",
+                "specialty": "Waterfront drinks",
+                "signature_drinks": [
+                    "Rosé wine",
+                    "Aperol Spritz"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed beachside setting with Mediterranean vibe",
+                "best_time": "Sunset",
+                "food_options": "Fresh seafood and salads",
+                "reservation_needed": false,
+                "local_tips": "Perfect spot for aperitif before dinner"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Corsica Walking Tour",
+                "focus": "Traditional Corsican specialties",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local charcuterie tasting",
+                    "Brocciu cheese sampling",
+                    "Traditional bakeries"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Book online at least 3 days in advance"
+            },
+            {
+                "name": "Ajaccio Market Tour",
+                "focus": "Local market and ingredients",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Local market exploration",
+                    "Seasonal produce tasting",
+                    "Meeting local vendors"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "French"
+                ],
+                "booking_tips": "Tours run Tuesday, Thursday, and Saturday mornings"
+            },
+            {
+                "name": "Corsican Wine Experience",
+                "focus": "Local wine and food pairing",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vineyard visit",
+                    "Wine tasting",
+                    "Traditional lunch"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Includes transportation to local vineyard"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Corsican Cooking Workshop",
+                "cuisine_focus": "Traditional Corsican cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making brocciu cannelloni",
+                    "Preparing aziminu fish soup",
+                    "Fiadone dessert"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipes",
+                    "Full meal"
+                ],
+                "booking_tips": "Classes held in traditional Corsican kitchen setting"
+            },
+            {
+                "name": "Charcuterie and Cheese Making",
+                "cuisine_focus": "Corsican specialties",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional preservation methods",
+                    "Local cheese varieties",
+                    "Tasting techniques"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French"
+                ],
+                "includes": [
+                    "Product samples",
+                    "Take-home portions",
+                    "Recipe cards"
+                ],
+                "booking_tips": "Learn from local artisan producers"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché d'Ajaccio",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Corsican charcuterie",
+                    "Local cheeses"
+                ],
+                "hours": "Tue-Sun: 7:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Place Campinchi",
+                "local_tips": "Best selection early morning; try free samples from vendors"
+            },
+            {
+                "name": "Marché Bio",
+                "type": "Organic market",
+                "highlights": [
+                    "Organic produce",
+                    "Artisanal products",
+                    "Local honey and preserves"
+                ],
+                "hours": "Saturdays: 8:00am-1:00pm",
+                "best_time": "Mid-morning",
+                "location": "Place du Diamant",
+                "local_tips": "Seasonal specialties like chestnuts in autumn"
+            },
+            {
+                "name": "Port Fish Market",
+                "type": "Fresh seafood market",
+                "highlights": [
+                    "Daily catch",
+                    "Local fishermen",
+                    "Seasonal seafood"
+                ],
+                "hours": "Daily: 6:00am-11:00am",
+                "best_time": "Early morning",
+                "location": "Port Charles Ornano",
+                "local_tips": "Catch arrives fresh each morning; prices best before 9am"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Artichauts à la Corse (Corsican-style artichokes)",
+            "Fresh brocciu with wild herbs",
+            "Young goat with spring vegetables"
+        ],
+        "summer": [
+            "Grilled fish with Corsican herbs",
+            "Ratatouille Corse with local vegetables",
+            "Fresh fruit sorbets with myrtle"
+        ],
+        "autumn": [
+            "Chestnut-based dishes and sweets",
+            "Wild boar with chestnuts",
+            "New wine and grape harvest"
+        ],
+        "winter": [
+            "Figatellu (traditional liver sausage)",
+            "Hearty stews with local game",
+            "Preserved meats and aged cheeses"
+        ]
+    },
+    "local_specialties": {
+        "charcuterie": [
+            "Coppa - cured pork shoulder",
+            "Lonzu - salted and smoked pork loin",
+            "Figatellu - smoked liver sausage",
+            "Prisuttu - Corsican prosciutto"
+        ],
+        "cheeses": [
+            "Brocciu - fresh sheep/goat cheese",
+            "Fleur du Maquis - herb-crusted cheese",
+            "Venaco - strong goat cheese",
+            "Niolo - aged sheep cheese"
+        ],
+        "beverages": [
+            "Pietra - chestnut beer",
+            "Patrimonio wines",
+            "Muscat du Cap Corse",
+            "Liqueur de myrte - myrtle liqueur"
+        ],
+        "sweets": [
+            "Canistrelli - traditional biscuits",
+            "Fiadone - brocciu cheesecake",
+            "Inuliata - Easter cake",
+            "Chestnut honey specialties"
+        ]
+    }
+}

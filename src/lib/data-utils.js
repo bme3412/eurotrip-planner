@@ -55,11 +55,11 @@ function generateThumbnailPath(cityId) {
   const possiblePaths = [
     `/images/${cityId}-thumbnail.jpeg`,
     `/images/${cityId}-thumbnail.jpg`, 
-    `/images/${cityId}-thumbnail.png`,
+    `/images/${cityId}-thumbnail.jpeg`,
     `/images/${cityId}-thumbnail.webp`,
     `/images/${cityId}.jpeg`,
     `/images/${cityId}.jpg`,
-    `/images/${cityId}.png`,
+    `/images/${cityId}.jpeg`,
     `/images/${cityId}.webp`
   ];
   
