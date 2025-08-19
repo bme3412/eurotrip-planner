@@ -35,7 +35,7 @@ export const getCitiesData = () => {
         "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy, and culture.",
       thumbnail: isCDNEnabled() 
         ? getImageUrl('/images/paris.jpeg')
-        : "/images/optimized/paris.jpeg",
+        : "/images/city-thumbnail/France/paris-thumbnail.jpeg",
       landmarks: ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral"],
       latitude: 48.8566,
       longitude: 2.3522,
@@ -59,7 +59,7 @@ export const getCitiesData = () => {
         "Nice, located on the French Riviera, offers beautiful beaches, a Mediterranean climate, and a blend of French and Italian culture.",
       thumbnail: isCDNEnabled() 
         ? getImageUrl('/images/nice.jpeg')
-        : "/images/optimized/nice.jpeg",
+        : "/images/city-thumbnail/France/nice-thumbnail.jpeg",
       landmarks: ["Promenade des Anglais", "Vieux Nice"],
       latitude: 43.7102,
       longitude: 7.262,
@@ -75,7 +75,7 @@ export const getCitiesData = () => {
         "Lyon is renowned for its historical architecture, gastronomy, and Renaissance district at the confluence of the Rhône and Saône rivers.",
       thumbnail: isCDNEnabled() 
         ? getImageUrl('/images/lyon.jpeg')
-        : "/images/optimized/lyon.jpeg",
+        : "/images/city-thumbnail/France/lyon-thumbnail.jpeg",
       landmarks: [
         "Basilica of Notre-Dame de Fourvière",
         "Parc de la Tête d'Or",
@@ -94,7 +94,7 @@ export const getCitiesData = () => {
         "Marseille, France's oldest city and largest port, features vibrant multicultural neighborhoods and stunning calanques.",
       thumbnail: isCDNEnabled() 
         ? getImageUrl('/images/marseille.jpeg')
-        : "/images/optimized/marseille.jpeg",
+        : "/images/city-thumbnail/France/marseille-thumbnail.jpeg",
       landmarks: ["Old Port", "Basilique Notre-Dame de la Garde"],
       latitude: 43.2965,
       longitude: 5.3698,
@@ -110,7 +110,7 @@ export const getCitiesData = () => {
         "Bordeaux, the wine capital of the world, boasts elegant 18th-century architecture, world-class vineyards, and a vibrant riverfront.",
       thumbnail: isCDNEnabled() 
         ? getImageUrl('/images/bordeaux.jpeg')
-        : "/images/optimized/bordeaux.jpeg",
+        : "/images/city-thumbnail/France/bordeaux-thumbnail.jpeg",
       landmarks: ["Place de la Bourse", "La Cité du Vin"],
       latitude: 44.8378,
       longitude: -0.5792,
@@ -196,7 +196,7 @@ export const getCitiesData = () => {
         "Cannes, the glamorous resort town on the French Riviera, is famous for its international film festival, luxury boutiques, and stunning Mediterranean beaches.",
       thumbnail: isCDNEnabled() 
         ? getImageUrl('/images/cannes.jpeg')
-        : "/images/optimized/cannes.jpeg",
+        : "/images/city-thumbnail/France/cannes-thumbnail.jpeg",
       landmarks: ["La Croisette", "Palais des Festivals", "Le Suquet"],
       latitude: 43.5528,
       longitude: 7.0174,
@@ -1931,6 +1931,29 @@ export const getCitiesData = () => {
       longitude: 21.2611,
       tourismCategories: ["Historical Landmarks"],
       linguisticCategories: ["Slavic"],
+    },
+    {
+      id: "reykjavik",
+      name: "Reykjavik",
+      country: "Iceland",
+      region: "Arctic",
+      description:
+        "Reykjavik, Iceland's vibrant capital, offers a unique blend of Nordic charm, geothermal wonders, and stunning natural landscapes.",
+      thumbnail: isCDNEnabled() 
+        ? getImageUrl('/images/reykjavik.jpeg')
+        : "/images/city-thumbnail/Iceland/reykjavik-thumbnail.jpeg",
+      landmarks: ["Hallgrímskirkja", "Harpa Concert Hall", "Tjörnin Lake"],
+      latitude: 64.1466,
+      longitude: -21.9426,
+      tourismCategories: [
+        "Natural Wonders",
+        "Cultural Tourism Hubs",
+        "Adventure Tourism",
+        "Wellness & Spa",
+        "Northern Lights",
+        "Geothermal Experiences"
+      ],
+      linguisticCategories: ["Germanic"],
     },
   ];
 };

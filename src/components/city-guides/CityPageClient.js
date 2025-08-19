@@ -272,11 +272,99 @@ function CityPageClient({ cityData, cityName }) {
       {/* Hero */}
       {cityName?.toLowerCase() === 'paris' ? (
         <Hero
-          backgroundImageSrc="/images/optimized/paris-hero.jpeg"
+          backgroundImageSrc="/images/city-page/France/paris-hero.jpeg"
           backgroundAlt="Paris skyline with Eiffel Tower"
           chipText="Discover the Timeless Elegance"
           title="Paris"
           subtitle="City of Light & Love"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'cannes' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/France/cannes-hero.jpeg"
+          backgroundAlt="Cannes waterfront and La Croisette"
+          chipText="Experience the French Riviera"
+          title="Cannes"
+          subtitle="Glamour & Mediterranean Magic"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'angers' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/France/angers-hero.jpeg"
+          backgroundAlt="Angers historic cityscape and castle"
+          chipText="Discover the Heart of Anjou"
+          title="Angers"
+          subtitle="Medieval Heritage & Loire Valley Charm"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'avignon' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/France/avignon-hero.jpeg"
+          backgroundAlt="Avignon Palais des Papes and medieval city"
+          chipText="Step into Papal History"
+          title="Avignon"
+          subtitle="Medieval Splendor & Provençal Culture"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'annecy' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/France/annecy-hero.jpeg"
+          backgroundAlt="Annecy lake and old town canals"
+          chipText="Discover Alpine Venice"
+          title="Annecy"
+          subtitle="Lake Beauty & Mountain Majesty"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'ajaccio' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/France/ajaccio-hero.jpeg"
+          backgroundAlt="Ajaccio Corsican coastline and citadel"
+          chipText="Experience Corsican Heritage"
+          title="Ajaccio"
+          subtitle="Island Capital & Mediterranean Charm"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'copenhagen' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/Denmark/copenhagen-hero.jpeg"
+          backgroundAlt="Copenhagen Nyhavn canal with colorful buildings and boats"
+          chipText="Discover Nordic Charm"
+          title="Copenhagen"
+          subtitle="Hygge & Scandinavian Beauty"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'reykjavik' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/Iceland/reykjavik-hero.jpeg"
+          backgroundAlt="Reykjavik cityscape with Hallgrímskirkja church and colorful houses reflected in Tjörnin lake"
+          chipText="Land of Fire & Ice"
+          title="Reykjavik"
+          subtitle="Vibrant Capital & Nordic Wonder"
+          description={description}
+          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+        />
+      ) : cityName?.toLowerCase() === 'amalfi' ? (
+        <Hero
+          backgroundImageSrc="/images/city-page/Italy/amalfi-hero.jpeg"
+          backgroundAlt="Amalfi coastal town with dramatic cliffs, colorful buildings cascading down hillsides, and beautiful Mediterranean Sea"
+          chipText="Discover the Amalfi Coast"
+          title="Amalfi"
+          subtitle="Dramatic Cliffs & Mediterranean Magic"
           description={description}
           primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
           secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}

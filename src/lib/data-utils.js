@@ -35,31 +35,46 @@ const CACHE_TTL = 1000 * 60 * 5; // 5 minutes
 
 /**
  * Generate thumbnail path for a city
- * Updated to use CDN for optimized images
+ * Updated to use CDN for optimized images and proper local directory structure
  */
-function generateThumbnailPath(cityId) {
+function generateThumbnailPath(cityId, country = null) {
   // If CDN is enabled, use optimized images from CloudFront
   if (isCDNEnabled()) {
     // Use the new optimized naming convention (city.jpeg)
     return getImageUrl(`/images/${cityId}.jpeg`);
   }
   
-  // For local development, check optimized directory first
+  // For local development, check things-to-do directory first (e.g., /images/things-to-do/France/paris.jpeg)
+  if (country) {
+    const thingsToDoPath = `/images/things-to-do/${country}/${cityId}.jpeg`;
+    const thingsToDoFullPath = path.join(process.cwd(), 'public', thingsToDoPath);
+    if (fs.existsSync(thingsToDoFullPath)) {
+      return thingsToDoPath;
+    }
+  }
+  
+  // Check optimized directory as fallback
   const optimizedPath = `/images/optimized/${cityId}.jpeg`;
   const optimizedFullPath = path.join(process.cwd(), 'public', optimizedPath);
   if (fs.existsSync(optimizedFullPath)) {
     return optimizedPath;
   }
   
+  // Check country-specific thumbnail directory first (e.g., /images/city-thumbnail/France/paris-thumbnail.jpeg)
+  if (country) {
+    const countryThumbnailPath = `/images/city-thumbnail/${country}/${cityId}-thumbnail.jpeg`;
+    const countryThumbnailFullPath = path.join(process.cwd(), 'public', countryThumbnailPath);
+    if (fs.existsSync(countryThumbnailFullPath)) {
+      return countryThumbnailPath;
+    }
+  }
+  
   // Fallback to local files for development
   const possiblePaths = [
     `/images/${cityId}-thumbnail.jpeg`,
     `/images/${cityId}-thumbnail.jpg`, 
-    `/images/${cityId}-thumbnail.jpeg`,
-    `/images/${cityId}-thumbnail.webp`,
     `/images/${cityId}.jpeg`,
     `/images/${cityId}.jpg`,
-    `/images/${cityId}.jpeg`,
     `/images/${cityId}.webp`
   ];
   
@@ -146,7 +161,7 @@ export async function getAllCities() {
             country: country.name,
             slug: cityDir.name,
             region: getRegionForCountry(country.name),
-            thumbnail: generateThumbnailPath(cityDir.name)
+            thumbnail: generateThumbnailPath(cityDir.name, country.name)
           };
           
           // Try to get basic info from overview or summary
@@ -210,7 +225,7 @@ export async function getCityData(cityId) {
       name: formatCityName(cityId),
       country,
       region: getRegionForCountry(country),
-      thumbnail: generateThumbnailPath(cityId),
+      thumbnail: generateThumbnailPath(cityId, country),
       overview,
       attractions: attractions?.sites || [],
       neighborhoods: neighborhoods?.neighborhoods || [],

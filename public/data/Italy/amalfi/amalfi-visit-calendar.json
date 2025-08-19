@@ -1,0 +1,775 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 2, 
+          "special": true, 
+          "event": "Capodanno (New Year's Day)", 
+          "notes": "Major Italian holiday - most attractions closed, mild Mediterranean weather (8-14°C), post-celebration cleanup, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          },
+          "attractions": {
+            "duomo": "Closed",
+            "paperMuseum": "Closed", 
+            "beaches": "Too cold for swimming",
+            "markets": "Limited hours",
+            "harbor": "Open for walks"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with fewer crowds", "Many shops closed", "Mild weather allows coastal exploration"]
+        },
+        {
+          "days": [2, 3, 4], 
+          "score": 3, 
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, mild Mediterranean weather (7-13°C)", 
+          "location": "Historic center", 
+          "time": "All day", 
+          "price": "Lower prices", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "duomo": "Open, minimal queues",
+            "paperMuseum": "Open, excellent for history lovers",
+            "harbor": "Open, clear views", 
+            "shopping": "Sales up to 70% off",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for cultural exploration", "Perfect museum conditions", "Light jacket sufficient", "Good daylight 8:00am-6:00pm", "Coastal walks pleasant"]
+        },
+        {
+          "days": [6], 
+          "score": 4, 
+          "special": true, 
+          "event": "Epifania (Epiphany)", 
+          "notes": "Traditional Italian celebration, bakeries busy with Befana treats, winter sales peak, pleasant Mediterranean weather (8-15°C)", 
+          "location": "Bakeries citywide", 
+          "time": "All day", 
+          "price": "Befana treats 5-15€", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "culturalSignificance": "Important Italian tradition - try Befana treats at local pasticcerie, perfect for harbor walks after",
+          "considerations": ["Book restaurant tables in advance", "Try traditional Befana sweets", "Perfect photography opportunity", "Weather ideal for coastal strolls"]
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 2, 
+          "notes": "Coldest period (0-4°C), possible snow, ideal for indoor activities, very low tourism", 
+          "location": "Museums and galleries", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "duomo": "Excellent - no crowds",
+            "paperMuseum": "Perfect conditions",
+            "historicCenter": "Indoor exploration recommended",
+            "cafes": "Cozy atmosphere", 
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for museum visits", "Cafés are sanctuaries", "Early sunset around 5:30pm"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 2, 
+          "notes": "Gradual warming (2-7°C), excellent museum conditions, few tourists", 
+          "location": "Cultural venues", 
+          "time": "All day", 
+          "price": "Lower prices continue", 
+          "crowdLevel": "Low",
+          "considerations": ["Warm clothing still essential", "Great cultural photography", "Days beginning to lengthen", "Perfect for peaceful exploration"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 14,
+        "lowC": 8,
+        "avgC": 11,
+        "realFeelC": 12,
+        "rainfallMm": 85,
+        "rainDays": 9,
+        "snowDays": 0,
+        "sunshineHours": 4.5,
+        "daylightHours": 9.5,
+        "sunrise": "08:00",
+        "sunset": "18:00",
+        "humidity": 75,
+        "windKmh": 20
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low",
+      "crowdLevel": "Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5], 
+          "score": 3, 
+          "notes": "Winter continues, mild Mediterranean weather (9-15°C), fewer crowds, excellent museum time", 
+          "location": "Museums and waterfront", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 2, 
+          "notes": "Pre-Valentine's period, gradual warming (3-8°C), winter sales ending", 
+          "location": "Historic center, cultural venues", 
+          "time": "All day", 
+          "price": "End of sales", 
+          "crowdLevel": "Low",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate", "dates": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
+            "description": "Italian school holidays - increased family tourism"
+          },
+          "considerations": ["Museum queues increase slightly", "Family-friendly activities busier", "Book family restaurants ahead"]
+        },
+        {
+          "days": [14], 
+          "score": 5, 
+          "special": true, 
+          "event": "San Valentino (Valentine's Day)", 
+          "notes": "Romantic atmosphere, special dining events, busy restaurants, book 2-3 weeks ahead, pleasant Mediterranean weather (10-16°C)", 
+          "location": "Restaurants citywide, waterfront promenades", 
+          "time": "Evening 7pm-11pm", 
+          "price": "Premium (dinner 60-150€/person)", 
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 5
+          },
+          "romanticVenues": {
+            "restaurants": ["Hotel Santa Caterina", "Ristorante Marina Grande", "La Caravella", "Il Tari"],
+            "activities": ["Harbor sunset walk", "Duomo views", "Coastal sunset from viewpoints"],
+            "hotels": ["Special packages available", "Book 4 weeks ahead", "Expect 30-50% markup"]
+          },
+          "considerations": ["Reserve restaurants by late January", "Perfect weather for romantic walks", "Waterfront dining highly recommended"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 3, 
+          "notes": "Post-Valentine's, school holidays continue, gradually warming (4-9°C), spring hints", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low-Moderate",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate"}
+          },
+          "considerations": ["Days noticeably longer", "Early spring flowers in gardens", "Good time for family activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 15,
+        "lowC": 9,
+        "avgC": 12,
+        "realFeelC": 13,
+        "rainfallMm": 70,
+        "rainDays": 8,
+        "snowDays": 0,
+        "sunshineHours": 5.5,
+        "daylightHours": 10.5,
+        "sunrise": "07:45",
+        "sunset": "18:15",
+        "humidity": 72,
+        "windKmh": 18
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 4, 
+          "notes": "Early spring transition, pleasant Mediterranean weather (12-18°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 7:00am-7:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "weatherVariability": "Low - pleasant temperatures, light jacket sufficient",
+          "considerations": ["Stable pleasant weather", "Perfect for coastal walks", "Early spring flowers appearing", "Beach activities becoming possible"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 5, 
+          "notes": "Spring awakening, pleasant Mediterranean temperatures (14-19°C), perfect for coastal activities", 
+          "location": "Waterfront and beaches", 
+          "time": "Full day exploration", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "springActivities": ["Beach walks", "Waterfront café culture returns", "Coastal tours ideal", "Photography perfect light"],
+          "considerations": ["Stable pleasant weather", "Perfect time for waterfront walks", "Outdoor dining returns", "Beach activities becoming comfortable"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 5, 
+          "special": true, 
+          "event": "Spring Equinox & Mediterranean Spring Peak", 
+          "notes": "Spring officially arrives, excellent Mediterranean conditions (15-20°C), perfect for outdoor activities", 
+          "location": "Waterfront promenades, beaches, historic center", 
+          "time": "Optimal 9am-7pm", 
+          "price": "Free for outdoor activities", 
+          "crowdLevel": "Moderate",
+          "springHighlights": {
+            "harbor": "Perfect for sunset walks",
+            "beaches": "Comfortable for sunbathing",
+            "duomo": "Excellent views and history",
+            "markets": "Fresh spring produce",
+            "cafes": "Outdoor dining fully active"
+          },
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 5,
+            "luxury": 5
+          },
+          "considerations": ["Perfect weather for all activities", "Beach season beginning", "Harbor dining highly recommended", "Outdoor activities fully available"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 19,
+        "lowC": 12,
+        "avgC": 15.5,
+        "realFeelC": 16,
+        "rainfallMm": 65,
+        "rainDays": 8,
+        "snowDays": 0,
+        "sunshineHours": 7,
+        "daylightHours": 12,
+        "sunrise": "07:00",
+        "sunset": "19:30",
+        "humidity": 70,
+        "windKmh": 15
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "schoolHolidays": {
+        "spring": {"dates": [25, 26, 27, 28, 29, 30, 31], "impact": "Moderate-High", "zones": "All zones"}
+      }
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 4, 
+          "special": true, 
+          "event": "April Fool's Day (Pesce d'Aprile)", 
+          "notes": "Fun cultural atmosphere, perfect Mediterranean spring weather (16-21°C), beach season beginning", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free cultural fun", 
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Paper fish pranks, playful atmosphere throughout the town, perfect for waterfront activities"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 5, 
+          "special": true, 
+          "event": "Mediterranean Spring Peak Season", 
+          "notes": "Perfect Mediterranean spring weather (17-22°C), beach season in full swing, outdoor activities ideal", 
+          "location": "Beaches, waterfront, historic center", 
+          "time": "Golden hour 6:30am-8:30am, 6:30pm-8:30pm", 
+          "price": "Free for outdoor activities", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 5,
+            "luxury": 5
+          },
+          "springHighlights": {
+            "beaches": "Perfect for swimming and sunbathing",
+            "harbor": "Ideal for evening strolls",
+            "duomo": "Excellent views and history",
+            "markets": "Fresh spring produce and local specialties",
+            "outdoorDining": "Harbor cafés fully active"
+          },
+          "photographyTips": ["Golden hour lighting", "Harbor sunsets", "Bring wide-angle lens", "Stable weather conditions"],
+          "considerations": ["Perfect weather for all activities", "Beach season fully active", "Harbor dining highly recommended", "Outdoor activities at peak"]
+        },
+        {
+          "days": [14], 
+          "score": 4, 
+          "special": true, 
+          "event": "Easter Weekend", 
+          "notes": "Major Christian holiday, festive atmosphere, perfect spring weather (18-23°C), family tourism spike", 
+          "location": "Citywide, churches, waterfront", 
+          "time": "All day", 
+          "price": "Free for religious services", 
+          "crowdLevel": "High",
+          "holidayActivities": {
+            "religious": ["Easter services at Duomo", "Processions in historic center"],
+            "cultural": ["Special museum exhibitions", "Traditional Italian celebrations"],
+            "outdoor": ["Harbor Easter activities", "Beach activities"]
+          },
+          "considerations": ["Book restaurants in advance", "Religious services may affect opening hours", "Perfect weather for outdoor activities", "Family-friendly atmosphere"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "notes": "Perfect spring conditions (12-18°C), comfortable temperatures, ideal sightseeing", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6:30am-8pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "schoolHolidays": {
+            "spring": {"active": true, "impact": "High", "dates": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]},
+            "easter": {"dates": "Variable - typically mid-April", "impact": "Very High"}
+          },
+          "optimalActivities": ["Walking tours", "Harbor dining", "Beach picnics", "Coastal cruises", "Lemon grove tours"],
+          "considerations": ["Spring rain showers possible", "Perfect temperature for long walks", "Harbor dining fully active", "Book popular restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 22,
+        "lowC": 16,
+        "avgC": 19,
+        "realFeelC": 20,
+        "rainfallMm": 55,
+        "rainDays": 7,
+        "sunshineHours": 8,
+        "daylightHours": 13.5,
+        "sunrise": "06:30",
+        "sunset": "20:00",
+        "humidity": 68,
+        "windKmh": 14,
+        "uvIndex": 6
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High",
+      "specialConsiderations": {
+        "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
+        "schoolHolidays": "Two weeks of increased family tourism from all regions",
+        "weather": "Most stable spring weather but sudden showers possible"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Festa del Lavoro (Labor Day)", "notes": "Many closures but special events, perfect Mediterranean weather (19-24°C)", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7], "score": 5, "notes": "Perfect spring weather, pleasant temperatures (20-25°C), beach season in full swing", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [8], "score": 4, "special": true, "event": "Victory in Europe Day", "notes": "Some closures, commemorations, historical significance", "location": "Historic center, military sites", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [9, 10, 11, 12, 13, 14, 15, 16, 17], "score": 5, "notes": "Excellent weather, not peak tourism yet, perfect for beach activities and sightseeing", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [18], "score": 5, "special": true, "event": "Notte dei Musei", "notes": "Museums Night, special cultural events, free museum access", "location": "Museums citywide", "time": "Evening", "price": "Free", "crowdLevel": "High"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 5, "notes": "Warm Mediterranean weather (21-26°C), beach culture thriving, long days", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 19,
+      "weatherAvgC": 22,
+      "rainfallMm": 45,
+      "sunshineHours": 9,
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent Mediterranean weather (22-27°C), long daylight, pre-peak season", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 5, "notes": "Perfect summer weather, tourism increasing, still manageable crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [21], "score": 5, "special": true, "event": "Festa della Musica", "notes": "Music festival, summer solstice, free concerts everywhere", "location": "Streets and venues citywide", "time": "Evening", "price": "Free", "crowdLevel": "Very High"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "notes": "Summer begins, increasing tourism, perfect Mediterranean weather (24-29°C)", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "High"}
+      ],
+      "weatherHighC": 27,
+      "weatherLowC": 22,
+      "weatherAvgC": 24.5,
+      "rainfallMm": 35,
+      "sunshineHours": 10,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 4, "notes": "Peak tourism season, perfect Mediterranean weather (25-30°C), crowded attractions", "location": "Citywide", "time": "All day", "price": "Expensive", "crowdLevel": "Very High"},
+        {"days": [14], "score": 5, "special": true, "event": "Festa di Sant'Andrea", "notes": "Patron saint celebration, fireworks over the bay, processions, celebrations", "location": "Duomo, harbor", "time": "All day", "price": "Free", "crowdLevel": "Very High"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "Peak Beach Season", "notes": "Perfect beach weather, hot Mediterranean climate (26-31°C), peak tourism, crowded beaches", "location": "All beaches, harbor", "time": "All day", "price": "Free", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 30,
+      "weatherLowC": 25,
+      "weatherAvgC": 27.5,
+      "rainfallMm": 15,
+      "sunshineHours": 11,
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 3, "special": true, "event": "Peak Beach Season & Ferragosto", "notes": "Hot Mediterranean weather (26-31°C), perfect beach conditions, many locals on vacation, some closures", "location": "All beaches, harbor", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Still hot, crowds decreasing as European vacations end, more manageable", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 31,
+      "weatherLowC": 26,
+      "weatherAvgC": 28.5,
+      "rainfallMm": 20,
+      "sunshineHours": 10.5,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent post-peak season, warm Mediterranean weather continues (23-28°C), fewer crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Mediterranean Autumn Begins", "notes": "Pleasant temperatures, reduced crowds, perfect beach weather, cultural events", "location": "Beaches, harbor, cultural venues", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 28,
+      "weatherLowC": 23,
+      "weatherAvgC": 25.5,
+      "rainfallMm": 45,
+      "sunshineHours": 8.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [5], "score": 4, "special": true, "event": "Notte Bianca", "notes": "All-night arts festival, pleasant autumn weather, cultural events", "location": "Various venues citywide", "time": "All night", "price": "Free", "crowdLevel": "High"},
+        {"days": [6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Comfortable Mediterranean temperatures (20-25°C), beautiful autumn atmosphere, golden light", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [19, 20], "score": 4, "special": true, "event": "Lemon Harvest Festival", "notes": "Fall colors, harvest activities, limoncello tasting, autumn charm", "location": "Lemon groves", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 20,
+      "weatherAvgC": 22.5,
+      "rainfallMm": 75,
+      "sunshineHours": 7,
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Ognissanti (All Saints' Day)", "notes": "Holiday, some closures but special cemetery visits, mild autumn weather", "location": "Cemeteries citywide", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 4, "notes": "Fall colors continue, mild Mediterranean temperatures (15-20°C), outdoor activities still pleasant", "location": "Museums, waterfront, historic center", "time": "Daytime", "price": "Standard", "crowdLevel": "Low"},
+        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures, historical significance", "location": "Historic center", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "special": true, "event": "Christmas Markets Begin", "notes": "Festive atmosphere begins, mild weather, holiday preparations", "location": "Various locations", "time": "All day", "price": "Free", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 15,
+      "weatherAvgC": 17.5,
+      "rainfallMm": 85,
+      "sunshineHours": 5.5,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "special": true, "event": "Christmas Markets", "notes": "Festive atmosphere, holiday decorations, mulled wine, seasonal treats, mild Mediterranean weather", "location": "Various locations", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 4, "notes": "Holiday events, Christmas shopping crowds, festive lights", "location": "Shopping districts", "time": "All day", "price": "Standard", "crowdLevel": "High"},
+        {"days": [24, 25], "score": 3, "special": true, "event": "Christmas", "notes": "Many closures but special atmosphere, family celebrations", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Low"},
+        {"days": [26, 27, 28, 29, 30], "score": 4, "notes": "Between Christmas and New Year's - busy tourist period, sales begin", "location": "Shopping districts", "time": "All day", "price": "Sales", "crowdLevel": "High"},
+        {"days": [31], "score": 4, "special": true, "event": "New Year's Eve", "notes": "Special events but very crowded, champagne celebrations, waterfront fireworks", "location": "Waterfront, historic center", "time": "Evening", "price": "Expensive", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 12,
+      "weatherAvgC": 14.5,
+      "rainfallMm": 90,
+      "sunshineHours": 4,
+      "tourismLevel": 7,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Beach Activities",
+      "Coastal Walks",
+      "Museums & Galleries",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Coastal Tours",
+      "Boat Trips along the coast",
+      "Local Markets",
+      "Photography Tours",
+      "Lemon Grove Tours"
+    ],
+    "summer": [
+      "Beach Swimming & Sunbathing",
+      "Water Sports",
+      "Outdoor Festivals",
+      "Music Festivals",
+      "Coastal Cycling",
+      "Waterfront Dining",
+      "Beach Picnics",
+      "Evening Promenades",
+      "Boat Excursions",
+      "Outdoor Concerts"
+    ],
+    "autumn": [
+      "Museum Visits",
+      "Cultural Events",
+      "Limoncello Tasting",
+      "Theater Performances",
+      "Coastal Walks",
+      "Harvest Festivals",
+      "Historic Sites",
+      "Cooking Classes",
+      "Art Exhibitions",
+      "Historical Tours"
+    ],
+    "winter": [
+      "Coastal Walks",
+      "Christmas Markets",
+      "Classical Concerts",
+      "Museum Visits",
+      "Waterfront Cafés",
+      "Historical Sites",
+      "Theater Shows",
+      "Indoor Activities",
+      "Local Shopping",
+      "Paper Museum Tours"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["February 14th", "June 21st", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "January"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
+      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
+      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Michelin dining", "Private tours", "Luxury shopping", "Exclusive experiences"],
+      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "activityCategories": {
+    "outdoor": {
+      "optimal": ["April", "May", "June", "September", "October"],
+      "activities": ["Walking tours", "Coastal cruises", "Garden visits", "Cycling", "Outdoor dining", "Photography"],
+      "weatherDependent": true
+    },
+    "cultural": {
+      "yearRound": true,
+      "peak": ["September", "October", "November", "December", "January"],
+      "activities": ["Museums", "Galleries", "Theater", "Concerts", "Exhibitions"],
+      "seasonalHighlights": {
+        "autumn": "New exhibition seasons",
+        "winter": "Classical concert season",
+        "spring": "Cultural festival season"
+      }
+    },
+    "shopping": {
+      "sales": {
+        "winter": "January-February",
+        "summer": "July-August"
+      },
+      "luxury": "Year-round but avoid August",
+      "markets": {
+        "christmas": "December",
+        "local": "Year-round weekends"
+      }
+    },
+    "dining": {
+      "outdoor": ["April", "May", "June", "July", "August", "September", "October"],
+      "seasonal": {
+        "spring": "Asparagus, strawberries",
+        "summer": "Tomatoes, stone fruits",
+        "autumn": "Mushrooms, game, lemon harvest",
+        "winter": "Seafood, comfort food, holiday specialties"
+      }
+    },
+    "festivals": {
+      "music": {
+        "festaMusica": "June 21st",
+        "classicalSeason": "September-May"
+      },
+      "cultural": {
+        "notteBianca": "October",
+        "notteMusei": "May",
+        "patrimonioWeekend": "September"
+      },
+      "seasonal": {
+        "lemonHarvest": "October",
+        "wineHarvest": "October"
+      }
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 15 hours",
+      "shortest": "December 21st - 9 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "buses": {
+        "sita": "Efficient year-round, connects Amalfi Coast towns",
+        "crowds": "Peak July-August",
+        "strikes": "Possible any time, more common autumn/winter"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (heat)"
+      },
+      "boats": {
+        "ferries": "Available year-round",
+        "optimal": "April-October",
+        "winter": "Reduced service but still available"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August", "December"],
+        "events": ["Major holidays", "Sant'Andrea Festival", "New Year's"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 2-3 months ahead for best rates"
+      },
+      "airConditioning": "Essential July-August, many historic hotels lack AC"
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["February 14th", "July 14th", "December 24th", "December 31st"],
+        "recommended": "High season (June-August)",
+        "timeline": "2-4 weeks ahead for popular restaurants"
+      },
+      "closures": {
+        "august": "Many local restaurants close for owner vacations",
+        "holidays": "Christmas Day, New Year's Day, May 1st",
+        "sunday": "Many traditional restaurants closed Sunday evening"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter sales, cozy museums, mild Mediterranean weather, authentic local experience",
+    "february": "Valentine's romance, fewer crowds, cultural immersion, pleasant coastal walks",
+    "march": "Spring awakening, perfect Mediterranean weather, beach activities beginning",
+    "april": "Perfect spring weather, beach season in full swing, Easter celebrations",
+    "may": "Perfect conditions, Museums Night, optimal beach and sightseeing",
+    "june": "Longest days, Festa della Musica, perfect beach weather, pre-peak crowds",
+    "july": "Peak summer, Sant'Andrea Festival, perfect beach conditions, fireworks over the bay",
+    "august": "Hot Mediterranean weather, peak beach season, many locals away",
+    "september": "Post-peak perfection, ideal beach weather, cultural events",
+    "october": "Autumn beauty, Notte Bianca, comfortable temperatures, lemon harvest",
+    "november": "Mild autumn weather, cultural season, pleasant outdoor activities",
+    "december": "Christmas magic, holiday markets, mild Mediterranean winter, waterfront celebrations"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Stable pleasant weather, light clothing sufficient, minimal rain, perfect for outdoor activities",
+      "summer": "Hot Mediterranean climate, very stable, minimal rain, perfect for beach activities",
+      "autumn": "Gradually cooling but still pleasant, beautiful colors, comfortable for outdoor activities",
+      "winter": "Mild Mediterranean winter, occasional rain, comfortable for outdoor activities with light jacket"
+    },
+    "transportation": {
+      "buses": "Efficient year-round, SITA buses connect all Amalfi Coast towns",
+      "walking": "Best in spring and autumn, challenging in extreme weather",
+      "boats": "Scenic year-round, ferry service to Salerno and other coastal towns",
+      "cars": "Challenging due to narrow roads and limited parking"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    }
+  }
+}

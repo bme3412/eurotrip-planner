@@ -45,16 +45,39 @@ const CityCard = ({ city }) => {
   const fallbacks = useMemo(() => {
     const id = city.id;
     const sources = [];
+    
+    // 1. Custom thumbnail if specified
     if (city.thumbnail) sources.push(city.thumbnail);
-    // CDN mapped city thumbnail (e.g., images/city-thumbnails/{id}.jpeg)
+    
+    // 2. Local country-specific thumbnail (highest priority for local files)
+    if (city.country) {
+      sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpeg`);
+    }
+    
+    // 3. Local city page hero images (country-specific)
+    if (city.country) {
+      sources.push(`/images/city-page/${city.country}/${id}-hero.jpeg`);
+    }
+    
+    // 4. Local city page images (root directory)
+    sources.push(`/images/city-page/${id}.jpeg`);
+    
+    // 5. Local optimized JPEG
+    sources.push(`/images/optimized/${id}.jpeg`);
+    
+    // 6. Legacy local thumbnail naming
+    sources.push(`/images/${id}-thumbnail.jpeg`);
+    
+    // 7. Generic city thumbnail directory
+    sources.push(`/images/city-thumbnail/${id}-thumbnail.jpeg`);
+    
+    // 8. CDN mapped city thumbnail (only if CDN is working)
     const cdnSource = getImageUrl(`/images/${id}.jpeg`);
     if (isCDNEnabled() && cdnSource) sources.push(cdnSource);
-    // Local optimized JPEG
-    sources.push(`/images/optimized/${id}.jpeg`);
-    // Legacy local thumbnail naming
-    sources.push(`/images/${id}-thumbnail.jpeg`);
-    // Final placeholder
+    
+    // 9. Final placeholder
     sources.push('/images/city-placeholder.svg');
+    
     return sources;
   }, [city]);
 
