@@ -1,0 +1,556 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Pré aux Clercs",
+                "cuisine_type": "Modern French-Burgundian Fusion",
+                "signature_dishes": [
+                    "Escargots de Bourgogne with Dijon mustard",
+                    "Bœuf Bourguignon with local red wine",
+                    "Coq au Vin with Burgundy wine sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant contemporary space with traditional Burgundian elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, especially for weekend evenings",
+                "dress_code": "Smart casual",
+                "location": "Place de la Libération",
+                "local_tips": "Try their seasonal menu featuring local Burgundian ingredients and wines"
+            },
+            {
+                "name": "L'Étoile",
+                "cuisine_type": "Traditional Burgundian",
+                "signature_dishes": [
+                    "Escargots de Bourgogne",
+                    "Bœuf Bourguignon",
+                    "Coq au Vin"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and welcoming with traditional Burgundian hospitality",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, popular with both locals and tourists",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Order the house Burgundy wine and try the traditional Dijon mustard"
+            },
+            {
+                "name": "Le Petit Bistrot",
+                "cuisine_type": "Authentic Burgundian Home Cooking",
+                "signature_dishes": [
+                    "Jambon persillé (parsleyed ham terrine)",
+                    "Oeufs en meurette (eggs in red wine sauce)",
+                    "Poulet au vin jaune (chicken in yellow wine)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy family-style restaurant with traditional Burgundian décor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Rue des Forges",
+                "local_tips": "Try the daily specials and ask about traditional Burgundian desserts"
+            },
+            {
+                "name": "La Table du Marché",
+                "cuisine_type": "Mediterranean-Burgundian",
+                "signature_dishes": [
+                    "Grilled lamb with Dijon mustard",
+                    "Duck breast with local mushrooms",
+                    "Fresh fish with Burgundian vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated dining with views of the city",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, request a window table for city views",
+                "dress_code": "Smart casual",
+                "location": "Les Halles Centrales",
+                "local_tips": "Perfect for special occasions, excellent Burgundy wine selection"
+            },
+            {
+                "name": "Le Gourmet",
+                "cuisine_type": "International with Burgundian Influences",
+                "signature_dishes": [
+                    "Burgundian-style risotto",
+                    "Grilled meats with Dijon mustard",
+                    "Fresh pasta with Burgundian ingredients"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and stylish with outdoor seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-5 days ahead, outdoor seating available in summer",
+                "dress_code": "Smart casual",
+                "location": "Place de la Libération",
+                "local_tips": "Great for business dinners and romantic evenings"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Le Bouchon",
+                "cuisine_type": "Traditional Burgundian",
+                "signature_dishes": [
+                    "Saucisse de Morteau (local sausage)",
+                    "Jambon de Bourgogne (cured ham)",
+                    "Charcuterie plate with local meats"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and casual with outdoor seating",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early during peak hours",
+                "dress_code": "Casual",
+                "location": "Place de la Libération",
+                "local_tips": "Try their homemade bread and ask for extra Dijon mustard"
+            },
+            {
+                "name": "La Taverne",
+                "cuisine_type": "Burgundian Taverna",
+                "signature_dishes": [
+                    "Escargots de Bourgogne",
+                    "Bœuf Bourguignon",
+                    "Coq au Vin"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional Burgundian taverna with live music",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 days ahead, especially for weekend live music",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Stay for the traditional Burgundian music and dancing"
+            },
+            {
+                "name": "Le Comptoir",
+                "cuisine_type": "Burgundian Home Cooking",
+                "signature_dishes": [
+                    "Oeufs en meurette (eggs in red wine sauce)",
+                    "Jambon persillé (parsleyed ham terrine)",
+                    "Poulet au vin jaune (chicken in yellow wine)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Simple and authentic family restaurant",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Residential area",
+                "local_tips": "Ask about daily specials and traditional Burgundian desserts"
+            },
+            {
+                "name": "Restaurant Traditionnel",
+                "cuisine_type": "Traditional Burgundian",
+                "signature_dishes": [
+                    "Saucisse de Morteau (local sausage)",
+                    "Escargots de Bourgogne",
+                    "Bœuf Bourguignon"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and traditional with Burgundian hospitality",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early during peak times",
+                "dress_code": "Casual",
+                "location": "Near Place de la Libération",
+                "local_tips": "Try the house Burgundy wine and traditional Dijon mustard"
+            },
+            {
+                "name": "La Cuisine du Terroir",
+                "cuisine_type": "Burgundian Home Cooking",
+                "signature_dishes": [
+                    "Jambon persillé (parsleyed ham terrine)",
+                    "Oeufs en meurette (eggs in red wine sauce)",
+                    "Poulet au vin jaune (chicken in yellow wine)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Simple and authentic family restaurant",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Residential area",
+                "local_tips": "Ask about daily specials and traditional Burgundian desserts"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Les Halles Centrales",
+                "specialties": [
+                    "Escargots de Bourgogne",
+                    "Saucisse de Morteau (local sausage)",
+                    "Fresh fruits and vegetables",
+                    "Local cheeses and charcuterie"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 6am-8pm",
+                "location": "Les Halles Centrales",
+                "seating": true,
+                "local_tips": "Visit early morning for fresh produce, try the escargots from local vendors"
+            },
+            {
+                "name": "Historic Center Area",
+                "specialties": [
+                    "Traditional Burgundian dishes",
+                    "Grilled meats",
+                    "Local sweets",
+                    "Fresh bread"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 8am-6pm",
+                "location": "Historic Center",
+                "seating": false,
+                "local_tips": "Explore the narrow streets for hidden food gems and traditional bakeries"
+            },
+            {
+                "name": "Place de la Libération Food Stalls",
+                "specialties": [
+                    "Quick snacks",
+                    "Ice cream",
+                    "Fresh juices",
+                    "Local pastries"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10am-10pm",
+                "location": "Place de la Libération",
+                "seating": true,
+                "local_tips": "Perfect for quick refreshments while sightseeing"
+            },
+            {
+                "name": "Rue des Forges Street Food",
+                "specialties": [
+                    "International street food",
+                    "Local Burgundian dishes",
+                    "Fresh juices",
+                    "Coffee and pastries"
+                ],
+                "price_range": "€€",
+                "hours": "Daily: 11am-11pm",
+                "location": "Rue des Forges",
+                "seating": true,
+                "local_tips": "Trendy area with mix of local and international street food options"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de la Paix",
+                "specialty": "Traditional French coffee and pastries",
+                "must_try": [
+                    "French-style espresso",
+                    "Local pastries",
+                    "Traditional French sweets"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional French café with elegant décor",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Traditional French pastries and light snacks",
+                "local_tips": "Try different coffee varieties and ask about the traditional French coffee preparation"
+            },
+            {
+                "name": "Le Petit Café",
+                "specialty": "Third-wave specialty coffee",
+                "must_try": [
+                    "Espresso",
+                    "Pour-over coffee",
+                    "Cold brew",
+                    "Local coffee blends"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern specialty coffee shop with industrial design",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light breakfast items",
+                "local_tips": "Try their local French coffee blends and ask about brewing methods"
+            },
+            {
+                "name": "Café du Centre",
+                "specialty": "Traditional French coffee and atmosphere",
+                "must_try": [
+                    "French-style coffee",
+                    "Local tea varieties",
+                    "Traditional pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy traditional café with garden seating",
+                "best_time": "Morning or afternoon",
+                "wifi_friendly": true,
+                "food_options": "Traditional French pastries and light meals",
+                "local_tips": "Beautiful garden seating in summer, try the traditional French coffee"
+            },
+            {
+                "name": "Le Café Bourguignon",
+                "specialty": "Unique Burgundian-themed café experience",
+                "must_try": [
+                    "Local coffee",
+                    "Traditional French tea",
+                    "Local pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Burgundian-themed café with unique atmosphere",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and traditional French sweets",
+                "local_tips": "Unique Burgundian theme, great for photos and learning about local culture"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Rooftop",
+                "type": "Rooftop Bar",
+                "specialty": "Cocktails with city views",
+                "signature_drinks": [
+                    "Local Burgundy wine cocktails",
+                    "International cocktails",
+                    "Local French wines"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy rooftop bar with panoramic city views",
+                "best_time": "Sunset",
+                "food_options": "Light bites and tapas",
+                "reservation_needed": true,
+                "local_tips": "Book in advance for sunset views, dress smartly"
+            },
+            {
+                "name": "Le Cave à Vins",
+                "type": "Wine Bar",
+                "specialty": "Burgundy wines and international selection",
+                "signature_drinks": [
+                    "Local Burgundy wines",
+                    "International wine selection",
+                    "Wine-based cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated wine bar with extensive wine list",
+                "best_time": "Evening",
+                "food_options": "Cheese platters and light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Ask about local Burgundy wines and wine tasting events"
+            },
+            {
+                "name": "Le Mixologist",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails and local spirits",
+                "signature_drinks": [
+                    "Burgundy wine-based cocktails",
+                    "Local spirit infusions",
+                    "Creative international cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern and trendy with creative cocktail menu",
+                "best_time": "Evening",
+                "food_options": "Small plates and sharing dishes",
+                "reservation_needed": false,
+                "local_tips": "Try their Burgundy wine-based cocktails and ask about local French spirits"
+            },
+            {
+                "name": "Rue des Forges Bars",
+                "type": "Various Bar Types",
+                "specialty": "Mix of local and international bars",
+                "signature_drinks": [
+                    "Local Burgundy wines",
+                    "International cocktails",
+                    "Local French beers",
+                    "Wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant nightlife area with various bar options",
+                "best_time": "Evening",
+                "food_options": "Various food options available",
+                "reservation_needed": false,
+                "local_tips": "Explore the area for different bar atmospheres, popular with young locals"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Dijon Food Tour",
+                "focus": "Traditional Burgundian cuisine and culture",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Traditional French coffee experience",
+                    "Local market visits",
+                    "Traditional Burgundian dishes",
+                    "Local wine and cheese tasting"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book 1 week in advance, especially for weekend tours"
+            },
+            {
+                "name": "Market Food Experience",
+                "focus": "Local markets and traditional foods",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Les Halles Centrales exploration",
+                    "Traditional escargots tasting",
+                    "Local cheese and charcuterie sampling",
+                    "Traditional French coffee"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book 3-5 days ahead, morning tours available"
+            },
+            {
+                "name": "French Coffee and Wine Tour",
+                "focus": "Traditional French coffee culture and Burgundy wines",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional coffee preparation",
+                    "Burgundy wine tasting experience",
+                    "Local café culture",
+                    "Traditional French sweets"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book 2-3 days ahead, afternoon tours recommended"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Burgundian Home Cooking Class",
+                "cuisine_focus": "Traditional Burgundian cuisine",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional Burgundian cooking techniques",
+                    "Local ingredient selection",
+                    "Escargots preparation",
+                    "Traditional Burgundian dishes"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe cards",
+                    "Traditional Burgundian meal",
+                    "Local Burgundy wine"
+                ],
+                "booking_tips": "Book 1 week ahead, classes include market visit"
+            },
+            {
+                "name": "Escargots Making Workshop",
+                "cuisine_focus": "Traditional Burgundian escargots dish",
+                "duration": "2-3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Escargots preparation",
+                    "Traditional ingredients",
+                    "Cooking techniques",
+                    "Serving methods"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients and equipment",
+                    "Recipe cards",
+                    "Freshly made escargots",
+                    "Traditional French coffee"
+                ],
+                "booking_tips": "Book 3-5 days ahead, perfect for groups"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Les Halles Centrales",
+                "type": "Traditional covered market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Traditional escargots",
+                    "Local cheeses and charcuterie",
+                    "Fresh meat and fish",
+                    "Local honey and preserves"
+                ],
+                "hours": "Daily: 6am-8pm",
+                "best_time": "Early morning for fresh produce",
+                "location": "Les Halles Centrales",
+                "local_tips": "Visit early for best selection, try escargots from local vendors"
+            },
+            {
+                "name": "Historic Center Area",
+                "type": "Historic market district",
+                "highlights": [
+                    "Traditional crafts",
+                    "Local food shops",
+                    "Traditional bakeries",
+                    "Local sweets",
+                    "Traditional French coffee"
+                ],
+                "hours": "Daily: 8am-6pm",
+                "best_time": "Morning to early afternoon",
+                "location": "Historic Center",
+                "local_tips": "Explore narrow streets for hidden food gems and traditional shops"
+            },
+            {
+                "name": "Place de la Libération Food Stalls",
+                "type": "Quick food and refreshments",
+                "highlights": [
+                    "Quick snacks",
+                    "Ice cream and desserts",
+                    "Fresh juices",
+                    "Local pastries",
+                    "Coffee and tea"
+                ],
+                "hours": "Daily: 10am-10pm",
+                "best_time": "Afternoon for refreshments",
+                "location": "Place de la Libération",
+                "local_tips": "Perfect for quick refreshments while sightseeing"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh spring lamb dishes",
+            "Wild herbs and greens",
+            "Fresh cheese varieties",
+            "Spring vegetables in traditional dishes",
+            "Fresh honey from local beekeepers"
+        ],
+        "summer": [
+            "Grilled meats and vegetables",
+            "Fresh salads with local produce",
+            "Summer fruit desserts",
+            "Light traditional Burgundian dishes",
+            "Fresh fish from local rivers"
+        ],
+        "autumn": [
+            "Game meats (when available)",
+            "Autumn vegetable stews",
+            "Fresh grape harvest celebrations",
+            "Traditional Burgundy wine products",
+            "Hearty autumn soups"
+        ],
+        "winter": [
+            "Warming traditional stews",
+            "Hot traditional French coffee",
+            "Winter vegetable dishes",
+            "Traditional French winter sweets",
+            "Hot wine and local spirits"
+        ]
+    }
+}

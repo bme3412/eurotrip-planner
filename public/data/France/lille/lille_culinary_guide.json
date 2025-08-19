@@ -2,479 +2,400 @@
     "restaurants": {
         "fine_dining": [
             {
-                "name": "La Table du Clarance",
-                "cuisine_type": "Contemporary French",
+                "name": "L'Huîtrière",
+                "cuisine_type": "Traditional French Seafood",
                 "signature_dishes": [
-                    "Seasonal tasting menu",
-                    "North Sea fish with local vegetables"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Refined elegance in a boutique hotel setting",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Book at least three weeks in advance, request courtyard seating in summer",
-                "dress_code": "Smart elegant",
-                "michelin_stars": 1,
-                "location": "Vieux-Lille",
-                "local_tips": "Chef Thibaut Gamba focuses on local, seasonal ingredients with creative presentations"
-            },
-            {
-                "name": "Bloempot",
-                "cuisine_type": "Modern Flemish",
-                "signature_dishes": [
-                    "Grilled meats with seasonal vegetables",
-                    "Flemish-inspired desserts"
+                    "Moules-frites (mussels and fries)",
+                    "Coquilles Saint-Jacques",
+                    "Sole meunière with local butter"
                 ],
                 "price_range": "€€€",
-                "atmosphere": "Rustic-chic with open kitchen and industrial decor",
+                "atmosphere": "Elegant Art Deco space with maritime décor",
                 "best_time": "Dinner",
                 "reservation_needed": true,
-                "booking_tips": "Book at least one month in advance, very popular",
+                "booking_tips": "Book 1-2 weeks in advance, especially for weekend evenings",
                 "dress_code": "Smart casual",
-                "michelin_stars": 0,
-                "location": "Vieux-Lille",
-                "local_tips": "Chef Florent Ladeyn (Top Chef finalist) focuses on ultra-local ingredients, often foraged"
+                "location": "Rue des Chats Bossus",
+                "local_tips": "Try their famous mussels and ask about local seafood specialties"
             },
             {
-                "name": "La Laiterie",
-                "cuisine_type": "Contemporary French",
+                "name": "Le Comptoir de la Mer",
+                "cuisine_type": "Modern French with Northern Influences",
                 "signature_dishes": [
-                    "Seasonal game dishes",
-                    "Artisanal cheese selection"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Elegant and discreet in a converted dairy building",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Book at least two weeks in advance",
-                "dress_code": "Smart elegant",
-                "michelin_stars": 0,
-                "location": "Lambersart (near Lille)",
-                "local_tips": "Try their exceptional wine pairings showcasing small French producers"
-            },
-            {
-                "name": "Rouge Bar",
-                "cuisine_type": "Modern French",
-                "signature_dishes": [
-                    "Langoustine ravioli",
-                    "Roasted lamb with seasonal accompaniments"
+                    "Carbonnade flamande (Flemish beef stew)",
+                    "Waterzooi de poulet (chicken stew)",
+                    "Tarte au maroilles (local cheese tart)"
                 ],
                 "price_range": "€€€",
-                "atmosphere": "Contemporary elegance with red accents and intimate lighting",
-                "best_time": "Dinner",
+                "atmosphere": "Contemporary dining with warm northern hospitality",
+                "best_time": "Lunch or dinner",
                 "reservation_needed": true,
-                "booking_tips": "Reserve at least one week in advance, specify if celebrating a special occasion",
+                "booking_tips": "Book a few days ahead, popular with both locals and tourists",
                 "dress_code": "Smart casual",
-                "michelin_stars": 0,
-                "location": "Vieux-Lille",
-                "local_tips": "The chef's surprise menu is an excellent value for experiencing their best dishes"
+                "location": "Grand Place",
+                "local_tips": "Order the house beer selection and try the Flemish specialties"
             },
             {
-                "name": "L'Huitrière",
-                "cuisine_type": "Seafood",
+                "name": "Le Bistrot de la Paix",
+                "cuisine_type": "Authentic Northern French Home Cooking",
                 "signature_dishes": [
-                    "Plateau de fruits de mer",
-                    "Dover sole meunière"
+                    "Potjevleesch (traditional meat terrine)",
+                    "Carbonnade flamande (beer-braised beef)",
+                    "Endive au jambon (ham-wrapped endives)"
                 ],
-                "price_range": "€€€€",
-                "atmosphere": "Classic elegance in a historic fish market with Art Deco details",
+                "price_range": "€€",
+                "atmosphere": "Cozy family-style restaurant with traditional northern décor",
                 "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Vieux Lille",
+                "local_tips": "Try the daily specials and ask about traditional northern desserts"
+            },
+            {
+                "name": "La Table du Nord",
+                "cuisine_type": "Northern French-Flemish Fusion",
+                "signature_dishes": [
+                    "Grilled herring with northern herbs",
+                    "Duck breast with local mushrooms",
+                    "Fresh fish with northern vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated dining with northern French charm",
+                "best_time": "Dinner",
                 "reservation_needed": true,
-                "booking_tips": "Book at least two weeks in advance, lunch offers better value",
-                "dress_code": "Smart elegant",
-                "michelin_stars": 0,
-                "location": "Vieux-Lille",
-                "local_tips": "Begin with a drink in their atmospheric oyster bar before moving to the restaurant"
+                "booking_tips": "Book 1 week ahead, request a window table for city views",
+                "dress_code": "Smart casual",
+                "location": "Place du Théâtre",
+                "local_tips": "Perfect for special occasions, excellent northern French wine selection"
+            },
+            {
+                "name": "Le Gourmet du Nord",
+                "cuisine_type": "International with Northern French Influences",
+                "signature_dishes": [
+                    "Northern-style risotto",
+                    "Grilled meats with local herbs",
+                    "Fresh pasta with northern ingredients"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and stylish with outdoor seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-5 days ahead, outdoor seating available in summer",
+                "dress_code": "Smart casual",
+                "location": "Grand Place",
+                "local_tips": "Great for business dinners and romantic evenings"
             }
         ],
         "casual_dining": [
             {
-                "name": "Estaminet 'T Rijsel",
-                "cuisine_type": "Traditional Flemish",
+                "name": "Le Bouchon du Nord",
+                "cuisine_type": "Traditional Northern French",
                 "signature_dishes": [
-                    "Carbonnade flamande (beef and beer stew)",
-                    "Welsh (cheese and beer dish)"
+                    "Carbonnade flamande (beer-braised beef)",
+                    "Jambon d'Ardennes (cured ham)",
+                    "Charcuterie plate with local meats"
                 ],
                 "price_range": "€€",
-                "atmosphere": "Cozy traditional estaminet with wooden furnishings and local memorabilia",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Book several days ahead, especially for weekends",
-                "dress_code": "Casual",
-                "location": "Vieux-Lille",
-                "local_tips": "Great selection of regional beers to pair with hearty local dishes"
-            },
-            {
-                "name": "Le Barbier qui fume",
-                "cuisine_type": "Smokehouse/BBQ",
-                "signature_dishes": [
-                    "Smoked meats",
-                    "Craft burgers"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Hip industrial space with open kitchen and smokers",
-                "best_time": "Both",
-                "reservation_needed": true,
-                "booking_tips": "Book at least a few days ahead, popular with younger crowd",
-                "dress_code": "Casual",
-                "location": "Near Wazemmes",
-                "local_tips": "Try their smoked local Charolais beef with craft beer pairings"
-            },
-            {
-                "name": "La Petite Table",
-                "cuisine_type": "Modern French Bistro",
-                "signature_dishes": [
-                    "Market-inspired daily specials",
-                    "Seasonal fish dishes"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Intimate and charming with contemporary touches",
-                "best_time": "Lunch",
-                "reservation_needed": true,
-                "booking_tips": "Book a few days ahead, lunch menu is excellent value",
-                "dress_code": "Smart casual",
-                "location": "Vieux-Lille",
-                "local_tips": "The chef shops at local markets each morning to create the daily menu"
-            },
-            {
-                "name": "Ripaille",
-                "cuisine_type": "Modern French",
-                "signature_dishes": [
-                    "Slow-cooked meats",
-                    "Creative salads"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Bright, modern space with open kitchen",
-                "best_time": "Lunch",
-                "reservation_needed": true,
-                "booking_tips": "Book at least one day ahead, request terrace in summer",
-                "dress_code": "Smart casual",
-                "location": "Near Grand Place",
-                "local_tips": "Great for business lunches, excellent weekday lunch formula"
-            },
-            {
-                "name": "Au Vieux de la Vieille",
-                "cuisine_type": "Traditional Ch'ti (Northern French)",
-                "signature_dishes": [
-                    "Welsh complet (beer-soaked bread, ham and melted cheese)",
-                    "Potjevleesch (cold meat terrine)"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Traditional estaminet with rustic decor and convivial atmosphere",
-                "best_time": "Both",
-                "reservation_needed": true,
-                "booking_tips": "Book ahead for dinner, lunch may accept walk-ins",
+                "atmosphere": "Lively and casual with outdoor seating",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early during peak hours",
                 "dress_code": "Casual",
                 "location": "Grand Place",
-                "local_tips": "The iconic place to try traditional cuisine of Northern France"
+                "local_tips": "Try their homemade bread and ask for extra local cheese"
             },
             {
-                "name": "La Clef des Champs",
-                "cuisine_type": "Traditional French/Flemish",
+                "name": "La Taverne Flamande",
+                "cuisine_type": "Flemish Taverna",
                 "signature_dishes": [
-                    "Moules frites",
-                    "Homemade terrines"
+                    "Carbonnade flamande",
+                    "Waterzooi de poulet",
+                    "Tarte au maroilles"
                 ],
                 "price_range": "€€",
-                "atmosphere": "Warm and rustic with countryside charm",
+                "atmosphere": "Traditional Flemish taverna with live music",
                 "best_time": "Dinner",
                 "reservation_needed": true,
-                "booking_tips": "Book ahead for weekends",
+                "booking_tips": "Book 2-3 days ahead, especially for weekend live music",
                 "dress_code": "Casual",
-                "location": "Wazemmes",
-                "local_tips": "Great place to try regional specialties in a locals' neighborhood"
+                "location": "Vieux Lille",
+                "local_tips": "Stay for the traditional Flemish music and dancing"
             },
             {
-                "name": "Babe",
-                "cuisine_type": "Creative Small Plates",
+                "name": "Le Comptoir du Nord",
+                "cuisine_type": "Northern French Home Cooking",
                 "signature_dishes": [
-                    "Daily changing tapas-style dishes",
-                    "Natural wine pairings"
+                    "Potjevleesch (traditional meat terrine)",
+                    "Carbonnade flamande (beer-braised beef)",
+                    "Endive au jambon (ham-wrapped endives)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Simple and authentic family restaurant",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Residential area",
+                "local_tips": "Ask about daily specials and traditional northern desserts"
+            },
+            {
+                "name": "Restaurant Traditionnel du Nord",
+                "cuisine_type": "Traditional Northern French",
+                "signature_dishes": [
+                    "Carbonnade flamande (beer-braised beef)",
+                    "Waterzooi de poulet",
+                    "Tarte au maroilles"
                 ],
                 "price_range": "€€",
-                "atmosphere": "Modern, minimalist with hip vibe",
-                "best_time": "Evening",
-                "reservation_needed": true,
-                "booking_tips": "Book a few days ahead, or try walk-in at bar seating",
+                "atmosphere": "Warm and traditional with northern hospitality",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early during peak times",
                 "dress_code": "Casual",
                 "location": "Near Grand Place",
-                "local_tips": "Great natural wine selection with perfectly paired small dishes"
+                "local_tips": "Try the house beer selection and traditional northern cheese dishes"
             },
             {
-                "name": "Suzanne",
-                "cuisine_type": "Modern Bistro",
+                "name": "La Cuisine du Terroir du Nord",
+                "cuisine_type": "Northern French Home Cooking",
                 "signature_dishes": [
-                    "Seasonal vegetable-forward dishes",
-                    "Fresh fish specials"
+                    "Potjevleesch (traditional meat terrine)",
+                    "Carbonnade flamande (beer-braised beef)",
+                    "Endive au jambon (ham-wrapped endives)"
                 ],
-                "price_range": "€€",
-                "atmosphere": "Bright, cheerful space with Scandinavian influences",
+                "price_range": "€",
+                "atmosphere": "Simple and authentic family restaurant",
                 "best_time": "Lunch",
-                "reservation_needed": true,
-                "booking_tips": "Book a few days ahead, popular lunch spot",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for lunch",
                 "dress_code": "Casual",
-                "location": "Vieux-Lille",
-                "local_tips": "Excellent for healthy, creative cuisine with many vegetarian options"
+                "location": "Residential area",
+                "local_tips": "Ask about daily specials and traditional northern desserts"
             }
         ],
         "street_food": [
             {
                 "name": "Marché de Wazemmes",
                 "specialties": [
-                    "Merguez sausage sandwiches",
-                    "North African street food"
+                    "Carbonnade flamande",
+                    "Carbonnade flamande (beer-braised beef)",
+                    "Fresh fruits and vegetables",
+                    "Local cheeses and charcuterie"
                 ],
                 "price_range": "€",
-                "hours": "Tue, Thu: 7:00am-1:30pm, Sun: 7:00am-2:30pm",
-                "location": "Wazemmes neighborhood",
-                "seating": false,
-                "local_tips": "Sunday is the largest market day with the most food vendors"
-            },
-            {
-                "name": "La Friterie du Jardin de la Citadelle",
-                "specialties": [
-                    "Belgian fries with various sauces",
-                    "Friterie sandwiches"
-                ],
-                "price_range": "€",
-                "hours": "Wed-Sun: 11:30am-7:00pm (weather permitting)",
-                "location": "Near Citadelle park",
-                "seating": false,
-                "local_tips": "Popular after-work spot, try the traditional fries with andalouse sauce"
-            },
-            {
-                "name": "Les Halles de Wazemmes",
-                "specialties": [
-                    "Vietnamese banh mi",
-                    "Fresh cheese and bread"
-                ],
-                "price_range": "€",
-                "hours": "Tue-Sat: 8:00am-7:00pm, Sun: 8:00am-2:00pm",
-                "location": "Wazemmes neighborhood",
-                "seating": false,
-                "local_tips": "The indoor market hall has excellent specialty food shops and ready-to-eat options"
-            },
-            {
-                "name": "La Carioca",
-                "specialties": [
-                    "Brazilian tapioca crêpes",
-                    "Açaí bowls"
-                ],
-                "price_range": "€",
-                "hours": "Mon-Sat: 11:00am-6:00pm",
-                "location": "Near Grand Place",
+                "hours": "Daily: 6am-8pm",
+                "location": "Marché de Wazemmes",
                 "seating": true,
-                "local_tips": "Healthy options with gluten-free tapioca crêpes filled with both sweet and savory fillings"
+                "local_tips": "Visit early morning for fresh produce, try the local northern specialties from vendors"
             },
             {
-                "name": "Wally's Coffee",
+                "name": "Vieux Lille Area",
                 "specialties": [
-                    "Gourmet hot dogs",
-                    "Specialty coffee"
+                    "Traditional northern French dishes",
+                    "Grilled meats",
+                    "Local sweets",
+                    "Fresh bread"
                 ],
                 "price_range": "€",
-                "hours": "Mon-Sat: 11:00am-6:00pm",
-                "location": "Saint-Maurice Pellevoisin area",
+                "hours": "Daily: 8am-6pm",
+                "location": "Vieux Lille",
+                "seating": false,
+                "local_tips": "Explore the narrow streets for hidden food gems and traditional bakeries"
+            },
+            {
+                "name": "Grand Place Food Stalls",
+                "specialties": [
+                    "Quick snacks",
+                    "Ice cream",
+                    "Fresh juices",
+                    "Local pastries"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10am-10pm",
+                "location": "Grand Place",
                 "seating": true,
-                "local_tips": "Unique fusion hot dogs with international flavors and great coffee"
+                "local_tips": "Perfect for quick refreshments while sightseeing"
+            },
+            {
+                "name": "Rue de la Grande Chaussée Street Food",
+                "specialties": [
+                    "International street food",
+                    "Local northern French dishes",
+                    "Fresh juices",
+                    "Coffee and pastries"
+                ],
+                "price_range": "€€",
+                "hours": "Daily: 11am-11pm",
+                "location": "Rue de la Grande Chaussée",
+                "seating": true,
+                "local_tips": "Trendy area with mix of local and international street food options"
             }
         ]
     },
     "bars_and_cafes": {
         "coffee_shops": [
             {
-                "name": "Café Méo",
-                "specialty": "Local roasted coffee",
+                "name": "Café de la Paix",
+                "specialty": "Traditional French coffee and pastries",
                 "must_try": [
-                    "Single-origin filter coffee",
-                    "Traditional baked goods"
+                    "French-style espresso",
+                    "Local pastries",
+                    "Traditional French sweets"
                 ],
-                "price_range": "€",
-                "atmosphere": "Classic Lille institution with historic roasting company",
-                "best_time": "Morning",
+                "price_range": "€€",
+                "atmosphere": "Traditional French café with elegant décor",
+                "best_time": "Afternoon",
                 "wifi_friendly": true,
-                "food_options": "Light breakfast and pastries",
-                "local_tips": "Their coffee beans make great souvenirs from Lille"
+                "food_options": "Traditional French pastries and light snacks",
+                "local_tips": "Try different coffee varieties and ask about the traditional French coffee preparation"
             },
             {
-                "name": "Coffee Makers",
+                "name": "Le Petit Café du Nord",
                 "specialty": "Third-wave specialty coffee",
                 "must_try": [
-                    "Pour-over seasonal coffees",
-                    "Housemade pastries"
+                    "Espresso",
+                    "Pour-over coffee",
+                    "Cold brew",
+                    "Local coffee blends"
                 ],
                 "price_range": "€€",
-                "atmosphere": "Minimalist, hipster vibe with plants and industrial touches",
+                "atmosphere": "Modern specialty coffee shop with industrial design",
                 "best_time": "Morning",
                 "wifi_friendly": true,
-                "food_options": "Avocado toast, granola bowls, and pastries",
-                "local_tips": "One of the pioneers of specialty coffee in Lille"
+                "food_options": "Pastries and light breakfast items",
+                "local_tips": "Try their local French coffee blends and ask about brewing methods"
             },
             {
-                "name": "Caféine Coffee",
-                "specialty": "Specialty coffee and tea",
+                "name": "Café du Centre",
+                "specialty": "Traditional French coffee and atmosphere",
                 "must_try": [
-                    "Flat white",
-                    "Artisanal cakes"
+                    "French-style coffee",
+                    "Local tea varieties",
+                    "Traditional pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy traditional café with garden seating",
+                "best_time": "Morning or afternoon",
+                "wifi_friendly": true,
+                "food_options": "Traditional French pastries and light meals",
+                "local_tips": "Beautiful garden seating in summer, try the traditional French coffee"
+            },
+            {
+                "name": "Le Café du Nord",
+                "specialty": "Unique northern French-themed café experience",
+                "must_try": [
+                    "Local coffee",
+                    "Traditional French tea",
+                    "Local pastries"
                 ],
                 "price_range": "€€",
-                "atmosphere": "Cozy and modern with friendly service",
+                "atmosphere": "Northern French-themed café with unique atmosphere",
                 "best_time": "Afternoon",
                 "wifi_friendly": true,
-                "food_options": "Fresh sandwiches and homemade desserts",
-                "local_tips": "Great place to work remotely with good wifi and power outlets"
-            },
-            {
-                "name": "Elizabeth's",
-                "specialty": "British-inspired café",
-                "must_try": [
-                    "Afternoon tea set",
-                    "Scones with clotted cream"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Charming English tearoom with vintage decor",
-                "best_time": "Afternoon",
-                "wifi_friendly": false,
-                "food_options": "Full English breakfast, sandwiches, and cakes",
-                "local_tips": "Book ahead for their traditional afternoon tea experience"
-            },
-            {
-                "name": "Tamper! Espresso Bar",
-                "specialty": "Australian-style coffee",
-                "must_try": [
-                    "Flat white",
-                    "Banana bread"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Bright, modern space with Antipodean influence",
-                "best_time": "Morning",
-                "wifi_friendly": true,
-                "food_options": "Healthy breakfast and lunch options",
-                "local_tips": "Great for brunch on weekends, but arrive early as it fills up quickly"
+                "food_options": "Light snacks and traditional French sweets",
+                "local_tips": "Unique northern French theme, great for photos and learning about local culture"
             }
         ],
         "bars": [
             {
-                "name": "La Part des Anges",
-                "type": "Wine Bar",
-                "specialty": "Natural wines",
-                "signature_drinks": [
-                    "Organic wine flights",
-                    "Local craft beers"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Cozy and intimate with knowledgeable staff",
-                "best_time": "Evening",
-                "food_options": "Cheese and charcuterie plates",
-                "reservation_needed": false,
-                "local_tips": "Great for wine enthusiasts with frequent tastings and guest winemakers"
-            },
-            {
-                "name": "What The Fox",
-                "type": "Cocktail Bar",
-                "specialty": "Creative mixology",
-                "signature_drinks": [
-                    "Seasonal craft cocktails",
-                    "Homemade infusions"
-                ],
-                "price_range": "€€€",
-                "atmosphere": "Stylish speakeasy with hidden entrance",
-                "best_time": "Night",
-                "food_options": "Small bites",
-                "reservation_needed": true,
-                "local_tips": "Ask bartenders for off-menu creations based on your preferences"
-            },
-            {
-                "name": "Le Dandy",
-                "type": "Cocktail Bar",
-                "specialty": "Classic and signature cocktails",
-                "signature_drinks": [
-                    "Negroni variations",
-                    "Champagne cocktails"
-                ],
-                "price_range": "€€€",
-                "atmosphere": "Art Deco elegance with sophisticated vibe",
-                "best_time": "Evening",
-                "food_options": "Gourmet bar snacks",
-                "reservation_needed": true,
-                "local_tips": "Excellent pre-dinner aperitif spot in Vieux-Lille"
-            },
-            {
-                "name": "La Capsule",
-                "type": "Craft Beer Bar",
-                "specialty": "Belgian and local craft beers",
-                "signature_drinks": [
-                    "Rotating craft beer selection",
-                    "Local microbreweries"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Relaxed beer café with knowledgeable staff",
-                "best_time": "Evening",
-                "food_options": "Beer snacks and cheese plates",
-                "reservation_needed": false,
-                "local_tips": "Ask for recommendations - staff are passionate about helping you find your perfect beer"
-            },
-            {
-                "name": "Le Comptoir Volant",
+                "name": "Le Rooftop du Nord",
                 "type": "Rooftop Bar",
-                "specialty": "Panoramic views",
+                "specialty": "Cocktails with city views",
                 "signature_drinks": [
-                    "Craft cocktails",
-                    "Local beer selection"
+                    "Local northern French beer cocktails",
+                    "International cocktails",
+                    "Local French wines"
                 ],
                 "price_range": "€€€",
-                "atmosphere": "Modern rooftop with city views",
+                "atmosphere": "Trendy rooftop bar with panoramic city views",
                 "best_time": "Sunset",
-                "food_options": "Tapas and sharing plates",
+                "food_options": "Light bites and tapas",
                 "reservation_needed": true,
-                "local_tips": "Book in advance for the best tables, especially on weekend evenings"
+                "local_tips": "Book in advance for sunset views, dress smartly"
             },
             {
-                "name": "Lille aux Pingres",
-                "type": "Traditional Estaminet",
-                "specialty": "Regional beers and genevers",
+                "name": "Le Cave à Vins du Nord",
+                "type": "Wine Bar",
+                "specialty": "Northern French wines and international selection",
                 "signature_drinks": [
-                    "Ch'ti beer",
-                    "Flemish genever (gin)"
+                    "Local northern French wines",
+                    "International wine selection",
+                    "Wine-based cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated wine bar with extensive wine list",
+                "best_time": "Evening",
+                "food_options": "Cheese platters and light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Ask about local northern French wines and wine tasting events"
+            },
+            {
+                "name": "Le Mixologist du Nord",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails and local spirits",
+                "signature_drinks": [
+                    "Northern French beer-based cocktails",
+                    "Local spirit infusions",
+                    "Creative international cocktails"
                 ],
                 "price_range": "€€",
-                "atmosphere": "Authentic Flemish pub with historic character",
+                "atmosphere": "Modern and trendy with creative cocktail menu",
                 "best_time": "Evening",
-                "food_options": "Traditional northern French snacks",
+                "food_options": "Small plates and sharing dishes",
                 "reservation_needed": false,
-                "local_tips": "Great place to experience traditional drinking culture of Northern France"
+                "local_tips": "Try their northern French beer-based cocktails and ask about local French spirits"
+            },
+            {
+                "name": "Rue de la Grande Chaussée Bars",
+                "type": "Various Bar Types",
+                "specialty": "Mix of local and international bars",
+                "signature_drinks": [
+                    "Local northern French wines",
+                    "International cocktails",
+                    "Local French beers",
+                    "Northern French beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant nightlife area with various bar options",
+                "best_time": "Evening",
+                "food_options": "Various food options available",
+                "reservation_needed": false,
+                "local_tips": "Explore the area for different bar atmospheres, popular with young locals"
             }
         ]
     },
     "food_experiences": {
         "food_tours": [
             {
-                "name": "Taste of Lille Gourmet Tour",
-                "focus": "Regional specialties and hidden gems",
+                "name": "Lille Food Tour",
+                "focus": "Traditional northern French cuisine and culture",
                 "duration": "3 hours",
-                "price_range": "€€",
+                "price_range": "€€€",
                 "highlights": [
-                    "Wazemmes Market",
-                    "Traditional estaminets",
-                    "Local cheese and beer tastings"
+                    "Traditional French coffee experience",
+                    "Local market visits",
+                    "Traditional northern French dishes",
+                    "Local wine and cheese tasting"
                 ],
                 "booking_required": true,
-                "group_size": "8",
+                "group_size": "12",
                 "languages": [
                     "English",
                     "French"
                 ],
-                "booking_tips": "Book at least a week in advance, tours run more frequently on weekends"
+                "booking_tips": "Book 1 week in advance, especially for weekend tours"
             },
             {
-                "name": "Lille Beer Experience",
-                "focus": "Craft beer and brewing heritage",
-                "duration": "3.5 hours",
+                "name": "Market Food Experience",
+                "focus": "Local markets and traditional foods",
+                "duration": "2.5 hours",
                 "price_range": "€€",
                 "highlights": [
-                    "Craft breweries",
-                    "Beer and food pairings",
-                    "Historic beer culture"
+                    "Marché de Wazemmes exploration",
+                    "Traditional northern French cheese tasting",
+                    "Local charcuterie sampling",
+                    "Traditional French coffee"
                 ],
                 "booking_required": true,
                 "group_size": "10",
@@ -482,36 +403,18 @@
                     "English",
                     "French"
                 ],
-                "booking_tips": "Popular with groups, book well in advance for weekends"
+                "booking_tips": "Book 3-5 days ahead, morning tours available"
             },
             {
-                "name": "Vieux-Lille Gourmet Walk",
-                "focus": "Artisanal food shops and tastings",
-                "duration": "2.5 hours",
+                "name": "French Coffee and Wine Tour",
+                "focus": "Traditional French coffee culture and northern French wines",
+                "duration": "2 hours",
                 "price_range": "€€",
                 "highlights": [
-                    "Cheese shops",
-                    "Chocolatiers",
-                    "Patisseries"
-                ],
-                "booking_required": true,
-                "group_size": "8",
-                "languages": [
-                    "English",
-                    "French",
-                    "Dutch"
-                ],
-                "booking_tips": "Wear comfortable shoes, covers a lot of the old town"
-            },
-            {
-                "name": "Roubaix La Piscine and Food Tour",
-                "focus": "Art and culinary heritage",
-                "duration": "5 hours",
-                "price_range": "€€€",
-                "highlights": [
-                    "La Piscine Museum visit",
-                    "Lunch in converted industrial space",
-                    "Local craft food producers"
+                    "Traditional coffee preparation",
+                    "Northern French wine tasting experience",
+                    "Local café culture",
+                    "Traditional French sweets"
                 ],
                 "booking_required": true,
                 "group_size": "8",
@@ -519,152 +422,135 @@
                     "English",
                     "French"
                 ],
-                "booking_tips": "Includes transportation from Lille to Roubaix"
+                "booking_tips": "Book 2-3 days ahead, afternoon tours recommended"
             }
         ],
         "cooking_classes": [
             {
-                "name": "Cook & Go Lille",
-                "cuisine_focus": "Northern French and Flemish",
-                "duration": "2 hours",
-                "price_range": "€€",
+                "name": "Northern French Home Cooking Class",
+                "cuisine_focus": "Traditional northern French cuisine",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
                 "what_you_learn": [
-                    "Carbonnade flamande",
-                    "Traditional tarts",
-                    "Regional specialties"
+                    "Traditional northern French cooking techniques",
+                    "Local ingredient selection",
+                    "Carbonnade flamande preparation",
+                    "Traditional northern French dishes"
                 ],
-                "group_size": "12",
+                "group_size": "8",
                 "languages": [
-                    "French",
-                    "English"
+                    "English",
+                    "French"
                 ],
                 "includes": [
                     "All ingredients",
                     "Recipe cards",
-                    "Take-home meal"
+                    "Traditional northern French meal",
+                    "Local northern French wine"
                 ],
-                "booking_tips": "Themed classes change monthly, check schedule in advance"
+                "booking_tips": "Book 1 week ahead, classes include market visit"
             },
             {
-                "name": "L'Atelier des Chefs",
-                "cuisine_focus": "Modern French techniques",
-                "duration": "1-3 hours",
-                "price_range": "€€-€€€",
+                "name": "Carbonnade Flamande Making Workshop",
+                "cuisine_focus": "Traditional northern French stew dish",
+                "duration": "2-3 hours",
+                "price_range": "€€",
                 "what_you_learn": [
-                    "French patisserie",
-                    "Market-inspired cooking",
-                    "Wine pairing"
+                    "Carbonnade flamande preparation",
+                    "Traditional ingredients",
+                    "Cooking techniques",
+                    "Serving methods"
                 ],
-                "group_size": "10",
+                "group_size": "6",
                 "languages": [
-                    "French",
-                    "English"
+                    "English",
+                    "French"
                 ],
                 "includes": [
-                    "All ingredients",
-                    "Meal with wine",
-                    "Recipe booklet"
+                    "Ingredients and equipment",
+                    "Recipe cards",
+                    "Freshly made carbonnade",
+                    "Traditional French coffee"
                 ],
-                "booking_tips": "Lunch hour express classes are great for visitors with limited time"
-            },
-            {
-                "name": "Meert Cooking Workshop",
-                "cuisine_focus": "Patisserie and chocolate making",
-                "duration": "3 hours",
-                "price_range": "€€€",
-                "what_you_learn": [
-                    "Meert's famous vanilla waffle",
-                    "Chocolate techniques",
-                    "Classic French desserts"
-                ],
-                "group_size": "8",
-                "languages": [
-                    "French",
-                    "English"
-                ],
-                "includes": [
-                    "All materials",
-                    "Tea time sampling",
-                    "Box of treats to take home"
-                ],
-                "booking_tips": "Classes fill quickly, book at least one month in advance"
+                "booking_tips": "Book 3-5 days ahead, perfect for groups"
             }
         ],
         "markets": [
             {
                 "name": "Marché de Wazemmes",
-                "type": "Large neighborhood market",
+                "type": "Traditional covered market",
                 "highlights": [
-                    "Multicultural food stalls",
-                    "Fresh produce",
-                    "Street food"
+                    "Fresh local produce",
+                    "Traditional northern French cheeses",
+                    "Local charcuterie",
+                    "Fresh meat and fish",
+                    "Local honey and preserves"
                 ],
-                "hours": "Tue, Thu: 7:00am-1:30pm, Sun: 7:00am-2:30pm",
-                "best_time": "Sunday morning",
-                "location": "Place Nouvelle Aventure, Wazemmes",
-                "local_tips": "Sunday is the biggest and most lively market day with the most food vendors"
+                "hours": "Daily: 6am-8pm",
+                "best_time": "Early morning for fresh produce",
+                "location": "Marché de Wazemmes",
+                "local_tips": "Visit early for best selection, try local cheeses from vendors"
             },
             {
-                "name": "Halles de Wazemmes",
-                "type": "Covered food hall",
+                "name": "Vieux Lille Area",
+                "type": "Historic market district",
                 "highlights": [
-                    "Artisanal cheeses",
-                    "Butchers",
-                    "International foods"
+                    "Traditional crafts",
+                    "Local food shops",
+                    "Traditional bakeries",
+                    "Local sweets",
+                    "Traditional French coffee"
                 ],
-                "hours": "Tue-Sat: 8:00am-7:00pm, Sun: 8:00am-2:00pm",
-                "best_time": "Morning",
-                "location": "Wazemmes neighborhood",
-                "local_tips": "Great for prepared foods and specialty items"
+                "hours": "Daily: 8am-6pm",
+                "best_time": "Morning to early afternoon",
+                "location": "Vieux Lille",
+                "local_tips": "Explore narrow streets for hidden food gems and traditional shops"
             },
             {
-                "name": "Marché de Sebastopol",
-                "type": "Organic market",
+                "name": "Grand Place Food Stalls",
+                "type": "Quick food and refreshments",
                 "highlights": [
-                    "Organic produce",
-                    "Artisanal breads",
-                    "Local producers"
+                    "Quick snacks",
+                    "Ice cream and desserts",
+                    "Fresh juices",
+                    "Local pastries",
+                    "Coffee and tea"
                 ],
-                "hours": "Wed: 12:00pm-7:00pm",
-                "best_time": "Afternoon",
-                "location": "Boulevard Sebastopol",
-                "local_tips": "Best place in Lille for organic and sustainable food shopping"
-            },
-            {
-                "name": "Marché du Concert",
-                "type": "Gourmet market",
-                "highlights": [
-                    "High-end food vendors",
-                    "Gourmet products",
-                    "Fresh flowers"
-                ],
-                "hours": "Fri: 7:00am-1:00pm",
-                "best_time": "Early morning",
-                "location": "Place du Concert, Vieux-Lille",
-                "local_tips": "Small but high-quality market in the upscale old town area"
+                "hours": "Daily: 10am-10pm",
+                "best_time": "Afternoon for refreshments",
+                "location": "Grand Place",
+                "local_tips": "Perfect for quick refreshments while sightseeing"
             }
         ]
     },
     "seasonal_specialties": {
         "spring": [
-            "White asparagus with Flemish sauce",
-            "Fresh goat cheese with herbs",
-            "Rhubarb tarts and desserts"
+            "Fresh spring lamb dishes",
+            "Wild herbs and greens",
+            "Fresh cheese varieties",
+            "Spring vegetables in traditional dishes",
+            "Fresh honey from local beekeepers"
         ],
         "summer": [
-            "Moules-frites (mussels with fries)",
-            "Seasonal berries and fruits",
-            "Fresh salads with local vegetables"
+            "Grilled meats and vegetables",
+            "Fresh salads with local produce",
+            "Summer fruit desserts",
+            "Light traditional northern French dishes",
+            "Fresh fish from local rivers"
         ],
         "autumn": [
-            "Carbonnade flamande (beef and beer stew)",
-            "Game meats with forest mushrooms",
-            "Warm waffle desserts"
+            "Game meats (when available)",
+            "Autumn vegetable stews",
+            "Fresh grape harvest celebrations",
+            "Traditional northern French wine products",
+            "Hearty autumn soups"
         ],
         "winter": [
-            "Welsh (cheese, beer and bread dish)",
-            "Potjevleesch (cold meat terrine)",
-            "Speculoos cookies and desserts"
+            "Warming traditional stews",
+            "Hot traditional French coffee",
+            "Winter vegetable dishes",
+            "Traditional French winter sweets",
+            "Hot wine and local spirits"
         ]
     }
 }
