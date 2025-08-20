@@ -27,9 +27,9 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [activeTooltip]);
   // Get dynamic city information
-  const displayName = getCityDisplayName(cityName, overview);
-  const nickname = getCityNickname(overview);
-  const description = getCityDescription(overview, cityName);
+  const displayName = getCityDisplayName({ overview }, cityName);
+  const nickname = getCityNickname({ overview });
+  const description = getCityDescription({ overview }, cityName);
   
   // Get city icon based on name
   const getCityIcon = (cityName) => {

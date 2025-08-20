@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useHeroImage } from '@/hooks/useHeroImage';
 
 /**
  * Reusable hero section with optional background image and overlay.
@@ -10,7 +11,10 @@ import Link from 'next/link';
  */
 export default function Hero({
   backgroundImageSrc,
+  backgroundImageFallbacks = [],
   backgroundAlt = '',
+  cityName,
+  country,
   gradientOverlay = 'from-fuchsia-600/40 via-pink-600/40 to-rose-600/40',
   darkOverlayOpacity = 'bg-black/30',
   heightClass = 'h-[62vh] min-h-[460px]',
@@ -21,6 +25,26 @@ export default function Hero({
   primaryCta, // { label, href?, onClick?, disabled?, variant?: 'solid' | 'outline' }
   secondaryCta // { label, href?, onClick?, variant?: 'solid' | 'outline' }
 }) {
+  // Use the hook if cityName and country are provided, otherwise use props
+  const heroImageData = cityName && country && typeof cityName === 'string' && typeof country === 'string'
+    ? useHeroImage(cityName, country)
+    : {
+        currentImageSrc: backgroundImageSrc || backgroundImageFallbacks[0] || '/images/city-placeholder.svg',
+        isLoading: false,
+        hasError: false,
+        handleImageError: () => {},
+        handleImageLoad: () => {}
+      };
+
+  const currentImageSrc = heroImageData.currentImageSrc;
+  const hasValidImage = currentImageSrc && currentImageSrc !== '/images/city-placeholder.svg';
+
+  // Ensure we have valid text content
+  const safeTitle = title || 'City';
+  const safeSubtitle = subtitle || 'A City to Explore';
+  const safeDescription = description || 'Discover the magic of this amazing city.';
+  const safeChipText = chipText || 'Discover the Magic';
+
   const Button = ({ cta, tone = 'light' }) => {
     if (!cta) return null;
     const base = 'px-5 py-3 rounded-lg font-medium transition-colors';
@@ -41,37 +65,54 @@ export default function Hero({
 
   return (
     <div className={`relative ${heightClass} w-full overflow-hidden rounded-none`}>
-      {backgroundImageSrc && (
-        <Image src={backgroundImageSrc} alt={backgroundAlt} fill className="object-cover" priority />
+      {currentImageSrc && (
+        <Image 
+          src={currentImageSrc} 
+          alt={backgroundAlt} 
+          fill 
+          className="object-cover" 
+          priority 
+          onError={heroImageData.handleImageError}
+          onLoad={heroImageData.handleImageLoad}
+        />
       )}
+      
+      {/* Loading indicator */}
+      {heroImageData.isLoading && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+          <div className="text-gray-500">Loading...</div>
+        </div>
+      )}
+      
       {/* Overlays */}
-      {backgroundImageSrc && (
+      {hasValidImage && (
         <>
           <div className={`absolute inset-0 bg-gradient-to-br ${gradientOverlay}`} />
           <div className={`absolute inset-0 ${darkOverlayOpacity}`} />
         </>
       )}
+      
       <div className="relative z-10 h-full">
         <div className="mx-auto max-w-6xl h-full flex items-center px-6">
-          <div className={`${backgroundImageSrc ? 'text-white' : 'text-zinc-900'} max-w-3xl`}>
-            {chipText && (
-              <span className={`inline-block rounded-full ${backgroundImageSrc ? 'bg-white/20 text-white' : 'bg-zinc-900/5 text-zinc-700'} px-4 py-2 text-sm font-medium backdrop-blur-sm`}>
-                {chipText}
+          <div className={`${hasValidImage ? 'text-white' : 'text-zinc-900'} max-w-3xl`}>
+            {safeChipText && (
+              <span className={`inline-block rounded-full ${hasValidImage ? 'bg-white/20 text-white' : 'bg-zinc-900/5 text-zinc-700'} px-4 py-2 text-sm font-medium backdrop-blur-sm`}>
+                {safeChipText}
               </span>
             )}
-            {title && (
-              <h1 className={`mt-4 font-extrabold tracking-tight ${backgroundImageSrc ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl'}`}>{title}</h1>
+            {safeTitle && (
+              <h1 className={`mt-4 font-extrabold tracking-tight ${hasValidImage ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl'}`}>{safeTitle}</h1>
             )}
-            {subtitle && (
-              <p className={`mt-2 ${backgroundImageSrc ? 'text-2xl md:text-3xl text-white/90' : 'text-xl md:text-2xl text-zinc-700'}`}>{subtitle}</p>
+            {safeSubtitle && (
+              <p className={`mt-2 ${hasValidImage ? 'text-2xl md:text-3xl text-white/90' : 'text-xl md:text-2xl text-zinc-700'}`}>{safeSubtitle}</p>
             )}
-            {description && (
-              <p className={`mt-6 ${backgroundImageSrc ? 'text-white/90' : 'text-zinc-700'} text-base md:text-lg`}>{description}</p>
+            {safeDescription && (
+              <p className={`mt-6 ${hasValidImage ? 'text-white/90' : 'text-zinc-700'} text-base md:text-lg`}>{safeDescription}</p>
             )}
             {(primaryCta || secondaryCta) && (
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button cta={primaryCta} tone={backgroundImageSrc ? 'light' : 'dark'} />
-                <Button cta={secondaryCta} tone={backgroundImageSrc ? 'light' : 'dark'} />
+                <Button cta={primaryCta} tone={hasValidImage ? 'light' : 'dark'} />
+                <Button cta={secondaryCta} tone={hasValidImage ? 'light' : 'dark'} />
               </div>
             )}
           </div>

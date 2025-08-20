@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription } from "@/utils/cityDataUtils";
+import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
 import Hero from '@/components/common/Hero';
@@ -68,7 +68,7 @@ function CityPageClient({ cityData, cityName }) {
   const [componentLoaded, setComponentLoaded] = useState(false);
   const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError, refetch: loadAllMonthly } = useMonthlyData(
     cityData?.country || 'Unknown',
-    cityName,
+    cityName || 'unknown',
     { initialData: cityData?.monthlyEvents || {}, autoLoad: false }
   );
   const { actions: uiActions } = useUIState();
@@ -86,9 +86,9 @@ function CityPageClient({ cityData, cityName }) {
   } = cityData || {};
 
   const headerInfo = getCityHeaderInfo(cityData);
-  const displayName = getCityDisplayName(cityName, overview);
-  const nickname = getCityNickname(overview);
-  const description = getCityDescription(overview, cityName);
+  const displayName = getCityDisplayName(cityData, cityName);
+  const nickname = getCityNickname(cityData);
+  const description = getCityDescription(cityData, cityName);
 
   const safeAttractions = useMemo(() =>
     (attractions?.sites && Array.isArray(attractions.sites)) ? attractions.sites : [],
@@ -112,7 +112,9 @@ function CityPageClient({ cityData, cityName }) {
     [monthlyData]
   );
 
-  const center = CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default;
+  const center = cityName && typeof cityName === 'string' 
+    ? CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default
+    : DEFAULT_COORDINATES.default;
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: '🏛️' },
@@ -169,6 +171,19 @@ function CityPageClient({ cityData, cityName }) {
     safeNeighborhoods,
     safeMonthlyEvents
   }), [safeAttractions, safeCategories, safeNeighborhoods, safeMonthlyEvents]);
+
+  // Safety check - ensure cityName is a string
+  if (!cityName || typeof cityName !== 'string') {
+    console.warn('CityPageClient: cityName is not a valid string:', cityName);
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">City Not Found</h2>
+          <p className="text-gray-600">The requested city could not be loaded.</p>
+        </div>
+      </div>
+    );
+  }
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -228,7 +243,7 @@ function CityPageClient({ cityData, cityName }) {
               categories={memoizedData.safeCategories}
               cityName={cityName}
               monthlyData={memoizedData.safeMonthlyEvents}
-              experiencesUrl={`/data/France/${cityName.toLowerCase()}/${cityName.toLowerCase()}-experiences.json`}
+              experiencesUrl={`/data/France/${cityName && typeof cityName === 'string' ? cityName.toLowerCase() : 'unknown'}/${cityName && typeof cityName === 'string' ? cityName.toLowerCase() : 'unknown'}-experiences.json`}
               limit={50}
               forceList
             />
@@ -270,115 +285,17 @@ function CityPageClient({ cityData, cityName }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
       {/* Hero */}
-      {cityName?.toLowerCase() === 'paris' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/France/paris-hero.jpeg"
-          backgroundAlt="Paris skyline with Eiffel Tower"
-          chipText="Discover the Timeless Elegance"
-          title="Paris"
-          subtitle="City of Light & Love"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'cannes' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/France/cannes-hero.jpeg"
-          backgroundAlt="Cannes waterfront and La Croisette"
-          chipText="Experience the French Riviera"
-          title="Cannes"
-          subtitle="Glamour & Mediterranean Magic"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'angers' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/France/angers-hero.jpeg"
-          backgroundAlt="Angers historic cityscape and castle"
-          chipText="Discover the Heart of Anjou"
-          title="Angers"
-          subtitle="Medieval Heritage & Loire Valley Charm"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'avignon' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/France/avignon-hero.jpeg"
-          backgroundAlt="Avignon Palais des Papes and medieval city"
-          chipText="Step into Papal History"
-          title="Avignon"
-          subtitle="Medieval Splendor & Provençal Culture"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'annecy' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/France/annecy-hero.jpeg"
-          backgroundAlt="Annecy lake and old town canals"
-          chipText="Discover Alpine Venice"
-          title="Annecy"
-          subtitle="Lake Beauty & Mountain Majesty"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'ajaccio' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/France/ajaccio-hero.jpeg"
-          backgroundAlt="Ajaccio Corsican coastline and citadel"
-          chipText="Experience Corsican Heritage"
-          title="Ajaccio"
-          subtitle="Island Capital & Mediterranean Charm"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'copenhagen' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/Denmark/copenhagen-hero.jpeg"
-          backgroundAlt="Copenhagen Nyhavn canal with colorful buildings and boats"
-          chipText="Discover Nordic Charm"
-          title="Copenhagen"
-          subtitle="Hygge & Scandinavian Beauty"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'reykjavik' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/Iceland/reykjavik-hero.jpeg"
-          backgroundAlt="Reykjavik cityscape with Hallgrímskirkja church and colorful houses reflected in Tjörnin lake"
-          chipText="Land of Fire & Ice"
-          title="Reykjavik"
-          subtitle="Vibrant Capital & Nordic Wonder"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : cityName?.toLowerCase() === 'amalfi' ? (
-        <Hero
-          backgroundImageSrc="/images/city-page/Italy/amalfi-hero.jpeg"
-          backgroundAlt="Amalfi coastal town with dramatic cliffs, colorful buildings cascading down hillsides, and beautiful Mediterranean Sea"
-          chipText="Discover the Amalfi Coast"
-          title="Amalfi"
-          subtitle="Dramatic Cliffs & Mediterranean Magic"
-          description={description}
-          primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-          secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
-        />
-      ) : (
-        <div className="px-6 pt-10 pb-6 text-center">
-          <div className="mx-auto max-w-6xl">
-            <span className="badge bg-white/80">City Guide</span>
-            <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900">{displayName}</h1>
-            <p className="mt-3 text-base md:text-lg text-zinc-700 max-w-3xl mx-auto">{description}</p>
-            <div className="mt-2 text-xs text-zinc-500">{country}</div>
-          </div>
-        </div>
-      )}
+      <Hero
+        cityName={cityName && typeof cityName === 'string' ? cityName.toLowerCase() : undefined}
+        country={cityData?.country}
+        backgroundAlt={`${cityData?.displayName || cityName || 'City'} cityscape`}
+        chipText={getCityNickname(cityData) || "Discover the Magic"}
+        title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
+        subtitle={getCityHeaderInfo(cityData)?.subtitle || "A City to Explore"}
+        description={description}
+        primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
+        secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
+      />
 
       {/* Tabs */}
       <div className="mx-auto max-w-6xl px-6">

@@ -1,0 +1,314 @@
+{
+    "destinations": [
+        {
+            "city": "Brindisi",
+            "country": "Italy",
+            "whyGo": "Historic port city with beautiful Roman columns, medieval architecture, and gateway to the Salento peninsula and Puglia's southern coast.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "1h15m",
+                "frequency": "Every hour",
+                "operator": "Trenitalia",
+                "priceRange": "€8-12"
+            },
+            "bus": {
+                "journeyTime": "1h30m",
+                "frequency": "Every 2 hours",
+                "operator": "STP Bari",
+                "priceRange": "€6"
+            }
+        },
+        {
+            "city": "Taranto",
+            "country": "Italy",
+            "whyGo": "Ancient Greek city with rich maritime history, beautiful old town, and excellent seafood restaurants along the Ionian Sea.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "1h45m",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€10-15"
+            },
+            "bus": {
+                "journeyTime": "2h",
+                "frequency": "Every 3 hours",
+                "operator": "STP Bari",
+                "priceRange": "€8"
+            }
+        },
+        {
+            "city": "Alberobello",
+            "country": "Italy",
+            "whyGo": "UNESCO World Heritage site famous for its unique trulli houses, traditional Puglian architecture, and charming historic center.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "1h30m",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€6-10"
+            },
+            "bus": {
+                "journeyTime": "1h45m",
+                "frequency": "Every 2 hours",
+                "operator": "STP Bari",
+                "priceRange": "€5"
+            }
+        },
+        {
+            "city": "Matera",
+            "country": "Italy",
+            "whyGo": "Ancient city with spectacular cave dwellings (Sassi), UNESCO World Heritage site, and stunning views of the Basilicata region.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "1h45m",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€8-12"
+            },
+            "bus": {
+                "journeyTime": "2h",
+                "frequency": "Every 2 hours",
+                "operator": "STP Bari",
+                "priceRange": "€7"
+            }
+        },
+        {
+            "city": "Lecce",
+            "country": "Italy",
+            "whyGo": "Baroque jewel of the Salento peninsula with stunning architecture, historic churches, and vibrant cultural scene.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "2h",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€12-18"
+            },
+            "bus": {
+                "journeyTime": "2h30m",
+                "frequency": "Every 3 hours",
+                "operator": "STP Bari",
+                "priceRange": "€10"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient Roman ruins, Vatican treasures, Renaissance art, and vibrant street life.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "4h",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia Frecciarossa",
+                "priceRange": "€35-65"
+            },
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "Rome Fiumicino (FCO)",
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€40-120"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renaissance art capital with stunning architecture, world-class museums, and beautiful Tuscan countryside.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "6h",
+                "frequency": "Every 3 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€45-75"
+            },
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "Florence Airport (FLR)",
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€60-150"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Fashion and design capital with stunning Gothic cathedral, world-class shopping, excellent cuisine, and vibrant cultural scene.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "7h30m",
+                "frequency": "Every 3 hours",
+                "operator": "Trenitalia Frecciarossa",
+                "priceRange": "€55-95"
+            },
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "Milan Malpensa (MXP)",
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€50-180"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Magical floating city with romantic canals, stunning architecture, rich history, and unique Venetian culture.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "8h",
+                "frequency": "Every 4 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€50-80"
+            },
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "Venice Marco Polo (VCE)",
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€70-200"
+            }
+        },
+        {
+            "city": "Dubrovnik",
+            "country": "Croatia",
+            "whyGo": "Stunning Adriatic coastal city with medieval walls, beautiful old town, and rich cultural heritage.",
+            "ferry": {
+                "port": "Bari Port",
+                "journeyTime": "8h",
+                "frequency": "Daily (seasonal)",
+                "operator": "Jadrolinija",
+                "priceRange": "€45-80"
+            }
+        },
+        {
+            "city": "Durrës",
+            "country": "Albania",
+            "whyGo": "Historic port city with ancient Roman amphitheater, beautiful beaches, and gateway to Albania's cultural treasures.",
+            "ferry": {
+                "port": "Bari Port",
+                "journeyTime": "12h",
+                "frequency": "3 times weekly",
+                "operator": "Adria Ferries",
+                "priceRange": "€60-100"
+            }
+        },
+        {
+            "city": "Corfu",
+            "country": "Greece",
+            "whyGo": "Beautiful Greek island with Venetian architecture, stunning beaches, and rich cultural heritage.",
+            "ferry": {
+                "port": "Bari Port",
+                "journeyTime": "10h",
+                "frequency": "Weekly (seasonal)",
+                "operator": "Adria Ferries",
+                "priceRange": "€70-120"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Vibrant Catalan capital famous for Gaudí's architecture, excellent cuisine, beautiful beaches, and rich cultural heritage.",
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "Barcelona-El Prat Airport (BCN)",
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€80-250"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light, France's capital known for iconic landmarks like the Eiffel Tower, world-class museums, elegant boulevards, and unparalleled cultural heritage.",
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "Charles de Gaulle (CDG) / Orly (ORY)",
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "World-class city with iconic landmarks, royal palaces, excellent museums, diverse neighborhoods, and rich history.",
+            "flight": {
+                "airport": "Bari Karol Wojtyła Airport (BRI)",
+                "destinationAirport": "London airports",
+                "approxFlightTime": "3h",
+                "frequency": "Daily",
+                "priceRange": "€120-350"
+            }
+        },
+        {
+            "city": "Polignano a Mare",
+            "country": "Italy",
+            "whyGo": "Stunning coastal town with dramatic cliffs, beautiful beaches, and charming historic center perched above the Adriatic Sea.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "30m",
+                "frequency": "Every 30 minutes",
+                "operator": "Trenitalia",
+                "priceRange": "€3-5"
+            },
+            "bus": {
+                "journeyTime": "45m",
+                "frequency": "Every hour",
+                "operator": "STP Bari",
+                "priceRange": "€2.50"
+            }
+        },
+        {
+            "city": "Monopoli",
+            "country": "Italy",
+            "whyGo": "Charming fishing port with medieval walls, beautiful harbor, excellent seafood restaurants, and authentic Puglian atmosphere.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "45m",
+                "frequency": "Every hour",
+                "operator": "Trenitalia",
+                "priceRange": "€4-6"
+            },
+            "bus": {
+                "journeyTime": "1h",
+                "frequency": "Every 2 hours",
+                "operator": "STP Bari",
+                "priceRange": "€3"
+            }
+        },
+        {
+            "city": "Ostuni",
+            "country": "Italy",
+            "whyGo": "White city of Puglia with stunning hilltop location, medieval architecture, and panoramic views of the Adriatic Sea.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "1h",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€5-8"
+            },
+            "bus": {
+                "journeyTime": "1h15m",
+                "frequency": "Every 2 hours",
+                "operator": "STP Bari",
+                "priceRange": "€4"
+            }
+        },
+        {
+            "city": "Castel del Monte",
+            "country": "Italy",
+            "whyGo": "UNESCO World Heritage site featuring Frederick II's mysterious octagonal castle, symbol of Puglia's medieval heritage.",
+            "train": {
+                "station": "Bari Centrale",
+                "journeyTime": "1h15m",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€6-9"
+            },
+            "bus": {
+                "journeyTime": "1h30m",
+                "frequency": "Every 3 hours",
+                "operator": "STP Bari",
+                "priceRange": "€5"
+            }
+        }
+    ]
+}

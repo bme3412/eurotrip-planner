@@ -1,0 +1,637 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Ristorante Zeffirino",
+                "cuisine_type": "Ligurian Fine Dining",
+                "signature_dishes": [
+                    "Trofie al Pesto alla Genovese",
+                    "Branzino al Sale (Sea Bass in Salt Crust)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant restaurant with views of the harbor and historic Genoa",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dinners",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Porto Antico",
+                "local_tips": "Famous for their pesto alla genovese; ask about their traditional preparation methods"
+            },
+            {
+                "name": "Ristorante Il Marin",
+                "cuisine_type": "Creative Ligurian",
+                "signature_dishes": [
+                    "Ravioli di Pesce (Seafood Ravioli)",
+                    "Cappon Magro (Traditional Seafood Salad)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining with panoramic views of the Mediterranean",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 3 weeks in advance, request terrace seating in warm weather",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Boccadasse",
+                "local_tips": "Arrive early to enjoy the sunset views over the fishing village before your meal"
+            },
+            {
+                "name": "Ristorante Le Rune",
+                "cuisine_type": "Modern Ligurian",
+                "signature_dishes": [
+                    "Risotto ai Frutti di Mare (Seafood Risotto)",
+                    "Orata con Verdure di Stagione (Sea Bream with Seasonal Vegetables)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining with contemporary design and harbor views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request window table for harbor views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Porto Antico",
+                "local_tips": "Their wine list features excellent Ligurian wines; ask for local recommendations"
+            },
+            {
+                "name": "Ristorante Il Genovese",
+                "cuisine_type": "Refined Ligurian",
+                "signature_dishes": [
+                    "Cappon Magro alla Genovese",
+                    "Stoccafisso alla Genovese (Stockfish)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Opulent restaurant with vaulted ceilings in historic Genoa",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 month in advance, request garden seating in summer",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Historic Center",
+                "local_tips": "Their seasonal seafood menu is extraordinary when available"
+            },
+            {
+                "name": "Ristorante Da Gaia",
+                "cuisine_type": "Farm-to-Table Ligurian",
+                "signature_dishes": [
+                    "Trofie al Pesto con Fagiolini (Pesto with Green Beans)",
+                    "Branzino con Verdure di Stagione (Sea Bass with Seasonal Vegetables)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Refined dining with open kitchen and organic focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2 weeks ahead, mention if you prefer counter seating to watch the chefs",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Nervi",
+                "local_tips": "Many ingredients come from their own garden; seasonal menus reflect what's growing"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria da Maria",
+                "cuisine_type": "Traditional Genoese",
+                "signature_dishes": [
+                    "Pesto alla Genovese",
+                    "Cappon Magro"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling family-run trattoria with communal tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive by 12:00 PM to avoid long lines",
+                "dress_code": "Casual",
+                "location": "Porto Antico",
+                "local_tips": "Closed for dinner; cash only. Daily specials are written on a chalkboard"
+            },
+            {
+                "name": "Osteria di Vico Palla",
+                "cuisine_type": "Ligurian",
+                "signature_dishes": [
+                    "Minestrone alla Genovese",
+                    "Coniglio alla Ligure (Rabbit Ligurian Style)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and intimate, traditional Genoese osteria",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a week in advance; no written menu, servers explain daily offerings",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Chef is a Genoa legend; they specialize in traditional Ligurian dishes"
+            },
+            {
+                "name": "Antica Focacceria Sottoripa",
+                "cuisine_type": "Ligurian Street Food",
+                "signature_dishes": [
+                    "Focaccia al Formaggio (Cheese Focaccia)",
+                    "Focaccia con le Cipolle (Onion Focaccia)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic focacceria with traditional Ligurian breads",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; expect to wait in line up to 20 minutes in peak season",
+                "dress_code": "Casual",
+                "location": "Sottoripa",
+                "local_tips": "Their focaccia is the key to their success; worth the wait"
+            },
+            {
+                "name": "Il Marin",
+                "cuisine_type": "Traditional Ligurian",
+                "signature_dishes": [
+                    "Pesto alla Genovese",
+                    "Branzino al Sale (Sea Bass in Salt Crust)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, rustic tavern with maritime decor and communal tables",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Boccadasse",
+                "local_tips": "Portions are generous; the house wine flows freely and is included in the price"
+            },
+            {
+                "name": "Osteria del Mare",
+                "cuisine_type": "Ligurian Seafood",
+                "signature_dishes": [
+                    "Spaghetti alle Vongole (Clam Pasta)",
+                    "Fritto Misto di Mare (Mixed Seafood Fry)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and welcoming with indoor and terrace seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 days in advance, request outdoor seating in warm weather",
+                "dress_code": "Casual",
+                "location": "Porto Antico",
+                "local_tips": "Half portions of pasta are available to try multiple dishes"
+            },
+            {
+                "name": "Pizzeria Da Gino",
+                "cuisine_type": "Pizzeria",
+                "signature_dishes": [
+                    "Margherita",
+                    "Pizza al Pesto (Pesto Pizza)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Traditional pizzeria with Ligurian influences",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; takeaway available if seats are full",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Try their pesto pizza for a unique Ligurian twist on the classic"
+            },
+            {
+                "name": "Trattoria da Ugo",
+                "cuisine_type": "Vegetarian/Ligurian",
+                "signature_dishes": [
+                    "Farinata (Chickpea Flatbread)",
+                    "Torta Pasqualina (Easter Pie)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and bright with a focus on traditional Ligurian dishes",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually has space for walk-ins",
+                "dress_code": "Casual",
+                "location": "Nervi",
+                "local_tips": "A rare vegetarian-friendly option that even meat-loving Genoese appreciate"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Focacceria di Via San Lorenzo",
+                "specialties": [
+                    "Focaccia al Formaggio (Cheese Focaccia)",
+                    "Focaccia con le Cipolle (Onion Focaccia)"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 2:00 PM",
+                "location": "Via San Lorenzo",
+                "seating": "Limited",
+                "local_tips": "An institution since 1950; ask for it 'calda' (warm) for the best experience"
+            },
+            {
+                "name": "Panificio Patrone",
+                "specialties": [
+                    "Focaccia con Salvia (Sage Focaccia)",
+                    "Farinata (Chickpea Flatbread)"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 7:00 PM",
+                "location": "Mercato Orientale",
+                "seating": false,
+                "local_tips": "Great for traditional Ligurian breads and focaccia"
+            },
+            {
+                "name": "Focacceria di Boccadasse",
+                "specialties": [
+                    "Focaccia al Pesto",
+                    "Focaccia con Olive (Olive Focaccia)"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Boccadasse",
+                "seating": true,
+                "local_tips": "Perfect for a beachside snack while exploring the fishing village"
+            },
+            {
+                "name": "Panificio Moderno",
+                "specialties": [
+                    "Focaccia di Recco (Recco-style Focaccia)",
+                    "Focaccia con Rosmarino (Rosemary Focaccia)"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 8:00 PM",
+                "location": "Via Garibaldi",
+                "seating": false,
+                "local_tips": "A hole-in-the-wall with authentic Ligurian focaccia; eat standing up like a local"
+            },
+            {
+                "name": "Focacceria del Porto",
+                "specialties": [
+                    "Focaccia al Formaggio di Recco",
+                    "Focaccia con le Cipolle"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 3:00 PM",
+                "location": "Porto Antico",
+                "seating": false,
+                "local_tips": "One of the most famous focaccia spots; perfect for a quick lunch while exploring the port"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè degli Specchi",
+                "specialty": "Traditional Italian Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Cannelloni pastry"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant café with Belle Époque interiors",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light lunch",
+                "local_tips": "Stand at the bar for authentic experience and lower prices"
+            },
+            {
+                "name": "Caffè Rivoire",
+                "specialty": "Hot Chocolate",
+                "must_try": [
+                    "Cioccolata Calda (Hot Chocolate)",
+                    "House-made Chocolates"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Traditional café with prime position overlooking Piazza de Ferrari",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries and breakfast items",
+                "local_tips": "Their thick hot chocolate is a Genoese winter tradition"
+            },
+            {
+                "name": "Caffè degli Artisti",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Pour Over",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern specialty coffee shop with artistic vibes",
+                "best_time": "Any time",
+                "wifi_friendly": true,
+                "food_options": "Brunch menu and light meals",
+                "local_tips": "Genoa's first true specialty coffee bar; also has excellent local pastries"
+            },
+            {
+                "name": "Caffè del Teatro",
+                "specialty": "Classic Italian Coffee",
+                "must_try": [
+                    "Caffè Shakerato (Iced Coffee)",
+                    "Pandolce (Traditional Genoese Cake)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic literary café with elegant interiors and outdoor seating",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries and sandwiches",
+                "local_tips": "A historic literary cafe where intellectuals have gathered since 1900"
+            },
+            {
+                "name": "Caffè del Porto",
+                "specialty": "Modern Café Experience",
+                "must_try": [
+                    "Cappuccino",
+                    "Fresh Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy concept space combining café, restaurant, and harbor views",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full breakfast, lunch and dinner",
+                "local_tips": "Great for digital nomads during weekday mornings; transforms for aperitivo later"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Bar degli Specchi",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Innovative Cocktails",
+                "signature_drinks": [
+                    "Ligurian-inspired cocktails",
+                    "Barrel-aged Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stunning historic building with contemporary design elements",
+                "best_time": "Evening",
+                "food_options": "Gourmet small plates",
+                "reservation_needed": true,
+                "local_tips": "Request seating in the ancient cellar or courtyard; arrive early for a tour of the historic building"
+            },
+            {
+                "name": "Speakeasy Genova",
+                "type": "Speakeasy",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Custom craft cocktails",
+                    "Aged spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Secret prohibition-style bar with no signage and dim lighting",
+                "best_time": "Night",
+                "food_options": "Light snacks",
+                "reservation_needed": true,
+                "local_tips": "Requires reservation by text message; entrance is hidden and unmarked"
+            },
+            {
+                "name": "Terrazza del Porto",
+                "type": "Rooftop Bar",
+                "specialty": "Classic Cocktails with a View",
+                "signature_drinks": [
+                    "Negroni",
+                    "Prosecco"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Panoramic rooftop bar with harbor views",
+                "best_time": "Sunset",
+                "food_options": "Aperitivo buffet",
+                "reservation_needed": true,
+                "local_tips": "Make reservations for sunset; 360-degree views include the harbor and city skyline"
+            },
+            {
+                "name": "Bitter Bar Genova",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Bitter Italian Liqueurs",
+                "signature_drinks": [
+                    "Bitter Paloma",
+                    "Amaro Flight"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, intimate cocktail bar with knowledgeable bartenders",
+                "best_time": "Evening",
+                "food_options": "Small plates",
+                "reservation_needed": false,
+                "local_tips": "Bartenders create custom drinks based on your preferences; mention what flavors you enjoy"
+            },
+            {
+                "name": "Manifattura Genova",
+                "type": "Italian Spirits Bar",
+                "specialty": "All-Italian Ingredients",
+                "signature_drinks": [
+                    "Vintage Italian Cocktails",
+                    "House Vermouth Creations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vintage 1950s Italian design with attentive service",
+                "best_time": "Evening",
+                "food_options": "Traditional aperitivo snacks",
+                "reservation_needed": false,
+                "local_tips": "Every spirit, mixer, and garnish is Italian; the perfect place to explore Italy's drinking culture"
+            },
+            {
+                "name": "Empireo Rooftop Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Classic and Signature Cocktails",
+                "signature_drinks": [
+                    "Genoa Sunset (Champagne cocktail)",
+                    "Barrel-aged Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant rooftop terrace with unbeatable views of the harbor",
+                "best_time": "Sunset",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Located on the 6th floor of a luxury hotel; one of the best harbor views in Genoa"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Mercato Orientale Food Tour",
+                "focus": "Genoese Market and Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Genoese Market exploration",
+                    "Pesto tasting",
+                    "Ligurian wine sampling"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance; tours don't run on Sundays when many vendors are closed"
+            },
+            {
+                "name": "Boccadasse Food & Wine Tour",
+                "focus": "Coastal Gastronomy",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Seafood restaurants in the fishing village",
+                    "Traditional Ligurian dishes",
+                    "Local wine pairings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "French"
+                ],
+                "booking_tips": "Reserve 10-14 days ahead; comfortable walking shoes recommended"
+            },
+            {
+                "name": "Ligurian Coast Half-Day Food & Wine Tour",
+                "focus": "Regional Cuisine and Wine",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to Ligurian winery",
+                    "Traditional lunch at a coastal restaurant",
+                    "Pecorino cheese tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book early in high season (April-October); includes transportation from Genoa"
+            },
+            {
+                "name": "Gelato and Pastry Tour",
+                "focus": "Sweet Treats",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Artisanal gelato tastings",
+                    "Historic pastry shops",
+                    "Traditional Genoese sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Popular with families; afternoon tours recommended to avoid morning crowds"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Ligurian Cooking Class",
+                "cuisine_focus": "Traditional Ligurian",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Handmade Pasta (Trofie)",
+                    "Pesto alla Genovese",
+                    "Tiramisu"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market visit, ingredients, meal with wine, and recipes"
+                ],
+                "booking_tips": "Book 2 weeks ahead, especially for popular morning classes with market visits"
+            },
+            {
+                "name": "Seaside Cooking Experience",
+                "cuisine_focus": "Coastal Ligurian",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seasonal seafood antipasti",
+                    "Homemade pasta with seafood sauce",
+                    "Traditional dessert"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Transportation to coastal location, seafood market tour, full meal with wine"
+                ],
+                "booking_tips": "Reserve 2-3 weeks in advance; wear comfortable shoes for market tour"
+            },
+            {
+                "name": "Genoese Classics Workshop",
+                "cuisine_focus": "Genoa's Signature Dishes",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Pesto alla Genovese",
+                    "Focaccia di Recco (techniques)",
+                    "Pandolce with local wine"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, meal, wine, historical context of dishes"
+                ],
+                "booking_tips": "Evening classes often less crowded; reserve 1-2 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato Orientale",
+                "type": "Food Market",
+                "highlights": [
+                    "Traditional fishmongers and seafood vendors",
+                    "Fresh pasta makers",
+                    "Produce and specialty foods"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Historic Center",
+                "local_tips": "The market closes early; best visited in the morning for fresh produce and seafood"
+            },
+            {
+                "name": "Mercato del Carmine",
+                "type": "Local Food Market",
+                "highlights": [
+                    "Farmers selling direct",
+                    "Authentic Genoese atmosphere",
+                    "Neighborhood food shops around perimeter"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Carmine",
+                "local_tips": "More authentic and less touristic than Mercato Orientale; where locals actually shop"
+            },
+            {
+                "name": "Mercato di Boccadasse",
+                "type": "Seafood Market",
+                "highlights": [
+                    "Fresh seafood",
+                    "Local fish specialties",
+                    "Street food options"
+                ],
+                "hours": "Tuesday to Sunday 6:00 AM - 1:00 PM",
+                "best_time": "Morning",
+                "location": "Boccadasse",
+                "local_tips": "Genoa's best seafood market; great for fresh fish and local specialties"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Trofie al Pesto con Fagiolini (Pesto with Green Beans)",
+            "Carciofi Fritti (Fried Artichokes)",
+            "Fave con Pecorino (Fava Beans with Pecorino)"
+        ],
+        "summer": [
+            "Panzanella (Bread Salad with Tomatoes)",
+            "Cappon Magro (Seafood Salad)",
+            "Pandolce con Vino Locale (Traditional Cake with Local Wine)"
+        ],
+        "autumn": [
+            "Trofie al Pesto con Patate (Pesto with Potatoes)",
+            "Castagnaccio (Chestnut Flour Cake)",
+            "Focaccia con l'Uva (Grape Focaccia)"
+        ],
+        "winter": [
+            "Minestrone alla Genovese (Genoese Vegetable Soup)",
+            "Branzino al Sale (Sea Bass in Salt Crust)",
+            "Focaccia di Recco (Recco-style Focaccia)"
+        ]
+    }
+}

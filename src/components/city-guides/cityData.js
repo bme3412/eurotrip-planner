@@ -731,6 +731,20 @@ export const getCitiesData = () => {
       linguisticCategories: ["Romance"],
     },
     {
+      id: "bari",
+      name: "Bari",
+      country: "Italy",
+      region: "Mediterranean",
+      description:
+        "Bari, the capital of Puglia, is a historic port city known for its medieval old town, vibrant harbor, and authentic Italian culture.",
+      thumbnail: "/images/city-thumbnail/Italy/bari-thumbnail.jpeg",
+      landmarks: ["Basilica di San Nicola", "Bari Vecchia", "Lungomare Nazario Sauro"],
+      latitude: 41.1171,
+      longitude: 16.8719,
+      tourismCategories: ["Historical Landmarks", "Cultural", "Food & Wine", "Beach Destinations"],
+      linguisticCategories: ["Romance"],
+    },
+    {
       id: "turin",
       name: "Turin",
       country: "Italy",
