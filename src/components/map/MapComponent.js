@@ -254,7 +254,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
       
       markersRef.current.push(marker);
     }
-  }, [filteredDestinations, destinations, onMarkerClick]);
+  }, [filteredDestinations, destinations, handleMarkerClick]);
 
   /**
    * Handle marker click
@@ -343,7 +343,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         loadingEl.parentNode.removeChild(loadingEl);
       }
     }
-  }, [currentPopup, onMarkerClick, currentFilters, getCityCalendarInfoCached, generatePopupContent, createPopup, centerPopupInView, mapInstance, mapboxGLRef]);
+  }, [currentPopup, onMarkerClick, currentFilters]);
 
   /**
    * Filter event handlers

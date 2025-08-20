@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 // Remove CSS import from here
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -179,7 +179,7 @@ export default function CityMapWithMapbox({
   }, [selectedAttraction, attractions]);
   
   // Convert existing categories to standard categories - called only from useEffect
-  const processCategories = () => {
+  const processCategories = useCallback(() => {
     if (categoriesProcessed) return;
     
     // Get all unique standard categories from attractions
@@ -202,7 +202,7 @@ export default function CityMapWithMapbox({
     setCategoriesProcessed(true);
     
     return standardizedCategories;
-  };
+  }, [attractions, categoriesProcessed]);
 
   // Initialize map and process categories once
   useEffect(() => {
@@ -276,7 +276,7 @@ export default function CityMapWithMapbox({
         map.current = null;
       }
     };
-  }, [center, zoom, cityName, attractions]); // Include attractions in dependencies
+  }, [center, zoom, cityName, attractions, processCategories]); // Include attractions in dependencies
 
   // Add markers when map is loaded and attractions data changes or filters change
   useEffect(() => {
@@ -582,7 +582,7 @@ export default function CityMapWithMapbox({
       console.error('Error adding map features:', err);
       setMapError(err.message || 'Failed to add map features');
     }
-  }, [mapLoaded, styleLoaded, attractions, activeCategories, categoriesProcessed]);
+  }, [mapLoaded, styleLoaded, attractions, activeCategories, categoriesProcessed, processCategories]);
 
   // Get the list of categories to show in filters - now memoized
   const getFilterCategories = () => {

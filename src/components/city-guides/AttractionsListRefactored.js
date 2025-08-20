@@ -76,7 +76,7 @@ const AttractionsListRefactored = ({ attractions, categories, cityName, country,
       return dateFilter.month;
     }
     return 'all';
-  }, [filterState.dateFilter]);
+  }, [filterState]);
 
   // Memoized filtered and sorted attractions
   const processedAttractions = useMemo(() => {

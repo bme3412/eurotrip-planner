@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 // Enhanced rating color mapping with better descriptions
 const RATING_COLORS = {
@@ -120,15 +120,15 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
   };
 
   // Get the month's data from the detailed calendar
-  const getDetailedMonthData = (monthIndex) => {
+  const getDetailedMonthData = useCallback((monthIndex) => {
     if (!detailedCalendarData || !detailedCalendarData.months) return null;
     
     const monthName = getMonthName(monthIndex).toLowerCase();
     return detailedCalendarData.months[monthName];
-  };
+  }, [detailedCalendarData]);
 
   // Get day details from the calendar data
-  const getDayDetails = (day, monthData) => {
+  const getDayDetails = useCallback((day, monthData) => {
     if (!monthData || !monthData.ranges) return null;
     const range = monthData.ranges.find(r => r.days.includes(day));
     if (!range) return null;
@@ -138,10 +138,10 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       event: range.special ? range.event : null,
       special: range.special || false
     };
-  };
+  }, []);
 
   // Get the overall month score/rating for display
-  const getMonthRating = (monthIndex) => {
+  const getMonthRating = useCallback((monthIndex) => {
     const monthData = getDetailedMonthData(monthIndex);
     if (!monthData || !monthData.ranges) return 3;
     let totalScore = 0;
@@ -151,10 +151,10 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       totalDays += range.days.length;
     });
     return totalDays > 0 ? Math.round(totalScore / totalDays) : 3;
-  };
+  }, [getDetailedMonthData]);
 
   // Get activity types for the month
-  const getActivityTypes = (monthIndex) => {
+  const getActivityTypes = useCallback((monthIndex) => {
     if (!detailedCalendarData || !detailedCalendarData.activityTypes) return [];
     
     const monthName = getMonthName(monthIndex).toLowerCase();
@@ -164,7 +164,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
     if (month >= 6 && month <= 8) return detailedCalendarData.activityTypes.summer || [];
     if (month >= 9 && month <= 11) return detailedCalendarData.activityTypes.autumn || [];
     return detailedCalendarData.activityTypes.winter || [];
-  };
+  }, [detailedCalendarData]);
 
   // Toggle tooltip display for a day
   const toggleTooltip = (day, monthIndex, dayOfMonth) => {
@@ -183,7 +183,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
   };
 
   // Generate calendar for a specific month
-  const generateMonthCalendar = (monthIndex) => {
+  const generateMonthCalendar = useCallback((monthIndex) => {
     const actualYear = monthIndex < 0 ? currentYear - 1 : 
                       monthIndex > 11 ? currentYear + 1 : currentYear;
     const actualMonth = ((monthIndex % 12) + 12) % 12;
@@ -226,7 +226,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       weatherLow: monthData?.weatherLowC,
       activityTypes
     };
-  };
+  }, [currentYear, getDetailedMonthData, getDayDetails, getMonthRating, getActivityTypes]);
 
   // Generate calendars for visible months
   const visibleMonths = useMemo(() => {
@@ -236,7 +236,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       months.push(generateMonthCalendar(monthIndex));
     }
     return months;
-  }, [currentStartMonth, currentYear, displayMonths, detailedCalendarData, generateMonthCalendar]);
+  }, [currentStartMonth, displayMonths, generateMonthCalendar]);
 
   if (isLoadingData) {
     return (

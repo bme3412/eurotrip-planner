@@ -6,6 +6,9 @@ const VideoPreloader = ({ videos, thumbnails = [] }) => {
   const preloadedElements = useRef(new Set());
 
   useEffect(() => {
+    // Track elements created in this effect execution
+    const elementsCreated = new Set();
+    
     // Only preload thumbnails if they're actually being used
     if (thumbnails.length > 0) {
       thumbnails.forEach(thumbnailSrc => {
@@ -14,7 +17,7 @@ const VideoPreloader = ({ videos, thumbnails = [] }) => {
         link.as = 'image';
         link.href = thumbnailSrc;
         document.head.appendChild(link);
-        preloadedElements.current.add(link);
+        elementsCreated.add(link);
       });
     }
 
@@ -27,25 +30,24 @@ const VideoPreloader = ({ videos, thumbnails = [] }) => {
       video.muted = true;
       video.style.display = 'none';
       document.body.appendChild(video);
-      preloadedElements.current.add(video);
+      elementsCreated.add(video);
       
       // Remove the video element after a short delay
       setTimeout(() => {
         if (document.body.contains(video)) {
           document.body.removeChild(video);
-          preloadedElements.current.delete(video);
         }
       }, 3000);
     });
 
     // Cleanup function
     return () => {
-      preloadedElements.current.forEach(element => {
+      // Clean up only the elements created in this effect execution
+      elementsCreated.forEach(element => {
         if (element.parentNode) {
           element.parentNode.removeChild(element);
         }
       });
-      preloadedElements.current.clear();
     };
   }, [videos, thumbnails]);
 

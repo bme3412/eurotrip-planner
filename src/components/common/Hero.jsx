@@ -23,11 +23,14 @@ export default function Hero({
   subtitle,
   description,
   primaryCta, // { label, href?, onClick?, disabled?, variant?: 'solid' | 'outline' }
-  secondaryCta // { label, href?, onClick?, variant?: 'solid' | 'outline' }
+  secondaryCta // { label, href?, onClick?, variant?: 'outline' }
 }) {
-  // Use the hook if cityName and country are provided, otherwise use props
-  const heroImageData = cityName && country && typeof cityName === 'string' && typeof country === 'string'
-    ? useHeroImage(cityName, country)
+  // Always call the hook, but handle conditional logic inside
+  const heroImageData = useHeroImage(cityName, country);
+  
+  // Use the hook result if cityName and country are provided, otherwise use props
+  const finalImageData = cityName && country && typeof cityName === 'string' && typeof country === 'string'
+    ? heroImageData
     : {
         currentImageSrc: backgroundImageSrc || backgroundImageFallbacks[0] || '/images/city-placeholder.svg',
         isLoading: false,
@@ -36,7 +39,7 @@ export default function Hero({
         handleImageLoad: () => {}
       };
 
-  const currentImageSrc = heroImageData.currentImageSrc;
+  const currentImageSrc = finalImageData.currentImageSrc;
   const hasValidImage = currentImageSrc && currentImageSrc !== '/images/city-placeholder.svg';
 
   // Ensure we have valid text content
@@ -72,13 +75,13 @@ export default function Hero({
           fill 
           className="object-cover" 
           priority 
-          onError={heroImageData.handleImageError}
-          onLoad={heroImageData.handleImageLoad}
+          onError={finalImageData.handleImageError}
+          onLoad={finalImageData.handleImageLoad}
         />
       )}
       
       {/* Loading indicator */}
-      {heroImageData.isLoading && (
+      {finalImageData.isLoading && (
         <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
           <div className="text-gray-500">Loading...</div>
         </div>
