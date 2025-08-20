@@ -91,7 +91,7 @@ export const useExpensiveCalculation = (calculateFn, deps, options = {}) => {
     }
 
     return result;
-  }, [calculateFn, cacheSize, enableCache, enableLogging, ...deps]);
+  }, [calculateFn, cacheSize, enableCache, enableLogging, deps]);
 
   const clearCache = useCallback(() => {
     cacheRef.current.clear();

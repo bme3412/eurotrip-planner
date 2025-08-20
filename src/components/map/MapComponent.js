@@ -343,7 +343,7 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
         loadingEl.parentNode.removeChild(loadingEl);
       }
     }
-  }, [currentPopup, onMarkerClick, currentFilters]);
+  }, [currentPopup, onMarkerClick, currentFilters, getCityCalendarInfoCached, generatePopupContent, createPopup, centerPopupInView, mapInstance, mapboxGLRef]);
 
   /**
    * Filter event handlers

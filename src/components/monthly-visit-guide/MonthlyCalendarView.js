@@ -236,7 +236,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       months.push(generateMonthCalendar(monthIndex));
     }
     return months;
-  }, [currentStartMonth, currentYear, displayMonths, detailedCalendarData]);
+  }, [currentStartMonth, currentYear, displayMonths, detailedCalendarData, generateMonthCalendar]);
 
   if (isLoadingData) {
     return (

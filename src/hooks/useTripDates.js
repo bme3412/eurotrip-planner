@@ -39,7 +39,7 @@ export function useTripDates(initialValue = null) {
       const raw = typeof window !== "undefined" ? window.localStorage.getItem(STORAGE_KEY) : null;
       if (raw) setDates(JSON.parse(raw));
     } catch {}
-  }, []);
+  }, [dates]);
 
   // Persist to localStorage
   useEffect(() => {
