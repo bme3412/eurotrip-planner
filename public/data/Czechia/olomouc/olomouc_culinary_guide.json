@@ -1,0 +1,269 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Entrée",
+                "cuisine_type": "Modern Czech/European",
+                "signature_dishes": [
+                    "Tasting menu with seasonal ingredients",
+                    "Duck with beetroot and duck jus",
+                    "Sea bass with smoked eel"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and sophisticated with focus on seasonal dining",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance for tasting menu with wine pairing. Highly recommended for food enthusiasts",
+                "dress_code": "Smart casual",
+                "michelin_potential": "High quality worthy of Michelin recognition",
+                "location": "Olomouc center",
+                "local_tips": "Order the tasting menu for the full experience - changes seasonally"
+            },
+            {
+                "name": "Moravská restaurace",
+                "cuisine_type": "Traditional Czech with international influences",
+                "signature_dishes": [
+                    "Olomoucký řízek (schnitzel stuffed with tvarůžky cheese)",
+                    "Moravské prkno (Moravian platter)",
+                    "Tvarůžky specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant traditional setting with refined atmosphere",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Family restaurant operating since 1996, book for special occasions",
+                "dress_code": "Smart casual",
+                "location": "Horní náměstí 23",
+                "local_tips": "Try regional specialties, especially anything with Olomoucké tvarůžky cheese"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Eatery & Bakery",
+                "cuisine_type": "Modern Czech",
+                "signature_dishes": [
+                    "Deer backstrap with rosehip sauce",
+                    "Cauliflower soup with shiitake",
+                    "Paris-Brest dessert"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern and relaxed in historic Military bakery setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Located in Baroque Locatelli bastion, part of Long Shorty Short Hostel",
+                "dress_code": "Casual",
+                "location": "Baroque Locatelli bastion",
+                "local_tips": "Small menu but exceptional quality dishes in unique historic setting"
+            },
+            {
+                "name": "Morgan's Restaurant",
+                "cuisine_type": "Traditional Czech & International",
+                "signature_dishes": [
+                    "Fried cheese with tartar sauce",
+                    "Traditional Czech beer hall classics",
+                    "Steaks and burgers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant beer hall atmosphere in 18th century bastion",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Great for groups and casual dining, exposed brick walls add character",
+                "dress_code": "Casual",
+                "location": "18th century bastion",
+                "local_tips": "Perfect for traditional Czech fried cheese and local beer"
+            },
+            {
+                "name": "Hostinec Moritz",
+                "cuisine_type": "Traditional Czech with own brewery",
+                "signature_dishes": [
+                    "Traditional Czech dishes",
+                    "Fresh unfiltered beer from tank",
+                    "Brewery specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional Czech pub atmosphere with microbrewery",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Non-smoking restaurant since always, fresh Czech cuisine daily",
+                "dress_code": "Casual",
+                "location": "Olomouc center",
+                "local_tips": "Try their fresh unfiltered beer straight from the tank"
+            },
+            {
+                "name": "Svatováclavský Minipivovar",
+                "cuisine_type": "Traditional Czech with beer specialties",
+                "signature_dishes": [
+                    "Pork cutlet with mushroom sauce",
+                    "Olomoucké tvarůžky",
+                    "Řezané Pivo (layered lager and dark beer)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Microbrewery with beer spa facilities underground",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Combine dining with beer spa experience in underground wooden tubs",
+                "dress_code": "Casual",
+                "location": "Olomouc center",
+                "local_tips": "Perfect comfort food after exploring the city, try the beer spa"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Coffee Library",
+                "specialty": "Student-friendly coffee culture",
+                "must_try": [
+                    "Specialty coffee",
+                    "Pařížské rohlíčky (Paris Rolls)",
+                    "Traditional Czech cakes"
+                ],
+                "price_range": "€",
+                "atmosphere": "Student-oriented with great selection of coffees and traditional cakes",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Wide selection of cakes, sandwiches, and wraps",
+                "local_tips": "Try the traditional Czech Christmas cookies Pařížské rohlíčky"
+            },
+            {
+                "name": "Kafec at Villa Primavesi",
+                "specialty": "High-quality coffee with own roastery",
+                "must_try": [
+                    "Specialty coffee from world beans",
+                    "Hot pear cider with cinnamon",
+                    "Lemon cheesecake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Upscale café in beautiful Art Nouveau villa setting",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Brunch dishes, gourmet hot dogs, Eggs Florentine, loaded waffles",
+                "local_tips": "Visit for the architectural beauty of Villa Primavesi and excellent coffee quality"
+            }
+        ],
+        "wine_bars": [
+            {
+                "name": "Vinný šenk U Zlatého beránka",
+                "type": "Wine Bar",
+                "specialty": "Wine and chocolate pairings",
+                "signature_experiences": [
+                    "Wine and chocolate pairing sessions",
+                    "Educational wine tastings",
+                    "Cellar tours"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Intimate wine cellar with rustic brick walls and educational focus",
+                "best_time": "Evening",
+                "food_options": "Light wine accompaniments",
+                "reservation_needed": true,
+                "local_tips": "Book the wine and chocolate pairing for unique educational experience"
+            }
+        ]
+    },
+    "local_specialties": [
+        {
+            "dish": "Olomoucké Tvarůžky",
+            "description": "Unique Czech cheese with 600+ year history, strong smell and distinctive taste. Served with paprika, caraway seeds, bread, butter, and raw onions. The only cheese of truly Czech origin."
+        },
+        {
+            "dish": "Hanácká česnečka",
+            "description": "Regional garlic soup from Haná region, enhanced with Olomoucké tvarůžky cheese, ham, onions, and eggs. Different from standard Czech garlic soup."
+        },
+        {
+            "dish": "Olomoucký řízek",
+            "description": "Pork schnitzel stuffed with Olomoucké tvarůžky cheese and bacon, served with mashed potatoes. Regional specialty of Olomouc."
+        },
+        {
+            "dish": "Hanácký koláč",
+            "description": "Regional sweet pastry with double filling of plum jam and cottage cheese with vanilla, topped with crumble. Traditional dessert of the Haná region."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Moravian Wine",
+            "description": "Local wines from nearby vineyards, particularly white varieties like Riesling and Grüner Veltliner. Many restaurants offer local wine pairings."
+        },
+        {
+            "name": "Microbrewery Beer",
+            "description": "Fresh unfiltered beer from local microbreweries like Moritz and Svatováclavský. Often served directly from tanks."
+        },
+        {
+            "name": "Řezané Pivo",
+            "description": "Layered beer combining lager and dark beer, creating distinct two-colored layers. Specialty of local breweries."
+        },
+        {
+            "name": "Becherovka",
+            "description": "Traditional Czech herbal liqueur, served as digestif. Available in most restaurants."
+        }
+    ],
+    "food_experiences": {
+        "specialty_tastings": [
+            {
+                "name": "Olomoucké Tvarůžky Museum Tasting",
+                "focus": "Traditional Olomouc cheese",
+                "duration": "1 hour",
+                "price_range": "€€",
+                "highlights": [
+                    "5 different tvarůžky flavors",
+                    "Traditional serving methods",
+                    "Educational component"
+                ],
+                "booking_required": true,
+                "group_size": "10 people minimum",
+                "languages": ["Czech", "English", "German"],
+                "booking_tips": "Must be ordered 24 hours in advance, always for 10 people or multiples"
+            },
+            {
+                "name": "Beer Spa Experience",
+                "focus": "Traditional beer therapy",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "32 liters of beer bath",
+                    "Underground wooden tubs",
+                    "Skin softening experience"
+                ],
+                "booking_required": true,
+                "languages": ["Czech", "English"],
+                "booking_tips": "Combine with lunch at Svatováclavský Minipivovar for full experience"
+            }
+        ],
+        "local_markets": [
+            {
+                "name": "Olomoucký Tvarůžkový Festival",
+                "type": "Annual food festival",
+                "highlights": [
+                    "Tvarůžky in all preparations",
+                    "Regional beer tastings",
+                    "Traditional food vendors"
+                ],
+                "when": "End of April annually",
+                "best_time": "Weekend",
+                "location": "Horní and Dolní náměstí",
+                "local_tips": "Best time to experience tvarůžky culture and try various preparations"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Tvarůžky festival specialties",
+            "Fresh asparagus dishes",
+            "Early vegetables with tvarůžky"
+        ],
+        "summer": [
+            "Beer garden specialties",
+            "Tvarůžky ice cream (seasonal)",
+            "Outdoor grilled tvarůžky"
+        ],
+        "autumn": [
+            "Game dishes with regional cheese",
+            "Harvest festival foods",
+            "Wine harvest celebrations"
+        ],
+        "winter": [
+            "Svatomartinské husí hody (St. Martin's goose feast)",
+            "Hearty soups with tvarůžky",
+            "Traditional Christmas desserts"
+        ]
+    }
+}

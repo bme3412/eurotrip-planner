@@ -1,0 +1,315 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Schloss Heidelberg",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Venison with Red Wine Sauce",
+                    "Black Forest Trout with Local Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic castle setting with panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Heidelberg Castle",
+                "local_tips": "One of Heidelberg's most prestigious restaurants; excellent wine list featuring local Baden wines; romantic atmosphere with castle views"
+            },
+            {
+                "name": "Kurfürstenstube",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "Pfalz Lamb with Spring Vegetables",
+                    "Local Pike with Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room in historic hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 weeks in advance",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Hotel Europäischer Hof",
+                "local_tips": "Historic location; excellent service; perfect for special occasions"
+            },
+            {
+                "name": "Zum Ritter St. Georg",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Beef Wellington with Local Mushrooms",
+                    "Sea Bass with Seasonal Vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic building with modern interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Hauptstraße",
+                "local_tips": "Beautiful historic setting; excellent wine selection; romantic atmosphere"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Schnitzelbank",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Heidelberg Schnitzel",
+                    "Sauerbraten",
+                    "Spätzle"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with traditional wooden interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Hauptstraße",
+                "local_tips": "Historic restaurant with student carvings; excellent local wine selection; traditional atmosphere"
+            },
+            {
+                "name": "Zum Roten Ochsen",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Heidelberg Specialties",
+                    "Traditional Soups",
+                    "Local Sausages"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic student pub with traditional charm",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner",
+                "dress_code": "Casual",
+                "location": "Hauptstraße",
+                "local_tips": "Historic student pub; traditional German dishes; lively atmosphere"
+            },
+            {
+                "name": "Vetter's Alt-Heidelberger Brauhaus",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Brewery Platter",
+                    "Traditional Schnitzel",
+                    "Pretzels"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brewery with traditional interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential for dinner",
+                "dress_code": "Casual",
+                "location": "Steingasse",
+                "local_tips": "Historic brewery; house-brewed beer; lively atmosphere"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Heidelberg Marktplatz",
+                "specialties": [
+                    "Local Specialties",
+                    "Fresh Produce",
+                    "Regional Delicacies"
+                ],
+                "price_range": "€-€€",
+                "hours": "7:00 AM - 6:00 PM (Monday-Saturday)",
+                "location": "Marktplatz",
+                "seating": "Limited",
+                "local_tips": "Historic market square; great variety of fresh food and local specialties"
+            },
+            {
+                "name": "Döner Kebab am Markt",
+                "specialties": [
+                    "Döner Kebab",
+                    "Falafel",
+                    "Turkish Specialties"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Marktplatz",
+                "seating": "Limited",
+                "local_tips": "Popular local street food spot; great for quick bites"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Knösel",
+                "specialty": "Traditional Coffee House",
+                "must_try": [
+                    "Student's Kiss Chocolate",
+                    "Traditional Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with traditional interior",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, cakes, and light meals",
+                "local_tips": "Historic café famous for Student's Kiss chocolates; excellent pastries"
+            },
+            {
+                "name": "Café Gundel",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Coffee",
+                    "Artisanal Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light meals",
+                "local_tips": "Best specialty coffee in Heidelberg; great for working"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Weinstube Schnitzelbank",
+                "type": "Traditional Wine Bar",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "Baden Wines",
+                    "Regional Specialties",
+                    "Local Spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic wine tavern",
+                "best_time": "Evening",
+                "food_options": "Traditional German snacks",
+                "reservation_needed": true,
+                "local_tips": "Excellent selection of local wines; authentic atmosphere"
+            },
+            {
+                "name": "Destille",
+                "type": "Traditional Student Bar",
+                "specialty": "Local Beer",
+                "signature_drinks": [
+                    "Local Beers",
+                    "Student Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic student bar",
+                "best_time": "Evening",
+                "food_options": "Traditional German cuisine",
+                "reservation_needed": false,
+                "local_tips": "Historic student bar; traditional atmosphere; local favorite"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Heidelberg Wine Tour",
+                "focus": "Local Wine Culture and Vineyards",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to local vineyards",
+                    "Wine tastings",
+                    "Local food pairings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable walking shoes required"
+            },
+            {
+                "name": "Baden Cuisine Tour",
+                "focus": "Traditional Local Dishes",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic restaurants",
+                    "Traditional tastings",
+                    "Local food history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; tours run daily except Sundays"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Baden Cooking Workshop",
+                "cuisine_focus": "Traditional Baden Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional Baden dishes",
+                    "Local sauces",
+                    "Regional specialties"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held weekly"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Heidelberg Marktplatz",
+                "type": "Daily Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Regional delicacies"
+                ],
+                "hours": "7:00 AM - 6:00 PM (Monday-Saturday)",
+                "best_time": "Morning",
+                "location": "Marktplatz",
+                "local_tips": "Historic market square; excellent selection of local products"
+            },
+            {
+                "name": "Bauernmarkt",
+                "type": "Weekly Market",
+                "highlights": [
+                    "Local produce",
+                    "Regional specialties",
+                    "Fresh flowers"
+                ],
+                "hours": "7:00 AM - 1:00 PM (Saturdays)",
+                "best_time": "Early morning",
+                "location": "Marktplatz",
+                "local_tips": "Traditional weekly market; great for fresh local produce"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise",
+            "Fresh Herbs and Wild Garlic",
+            "Spring Lamb with Local Vegetables"
+        ],
+        "summer": [
+            "Fresh Berries from Local Gardens",
+            "Grilled Local Fish",
+            "Beer Garden Specialties"
+        ],
+        "autumn": [
+            "Wild Game from Local Forests",
+            "Zwiebelkuchen with Federweisser",
+            "Fresh Mushrooms"
+        ],
+        "winter": [
+            "Christmas Market Specialties",
+            "Glühwein and Punch",
+            "Traditional Baden Winter Dishes"
+        ]
+    }
+} 

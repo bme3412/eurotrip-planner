@@ -1,0 +1,479 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Maaemo",
+                "cuisine_type": "Modern Nordic/Norwegian",
+                "signature_dishes": [
+                    "Journey through the Norwegian Landscape tasting menu focused on Norwegian organic, biodynamic and wild ingredients",
+                    "Norwegian langoustine",
+                    "Rømmegrøt (sour cream porridge) with reindeer heart shavings",
+                    "Brown butter ice cream"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Sophisticated, minimalist design with high vaulted ceilings; dramatic and refined",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 2-3 months in advance; requires pre-payment; located in Bjørvika district",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 3,
+                "location": "Bjørvika",
+                "local_tips": "Norway's only three Michelin-starred restaurant, led by Danish chef Esben Holmboe Bang. Focuses on Norwegian terroir with exceptional attention to detail. A true destination dining experience."
+            },
+            {
+                "name": "Kontrast",
+                "cuisine_type": "New Nordic",
+                "signature_dishes": [
+                    "Seasonal tasting menu with emphasis on organic, ethically sourced ingredients",
+                    "Cured quail egg served in a potato 'nest'",
+                    "Oxidated sunflower seed sorbet with birch sap",
+                    "Norwegian king crab with caramelized garlic"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Minimalist, elegant with an open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 months in advance; tasting menu only; wine pairings available",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 2,
+                "location": "St. Hanshaugen",
+                "local_tips": "Swedish chef Mikael Svensson's restaurant received its second Michelin star in 2024. Known for elegant presentations of New Nordic flavors with a focus on sustainability (Green Michelin star)."
+            },
+            {
+                "name": "À L'aise",
+                "cuisine_type": "French-Nordic",
+                "signature_dishes": [
+                    "Tasting menu featuring luxurious French classics with Nordic touches",
+                    "Oscietre caviar with traditional garnish",
+                    "Roasted pigeon with foie gras",
+                    "Soufflé Grand Marnier"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Classic fine dining with white tablecloths, crystal, and elegant decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Formal dress code (one of few in Oslo); perfect for special occasions; located in Majorstuen",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Majorstuen",
+                "local_tips": "Traditional luxury fine dining experience rare in casual Oslo. Chef Ulrik Jepsen brings classic techniques and formality to the scene while incorporating Nordic ingredients. Perfect for romantic evenings."
+            },
+            {
+                "name": "Hot Shop",
+                "cuisine_type": "Modern Nordic/Nordic Fusion",
+                "signature_dishes": [
+                    "Seasonal tasting menu with creative Nordic preparations",
+                    "White asparagus in parsley and spinach sauce",
+                    "Norwegian scallops",
+                    "Milk ice cream with black currant"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Casual, low-key setting in a former sex shop; surprisingly unassuming for a Michelin-starred restaurant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Located in a quiet neighborhood east of central Oslo (Københavngata); relaxed vibe despite high-end food",
+                "dress_code": "Casual/Smart Casual",
+                "michelin_stars": 1,
+                "location": "Grünerløkka/Torshov",
+                "local_tips": "Run by Noma alumnus Jo Bøe Klakegg, this unique spot offers Michelin-quality food in a remarkably casual setting. The name playfully references the space's former life as a sex shop."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Katla",
+                "cuisine_type": "Nordic-Asian-Mexican Fusion",
+                "signature_dishes": [
+                    "Chicken karaage",
+                    "Lamb kebab",
+                    "Steam buns with fillings",
+                    "Tostadas with guacamole",
+                    "Yuzu margaritas"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Vibrant, energetic with an open fire cooking setup",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Great for groups; lively atmosphere; located near Youngstorget",
+                "dress_code": "Casual",
+                "location": "Central Oslo",
+                "local_tips": "Fire-focused fusion restaurant with bold flavors and techniques from Japan and Mexico applied to Nordic ingredients. Great for sharing multiple dishes and cocktails."
+            },
+            {
+                "name": "Engebret Café",
+                "cuisine_type": "Traditional Norwegian",
+                "signature_dishes": [
+                    "Reindeer carpaccio with grilled goat cheese",
+                    "Cured herring with potato salad",
+                    "Lutefisk (seasonal)",
+                    "Traditional Norwegian game dishes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic, classic restaurant in a building from the early 1700s",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Oslo's oldest restaurant (established 1857); historic landmark where artists like Edvard Munch once dined",
+                "dress_code": "Smart Casual",
+                "location": "Kvadraturen",
+                "local_tips": "A Norwegian institution serving traditional dishes in a historic setting. Perfect for experiencing authentic Norwegian cuisine with historical significance."
+            },
+            {
+                "name": "Nektar",
+                "cuisine_type": "International Comfort Food/Wine Bar",
+                "signature_dishes": [
+                    "Mac and cheese (signature dish)",
+                    "Seasonal comfort food",
+                    "Charcuterie plates"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy neighborhood restaurant with excellent wine selection",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Great wine list with everything from fine Champagnes to natural wines; perfect for relaxed evenings",
+                "dress_code": "Casual",
+                "location": "Torshov",
+                "local_tips": "Beloved neighborhood spot known for its exceptional mac and cheese and impressive wine list. A favorite among locals for casual dinners with quality food and drinks."
+            },
+            {
+                "name": "Le Benjamin",
+                "cuisine_type": "French Bistro",
+                "signature_dishes": [
+                    "Tarte flambée",
+                    "French cheese plates",
+                    "Chocolate soufflé",
+                    "Steak frites",
+                    "Classic French bistro fare"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Authentic French bistro vibe; lively and convivial",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Sit at the bar for a more social experience; popular with locals; located in Vulkan area",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Vulkan/Grünerløkka",
+                "local_tips": "Authentic French neighborhood bistro with excellent food and ambiance. Popular with both food enthusiasts and industry professionals for its genuine French experience."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Pølse (Norwegian Hot Dogs)",
+                "specialties": [
+                    "Lompe: Hot dog served in a potato flatbread instead of a bun",
+                    "Ostepølse: Cheese-filled sausage",
+                    "Classic toppings: raw onion, crispy fried onion, ketchup, mustard, potato salad"
+                ],
+                "price_range": "€",
+                "hours": "All day (at numerous street vendors)",
+                "location": "Pølse stands throughout the city, particularly at Jernbanetorget (Central Station) and Karl Johans gate",
+                "seating": "Usually none (street food)",
+                "local_tips": "The quintessential Norwegian street food. Try the lompe (potato flatbread) version for an authentic local experience. Often enjoyed with Solo orange soda or chocolate milk."
+            },
+            {
+                "name": "Vippa Oslo",
+                "specialties": [
+                    "International street food hall with multiple vendors",
+                    "Syrian shawarma",
+                    "Eritrean injera platters",
+                    "Vietnamese bánh mì",
+                    "Colombian arepas",
+                    "Craft beer"
+                ],
+                "price_range": "€-€€",
+                "hours": "Wed-Sun, typically 12:00-22:00 (check website for current hours)",
+                "location": "Akershusstranda (by the Oslofjord)",
+                "seating": "Indoor communal tables and outdoor waterfront seating in summer",
+                "local_tips": "Diverse food hall focused on sustainability and immigrant-owned businesses. Great waterfront location with views of the fjord. Perfect for groups with different tastes."
+            },
+            {
+                "name": "Mathallen Oslo",
+                "specialties": [
+                    "Food hall with over 30 specialty shops and eateries",
+                    "Norwegian seafood at Vulkan Fisk",
+                    "Spanish tapas at Barramon",
+                    "Artisanal Norwegian cheeses at Gutta på Haugen",
+                    "Craft beer at Smelteverket"
+                ],
+                "price_range": "€€",
+                "hours": "Tues-Sat 10:00-20:00, Sun 11:00-18:00, Mon closed",
+                "location": "Vulkan area (Maridalsveien)",
+                "seating": "Central food court plus seating at individual vendors",
+                "local_tips": "Oslo's premier food hall inspired by European markets. Excellent place to sample Norwegian specialties and international cuisine. The basement beer hall (Smelteverket) has Norway's longest bar."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Tim Wendelboe",
+                "specialty": "World-renowned Specialty Coffee Roaster",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "Espresso tasting flight",
+                    "Seasonal coffee offerings",
+                    "Coffee beans to take home"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Minimalist, serious coffee bar focused on quality",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Limited pastries",
+                "local_tips": "Run by barista world champion Tim Wendelboe, this tiny coffee bar is a pilgrimage site for coffee enthusiasts worldwide. No laptops - this is a place to focus on exceptional coffee."
+            },
+            {
+                "name": "Fuglen",
+                "specialty": "Coffee Bar & Vintage Design Shop",
+                "must_try": [
+                    "Single-origin pour-over coffee",
+                    "Espresso drinks",
+                    "Cocktails (in the evening)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vintage 1950s-60s Norwegian furniture (all for sale); transforms into cocktail bar at night",
+                "best_time": "All day (Coffee shop by day, cocktail bar by night)",
+                "wifi_friendly": true,
+                "food_options": "Light pastries and snacks",
+                "local_tips": "Unique concept combining excellent coffee with vintage Norwegian design. The entire interior is for sale. Evening cocktails are exceptional too. Has expanded to Japan with locations in Tokyo."
+            },
+            {
+                "name": "Kafé Sorgenfri",
+                "specialty": "Cozy Traditional Café",
+                "must_try": [
+                    "Freshly baked cinnamon buns",
+                    "Traditional Norwegian cakes",
+                    "Coffee drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Eclectic, homey café with travel souvenirs decorating the walls",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, cakes, light lunch items",
+                "local_tips": "Name means 'worry-free' in Norwegian. Located in the Aker Brygge area, it's a charming spot with unique decor and a warm atmosphere. Perfect for fika (Scandinavian coffee break)."
+            },
+            {
+                "name": "Stockfleths",
+                "specialty": "Historic Norwegian Coffee Chain",
+                "must_try": [
+                    "Filter coffee (all-you-can-drink refills)",
+                    "Norwegian cinnamon buns",
+                    "Espresso drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Varies by location; blend of traditional and modern café settings",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, sandwiches, light meals",
+                "local_tips": "One of Norway's oldest coffee chains (since 1895). Multiple locations throughout Oslo. Known for quality coffee and traditional Norwegian café culture with unlimited filter coffee refills."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Himkok",
+                "type": "Speakeasy Cocktail Bar/Micro-distillery",
+                "specialty": "House-distilled spirits and creative Nordic cocktails",
+                "signature_drinks": [
+                    "Cocktails featuring house-made aquavit, gin, and vodka",
+                    "Norwegian-inspired seasonal cocktails",
+                    "Traditional Nordic spirits"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Hidden speakeasy with multiple rooms including a courtyard, distillery room, and main bar",
+                "best_time": "Evening",
+                "food_options": "Limited/None",
+                "reservation_needed": "Not accepted (first come, first served)",
+                "local_tips": "Consistently ranked among the World's 50 Best Bars. Look for the discreet entrance - just a simple door with a small sign. Contains its own micro-distillery producing spirits used in their cocktails."
+            },
+            {
+                "name": "Aku-Aku Tiki Bar",
+                "type": "Tiki Bar",
+                "specialty": "Tropical Tiki Cocktails",
+                "signature_drinks": [
+                    "Classic and modern tiki cocktails",
+                    "Shareable punch bowls",
+                    "Rum flights"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Playful Polynesian tiki decor with tropical vibes",
+                "best_time": "Evening/Night",
+                "food_options": "Limited/None",
+                "reservation_needed": "Recommended for groups",
+                "local_tips": "An unexpected tropical escape in Nordic Oslo. Known for its elaborate, theatrical tiki cocktails and escapist atmosphere. Popular for birthday celebrations and group outings."
+            },
+            {
+                "name": "RØØR",
+                "type": "Natural Wine Bar",
+                "specialty": "Natural wines with seasonal Nordic food",
+                "signature_drinks": [
+                    "Rotating selection of natural, biodynamic, and organic wines",
+                    "Local craft beers",
+                    "House cocktails with Nordic ingredients"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, minimalist wine bar with industrial touches",
+                "best_time": "Evening",
+                "food_options": "Small plates, charcuterie, seasonal Nordic dishes",
+                "reservation_needed": "Recommended",
+                "local_tips": "One of Oslo's best natural wine bars with knowledgeable staff. Excellent food program with seasonal small plates designed to pair with their wines. Relaxed vibe despite high quality."
+            },
+            {
+                "name": "Brewdog Oslo",
+                "type": "Craft Beer Bar",
+                "specialty": "Extensive craft beer selection",
+                "signature_drinks": [
+                    "40+ taps featuring Brewdog and guest beers",
+                    "Local Norwegian craft beers",
+                    "Beer flights"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern industrial beer hall with games and lively vibe",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Pub food, burgers, sharing plates",
+                "reservation_needed": "Not usually required",
+                "local_tips": "Massive selection of craft beers in a central location. Good food menu and regular events. Great place to sample both international and Norwegian craft beers."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Oslo Food & Drink Tour",
+                "focus": "Traditional Norwegian Foods & Craft Beer",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Tastings at 5-6 locations throughout central Oslo",
+                    "Traditional Norwegian foods including seafood, cheese, cured meats",
+                    "Local craft beer pairings",
+                    "Visit to historical food sites and markets"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (max 12)",
+                "languages": ["English", "Norwegian"],
+                "booking_tips": "Tours generally start near the central station or opera house. Wear comfortable walking shoes. Dietary restrictions can usually be accommodated with advance notice."
+            },
+            {
+                "name": "Norwegian Food Safari",
+                "focus": "Modern Nordic Cuisine & Traditional Specialties",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Exploration of both traditional and New Nordic cuisines",
+                    "Visit to Mathallen food hall",
+                    "Walking tour along Akerselva River to various food stops",
+                    "Tastings of seasonal Norwegian specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (max 10)",
+                "languages": ["English", "Norwegian", "German"],
+                "booking_tips": "Tours available year-round with seasonal variations in the tasting menu. Covers approximately 3km of walking. Bring a water bottle and dress for the weather."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Kulinarisk Akademi Cooking Classes",
+                "cuisine_focus": "Norwegian and Scandinavian Cuisine",
+                "duration": "3-4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Traditional Norwegian cooking techniques",
+                    "Nordic ingredient preparation",
+                    "Seasonal specialties based on time of year",
+                    "Both traditional and modern Norwegian recipes"
+                ],
+                "group_size": "8-12 participants",
+                "languages": ["Norwegian", "English (select classes)"],
+                "includes": ["All ingredients", "Recipe booklet", "Full meal with wine/beverage pairings", "Chef instruction"],
+                "booking_tips": "Located in Mathallen Oslo. Classes range from beginner to advanced levels. Check their website for calendar of specific class themes, which rotate seasonally."
+            },
+            {
+                "name": "Fish Handling & Seafood Workshop",
+                "cuisine_focus": "Norwegian Seafood",
+                "duration": "3 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Selecting, cleaning and filleting various Norwegian fish",
+                    "Traditional seafood preservation methods (curing, smoking)",
+                    "Classic Norwegian seafood dishes (fish soup, cured salmon)",
+                    "Proper cooking techniques for various seafood"
+                ],
+                "group_size": "6-10 participants",
+                "languages": ["English", "Norwegian"],
+                "includes": ["All seafood and ingredients", "Recipe handouts", "Full seafood meal", "Beverage pairings"],
+                "booking_tips": "Hands-on class focused on Norway's seafood traditions. Appropriate for all skill levels. Available at cooking schools in the city center or near the harbor. Seasonal variations in seafood selection."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mathallen Oslo",
+                "type": "Indoor Food Hall",
+                "highlights": [
+                    "Over 30 specialty food shops and eateries under one roof",
+                    "Norwegian and international foods",
+                    "Cooking classes at Kulinarisk Akademi (upper level)",
+                    "Craft beer hall in the basement (Smelteverket)"
+                ],
+                "hours": "Tues-Sat 10:00-20:00, Sun 11:00-18:00, Mon closed",
+                "best_time": "Weekday lunch or weekend afternoon",
+                "location": "Vulkan area (Maridalsveien)",
+                "local_tips": "Oslo's premier food destination inspired by European food halls. Great place to sample Norwegian specialties and buy high-quality ingredients. Regular food events and festivals throughout the year."
+            },
+            {
+                "name": "Vippa Oslo",
+                "type": "Street Food Market",
+                "highlights": [
+                    "International food stalls with emphasis on immigrant-owned businesses",
+                    "Focus on sustainability and locally-sourced ingredients",
+                    "Waterfront location with fjord views",
+                    "Diverse cuisines (Middle Eastern, African, Asian, Latin American)"
+                ],
+                "hours": "Wed-Sun typically 12:00-22:00 (seasonal variations)",
+                "best_time": "Afternoon/Evening",
+                "location": "Akershusstranda 25 (waterfront)",
+                "local_tips": "Inclusive food market showcasing Oslo's diverse culinary scene. Great outdoor seating in summer with views of the fjord. Popular with locals, especially young people."
+            },
+            {
+                "name": "Oslo Street Food",
+                "type": "Indoor Street Food Market",
+                "highlights": [
+                    "15+ international food stalls in historic former bus terminal",
+                    "Wide variety of global cuisines",
+                    "Communal seating areas",
+                    "Regular events and DJs on weekends"
+                ],
+                "hours": "Mon-Thu 11:00-22:00, Fri-Sat 11:00-24:00, Sun 12:00-22:00",
+                "best_time": "Lunch or dinner",
+                "location": "Torggata 16 (city center)",
+                "local_tips": "Centrally located food hall in the former Torggata Bad. Good option for groups with different preferences. Lively atmosphere, especially on weekends."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Nettlesoppa (Nettle Soup) - spring greens after the winter",
+            "Fresh Norwegian asparagus with brown butter",
+            "Rhubarb desserts and compotes",
+            "Rakørret (cured trout) with sour cream and flatbread",
+            "Spring lamb dishes"
+        ],
+        "summer": [
+            "Fresh Norwegian strawberries and berries",
+            "Ferske reker (fresh shrimp) - often served on white bread with mayonnaise",
+            "Grilled fish and seafood from the Oslo Fjord",
+            "Koldtbord (cold table) - Norwegian summer buffet with cold seafood, meats, and salads",
+            "Nye poteter (new potatoes) with dill and butter"
+        ],
+        "autumn": [
+            "Fårikål (lamb and cabbage stew) - Norway's national dish, celebrated on the last Thursday in September",
+            "Game meats: moose, reindeer, deer from hunting season",
+            "Wild mushrooms, particularly kantareller (chanterelles)",
+            "Plommer (plums) and epler (apples) from Norwegian orchards",
+            "Multer (cloudberries) - 'Arctic gold' berries in desserts and with brown cheese"
+        ],
+        "winter": [
+            "Lutefisk - traditional lye-soaked cod (Christmas specialty)",
+            "Pinnekjøtt - dried and salted lamb ribs (Christmas dish)",
+            "Ribbe - roasted pork belly (Christmas dinner)",
+            "Rømmegrøt - sour cream porridge, traditionally served with cured meats",
+            "Julekake (Christmas bread) with cardamom and dried fruits",
+            "Svele - thick, fluffy pancakes often served at winter markets"
+        ]
+    }
+}

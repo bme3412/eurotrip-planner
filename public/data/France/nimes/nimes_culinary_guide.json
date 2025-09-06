@@ -1,0 +1,701 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "L'Enclos de la Fontaine",
+                "cuisine_type": "Creative Provençal with Mediterranean influences",
+                "signature_dishes": [
+                    "Lamb with herbs de Provence and olive tapenade",
+                    "Sea bass with ratatouille and saffron",
+                    "Grand dessert selection with local honey"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant contemporary dining room with garden and fountain views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, request garden table for fountain views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Near Jardin de la Fontaine",
+                "local_tips": "Chef celebrates local Provençal ingredients with innovative Mediterranean techniques"
+            },
+            {
+                "name": "La Table du 2",
+                "cuisine_type": "Refined Regional Cuisine",
+                "signature_dishes": [
+                    "Pigeon with black truffle and wild mushrooms",
+                "Local fish with Camargue rice and herbs",
+                    "Lamb from the Alpilles with lavender honey"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Rustic-elegant with natural materials and garden views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance, worth the short drive from Nîmes",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Saint-Gilles (20 minutes from Nîmes)",
+                "local_tips": "Located in the Camargue region with a unique focus on local Provençal ingredients"
+            },
+            {
+                "name": "Restaurant Alexandre",
+                "cuisine_type": "Creative Modern French",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Inventive seafood preparations",
+                    "Artistic plating with local herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate contemporary space with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, opt for the surprise tasting menu",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Historic center",
+                "local_tips": "Chef trained with Alain Ducasse and creates truly innovative Provençal cuisine"
+            },
+            {
+                "name": "Le Château de Collias",
+                "cuisine_type": "Haute Cuisine with Provençal Influences",
+                "signature_dishes": [
+                    "Camargue bull meat",
+                    "Alpilles lamb",
+                    "Mediterranean seafood creations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant château dining room with garden views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, worth the drive from Nîmes",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Collias (15 minutes from Nîmes)",
+                "local_tips": "Chef creates artistic presentations inspired by the local Provençal landscape"
+            },
+            {
+                "name": "L'Atelier",
+                "cuisine_type": "Creative Franco-Mediterranean",
+                "signature_dishes": [
+                    "Tasting menu blending French technique with Mediterranean flavors",
+                    "Local beef with Provençal herbs",
+                    "Inventive flavor combinations with local olive oil"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek modern interior with minimalist Mediterranean touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least two weeks in advance, counter seating available for kitchen views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City center",
+                "local_tips": "Chef creates a unique fusion of French technique with Provençal and Mediterranean influences"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "La Maison",
+                "cuisine_type": "Classic French Bistro",
+                "signature_dishes": [
+                    "Brandade de morue (cod with olive oil)",
+                    "Traditional beef tartare",
+                    "Classic French desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic bistro with traditional decor (since 1920)",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekend meals",
+                "dress_code": "Smart casual",
+                "location": "Place du Marché",
+                "local_tips": "A Nîmes institution with authentic southern French atmosphere, worth visiting for local specialties"
+            },
+            {
+                "name": "Crêperie Le Petit Nîmes",
+                "cuisine_type": "Traditional French Crêpes",
+                "signature_dishes": [
+                    "Galette complète (buckwheat crêpe with ham, egg, cheese)",
+                    "Sweet crêpes with chestnut cream",
+                    "Local cider and wine"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy traditional crêperie with Provençal decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid waiting, especially at dinner",
+                "dress_code": "Casual",
+                "location": "Medieval quarter",
+                "local_tips": "One of the most authentic crêperies in Nîmes, serving traditional buckwheat galettes"
+            },
+            {
+                "name": "Le Bistrot",
+                "cuisine_type": "Modern Bistro",
+                "signature_dishes": [
+                    "Seasonal market-driven menu",
+                    "Excellent fish dishes",
+                    "Creative appetizers with local herbs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary bistro with simple elegant decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, lunch menu offers great value",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Chef creates well-executed bistro classics with modern Provençal touches"
+            },
+            {
+                "name": "La Table du Marché",
+                "cuisine_type": "Creative Market Cuisine",
+                "signature_dishes": [
+                    "Gourmet burgers with local cheese",
+                    "Creative salads with Provençal ingredients",
+                    "Sharing plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with high ceilings and market views",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner, lunch is more casual, good for groups",
+                "dress_code": "Casual",
+                "location": "Near Marché de Talensac",
+                "local_tips": "Trendy spot that transforms from casual lunch spot to vibrant evening venue"
+            },
+            {
+                "name": "Le Petit Comptoir",
+                "cuisine_type": "Contemporary Market Cuisine",
+                "signature_dishes": [
+                    "Changing blackboard menu",
+                    "Fresh local fish preparations",
+                    "Creative seasonal vegetables"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, intimate bistro with personal service",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Run by local chef, offering excellent value lunch menus with market-fresh ingredients"
+            },
+            {
+                "name": "Le Carré d'Art",
+                "cuisine_type": "Casual Bites with a View",
+                "signature_dishes": [
+                    "Cheese and charcuterie boards",
+                    "Simple sandwiches and snacks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern café with views of the Roman sites",
+                "best_time": "Afternoon",
+                "reservation_needed": false,
+                "booking_tips": "Come for the view rather than the food, expect lines on weekends",
+                "dress_code": "Casual",
+                "location": "Carré d'Art museum",
+                "local_tips": "More about the spectacular views of the Roman amphitheater than the simple menu"
+            },
+            {
+                "name": "Crêperie La Maison Carrée",
+                "cuisine_type": "Traditional French Crêpes",
+                "signature_dishes": [
+                    "Galettes with local ingredients",
+                    "Regional specialties from Provence",
+                    "Local dessert specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional with Provençal decorations and authentic atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance for dinner, specify if you prefer indoor or outdoor seating",
+                "dress_code": "Casual",
+                "location": "Near Maison Carrée",
+                "local_tips": "One of Nîmes' most respected crêperies, focusing on high-quality local ingredients"
+            },
+            {
+                "name": "L'Assiette",
+                "cuisine_type": "Neo-Bistro",
+                "signature_dishes": [
+                    "Seasonal set menu",
+                    "Creative fish dishes",
+                    "Excellent desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist dining room with open kitchen",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a week in advance, excellent value lunch menu",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Chef creates precise, modern dishes with excellent price-quality ratio"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché de Talensac",
+                "specialties": [
+                    "Fresh olives and olive oil",
+                    "Regional cheeses",
+                    "Prepared foods",
+                    "Provençal specialties"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "location": "Near city center",
+                "seating": false,
+                "local_tips": "Nîmes' largest and most important covered market, excellent for sampling local produce"
+            },
+            {
+                "name": "Carré d'Art Café",
+                "specialties": [
+                    "Creative sandwiches",
+                    "Quiches",
+                    "Cakes and pastries"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 11:00am-12:00am, Sun: 11:00am-8:00pm",
+                "location": "Carré d'Art cultural center",
+                "seating": true,
+                "local_tips": "Trendy café in the modern art museum, with terrace views of the Roman sites"
+            },
+            {
+                "name": "Medieval Quarter Food Stalls",
+                "specialties": [
+                    "Crêpes and galettes",
+                    "Kebabs",
+                    "International street food"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:00am-10:00pm (later on weekends)",
+                "location": "Medieval quarter pedestrian area",
+                "seating": false,
+                "local_tips": "The historic heart of Nîmes offers many quick food options, especially popular with students"
+            },
+            {
+                "name": "La Glacerie",
+                "specialties": [
+                    "Lavender ice cream",
+                    "Provençal herb ice creams",
+                    "Local fruit sorbets"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 10:00am-7:00pm",
+                "location": "Multiple locations in city center",
+                "seating": false,
+                "local_tips": "Famous regional specialty, their lavender ice cream is a must-try"
+            },
+            {
+                "name": "Maison du Pain",
+                "specialties": [
+                    "Fougasse (Provençal flatbread filled to order)",
+                    "Regional specialties",
+                    "Artisanal bakery items"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 10:00am-7:00pm",
+                "location": "City center",
+                "seating": false,
+                "local_tips": "Try the fougasse, a specialty from Provence rarely found elsewhere"
+            },
+            {
+                "name": "Confiserie du Pont",
+                "specialties": [
+                    "Calissons d'Aix (traditional Provençal candies)",
+                    "Regional sweet specialties",
+                    "Traditional confectionery"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 9:30am-7:00pm",
+                "location": "City center",
+                "seating": false,
+                "local_tips": "Historic confectionery shop making traditional Provençal candies since 1920"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Central",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "House-made pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright minimalist space with plants and large windows",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast bowls, sandwiches, cakes",
+                "local_tips": "One of Nîmes' pioneering specialty coffee shops with excellent brunch options"
+            },
+            {
+                "name": "Le Petit Café",
+                "specialty": "Specialty coffee and homemade food",
+                "must_try": [
+                    "Flat white",
+                    "Seasonal lunch bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, Mediterranean-inspired design with wooden elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Healthy bowls, sandwiches, homemade cakes",
+                "local_tips": "Excellent coffee paired with healthy, creative food options"
+            },
+            {
+                "name": "Café des Jardins",
+                "specialty": "Coffee and plants",
+                "must_try": [
+                    "Specialty coffee drinks",
+                    "Vegan treats"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Plant-filled space with bright interior",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast options, vegetarian and vegan choices",
+                "local_tips": "Part café, part plant shop with a beautiful atmosphere and quality coffee"
+            },
+            {
+                "name": "Café Provençal",
+                "specialty": "Provençal-inspired coffee",
+                "must_try": [
+                    "Batch brew coffee",
+                    "Provençal-inspired baked goods"
+                ],
+                "price_range": "€",
+                "atmosphere": "Vintage-inspired with Provençal touches",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Scones, cakes, light lunch options",
+                "local_tips": "Local owners bring unique Provençal perspective to the Nîmes coffee scene"
+            },
+            {
+                "name": "La Cantine du Marché",
+                "specialty": "Coffee and healthy food",
+                "must_try": [
+                    "House blend coffee",
+                    "Daily lunch specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm industrial space with communal tables",
+                "best_time": "Lunch",
+                "wifi_friendly": true,
+                "food_options": "Full lunch menu with vegetarian options",
+                "local_tips": "Popular with local workers for lunch but also good for working remotely"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Carré d'Art",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views",
+                "signature_drinks": [
+                    "Cocktails",
+                    "Local craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern space with 360° views of Nîmes and Roman sites",
+                "best_time": "Sunset",
+                "food_options": "Simple snacks and sharing plates",
+                "reservation_needed": false,
+                "local_tips": "The rooftop terrace offers spectacular views of the Roman amphitheater; go for the views rather than the drinks"
+            },
+            {
+                "name": "Le Pub Irlandais",
+                "type": "Irish Pub",
+                "specialty": "Extensive beer selection",
+                "signature_drinks": [
+                    "Guinness",
+                    "Irish whiskeys",
+                    "Local and international craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional pub atmosphere with live music",
+                "best_time": "Evening",
+                "food_options": "Pub fare",
+                "reservation_needed": false,
+                "local_tips": "Popular expat hangout with regular live music and sports screenings"
+            },
+            {
+                "name": "Le Lieu Unique",
+                "type": "Cultural Center Bar",
+                "specialty": "Creative atmosphere",
+                "signature_drinks": [
+                    "Craft cocktails",
+                    "Natural wines",
+                    "Local beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with terrace views of the city",
+                "best_time": "Evening",
+                "food_options": "Creative small plates",
+                "reservation_needed": false,
+                "local_tips": "Cultural hub with exhibitions, performances and a great bar scene, especially in summer"
+            },
+            {
+                "name": "Little Provençal Brewery",
+                "type": "Craft Brewery",
+                "specialty": "House-brewed craft beers",
+                "signature_drinks": [
+                    "IPA, stout, and seasonal beers",
+                    "Beer tasting flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial brewery with city views",
+                "best_time": "Afternoon",
+                "food_options": "Beer-friendly snacks and meals",
+                "reservation_needed": false,
+                "local_tips": "Local microbrewery with taproom, excellent outdoor space"
+            },
+            {
+                "name": "Le Café du Commerce",
+                "type": "Wine Bar",
+                "specialty": "Natural and organic wines",
+                "signature_drinks": [
+                    "Languedoc wines",
+                    "Natural wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French bistro with vintage elements",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Excellent selection of natural wines and knowledgeable staff"
+            },
+            {
+                "name": "La Terrasse",
+                "type": "Rooftop Bar",
+                "specialty": "City views",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Regional wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming rooftop setting with city views",
+                "best_time": "Sunset",
+                "food_options": "Full restaurant menu",
+                "reservation_needed": true,
+                "local_tips": "Located in the heart of the city with excellent views of the Roman sites"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Nîmes Walking Tour",
+                "focus": "Local Nîmes specialties and Provençal influences",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Talensac Market exploration",
+                    "Provençal pastry tastings",
+                    "Local chocolate and candy specialties"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Morning tours recommended to experience the market at its best"
+            },
+            {
+                "name": "Languedoc Wine Country Tour",
+                "focus": "Regional wine exploration",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vineyard visits in Languedoc region",
+                    "Wine tastings with winemakers",
+                    "Food pairings with regional products"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation from Nîmes, wear comfortable shoes for vineyard walking"
+            },
+            {
+                "name": "Gourmet Medieval Quarter Tour",
+                "focus": "Historic center food specialties",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional crêperies",
+                    "Historic medieval quarter",
+                    "Sweet specialties of Nîmes"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Afternoon tours available, focuses on the historic heart of the city"
+            },
+            {
+                "name": "Mediterranean Flavors of Nîmes",
+                "focus": "Provençal cuisine and Mediterranean influence",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fresh Mediterranean tastings",
+                    "City center food scene",
+                    "Provençal culinary history"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes walking tour of the city, Mediterranean focus"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "L'Atelier de Marie",
+                "cuisine_focus": "Traditional Provençal and Languedoc cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Ratatouille and Provençal dishes",
+                    "Seafood techniques",
+                    "Provençal herb cookies"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Meal with local wine"
+                ],
+                "booking_tips": "Classes for all levels, focus on regional specialties"
+            },
+            {
+                "name": "Atelier des Chefs Nîmes",
+                "cuisine_focus": "Modern French techniques",
+                "duration": "1-2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Quick gourmet recipes",
+                    "Professional techniques",
+                    "Market-inspired cooking"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Digital recipes",
+                    "Meal with wine"
+                ],
+                "booking_tips": "Express lunch format available, larger classes but professional setting"
+            },
+            {
+                "name": "Cuisine et Moi",
+                "cuisine_focus": "Home cooking with local products",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal cooking",
+                    "Provençal specialties"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French",
+                    "English (with advance notice)"
+                ],
+                "includes": [
+                    "Market visit",
+                    "All ingredients",
+                    "Full meal with regional wines"
+                ],
+                "booking_tips": "Small-group experience in home kitchen setting with market visit"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché de Talensac",
+                "type": "Covered market and surrounding streets",
+                "highlights": [
+                    "Largest market in Nîmes",
+                    "Fresh seafood, produce, and prepared foods",
+                    "Regional specialties"
+                ],
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Near city center",
+                "local_tips": "The heart of food shopping in Nîmes, busiest on weekend mornings"
+            },
+            {
+                "name": "Marché de la Place du Marché",
+                "type": "Open-air market",
+                "highlights": [
+                    "Large produce selection",
+                    "Flowers and plants",
+                    "Local farmers"
+                ],
+                "hours": "Sat: 8:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "City center",
+                "local_tips": "One of the city's largest markets, only on Saturdays but worth planning around"
+            },
+            {
+                "name": "Marché Biologique de la Place Saint-Felix",
+                "type": "Organic market",
+                "highlights": [
+                    "Certified organic produce",
+                    "Artisanal breads and cheeses",
+                    "Natural wines"
+                ],
+                "hours": "Wed: 4:00pm-8:00pm",
+                "best_time": "Early evening",
+                "location": "Saint-Felix square",
+                "local_tips": "The place for organic and sustainable products, popular with eco-conscious locals"
+            },
+            {
+                "name": "Marché des Halles",
+                "type": "Covered market",
+                "highlights": [
+                    "Small but charming market",
+                    "Fresh produce",
+                    "Picturesque setting"
+                ],
+                "hours": "Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "City center",
+                "local_tips": "Worth combining with lunch in this charming market setting"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus from the Languedoc",
+            "Young Pélardon cheese",
+            "First of the season Languedoc wine"
+        ],
+        "summer": [
+            "Fougasse (garlic bread from Provence)",
+            "Strawberries from the region",
+            "Fresh sardines from the Mediterranean"
+        ],
+        "autumn": [
+            "Buckwheat galettes with mushrooms",
+            "Languedoc game dishes",
+            "Fougasse (Provençal flatbread)"
+        ],
+        "winter": [
+            "Seafood platters with local oysters",
+            "Provençal Daube (beef stew with wine)",
+            "Gâteau Nîmois (rum cake with almond)"
+        ]
+    }
+}

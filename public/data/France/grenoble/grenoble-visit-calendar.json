@@ -1,0 +1,743 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 2, 
+          "special": true, 
+          "event": "Jour de l'An (New Year's Day)", 
+          "notes": "Major French holiday - most attractions closed, cold weather (2-8°C), post-celebration atmosphere, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 1
+          },
+          "attractions": {
+            "bastille": "Closed",
+            "cathedrale": "Closed", 
+            "museeGrenoble": "Closed",
+            "placeGrenette": "Limited access",
+            "parks": "Open but cold"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with fewer crowds", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 2, 
+          "notes": "Coldest period (2-8°C), possible frost, ideal for indoor activities, very low tourism", 
+          "location": "Museums and galleries", 
+          "time": "Daytime 10am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "museeGrenoble": "Excellent - no crowds",
+            "artMuseums": "Perfect conditions",
+            "cathedrale": "Indoor visits recommended",
+            "cafes": "Cozy atmosphere", 
+            "shopping": "Winter sales"
+          },
+          "considerations": ["Pack warm layers", "Perfect for museum visits", "Traditional French cafés are sanctuaries", "Early sunset around 5pm"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 8,
+        "lowC": 2,
+        "avgC": 5,
+        "realFeelC": 3,
+        "rainfallMm": 120,
+        "rainDays": 12,
+        "snowDays": 3,
+        "sunshineHours": 3,
+        "daylightHours": 9.5,
+        "sunrise": "08:15",
+        "sunset": "17:30",
+        "humidity": 75,
+        "windKmh": 12
+      },
+      "tourismLevel": 2,
+      "priceLevel": "Low",
+      "crowdLevel": "Very Low"
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 2, 
+          "notes": "Winter continues, cold (3-9°C), fewer crowds, excellent museum time", 
+          "location": "Museums and covered markets", 
+          "time": "Daytime 10am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 3, 
+          "notes": "Late winter, gradual warming (4-10°C), early spring hints", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low",
+          "considerations": ["Days noticeably longer", "Early spring flowers in parks", "Good time for indoor activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 9,
+        "lowC": 3,
+        "avgC": 6,
+        "realFeelC": 4,
+        "rainfallMm": 100,
+        "rainDays": 10,
+        "snowDays": 2,
+        "sunshineHours": 4,
+        "daylightHours": 10.5,
+        "sunrise": "07:45",
+        "sunset": "18:00",
+        "humidity": 72,
+        "windKmh": 11
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low",
+      "crowdLevel": "Low"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Early spring transition, variable weather (5-12°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 7:00am-7:00pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "special": true,
+          "event": "Printemps (Spring Arrival)",
+          "notes": "Spring officially arrives, excellent conditions (7-15°C)", 
+          "location": "Citywide, especially Place Grenette", 
+          "time": "Optimal 10am-6pm", 
+          "price": "Free celebrations", 
+          "crowdLevel": "Moderate-High",
+          "springActivities": {
+            "placeGrenette": "Spring atmosphere and outdoor cafés",
+            "historicCenter": "Cobblestone streets perfect for walking",
+            "parks": "Spring blooms and walking trails",
+            "markets": "Fresh spring produce"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Perfect for photography", "Outdoor dining returns", "Spring festivals begin"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 12,
+        "lowC": 5,
+        "avgC": 8.5,
+        "realFeelC": 7,
+        "rainfallMm": 90,
+        "rainDays": 9,
+        "snowDays": 1,
+        "sunshineHours": 5,
+        "daylightHours": 12,
+        "sunrise": "07:00",
+        "sunset": "19:00",
+        "humidity": 70,
+        "windKmh": 10
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 5, 
+          "notes": "Spring in full bloom, ideal weather (8-18°C), perfect for outdoor activities", 
+          "location": "Parks and gardens citywide", 
+          "time": "Extended daylight", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate-High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "springActivities": {
+            "parks": "Tulips and spring flowers in bloom",
+            "outdoorActivities": "Perfect walking weather",
+            "events": "Spring cultural festivals",
+            "dining": "Outdoor terraces open"
+          },
+          "considerations": ["April showers possible", "Layers essential", "Book popular restaurants early"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 18,
+        "lowC": 8,
+        "avgC": 13,
+        "realFeelC": 12,
+        "rainfallMm": 80,
+        "rainDays": 8,
+        "sunshineHours": 6.5,
+        "daylightHours": 13.5,
+        "sunrise": "06:30",
+        "sunset": "20:00",
+        "humidity": 68,
+        "windKmh": 9
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High"
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 4, 
+          "special": true, 
+          "event": "Fête du Travail (Labor Day)", 
+          "notes": "Public holiday, spring celebrations, pleasant weather (10-20°C)", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "High",
+          "holidayActivities": ["Street festivals", "Park events", "Cultural celebrations"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 5, 
+          "notes": "Perfect spring weather (12-22°C), optimal conditions for all activities", 
+          "location": "Citywide", 
+          "time": "Long daylight hours", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate-High",
+          "mayActivities": {
+            "bastille": "Perfect viewing conditions",
+            "outdoorCafes": "Full outdoor dining season",
+            "culturalSites": "Ideal for sightseeing",
+            "parks": "Beautiful spring blooms"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 22,
+        "lowC": 12,
+        "avgC": 17,
+        "realFeelC": 16,
+        "rainfallMm": 70,
+        "rainDays": 7,
+        "sunshineHours": 7.5,
+        "daylightHours": 14.5,
+        "sunrise": "06:00",
+        "sunset": "20:30",
+        "humidity": 65,
+        "windKmh": 8
+      },
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 5, 
+          "notes": "Early summer excellence (15-25°C), longest days, perfect weather", 
+          "location": "Citywide", 
+          "time": "Daylight 6:00am-9:00pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate-High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          },
+          "summerActivities": {
+            "bastille": "Perfect panoramic views",
+            "outdoorDining": "Full terrace season",
+            "culturalSites": "Extended visiting hours",
+            "parks": "Beautiful summer atmosphere"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 25,
+        "lowC": 15,
+        "avgC": 20,
+        "realFeelC": 19,
+        "rainfallMm": 60,
+        "rainDays": 6,
+        "sunshineHours": 8.5,
+        "daylightHours": 15,
+        "sunrise": "06:00",
+        "sunset": "21:00",
+        "humidity": 60,
+        "windKmh": 7
+      },
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "notes": "Peak summer, warm weather (17-27°C), busy tourist period", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Peak prices", 
+          "crowdLevel": "High",
+          "summerActivities": ["Outdoor dining", "Cultural festivals", "Park concerts"],
+          "considerations": ["Book accommodation early", "Early morning best for attractions", "Bastille very busy"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 27,
+        "lowC": 17,
+        "avgC": 22,
+        "realFeelC": 21,
+        "rainfallMm": 50,
+        "rainDays": 5,
+        "sunshineHours": 9,
+        "daylightHours": 14.5,
+        "sunrise": "06:15",
+        "sunset": "20:45",
+        "humidity": 55,
+        "windKmh": 6
+      },
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Peak summer holidays, very warm (17-27°C), crowded tourist areas",
+          "location": "Tourist areas",
+          "time": "All day",
+          "price": "Peak prices",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          },
+          "considerations": ["Bastille queues", "Book restaurants ahead", "Early morning for outdoor activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 27,
+        "lowC": 17,
+        "avgC": 22,
+        "realFeelC": 21,
+        "rainfallMm": 50,
+        "rainDays": 5,
+        "sunshineHours": 8.5,
+        "daylightHours": 13.5,
+        "sunrise": "06:30",
+        "sunset": "20:00",
+        "humidity": 55,
+        "windKmh": 6
+      },
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 
+          "score": 5, 
+          "notes": "Excellent post-peak season, warm weather continues (14-24°C), schools return", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Decreasing", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 5,
+            "business": 5,
+            "budget": 4,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 5, 
+          "notes": "Early autumn beauty, comfortable temperatures (12-22°C), golden light", 
+          "location": "Parks and gardens", 
+          "time": "Shorter days", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "autumnActivities": ["Park walks", "Cultural events", "Museum visits", "Outdoor dining continues"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 22,
+        "lowC": 12,
+        "avgC": 17,
+        "realFeelC": 16,
+        "rainfallMm": 70,
+        "rainDays": 7,
+        "sunshineHours": 7,
+        "daylightHours": 12.5,
+        "sunrise": "07:00",
+        "sunset": "19:30",
+        "humidity": 65,
+        "windKmh": 7
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "notes": "Golden autumn, mild weather (8-18°C), beautiful parks, cultural season begins", 
+          "location": "Citywide", 
+          "time": "Shorter days", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "autumnHighlights": {
+            "parks": "Beautiful fall colors",
+            "culturalEvents": "Museum exhibitions",
+            "outdoorActivities": "Comfortable walking weather",
+            "dining": "Cozy indoor atmosphere"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 18,
+        "lowC": 8,
+        "avgC": 13,
+        "realFeelC": 12,
+        "rainfallMm": 90,
+        "rainDays": 8,
+        "sunshineHours": 5.5,
+        "daylightHours": 11,
+        "sunrise": "07:30",
+        "sunset": "18:30",
+        "humidity": 70,
+        "windKmh": 8
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 3, 
+          "notes": "Late autumn, cooler weather (5-12°C), cultural season in full swing", 
+          "location": "Indoor venues", 
+          "time": "Earlier sunsets", 
+          "price": "Standard", 
+          "crowdLevel": "Low-Moderate",
+          "culturalSeason": {
+            "museums": "New exhibitions opening",
+            "galleries": "Contemporary art shows",
+            "theaters": "Cultural performances",
+            "indoorActivities": "Perfect for cultural exploration"
+          }
+        }
+      ],
+      "weatherDetails": {
+        "highC": 12,
+        "lowC": 5,
+        "avgC": 8.5,
+        "realFeelC": 7,
+        "rainfallMm": 120,
+        "rainDays": 10,
+        "sunshineHours": 4,
+        "daylightHours": 9.5,
+        "sunrise": "07:45",
+        "sunset": "17:15",
+        "humidity": 75,
+        "windKmh": 9
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 3, 
+          "notes": "Winter season, festive atmosphere, cool weather (2-8°C), cozy indoor activities", 
+          "location": "Citywide", 
+          "time": "Limited daylight", 
+          "price": "Standard", 
+          "crowdLevel": "Low",
+          "winterActivities": {
+            "indoorSites": "Museums and galleries",
+            "culturalEvents": "Holiday performances",
+            "cozyCafes": "Traditional French cafés",
+            "shopping": "Holiday markets"
+          },
+          "considerations": ["Limited daylight hours", "Indoor activities recommended", "Cozy atmosphere", "Cultural events continue"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 8,
+        "lowC": 2,
+        "avgC": 5,
+        "realFeelC": 3,
+        "rainfallMm": 130,
+        "rainDays": 12,
+        "snowDays": 3,
+        "sunshineHours": 3,
+        "daylightHours": 9,
+        "sunrise": "08:00",
+        "sunset": "17:00",
+        "humidity": 78,
+        "windKmh": 10
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Bastille Cable Car Ride",
+      "Historic Center Walks",
+      "Cultural Museums",
+      "Outdoor Cafés",
+      "Spring Festivals",
+      "Walking Tours",
+      "Musée de Grenoble Visit",
+      "Traditional Markets",
+      "Photography Tours",
+      "Garden Visits"
+    ],
+    "summer": [
+      "Bastille Views",
+      "Outdoor Dining",
+      "Cultural Festivals",
+      "Place Grenette",
+      "Music Events",
+      "Park Activities",
+      "Historical Tours",
+      "Traditional Markets",
+      "Outdoor Cinema",
+      "Alpine Landscape Tours"
+    ],
+    "autumn": [
+      "Museum Season",
+      "Cultural Events",
+      "Park Walks",
+      "Art Exhibitions",
+      "Indoor Activities",
+      "Historical Tours",
+      "Traditional Markets",
+      "Cozy Cafés",
+      "Cultural Performances",
+      "Autumn Photography"
+    ],
+    "winter": [
+      "Indoor Museums",
+      "Cultural Venues",
+      "Traditional French Cafés",
+      "Historical Sites",
+      "Indoor Markets",
+      "Cultural Events",
+      "Cozy Restaurants",
+      "Art Galleries",
+      "Indoor Activities",
+      "Cultural Performances"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "June", "September"],
+      "considerations": ["Weather suitability", "Family attractions", "Park activities", "Bastille access"],
+      "challenges": {
+        "summer": "Very crowded, expensive, tourist-heavy",
+        "winter": "Cold weather, early darkness"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["Bastille sunset views", "Place Grenette dining", "Spring park walks"],
+      "considerations": ["Weather", "Crowds", "Cultural events", "Romantic dining"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "March"],
+      "advantages": ["Museum freedom", "Cultural flexibility", "Café culture", "Walking tours"],
+      "considerations": ["Safety excellent", "Social opportunities", "Cultural events", "Local interactions"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October"],
+      "avoid": ["August", "December holidays", "July"],
+      "considerations": ["City center focus", "Hotel availability", "Transport efficiency", "Business dining"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Free museums", "Parks", "Markets for food", "Walking tours", "Local transport"],
+      "considerations": ["Hostel availability", "Lunch deals", "Free events", "Local prices"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "experiences": ["Cultural events", "Fine dining", "Private tours", "Luxury shopping", "Five-star hotels"],
+      "considerations": ["Advance bookings essential", "Seasonal menus", "Exclusive events", "Concierge services"]
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 15 hours",
+      "shortest": "December 21st - 9 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "publicTransport": {
+        "tram": "Efficient tram network, affordable",
+        "buses": "Extensive network, affordable",
+        "taxis": "Readily available, inexpensive",
+        "walking": "City center very walkable"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (hot)"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August"],
+        "events": ["Spring festivals", "Summer season", "Cultural events"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 2-3 months ahead, consider city center"
+      }
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["Weekend evenings", "Popular restaurants"],
+        "recommended": "Popular restaurants always",
+        "timeline": "1-2 weeks ahead for popular places"
+      },
+      "traditions": {
+        "frenchCuisine": "Traditional French restaurants popular",
+        "cafeCulture": "Coffee culture throughout the day",
+        "localMarkets": "Fresh produce and traditional foods"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter quiet, indoor activities, authentic local life",
+    "february": "Late winter, gradual warming, cultural activities",
+    "march": "Spring arrives, cultural events, outdoor activities begin",
+    "april": "Perfect weather, spring blooms, outdoor dining returns",
+    "may": "Optimal conditions, all activities available, spring festivals",
+    "june": "Early summer, longest days, perfect for all activities",
+    "july": "Peak summer, warm weather, busy tourist period",
+    "august": "Summer peak, warm weather, crowded attractions",
+    "september": "Perfect weather returns, cultural season, fewer crowds",
+    "october": "Autumn colors, cultural events, comfortable weather",
+    "november": "Cultural season, indoor activities, cooler weather",
+    "december": "Winter atmosphere, indoor activities, cozy season"
+  },
+  "additionalInfo": {
+    "culturalSites": {
+      "museums": ["Musée de Grenoble", "Art Museums", "Archaeological Museum"],
+      "religious": ["Cathédrale Notre-Dame", "Église Saint-André", "Historic Churches"],
+      "historical": ["Place Grenette", "Bastille Fortress", "Historic Center", "Alpine Architecture"]
+    },
+    "freeAttractions": {
+      "parks": ["Place Grenette", "City Parks", "Alpine Landscape"],
+      "markets": ["Place aux Herbes", "Traditional Markets"],
+      "squares": ["Place Grenette", "Historic Squares"]
+    },
+    "specialEvents": {
+      "cultural": ["Spring festivals", "Summer concerts", "Autumn cultural events", "Winter performances"],
+      "seasonal": ["Spring blooms", "Summer outdoor activities", "Autumn colors", "Winter indoor culture"]
+    }
+  }
+}

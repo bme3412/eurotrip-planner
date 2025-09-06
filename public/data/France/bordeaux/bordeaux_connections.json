@@ -1,0 +1,419 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The iconic French capital with world-famous monuments, museums, and cuisine. Experience the Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, and the Champs-Élysées. Paris offers unparalleled cultural experiences, world-class dining, and iconic landmarks that define French culture and history.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h10m",
+                "frequency": "Hourly",
+                "operator": "SNCF TGV",
+                "price_range": "€35-120",
+                "booking_tips": "Book 2-3 months in advance for best prices. First class offers more space and meal service."
+            },
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "airlines": ["Air France", "easyJet", "Ryanair"],
+                "price_range": "€50-200"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "Known as 'La Ville Rose' (The Pink City) for its distinctive brick architecture and aerospace industry. Visit the Basilica of Saint-Sernin, the largest Romanesque church in Europe, explore the historic Capitole, and discover the city's rich aerospace heritage at the Cité de l'Espace.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h05m",
+                "frequency": "Every 2 hours",
+                "operator": "SNCF Intercités",
+                "price_range": "€25-60",
+                "booking_tips": "Book in advance for better rates. The route offers scenic views of the French countryside."
+            }
+        },
+        {
+            "city": "Bayonne",
+            "country": "France",
+            "whyGo": "A charming Basque city known for its historic center, chocolate tradition, and proximity to beaches. Explore the Gothic cathedral, visit the chocolate shops, and experience the unique Basque culture. The city hosts the famous Fêtes de Bayonne festival in July.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "1h50m",
+                "frequency": "Every 2 hours",
+                "operator": "SNCF TER",
+                "price_range": "€20-40",
+                "booking_tips": "Regional trains are slower but more scenic. Consider visiting during the chocolate festival in May."
+            }
+        },
+        {
+            "city": "Biarritz",
+            "country": "France",
+            "whyGo": "Elegant seaside resort town with famous surf beaches and Belle Époque architecture. Once a favorite destination of European royalty, Biarritz offers beautiful beaches, world-class surfing, luxury hotels, and a sophisticated atmosphere. Visit the Rocher de la Vierge and the Grande Plage.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h",
+                "frequency": "Every 2 hours",
+                "operator": "SNCF TER",
+                "price_range": "€25-50",
+                "booking_tips": "Summer months are busiest. Book accommodation early during peak season."
+            }
+        },
+        {
+            "city": "La Rochelle",
+            "country": "France",
+            "whyGo": "Historic port city with well-preserved medieval architecture and beautiful waterfront. Explore the iconic towers guarding the harbor, stroll through the charming old town, and enjoy fresh seafood. The city is known for its maritime heritage and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h15m",
+                "frequency": "Every 2 hours",
+                "operator": "SNCF Intercités",
+                "price_range": "€30-65",
+                "booking_tips": "Visit during the summer for the best weather and maritime festivals."
+            }
+        },
+        {
+            "city": "Arcachon",
+            "country": "France",
+            "whyGo": "Seaside resort known for its Dune du Pilat (Europe's tallest sand dune) and oyster farming. Enjoy beautiful beaches, fresh seafood, and the unique experience of climbing the massive sand dune. The town offers a perfect blend of nature and gastronomy.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "45m",
+                "frequency": "Hourly",
+                "operator": "SNCF TER",
+                "price_range": "€10-25",
+                "booking_tips": "Perfect day trip destination. Bring comfortable shoes for climbing the dune."
+            }
+        },
+        {
+            "city": "Limoges",
+            "country": "France",
+            "whyGo": "Known for its medieval enamels, fine porcelain, and half-timbered houses. Visit the Gothic cathedral, explore the porcelain museums, and discover the city's rich artistic heritage. Limoges is the capital of the Limousin region and offers authentic French charm.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "2h30m",
+                "frequency": "4 times daily",
+                "operator": "SNCF Intercités",
+                "price_range": "€25-55",
+                "booking_tips": "Visit the porcelain factories and museums for a unique cultural experience."
+            }
+        },
+        {
+            "city": "Saint-Émilion",
+            "country": "France",
+            "whyGo": "UNESCO World Heritage medieval village surrounded by prestigious vineyards. Explore the charming cobblestone streets, visit historic wine cellars, and taste world-renowned wines. The village is a must-visit for wine enthusiasts and history lovers.",
+            "directWithinCountryTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "35m",
+                "frequency": "Hourly",
+                "operator": "SNCF TER",
+                "price_range": "€8-20",
+                "booking_tips": "Book wine tastings in advance. Consider hiring a guide for vineyard tours."
+            }
+        },
+        {
+            "city": "San Sebastián",
+            "country": "Spain",
+            "whyGo": "Stunning Basque coastal city renowned for its beaches and world-class cuisine. Experience the famous La Concha beach, indulge in pintxos (Basque tapas), and explore the charming old town. San Sebastián is a food lover's paradise with numerous Michelin-starred restaurants.",
+            "intraEuropeTrain": {
+                "stationInBordeaux": "Gare Saint-Jean",
+                "journeyTime": "4h30m",
+                "frequency": "1-2 times daily",
+                "operator": "SNCF/RENFE",
+                "price_range": "€40-80",
+                "booking_tips": "Cross-border journey requires passport. Book direct trains to avoid connections."
+            },
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2-3 times weekly",
+                "airlines": ["Air France"],
+                "price_range": "€80-150"
+            }
+        },
+        {
+            "city": "Bilbao",
+            "country": "Spain",
+            "whyGo": "Home to the iconic Guggenheim Museum and vibrant Basque culture. Explore the stunning Frank Gehry-designed museum, stroll through the charming old town, and experience the city's transformation from industrial port to cultural hub.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h10m",
+                "frequency": "3-4 times weekly",
+                "airlines": ["Air France", "Vueling"],
+                "price_range": "€60-120"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art and lively atmosphere. Visit the Prado Museum, explore the historic Plaza Mayor, and experience the vibrant nightlife. Madrid offers world-class museums, beautiful parks, and authentic Spanish culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Iberia", "Vueling"],
+                "price_range": "€70-150"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces. Explore the Sagrada Familia, stroll down Las Ramblas, and discover the Gothic Quarter. Barcelona combines stunning architecture, beautiful beaches, and a vibrant Mediterranean atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h20m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Vueling", "Ryanair"],
+                "price_range": "€60-130"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, and culture. Experience iconic landmarks like Big Ben, Buckingham Palace, and the Tower of London. London offers world-class museums, diverse cuisine, and a rich cultural heritage spanning centuries.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "airlines": ["British Airways", "easyJet", "Ryanair"],
+                "price_range": "€80-200"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The de facto capital of the European Union with grand architecture and chocolate traditions. Visit the Grand Place, explore the EU institutions, and indulge in world-famous Belgian chocolate and beer. Brussels offers a unique blend of medieval charm and modern European politics.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Brussels Airlines"],
+                "price_range": "€70-160"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and cycling culture. Explore the Anne Frank House, visit the Van Gogh Museum, and take a canal cruise. Amsterdam offers a unique blend of historic architecture, world-class museums, and a progressive cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "KLM", "Transavia"],
+                "price_range": "€75-170"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city with Red Cross headquarters and stunning lake views. Visit the Jet d'Eau fountain, explore the old town, and enjoy the beautiful Lake Geneva. Geneva is known for its international organizations, luxury shopping, and pristine natural surroundings.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Swiss International Air Lines"],
+                "price_range": "€90-200"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture. Visit the Colosseum, Vatican Museums, and Trevi Fountain. Rome offers an unparalleled concentration of historical sites, world-class art, and authentic Italian cuisine.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Alitalia", "easyJet"],
+                "price_range": "€80-180"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its colorful buildings, historic trams, and rich maritime heritage. Explore the Alfama district, ride the iconic Tram 28, and enjoy fresh seafood. Lisbon offers a perfect blend of historic charm, modern culture, and authentic Portuguese hospitality.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "TAP Air Portugal", "easyJet"],
+                "price_range": "€70-150"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic riverside city known for port wine, stunning bridges, and medieval district. Visit the port wine cellars, cross the Dom Luís I Bridge, and explore the charming Ribeira district. Porto offers authentic Portuguese culture and world-famous wine traditions.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "TAP Air Portugal"],
+                "price_range": "€65-140"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Known for its literary heritage, lively pubs, and friendly atmosphere. Visit Trinity College and the Book of Kells, explore Temple Bar, and experience traditional Irish music. Dublin offers a perfect blend of historic sites, vibrant nightlife, and warm Irish hospitality.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "3-4 times weekly",
+                "airlines": ["Air France", "Aer Lingus"],
+                "price_range": "€90-200"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic city known for its art scene, modern landmarks, and vibrant nightlife. Visit the Brandenburg Gate, explore the East Side Gallery, and experience the city's unique blend of history and contemporary culture. Berlin offers world-class museums, diverse cuisine, and an innovative arts scene.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Lufthansa", "easyJet"],
+                "price_range": "€85-190"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "A global capital of fashion and design with stunning cathedral and rich cultural heritage. Visit the magnificent Duomo, explore the Galleria Vittorio Emanuele II, and experience the city's sophisticated fashion scene. Milan offers world-class shopping, historic architecture, and authentic Italian culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily",
+                "airlines": ["Air France", "Alitalia", "easyJet"],
+                "price_range": "€75-170"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its medieval Old Town, baroque architecture, and vibrant cultural scene. Visit the Charles Bridge, explore Prague Castle, and stroll through the charming old town square. Prague offers stunning architecture, rich history, and a vibrant contemporary culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "3-4 times weekly",
+                "airlines": ["Air France", "Czech Airlines"],
+                "price_range": "€90-200"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its imperial palaces, classical music legacy, and café culture. Visit Schönbrunn Palace, explore the historic center, and experience the city's rich musical heritage. Vienna offers world-class museums, elegant architecture, and a sophisticated cultural atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "3 times weekly",
+                "airlines": ["Air France", "Austrian Airlines"],
+                "price_range": "€95-210"
+            }
+        },
+        {
+            "city": "Marrakech",
+            "country": "Morocco",
+            "whyGo": "Vibrant North African city known for its medina, souks, and mix of cultures. Explore the bustling Jemaa el-Fnaa square, visit the beautiful Majorelle Gardens, and experience the unique blend of Arab, Berber, and European influences. Marrakech offers an exotic cultural experience just a short flight from Europe.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "2-3 times weekly",
+                "airlines": ["Air France", "Royal Air Maroc"],
+                "price_range": "€120-250"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Transcontinental city bridging Europe and Asia with rich Byzantine and Ottoman heritage. Visit the Hagia Sophia, explore the Grand Bazaar, and experience the unique blend of Eastern and Western cultures. Istanbul offers stunning architecture, rich history, and a vibrant contemporary scene.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "3h45m",
+                "frequency": "2 times weekly",
+                "airlines": ["Air France", "Turkish Airlines"],
+                "price_range": "€150-300"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Renowned for its design, bicycle culture, and exceptional dining scene. Visit the Little Mermaid statue, explore the colorful Nyhavn harbor, and experience the city's innovative design culture. Copenhagen offers world-class cuisine, beautiful architecture, and a high quality of life.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h20m",
+                "frequency": "3 times weekly",
+                "airlines": ["Air France", "SAS Scandinavian Airlines"],
+                "price_range": "€100-220"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful city spread across 14 islands with exceptional quality of life. Visit the Vasa Museum, explore the charming Gamla Stan old town, and experience the city's innovative culture. Stockholm offers stunning natural beauty, rich history, and a progressive social atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "2 times weekly",
+                "airlines": ["Air France", "SAS Scandinavian Airlines"],
+                "price_range": "€110-240"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient city with world-famous archaeological sites like the Acropolis. Explore the Parthenon, visit the Ancient Agora, and experience the birthplace of democracy. Athens offers an unparalleled concentration of classical ruins, rich history, and authentic Greek culture.",
+            "intraEuropeFlight": {
+                "airportsInBordeaux": [
+                    "Bordeaux-Mérignac (BOD)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "2-3 times weekly",
+                "airlines": ["Air France", "Aegean Airlines"],
+                "price_range": "€120-260"
+            }
+        }
+    ]
+}

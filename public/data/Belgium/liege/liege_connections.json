@@ -1,0 +1,171 @@
+{
+    "destinations": [
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Experience Belgium's capital with its stunning Grand Place, Royal Palace, outstanding museums, and European Union institutions just 50 minutes from Liege.",
+            "directWithinCountryTrain": {
+                "stationInLiege": "Liege-Guillemins Station",
+                "journeyTime": "50 minutes",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInLiege": "Liege Coach Station",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Discover the City of Light with its iconic landmarks, world-class museums, romantic atmosphere, and renowned cuisine, easily accessible from Liege.",
+            "directWithinCountryTrain": {
+                "stationInLiege": "Liege-Guillemins Station",
+                "journeyTime": "2 hours (Thalys high-speed)",
+                "frequency": "Multiple times per day"
+            },
+            "directWithinCountryBus": {
+                "stationInLiege": "Liege Coach Station",
+                "journeyTime": "4 hours",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Explore this beautiful Dutch capital with its historic canals, world-class museums including the Rijksmuseum and Van Gogh Museum, vibrant nightlife, and unique cycling culture.",
+            "directWithinCountryTrain": {
+                "stationInLiege": "Liege-Guillemins Station",
+                "journeyTime": "1 hour 40 minutes (Intercity)",
+                "frequency": "Multiple times per day"
+            },
+            "directWithinCountryBus": {
+                "stationInLiege": "Liege Coach Station",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Visit this historic capital with its royal palaces, world-famous museums like the British Museum and Tate Modern, diverse neighborhoods, and rich cultural heritage.",
+            "directWithinCountryTrain": {
+                "stationInLiege": "Liege-Guillemins Station",
+                "journeyTime": "2 hours 30 minutes (Eurostar via Brussels)",
+                "frequency": "Multiple times per day"
+            },
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)",
+                    "Brussels Airport (BRU)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Experience Germany's vibrant capital with its rich history, world-class museums, dynamic arts scene, and compelling mix of historic and modern architecture.",
+            "directWithinCountryTrain": {
+                "stationInLiege": "Liege-Guillemins Station",
+                "journeyTime": "6 hours 30 minutes (ICE high-speed)",
+                "frequency": "Multiple times per day"
+            },
+            "directWithinCountryBus": {
+                "stationInLiege": "Liege Coach Station",
+                "journeyTime": "9 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)",
+                    "Brussels Airport (BRU)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Visit this historic German city with its magnificent Gothic cathedral, Roman heritage, vibrant cultural scene, and distinctive local beer culture along the Rhine River.",
+            "directWithinCountryTrain": {
+                "stationInLiege": "Liege-Guillemins Station",
+                "journeyTime": "1 hour 30 minutes (Thalys/ICE high-speed)",
+                "frequency": "Multiple times per day"
+            },
+            "directWithinCountryBus": {
+                "stationInLiege": "Liege Coach Station",
+                "journeyTime": "2 hours 45 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Discover this vibrant Mediterranean city with its unique Gaudí architecture, beautiful beaches, rich Catalan culture, and world-renowned cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)",
+                    "Brussels Airport (BRU)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Multiple times per day"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Experience the imperial splendor of Austria's capital with its magnificent palaces, world-class opera, coffee house culture, and musical heritage of Mozart and Beethoven.",
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)",
+                    "Brussels Airport (BRU)"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Multiple times per day"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Explore this beautiful Swiss city with its lakeside setting, historic old town, world-class shopping, excellent museums, and gateway to the Alps.",
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)",
+                    "Brussels Airport (BRU)"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Multiple times per day"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Visit this fairy-tale city with its well-preserved medieval center, stunning castle complex, astronomical clock, famous Charles Bridge, and world-renowned beer culture.",
+            "intraEuropeFlight": {
+                "airportsInLiege": [
+                    "Liege Airport (LGG)",
+                    "Brussels Airport (BRU)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Multiple times per day"
+            }
+        }
+    ]
+}

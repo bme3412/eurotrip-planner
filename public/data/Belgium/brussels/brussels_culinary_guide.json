@@ -1,0 +1,513 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Comme Chez Soi",
+                "cuisine_type": "Belgian, French",
+                "signature_dishes": [
+                    "Stuffed Sweetbread",
+                    "Grilled Scallops with Truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, Art Nouveau interior with a warm and intimate setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, especially for weekends",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 2,
+                "location": "Brussels City Center",
+                "local_tips": "Ask for a table near the open kitchen for a unique view of the chefs in action"
+            },
+            {
+                "name": "Bozar Restaurant",
+                "cuisine_type": "Contemporary European",
+                "signature_dishes": [
+                    "Pigeon with Beetroot",
+                    "Sea Bass with Fennel"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, artistic decor within the Bozar Centre for Fine Arts",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations are best made a week ahead",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "City Center",
+                "local_tips": "Explore the art exhibits in the Bozar Centre before or after your meal"
+            },
+            {
+                "name": "Hof van Cleve",
+                "cuisine_type": "Innovative Belgian",
+                "signature_dishes": [
+                    "North Sea Crab",
+                    "Langoustine with Black Garlic"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated country-style setting with a focus on culinary artistry",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a month in advance for weekends",
+                "dress_code": "Formal",
+                "michelin_stars": 3,
+                "location": "Kruishoutem (a short drive from Brussels)",
+                "local_tips": "Opt for the tasting menu for a comprehensive experience of the chef's skills"
+            },
+            {
+                "name": "La Villa in the Sky",
+                "cuisine_type": "French, Innovative",
+                "signature_dishes": [
+                    "Foie Gras with Rhubarb",
+                    "Lobster Ravioli"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stunning panoramic views from a glass cube atop a skyscraper",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Secure your reservation weeks in advance, especially for a window table",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Avenue Louise",
+                "local_tips": "Visit just before sunset for breathtaking views of Brussels"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Nüetnigenough",
+                "cuisine_type": "Belgian Brasserie",
+                "signature_dishes": [
+                    "Carbonnade Flamande",
+                    "Rabbit with Prunes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, bustling brasserie with a traditional Belgian vibe",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid long waits, as they don't take reservations",
+                "dress_code": "Casual",
+                "location": "Near Grand Place",
+                "local_tips": "Pair your meal with one of their rare Belgian beers for an authentic experience"
+            },
+            {
+                "name": "Fin de Siècle",
+                "cuisine_type": "Belgian",
+                "signature_dishes": [
+                    "Stoemp Sauccisse",
+                    "Pork Knuckle"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively and rustic with a vintage touch",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Come early in the evening to secure a table",
+                "dress_code": "Casual",
+                "location": "Dansaert",
+                "local_tips": "Cash only establishment, so be prepared"
+            },
+            {
+                "name": "Les Filles",
+                "cuisine_type": "Organic, Vegetarian-Friendly",
+                "signature_dishes": [
+                    "Daily Vegetarian Quiche",
+                    "Organic Beef Stew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm, communal atmosphere with shared dining tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins are welcome, but it can get busy during lunch hours",
+                "dress_code": "Casual",
+                "location": "Sablon",
+                "local_tips": "Check their daily menu online as it changes frequently based on seasonal produce"
+            },
+            {
+                "name": "Noordzee Mer du Nord",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Shrimp Croquettes",
+                    "Grilled Calamari"
+                ],
+                "price_range": "€",
+                "atmosphere": "Casual and vibrant, with outdoor standing tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Ideal for a quick and delicious seafood bite while exploring",
+                "dress_code": "Casual",
+                "location": "Place Sainte-Catherine",
+                "local_tips": "Order the daily fish soup for a heartwarming treat"
+            },
+            {
+                "name": "La Roue d'Or",
+                "cuisine_type": "Traditional Belgian",
+                "signature_dishes": [
+                    "Moules Frites",
+                    "Waterzooi"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic brasserie with art deco design",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Reservations are recommended for groups",
+                "dress_code": "Casual",
+                "location": "Brussels City Center",
+                "local_tips": "Perfect spot for a pre-theater meal due to its central location"
+            },
+            {
+                "name": "La Buvette",
+                "cuisine_type": "Contemporary Belgian",
+                "signature_dishes": [
+                    "Duck with Chicory",
+                    "Seasonal Vegetarian Plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy with a modern twist on a classic bistro",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Saint-Gilles",
+                "local_tips": "Opt for the tasting menu for a delightful surprise"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Maison Antoine",
+                "specialties": [
+                    "Frites with Andalouse Sauce",
+                    "Frikandel"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sun: 11:30 AM - 1:00 AM",
+                "location": "Place Jourdan",
+                "seating": true,
+                "local_tips": "Visit during off-peak hours to avoid long queues and enjoy your fries with a beer at nearby cafés"
+            },
+            {
+                "name": "BALLEKES",
+                "specialties": [
+                    "Belgian Meatballs",
+                    "Vegetarian Balls"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Fri: 11:30 AM - 3:00 PM, 5:30 PM - 10:00 PM; Sat-Sun: 11:30 AM - 10:00 PM",
+                "location": "Rue des Chapeliers",
+                "seating": true,
+                "local_tips": "Try their meatballs with a variety of sauces, including the classic tomato"
+            },
+            {
+                "name": "Frit Flagey",
+                "specialties": [
+                    "Frites",
+                    "Bicky Burger"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sun: 11:30 AM - Midnight",
+                "location": "Place Eugène Flagey",
+                "seating": false,
+                "local_tips": "Known for serving some of the best fries in Brussels, perfect for a late-night snack"
+            },
+            {
+                "name": "Le Funambule",
+                "specialties": [
+                    "Belgian Waffles",
+                    "Speculoos Spread"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sun: 9:00 AM - 11:00 PM",
+                "location": "Near Manneken Pis",
+                "seating": false,
+                "local_tips": "Opt for a plain waffle to truly appreciate the texture and flavor"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "OR Coffee",
+                "specialty": "Single-origin coffee",
+                "must_try": [
+                    "Flat White",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and modern with a focus on quality coffee",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light snacks",
+                "local_tips": "Perfect for remote work and coffee aficionados"
+            },
+            {
+                "name": "Cafe du Sablon",
+                "specialty": "Artisanal coffee and pastries",
+                "must_try": [
+                    "Cappuccino",
+                    "Almond Croissant"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Chic and cozy, ideal for a leisurely afternoon",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Wide selection of fresh pastries",
+                "local_tips": "Try to grab a seat by the window for a nice street view"
+            },
+            {
+                "name": "Aksum Coffee House",
+                "specialty": "Ethiopian coffee",
+                "must_try": [
+                    "Ethiopian Espresso",
+                    "Café Latte"
+                ],
+                "price_range": "€",
+                "atmosphere": "Warm and inviting with a unique African touch",
+                "best_time": "Both",
+                "wifi_friendly": false,
+                "food_options": "Limited choice of snacks",
+                "local_tips": "Great place to enjoy a cultural coffee experience"
+            },
+            {
+                "name": "Mokafé",
+                "specialty": "Belgian waffles and coffee",
+                "must_try": [
+                    "Liège Waffle",
+                    "Hot Chocolate"
+                ],
+                "price_range": "€",
+                "atmosphere": "Traditional Belgian café with a relaxed vibe",
+                "best_time": "Both",
+                "wifi_friendly": false,
+                "food_options": "Delicious waffles and light meals",
+                "local_tips": "Ideal spot for breakfast or a sweet afternoon treat"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Delirium Café",
+                "type": "Beer Bar",
+                "specialty": "Over 2,000 types of beer",
+                "signature_drinks": [
+                    "Delirium Tremens",
+                    "Belgian Abbey Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and bustling, a must-visit for beer enthusiasts",
+                "best_time": "Evening",
+                "food_options": "Limited snacks available",
+                "reservation_needed": false,
+                "local_tips": "Explore the different sections of the bar, each offering a unique experience"
+            },
+            {
+                "name": "Goupil le Fol",
+                "type": "Wine Bar",
+                "specialty": "Fruit wines and eclectic decor",
+                "signature_drinks": [
+                    "Cherry Wine",
+                    "Plum Wine"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky, vintage ambiance with dim lighting",
+                "best_time": "Night",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": false,
+                "local_tips": "Get lost in the cozy nooks and crannies filled with vintage decor"
+            },
+            {
+                "name": "Mort Subite",
+                "type": "Traditional Belgian Pub",
+                "specialty": "Gueuze and Lambic beers",
+                "signature_drinks": [
+                    "Mort Subite Gueuze",
+                    "Kriek Lambic"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic pub with a classic Belgian feel",
+                "best_time": "Evening",
+                "food_options": "Belgian snacks",
+                "reservation_needed": false,
+                "local_tips": "Perfect for a quiet evening with friends, enjoying traditional Belgian beers"
+            },
+            {
+                "name": "Le Cirio",
+                "type": "Historic Bar",
+                "specialty": "Half en Half (white wine and champagne)",
+                "signature_drinks": [
+                    "Half en Half",
+                    "Belgian Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant Belle Époque decor with a sophisticated charm",
+                "best_time": "Afternoon",
+                "food_options": "Belgian snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Order the Half en Half for a traditional Brussels drink experience"
+            },
+            {
+                "name": "Moeder Lambic",
+                "type": "Craft Beer Bar",
+                "specialty": "Local and international craft beers",
+                "signature_drinks": [
+                    "Cantillon Beers",
+                    "Saison Dupont"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary with a casual vibe, popular among locals",
+                "best_time": "Evening",
+                "food_options": "Cheese platters and small bites",
+                "reservation_needed": false,
+                "local_tips": "Ask the knowledgeable staff for recommendations based on your taste"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Brussels Chocolate Walking Tour",
+                "focus": "Chocolate",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit renowned chocolate shops",
+                    "Learn about chocolate making",
+                    "Taste a variety of chocolates"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English",
+                    "French",
+                    "Dutch"
+                ],
+                "booking_tips": "Book at least a week in advance, especially during weekends"
+            },
+            {
+                "name": "Brussels Beer Tasting Tour",
+                "focus": "Beer",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Explore famous beer bars",
+                    "Taste Belgian beer varieties",
+                    "Learn about brewing history"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Ideal to book a few days ahead, especially for evening tours"
+            },
+            {
+                "name": "Brussels Culinary Evening Tour",
+                "focus": "Local Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Dinner at a local restaurant",
+                    "Sampling Belgian dishes",
+                    "Guided city walk"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book at least a week in advance for the best experience"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Belgian Cuisine Workshop",
+                "cuisine_focus": "Belgian",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Waterzooi",
+                    "Moules Frites",
+                    "Speculoos Cookies"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipe booklet",
+                    "Meal"
+                ],
+                "booking_tips": "Classes fill quickly, so booking two weeks in advance is recommended"
+            },
+            {
+                "name": "Mastering Belgian Chocolate",
+                "cuisine_focus": "Chocolate Making",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Truffle Making",
+                    "Chocolate Tempering"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "Materials",
+                    "Take-home chocolate",
+                    "Apron"
+                ],
+                "booking_tips": "Book early to secure a spot, especially during holiday seasons"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché du Midi",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Belgian cheese",
+                    "International foods"
+                ],
+                "hours": "Sun: 6:00 AM - 1:00 PM",
+                "best_time": "Early morning",
+                "location": "Avenue Fonsny",
+                "local_tips": "Arrive early for the freshest picks and avoid the crowds"
+            },
+            {
+                "name": "Place Flagey Market",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Organic vegetables",
+                    "Artisanal breads",
+                    "Local meats"
+                ],
+                "hours": "Sat-Sun: 8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Place Eugène Flagey",
+                "local_tips": "Great spot for a leisurely weekend morning with a coffee in hand"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus à la Flamande",
+            "Ramsons Pesto",
+            "Spring Lamb"
+        ],
+        "summer": [
+            "Tomate Crevette",
+            "Grilled North Sea Fish",
+            "Strawberries with Speculoos"
+        ],
+        "autumn": [
+            "Game Stew",
+            "Chicon au Gratin",
+            "Pumpkin Soup"
+        ],
+        "winter": [
+            "Stoemp with Sausages",
+            "Mussels with White Wine",
+            "Dark Chocolate Fondue"
+        ]
+    }
+}

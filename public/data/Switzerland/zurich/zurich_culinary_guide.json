@@ -1,0 +1,489 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "The Restaurant (at The Dolder Grand)",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Multi-course tasting menus by chef Heiko Nieder, known for creative flavor combinations and artistic presentation."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant, luxurious setting within The Dolder Grand hotel with panoramic city and lake views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; specify dietary requirements; jackets often preferred for gentlemen",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 2,
+                "location": "The Dolder Grand (Zürichberg)",
+                "local_tips": "One of Zurich's top fine dining experiences, offering exceptional cuisine, service, and views. Expect innovative dishes and high prices."
+            },
+            {
+                "name": "Pavillon (at Baur au Lac)",
+                "cuisine_type": "Modern French",
+                "signature_dishes": [
+                    "Seasonal tasting menus by chef Laurent Eperon, classic French techniques with modern twists."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant, classic dining room with park views, located in the historic Baur au Lac hotel",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead; ideal for special occasions; inquire about the terrace seating in summer",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 2,
+                "location": "Baur au Lac Hotel (City Centre, near Lake)",
+                "local_tips": "Renowned for its sophisticated French cuisine and impeccable service in a luxurious setting. Offers both à la carte and tasting menus."
+            },
+            {
+                "name": "Widder Restaurant (at Widder Hotel)",
+                "cuisine_type": "Modern European/Grill",
+                "signature_dishes": [
+                    "High-quality meats and fish prepared on the grill",
+                    "Seasonal tasting menus by chef Stefan Heilemann (previously held 2 stars, check current status)"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Stylish and contemporary dining room within the luxurious Widder Hotel, known for its blend of historic architecture and modern design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential; check current chef and menu focus as top chefs sometimes change",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": "Previously 2 stars (check current status)",
+                "location": "Widder Hotel (Old Town)",
+                "local_tips": "Offers refined dining in a unique hotel setting. The focus can shift slightly with chefs, but quality remains high."
+            },
+            {
+                "name": "Rico's",
+                "cuisine_type": "Creative/Modern European",
+                "signature_dishes": [
+                    "Inventive tasting menus with artistic plating",
+                    "Known for surprising flavor combinations and playful presentations"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Colorful, eclectic, and artistic interior design, creating a unique and vibrant dining space",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Located slightly outside the center in Küsnacht; book well in advance; expect a memorable and visually stimulating experience",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 2,
+                "location": "Küsnacht (suburb)",
+                "local_tips": "Chef Rico Zandonella offers a highly creative and visually stunning dining experience. Worth the short trip from the city center for dedicated foodies."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Zeughauskeller",
+                "cuisine_type": "Traditional Swiss/German",
+                "signature_dishes": [
+                    "Zürcher Geschnetzeltes (Zurich-style sliced veal in cream sauce with Rösti)",
+                    "Various Sausages (Wurst) like Bratwurst, Wollwurst",
+                    "Kalbsbratwurst nach St.Galler Art",
+                    "Meter-long sausage ('Kanonenputzer')"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively, bustling, historic beer hall atmosphere in a former arsenal building",
+                "best_time": "Lunch or Dinner (can be very busy)",
+                "reservation_needed": "Recommended, especially for groups or peak times, but walk-ins possible (expect queues)",
+                "booking_tips": "Communal tables are common; be prepared for a noisy but fun atmosphere; large portions.",
+                "dress_code": "Casual",
+                "location": "Near Paradeplatz (City Centre)",
+                "local_tips": "A Zurich institution, popular with locals and tourists alike. Expect traditional, hearty food and a vibrant beer hall vibe. Don't miss trying the Zürcher Geschnetzeltes here."
+            },
+            {
+                "name": "Swiss Chuchi (Hotel Adler)",
+                "cuisine_type": "Swiss Cheese Specialties",
+                "signature_dishes": [
+                    "Cheese Fondue (various types, e.g., Moitié-Moitié, Adler house special)",
+                    "Raclette (served traditionally)",
+                    "Fondue Chinoise (meat fondue)"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Cozy, traditional Swiss chalet style, popular and often busy",
+                "best_time": "Dinner (especially in colder months)",
+                "reservation_needed": "Highly recommended, often booked out",
+                "booking_tips": "Book well in advance; specify fondue or raclette preference if possible; can be tourist-heavy but offers a classic Swiss experience.",
+                "dress_code": "Casual",
+                "location": "Niederdorf (Old Town)",
+                "local_tips": "One of the most popular places for fondue and raclette in the Old Town. Adler special fondue with herbs is recommended."
+            },
+            {
+                "name": "Raclette Factory",
+                "cuisine_type": "Raclette Specialist",
+                "signature_dishes": [
+                    "Customizable Raclette platters with various cheeses (classic, garlic, chili, etc.) and toppings",
+                    "Flammkuchen"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern alpine-chic, casual and lively",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially evenings/weekends",
+                "booking_tips": "Fun concept allowing you to try different types of raclette cheese; located in the Old Town.",
+                "dress_code": "Casual",
+                "location": "Old Town (near Grossmünster)",
+                "local_tips": "Great spot specifically for raclette, offering more variety than traditional places. Good for groups wanting to share and try different flavors."
+            },
+            {
+                "name": "Sternen Grill",
+                "cuisine_type": "Swiss Street Food/Sausages",
+                "signature_dishes": [
+                    "St. Galler Bratwurst vom Grill (Grilled St. Gallen sausage) with a 'Bürli' (crusty bread roll)",
+                    "Servelat (Cervelat sausage)",
+                    "Currywurst"
+                ],
+                "price_range": "€",
+                "atmosphere": "Iconic standing-only takeaway spot, always busy with queues",
+                "best_time": "Lunchtime, late afternoon snack, post-event bite",
+                "reservation_needed": false,
+                "booking_tips": "Be prepared to queue; order the Bratwurst and ask for the famously spicy mustard if you dare; eat standing at the counters or takeaway.",
+                "dress_code": "Casual",
+                "location": "Bellevue/Near Opera House",
+                "local_tips": "A true Zurich institution for a quick, delicious, and authentic sausage experience. The spicy mustard is legendary."
+            },
+            {
+                "name": "Restaurant Volkshaus",
+                "cuisine_type": "Modern Brasserie/European",
+                "signature_dishes": [
+                    "Classic brasserie dishes with a modern touch (e.g., Steak Frites, Moules Frites)",
+                    "Seasonal menus",
+                    "Good brunch options"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish, bustling brasserie atmosphere within the historic Volkshaus building (renovated by Herzog & de Meuron)",
+                "best_time": "Lunch, Dinner, Weekend Brunch",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Also has a nice bar area; check out the architecture of the Volkshaus complex.",
+                "dress_code": "Smart Casual",
+                "location": "Near Helvetiaplatz (Kreis 4)",
+                "local_tips": "Offers a sophisticated yet lively dining experience outside the main tourist center. Good for brunch or a stylish dinner."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Bürkliplatz Market (Tuesday/Friday mornings)",
+                "specialties": [
+                    "Fresh produce (fruits, vegetables, flowers)",
+                    "Artisan breads and pastries",
+                    "Local cheeses and meats",
+                    "Ready-to-eat snacks (sandwiches, baked goods, sometimes hot food stalls)"
+                ],
+                "price_range": "€-€€€",
+                "hours": "Tuesdays & Fridays, approx. 6 AM - 11 AM",
+                "location": "Bürkliplatz (by the lake)",
+                "seating": "Limited public benches nearby",
+                "local_tips": "Zurich's most famous weekly market. Great place to grab picnic supplies, fresh bread, or a quick snack while enjoying lake views."
+            },
+            {
+                "name": "Helvetiaplatz Market (Tuesday/Friday mornings)",
+                "specialties": [
+                    "Diverse range of produce reflecting the multicultural neighborhood",
+                    "International food stalls (e.g., Turkish, Balkan)",
+                    "Flowers, clothing, household goods"
+                ],
+                "price_range": "€-€€",
+                "hours": "Tuesdays & Fridays, approx. 6 AM - 11 AM",
+                "location": "Helvetiaplatz (Kreis 4)",
+                "seating": "Limited public benches nearby",
+                "local_tips": "More local and diverse than Bürkliplatz market. Good spot to find international ingredients and snacks."
+            },
+            {
+                "name": "Street Food Festival Zurich (Seasonal)",
+                "specialties": [
+                    "Wide variety of international street food from numerous trucks and stalls",
+                    "Burgers, tacos, Asian food, Swiss specialties, desserts, etc."
+                ],
+                "price_range": "€€-€€€",
+                "hours": "Specific dates/times during festival periods (check website)",
+                "location": "Often at Hardturm-Brache or other event locations",
+                "seating": "Communal seating areas provided",
+                "local_tips": "Major seasonal event showcasing global street food trends. Check dates and location online. Great atmosphere but can be crowded."
+            },
+            {
+                "name": "Food Trucks at Events/Specific Locations",
+                "specialties": [
+                    "Varies greatly - Burgers (e.g., Burgermeister often has trucks), Tacos, Asian Fusion, Pizza, etc."
+                ],
+                "price_range": "€€-€€€",
+                "hours": "Varies - often lunchtime near office areas or during specific events/markets",
+                "location": "Various locations (e.g., near offices in Zurich West, seasonal events)",
+                "seating": "Usually none (takeaway) or public benches",
+                "local_tips": "Keep an eye out for food trucks, especially around lunchtime in business districts or during summer festivals. Websites like foodtrucks-schweiz.ch can help locate them."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Confiserie Sprüngli (various locations, flagship at Paradeplatz)",
+                "specialty": "Luxury Chocolates, Pastries, Luxemburgerli Macarons, Coffee",
+                "must_try": [
+                    "Luxemburgerli (iconic mini macarons in various flavors)",
+                    "Truffes du Jour (fresh cream truffles)",
+                    "Hot Chocolate",
+                    "Birchermüesli (upstairs cafe)"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Elegant, traditional, bustling. Paradeplatz location has an upstairs cafe/restaurant.",
+                "best_time": "Anytime for takeaway, morning/afternoon for cafe",
+                "wifi_friendly": "Yes (in cafe area)",
+                "food_options": "Extensive pastries, cakes, chocolates, sandwiches, salads, breakfast/lunch menu (upstairs cafe)",
+                "local_tips": "A quintessential Zurich experience. The Luxemburgerli are a must-try. Paradeplatz is the historic flagship store."
+            },
+            {
+                "name": "MAME (various locations)",
+                "specialty": "Award-Winning Specialty Coffee",
+                "must_try": [
+                    "Single-origin espresso or filter coffee (ask baristas for recommendations based on flavor profile)",
+                    "Coffee tasting flights (sometimes offered)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern, minimalist, focused on coffee quality and expertise",
+                "best_time": "Morning/Afternoon coffee break",
+                "wifi_friendly": true,
+                "food_options": "High-quality pastries (e.g., croissants, pain au chocolat)",
+                "local_tips": "Founded by world champion baristas. Excellent choice for serious coffee enthusiasts seeking high-quality, carefully prepared brews."
+            },
+            {
+                "name": "La Stanza",
+                "specialty": "Italian-style Coffee Bar & Aperitivo",
+                "must_try": [
+                    "Espresso or Cappuccino (Italian style)",
+                    "Aperitivo drinks (Aperol Spritz, Negroni) in the evening"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Chic, sophisticated, classic Italian bar vibe, often busy",
+                "best_time": "Morning coffee, Aperitivo hour (early evening)",
+                "wifi_friendly": "Less suitable for long work sessions",
+                "food_options": "Italian pastries (cornetti), panini, small aperitivo snacks",
+                "local_tips": "Authentic Italian coffee bar experience near Paradeplatz. Great for a quick espresso standing at the bar or for pre-dinner drinks."
+            },
+            {
+                "name": "Café Schober / Conditorei Péclard",
+                "specialty": "Historic Cafe & Patisserie",
+                "must_try": [
+                    "Hot Chocolate",
+                    "Extensive selection of cakes and pastries (e.g., Truffle Cake)",
+                    "Seasonal specialties"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Opulent, plush, historic salons with Belle Époque decor spread over multiple floors; charming courtyard",
+                "best_time": "Afternoon tea/coffee and cake",
+                "wifi_friendly": "Yes, but better for enjoying the ambiance",
+                "food_options": "Cakes, pastries, chocolates, light savory options, brunch",
+                "local_tips": "A Zurich institution in the Old Town (Niederdorf). Feels like stepping back in time. Famous for its lavish decor and classic patisserie."
+            },
+            {
+                "name": "Miró Manufactura de Café",
+                "specialty": "Specialty Coffee Roasters & Brunch",
+                "must_try": [
+                    "In-house roasted coffee (various brew methods)",
+                    "Weekend brunch menu (e.g., Avocado Toast, Pancakes)",
+                    "Laugengipfel (Lye croissant)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Industrial chic, modern, bright, often busy",
+                "best_time": "Weekend brunch, weekday coffee",
+                "wifi_friendly": true,
+                "food_options": "Excellent pastries, brunch dishes, sandwiches",
+                "local_tips": "Quality coffee roaster with a popular brunch scene in Kreis 4. Focus on quality ingredients and preparation."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Widder Bar",
+                "type": "Classic Hotel Bar/Piano Bar",
+                "specialty": "Extensive Whiskey Selection, Classic Cocktails, Live Piano Music",
+                "signature_drinks": [
+                    "Single Malt Whiskeys (over 1000 varieties)",
+                    "Classic cocktails expertly prepared"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Sophisticated, timeless, cozy library feel with leather chairs and live piano music",
+                "best_time": "Evening/Late Night",
+                "food_options": "Bar snacks",
+                "reservation_needed": "Recommended, especially weekends",
+                "local_tips": "Located in the Widder Hotel (Old Town). Legendary bar known for its incredible whiskey collection and classy atmosphere."
+            },
+            {
+                "name": "Jules Verne Panoramabar",
+                "type": "Panorama Bar",
+                "specialty": "Cocktails with Panoramic City Views",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Selection of wines and spirits"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Unique setting inside the Urania Observatory tower, offering stunning 360-degree views over Zurich",
+                "best_time": "Sunset/Evening for views",
+                "food_options": "Small snacks/appetizers",
+                "reservation_needed": "Highly recommended, especially for window seats",
+                "local_tips": "Access via a lift inside Brasserie Lipp. Unbeatable central views. Can be crowded."
+            },
+            {
+                "name": "Old Crow",
+                "type": "Classic Cocktail Bar",
+                "specialty": "Rare Spirits, Classic & Bespoke Cocktails",
+                "signature_drinks": [
+                    "Impressive collection of rare and vintage spirits",
+                    "Expertly crafted cocktails tailored to preference"
+                ],
+                "price_range": "€€€€-€€€€€",
+                "atmosphere": "Intimate, sophisticated, knowledgeable bartenders, focus on quality spirits",
+                "best_time": "Evening",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Recommended",
+                "local_tips": "A top destination for serious cocktail and spirits aficionados. Known for its vast collection and skilled mixology."
+            },
+            {
+                "name": "Raygrodski",
+                "type": "Neighborhood Cocktail Bar",
+                "specialty": "Creative & Classic Cocktails",
+                "signature_drinks": [
+                    "Seasonal cocktail menu",
+                    "Well-executed classics"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish, dimly lit, popular neighborhood bar, can get busy",
+                "best_time": "Evening/Late Night",
+                "food_options": "None or very limited snacks",
+                "reservation_needed": "Generally not taken, arrive early on weekends",
+                "local_tips": "Popular spot in Kreis 4 known for good cocktails and a lively atmosphere."
+            },
+            {
+                "name": "Rimini Bar (Summer only)",
+                "type": "Badi Bar (Poolside Bar)",
+                "specialty": "Drinks by the River Limmat",
+                "signature_drinks": [
+                    "Aperol Spritz, Hugo, Beer, Wine"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Relaxed, summery, outdoor bar set up at the Männerbad Schanzengraben (men's swimming bath) in the evenings",
+                "best_time": "Summer evenings",
+                "food_options": "Simple snacks/grill often available",
+                "reservation_needed": false,
+                "local_tips": "Iconic Zurich summer experience. Transforms from a men's swimming pool during the day to a popular mixed bar in the evening. Only open in warm months."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Zurich Food Tour",
+                "focus": "Swiss Classics & Local Zurich Specialties",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Sampling Zürcher Geschnetzeltes or other local dishes",
+                    "Tasting Swiss cheeses and chocolates (e.g., Luxemburgerli)",
+                    "Visiting traditional eateries or market stalls",
+                    "Learning about Zurich's culinary history and culture"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "German" ],
+                "booking_tips": "Several operators offer tours (e.g., via Zurich Tourism or independent guides). Compare itineraries. Wear comfortable shoes. Book online."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Swiss Chocolate Making Workshop",
+                "cuisine_focus": "Working with Swiss Chocolate",
+                "duration": "Approx. 1.5 - 3 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Basics of chocolate tempering and moulding",
+                    "Creating your own pralines or chocolate bars",
+                    "Learning about cocoa origins and chocolate production"
+                ],
+                "group_size": "Varies",
+                "languages": [ "English", "German" ],
+                "includes": [ "Hands-on experience, ingredients, resulting chocolates to take home" ],
+                "booking_tips": "Offered by chocolatiers like Lindt (Home of Chocolate), Max Chocolatier, or specialized cooking schools. Book in advance, popular activity."
+            },
+            {
+                "name": "Swiss Fondue & Raclette Cooking Class",
+                "cuisine_focus": "Preparing Traditional Swiss Cheese Dishes",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Selecting cheeses for fondue/raclette",
+                    "Proper preparation techniques for fondue mixture and raclette melting",
+                    "Serving suggestions and accompaniments (bread, potatoes, pickles)"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "German" ],
+                "includes": [ "Hands-on cooking, ingredients, recipes, enjoying the prepared meal together" ],
+                "booking_tips": "Check cooking schools or culinary event providers in Zurich. Good for a fun, interactive experience, especially in winter. Book ahead."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Viadukt Market Hall (Markthalle im Viadukt)",
+                "type": "Indoor Market Hall under Railway Arches",
+                "highlights": [
+                    "Artisan producers and specialty food vendors",
+                    "Swiss cheeses, cured meats, baked goods, fresh pasta, international delicacies",
+                    "Small eateries and restaurant within the hall",
+                    "Unique setting in Zurich West"
+                ],
+                "hours": "Mon-Fri approx. 8 AM - 8 PM, Sat approx. 8 AM - 6 PM",
+                "best_time": "Lunchtime or afternoon browse",
+                "location": "Zurich West (Kreis 5)",
+                "local_tips": "Focuses on quality, often local and organic products. Great place for gourmet food shopping or a casual lunch."
+            },
+            {
+                "name": "Bürkliplatz Market",
+                "type": "Outdoor Weekly Farmers Market",
+                "highlights": [
+                    "Fresh seasonal produce from local farms",
+                    "Flowers, plants, artisan bread, cheese, honey",
+                    "Scenic location by Lake Zurich"
+                ],
+                "hours": "Tuesdays & Fridays, approx. 6 AM - 11 AM",
+                "best_time": "Early morning for best selection",
+                "location": "Bürkliplatz (by the lake)",
+                "local_tips": "Iconic Zurich market experience. Perfect for buying picnic supplies or fresh, seasonal ingredients."
+            },
+            {
+                "name": "Oerlikon Market",
+                "type": "Outdoor Weekly Farmers Market",
+                "highlights": [
+                    "Large selection of fresh produce, flowers, baked goods, cheese, meat",
+                    "Mix of local farmers and other vendors",
+                    "Lively atmosphere"
+                ],
+                "hours": "Wednesdays & Saturdays, approx. 6 AM - 12 PM",
+                "best_time": "Saturday morning",
+                "location": "Marktplatz Oerlikon (North Zurich)",
+                "local_tips": "One of Zurich's largest weekly markets, easily accessible by public transport. Great variety."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Bärlauch (Wild Garlic) - Used in soups, pesto, risotto",
+            "White Asparagus (Spargel) - Often served with hollandaise, ham, potatoes",
+            "Rhubarb (Rhabarber) - In cakes, compotes, crumbles",
+            "Morcheln (Morel Mushrooms)"
+        ],
+        "summer": [
+            "Fresh Berries (Erdbeeren - Strawberries, Himbeeren - Raspberries, Heidelbeeren - Blueberries)",
+            "Apricots (Aprikosen) - Especially from Valais region",
+            "Grilled Cervelat or Bratwurst at outdoor gatherings ('Grillieren')",
+            "Apéro Riche (Outdoor evening snacks and drinks)",
+            "Fish from Lake Zurich (Felchen, Egli)"
+        ],
+        "autumn": [
+            "Wild Mushrooms - Eierschwämme/Pfifferlinge (Chanterelles), Steinpilze (Porcini)",
+            "Game Meat (Wild) - Hirsch (Venison), Reh (Roe Deer), Wildschwein (Wild Boar)",
+            "Pumpkins (Kürbis) - In soups, gratins",
+            "Chestnuts (Marroni) - Roasted, Vermicelles dessert",
+            "Freshly pressed Apple Juice (Süssmost) & Cider"
+        ],
+        "winter": [
+            "Cheese Fondue & Raclette",
+            "Zürcher Geschnetzeltes & Rösti",
+            "Grittibänz (Bread figure for St. Nicholas Day - Dec 6th)",
+            "Christmas Cookies (Weihnachtsguetzli) - Mailänderli, Zimtsterne, Chräbeli, Brunsli",
+            "Hot Chestnuts (Heisse Marroni) from street vendors",
+            "Glühwein (Mulled Wine) at Christmas markets"
+        ]
+    }
+}

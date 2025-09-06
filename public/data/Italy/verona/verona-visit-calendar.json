@@ -1,0 +1,386 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "New Year's Day (Capodanno)",
+          "notes": "Public holiday, many businesses closed. Winter sales (saldi) begin."
+        },
+        {
+          "days": [2, 3, 4, 5],
+          "score": 3,
+          "notes": "Winter season, fewer tourists. Good time for museums and indoor activities with shorter lines."
+        },
+        {
+          "days": [6],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany (La Befana)",
+          "notes": "Public holiday marking the end of Christmas festivities. Last day for Christmas markets and decorations."
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "special": true,
+          "event": "Winter Sales (Saldi)",
+          "notes": "Excellent shopping discounts throughout the month. Very quiet tourism period. Indoor activities recommended due to cold temperatures."
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 0,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Continued winter season. Quiet in the city with few tourists. Good time for indoor cultural activities."
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Valentine's Day & Verona in Love Festival",
+          "notes": "Special events throughout the city celebrating Romeo and Juliet's city. Red heart decorations, romantic markets, and special menus at restaurants."
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "special": true,
+          "event": "Carnival (Carnevale) period",
+          "notes": "Various Carnival celebrations, including the historic 'Bacanàl del Gnoco' parade. Last weeks of winter sales."
+        }
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 1,
+      "tourismLevel": 4
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+          "score": 4,
+          "notes": "Early spring with gradually warming temperatures. Tourist numbers begin to increase. Gardens starting to bloom."
+        },
+        {
+          "days": [19],
+          "score": 4,
+          "special": true,
+          "event": "Feast of St. Joseph (San Giuseppe)",
+          "notes": "Traditional pastries (frittelle and zeppole) available in bakeries. Father's Day in Italy."
+        },
+        {
+          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Spring officially begins. Giardino Giusti and other green spaces becoming more colorful. Easter preparations if it falls in March."
+        }
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 4,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 5,
+          "special": true,
+          "event": "Holy Week & Easter (Settimana Santa - variable dates)",
+          "notes": "Religious processions and events. Churches beautifully decorated. Many visitors if Easter falls during this period."
+        },
+        {
+          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16],
+          "score": 5,
+          "special": true,
+          "event": "Vinitaly Wine Festival",
+          "notes": "One of the world's largest wine exhibitions. The city becomes extremely busy with wine professionals and enthusiasts. Book accommodations well in advance."
+        },
+        {
+          "days": [17, 18, 19, 20, 21, 22, 23, 24],
+          "score": 5,
+          "notes": "Pleasant spring weather. Ideal time for sightseeing before summer crowds arrive."
+        },
+        {
+          "days": [25],
+          "score": 4,
+          "special": true,
+          "event": "Liberation Day",
+          "notes": "National holiday with parades and commemorations. Many museums free."
+        },
+        {
+          "days": [26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Excellent spring weather. Gardens in full bloom. Tourist season picking up."
+        }
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 8,
+      "tourismLevel": 7
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 4,
+          "special": true,
+          "event": "Labor Day (Primo Maggio)",
+          "notes": "Public holiday, many shops closed but outdoor areas and piazzas busy. Concerts and events."
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "notes": "Perfect spring weather, warm but not hot. Outdoor cafes and restaurants full. Ideal time for exploring the city and surrounding countryside before peak season."
+        }
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 12,
+      "tourismLevel": 8
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 5,
+          "notes": "Beginning of summer. High season for tourism starts. Warm, pleasant days and evenings."
+        },
+        {
+          "days": [2],
+          "score": 4,
+          "special": true,
+          "event": "Festa della Repubblica",
+          "notes": "National holiday with military parades and celebrations."
+        },
+        {
+          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Arena di Verona Opera Festival (opening season)",
+          "notes": "The famous opera festival begins in the ancient Roman amphitheater. Spectacular productions under the stars. Book tickets well in advance."
+        }
+      ],
+      "weatherHighC": 27,
+      "weatherLowC": 16,
+      "tourismLevel": 9
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Arena di Verona Opera Festival (peak season)",
+          "notes": "Peak summer season. Hot days but pleasant evenings ideal for open-air opera. The city is very busy, especially on performance nights. Many cultural events and outdoor concerts throughout the city."
+        }
+      ],
+      "weatherHighC": 30,
+      "weatherLowC": 19,
+      "tourismLevel": 10
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "special": true,
+          "event": "Arena di Verona Opera Festival (continues)",
+          "notes": "Hottest month. Very crowded with international tourists. Some local businesses may close for vacation. Early mornings and evenings best for sightseeing."
+        },
+        {
+          "days": [15],
+          "score": 3,
+          "special": true,
+          "event": "Ferragosto (Assumption Day)",
+          "notes": "Major national holiday. Many restaurants and shops close. Very crowded at Lake Garda."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Continued high temperatures and tourism. Opera festival continues through early September. Many Italians on vacation, especially at nearby Lake Garda."
+        }
+      ],
+      "weatherHighC": 31,
+      "weatherLowC": 19,
+      "tourismLevel": 10
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8],
+          "score": 4,
+          "special": true,
+          "event": "Arena di Verona Opera Festival (closing weeks)",
+          "notes": "Final opera performances of the season. Still busy but temperatures becoming more pleasant."
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17],
+          "score": 5,
+          "special": true,
+          "event": "Tocatì Festival of Street Games",
+          "notes": "International festival celebrating traditional games and sports from around the world. Historic center transforms into a playground with demonstrations and competitions."
+        },
+        {
+          "days": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Excellent weather, warm days and cooler evenings. Grape harvest in nearby Valpolicella wine region. Tourism begins to decrease slightly from summer peak."
+        }
+      ],
+      "weatherHighC": 26,
+      "weatherLowC": 15,
+      "tourismLevel": 8
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "notes": "Beautiful autumn colors, pleasant temperatures. Excellent for sightseeing and wine tourism (Amarone grape drying season). Cultural season begins at Teatro Filarmonico."
+        }
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 10,
+      "tourismLevel": 7
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day (Ognissanti)",
+          "notes": "Public holiday, some closures. Traditional cemetery visits."
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "score": 4,
+          "notes": "Low tourist season begins. Cooler weather but still pleasant for sightseeing. Theater and concert season in full swing."
+        },
+        {
+          "days": [30],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets Begin",
+          "notes": "German-style Christmas markets begin to open in Piazza dei Signori and surrounding streets."
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 5,
+      "tourismLevel": 5
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets",
+          "notes": "Festive atmosphere builds with Christmas markets, decorations and holiday shopping."
+        },
+        {
+          "days": [8],
+          "score": 4,
+          "special": true,
+          "event": "Immaculate Conception (Immacolata)",
+          "notes": "Public holiday, official Christmas season start. International Nativity Scene Exhibition begins in the Arena."
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets & Nativity Exhibition",
+          "notes": "Markets in Piazza dei Signori and other squares. Festive atmosphere throughout the city. Holiday shopping period."
+        },
+        {
+          "days": [24, 25],
+          "score": 3,
+          "special": true,
+          "event": "Christmas Eve & Day (Vigilia & Natale)",
+          "notes": "Family time, many closures on 25th. Midnight Mass options, particularly impressive at San Zeno Basilica."
+        },
+        {
+          "days": [26],
+          "score": 3,
+          "special": true,
+          "event": "Santo Stefano",
+          "notes": "Public holiday, continued closures, quiet day."
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 4,
+          "notes": "Period between Christmas and New Year. Winter activities, museum visits, and festive shopping."
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "New Year's Eve (San Silvestro)",
+          "notes": "Public celebrations in Piazza Bra near the Arena. Restaurants offer special dinners (book well in advance)."
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 1,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Sightseeing (Historic Center, Roman Monuments)",
+      "Gardens & Parks (Giardino Giusti in bloom)",
+      "Wine Tourism (Vinitaly Festival in April)",
+      "Cycling along the Adige River",
+      "Renaissance Art & Architecture Exploration",
+      "Day Trips to Lake Garda",
+      "Indoor Theater Performances"
+    ],
+    "summer": [
+      "Arena di Verona Opera Festival",
+      "Evening Passeggiata & Gelato",
+      "Shakespeare Festival Performances",
+      "Outdoor Dining in Historic Piazzas",
+      "Swimming & Boating at Lake Garda",
+      "Evening Walking Tours",
+      "Wine Tasting (cooler cellars during hot days)"
+    ],
+    "autumn": [
+      "Wine Tourism (harvest & Amarone grape drying)",
+      "Traditional Food Tours (truffle & mushroom season)",
+      "Autumn Colors in City Parks & Countryside",
+      "Cultural Events & Exhibitions",
+      "Tocatì Festival (September)",
+      "Museum & Gallery Visits",
+      "Day Trips to Valpolicella Wine Region"
+    ],
+    "winter": [
+      "Christmas Markets & Shopping",
+      "International Nativity Scene Exhibition",
+      "Verona in Love Festival (February)",
+      "Indoor Cultural Activities (museums, theater)",
+      "Winter Opera Season at Teatro Filarmonico",
+      "Hot Chocolate & Pastry Tasting in Historic Cafés",
+      "Day Trips to Lessinia Mountains (snow activities)",
+      "Winter Sales Shopping (January)"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Ideal conditions, comfortable weather, special events, beautiful scenery, generally manageable crowds",
+    "4": "Good: Favorable conditions, good weather, interesting events, moderate tourism levels",
+    "3": "Average: Standard conditions, potentially hot (summer) or cold (winter), notable crowds during peak season or major holidays",
+    "2": "Below Average: Less ideal conditions, extreme temperatures, or overwhelming tourism (rarely applicable to Verona)",
+    "1": "Poor: Generally unfavorable conditions for typical tourism (extremely rare for Verona)"
+  }
+} 

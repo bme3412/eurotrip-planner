@@ -1,0 +1,670 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Field Restaurant",
+                "cuisine_type": "Modern Czech",
+                "signature_dishes": [
+                    "Duck breast with red cabbage",
+                    "Venison with juniper",
+                    "Czech beef tartare"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and contemporary with a focus on Czech ingredients",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, especially on weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Prague New Town",
+                "local_tips": "Try their tasting menu for the full experience of modern Czech cuisine with wine pairings"
+            },
+            {
+                "name": "La Degustation Bohême Bourgeoise",
+                "cuisine_type": "Modern Czech",
+                "signature_dishes": [
+                    "Traditional Czech tasting menu",
+                    "Reimagined svíčková",
+                    "Contemporary goulash"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate and sophisticated with historic charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential, book months in advance",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Prague Old Town",
+                "local_tips": "Experience Czech haute cuisine with their multi-course tasting menu"
+            },
+            {
+                "name": "Augustine Restaurant",
+                "cuisine_type": "International Fine Dining",
+                "signature_dishes": [
+                    "Roasted lamb with herbs",
+                    "Sea bass with caviar",
+                    "Chocolate soufflé"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious monastery setting with vaulted ceilings",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance for weekend dining",
+                "dress_code": "Formal attire",
+                "michelin_stars": 0,
+                "location": "Prague Lesser Town",
+                "local_tips": "Dine in the historic monastery setting for an unforgettable atmosphere"
+            },
+            {
+                "name": "Terasa U Zlaté studně",
+                "cuisine_type": "French-Czech Fusion",
+                "signature_dishes": [
+                    "Lobster with Czech herbs",
+                    "Duck confit Prague style",
+                    "Tarte Tatin with Czech apples"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Romantic terrace with panoramic Prague views",
+                "best_time": "Sunset dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request terrace seating for the best city views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Prague Castle area",
+                "local_tips": "Visit at sunset for breathtaking views over Prague's rooftops"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Lokál",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Svíčková na smetaně",
+                    "Czech goulash with dumplings",
+                    "Schnitzel with potato salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling beer hall with communal tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid crowds, especially during lunch",
+                "dress_code": "Casual",
+                "location": "Multiple Prague locations",
+                "local_tips": "Try their excellent Pilsner Urquell on tap and traditional Czech sides"
+            },
+            {
+                "name": "U Fleků",
+                "cuisine_type": "Traditional Czech Brewery",
+                "signature_dishes": [
+                    "Roasted pork knee",
+                    "Beer-braised sausages",
+                    "Traditional Czech goulash"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brewery with beer hall atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead for traditional Czech beer hall experience",
+                "dress_code": "Casual",
+                "location": "Prague New Town",
+                "local_tips": "Try their famous dark beer brewed on-site since 1499"
+            },
+            {
+                "name": "Café Savoy",
+                "cuisine_type": "Czech-Austrian",
+                "signature_dishes": [
+                    "Wiener schnitzel",
+                    "Apple strudel",
+                    "Czech coffee with pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant Belle Époque café with high ceilings",
+                "best_time": "Afternoon",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend brunch or afternoon coffee",
+                "dress_code": "Smart casual",
+                "location": "Prague Lesser Town",
+                "local_tips": "Perfect for traditional Central European café culture experience"
+            },
+            {
+                "name": "Havelská Koruna",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Czech roast duck",
+                    "Potato dumplings",
+                    "Traditional Czech soup"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with traditional Czech decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Popular with locals, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Prague Old Town",
+                "local_tips": "Try their daily lunch specials and homemade bread"
+            },
+            {
+                "name": "Restaurace U Kalicha",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Svíčková with bread dumplings",
+                    "Czech beef goulash",
+                    "Fried cheese with tartar sauce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional pub atmosphere with Czech memorabilia",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Famous literary connections, visit for authentic Czech atmosphere",
+                "dress_code": "Casual",
+                "location": "Prague New Town",
+                "local_tips": "Known from the novel 'The Good Soldier Švejk', try traditional Czech dishes"
+            },
+            {
+                "name": "Zdeněk's Oyster Bar",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Fresh oysters",
+                    "Seafood platters",
+                    "Fish and chips"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Cozy seafood bar with maritime decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead for fresh seafood selection",
+                "dress_code": "Casual",
+                "location": "Prague Old Town",
+                "local_tips": "Unusual for Prague but excellent fresh seafood flown in daily"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Wenceslas Square Food Vendors",
+                "specialties": [
+                    "Klobása (Czech sausages)",
+                    "Trdelník (chimney cake)",
+                    "Langoš (fried flatbread)"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10:00am-10:00pm",
+                "location": "Wenceslas Square",
+                "seating": false,
+                "local_tips": "Try the traditional klobása with mustard and fresh bread"
+            },
+            {
+                "name": "Old Town Square Christmas Market",
+                "specialties": [
+                    "Trdelník with cinnamon",
+                    "Mulled wine (svařák)",
+                    "Grilled sausages"
+                ],
+                "price_range": "€",
+                "hours": "Dec: 10:00am-10:00pm",
+                "location": "Old Town Square",
+                "seating": true,
+                "local_tips": "Visit during Christmas season for traditional Czech holiday treats"
+            },
+            {
+                "name": "Farmers Market at Náměstí Jiřího z Poděbrad",
+                "specialties": [
+                    "Fresh Czech pastries",
+                    "Local cheese",
+                    "Organic produce"
+                ],
+                "price_range": "€",
+                "hours": "Sat: 8:00am-2:00pm",
+                "location": "Náměstí Jiřího z Poděbrad",
+                "seating": false,
+                "local_tips": "Saturday market with local producers and fresh ingredients"
+            },
+            {
+                "name": "Food Trucks at Kampa Island",
+                "specialties": [
+                    "Gourmet burgers",
+                    "Czech street food fusion",
+                    "Craft beer"
+                ],
+                "price_range": "€€",
+                "hours": "Varies by season",
+                "location": "Kampa Island",
+                "seating": true,
+                "local_tips": "Modern street food with Vltava River views"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Louvre",
+                "specialty": "Historic café experience",
+                "must_try": [
+                    "Traditional Czech coffee",
+                    "Apple strudel",
+                    "Sachertorte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant with Art Nouveau decor",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Traditional Central European pastries and light meals",
+                "local_tips": "Sit in the historic main hall where Einstein and Kafka once met"
+            },
+            {
+                "name": "Café Slavia",
+                "specialty": "Iconic Prague café culture",
+                "must_try": [
+                    "Czech coffee",
+                    "Traditional pastries",
+                    "Hot chocolate"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic with views of Prague Castle and National Theatre",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Classic Czech café fare and light meals",
+                "local_tips": "Perfect spot for castle views and traditional Prague café experience"
+            },
+            {
+                "name": "Myšák Café",
+                "specialty": "Traditional Czech pastries",
+                "must_try": [
+                    "Czech hot chocolate",
+                    "Koláče (Czech pastries)",
+                    "Traditional coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant historic café with crystal chandeliers",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Czech desserts and coffee",
+                "local_tips": "Try their famous Czech pastries and traditional coffee preparation"
+            },
+            {
+                "name": "Kávová Společnost",
+                "specialty": "Specialty coffee roasting",
+                "must_try": [
+                    "Single-origin espresso",
+                    "Pour-over coffee",
+                    "Artisan pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern minimalist with focus on coffee quality",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Light breakfast and artisan baked goods",
+                "local_tips": "Prague's premier specialty coffee roaster with multiple locations"
+            },
+            {
+                "name": "Café Obecní dům",
+                "specialty": "Art Nouveau café experience",
+                "must_try": [
+                    "Traditional Czech coffee",
+                    "Moravian wine",
+                    "Czech desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stunning Art Nouveau interior in Municipal House",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Elegant Czech and international cuisine",
+                "local_tips": "Experience Prague's most beautiful café interior in the Municipal House"
+            }
+        ],
+        "bars": [
+            {
+                "name": "U Zlatého tygra (Golden Tiger)",
+                "type": "Traditional Czech Pub",
+                "specialty": "Pilsner Urquell on tap",
+                "signature_drinks": [
+                    "Pilsner Urquell",
+                    "Traditional Czech shots"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic Czech pub with locals and history",
+                "best_time": "Evening",
+                "food_options": "Traditional Czech pub snacks",
+                "reservation_needed": false,
+                "local_tips": "Famous pub where Václav Havel brought Bill Clinton, authentic local experience"
+            },
+            {
+                "name": "Hemingway Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic cocktails and absinthe",
+                "signature_drinks": [
+                    "Hemingway Daiquiri",
+                    "Absinthe cocktails",
+                    "Classic martinis"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy-style with literary theme",
+                "best_time": "Evening",
+                "food_options": "Light bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance, ask locals for directions to this award-winning cocktail bar"
+            },
+            {
+                "name": "Tretter's",
+                "type": "Cocktail Bar",
+                "specialty": "New York-style cocktails",
+                "signature_drinks": [
+                    "Manhattan",
+                    "Old Fashioned",
+                    "Signature Prague cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant 1930s New York speakeasy style",
+                "best_time": "Late evening",
+                "food_options": "Premium bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Prague's first proper cocktail bar, known for excellent classic cocktails"
+            },
+            {
+                "name": "Beer Museum Prague",
+                "type": "Beer Bar",
+                "specialty": "Czech beer selection",
+                "signature_drinks": [
+                    "30+ Czech beers on tap",
+                    "Beer flights",
+                    "Traditional Czech lagers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Beer hall with educational beer museum",
+                "best_time": "Afternoon",
+                "food_options": "Traditional Czech pub food",
+                "reservation_needed": false,
+                "local_tips": "Try beer flights to sample different Czech brewery styles"
+            },
+            {
+                "name": "Letná Beer Garden",
+                "type": "Beer Garden",
+                "specialty": "Outdoor beer drinking with views",
+                "signature_drinks": [
+                    "Pilsner Urquell",
+                    "Local Prague beers",
+                    "Seasonal Czech beers"
+                ],
+                "price_range": "€",
+                "atmosphere": "Outdoor seating with panoramic Prague views",
+                "best_time": "Summer evenings",
+                "food_options": "Grilled sausages and Czech snacks",
+                "reservation_needed": false,
+                "local_tips": "Prague's largest beer garden with stunning city views, perfect for sunset"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Prague Food Tour",
+                "focus": "Traditional Czech cuisine and beer",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Traditional Czech restaurants",
+                    "Local beer halls",
+                    "Czech pastry shops",
+                    "Food market visits"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "Czech",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance, especially for weekend tours"
+            },
+            {
+                "name": "Prague Beer and Brewery Tour",
+                "focus": "Czech beer culture and brewing",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Traditional breweries",
+                    "Beer tasting sessions",
+                    "Brewery museums",
+                    "Czech beer history"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "booking_tips": "Include transportation between breweries, book in advance"
+            },
+            {
+                "name": "Prague Market and Cooking Tour",
+                "focus": "Market shopping and Czech cooking",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local food markets",
+                    "Seasonal ingredients",
+                    "Cooking traditional dishes",
+                    "Lunch with wine"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "booking_tips": "Morning start for market freshness, book well in advance"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Czech Cooking Workshop",
+                "cuisine_focus": "Traditional Czech cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Svíčková na smetaně",
+                    "Czech bread dumplings",
+                    "Traditional goulash",
+                    "Apple strudel"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Czech beer pairing",
+                    "Lunch"
+                ],
+                "booking_tips": "Reserve your spot at least two weeks in advance"
+            },
+            {
+                "name": "Czech Pastry and Dessert Class",
+                "cuisine_focus": "Traditional Czech desserts",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Koláče (Czech pastries)",
+                    "Traditional apple strudel",
+                    "Czech honey cake",
+                    "Trdelník"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Take-home treats",
+                    "Coffee/tea"
+                ],
+                "booking_tips": "Check for seasonal classes and holiday specials"
+            },
+            {
+                "name": "Prague Beer and Food Pairing Class",
+                "cuisine_focus": "Czech beer and food combinations",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Czech beer styles",
+                    "Food and beer pairing principles",
+                    "Traditional pub snacks",
+                    "Czech brewery history"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Beer tastings",
+                    "Food samples",
+                    "Pairing notes",
+                    "Brewery visit"
+                ],
+                "booking_tips": "Must be 18+, book in advance for weekend sessions"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Havelské tržiště (Havel's Market)",
+                "type": "Traditional food and souvenir market",
+                "highlights": [
+                    "Fresh fruits and vegetables",
+                    "Local honey and preserves",
+                    "Traditional Czech crafts",
+                    "Street food vendors"
+                ],
+                "hours": "Mon-Fri: 7:00am-6:00pm, Sat-Sun: 8:00am-6:00pm",
+                "best_time": "Morning",
+                "location": "Prague Old Town",
+                "local_tips": "Prague's oldest market, great for fresh produce and local souvenirs"
+            },
+            {
+                "name": "Farmers Market at Náměstí Jiřího z Poděbrad",
+                "type": "Weekly farmers market",
+                "highlights": [
+                    "Organic local produce",
+                    "Artisan cheeses",
+                    "Homemade preserves",
+                    "Fresh baked goods"
+                ],
+                "hours": "Sat: 8:00am-2:00pm",
+                "best_time": "Morning",
+                "location": "Vinohrady district",
+                "local_tips": "Saturday only, arrive early for best selection of local products"
+            },
+            {
+                "name": "Manifesto Market",
+                "type": "Modern food court and market",
+                "highlights": [
+                    "International street food",
+                    "Local craft vendors",
+                    "Artisan products",
+                    "Events and workshops"
+                ],
+                "hours": "Daily: 8:00am-11:00pm",
+                "best_time": "Lunch or dinner",
+                "location": "Various Prague locations",
+                "local_tips": "Modern food court with diverse international options and local crafts"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus with hollandaise sauce",
+            "Fresh herb soups",
+            "Spring lamb with new potatoes",
+            "Wild garlic dishes"
+        ],
+        "summer": [
+            "Grilled klobása (sausages)",
+            "Cold Czech soups (chladník)",
+            "Fresh berry desserts",
+            "Beer garden specialties"
+        ],
+        "autumn": [
+            "Wild mushroom dishes",
+            "Roasted duck with red cabbage",
+            "Apple strudel",
+            "Game meat preparations"
+        ],
+        "winter": [
+            "Traditional Czech goulash",
+            "Roasted pork knee",
+            "Mulled wine (svařák)",
+            "Christmas pastries and cookies"
+        ]
+    },
+    "local_specialties": [
+        {
+            "dish": "Svíčková na smetaně",
+            "description": "Czech national dish of marinated beef sirloin with cream sauce, bread dumplings, and cranberry sauce."
+        },
+        {
+            "dish": "Goulash",
+            "description": "Hearty beef stew with onions, paprika, and traditional Czech bread dumplings."
+        },
+        {
+            "dish": "Vepřo-knedlo-zelo",
+            "description": "Classic Czech meal of roasted pork, bread dumplings, and sauerkraut or red cabbage."
+        },
+        {
+            "dish": "Česnečka",
+            "description": "Traditional Czech garlic soup, often served with bread, cheese, and sometimes egg."
+        },
+        {
+            "dish": "Schnitzel",
+            "description": "Breaded and fried cutlet (usually pork or chicken) served with potato salad or boiled potatoes."
+        },
+        {
+            "dish": "Koláče",
+            "description": "Traditional Czech sweet pastries filled with poppy seeds, cheese, plums, or other fruits."
+        },
+        {
+            "dish": "Trdelník",
+            "description": "Sweet pastry rolled in sugar and nuts, cooked on a rotating spit (popular tourist treat)."
+        },
+        {
+            "dish": "Chlebíčky",
+            "description": "Open-faced sandwiches with various toppings, popular for quick meals and snacks."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Pilsner Urquell",
+            "description": "The original Pilsner lager, first brewed in nearby Plzeň in 1842. Must-try on tap in Prague."
+        },
+        {
+            "name": "Budweiser Budvar",
+            "description": "Original Budweiser beer from České Budějovice, smooth and well-balanced Czech lager."
+        },
+        {
+            "name": "Staropramen",
+            "description": "Prague's own brewery, light and refreshing lager brewed in the city since 1869."
+        },
+        {
+            "name": "Becherovka",
+            "description": "Traditional Czech herbal liqueur from Karlovy Vary, often served as a digestif or with tonic."
+        },
+        {
+            "name": "Slivovice",
+            "description": "Traditional Czech plum brandy, often homemade and served as a strong digestif."
+        },
+        {
+            "name": "Czech wine",
+            "description": "Excellent wines from Moravia region, especially white wines like Riesling and Grüner Veltliner."
+        },
+        {
+            "name": "Svařák",
+            "description": "Czech mulled wine, popular during winter months and Christmas markets."
+        },
+        {
+            "name": "Kofola",
+            "description": "Popular Czech cola soft drink with a unique herbal flavor, a local alternative to international colas."
+        }
+    ]
+}

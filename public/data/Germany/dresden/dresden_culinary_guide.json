@@ -1,0 +1,646 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "CAROUSSEL Nouvelle",
+                "cuisine_type": "Contemporary French-Saxon",
+                "signature_dishes": [
+                    "Saddle of Venison with Black Salsify and Cranberry",
+                    "Local Trout with Beetroot and Horseradish"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, luxurious dining room with crystal chandeliers in a historic Baroque building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Innere Altstadt (Inner Old Town)",
+                "local_tips": "Chef Benjamin Biedlingmaier creates innovative dishes blending French techniques with regional Saxon ingredients; the restaurant is located inside the historic Bülow Palais hotel"
+            },
+            {
+                "name": "Bean & Beluga",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Dry-aged Regional Beef with Truffle",
+                    "Lobster with Apple and Celery"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated villa setting with contemporary art and elegant furnishings",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Blasewitz",
+                "local_tips": "Located in a beautiful villa in Dresden's upscale Blasewitz district; Chef Stefan Hermann is one of Saxony's most respected culinary figures; excellent wine pairings available"
+            },
+            {
+                "name": "Genuss-Atelier",
+                "cuisine_type": "Modern German-Saxon",
+                "signature_dishes": [
+                    "Local Duck with Parsley Root and Cherry",
+                    "Saxony Lamb with Jerusalem Artichoke"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, modern space with open kitchen and minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Neustadt",
+                "local_tips": "Chef Mario Pattis focuses on seasonal Saxon ingredients with creative presentations; excellent value tasting menu; relaxed fine dining atmosphere"
+            },
+            {
+                "name": "Elements",
+                "cuisine_type": "International Fusion",
+                "signature_dishes": [
+                    "Wagyu Beef with Asian Influences",
+                    "Local Fish with Mediterranean Accompaniments"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, upscale restaurant with sleek design and impressive views over Dresden",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks ahead, request a window table",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City Center",
+                "local_tips": "Located on the 6th floor of the Innside Hotel; excellent panoramic views of Dresden's skyline and the Frauenkirche; international cuisine with quality ingredients"
+            },
+            {
+                "name": "Augustiner an der Frauenkirche",
+                "cuisine_type": "Traditional Saxon-Bavarian",
+                "signature_dishes": [
+                    "Dresden Sauerbraten with Red Cabbage and Potato Dumplings",
+                    "Traditional Schnitzel with Potato Salad"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Upscale historic restaurant with vaulted ceilings and traditional décor in a prime location",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, request terrace seating in summer",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Innere Altstadt (Inner Old Town)",
+                "local_tips": "Premium location with views of Frauenkirche; serves authentic Munich Augustiner beer; more upscale than typical beer halls but with traditional Saxon-Bavarian cuisine"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Sophienkeller im Taschenbergpalais",
+                "cuisine_type": "Traditional Saxon",
+                "signature_dishes": [
+                    "Dresdner Sauerbraten (marinated pot roast)",
+                    "Quarkkeulchen (Saxon potato-quark pancakes)",
+                    "Dresdner Eierschecke (local layered cake)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic medieval cellar restaurant with period costumes, rustic furniture and authentic ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Innere Altstadt, near Zwinger Palace",
+                "local_tips": "Atmospheric restaurant in medieval vaults dating from the 1400s; staff in period costumes; medieval-themed events and entertainments on selected evenings"
+            },
+            {
+                "name": "Schützengarten",
+                "cuisine_type": "Traditional German-Saxon",
+                "signature_dishes": [
+                    "Dresdner Fladenbrot (filled flatbread)",
+                    "Roast Pork with Dumplings",
+                    "Fresh Pilsner Beer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic beer garden with indoor and outdoor seating; Dresden's oldest restaurant dating to 1683",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for indoor seating; beer garden is first-come-first-served",
+                "dress_code": "Casual",
+                "location": "Neustadt",
+                "local_tips": "Dresden's oldest restaurant and beer garden with over 330 years of history; beautiful garden setting for summer dining; portions are generous"
+            },
+            {
+                "name": "Altmarktkeller",
+                "cuisine_type": "Traditional Saxon",
+                "signature_dishes": [
+                    "Saxon Potato Soup",
+                    "Pork Knuckle with Sauerkraut",
+                    "House-brewed Beer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional beer hall with long wooden tables and rustic décor in a historic cellar",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Reservations recommended for large groups, otherwise walk-ins welcome",
+                "dress_code": "Casual",
+                "location": "Altmarkt (Old Market Square)",
+                "local_tips": "Authentic Saxon atmosphere with brewery tanks visible; live music on weekends; house-brewed beer served in traditional style"
+            },
+            {
+                "name": "Zum Schiesshaus",
+                "cuisine_type": "Regional Saxon",
+                "signature_dishes": [
+                    "Wild Game Dishes",
+                    "Saxon Beef Roulade",
+                    "Seasonal Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy restaurant in a historic building with traditional furnishings and warm atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Neustadt",
+                "local_tips": "Historic restaurant frequented more by locals than tourists; excellent place to try authentic Saxon cuisine; seasonal menu features local game and fresh produce"
+            },
+            {
+                "name": "Café Schinkelwache",
+                "cuisine_type": "German-European",
+                "signature_dishes": [
+                    "Dresden-style Breakfast",
+                    "Saxon Quiche",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant café in a historic guardhouse with classic European café ambiance",
+                "best_time": "Breakfast/Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed for small groups; prime outdoor seating in summer",
+                "dress_code": "Casual",
+                "location": "Theaterplatz, near Semperoper",
+                "local_tips": "Perfect location for breakfast or lunch near the Semperoper and Zwinger Palace; one of Dresden's most beautiful café buildings; excellent people-watching from the terrace"
+            },
+            {
+                "name": "Watzke Brauereiausschank am Goldenen Reiter",
+                "cuisine_type": "German Brewhouse",
+                "signature_dishes": [
+                    "House-brewed Beer",
+                    "Pork Knuckle",
+                    "Sausage Platter"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewhouse with copper brewing kettles on display and beer hall seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner",
+                "dress_code": "Casual",
+                "location": "Neustadt, near Golden Horseman statue",
+                "local_tips": "Local brewery chain with beer brewed on premises; try their dark beer (Schwarzbier); live music on weekends creates a lively atmosphere"
+            },
+            {
+                "name": "Feldschlößchen Stammhaus",
+                "cuisine_type": "Traditional Saxon",
+                "signature_dishes": [
+                    "Feldschlößchen Beer",
+                    "Saxon Sauerbraten",
+                    "Beer-battered Fish"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brewery restaurant with traditional wooden paneling and beer hall ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations advised for weekends",
+                "dress_code": "Casual",
+                "location": "Striesen",
+                "local_tips": "Home of Dresden's famous Feldschlößchen beer brand; authentic Saxon brewery experience slightly away from tourist areas; summer garden available in warm weather"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Striezelmarkt",
+                "specialties": [
+                    "Dresdner Christstollen (Christmas Fruit Bread)",
+                    "Glühwein (Mulled Wine)",
+                    "Pulsnitzer Pfefferkuchen (Gingerbread)"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 9:00 PM during Christmas season (late November to December 24)",
+                "location": "Altmarkt (Old Market Square)",
+                "seating": "Limited",
+                "local_tips": "Germany's oldest Christmas market (since 1434) with excellent food stalls; try the original Dresden Christstollen and Pulsnitzer Pfefferkuchen gingerbread"
+            },
+            {
+                "name": "Neustadt Street Food",
+                "specialties": [
+                    "International Street Food",
+                    "Vegan and Vegetarian Options",
+                    "Craft Drinks"
+                ],
+                "price_range": "€",
+                "hours": "Varies by venue, generally 11:00 AM - 10:00 PM",
+                "location": "Outer Neustadt",
+                "seating": "Limited",
+                "local_tips": "The trendy Neustadt district offers various street food options from falafel to Asian fusion; best area for contemporary and international street food in Dresden"
+            },
+            {
+                "name": "Elbsommer Festival",
+                "specialties": [
+                    "BBQ and Grilled Specialties",
+                    "Regional Craft Beers",
+                    "Riverside Snacks"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 PM - 10:00 PM Weekends (Summer months)",
+                "location": "Elbe River Meadows",
+                "seating": "Outdoor",
+                "local_tips": "Summer food festival along Dresden's famous Elbe meadows; relaxed atmosphere with beautiful views of the historic skyline"
+            },
+            {
+                "name": "Karls Erdbeerhof Market Stalls",
+                "specialties": [
+                    "Fresh Strawberry Treats",
+                    "Fruit Preserves",
+                    "Seasonal Fruit Desserts"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 7:00 PM (April to October)",
+                "location": "Various locations around Dresden",
+                "seating": "Limited",
+                "local_tips": "Famous for strawberry-themed treats including fresh strawberries, strawberry wine, and strawberry jams; best visited during strawberry season (May-July)"
+            },
+            {
+                "name": "Stadtfest Dresden Food Stalls",
+                "specialties": [
+                    "Traditional Saxon Festival Food",
+                    "International Street Food",
+                    "Regional Specialties"
+                ],
+                "price_range": "€€",
+                "hours": "10:00 AM - 11:00 PM during festival weekend (August)",
+                "location": "City Center",
+                "seating": "Outdoor",
+                "local_tips": "Citywide festival with extensive food options throughout the old town and along the Elbe; one of Dresden's largest food events with specialties from across Saxony"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Oswaldz",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single-Origin Pour-Over",
+                    "House-baked Sourdough with Toppings"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café with industrial touches and bright, airy space",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Artisanal breakfasts, sandwiches, and homemade cakes",
+                "local_tips": "Dresden's premier specialty coffee shop; they roast their own beans and offer brewing workshops for enthusiasts"
+            },
+            {
+                "name": "Café Schinkelwache",
+                "specialty": "Traditional Café",
+                "must_try": [
+                    "Dresdner Eierschecke (layered cake)",
+                    "Apple Strudel with Vanilla Sauce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café in a neoclassical guardhouse with elegant interior and outdoor terrace",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional cakes, pastries, and light lunches",
+                "local_tips": "Prestigious location near Semperoper with the best people-watching in Dresden; perfect for an elegant afternoon coffee break between sightseeing"
+            },
+            {
+                "name": "Café Wippler",
+                "specialty": "Traditional Saxon Bakery",
+                "must_try": [
+                    "Original Dresdner Christstollen",
+                    "Dresdner Eierschecke"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic bakery-café with traditional decor and display cases of tempting pastries",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional German and Saxon pastries and cakes",
+                "local_tips": "One of Dresden's most traditional bakeries dating back to 1906; known for authentic stollen made using historic recipes; multiple locations throughout Dresden"
+            },
+            {
+                "name": "Café Latte Art",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Avocado Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, modern café with creative interior in Dresden's trendy Neustadt district",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Contemporary breakfast options, bowls, and vegan treats",
+                "local_tips": "Popular with students and digital nomads; excellent latte art and contemporary brunch options; good workspace during weekdays"
+            },
+            {
+                "name": "Café Neustadt",
+                "specialty": "Community Café",
+                "must_try": [
+                    "Homemade Cakes",
+                    "Organic Coffee"
+                ],
+                "price_range": "€",
+                "atmosphere": "Bohemian community café in a historic building with eclectic furniture and artistic vibe",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Simple, mostly vegetarian and vegan options",
+                "local_tips": "Cultural hub in Neustadt with frequent events and exhibitions; relaxed, alternative atmosphere; beautiful courtyard in summer months"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Augustiner an der Frauenkirche",
+                "type": "Beer Hall",
+                "specialty": "Bavarian Beer",
+                "signature_drinks": [
+                    "Augustiner Beers from Munich",
+                    "Seasonal Craft Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional German beer hall with prime location and views of Frauenkirche",
+                "best_time": "Evening",
+                "food_options": "Full German and Bavarian menu",
+                "reservation_needed": true,
+                "local_tips": "Perfect location for watching sunset over the Frauenkirche with a beer; more upscale than typical beer halls with excellent traditional food"
+            },
+            {
+                "name": "Karl May Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Wild West-themed Original Creations",
+                    "Aged Whiskeys and Bourbons"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated bar inspired by German author Karl May's Wild West novels with leather seating and vintage ambiance",
+                "best_time": "Late Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Located in the luxurious Kempinski Hotel; one of Dresden's most sophisticated cocktail bars; named after the famous German Wild West novelist Karl May"
+            },
+            {
+                "name": "Semper Offener Club",
+                "type": "Craft Beer Bar",
+                "specialty": "Regional Craft Beers",
+                "signature_drinks": [
+                    "Saxon Microbrewery Selection",
+                    "Rotating Craft Beer Taps"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern beer bar with industrial design and laid-back vibe",
+                "best_time": "Evening",
+                "food_options": "Beer-friendly snacks",
+                "reservation_needed": false,
+                "local_tips": "Best selection of Saxon and German craft beers in Dresden; knowledgeable staff offer recommendations and tasting flights"
+            },
+            {
+                "name": "Watzke Brauereiausschank am Goldenen Reiter",
+                "type": "Traditional Brewery",
+                "specialty": "House-Brewed Beer",
+                "signature_drinks": [
+                    "Watzke Pils",
+                    "Watzke Schwarzbier (Dark Beer)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewery restaurant with copper brewing kettles and beer hall seating",
+                "best_time": "Evening",
+                "food_options": "Traditional German cuisine",
+                "reservation_needed": true,
+                "local_tips": "Local brewery chain with visible brewing equipment; try their dark beer (Schwarzbier); frequently has live music on weekends"
+            },
+            {
+                "name": "Stilbruch",
+                "type": "Alternative Bar",
+                "specialty": "Creative Cocktails",
+                "signature_drinks": [
+                    "House-Infused Spirits",
+                    "Local Gin Creations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Eclectic bar with vintage furniture, artistic decor and bohemian vibe",
+                "best_time": "Late Night",
+                "food_options": "Light snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular spot in alternative Neustadt district; unique atmosphere with mismatched vintage furniture and local art; frequented by artists and students"
+            },
+            {
+                "name": "Staatsanwaltschaft",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Seasonal Fruit Infusions",
+                    "Classic Cocktails with a Twist"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant former courthouse converted to upscale bar with historic details",
+                "best_time": "Evening",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Housed in a former courthouse (the name means 'public prosecutor's office'); theatrical presentation of drinks; sophisticated clientele and ambiance"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Saxon Delights Food Tour",
+                "focus": "Traditional Dresden Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided walk through Dresden's Old Town",
+                    "Tastings of local and regional specialties",
+                    "Introduction to Saxon beer and wine traditions"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; tours run Tuesday through Saturday"
+            },
+            {
+                "name": "Neustadt Culinary Walk",
+                "focus": "Contemporary Dresden Food Scene",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Exploration of Dresden's hip Neustadt district",
+                    "Tastings at modern eateries and artisan food shops",
+                    "Insights into Dresden's creative food movement"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; comfortable shoes recommended for walking between venues"
+            },
+            {
+                "name": "Saxon Wine Experience",
+                "focus": "Regional Wine Culture",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to vineyards in nearby Elbe Valley wine region",
+                    "Tastings of Saxon wines with food pairings",
+                    "Tour of historic winery"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; seasonal operation from May to October; includes transportation from Dresden"
+            },
+            {
+                "name": "Dresden Stollen Tour",
+                "focus": "Traditional Christmas Bread",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "History of Dresden's famous Christmas stollen",
+                    "Tastings of various stollen varieties",
+                    "Visit to traditional Dresden bakeries"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book several weeks ahead; seasonal availability from November through December"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Dresden Kitchen Workshop",
+                "cuisine_focus": "Traditional Saxon Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Dresden Sauerbraten (Marinated Pot Roast)",
+                    "Potato Dumplings (Kartoffelklöße)",
+                    "Quarkkeulchen (Saxon potato-quark pancakes)"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with regional beer and wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held twice weekly in a professional teaching kitchen"
+            },
+            {
+                "name": "Christstollen Baking Class",
+                "cuisine_focus": "Traditional Christmas Baking",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Original Dresden Christstollen Recipe",
+                    "Traditional Stollen Shaping Techniques",
+                    "Proper Aging and Storage Methods"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, take-home stollen, coffee and local dessert wine"
+                ],
+                "booking_tips": "Book at least 2 weeks in advance; seasonal availability from October through December"
+            },
+            {
+                "name": "Elbe Valley Wine and Cooking",
+                "cuisine_focus": "Regional Wine Country Cuisine",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seasonal Dishes from Saxony's Wine Region",
+                    "Wine Pairing Principles",
+                    "Local Vineyard-to-Table Cooking"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Transportation to nearby wine country, all materials, wine tastings, full meal with paired wines"
+                ],
+                "booking_tips": "Book 2 weeks ahead; seasonal operation from May to October"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Altmarkt Market",
+                "type": "Weekly Market",
+                "highlights": [
+                    "Fresh regional produce",
+                    "Local artisan foods",
+                    "Seasonal specialties"
+                ],
+                "hours": "Wednesday and Saturday 8:00 AM - 2:00 PM",
+                "best_time": "Saturday morning",
+                "location": "Altmarkt Square, Old Town",
+                "local_tips": "Dresden's central market in the historic square; best selection of regional produce and specialty foods in the city center"
+            },
+            {
+                "name": "Neustadt Market",
+                "type": "Weekly Farmers Market",
+                "highlights": [
+                    "Organic and conventional produce",
+                    "Alternative and vegan options",
+                    "International food vendors"
+                ],
+                "hours": "Tuesday and Friday 9:00 AM - 3:00 PM",
+                "best_time": "Late morning",
+                "location": "Alaunplatz, Neustadt",
+                "local_tips": "More alternative vibe than the Altmarkt; excellent ethnic food options and organic produce in Dresden's hippest district"
+            },
+            {
+                "name": "Striezelmarkt",
+                "type": "Seasonal Christmas Market",
+                "highlights": [
+                    "Traditional Christmas foods",
+                    "Dresden Stollen from many bakeries",
+                    "Glühwein (mulled wine) and seasonal treats"
+                ],
+                "hours": "10:00 AM - 9:00 PM daily during Advent season",
+                "best_time": "Evening for atmospheric lighting",
+                "location": "Altmarkt, Old Town",
+                "local_tips": "Germany's oldest Christmas market (since 1434); the place to try authentic Dresden Christstollen and other seasonal specialties; stunning pyramid display"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise Sauce",
+            "Fresh Herbs from Saxon Switzerland",
+            "Rhubarb Compote and Cakes"
+        ],
+        "summer": [
+            "Elbe Valley Strawberries",
+            "Fresh River Fish from the Elbe",
+            "Beer Garden Culture along the Elbe meadows"
+        ],
+        "autumn": [
+            "Game Dishes from Saxon Forests",
+            "Mushroom Specialties",
+            "Federweisser (young wine) with Onion Tart"
+        ],
+        "winter": [
+            "Original Dresden Christstollen (Christmas Bread)",
+            "Glühwein (Mulled Wine) at Christmas Markets",
+            "Pulsnitzer Pfefferkuchen (Saxon Gingerbread)"
+        ]
+    }
+}

@@ -1,0 +1,456 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Field Restaurant",
+                "cuisine_type": "Modern Czech",
+                "signature_dishes": [
+                    "Beef tartare with horseradish",
+                    "Duck with red cabbage",
+                    "Plzen-style goulash with local beer"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and contemporary with a focus on local ingredients",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, especially on weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Plzen New Town",
+                "local_tips": "Try their tasting menu for the full experience of modern Czech cuisine with Plzen beer pairings"
+            },
+            {
+                "name": "U Salzmannů",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Svíčková na smetaně",
+                    "Roasted duck with dumplings",
+                    "Plzen-style pork knee"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic and cozy with traditional Czech decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a table in the historic cellar for authentic atmosphere",
+                "dress_code": "Casual",
+                "location": "Plzen Old Town",
+                "local_tips": "Ask for their house-made beer and traditional Czech wines from the Plzen region"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Lokál",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Plzen goulash with bread dumplings",
+                    "Schnitzel with potato salad",
+                    "Czech sausage with mustard"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling beer hall with communal tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid crowds, especially during lunch",
+                "dress_code": "Casual",
+                "location": "Plzen city center",
+                "local_tips": "Try their excellent Pilsner Urquell on tap and traditional Czech sides"
+            },
+            {
+                "name": "Na Spilce",
+                "cuisine_type": "Czech Brewery Restaurant",
+                "signature_dishes": [
+                    "Beer-braised pork with Pilsner Urquell",
+                    "Brewery goulash",
+                    "Plzen-style schnitzel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial brewery setting with large beer tanks",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a table near the brewing equipment for the full experience",
+                "dress_code": "Casual",
+                "location": "Pilsner Urquell Brewery, Plzen",
+                "local_tips": "Take the brewery tour before dinner for a complete beer experience"
+            },
+            {
+                "name": "U Mansfelda",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Plzen-style roasted pork knee",
+                    "Czech potato pancakes",
+                    "Traditional Czech soup"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy pub with traditional Czech atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, arrive early for dinner",
+                "dress_code": "Casual",
+                "location": "Plzen Old Town",
+                "local_tips": "Try their homemade pickled vegetables and traditional Czech desserts"
+            },
+            {
+                "name": "Potrefená Husa",
+                "cuisine_type": "Czech Pub Food",
+                "signature_dishes": [
+                    "Beer-battered fish",
+                    "Czech sausage with mustard"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern pub with excellent beer selection",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Popular spot, arrive early during peak hours",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Great selection of Czech craft beers and traditional pub snacks"
+            },
+            {
+                "name": "U Bílé růže",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Beef sirloin in cream sauce",
+                    "Czech potato soup"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with traditional Czech charm",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for lunch to enjoy their daily specials",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Try their homemade bread and traditional Czech pastries"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Plzeňský trh (Plzen Market)",
+                "specialties": [
+                    "Grilled sausages",
+                    "Czech pastries"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 6:00am-2:00pm",
+                "location": "Republic Square",
+                "seating": true,
+                "local_tips": "Visit early morning for the freshest produce and traditional Czech snacks"
+            },
+            {
+                "name": "Food trucks at Republic Square",
+                "specialties": [
+                    "Czech hot dogs",
+                    "Grilled cheese sandwiches"
+                ],
+                "price_range": "€",
+                "hours": "Varies by vendor",
+                "location": "Republic Square",
+                "seating": false,
+                "local_tips": "Best selection during lunch hours and weekend events"
+            },
+            {
+                "name": "Christmas Market Food Stalls",
+                "specialties": [
+                    "Trdelník",
+                    "Mulled wine"
+                ],
+                "price_range": "€",
+                "hours": "Dec: 10:00am-8:00pm",
+                "location": "Republic Square",
+                "seating": false,
+                "local_tips": "Visit during the Christmas market for traditional Czech holiday treats"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Louvre",
+                "specialty": "Historic café experience",
+                "must_try": [
+                    "Traditional Czech coffee",
+                    "Apple strudel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant with Art Nouveau decor",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Traditional Czech pastries and light meals",
+                "local_tips": "Sit in the historic main hall where Einstein and Kafka once met"
+            },
+            {
+                "name": "Café Central",
+                "specialty": "Modern coffee culture",
+                "must_try": [
+                    "Espresso",
+                    "Czech honey cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary and cozy with local art",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Fresh pastries and sandwiches",
+                "local_tips": "Great spot for people-watching in the city center"
+            },
+            {
+                "name": "Café Beruška",
+                "specialty": "Traditional Czech café",
+                "must_try": [
+                    "Czech hot chocolate",
+                    "Koláče (Czech pastries)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Charming and traditional with vintage decor",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Czech desserts and coffee",
+                "local_tips": "Try their homemade koláče and traditional Czech coffee preparation"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Pilsner Urquell Brewery Taproom",
+                "type": "Brewery Bar",
+                "specialty": "Fresh Pilsner Urquell",
+                "signature_drinks": [
+                    "Unfiltered Pilsner Urquell",
+                    "Dark lager"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial brewery setting with beer history",
+                "best_time": "Afternoon",
+                "food_options": "Traditional Czech pub food",
+                "reservation_needed": false,
+                "local_tips": "Take the brewery tour to see where the beer is made"
+            },
+            {
+                "name": "Gambrinus Brewery Bar",
+                "type": "Brewery Bar",
+                "specialty": "Gambrinus beer",
+                "signature_drinks": [
+                    "Gambrinus Premium",
+                    "Gambrinus Excelent"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern brewery bar with beer garden",
+                "best_time": "Evening",
+                "food_options": "Czech pub snacks and meals",
+                "reservation_needed": false,
+                "local_tips": "Try their seasonal beers and brewery-fresh lagers"
+            },
+            {
+                "name": "U Salzmannů Pub",
+                "type": "Traditional Czech Pub",
+                "specialty": "Local craft beers",
+                "signature_drinks": [
+                    "Local microbrews",
+                    "Traditional Czech spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic pub with traditional Czech charm",
+                "best_time": "Evening",
+                "food_options": "Traditional Czech pub food",
+                "reservation_needed": false,
+                "local_tips": "Ask for their house-made pickles and traditional Czech bar snacks"
+            },
+            {
+                "name": "Republic Square Beer Garden",
+                "type": "Beer Garden",
+                "specialty": "Outdoor beer drinking",
+                "signature_drinks": [
+                    "Pilsner Urquell",
+                    "Local craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Outdoor seating with city views",
+                "best_time": "Summer evenings",
+                "food_options": "Grilled sausages and Czech snacks",
+                "reservation_needed": false,
+                "local_tips": "Perfect for summer evenings with live music and city atmosphere"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Plzen Beer and Food Tour",
+                "focus": "Beer culture and Czech cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Pilsner Urquell Brewery",
+                    "Traditional Czech restaurants",
+                    "Beer tasting"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "booking_tips": "Book at least a week in advance, especially for weekend tours"
+            },
+            {
+                "name": "Plzen Old Town Food Walk",
+                "focus": "Traditional Czech cuisine",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Historic restaurants",
+                    "Local markets",
+                    "Traditional Czech dishes"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "booking_tips": "Wear comfortable shoes for walking through the historic center"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Czech Cooking Workshop",
+                "cuisine_focus": "Traditional Czech cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Svíčková na smetaně",
+                    "Bread dumplings",
+                    "Czech potato pancakes"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Beer pairing"
+                ],
+                "booking_tips": "Reserve your spot at least two weeks in advance"
+            },
+            {
+                "name": "Czech Pastry Making",
+                "cuisine_focus": "Traditional Czech desserts",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Koláče",
+                    "Apple strudel",
+                    "Czech honey cake"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Take-home treats"
+                ],
+                "booking_tips": "Check for seasonal classes and holiday specials"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Plzeňský trh (Plzen Market)",
+                "type": "Traditional food market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Traditional Czech breads"
+                ],
+                "hours": "Mon-Sat: 6:00am-2:00pm",
+                "best_time": "Morning",
+                "location": "Republic Square",
+                "local_tips": "Arrive early for the freshest selections and traditional Czech breakfast items"
+            },
+            {
+                "name": "Farmers Market at Republic Square",
+                "type": "Seasonal farmers market",
+                "highlights": [
+                    "Organic produce",
+                    "Local honey",
+                    "Homemade preserves"
+                ],
+                "hours": "Sat: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Republic Square",
+                "local_tips": "Visit on Saturdays for the best selection of local products"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus with hollandaise sauce",
+            "Fresh herb soups",
+            "Spring lamb dishes"
+        ],
+        "summer": [
+            "Grilled sausages",
+            "Cold Czech soups",
+            "Fresh berry desserts"
+        ],
+        "autumn": [
+            "Mushroom goulash",
+            "Roasted duck with red cabbage",
+            "Apple strudel"
+        ],
+        "winter": [
+            "Beef goulash",
+            "Roasted pork knee",
+            "Mulled wine and hot punch"
+        ]
+    },
+    "local_specialties": [
+        {
+            "dish": "Svíčková na smetaně",
+            "description": "Czech national dish of marinated beef sirloin with cream sauce, bread dumplings, and cranberry sauce."
+        },
+        {
+            "dish": "Goulash",
+            "description": "Hearty beef stew with onions, paprika, and Czech bread dumplings."
+        },
+        {
+            "dish": "Roasted pork knee",
+            "description": "Traditional Czech dish of slow-roasted pork knee with mustard and horseradish."
+        },
+        {
+            "dish": "Bread dumplings",
+            "description": "Traditional Czech side dish made from stale bread, served with meat dishes and gravy."
+        },
+        {
+            "dish": "Koláče",
+            "description": "Traditional Czech sweet pastries filled with poppy seeds, cheese, or fruit."
+        },
+        {
+            "dish": "Czech potato pancakes",
+            "description": "Grated potato pancakes served with sour cream and often with meat."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Pilsner Urquell",
+            "description": "The original Pilsner lager, first brewed in Plzen in 1842. Visit the brewery for the freshest taste."
+        },
+        {
+            "name": "Gambrinus",
+            "description": "Popular Czech lager brewed in Plzen, known for its smooth and refreshing taste."
+        },
+        {
+            "name": "Becherovka",
+            "description": "Traditional Czech herbal liqueur from Karlovy Vary, often served as a digestif."
+        },
+        {
+            "name": "Slivovice",
+            "description": "Traditional Czech plum brandy, often homemade and served as a strong digestif."
+        },
+        {
+            "name": "Czech wine",
+            "description": "While not as famous as beer, Czech Republic produces excellent wines, especially from the Moravia region."
+        }
+    ]
+}

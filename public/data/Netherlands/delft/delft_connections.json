@@ -1,0 +1,154 @@
+{
+    "destinations": [
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the Netherlands' vibrant capital with its iconic canals, world-class museums, and distinctive architecture.",
+            "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 1 hour",
+                "frequency": "Multiple per hour"
+            },
+            "intraEuropeFlight": {
+                "airportsInDelft": ["Rotterdam The Hague (RTM)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "Not applicable - train recommended",
+                "frequency": "Not applicable"
+            }
+        },
+        {
+            "city": "Rotterdam",
+            "country": "Netherlands",
+            "whyGo": "Discover the Netherlands' second-largest city known for its modern architecture, innovative design, and bustling harbor.",
+            "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 15 minutes",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "The Hague",
+            "country": "Netherlands",
+            "whyGo": "Visit the seat of Dutch government, international courts, royal palaces, and beautiful North Sea beaches.",
+            "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 10 minutes",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Utrecht",
+            "country": "Netherlands",
+            "whyGo": "Explore this historic city with its iconic Dom Tower, charming canals, and rich cultural heritage.",
+            "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 1 hour (may require change)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Leiden",
+            "country": "Netherlands",
+            "whyGo": "Visit the historic university city, birthplace of Rembrandt, with charming canals and numerous museums.",
+             "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 25 minutes",
+                "frequency": "Multiple per hour"
+            }
+        },
+         {
+            "city": "Gouda",
+            "country": "Netherlands",
+            "whyGo": "Famous for its cheese market (seasonal), historic city hall, and beautiful stained-glass windows in St. Janskerk.",
+             "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 30 minutes (may require change)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Eindhoven",
+            "country": "Netherlands",
+            "whyGo": "Explore the 'City of Light', known for its design heritage (Philips, Dutch Design Week) and technology focus.",
+             "directWithinCountryTrain": {
+                "stationInDelft": "Delft",
+                "journeyTime": "approx. 1 hour 30 minutes",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Explore the EU capital with its magnificent Grand Place, Art Nouveau architecture, and renowned chocolate and beer.",
+            "intraEuropeTrain": {
+                "stationInDelft": "Delft (change at Rotterdam or Schiphol)",
+                "journeyTime": "approx. 1 hour 45 minutes - 2 hours 15 minutes",
+                "frequency": "Hourly+"
+            },
+            "intraEuropeFlight": {
+                 "airportsInDelft": ["Rotterdam The Hague (RTM)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 45 minutes",
+                "frequency": "Few daily"
+            }
+        },
+        {
+            "city": "Antwerp",
+            "country": "Belgium",
+            "whyGo": "Visit Belgium's second city known for its diamond trade, fashion scene, and magnificent cathedral and train station.",
+            "intraEuropeTrain": {
+                "stationInDelft": "Delft (change at Rotterdam)",
+                "journeyTime": "approx. 1 hour 15 minutes - 1 hour 30 minutes",
+                "frequency": "Hourly+"
+            },
+             "intraEuropeFlight": {
+                 "airportsInDelft": ["Rotterdam The Hague (RTM)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "Not applicable - train recommended",
+                "frequency": "Not applicable"
+            }
+        },
+         {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Explore one of the world's most dynamic cities with its historic landmarks, cultural diversity, and cutting-edge arts scene.",
+            "intraEuropeTrain": {
+                "stationInDelft": "Delft (change at Rotterdam or Brussels)",
+                "journeyTime": "approx. 4 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsInDelft": ["Rotterdam The Hague (RTM)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Experience the iconic City of Light with its world-famous landmarks, unparalleled museums, and legendary culinary scene.",
+            "intraEuropeTrain": {
+                "stationInDelft": "Delft (change at Rotterdam or Schiphol)",
+                "journeyTime": "approx. 3 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsInDelft": ["Rotterdam The Hague (RTM)", "Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour 15 minutes",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Discover Germany's dynamic capital with its turbulent history, cutting-edge arts scene, and legendary nightlife.",
+            "intraEuropeTrain": {
+                 "stationInDelft": "Delft (change at Amersfoort/Amsterdam)",
+                "journeyTime": "approx. 6 hours 30 minutes",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsInDelft": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour 20 minutes",
+                "frequency": "Multiple times daily"
+            }
+        }
+    ]
+} 

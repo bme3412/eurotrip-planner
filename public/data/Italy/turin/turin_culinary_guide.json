@@ -1,0 +1,443 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Del Cambio",
+                "cuisine_type": "Historic/Piedmontese Fine Dining",
+                "signature_dishes": [
+                    "Vitello Tonnato (Contemporary Version)",
+                    "Agnolotti del Plin",
+                    "Seasonal Tasting Menus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Opulent, historic setting with original 18th/19th-century decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book far in advance. Ask for a table in the historic Risorgimento room. Dress code is elegant.",
+                "dress_code": "Elegant",
+                "michelin_stars": 1,
+                "location": "Piazza Carignano",
+                "local_tips": "A legendary Turin institution frequented by historical figures like Cavour. Offers a unique historical dining experience."
+            },
+            {
+                "name": "Cannavacciuolo Bistrot Torino",
+                "cuisine_type": "Modern Italian/Mediterranean",
+                "signature_dishes": [
+                    "Creative interpretations of Italian classics",
+                    "Seafood dishes",
+                    "Tasting Menus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, contemporary, sophisticated",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance. Part of celebrity chef Antonino Cannavacciuolo's group.",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Via Umberto Cosmo (Near Gran Madre Church)",
+                "local_tips": "Offers refined modern cuisine with influences from Southern Italy in a chic setting."
+            },
+            {
+                "name": "Magorabin",
+                "cuisine_type": "Creative/Contemporary Piedmontese",
+                "signature_dishes": [
+                    "Innovative Tasting Menus",
+                    "Dishes focusing on local ingredients"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern, minimalist, intimate",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance. Known for its creative flair and precise cooking.",
+                "dress_code": "Smart casual to elegant",
+                "michelin_stars": 1,
+                "location": "Corso San Maurizio",
+                "local_tips": "Chef Marcello Trentini offers a boundary-pushing take on Piedmontese food."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Porto di Savona",
+                "cuisine_type": "Traditional Piedmontese Trattoria",
+                "signature_dishes": [
+                    "Agnolotti al Sugo d'Arrosto",
+                    "Bollito Misto (mixed boiled meats - seasonal)",
+                    "Bonet (chocolate dessert)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic, bustling, traditional trattoria under the arcades",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially evenings/weekends",
+                "booking_tips": "One of Turin's oldest trattorias. Classic Piedmontese comfort food.",
+                "dress_code": "Casual",
+                "location": "Piazza Vittorio Veneto",
+                "local_tips": "Reliable choice for experiencing authentic local dishes in a historic setting."
+            },
+            {
+                "name": "Tre Galline",
+                "cuisine_type": "Classic Piedmontese",
+                "signature_dishes": [
+                    "Finanziera (complex offal stew - traditional)",
+                    "Tajarin pasta (thin egg pasta)",
+                    "Brasato al Barolo (Braised beef in Barolo wine)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant yet traditional, historic restaurant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Considered a temple of traditional Piedmontese cuisine. Good wine list.",
+                "dress_code": "Smart casual",
+                "location": "Via Gian Francesco Bellezia (Quadrilatero Romano)",
+                "local_tips": "Excellent place to try meticulously prepared classic regional dishes."
+            },
+            {
+                "name": "Scannabue Caffè Cucina",
+                "cuisine_type": "Piedmontese Bistrot/Modern Italian",
+                "signature_dishes": [
+                    "Vitello Tonnato",
+                    "Plin Ravioli",
+                    "Steak Tartare (Battuta al coltello)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Lively, Parisian-style bistrot, popular",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Highly recommended",
+                "booking_tips": "Very popular, book ahead. Good for lunch or a lively dinner.",
+                "dress_code": "Smart casual",
+                "location": "Largo Saluzzo (San Salvario district)",
+                "local_tips": "Great atmosphere, consistently good food mixing Piedmontese and broader Italian dishes."
+            },
+            {
+                "name": "Cianci Piola Caffè",
+                "cuisine_type": "Simple Piedmontese (Piola style)",
+                "signature_dishes": [
+                    "Antipasti misti (mixed appetizers)",
+                    "Simple Pasta Dishes",
+                    "Affordable daily specials"
+                ],
+                "price_range": "€",
+                "atmosphere": "Casual, rustic, very popular, often crowded",
+                "best_time": "Lunch or Apericena (early dinner/heavy aperitivo)",
+                "reservation_needed": "No reservations, expect queues",
+                "booking_tips": "Go early or be prepared to wait. Basic, tasty food at great prices.",
+                "dress_code": "Casual",
+                "location": "Largo IV Marzo (Quadrilatero Romano)",
+                "local_tips": "A true 'piola' experience - simple, traditional food in a no-frills setting."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Gofreria Piemontese",
+                "specialties": [
+                    "Gofri (Piedmontese waffles, sweet or savory)"
+                ],
+                "price_range": "€",
+                "hours": "Lunch/Afternoon/Early Evening",
+                "location": "Via San Tommaso / Via Barbaroux (Quadrilatero)",
+                "seating": "Limited/Takeaway",
+                "local_tips": "Specializes in traditional crisp waffles from the nearby valleys."
+            },
+            {
+                "name": "Various Stalls at Porta Palazzo Market",
+                "specialties": [
+                    "Farinata (Chickpea pancake slice)",
+                    "Pizza al Padellino (Small, pan-fried pizza)",
+                    "International street foods (due to market diversity)"
+                ],
+                "price_range": "€",
+                "hours": "Market hours (Primarily Morning/Lunch)",
+                "location": "Porta Palazzo Market Area (Piazza della Repubblica)",
+                "seating": "None/Standing",
+                "local_tips": "Explore the market area for various quick bites, including some Piedmontese snacks."
+            },
+            {
+                "name": "Marechiaro",
+                "specialties": [
+                    "Pizza al taglio (Pizza by the slice)",
+                    "Farinata"
+                ],
+                "price_range": "€",
+                "hours": "Lunch/Dinner",
+                "location": "Via Giuseppe Garibaldi",
+                "seating": "Limited/Takeaway",
+                "local_tips": "Long-standing spot for casual pizza by the slice and farinata."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Al Bicerin",
+                "specialty": "Historic Cafe & Bicerin",
+                "must_try": [
+                    "Bicerin (the original recipe)",
+                    "Hot Chocolate",
+                    "Handmade Pastries/Chocolates"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Tiny, historic, intimate, original 18th-century decor",
+                "best_time": "Morning/Afternoon (expect queues)",
+                "wifi_friendly": false,
+                "food_options": "Pastries, chocolates, bicerin",
+                "location": "Piazza della Consolata",
+                "local_tips": "Founded in 1763, home of the iconic Turin drink. Very small, be prepared to wait."
+            },
+            {
+                "name": "Baratti & Milano",
+                "specialty": "Historic Cafe, Chocolate & Pastries",
+                "must_try": [
+                    "Gianduiotto chocolates",
+                    "Bicerin",
+                    "Cappuccino & Pastry",
+                    "Hot Chocolate"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant, grand, Belle Époque decor inside Galleria Subalpina",
+                "best_time": "Anytime (coffee, lunch, aperitivo)",
+                "wifi_friendly": false,
+                "food_options": "Pastries, chocolates, light lunch, aperitivo snacks",
+                "location": "Piazza Castello (Inside Galleria Subalpina)",
+                "local_tips": "Historic supplier to the Royal House of Savoy. Famous for Gianduiotti. Elegant spot for coffee or aperitivo."
+            },
+            {
+                "name": "Caffè Torino",
+                "specialty": "Historic Cafe & Aperitivo Spot",
+                "must_try": [
+                    "Aperitivo (Martini-based cocktails, wine)",
+                    "Coffee",
+                    "Tramezzini sandwiches"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant, historic, Belle Époque decor, iconic location on Piazza San Carlo",
+                "best_time": "Aperitivo Hour (early evening), Morning Coffee",
+                "wifi_friendly": false,
+                "food_options": "Pastries, sandwiches, extensive aperitivo buffet/snacks",
+                "location": "Piazza San Carlo",
+                "local_tips": "Famous bull emblem on the pavement outside (stepping on its 'attributes' is said to bring luck). Classic aperitivo spot."
+            },
+            {
+                "name": "Caffè San Carlo",
+                "specialty": "Historic Cafe & Restaurant",
+                "must_try": [
+                    "Coffee",
+                    "Pastries",
+                    "Aperitivo"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Grand, opulent, chandeliers, historic paintings",
+                "best_time": "Morning Coffee, Lunch, Aperitivo",
+                "wifi_friendly": false,
+                "food_options": "Pastries, full restaurant menu, aperitivo snacks",
+                "location": "Piazza San Carlo",
+                "local_tips": "Another stunning historic cafe on Piazza San Carlo, known for its luxurious interior."
+            },
+            {
+                "name": "Caffè Mulassano",
+                "specialty": "Historic Cafe & Inventor of Tramezzino",
+                "must_try": [
+                    "Tramezzino (various fillings)",
+                    "Coffee",
+                    "Vermouth"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Tiny, exquisite Art Nouveau decor, very intimate",
+                "best_time": "Morning Coffee, Quick Lunch, Aperitivo",
+                "wifi_friendly": false,
+                "food_options": "Tramezzini, pastries, aperitivo snacks",
+                "location": "Piazza Castello (under the arcades)",
+                "local_tips": "Famous for inventing the Italian crustless sandwich ('tramezzino'). Limited seating."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Farmacia Del Cambio (Bar)",
+                "type": "Elegant Cocktail/Wine Bar",
+                "specialty": "Classic & Contemporary Cocktails, Fine Wines",
+                "signature_drinks": [
+                    "Vermouth-based cocktails",
+                    "Martinis",
+                    "Selection of Piedmontese wines"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic, sophisticated, part of the Del Cambio complex",
+                "best_time": "Aperitivo / After Dinner",
+                "food_options": "Refined aperitivo snacks",
+                "reservation_needed": "Recommended",
+                "location": "Piazza Carignano",
+                "local_tips": "Upscale bar associated with the historic restaurant, great for elegant drinks."
+            },
+            {
+                "name": "Smile Tree",
+                "type": "Creative Cocktail Bar",
+                "specialty": "Innovative & Molecular Cocktails",
+                "signature_drinks": [
+                    "Unique seasonal creations",
+                    "Molecular mixology drinks"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, lively, focused on mixology",
+                "best_time": "Evening / Late Night",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Recommended for tables",
+                "location": "Piazza della Consolata",
+                "local_tips": "Known for its experimental and high-quality cocktails near Caffè Al Bicerin."
+            },
+            {
+                "name": "La Drogheria",
+                "type": "Cocktail Bar / Aperitivo Spot",
+                "specialty": "Classic Cocktails, Aperitivo",
+                "signature_drinks": [
+                    "Negroni",
+                    "Spritz",
+                    "Good Gin Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy, popular, often crowded, vintage pharmacy theme",
+                "best_time": "Aperitivo / Evening",
+                "food_options": "Generous aperitivo buffet/snacks",
+                "reservation_needed": "Maybe for groups",
+                "location": "Piazza Vittorio Veneto",
+                "local_tips": "Very popular spot on Piazza Vittorio, especially for aperitivo."
+            },
+            {
+                "name": "Quadrilatero Romano (Area)",
+                "type": "Bar District",
+                "specialty": "Various (Wine bars, Cocktail bars, Pubs)",
+                "signature_drinks": ["Wide variety depending on the bar"],
+                "price_range": "€ - €€€",
+                "atmosphere": "Lively, atmospheric streets with many small bars",
+                "best_time": "Evening / Aperitivo",
+                "food_options": "Many bars offer aperitivo, restaurants nearby",
+                "reservation_needed": "Depends on the bar",
+                "location": "Quadrilatero Romano district",
+                "local_tips": "Explore the narrow streets for numerous options for drinks and aperitivo."
+            },
+            {
+                "name": "Open Baladin Torino",
+                "type": "Craft Beer Bar",
+                "specialty": "Italian Craft Beer (especially Baladin)",
+                "signature_drinks": [
+                    "Wide range of Baladin beers on tap/bottle",
+                    "Other Italian craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, spacious, industrial feel",
+                "best_time": "Evening",
+                "food_options": "Gourmet burgers, snacks",
+                "reservation_needed": false,
+                "location": "Piazzale Valdo Fusi",
+                "local_tips": "Flagship location for one of Italy's most famous craft breweries."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Turin Gourmet Food Tour",
+                "focus": "Piedmontese specialties, Chocolate, Aperitivo",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Tasting Gianduiotto, Bicerin",
+                    "Visiting historic cafes or food shops",
+                    "Sampling local cheeses, cured meats, wine",
+                    "Experiencing Aperitivo"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (varies by operator)",
+                "languages": ["English", "Italian"],
+                "booking_tips": "Look for tours focusing on local specialties and historic spots. Book ahead."
+            },
+             {
+                "name": "Chocolate Tour of Turin",
+                "focus": "History of Chocolate, Gianduja, Tastings",
+                "duration": "Approx. 2-3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visiting historic chocolatiers (e.g., Peyrano, Guido Gobino)",
+                    "Learning about chocolate making process",
+                    "Tasting different types of chocolate and gianduiotti"
+                ],
+                "booking_required": true,
+                "group_size": "Varies",
+                "languages": ["English", "Italian"],
+                "booking_tips": "Ideal for chocolate lovers wanting to delve into Turin's sweet history."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Piedmontese Cooking Class",
+                "cuisine_focus": "Traditional Piedmontese Dishes",
+                "duration": "4-5 hours (including meal)",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making fresh pasta (Tajarin, Agnolotti del Plin)",
+                    "Preparing Vitello Tonnato or Brasato",
+                    "Regional appetizers",
+                    "Bonet dessert"
+                ],
+                "group_size": "Small groups",
+                "languages": ["English", "Italian"],
+                "includes": ["Market visit (sometimes), ingredients, hands-on instruction, lunch/dinner with wine"],
+                "booking_tips": "Search for classes focusing on classic regional recipes. Book in advance."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Porta Palazzo Market",
+                "type": "Daily Market (Europe's Largest Open-Air)",
+                "highlights": [
+                    "Huge variety of fresh produce, cheese, meat, fish",
+                    "Covered food halls (Mercato Centrale Torino - higher end stalls)",
+                    "Clothing, household goods sections",
+                    "Multicultural atmosphere, farmers' market section (Contadini)"
+                ],
+                "hours": "Morning to early afternoon (Mon-Sat, busiest Sat)",
+                "best_time": "Saturday morning (peak activity) or weekday mornings",
+                "location": "Piazza della Repubblica",
+                "local_tips": "Can be overwhelming. Explore different sections: produce, fish, farmers, Mercato Centrale."
+            },
+            {
+                "name": "Mercato della Crocetta",
+                "type": "Upscale Street Market",
+                "highlights": [
+                    "High-quality clothing (designer brands, cashmere)",
+                    "Shoes, accessories",
+                    "Some gourmet food stalls"
+                ],
+                "hours": "Mornings (Mon-Sat), All day on certain days (check locally)",
+                "best_time": "Morning",
+                "location": "Crocetta district (Largo Cassini area)",
+                "local_tips": "Known more for fashion and upscale goods than food, but has some food options."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus ('Asparagi' - esp. from Santena)",
+            "Peas ('Piselli')",
+            "Strawberries ('Fragole')",
+            "Spring Lamb ('Agnello')"
+        ],
+        "summer": [
+            "Peppers ('Peperoni' - esp. from Carmagnola)",
+            "Tomatoes ('Pomodori')",
+            "Courgettes/Zucchini ('Zucchine') & their flowers ('Fiori di Zucca')",
+            "Stone Fruits (Peaches 'Pesche', Apricots 'Albicocche')"
+        ],
+        "autumn": [
+            "White Truffles ('Tartufo Bianco d'Alba' - Oct/Nov is peak)",
+            "Mushrooms ('Funghi' - Porcini)",
+            "Hazelnuts ('Nocciole' - Tonda Gentile del Piemonte)",
+            "Grapes ('Uva' - Nebbiolo for Barolo/Barbaresco wine harvest)",
+            "Cardoons ('Cardi Gobbi' - for Bagna Cauda)",
+            "Chestnuts ('Castagne')"
+        ],
+        "winter": [
+            "Bollito Misto (Mixed Boiled Meats)",
+            "Bagna Cauda (Warm garlic & anchovy dip for vegetables)",
+            "Citrus Fruits (though less prominent than in the South)",
+            "Root Vegetables"
+        ]
+    }
+} 

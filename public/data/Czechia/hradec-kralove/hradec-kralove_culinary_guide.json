@@ -1,0 +1,450 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant U Labutě",
+                "cuisine_type": "Modern Czech",
+                "signature_dishes": [
+                    "Duck breast with red cabbage",
+                    "Venison with juniper sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant and historic with traditional Czech charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week in advance, especially on weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Great Square (Velké náměstí)",
+                "local_tips": "Try their seasonal game dishes and local wine pairings"
+            },
+            {
+                "name": "Restaurant Na Hradě",
+                "cuisine_type": "Czech Fine Dining",
+                "signature_dishes": [
+                    "Beef tenderloin with cream sauce",
+                    "Trout with herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated with views of the city",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request a window seat for city views",
+                "dress_code": "Business casual",
+                "michelin_stars": 0,
+                "location": "Near White Tower",
+                "local_tips": "Ask for their daily specials featuring local ingredients"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Restaurant U Zlatého Orla",
+                "cuisine_type": "Traditional Czech",
+                "signature_dishes": [
+                    "Svíčková na smetaně",
+                    "Goulash with dumplings"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and traditional with historic decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch to avoid crowds",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Try their homemade bread dumplings and local beer"
+            },
+            {
+                "name": "Pivnice U Dvou Koček",
+                "cuisine_type": "Czech Pub Food",
+                "signature_dishes": [
+                    "Pork knuckle",
+                    "Czech sausages"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively pub atmosphere with local character",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early for dinner",
+                "dress_code": "Casual",
+                "location": "Near Great Square",
+                "local_tips": "Order the house beer and traditional pub snacks"
+            },
+            {
+                "name": "Restaurant U Černého Orla",
+                "cuisine_type": "Czech Bistro",
+                "signature_dishes": [
+                    "Chicken schnitzel",
+                    "Potato pancakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and welcoming with family atmosphere",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Popular with locals, arrive early for dinner",
+                "dress_code": "Casual",
+                "location": "City center",
+                "local_tips": "Try their homemade soups and daily specials"
+            },
+            {
+                "name": "Café Restaurant Adalbertinum",
+                "cuisine_type": "Czech Café",
+                "signature_dishes": [
+                    "Open-faced sandwiches",
+                    "Czech pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with cultural atmosphere",
+                "best_time": "Breakfast",
+                "reservation_needed": false,
+                "booking_tips": "Perfect for morning coffee and pastries",
+                "dress_code": "Casual",
+                "location": "Adalbertinum building",
+                "local_tips": "Enjoy coffee with traditional Czech strudel"
+            },
+            {
+                "name": "Pizzeria Da Vinci",
+                "cuisine_type": "Italian",
+                "signature_dishes": [
+                    "Margherita pizza",
+                    "Pasta carbonara"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and family-friendly",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Popular with families, arrive early",
+                "dress_code": "Casual",
+                "location": "City center",
+                "local_tips": "Try their wood-fired pizzas and Italian wines"
+            },
+            {
+                "name": "Restaurant U Zlaté Hvězdy",
+                "cuisine_type": "Czech Traditional",
+                "signature_dishes": [
+                    "Roast pork with sauerkraut",
+                    "Duck with red cabbage"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional Czech restaurant with historic charm",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Popular lunch spot, arrive early",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Order the daily menu for the best value"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Great Square Market",
+                "specialties": [
+                    "Grilled sausages",
+                    "Traditional pastries"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 8:00am-6:00pm",
+                "location": "Great Square (Velké náměstí)",
+                "seating": true,
+                "local_tips": "Visit in the morning for fresh produce and local specialties"
+            },
+            {
+                "name": "Food Trucks at Jirásek Gardens",
+                "specialties": [
+                    "Czech hot dogs",
+                    "Ice cream"
+                ],
+                "price_range": "€",
+                "hours": "Seasonal, check for current schedule",
+                "location": "Jirásek Gardens",
+                "seating": true,
+                "local_tips": "Perfect for a picnic in the gardens during summer"
+            },
+            {
+                "name": "Student Cafeteria",
+                "specialties": [
+                    "Budget Czech meals",
+                    "Student-friendly prices"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Fri: 11:00am-2:00pm",
+                "location": "University area",
+                "seating": true,
+                "local_tips": "Great for budget dining with authentic Czech food"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Adalbertinum",
+                "specialty": "Traditional Czech café experience",
+                "must_try": [
+                    "Espresso",
+                    "Czech strudel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and cultural with elegant interiors",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional Czech pastries and light meals",
+                "local_tips": "Enjoy coffee while admiring the historic building"
+            },
+            {
+                "name": "Café U Bílého Orla",
+                "specialty": "Local café culture",
+                "must_try": [
+                    "Filter coffee",
+                    "Homemade cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and welcoming with local character",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Fresh pastries and sandwiches",
+                "local_tips": "Try their seasonal fruit cakes and local coffee"
+            },
+            {
+                "name": "Café Galerie",
+                "specialty": "Art café atmosphere",
+                "must_try": [
+                    "Cappuccino",
+                    "Art-inspired desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Creative and artistic with gallery connection",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Creative pastries and light meals",
+                "local_tips": "Perfect spot for coffee after visiting the art gallery"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Pivnice U Dvou Koček",
+                "type": "Czech Beer Hall",
+                "specialty": "Local Czech beers",
+                "signature_drinks": [
+                    "Pilsner Urquell",
+                    "Budvar",
+                    "Local craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional Czech pub with lively atmosphere",
+                "best_time": "Evening",
+                "food_options": "Traditional pub food and snacks",
+                "reservation_needed": false,
+                "local_tips": "Try the local beer selection and traditional pub snacks"
+            },
+            {
+                "name": "Bar Adalbertinum",
+                "type": "Cultural Bar",
+                "specialty": "Wine and cocktails",
+                "signature_drinks": [
+                    "Czech wines",
+                    "Local spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant and cultural with historic setting",
+                "best_time": "Evening",
+                "food_options": "Light bar snacks and appetizers",
+                "reservation_needed": true,
+                "local_tips": "Perfect for pre-concert drinks in the cultural center"
+            },
+            {
+                "name": "Student Pub",
+                "type": "Student Bar",
+                "specialty": "Budget-friendly drinks",
+                "signature_drinks": [
+                    "Student-priced beer",
+                    "Mixed drinks"
+                ],
+                "price_range": "€",
+                "atmosphere": "Young and vibrant with student crowd",
+                "best_time": "Night",
+                "food_options": "Basic bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Great for meeting local students and budget-friendly drinks"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Hradec Kralove Food Walk",
+                "focus": "Local Czech cuisine",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional restaurants",
+                    "Local markets",
+                    "Czech beer tasting"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "booking_tips": "Book a week in advance, especially for weekend tours"
+            },
+            {
+                "name": "East Bohemian Beer Tour",
+                "focus": "Local breweries and beer culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Local breweries",
+                    "Beer tasting",
+                    "Traditional pub food"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "booking_tips": "Check for seasonal brewery events and special tastings"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Czech Cooking Workshop",
+                "cuisine_focus": "Traditional Czech cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Svíčková na smetaně",
+                    "Bread dumplings",
+                    "Czech pastries"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Traditional techniques"
+                ],
+                "booking_tips": "Reserve your spot at least a week in advance"
+            },
+            {
+                "name": "East Bohemian Baking Class",
+                "cuisine_focus": "Czech baking and pastries",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Czech strudel",
+                    "Kolaches",
+                    "Traditional breads"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "Czech"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Baking techniques"
+                ],
+                "booking_tips": "Check for seasonal baking classes and holiday specials"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Great Square Market",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheese",
+                    "Traditional pastries"
+                ],
+                "hours": "Daily: 8:00am-6:00pm",
+                "best_time": "Morning",
+                "location": "Great Square (Velké náměstí)",
+                "local_tips": "Visit early for the freshest selections and local specialties"
+            },
+            {
+                "name": "Farmers Market",
+                "type": "Weekly farmers market",
+                "highlights": [
+                    "Organic produce",
+                    "Local honey",
+                    "Homemade preserves"
+                ],
+                "hours": "Sat: 8:00am-2:00pm",
+                "best_time": "Morning",
+                "location": "City outskirts",
+                "local_tips": "Perfect for fresh local ingredients and meeting local farmers"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh asparagus with hollandaise",
+            "Spring lamb dishes",
+            "Wild garlic soup"
+        ],
+        "summer": [
+            "Grilled sausages",
+            "Fresh fruit strudel",
+            "Cold Czech soups"
+        ],
+        "autumn": [
+            "Game dishes (venison, wild boar)",
+            "Mushroom dishes",
+            "Apple strudel"
+        ],
+        "winter": [
+            "Hearty goulash",
+            "Roast pork with sauerkraut",
+            "Warm Czech pastries"
+        ]
+    },
+    "local_specialties": [
+        {
+            "dish": "Svíčková na smetaně",
+            "description": "Czech national dish of marinated beef sirloin with cream sauce, bread dumplings, and cranberry sauce."
+        },
+        {
+            "dish": "Goulash",
+            "description": "Hearty beef stew with onions, paprika, and Czech bread dumplings."
+        },
+        {
+            "dish": "Roast pork with sauerkraut",
+            "description": "Traditional Czech dish featuring tender pork with fermented cabbage and bread dumplings."
+        },
+        {
+            "dish": "Czech sausages",
+            "description": "Various types of traditional Czech sausages, often served with mustard and bread."
+        },
+        {
+            "dish": "Bread dumplings",
+            "description": "Traditional Czech side dish made from stale bread, served with meat dishes and gravy."
+        },
+        {
+            "dish": "Czech strudel",
+            "description": "Sweet pastry filled with apples, nuts, or other fruits, a traditional Czech dessert."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Czech Beer",
+            "description": "Czech Republic has the highest beer consumption per capita. Try Pilsner Urquell, Budvar, or local craft beers from East Bohemia."
+        },
+        {
+            "name": "Becherovka",
+            "description": "Traditional Czech herbal liqueur from Karlovy Vary, often served as a digestif."
+        },
+        {
+            "name": "Moravian Wine",
+            "description": "Quality wines from the nearby Moravian region, particularly white wines and ice wines."
+        },
+        {
+            "name": "Slivovitz",
+            "description": "Traditional Czech plum brandy, often homemade and served as a strong digestif."
+        }
+    ]
+} 

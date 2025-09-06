@@ -1,0 +1,466 @@
+{
+    "destinations": [
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Experience the fashion capital of Italy with its stunning Duomo and world-class shopping.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "3 hours 10 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Explore the romantic canals and historic charm of Venice.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "3 hours 45 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Discover the art and culture of the Renaissance in Florence.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Naples",
+            "country": "Italy",
+            "whyGo": "Visit the birthplace of pizza and gateway to Pompeii and the Amalfi Coast.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "1 hour 10 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Bologna",
+            "country": "Italy",
+            "whyGo": "Savor the culinary delights in the gastronomic capital of Italy.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "2 hours 15 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Bari",
+            "country": "Italy",
+            "whyGo": "Experience the charm of Puglia with its unique trulli houses and beautiful coastline.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "3 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Pisa",
+            "country": "Italy",
+            "whyGo": "See the famous Leaning Tower and explore this historic Tuscan city.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "2 hours 45 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Explore the beautiful lakeside city of Zurich, known for banking and finance.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "7 hours 45 minutes",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport",
+                    "Ciampino Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the city of lights, known for its art, fashion, and culture.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "11 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Enjoy the Bavarian culture and the world-famous Oktoberfest.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "9 hours 30 minutes",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Experience the imperial history and musical heritage of Vienna.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "10 hours 30 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Enjoy the vibrant culture and stunning architecture of Barcelona.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "15 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 55 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Explore the ancient history and vibrant culture of Athens.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 55 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Relax on the beautiful beaches of the French Riviera.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "7 hours 45 minutes",
+                "frequency": "Twice daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Discover the international city known for diplomacy and finance.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "8 hours 30 minutes",
+                "frequency": "Twice daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Explore the vibrant culture and history of Germany's capital.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "16 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Discover the fairytale charm and rich history of Prague.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "17 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Experience the stunning architecture and vibrant culture of Budapest.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "14 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant nightlife and cultural heritage of Madrid.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "18 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 35 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Enjoy the sun-soaked city with a rich history and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "29 hours",
+                "frequency": "Once daily with multiple transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "3 hours 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the canals and cultural diversity of Amsterdam.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "15 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Enjoy the cosmopolitan atmosphere and famous chocolates of Brussels.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "14 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Explore the Danish capital known for its design and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "22 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Discover the striking architecture and innovative culture of Stockholm.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "26 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "3 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Enjoy the friendly atmosphere and rich literary history of Dublin.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "3 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Discover the rich history and cultural heritage of Warsaw.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "24 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Experience the unique blend of European and Asian cultures in this historic city.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Palermo",
+            "country": "Italy",
+            "whyGo": "Explore Sicily's vibrant capital with its unique Arabic-Norman architecture and amazing street food.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "10 hours 30 minutes",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Catania",
+            "country": "Italy",
+            "whyGo": "Visit the historic Sicilian city at the foot of Mount Etna.",
+            "directWithinCountryTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "8 hours 45 minutes",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Malta",
+            "country": "Malta",
+            "whyGo": "Discover the rich history and beautiful Mediterranean beaches of this island nation.",
+            "intraEuropeTrain": {
+                "stationInRome": "Roma Termini",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInRome": [
+                    "Fiumicino Airport"
+                ],
+                "approxFlightTime": "1 hour 25 minutes",
+                "frequency": "Several times daily"
+            }
+        }
+    ]
+}

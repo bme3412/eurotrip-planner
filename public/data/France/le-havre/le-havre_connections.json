@@ -1,0 +1,463 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, and unparalleled culinary scene. Only a short train ride from Le Havre.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€35-75"
+            }
+        },
+        {
+            "city": "Rouen",
+            "country": "France",
+            "whyGo": "Historic Normandy capital with stunning Gothic cathedral, medieval architecture, and rich cultural heritage. Easy access from Le Havre.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "30m",
+                "frequency": "Daily",
+                "priceRange": "€60-150"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€15-30"
+            }
+        },
+        {
+            "city": "Caen",
+            "country": "France",
+            "whyGo": "Historic Normandy city with William the Conqueror's castle, excellent museums, and gateway to D-Day landing beaches.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€70-180"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€20-40"
+            }
+        },
+        {
+            "city": "Deauville",
+            "country": "France",
+            "whyGo": "Elegant seaside resort known for horse racing, beautiful beaches, and Belle Époque architecture.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "25m",
+                "frequency": "Daily",
+                "priceRange": "€50-120"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€8-20"
+            }
+        },
+        {
+            "city": "Honfleur",
+            "country": "France",
+            "whyGo": "Charming historic port with picturesque harbor, art galleries, and excellent seafood restaurants.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "20m",
+                "frequency": "Daily",
+                "priceRange": "€40-100"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "20m",
+                "frequency": "Multiple daily",
+                "priceRange": "€5-15"
+            }
+        },
+        {
+            "city": "Bayeux",
+            "country": "France",
+            "whyGo": "Historic town famous for the Bayeux Tapestry, medieval cathedral, and proximity to D-Day beaches.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "40m",
+                "frequency": "Daily",
+                "priceRange": "€65-160"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€18-35"
+            }
+        },
+        {
+            "city": "Cherbourg",
+            "country": "France",
+            "whyGo": "Historic port city with maritime museum, beautiful harbor, and gateway to the Cotentin Peninsula.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "35m",
+                "frequency": "Daily",
+                "priceRange": "€60-150"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€22-45"
+            }
+        },
+        {
+            "city": "Dieppe",
+            "country": "France",
+            "whyGo": "Historic fishing port with castle, pebble beaches, and excellent seafood restaurants.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "30m",
+                "frequency": "Daily",
+                "priceRange": "€55-140"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€25-50"
+            }
+        },
+        {
+            "city": "Étretat",
+            "country": "France",
+            "whyGo": "Famous for dramatic white chalk cliffs, beautiful beaches, and inspiring landscapes that attracted artists like Monet.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "20m",
+                "frequency": "Daily",
+                "priceRange": "€45-110"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "25m",
+                "frequency": "Multiple daily",
+                "priceRange": "€6-18"
+            }
+        },
+        {
+            "city": "Fécamp",
+            "country": "France",
+            "whyGo": "Historic fishing port with Benedictine Palace, beautiful harbor, and excellent seafood.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "25m",
+                "frequency": "Daily",
+                "priceRange": "€50-125"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "35m",
+                "frequency": "Multiple daily",
+                "priceRange": "€10-25"
+            }
+        },
+        {
+            "city": "Yvetot",
+            "country": "France",
+            "whyGo": "Charming Norman town with historic church, traditional architecture, and authentic local culture.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "15m",
+                "frequency": "Daily",
+                "priceRange": "€35-90"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€4-12"
+            }
+        },
+        {
+            "city": "Bruxelles",
+            "country": "Belgium",
+            "whyGo": "Capital of Belgium and EU, known for Grand Place, Art Nouveau architecture, and beer culture.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€120-280"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "4h30m",
+                "frequency": "Daily",
+                "priceRange": "€60-125"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for artistic heritage, elaborate canal system, and world-class museums.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€130-300"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "priceRange": "€70-150"
+            }
+        },
+        {
+            "city": "Londres",
+            "country": "United Kingdom",
+            "whyGo": "Historic capital with world-class museums, iconic landmarks, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€140-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant Irish capital with rich literary heritage, historic pubs, and friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€150-350"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "8h30m",
+                "frequency": "Daily",
+                "priceRange": "€100-220"
+            }
+        },
+        {
+            "city": "Edimbourg",
+            "country": "United Kingdom",
+            "whyGo": "Historic Scottish capital with stunning castle, medieval old town, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€160-380"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "7h30m",
+                "frequency": "Daily",
+                "priceRange": "€90-190"
+            }
+        },
+        {
+            "city": "Cardiff",
+            "country": "United Kingdom",
+            "whyGo": "Welsh capital with historic castle, excellent museums, and gateway to beautiful Welsh countryside.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€140-330"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "priceRange": "€85-180"
+            }
+        },
+        {
+            "city": "Bristol",
+            "country": "United Kingdom",
+            "whyGo": "Historic port city with maritime heritage, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€135-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h45m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Southampton",
+            "country": "United Kingdom",
+            "whyGo": "Historic port city with maritime museums, medieval walls, and gateway to the New Forest.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h10m",
+                "frequency": "Daily",
+                "priceRange": "€130-310"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h15m",
+                "frequency": "Daily",
+                "priceRange": "€75-160"
+            }
+        },
+        {
+            "city": "Portsmouth",
+            "country": "United Kingdom",
+            "whyGo": "Historic naval port with maritime heritage, historic dockyard, and excellent museums.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h10m",
+                "frequency": "Daily",
+                "priceRange": "€130-310"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Brighton",
+            "country": "United Kingdom",
+            "whyGo": "Vibrant seaside city with historic pier, excellent shopping, and lively cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€135-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h45m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Hastings",
+            "country": "United Kingdom",
+            "whyGo": "Historic seaside town with medieval castle, fishing heritage, and beautiful coastline.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€135-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Dover",
+            "country": "United Kingdom",
+            "whyGo": "Historic port town with famous white cliffs, medieval castle, and gateway to England.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h10m",
+                "frequency": "Daily",
+                "priceRange": "€130-310"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€75-160"
+            }
+        },
+        {
+            "city": "Folkestone",
+            "country": "United Kingdom",
+            "whyGo": "Charming seaside town with historic harbor, beautiful beaches, and gateway to the Kent coast.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h10m",
+                "frequency": "Daily",
+                "priceRange": "€130-310"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h15m",
+                "frequency": "Daily",
+                "priceRange": "€75-160"
+            }
+        },
+        {
+            "city": "Margate",
+            "country": "United Kingdom",
+            "whyGo": "Historic seaside resort with beautiful beaches, Turner Contemporary gallery, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€135-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Ramsgate",
+            "country": "United Kingdom",
+            "whyGo": "Historic port town with beautiful harbor, maritime heritage, and excellent seafood restaurants.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€135-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Broadstairs",
+            "country": "United Kingdom",
+            "whyGo": "Charming seaside town with beautiful beaches, literary connections to Charles Dickens, and traditional English charm.",
+            "intraEuropeFlight": {
+                "airportsInLeHavre": ["Le Havre-Octeville Airport (LEH)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€135-320"
+            },
+            "train": {
+                "departureFromLeHavre": "Le Havre Station",
+                "journeyTime": "6h45m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        }
+    ]
+}

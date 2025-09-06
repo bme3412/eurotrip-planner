@@ -1,0 +1,370 @@
+{
+    "destinations": [
+        {
+            "city": "Aix-en-Provence",
+            "country": "France",
+            "whyGo": "Elegant university town with tree-lined boulevards, historic mansions, and fountains. Known for its connection to painter Paul Cézanne and vibrant market culture.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "30m",
+                "frequency": "Multiple daily (2-3 per hour)"
+            },
+            "directWithinCountryBus": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "35m",
+                "frequency": "Every 10-15 minutes"
+            }
+        },
+        {
+            "city": "Cassis",
+            "country": "France",
+            "whyGo": "Charming coastal fishing village with colorful harbor, renowned white wines, and gateway to the stunning Calanques National Park.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "20m",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInMarseille": "Castellane",
+                "journeyTime": "40m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Avignon",
+            "country": "France",
+            "whyGo": "Medieval walled city with imposing Papal Palace, famous bridge, and major arts festival. UNESCO World Heritage site with exceptional preservation.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "30m-1h",
+                "frequency": "Hourly (TGV and regional trains)"
+            }
+        },
+        {
+            "city": "Arles",
+            "country": "France",
+            "whyGo": "Roman city with impressive amphitheater, Vincent van Gogh heritage, and gateway to the Camargue wetlands with wild horses and flamingos.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "50m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "La Ciotat",
+            "country": "France",
+            "whyGo": "Historic shipbuilding town with beautiful beaches, the world's oldest operational cinema, and site of the first motion picture filmed by the Lumière brothers.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "30m",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInMarseille": "Castellane",
+                "journeyTime": "45m",
+                "frequency": "Every 20 minutes"
+            }
+        },
+        {
+            "city": "Toulon",
+            "country": "France",
+            "whyGo": "Major naval base with attractive old town, waterfront promenades, and cable car to Mount Faron offering panoramic Mediterranean views.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "40m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Nîmes",
+            "country": "France",
+            "whyGo": "Roman city with some of the best-preserved ancient monuments in France, including an amphitheater and temple. Known for its Spanish-influenced culture.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "1h10m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Calanques National Park",
+            "country": "France",
+            "whyGo": "Stunning protected coastline with dramatic limestone cliffs, turquoise waters, and hidden coves accessible by boat or hiking trails.",
+            "directWithinCountryBus": {
+                "stationInMarseille": "Castellane",
+                "journeyTime": "30-45m",
+                "frequency": "Hourly (seasonal variations)"
+            },
+            "boatTour": {
+                "departurePoint": "Vieux-Port",
+                "journeyTime": "3-5 hours (full tour)",
+                "frequency": "Multiple daily (weather dependent)"
+            }
+        },
+        {
+            "city": "Salon-de-Provence",
+            "country": "France",
+            "whyGo": "Historic town known for Nostradamus' home, soap-making traditions, and the French Air Force Academy with regular air shows.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "35m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The iconic French capital with world-famous monuments, museums, and culture, connected to Marseille via high-speed rail.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "3h20m",
+                "frequency": "Multiple daily (TGV)"
+            },
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Glamorous Côte d'Azur city with beautiful promenade, excellent museums, and vibrant old town. Gateway to Monaco and Italian border.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "2h30m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Montpellier",
+            "country": "France",
+            "whyGo": "Dynamic university city with elegant historic center, contemporary architecture, and vibrant cultural scene in the Languedoc region.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "1h40m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Luberon Villages",
+            "country": "France",
+            "whyGo": "Picturesque hilltop villages like Gordes, Roussillon, and Lourmarin surrounded by lavender fields and vineyards in the heart of Provence.",
+            "guidedTour": {
+                "departurePoint": "Marseille Tourist Office",
+                "journeyTime": "Full day (8-9 hours)",
+                "frequency": "Daily (seasonal variations)"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "France's gastronomic capital with UNESCO-listed Renaissance quarter, Roman ruins, and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "1h40m",
+                "frequency": "Multiple daily (TGV)"
+            },
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Martigues",
+            "country": "France",
+            "whyGo": "Picturesque canal town known as the 'Venice of Provence' with colorful fishing houses and maritime heritage.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "30m",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInMarseille": "Saint-Charles",
+                "journeyTime": "50m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Catalan capital famous for Gaudí architecture, Mediterranean beaches, and vibrant cultural scene just across the border from France.",
+            "intraEuropeTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "4h30m",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture is easily accessible from Marseille.",
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Marseille Islands (Frioul & If)",
+            "country": "France",
+            "whyGo": "Archipelago just off Marseille's coast featuring Château d'If (of Count of Monte Cristo fame) and pristine Frioul Islands with clear waters and hiking trails.",
+            "boatTour": {
+                "departurePoint": "Vieux-Port",
+                "journeyTime": "20-30m",
+                "frequency": "Hourly in summer, less frequent in winter"
+            }
+        },
+        {
+            "city": "Aubagne",
+            "country": "France",
+            "whyGo": "Birthplace of writer Marcel Pagnol with charming old town, famous for its santons (clay figurines) and French Foreign Legion headquarters.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "15m",
+                "frequency": "Every 30 minutes"
+            },
+            "directWithinCountryBus": {
+                "stationInMarseille": "Castellane",
+                "journeyTime": "25m",
+                "frequency": "Every 10 minutes"
+            }
+        },
+        {
+            "city": "Camargue Regional Nature Park",
+            "country": "France",
+            "whyGo": "Unique wetland ecosystem with white horses, black bulls, and pink flamingos. Famous for its wild landscapes, rice fields, and salt flats.",
+            "guidedTour": {
+                "departurePoint": "Marseille Tourist Office",
+                "journeyTime": "Full day (8-9 hours)",
+                "frequency": "3-4 times weekly"
+            }
+        },
+        {
+            "city": "Bandol & Cassis Wine Region",
+            "country": "France",
+            "whyGo": "Renowned wine appellations producing excellent rosés and whites, with vineyard-covered hillsides overlooking the Mediterranean Sea.",
+            "guidedTour": {
+                "departurePoint": "Marseille Tourist Office",
+                "journeyTime": "Half day (4-5 hours)",
+                "frequency": "Daily (seasonal variations)"
+            }
+        },
+        {
+            "city": "Verdon Gorge",
+            "country": "France",
+            "whyGo": "Europe's deepest canyon with stunning turquoise river, dramatic limestone cliffs, and excellent hiking, kayaking, and rock climbing.",
+            "guidedTour": {
+                "departurePoint": "Marseille Tourist Office",
+                "journeyTime": "Full day (10-12 hours)",
+                "frequency": "3-4 times weekly (seasonal)"
+            }
+        },
+        {
+            "city": "Monaco",
+            "country": "Monaco",
+            "whyGo": "Glamorous microstate known for its casino, Formula 1 Grand Prix, royal palace, and luxury lifestyle on the Mediterranean coast.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "2h45m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Istres",
+            "country": "France",
+            "whyGo": "Historic town on the edge of Berre Lagoon with aerospace heritage, Roman remains, and nature reserves with abundant birdlife.",
+            "directWithinCountryTrain": {
+                "stationInMarseille": "Marseille Saint-Charles",
+                "journeyTime": "40m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Saint-Tropez",
+            "country": "France",
+            "whyGo": "Legendary Côte d'Azur resort famous for its beaches, yacht-filled harbor, and celebrity connections while maintaining its fishing village charm.",
+            "boatTour": {
+                "departurePoint": "Vieux-Port",
+                "journeyTime": "2h30m (seasonal service)",
+                "frequency": "Daily in summer"
+            },
+            "guidedTour": {
+                "departurePoint": "Marseille Tourist Office",
+                "journeyTime": "Full day (10 hours)",
+                "frequency": "3 times weekly (summer only)"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "One of the world's most visited cities with iconic landmarks, world-class museums, and diverse cultural scene easily reached from Marseille.",
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Picturesque canal city known for its artistic heritage, cycling culture, and progressive atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Corsica",
+            "country": "France",
+            "whyGo": "Mediterranean island with dramatic mountains, pristine beaches, and unique culture blending French and Italian influences.",
+            "ferryService": {
+                "departurePoint": "Marseille Port",
+                "journeyTime": "6-12h (depending on destination)",
+                "frequency": "Daily (year-round to Ajaccio, Bastia, and Porto-Vecchio)"
+            },
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Genoa",
+            "country": "Italy",
+            "whyGo": "Historic maritime republic with impressive palaces, vibrant port, and birthplace of Christopher Columbus and pesto.",
+            "intraEuropeFlight": {
+                "airportsInMarseille": [
+                    "Marseille Provence Airport"
+                ],
+                "approxFlightTime": "1h05m",
+                "frequency": "Daily"
+            },
+            "ferryService": {
+                "departurePoint": "Marseille Port",
+                "journeyTime": "13h (overnight)",
+                "frequency": "2-3 times weekly"
+            }
+        }
+    ]
+}

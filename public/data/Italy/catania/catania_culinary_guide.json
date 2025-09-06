@@ -1,0 +1,608 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Ristorante La Sicilia",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Pasta alla Norma",
+                    "Caponata Siciliana"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant dining room with Sicilian art and traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Via Etnea",
+                "local_tips": "Family-run since 1975; their pasta alla Norma is made with fresh ricotta salata and eggplant"
+            },
+            {
+                "name": "Osteria Antica Marina",
+                "cuisine_type": "Seafood Sicilian",
+                "signature_dishes": [
+                    "Pasta con le Sarde",
+                    "Pesce Spada alla Ghiotta"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic osteria near the fish market with maritime atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, request table near the window",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Via Pardo",
+                "local_tips": "Located near La Pescheria fish market; fish is caught daily and delivered fresh"
+            },
+            {
+                "name": "Trattoria da Nino",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Pasta alla Norma",
+                    "Involtini di Melanzane"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with Sicilian tiles and warm lighting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, especially for weekend evenings",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Via San Giuliano",
+                "local_tips": "Their involtini di melanzane (eggplant rolls) are stuffed with ricotta and herbs"
+            },
+            {
+                "name": "Ristorante Il Gattopardo",
+                "cuisine_type": "Creative Sicilian",
+                "signature_dishes": [
+                    "Risotto al Nero di Seppia",
+                    "Cannolo Siciliano"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern dining room with Sicilian art and elegant touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, ask about seasonal specials",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Via Santa Filomena",
+                "local_tips": "Known for their innovative interpretations of classic Sicilian dishes"
+            },
+            {
+                "name": "Trattoria da Toto",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Pasta con le Sarde",
+                    "Caponata Siciliana"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with traditional Sicilian decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks ahead, especially for weekend evenings",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Via San Benedetto",
+                "local_tips": "Their caponata siciliana is made with fresh local vegetables and capers"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria da Peppino",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Pasta alla Norma",
+                    "Involtini di Melanzane"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively trattoria with shared tables and Sicilian atmosphere",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Via San Giuliano",
+                "local_tips": "Popular with locals and students; their pasta alla Norma is made fresh daily"
+            },
+            {
+                "name": "Osteria del Duomo",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Caponata Siciliana",
+                    "Pasta con le Sarde"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria near the cathedral since 1890",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "BYOB (Bring Your Own Bottle) - wine shop next door",
+                "dress_code": "Casual",
+                "location": "Via Etnea",
+                "local_tips": "Historic osteria near Piazza del Duomo; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Trattoria da Salvo",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Pasta alla Norma",
+                    "Caponata Siciliana"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with traditional Sicilian decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Via San Benedetto",
+                "local_tips": "Their caponata siciliana is made with traditional Sicilian vegetables"
+            },
+            {
+                "name": "Osteria del Mare",
+                "cuisine_type": "Seafood Sicilian",
+                "signature_dishes": [
+                    "Pasta con le Sarde",
+                    "Pesce Spada alla Ghiotta"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic osteria with maritime atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days ahead, especially for weekend evenings",
+                "dress_code": "Casual",
+                "location": "Via Pardo",
+                "local_tips": "Popular with locals and fishermen; their seafood is caught daily"
+            },
+            {
+                "name": "Trattoria da Mimmo",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Pasta alla Norma",
+                    "Involtini di Melanzane"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with traditional Sicilian decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Via San Giuliano",
+                "local_tips": "Their involtini di melanzane are a local favorite"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "La Pescheria (Fish Market)",
+                "specialties": [
+                    "Fresh Seafood",
+                    "Street Food Stalls"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 2:00 PM",
+                "location": "Via Pardo",
+                "seating": "Limited",
+                "local_tips": "Historic fish market with street food stalls serving fresh seafood and local specialties"
+            },
+            {
+                "name": "Pasticceria Savia",
+                "specialties": [
+                    "Cannoli Siciliani",
+                    "Granita"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 9:00 PM",
+                "location": "Via Etnea",
+                "seating": true,
+                "local_tips": "Historic pastry shop since 1897; famous for their cannoli and granita"
+            },
+            {
+                "name": "Salumeria Fratelli La Mela",
+                "specialties": [
+                    "Salame di Sant'Angelo",
+                    "Pecorino Siciliano"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 8:00 PM",
+                "location": "Via Etnea",
+                "seating": false,
+                "local_tips": "Historic deli with excellent cured meats and Sicilian cheeses"
+            },
+            {
+                "name": "Pasticceria Spinella",
+                "specialties": [
+                    "Cannoli Siciliani",
+                    "Cassata Siciliana"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 9:00 PM",
+                "location": "Via Etnea",
+                "seating": true,
+                "local_tips": "Historic pastry shop with traditional Sicilian sweets and pastries"
+            },
+            {
+                "name": "Mercato di Piazza Carlo Alberto",
+                "specialties": [
+                    "Fresh Produce",
+                    "Local Specialties"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 2:00 PM",
+                "location": "Piazza Carlo Alberto",
+                "seating": "Limited",
+                "local_tips": "Historic market with fresh produce and traditional Sicilian food shops"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Europa",
+                "specialty": "Traditional Sicilian Coffee",
+                "must_try": [
+                    "Caffè alla Siciliana",
+                    "Cannoli"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with elegant decor",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light lunch",
+                "local_tips": "Historic café in Piazza Europa; perfect for people-watching"
+            },
+            {
+                "name": "Caffè del Duomo",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Cappuccino"
+                ],
+                "price_range": "€",
+                "atmosphere": "Modern coffee shop",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries",
+                "local_tips": "Known for their high-quality coffee beans and brewing methods"
+            },
+            {
+                "name": "Caffè San Benedetto",
+                "specialty": "Traditional Sicilian Coffee",
+                "must_try": [
+                    "Caffè alla Siciliana",
+                    "Cannoli"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic café near San Benedetto Church",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries",
+                "local_tips": "Historic café with traditional Sicilian atmosphere"
+            },
+            {
+                "name": "Caffè Pasticceria Savia",
+                "specialty": "Traditional Pastries",
+                "must_try": [
+                    "Cannoli Siciliani",
+                    "Granita"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic pastry shop and café",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Wide selection of pastries",
+                "local_tips": "Historic pastry shop since 1897; famous for their cannoli and granita"
+            },
+            {
+                "name": "Caffè Pasticceria Spinella",
+                "specialty": "Traditional Pastries",
+                "must_try": [
+                    "Cannoli Siciliani",
+                    "Cassata Siciliana"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic pastry shop and café",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Wide selection of pastries",
+                "local_tips": "Historic pastry shop with traditional Sicilian sweets and pastries"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Osteria del Duomo",
+                "type": "Historic Osteria",
+                "specialty": "Traditional Sicilian Wines",
+                "signature_drinks": [
+                    "Nero d'Avola",
+                    "Grillo"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1890",
+                "best_time": "Evening",
+                "food_options": "BYOB (Bring Your Own Bottle)",
+                "reservation_needed": false,
+                "local_tips": "Historic osteria near the cathedral; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Cantina Siciliana",
+                "type": "Wine Bar",
+                "specialty": "Sicilian Wines",
+                "signature_drinks": [
+                    "Nero d'Avola",
+                    "Grillo",
+                    "Etna Rosso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with live Sicilian music",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Known for their Sicilian wine selection and live traditional music"
+            },
+            {
+                "name": "Osteria del Mare",
+                "type": "Historic Osteria",
+                "specialty": "Traditional Sicilian Wines",
+                "signature_drinks": [
+                    "Nero d'Avola",
+                    "Grillo"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1920",
+                "best_time": "Evening",
+                "food_options": "BYOB (Bring Your Own Bottle)",
+                "reservation_needed": false,
+                "local_tips": "Historic osteria near the port; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Cantina del Vulcano",
+                "type": "Wine Bar",
+                "specialty": "Etna Wines",
+                "signature_drinks": [
+                    "Etna Rosso",
+                    "Etna Bianco",
+                    "Etna Rosato"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with volcano views",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Known for their Etna wine selection and views of Mount Etna"
+            },
+            {
+                "name": "Osteria Antica Marina",
+                "type": "Historic Osteria",
+                "specialty": "Traditional Sicilian Wines",
+                "signature_drinks": [
+                    "Nero d'Avola",
+                    "Grillo"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1950",
+                "best_time": "Evening",
+                "food_options": "BYOB (Bring Your Own Bottle)",
+                "reservation_needed": false,
+                "local_tips": "Historic osteria near the fish market; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Cantina Siciliana",
+                "type": "Wine Bar",
+                "specialty": "Sicilian Wines",
+                "signature_drinks": [
+                    "Nero d'Avola",
+                    "Grillo",
+                    "Etna Rosso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with live Sicilian music",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Known for their Sicilian wine selection and live traditional music"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Catania Food Tour",
+                "focus": "Traditional Sicilian Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Pasta alla Norma",
+                    "Caponata Siciliana",
+                    "Cannoli Siciliani"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable shoes for walking"
+            },
+            {
+                "name": "Catania Market Tour",
+                "focus": "Local Markets and Food Culture",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "La Pescheria (Fish Market)",
+                    "Mercato di Piazza Carlo Alberto",
+                    "Traditional food shops"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "French"
+                ],
+                "booking_tips": "Reserve 10-14 days ahead; tour includes tastings at various locations"
+            },
+            {
+                "name": "Catania Cooking Experience",
+                "focus": "Hands-on Cooking Class",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fresh pasta making",
+                    "Traditional Sicilian sauces",
+                    "Local wine tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book early in high season (April-October); wear comfortable clothes"
+            },
+            {
+                "name": "Catania Food and Wine Tour",
+                "focus": "Food and Wine Pairing",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Local Sicilian wines",
+                    "Traditional dishes",
+                    "Food and wine pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Come hungry; tour includes tastings at multiple locations"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Catania Pasta Workshop",
+                "cuisine_focus": "Fresh Pasta Making",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Fresh pasta dough",
+                    "Pasta alla Norma making",
+                    "Traditional Sicilian sauces"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "All ingredients, instruction, meal with wine, and recipe"
+                ],
+                "booking_tips": "Book 2 weeks ahead; hands-on class where you make your own pasta"
+            },
+            {
+                "name": "Catania Traditional Cooking",
+                "cuisine_focus": "Traditional Sicilian Dishes",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Pasta alla Norma",
+                    "Caponata Siciliana",
+                    "Traditional Sicilian desserts"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, full meal with wine, and recipes"
+                ],
+                "booking_tips": "Reserve 2-3 weeks in advance; begins with market tour when possible"
+            },
+            {
+                "name": "Catania Family Recipes",
+                "cuisine_focus": "Home-style Sicilian Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional Sicilian recipes",
+                    "Local ingredients",
+                    "Family cooking techniques"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, instruction, meal with local wine, recipe booklet"
+                ],
+                "booking_tips": "Classes held in family home for authentic experience; book 1-2 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "La Pescheria (Fish Market)",
+                "type": "Fish Market",
+                "highlights": [
+                    "Fresh seafood",
+                    "Street food stalls",
+                    "Local specialties"
+                ],
+                "hours": "7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Via Pardo",
+                "local_tips": "Historic fish market with street food stalls serving fresh seafood and local specialties"
+            },
+            {
+                "name": "Mercato di Piazza Carlo Alberto",
+                "type": "General Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Traditional food shops"
+                ],
+                "hours": "7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Piazza Carlo Alberto",
+                "local_tips": "Historic market with fresh produce and traditional Sicilian food shops"
+            },
+            {
+                "name": "Mercato di Via Etnea",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Local produce",
+                    "Artisanal products",
+                    "Traditional Sicilian specialties"
+                ],
+                "hours": "9:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Via Etnea",
+                "local_tips": "Farmers market with local and organic Sicilian products"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Pasta alla Norma",
+            "Caponata Siciliana",
+            "Fave e Pecorino"
+        ],
+        "summer": [
+            "Granita",
+            "Pesche di Leonforte",
+            "Anguria di Siracusa"
+        ],
+        "autumn": [
+            "Pasta con le Sarde",
+            "Castagne dei Nebrodi",
+            "Zuppa di Lenticchie"
+        ],
+        "winter": [
+            "Pasta alla Norma",
+            "Cannoli Siciliani",
+            "Cassata Siciliana"
+        ]
+    }
+} 

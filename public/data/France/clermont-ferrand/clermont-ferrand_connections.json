@@ -1,0 +1,508 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, and unparalleled culinary scene. Only a short flight or train ride from Clermont-Ferrand.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€80-200"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€25-80"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "France's gastronomic capital with excellent museums, historic old town, and vibrant cultural scene. Easy access from Clermont-Ferrand.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€60-150"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€20-60"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "Historic Mediterranean port city with vibrant culture, excellent seafood, and gateway to Provence.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€70-180"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€30-90"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Beautiful French Riviera city with stunning beaches, Promenade des Anglais, and Mediterranean charm.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€80-200"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "5h",
+                "frequency": "Daily",
+                "priceRange": "€40-100"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "World-famous wine capital with beautiful architecture, excellent cuisine, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€70-180"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "4h30m",
+                "frequency": "Daily",
+                "priceRange": "€35-95"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "Pink city with aerospace heritage, beautiful architecture, and vibrant student culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "55m",
+                "frequency": "Daily",
+                "priceRange": "€65-170"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "3h45m",
+                "frequency": "Daily",
+                "priceRange": "€25-75"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "Capital of Alsace with stunning cathedral, European Parliament, and unique Franco-German culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€90-220"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "priceRange": "€45-110"
+            }
+        },
+        {
+            "city": "Nantes",
+            "country": "France",
+            "whyGo": "Historic port city with castle, excellent museums, and gateway to the Loire Valley.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€80-200"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "4h15m",
+                "frequency": "Daily",
+                "priceRange": "€30-85"
+            }
+        },
+        {
+            "city": "Montpellier",
+            "country": "France",
+            "whyGo": "Dynamic university city with historic center, Mediterranean climate, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€70-180"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "3h30m",
+                "frequency": "Daily",
+                "priceRange": "€25-70"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Global city with Red Cross headquarters, UN offices, and beautiful lake setting.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€40-100"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for medieval old town, excellent museums, and beautiful lake setting.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-280"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "5h",
+                "frequency": "Daily",
+                "priceRange": "€50-120"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "priceRange": "€60-150"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "10h",
+                "frequency": "Daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for Gaudí's architecture, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "priceRange": "€70-180"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spanish capital with rich European art collections, vibrant culture, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "9h",
+                "frequency": "Daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Capital of Belgium and EU, known for Grand Place, Art Nouveau architecture, and beer culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-280"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€60-150"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for artistic heritage, elaborate canal system, and world-class museums.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "priceRange": "€70-180"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Historic capital with world-class museums, iconic landmarks, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Major financial hub with futuristic skyline, excellent museums, and historic old town.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-280"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€65-160"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for Oktoberfest, beer halls, excellent museums, and beautiful architecture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "7h30m",
+                "frequency": "Daily",
+                "priceRange": "€75-190"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€140-350"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "10h",
+                "frequency": "Daily",
+                "priceRange": "€90-220"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€150-380"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "12h",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€160-400"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "13h",
+                "frequency": "Daily",
+                "priceRange": "€110-280"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€180-450"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "16h",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€170-420"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "14h",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€180-450"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "18h",
+                "frequency": "Daily",
+                "priceRange": "€150-380"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "3h",
+                "frequency": "Daily",
+                "priceRange": "€200-500"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "20h",
+                "frequency": "Daily",
+                "priceRange": "€170-420"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€160-400"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "15h",
+                "frequency": "Daily",
+                "priceRange": "€110-280"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€170-420"
+            },
+            "train": {
+                "departureFromClermont": "Clermont-Ferrand Station",
+                "journeyTime": "16h",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            }
+        },
+        {
+            "city": "Reykjavik",
+            "country": "Iceland",
+            "whyGo": "Gateway to Iceland's natural wonders, Northern Lights, and unique culture.",
+            "intraEuropeFlight": {
+                "airportsInClermont": ["Clermont-Ferrand Auvergne Airport (CFE)"],
+                "approxFlightTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€250-600"
+            }
+        }
+    ]
+}

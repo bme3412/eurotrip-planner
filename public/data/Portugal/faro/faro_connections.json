@@ -1,0 +1,174 @@
+{
+    "destinations": [
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Experience Portugal's vibrant capital city, famous for its historic trams, Belém Tower, Jerónimos Monastery, charming Alfama district, and spectacular viewpoints across seven hills.",
+            "directWithinCountryTrain": {
+                "stationInFaro": "Faro Railway Station",
+                "journeyTime": "Approx. 3 hours (Alfa Pendular high-speed)",
+                "frequency": "5 times daily"
+            },
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 3 hours 15 minutes",
+                "frequency": "Hourly services"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Discover Portugal's second city with its UNESCO-listed Ribeira district, spectacular Dom Luís I Bridge, historic port wine cellars, and the beautiful Douro River flowing through its heart.",
+            "directWithinCountryTrain": {
+                "stationInFaro": "Faro Railway Station",
+                "journeyTime": "Approx. 5 hours 45 minutes (Alfa Pendular)",
+                "frequency": "Twice daily"
+            },
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 6 hours",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInFaro": [
+                    "Faro Airport (FAO)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Several times daily (seasonal variations)"
+            }
+        },
+        {
+            "city": "Coimbra",
+            "country": "Portugal",
+            "whyGo": "Visit Portugal's historic university city, home to one of the world's oldest universities, a stunning Baroque library (Biblioteca Joanina), and a rich tradition of Fado music.",
+            "directWithinCountryTrain": {
+                "stationInFaro": "Faro Railway Station",
+                "journeyTime": "Approx. 4 hours 45 minutes (Alfa Pendular)",
+                "frequency": "Twice daily"
+            },
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 5 hours 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Braga",
+            "country": "Portugal",
+            "whyGo": "Discover one of Portugal's oldest cities with its spectacular Bom Jesus do Monte sanctuary, medieval cathedral, charming historic center, and vibrant university atmosphere.",
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 10 hours 35 minutes",
+                "frequency": "Once daily"
+            },
+            "intraCountryConnection": {
+                "connectingCity": "Lisbon or Porto",
+                "totalJourneyTime": "Approx. 7-8 hours (via train connection)",
+                "frequency": "Multiple connections daily"
+            }
+        },
+        {
+            "city": "Seville",
+            "country": "Spain",
+            "whyGo": "Experience the capital of Andalusia with its breathtaking Plaza de España, ornate Alcázar palace, massive Gothic cathedral, and the charming Santa Cruz quarter filled with tapas bars.",
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 2 hours 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant Spanish capital with its world-class art museums (Prado, Reina Sofía), Royal Palace, lively tapas bars, Retiro Park, and bustling nightlife.",
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 8 hours 30 minutes",
+                "frequency": "Daily service"
+            },
+            "intraEuropeFlight": {
+                "airportsInFaro": [
+                    "Faro Airport (FAO)"
+                ],
+                "approxFlightTime": "1 hour 22 minutes",
+                "frequency": "Several flights weekly with Iberia and Ryanair"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Explore Catalonia's cosmopolitan capital, renowned for Gaudí's unique architecture (Sagrada Família, Park Güell), the Gothic Quarter, Las Ramblas boulevard, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInFaro": [
+                    "Faro Airport (FAO)"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "Several flights weekly with Vueling, Ryanair and TAP Portugal"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the iconic City of Light, home to the Eiffel Tower, Louvre Museum, Notre Dame Cathedral, charming Montmartre, romantic Seine River cruises, and world-class cuisine.",
+            "intraEuropeFlight": {
+                "airportsInFaro": [
+                    "Faro Airport (FAO)"
+                ],
+                "approxFlightTime": "2 hours 35 minutes",
+                "frequency": "Multiple flights weekly with Transavia France, easyJet, and Ryanair"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Experience the historic UK capital with its royal landmarks (Buckingham Palace, Tower of London), world-class museums, diverse neighborhoods, West End theatre, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInFaro": [
+                    "Faro Airport (FAO)"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Multiple flights daily from multiple airlines"
+            }
+        },
+        {
+            "city": "Ria Formosa Natural Park",
+            "country": "Portugal",
+            "whyGo": "Explore this stunning coastal lagoon system stretching along 60km of the Algarve coast, with its diverse ecosystems, barrier islands, pristine beaches, and rich birdlife including flamingos.",
+            "localTransport": {
+                "departsFrom": "Faro Marina",
+                "journeyTime": "15-60 minutes (depending on destination island)",
+                "frequency": "Regular boat services throughout the day"
+            },
+            "guidedTour": {
+                "departsFrom": "Faro Marina",
+                "journeyTime": "2-4 hours (depending on tour type)",
+                "frequency": "Multiple daily tours during peak season"
+            }
+        },
+        {
+            "city": "Ilha Deserta (Barreta Island)",
+            "country": "Portugal",
+            "whyGo": "Visit the southernmost point of mainland Portugal on this uninhabited barrier island with pristine beaches, clear waters, and a 2km wooden boardwalk crossing protected dunes.",
+            "boatService": {
+                "departsFrom": "Faro Marina",
+                "journeyTime": "Approx. 35 minutes",
+                "frequency": "Several times daily (more frequent in summer)"
+            }
+        },
+        {
+            "city": "Tavira",
+            "country": "Portugal",
+            "whyGo": "Discover one of the Algarve's most charming towns with its Roman bridge, converted Moorish castle, beautiful churches, and access to the island beaches of Ilha de Tavira.",
+            "directWithinCountryTrain": {
+                "stationInFaro": "Faro Railway Station",
+                "journeyTime": "Approx. 30-40 minutes",
+                "frequency": "Hourly services"
+            },
+            "directWithinCountryBus": {
+                "stationInFaro": "Terminal Rodoviário de Faro",
+                "journeyTime": "Approx. 40 minutes",
+                "frequency": "Several times daily"
+            }
+        }
+    ]
+}

@@ -1,0 +1,472 @@
+{
+    "destinations": [
+        {
+            "city": "Antwerp",
+            "country": "Belgium",
+            "whyGo": "A vibrant port city known for its diamond district and historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInBrussels": "Brussels Central",
+                "journeyTime": "40 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Ghent",
+            "country": "Belgium",
+            "whyGo": "A charming city with a rich medieval history and a lively cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInBrussels": "Brussels Central",
+                "journeyTime": "35 minutes",
+                "frequency": "Every 15 minutes"
+            }
+        },
+        {
+            "city": "Bruges",
+            "country": "Belgium",
+            "whyGo": "Renowned for its canals and medieval buildings, offering a fairy-tale experience.",
+            "directWithinCountryTrain": {
+                "stationInBrussels": "Brussels Central",
+                "journeyTime": "1 hour 5 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Liège",
+            "country": "Belgium",
+            "whyGo": "A city known for its vibrant nightlife and beautiful riverfront.",
+            "directWithinCountryTrain": {
+                "stationInBrussels": "Brussels Central",
+                "journeyTime": "1 hour",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Namur",
+            "country": "Belgium",
+            "whyGo": "A city with a strategic citadel offering scenic views of the Meuse River.",
+            "directWithinCountryTrain": {
+                "stationInBrussels": "Brussels Central",
+                "journeyTime": "1 hour",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Charleroi",
+            "country": "Belgium",
+            "whyGo": "Known for its industrial history and proximity to Brussels South Charleroi Airport.",
+            "directWithinCountryTrain": {
+                "stationInBrussels": "Brussels Central",
+                "journeyTime": "55 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Lille",
+            "country": "France",
+            "whyGo": "A dynamic city known for its culture and Flemish roots.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "35 minutes",
+                "frequency": "2-3 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The iconic capital of France, famous for its art, fashion, and gastronomy.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "1 hour 25 minutes",
+                "frequency": "Every hour"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Known for its artistic heritage, elaborate canal system, and narrow houses.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "1 hour 50 minutes",
+                "frequency": "Every hour"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Luxembourg City",
+            "country": "Luxembourg",
+            "whyGo": "A picturesque city known for its fortified medieval old town perched on sheer cliffs.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "3 hours",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "1-2 times daily"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Famous for its impressive cathedral and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "1 hour 50 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 5 minutes",
+                "frequency": "Few times weekly"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A global financial hub with a futuristic skyline and rich cultural attractions.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "3 hours 5 minutes",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A historic and cosmopolitan city with world-renowned landmarks and cultural diversity.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "2 hours 1 minute",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 5 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rotterdam",
+            "country": "Netherlands",
+            "whyGo": "A modern city known for its bold architecture and bustling port.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "1 hour 45 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Düsseldorf",
+            "country": "Germany",
+            "whyGo": "Known for its fashion industry and vibrant art scene.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "2 hours 15 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Aachen",
+            "country": "Germany",
+            "whyGo": "Famous for its cathedral and historic significance as a former imperial city.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "1 hour 10 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "The Hague",
+            "country": "Netherlands",
+            "whyGo": "Home to the Dutch government and the International Court of Justice.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "2 hours 10 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Utrecht",
+            "country": "Netherlands",
+            "whyGo": "A vibrant student city with medieval old town and unique canals.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "2 hours 20 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Zürich",
+            "country": "Switzerland",
+            "whyGo": "A global financial center with a picturesque lakeside setting.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "5 hours 45 minutes",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Renowned for its beer culture, Oktoberfest, and historic architecture.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "6 hours 30 minutes (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "A city of imperial history, classical music, and stunning palaces.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "12 hours (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion capital, known for its art, architecture, and gastronomy.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "10 hours (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "A city rich in history and culture, with a vibrant contemporary arts scene.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "6 hours 30 minutes (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Known for its historic center, colorful Nyhavn harbor, and modern design.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "12 hours (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "A fairy-tale city known for its Old Town Square, castles, and vibrant cultural life.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "11 hours (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 25 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "A vibrant city known for its art and architecture, including Gaudí's Sagrada Família.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "10 hours (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spain's central capital, known for its elegant boulevards and expansive parks.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "12 hours (with one transfer)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "2 hours 5 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "A hilly, coastal city known for its cafe culture and soulful Fado music.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "24 hours (with multiple transfers)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "A city surrounded by mountains and sea, known for its green spaces and museums.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "24 hours (with multiple transfers)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "Few times daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Spread across 14 islands, known for its beautiful architecture and open water.",
+            "intraEuropeTrain": {
+                "stationInBrussels": "Brussels Midi",
+                "journeyTime": "24 hours (with multiple transfers)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBrussels": [
+                    "Brussels Airport"
+                ],
+                "approxFlightTime": "2 hours 5 minutes",
+                "frequency": "Several times daily"
+            }
+        }
+    ]
+}

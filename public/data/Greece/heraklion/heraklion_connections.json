@@ -1,0 +1,154 @@
+{
+    "destinations": [
+        {
+            "city": "Athens (Piraeus Port)",
+            "country": "Greece",
+            "whyGo": "The Greek capital featuring the Acropolis, Parthenon, National Archaeological Museum, Ancient Agora, and vibrant neighborhoods like Plaka. The historic and cultural heart of Greece.",
+            "intraGreeceFerry": {
+                "portInHeraklion": "Heraklion Port",
+                "journeyTime": "Approx. 8-10 hours (overnight or day ferries)",
+                "frequency": "Multiple daily sailings (especially summer)",
+                "companies": ["Minoan Lines", "ANEK Lines", "Superfast Ferries"]
+            },
+            "intraGreeceFlight": {
+                "airportInHeraklion": "Heraklion International Airport (HER)",
+                "approxFlightTime": "Approx. 50 minutes",
+                "frequency": "Multiple flights daily",
+                "airlines": ["Aegean Airlines", "Olympic Air", "Sky Express"]
+            }
+        },
+        {
+            "city": "Santorini (Thira)",
+            "country": "Greece",
+            "whyGo": "Iconic Cycladic island famous for its dramatic caldera views, white-washed villages (Oia, Fira), stunning sunsets, volcanic beaches, and archaeological site of Akrotiri.",
+            "intraGreeceFerry": {
+                "portInHeraklion": "Heraklion Port",
+                "journeyTime": "Approx. 2 hours (high-speed ferry) to 4+ hours (conventional ferry)",
+                "frequency": "Multiple daily sailings (high season)",
+                "companies": ["SeaJets", "Minoan Lines", "Golden Star Ferries", "ANEK Lines"]
+            }
+        },
+        {
+            "city": "Chania",
+            "country": "Greece (Crete)",
+            "whyGo": "Picturesque city on Crete's northwest coast featuring a beautiful Venetian Harbour, charming Old Town with narrow alleys, historic lighthouse, and proximity to stunning beaches (Elafonissi, Balos).",
+            "directWithinCountryBus": {
+                "stationInHeraklion": "Heraklion Central Bus Station (KTEL Heraklion-Lasithi)",
+                "journeyTime": "Approx. 2.5 - 3 hours",
+                "frequency": "Frequent daily services (approx. hourly)",
+                "company": "KTEL Chanion-Rethymnou (operates jointly)"
+            }
+        },
+        {
+            "city": "Rethymno",
+            "country": "Greece (Crete)",
+            "whyGo": "Well-preserved Venetian Old Town located between Heraklion and Chania. Features a large Venetian fortress (Fortezza), a charming harbour, Renaissance architecture, and a long sandy beach.",
+            "directWithinCountryBus": {
+                "stationInHeraklion": "Heraklion Central Bus Station (KTEL Heraklion-Lasithi)",
+                "journeyTime": "Approx. 1.5 hours",
+                "frequency": "Very frequent daily services (more than hourly)",
+                "company": "KTEL Chanion-Rethymnou (operates jointly)"
+            }
+        },
+        {
+            "city": "Agios Nikolaos",
+            "country": "Greece (Crete)",
+            "whyGo": "Charming coastal town in eastern Crete built around the scenic Lake Voulismeni. Known for its relaxed atmosphere, waterfront cafes, and access to the Elounda area and Spinalonga island.",
+            "directWithinCountryBus": {
+                "stationInHeraklion": "Heraklion Central Bus Station (KTEL Heraklion-Lasithi)",
+                "journeyTime": "Approx. 1 - 1.5 hours",
+                "frequency": "Frequent daily services",
+                "company": "KTEL Heraklion-Lasithi"
+            }
+        },
+        {
+            "city": "Sitia",
+            "country": "Greece (Crete)",
+            "whyGo": "Relaxed port town in eastern Crete, gateway to Vai Palm Beach, Zakros Gorge, and the Toplou Monastery. Offers a more off-the-beaten-path Cretan experience.",
+             "directWithinCountryBus": {
+                "stationInHeraklion": "Heraklion Central Bus Station (KTEL Heraklion-Lasithi)",
+                "journeyTime": "Approx. 2.5 - 3 hours",
+                "frequency": "Several daily services",
+                "company": "KTEL Heraklion-Lasithi"
+            },
+            "intraGreeceFerry": {
+                "portInHeraklion": "Heraklion Port",
+                "journeyTime": "Varies (often part of routes to Rhodes/Karpathos)",
+                "frequency": "Less frequent than other routes, check schedules",
+                "companies": ["ANEK Lines (check specific routes)"]
+            }
+        },
+        {
+            "city": "Mykonos",
+            "country": "Greece",
+            "whyGo": "Famous Cycladic island known for its vibrant nightlife, iconic windmills, Little Venice district, beautiful beaches, and cosmopolitan atmosphere.",
+            "intraGreeceFerry": {
+                "portInHeraklion": "Heraklion Port",
+                "journeyTime": "Approx. 4-5 hours (high-speed ferry, often via Santorini)",
+                "frequency": "Daily sailings (high season)",
+                "companies": ["SeaJets", "Golden Star Ferries"]
+            }
+        },
+         {
+            "city": "Rhodes",
+            "country": "Greece",
+            "whyGo": "Largest of the Dodecanese islands, featuring a stunning medieval Old Town (UNESCO site), the Palace of the Grand Master, ancient acropolis, and beautiful beaches.",
+            "intraGreeceFerry": {
+                "portInHeraklion": "Heraklion Port",
+                "journeyTime": "Approx. 10-14 hours (often overnight)",
+                "frequency": "Several sailings per week",
+                "companies": ["ANEK Lines", "Blue Star Ferries (check schedules)"]
+            },
+             "intraGreeceFlight": {
+                "airportInHeraklion": "Heraklion International Airport (HER)",
+                "approxFlightTime": "Approx. 45 minutes",
+                "frequency": "Several flights weekly (seasonal)",
+                "airlines": ["Sky Express", "Olympic Air/Aegean"]
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Major global city offering iconic landmarks (Buckingham Palace, Tower of London), world-class museums (British Museum), theatre, shopping, and diverse culture.",
+            "intraEuropeFlight": {
+                "airportInHeraklion": "Heraklion International Airport (HER)",
+                "approxFlightTime": "Approx. 4 hours",
+                "frequency": "Multiple flights daily (seasonal, direct with budget airlines like EasyJet, Ryanair, Jet2, TUI; also BA)",
+                "airlines": ["EasyJet", "Ryanair", "Jet2", "TUI", "British Airways", "Aegean (via Athens)"]
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The 'City of Light' known for the Eiffel Tower, Louvre Museum, Notre Dame Cathedral, romantic atmosphere, charming neighborhoods, and world-class cuisine.",
+             "intraEuropeFlight": {
+                "airportInHeraklion": "Heraklion International Airport (HER)",
+                "approxFlightTime": "Approx. 3.5 - 4 hours",
+                "frequency": "Frequent flights (seasonal, direct with Transavia, EasyJet, Air France; also Aegean via Athens)",
+                "airlines": ["Transavia", "EasyJet", "Air France", "Aegean Airlines"]
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The 'Eternal City' featuring ancient wonders like the Colosseum and Roman Forum, Vatican City (St. Peter's Basilica, Vatican Museums), Trevi Fountain, and delicious Italian food.",
+            "intraEuropeFlight": {
+                "airportInHeraklion": "Heraklion International Airport (HER)",
+                "approxFlightTime": "Approx. 2 hours",
+                "frequency": "Several flights weekly (seasonal, direct with Volotea, Wizz Air, ITA; also Aegean via Athens)",
+                "airlines": ["Volotea", "Wizz Air", "ITA Airways", "Aegean Airlines"]
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Major financial hub with a modern skyline, but also a charming old town (Römerberg), museums along the Main river, and a gateway to other parts of Germany and Europe.",
+            "intraEuropeFlight": {
+                "airportInHeraklion": "Heraklion International Airport (HER)",
+                "approxFlightTime": "Approx. 3 hours",
+                "frequency": "Multiple flights daily (seasonal, direct with Lufthansa, Condor, TUI Fly, Eurowings; also Aegean via Athens)",
+                 "airlines": ["Lufthansa", "Condor", "TUI Fly", "Eurowings", "Aegean Airlines"]
+            }
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "eurotrip-nextjs-1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run build:data && npm run build:cities && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "analyze": "ANALYZE=true next build",
+    "build:data": "node scripts/generateMonthlyIndex.mjs",
+    "build:cities": "node scripts/generateCityIndex.mjs",
+    "compress-images": "node scripts/compressImages.mjs",
+    "compress-images-simple": "node scripts/compressImagesSimple.mjs",
+    "convert-png-to-jpeg": "node scripts/convertPngToJpeg.mjs",
+    "move-thumbnails": "node scripts/moveThumbnails.mjs",
+    "replace-thumbnails": "node scripts/replaceThumbnails.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^2.0.4",
+    "@ai-sdk/react": "^2.0.10",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@vercel/analytics": "^1.5.0",
+    "ai": "^5.0.10",
+    "framer-motion": "^12.4.10",
+    "lucide-react": "^0.475.0",
+    "mapbox-gl": "^3.11.0",
+    "next": "15.1.7",
+    "next-auth": "^4.24.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-map-gl": "^8.0.2",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.3.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}

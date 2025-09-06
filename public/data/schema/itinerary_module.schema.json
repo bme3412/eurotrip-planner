@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "itinerary_module.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "cityId", "title", "durationMinutes", "stops"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^module:[a-z0-9-]+:[a-z0-9-]+$" },
+    "cityId": { "type": "string" },
+    "title": { "type": "string" },
+    "theme": { "type": "array", "items": { "type": "string" } },
+    "durationMinutes": { "type": "integer", "minimum": 60, "maximum": 720 },
+    "bestMonths": { "type": "array", "items": { "type": "string" } },
+    "rainyDay": { "type": "boolean" },
+    "stops": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "durationMin"],
+        "properties": {
+          "poiId": { "type": "string" },
+          "title": { "type": "string" },
+          "durationMin": { "type": "integer", "minimum": 15, "maximum": 300 },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "properties": {
+        "mode": { "type": "string", "enum": ["walking", "public-transit", "mixed"] },
+        "totalWalkMin": { "type": "integer", "minimum": 0, "maximum": 600 }
+      },
+      "additionalProperties": false
+    }
+  }
+}
+
+

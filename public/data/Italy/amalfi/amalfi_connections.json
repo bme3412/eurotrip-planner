@@ -1,0 +1,318 @@
+{
+    "destinations": [
+        {
+            "city": "Naples",
+            "country": "Italy",
+            "whyGo": "Historic southern Italian city with rich cultural heritage, famous pizza, stunning bay views, and gateway to the Amalfi Coast and Pompeii.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "45m",
+                "frequency": "Every 30 minutes",
+                "operator": "Trenitalia",
+                "priceRange": "€4-8"
+            },
+            "bus": {
+                "journeyTime": "1h30m",
+                "frequency": "Every hour",
+                "operator": "SITA SUD",
+                "priceRange": "€3.50"
+            }
+        },
+        {
+            "city": "Salerno",
+            "country": "Italy",
+            "whyGo": "Charming coastal city with beautiful medieval center, excellent seafood restaurants, and main transportation hub for the Amalfi Coast.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "30m",
+                "frequency": "Every 20 minutes",
+                "operator": "Trenitalia",
+                "priceRange": "€2.50-5"
+            },
+            "bus": {
+                "journeyTime": "1h",
+                "frequency": "Every 30 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€2.50"
+            }
+        },
+        {
+            "city": "Ravello",
+            "country": "Italy",
+            "whyGo": "Elegant hilltop town famous for its stunning gardens, classical music festival, and breathtaking views over the Amalfi Coast.",
+            "bus": {
+                "journeyTime": "25m",
+                "frequency": "Every 30 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€2.50"
+            }
+        },
+        {
+            "city": "Positano",
+            "country": "Italy",
+            "whyGo": "Iconic cliffside town with colorful houses, beautiful beaches, luxury boutiques, and romantic Mediterranean atmosphere.",
+            "bus": {
+                "journeyTime": "20m",
+                "frequency": "Every 30 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€2.50"
+            },
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "15m",
+                "frequency": "Every hour (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€8-12"
+            }
+        },
+        {
+            "city": "Sorrento",
+            "country": "Italy",
+            "whyGo": "Charming coastal town with stunning bay views, excellent restaurants, and gateway to the Sorrentine Peninsula and Capri.",
+            "bus": {
+                "journeyTime": "1h15m",
+                "frequency": "Every hour",
+                "operator": "SITA SUD",
+                "priceRange": "€3.50"
+            },
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "45m",
+                "frequency": "3-4 daily (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€15-20"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient Roman ruins, Vatican treasures, Renaissance art, and vibrant street life.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "2h30m",
+                "frequency": "Every hour",
+                "operator": "Trenitalia Frecciarossa",
+                "priceRange": "€25-45"
+            },
+            "flight": {
+                "airport": "Naples International Airport (NAP)",
+                "destinationAirport": "Rome Fiumicino (FCO)",
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€50-150"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renaissance art capital with stunning architecture, world-class museums, and beautiful Tuscan countryside.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "4h",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€35-65"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Fashion and design capital with stunning Gothic cathedral, world-class shopping, excellent cuisine, and vibrant cultural scene.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "5h30m",
+                "frequency": "Every 2 hours",
+                "operator": "Trenitalia Frecciarossa",
+                "priceRange": "€45-85"
+            },
+            "flight": {
+                "airport": "Naples International Airport (NAP)",
+                "destinationAirport": "Milan Malpensa (MXP)",
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€60-180"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Magical floating city with romantic canals, stunning architecture, rich history, and unique Venetian culture.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "6h",
+                "frequency": "Every 3 hours",
+                "operator": "Trenitalia",
+                "priceRange": "€45-75"
+            },
+            "flight": {
+                "airport": "Naples International Airport (NAP)",
+                "destinationAirport": "Venice Marco Polo (VCE)",
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€70-200"
+            }
+        },
+        {
+            "city": "Capri",
+            "country": "Italy",
+            "whyGo": "Glamorous island with stunning Blue Grotto, luxury boutiques, beautiful gardens, and Mediterranean charm.",
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "1h15m",
+                "frequency": "2-3 daily (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€20-25"
+            }
+        },
+        {
+            "city": "Ischia",
+            "country": "Italy",
+            "whyGo": "Volcanic island with thermal springs, beautiful beaches, historic castles, and authentic Neapolitan atmosphere.",
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "1h45m",
+                "frequency": "1-2 daily (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€25-30"
+            }
+        },
+        {
+            "city": "Pompeii",
+            "country": "Italy",
+            "whyGo": "Fascinating archaeological site with well-preserved Roman ruins, offering insight into ancient Roman life before the 79 AD eruption.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "1h",
+                "frequency": "Every 30 minutes",
+                "operator": "Trenitalia",
+                "priceRange": "€3-6"
+            },
+            "bus": {
+                "journeyTime": "1h45m",
+                "frequency": "Every 2 hours",
+                "operator": "SITA SUD",
+                "priceRange": "€4"
+            }
+        },
+        {
+            "city": "Paestum",
+            "country": "Italy",
+            "whyGo": "Ancient Greek archaeological site with well-preserved temples, beautiful beaches, and rich historical significance.",
+            "train": {
+                "station": "Salerno Railway Station",
+                "journeyTime": "1h15m",
+                "frequency": "Every hour",
+                "operator": "Trenitalia",
+                "priceRange": "€4-7"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Vibrant Catalan capital famous for Gaudí's architecture, excellent cuisine, beautiful beaches, and rich cultural heritage.",
+            "flight": {
+                "airport": "Naples International Airport (NAP)",
+                "destinationAirport": "Barcelona-El Prat Airport (BCN)",
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€80-250"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light, France's capital known for iconic landmarks like the Eiffel Tower, world-class museums, elegant boulevards, and unparalleled cultural heritage.",
+            "flight": {
+                "airport": "Naples International Airport (NAP)",
+                "destinationAirport": "Charles de Gaulle (CDG) / Orly (ORY)",
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-300"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "World-class city with iconic landmarks, royal palaces, excellent museums, diverse neighborhoods, and rich history.",
+            "flight": {
+                "airport": "Naples International Airport (NAP)",
+                "destinationAirport": "London airports",
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-350"
+            }
+        },
+        {
+            "city": "Minori",
+            "country": "Italy",
+            "whyGo": "Charming coastal town known for its beautiful beaches, historic paper mills, and excellent seafood restaurants.",
+            "bus": {
+                "journeyTime": "10m",
+                "frequency": "Every 15 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€1.50"
+            },
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "5m",
+                "frequency": "Every 30 minutes (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€5-8"
+            }
+        },
+        {
+            "city": "Maiori",
+            "country": "Italy",
+            "whyGo": "Largest beach on the Amalfi Coast with golden sand, water sports, and family-friendly atmosphere.",
+            "bus": {
+                "journeyTime": "15m",
+                "frequency": "Every 15 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€1.50"
+            },
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "8m",
+                "frequency": "Every 30 minutes (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€6-9"
+            }
+        },
+        {
+            "city": "Cetara",
+            "country": "Italy",
+            "whyGo": "Authentic fishing village famous for its anchovy production, beautiful harbor, and traditional Mediterranean atmosphere.",
+            "bus": {
+                "journeyTime": "20m",
+                "frequency": "Every 30 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€2"
+            },
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "12m",
+                "frequency": "Every hour (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€7-10"
+            }
+        },
+        {
+            "city": "Vietri sul Mare",
+            "country": "Italy",
+            "whyGo": "Colorful ceramics town marking the eastern end of the Amalfi Coast, with beautiful beaches and traditional workshops.",
+            "bus": {
+                "journeyTime": "25m",
+                "frequency": "Every 30 minutes",
+                "operator": "SITA SUD",
+                "priceRange": "€2"
+            },
+            "ferry": {
+                "port": "Amalfi Marina",
+                "journeyTime": "15m",
+                "frequency": "Every hour (seasonal)",
+                "operator": "Travelmar",
+                "priceRange": "€8-12"
+            }
+        }
+    ]
+}

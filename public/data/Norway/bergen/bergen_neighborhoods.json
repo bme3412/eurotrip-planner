@@ -1,0 +1,950 @@
+{
+  "neighborhoods": [
+    {
+      "name": "Sentrum",
+      "alternate_names": [
+        "City Centre", "Downtown", "Byparken Area"
+      ],
+      "character": "Bergen's modern commercial and cultural heart, centered around the main square Torgallmenningen and the lake Lille Lungegårdsvannet. Features major shopping streets, art museums (KODE), the main train station, bus station, and public parks.",
+      "location": {
+        "central": true,
+        "description": "The core area around Torgallmenningen square, extending south towards the train station and lake, east towards KODE museums, and west towards the theatre district.",
+        "borders": [
+          "Bryggen/Vågen (north)",
+          "Nygårdshøyden (south)",
+          "Marken/Train Station (east)",
+          "Nordnes (west, across Vågen inlet)"
+        ],
+        "landmarks": [
+          "Torgallmenningen (Main Square)",
+          "Lille Lungegårdsvannet (Lake)",
+          "Byparken (City Park)",
+          "KODE Art Museums (KODE 1, 2, 3, 4)",
+          "Den Nationale Scene (National Theatre)",
+          "Bergen Train Station",
+          "Bergen Bus Station",
+          "Xhibition Shopping Centre",
+          "Galleriet Shopping Centre"
+        ]
+      },
+      "history": {
+        "overview": "Much of the modern Sentrum was rebuilt after the great city fire of 1916 in Art Nouveau and Functionalist styles, particularly around Torgallmenningen. The area around the lake and park developed as a cultural hub with museums and public spaces.",
+        "significance": "The commercial, transport, and modern cultural center of Bergen.",
+        "notable_events": [
+          "Great Fire of 1916 and subsequent rebuilding",
+          "Development of KODE museum cluster",
+          "Establishment of Torgallmenningen as the main public square"
+        ]
+      },
+      "practical_info": {
+        "transit": [
+          "Bergen Train Station (National rail, Airport train link via Bybanen)",
+          "Bergen Bus Station (Local and regional buses)",
+          "Bybanen (Light Rail) stops (e.g., Byparken, Nonneseter)",
+          "Numerous local bus stops",
+          "Highly walkable"
+        ],
+        "safety": "Generally very safe, but standard precautions apply in busy areas like Torgallmenningen and near transport hubs, especially at night.",
+        "best_time_to_visit": "Daytime for shopping, museums, parks. Evenings for restaurants, theatre, cinemas. Busy year-round.",
+        "walkability": "Excellent walkability, mostly flat."
+      },
+      "appeal": {
+        "known_for": [
+          "Torgallmenningen square",
+          "Shopping (department stores, chains, boutiques)",
+          "KODE Art Museums",
+          "Lille Lungegårdsvannet lake and Byparken",
+          "Transport links (Train/Bus/Light Rail)",
+          "Proximity to theatre and concert halls"
+        ],
+        "atmosphere": [
+          "Bustling",
+          "Central",
+          "Commercial",
+          "Modern (architecture)",
+          "Cultural (museums)",
+          "Metropolitan"
+        ],
+        "best_for": [
+          "Shoppers",
+          "Art lovers (KODE)",
+          "Travelers needing central transport",
+          "First-time visitors wanting centrality",
+          "People watchers"
+        ]
+      },
+      "categories": {
+        "touristy": 4,
+        "residential": 2,
+        "green_spaces": 3,
+        "shopping": 5,
+        "dining": 4,
+        "nightlife": 4,
+        "cultural": 5,
+        "historic": 2
+      },
+      "highlights": {
+        "attractions": [
+          {
+            "name": "KODE Art Museums",
+            "type": "Art Museums & Composer Homes",
+            "description": "Complex of four art museum buildings around Lille Lungegårdsvannet, plus composer homes. Houses extensive collections of art, design, and music, including major Munch works.",
+            "appeal": "Premier art destination in Bergen, diverse collections."
+          },
+          {
+            "name": "Torgallmenningen",
+            "type": "Main Square",
+            "description": "Bergen's principal public square, a wide pedestrianized avenue lined with shops, cafes, and functionalist architecture, often hosting markets or events.",
+            "appeal": "Heart of the city's commercial life, meeting point."
+          },
+          {
+            "name": "Byparken & Lille Lungegårdsvannet",
+            "type": "City Park & Lake",
+            "description": "Central green space with a picturesque octagonal lake, bandstand, and surrounding museums.",
+            "appeal": "Relaxation, scenic views, cultural surroundings."
+          }
+        ],
+        "dining": [
+          {
+            "name": "Restaurants & Cafes around Torgallmenningen & Lake",
+            "cuisine": "International, Norwegian, Cafes, Chains, Fine Dining (e.g. Lysverket, Bare)",
+            "price_range": "€€-€€€€€",
+            "known_for": "High concentration, convenience, variety from casual to Michelin-starred",
+            "atmosphere": "Varies widely from bustling cafes to elegant restaurants."
+          }
+        ],
+        "activities": [
+          {
+            "name": "Shopping",
+            "type": "Retail Therapy",
+            "description": "Explore shopping centers like Galleriet and Xhibition, department stores, and numerous shops along Torgallmenningen and adjacent streets.",
+            "suitable_for": [
+              "Shoppers of all types"
+            ]
+          },
+          {
+            "name": "Museum Hopping (KODE)",
+            "type": "Cultural Exploration",
+            "description": "Spend a day exploring the diverse collections within the KODE museum buildings.",
+            "suitable_for": [
+              "Art and culture enthusiasts"
+            ]
+          }
+        ]
+      },
+      "stay_here_if": [
+        "You want absolute centrality and easy access to transport",
+        "You prioritize shopping and major art museums",
+        "You enjoy a busy, metropolitan atmosphere"
+      ],
+      "avoid_if": [
+        "You seek historic wooden house charm (better in Bryggen/Nordnes/Sandviken)",
+        "You prefer a quieter, more residential feel",
+        "You are on a very tight budget (central accommodation often pricier)"
+      ],
+      "insider_tips": [
+        "Check KODE's website for combined tickets and special exhibitions.",
+        "Explore the smaller streets branching off Torgallmenningen for potentially quieter cafes or unique shops.",
+        "The light rail (Bybanen) from Byparken is a convenient way to reach the airport or southern neighborhoods."
+      ]
+    },
+    {
+      "name": "Bryggen",
+      "alternate_names": [
+        "Tyskebryggen", "The Wharf", "Vågen (East Side)", "Bergenhus (area)"
+      ],
+      "character": "Bergen's iconic UNESCO World Heritage site. A historic harbour district featuring the characteristic colourful, narrow wooden houses of the former Hanseatic League trading post. Bustling with history, museums, small shops, galleries, restaurants, and tourists.",
+      "location": {
+        "central": true,
+        "description": "Lines the eastern side of the Vågen harbour, north of the Fish Market and adjacent to Bergenhus Fortress.",
+        "borders": [
+          "Bergenhus Fortress (north)",
+          "Vågen Harbour (west)",
+          "Sentrum/Fish Market (south)",
+          "Øvregaten/St. Mary's Church area (east)"
+        ],
+        "landmarks": [
+          "Bryggen Hanseatic Wharf (UNESCO Site)",
+          "Hanseatic Museum and Schøtstuene",
+          "Bryggens Museum",
+          "St. Mary's Church (Mariakirken)",
+          "Bergenhus Fortress (adjacent - Håkon's Hall, Rosenkrantz Tower)",
+          "Fløibanen Funicular (Lower Station)"
+        ]
+      },
+      "history": {
+        "overview": "Site of Bergen's earliest settlements. Dominated by the Hanseatic League (German merchants) from approx. 1360 to 1754, serving as a major trading hub for stockfish and grain. Suffered numerous fires, with the current structure largely reflecting the appearance after the 1702 fire, rebuilt on old foundations and property lines.",
+        "significance": "One of the best-preserved medieval trading complexes in Northern Europe, representing a crucial period in Bergen's and Norway's history.",
+        "notable_events": [
+          "Hanseatic League establishment (c. 1360)",
+          "Numerous fires (e.g., 1702, 1955)",
+          "End of Hanseatic Kontor (1754)",
+          "UNESCO World Heritage listing (1979)"
+        ]
+      },
+      "practical_info": {
+        "transit": [
+          "Highly walkable",
+          "Close to central bus stops and Bybanen (Byparken)",
+          "Ferry connections nearby (e.g., Express boats, Beffen ferry)",
+          "Fløibanen funicular base"
+        ],
+        "safety": "Generally very safe, but highly touristed. Be mindful of belongings in crowded passages.",
+        "best_time_to_visit": "Daytime for museums, shops, atmosphere. Evenings for restaurants. Can be very crowded, especially during cruise season (summer). Morning/late afternoon might be slightly less busy.",
+        "walkability": "Excellent walkability, though passages can be narrow and uneven. Wooden boardwalks."
+      },
+      "appeal": {
+        "known_for": [
+          "Iconic wooden houses (UNESCO site)",
+          "Hanseatic history and museums",
+          "Narrow alleyways and passages",
+          "Bergenhus Fortress",
+          "Fløibanen funicular access",
+          "Atmospheric restaurants and pubs"
+        ],
+        "atmosphere": [
+          "Historic",
+          "Touristy",
+          "Picturesque",
+          "Lively",
+          "Unique",
+          "Maritime"
+        ],
+        "best_for": [
+          "History buffs",
+          "Photographers",
+          "First-time visitors",
+          "Tourists seeking iconic sights",
+          "Those wanting historic atmosphere"
+        ]
+      },
+      "categories": {
+        "touristy": 5,
+        "residential": 1,
+        "green_spaces": 1,
+        "shopping": 3,
+        "dining": 4,
+        "nightlife": 3,
+        "cultural": 5,
+        "historic": 5
+      },
+      "highlights": {
+        "attractions": [
+          {
+            "name": "Bryggen Hanseatic Wharf",
+            "type": "UNESCO World Heritage Site",
+            "description": "Explore the iconic row of colourful wooden houses, wander through the narrow passages, and soak in the historic atmosphere of the Hanseatic trading post.",
+            "appeal": "The quintessential Bergen experience, visually stunning history."
+          },
+          {
+            "name": "Hanseatic Museum and Schøtstuene",
+            "type": "History Museum",
+            "description": "Museum showcasing the life and work of the Hanseatic merchants within an authentic trading house, plus the separate assembly rooms (Schøtstuene).",
+            "appeal": "Insight into the daily lives of the Hanseatic traders."
+          },
+          {
+            "name": "Bergenhus Fortress (Festning)",
+            "type": "Historic Fortress/Museum",
+            "description": "Medieval fortress complex adjacent to Bryggen, featuring Håkon's Hall (13th C royal hall) and the Rosenkrantz Tower (16th C defensive tower).",
+            "appeal": "History, architecture, views, concerts (Koengen area)."
+          },
+          {
+            "name": "Fløibanen Funicular",
+            "type": "Funicular Railway",
+            "description": "Takes passengers from the base near Bryggen up to Mount Fløyen (320m) for panoramic views and hiking opportunities.",
+            "appeal": "Easy access to stunning city views and mountain trails."
+          }
+        ],
+        "dining": [
+          {
+            "name": "Bryggen Restaurants",
+            "cuisine": "Traditional Norwegian, Seafood, International",
+            "price_range": "€€€-€€€€€",
+            "known_for": "Atmospheric settings in historic buildings (e.g., Bryggeloftet & Stuene, Enhjørningen), tourist-focused options",
+            "atmosphere": "Ranges from traditional and cozy to upscale seafood."
+          }
+        ],
+        "activities": [
+          {
+            "name": "Explore Bryggen's Passages",
+            "type": "Walking/Shopping",
+            "description": "Wander through the narrow wooden alleyways behind the main facade, discovering small artisan shops, galleries, and studios.",
+            "suitable_for": [
+              "Curious explorers",
+              "Shoppers (souvenirs, crafts)"
+            ]
+          },
+          {
+            "name": "Visit St. Mary's Church (Mariakirken)",
+            "type": "Historic Church",
+            "description": "Bergen's oldest preserved building (12th C), known as the German church during the Hanseatic period, featuring impressive Romanesque architecture and a unique baroque pulpit.",
+            "suitable_for": [
+              "History and architecture lovers"
+            ]
+          }
+        ]
+      },
+      "stay_here_if": [
+        "You want to stay right in the heart of Bergen's most historic and iconic area",
+        "You prioritize easy access to Bryggen museums, the fortress, and Fløibanen",
+        "You love atmospheric, historic surroundings (and don't mind tourists)"
+      ],
+      "avoid_if": [
+        "You seek tranquility (can be very crowded and noisy)",
+        "You are on a strict budget (accommodation and dining can be expensive)",
+        "You prefer modern amenities or spacious rooms (many hotels are in older buildings)"
+      ],
+      "insider_tips": [
+        "Explore early morning or later evening to avoid the peak cruise ship crowds.",
+        "Look up! Admire the details of the wooden architecture and the slightly leaning structures.",
+        "The small 'Beffen' ferry offers a quick and scenic crossing of Vågen harbour to/from Nordnes."
+      ]
+    },
+    {
+      "name": "Nordnes",
+      "alternate_names": [
+        "Nordnes Peninsula", "Klosteret", "Nøstet"
+      ],
+      "character": "A charming residential peninsula separating Vågen harbour from Puddefjorden. Known for its narrow cobblestone streets, picturesque wooden houses, the Bergen Aquarium, Nordnes Park, and a relaxed, local atmosphere mixed with some student life. Feels like a village within the city.",
+      "location": {
+        "central": true,
+        "description": "The peninsula extending west/northwest from the city center.",
+        "borders": [
+          "Vågen Harbour (north/east)",
+          "Puddefjorden (south/west)",
+          "Sentrum (southeast)"
+        ],
+        "landmarks": [
+          "Bergen Aquarium (Akvariet i Bergen)",
+          "Nordnesparken (Park)",
+          "Nordnes Sjøbad (Seawater Pool)",
+          "USF Verftet (Cultural Centre)",
+          "Klosteret area (Historic site)",
+          "Characteristic wooden houses and streets (e.g., Strangehagen, Klosteret)"
+        ]
+      },
+      "history": {
+        "overview": "One of Bergen's older areas, site of Munkeliv Monastery (founded early 12th C, now gone) near Klosteret. Developed with dense wooden housing. Suffered damage in city fires and notably during the 1944 Vågen explosion. Retains a strong local identity, sometimes called the 'Republic of Nordnes'.",
+        "significance": "Represents traditional Bergen wooden house architecture and a distinct neighborhood identity close to the center.",
+        "notable_events": [
+          "Founding of Munkeliv Monastery (c. 1110)",
+          "Development of residential area",
+          "WWII bombing and Vågen explosion impact (1944)"
+        ]
+      },
+      "practical_info": {
+        "transit": [
+          "Walkable to Sentrum/Bryggen",
+          "Served by local buses",
+          "Beffen ferry connects Nordnes (near Aquarium) to Bryggen side"
+        ],
+        "safety": "Very safe, quiet residential area.",
+        "best_time_to_visit": "Anytime for charming walks. Summer for the park and seawater pool. Daytime for Aquarium.",
+        "walkability": "Excellent walkability, though some streets are steep and cobblestoned."
+      },
+      "appeal": {
+        "known_for": [
+          "Picturesque wooden houses and narrow streets",
+          "Bergen Aquarium",
+          "Nordnes Park and Sjøbad",
+          "Quiet, residential atmosphere",
+          "Sea views",
+          "USF Verftet cultural venue"
+        ],
+        "atmosphere": [
+          "Charming",
+          "Quiet",
+          "Residential",
+          "Picturesque",
+          "Local",
+          "Relaxed"
+        ],
+        "best_for": [
+          "Families (Aquarium, Park)",
+          "Visitors seeking a quieter base near the center",
+          "Photographers (charming streets)",
+          "Architecture admirers (wooden houses)",
+          "Strollers"
+        ]
+      },
+      "categories": {
+        "touristy": 3,
+        "residential": 5,
+        "green_spaces": 4,
+        "shopping": 1,
+        "dining": 2,
+        "nightlife": 1,
+        "cultural": 3,
+        "historic": 4
+      },
+      "highlights": {
+        "attractions": [
+          {
+            "name": "Bergen Aquarium (Akvariet i Bergen)",
+            "type": "Aquarium",
+            "description": "Located at the tip of the peninsula, showcasing fish and marine life from Norwegian waters and tropical regions, plus penguins, seals, and crocodiles.",
+            "appeal": "Popular family attraction, diverse exhibits."
+          },
+          {
+            "name": "Nordnesparken",
+            "type": "Park",
+            "description": "Pleasant park at the end of the peninsula with walking paths, lawns, sea views, and a totem pole (gift from Seattle).",
+            "appeal": "Relaxation, views, recreation."
+          },
+          {
+            "name": "Charming Streets (e.g., Klosteret, Strangehagen)",
+            "type": "Historic Area/Walking",
+            "description": "Wander the narrow cobblestone streets lined with well-preserved wooden houses, particularly around the Klosteret area.",
+            "appeal": "Photogenic, atmospheric, glimpse into old Bergen."
+          }
+        ],
+        "dining": [
+          {
+            "name": "Neighborhood Cafes & Bistros",
+            "cuisine": "Cafes, Light Meals, Bistro",
+            "price_range": "€€-€€€",
+            "known_for": "Local spots, relaxed atmosphere (e.g., Løvetann Café & Bistro)",
+            "atmosphere": "Cozy and local, fewer options than Sentrum/Bryggen."
+          },
+          {
+            "name": "USF Verftet Dining",
+            "cuisine": "Cafe/Restaurant/Bar",
+            "price_range": "€€-€€€",
+            "known_for": "Dining/drinks within the cultural center, often with sea views.",
+            "atmosphere": "Casual, cultural hub."
+          }
+        ],
+        "activities": [
+          {
+            "name": "Strolling and Photography",
+            "type": "Walking/Sightseeing",
+            "description": "Spend time exploring the picturesque streets and enjoying the unique character of the neighborhood.",
+            "suitable_for": [
+              "Everyone",
+              "Photographers"
+            ]
+          },
+          {
+            "name": "Visit Nordnes Sjøbad",
+            "type": "Recreation",
+            "description": "Take a dip in the heated outdoor saltwater pool or the fjord itself (seasonal operation).",
+            "suitable_for": [
+              "Swimmers",
+              "Families (in summer)"
+            ]
+          },
+          {
+            "name": "Attend an event at USF Verftet",
+            "type": "Cultural",
+            "description": "Check the schedule for concerts, films, exhibitions, or other events at this former sardine factory turned cultural venue.",
+            "suitable_for": [
+              "Culture seekers"
+            ]
+          }
+        ]
+      },
+      "stay_here_if": [
+        "You are visiting the University of Bergen",
+        "You prioritize access to Nygårdsparken and the University Museum",
+        "You want a slightly quieter, more residential/academic feel than Sentrum"
+      ],
+      "avoid_if": [
+        "You want to be in the absolute commercial/tourist heart (Sentrum/Bryggen)",
+        "You dislike hills",
+        "You seek vibrant nightlife or extensive dining/shopping options immediately available"
+      ],
+      "insider_tips": [
+        "Gamle Bergen often has actors portraying historical figures during summer.",
+        "Stoltzekleiven is very popular; go early or on weekdays to avoid crowds. It's a strenuous climb!",
+        "Explore the different small 'hamlets' within Sandviken for varying atmospheres."
+      ]
+    },
+    {
+      "name": "Nygårdshøyden",
+      "alternate_names": [
+        "Høyden", "University Area", "Sydnes"
+      ],
+      "character": "The 'heights' south of the city center, dominated by the University of Bergen campus. Features stately university buildings, museums, the large Nygårdsparken, St. John's Church, and a significant student population. Mixes academic atmosphere with residential areas (mostly brick buildings) and green spaces.",
+      "location": {
+        "central": true,
+        "description": "Elevated area directly south of Sentrum (Byparken/Lake area).",
+        "borders": [
+          "Sentrum (north)",
+          "Møhlenpris (south/west)",
+          "Nygård/Solheimsviken (east)",
+          "Nordnes (northwest, across the hill)"
+        ],
+        "landmarks": [
+          "University of Bergen (UiB) campus buildings",
+          "University Museum (Natural History & Cultural History)",
+          "Bergen Maritime Museum",
+          "Nygårdsparken (Park)",
+          "St. John's Church (Johanneskirken)",
+          "Student Centre (Studentsenteret)",
+          "Grieghallen Concert Hall (nearby)"
+        ]
+      },
+      "history": {
+        "overview": "Developed significantly in the late 19th and early 20th centuries as Bergen expanded southwards. Became the location for the University of Bergen (formally established 1946, but with roots in Bergen Museum from 1825). Nygårdsparken was established in the 1880s.",
+        "significance": "The academic and research heart of Bergen, also providing a major green lung (Nygårdsparken) for the city.",
+        "notable_events": [
+          "Establishment of Bergen Museum (1825)",
+          "Creation of Nygårdsparken (1880s)",
+          "Development of University campus (mid-20th C onwards)"
+        ]
+      },
+      "practical_info": {
+        "transit": [
+          "Walkable to Sentrum",
+          "Served by numerous bus lines",
+          "Bybanen (Light Rail) stop Florida nearby"
+        ],
+        "safety": "Generally very safe academic and residential area. Nygårdsparken has had issues in the past but has undergone refurbishment; usual caution advised, especially after dark.",
+        "best_time_to_visit": "Daytime for museums and park exploration. Anytime for walking around the campus area.",
+        "walkability": "Good walkability, but involves hills ('Høyden' means 'the Height')."
+      },
+      "appeal": {
+        "known_for": [
+          "University of Bergen campus",
+          "Museums (University, Maritime)",
+          "Nygårdsparken",
+          "St. John's Church (landmark)",
+          "Student vibe",
+          "Muséhagen (Botanical Garden)"
+        ],
+        "atmosphere": [
+          "Academic",
+          "Green (Nygårdsparken)",
+          "Residential",
+          "Student-influenced",
+          "Relatively quiet (compared to Sentrum)"
+        ],
+        "best_for": [
+          "Academics/Visitors to the University",
+          "Museum lovers",
+          "Those seeking green space (Nygårdsparken)",
+          "Visitors wanting a slightly quieter base near the center"
+        ]
+      },
+      "categories": {
+        "touristy": 2,
+        "residential": 4,
+        "green_spaces": 5,
+        "shopping": 1,
+        "dining": 2,
+        "nightlife": 2,
+        "cultural": 4,
+        "historic": 3
+      },
+      "highlights": {
+        "attractions": [
+          {
+            "name": "University Museum",
+            "type": "Museum (Natural & Cultural History)",
+            "description": "Houses significant collections covering natural history, archaeology, anthropology, and art history. Includes the adjacent Muséhagen botanical garden.",
+            "appeal": "Diverse collections, insight into nature and culture, beautiful garden."
+          },
+          {
+            "name": "Nygårdsparken",
+            "type": "City Park",
+            "description": "Bergen's largest urban park, designed in English landscape style, with ponds, lawns, mature trees, and refurbished areas with playgrounds.",
+            "appeal": "Major green space for recreation and relaxation."
+          },
+          {
+            "name": "St. John's Church (Johanneskirken)",
+            "type": "Church",
+            "description": "Prominent landmark church built in 1894 in Neo-Gothic style, known for its tall tower (Bergen's tallest) and large seating capacity.",
+            "appeal": "Impressive architecture, city landmark."
+          }
+        ],
+        "dining": [
+          {
+            "name": "Student Cafeterias & Local Cafes",
+            "cuisine": "Cafeteria fare, Coffee, Light meals",
+            "price_range": "€-€€€",
+            "known_for": "Budget-friendly student options, local cafes catering to university crowd",
+            "atmosphere": "Casual, student-focused, some cozy spots."
+          },
+          {
+            "name": "Restaurants near Grieghallen/Sentrum border",
+            "cuisine": "Varied",
+            "price_range": "€€-€€€€",
+            "known_for": "Proximity to concert hall and city center",
+            "atmosphere": "Varies, some pre-theatre/concert options."
+          }
+        ],
+        "activities": [
+          {
+            "name": "Explore Nygårdsparken",
+            "type": "Recreation/Walking",
+            "description": "Walk, relax, picnic, or use the playgrounds in Bergen's largest central park.",
+            "suitable_for": [
+              "Everyone",
+              "Families"
+            ]
+          },
+          {
+            "name": "Visit Muséhagen (Botanical Garden)",
+            "type": "Nature/Education",
+            "description": "Explore the diverse plant collections in the historic botanical garden next to the University Museum.",
+            "suitable_for": [
+              "Nature lovers",
+              "Garden enthusiasts"
+            ]
+          }
+        ]
+      },
+      "stay_here_if": [
+        "You are visiting the University of Bergen",
+        "You prioritize access to Nygårdsparken and the University Museum",
+        "You want a slightly quieter, more residential/academic feel than Sentrum"
+      ],
+      "avoid_if": [
+        "You want to be in the absolute commercial/tourist heart (Sentrum/Bryggen)",
+        "You dislike hills",
+        "You seek vibrant nightlife or extensive dining/shopping options"
+      ],
+      "insider_tips": [
+        "The Natural History museum building itself is impressive.",
+        "Muséhagen is a peaceful oasis, especially beautiful in bloom.",
+        "Check for free lectures or events happening at the University."
+      ]
+    },
+    {
+      "name": "Sandviken",
+      "alternate_names": [
+        "Bergenhus (district part)", "Skuteviken", "Ladegården"
+      ],
+      "character": "Historic residential area north of Bryggen, known for its charming, dense wooden houses clinging to the hillside, narrow streets, maritime history connections, Gamle Bergen Museum (Old Bergen), and access to hiking trails (Stoltzekleiven). Mixes traditional Bergen charm with student housing and family life.",
+      "location": {
+        "central": false,
+        "description": "Located northeast of the city center, stretching along the Byfjorden waterfront.",
+        "borders": [
+          "Ytre Sandviken (north)",
+          "Bryggen/Bergenhus Fortress (south)",
+          "Byfjorden (west)",
+          "Mount Sandviken/Fløyen foothills (east)"
+        ],
+        "landmarks": [
+          "Gamle Bergen Museum (Old Bergen Open-Air Museum)",
+          "Norwegian Fisheries Museum",
+          "Storeblå Aquaculture Visitor Centre",
+          "Stoltzekleiven (Steep hiking trail start)",
+          "Characteristic wooden house clusters",
+          "Sandviken Church"
+        ]
+      },
+      "history": {
+        "overview": "Developed from the 16th century onwards, initially outside the city limits. Site of early industry (watermills, shipyards) and later became a residential area with distinctive wooden 'hamlets'. Wealthy merchants also built summer residences here (e.g., Christinegård). Incorporated into Bergen in 1876.",
+        "significance": "Preserves a large area of traditional Bergen wooden architecture and reflects the city's maritime and industrial past.",
+        "notable_events": [
+          "Industrial development (16th C onwards)",
+          "Development of wooden house 'hamlets' (18th-19th C)",
+          "Incorporation into Bergen (1876)"
+        ]
+      },
+      "practical_info": {
+        "transit": [
+          "Walkable to Bryggen/Sentrum (15-30 mins)",
+          "Served by several bus lines along the main road (Sandviksveien)",
+          "Beffen ferry connection from nearby Rothaugen"
+        ],
+        "safety": "Generally very safe residential area.",
+        "best_time_to_visit": "Daytime for museums and exploring the charming streets. Good weather for Stoltzekleiven hike.",
+        "walkability": "Good walkability along the waterfront, but streets up the hillside are very steep and narrow."
+      },
+      "appeal": {
+        "known_for": [
+          "Gamle Bergen Museum",
+          "Norwegian Fisheries Museum",
+          "Charming wooden houses and narrow streets",
+          "Stoltzekleiven hike",
+          "Waterfront views",
+          "Historic atmosphere"
+        ],
+        "atmosphere": [
+          "Historic",
+          "Charming",
+          "Residential",
+          "Picturesque",
+          "Quiet (off main road)",
+          "Steep (in parts)"
+        ],
+        "best_for": [
+          "History lovers (museums, architecture)",
+          "Hikers (Stoltzekleiven)",
+          "Photographers",
+          "Visitors seeking authentic Bergen charm away from the main tourist core",
+          "Budget travelers (potentially more affordable rentals)"
+        ]
+      },
+      "categories": {
+        "touristy": 3,
+        "residential": 5,
+        "green_spaces": 3,
+        "shopping": 1,
+        "dining": 2,
+        "nightlife": 1,
+        "cultural": 4,
+        "historic": 5
+      },
+      "highlights": {
+        "attractions": [
+          {
+            "name": "Gamle Bergen Museum (Old Bergen)",
+            "type": "Open-Air Museum",
+            "description": "Reconstructed town environment with around 50 wooden houses from the 18th, 19th, and early 20th centuries, showcasing Bergen's history and architecture.",
+            "appeal": "Step back in time, experience historic Bergen life."
+          },
+          {
+            "name": "Norwegian Fisheries Museum",
+            "type": "Maritime Museum",
+            "description": "Located in authentic wharfside buildings, exploring Norway's fishing history and coastal culture.",
+            "appeal": "Insight into a key Norwegian industry, interactive exhibits."
+          },
+          {
+            "name": "Stoltzekleiven Hike",
+            "type": "Hiking Trail",
+            "description": "A very steep, challenging stone-step trail (approx. 900 steps) leading up towards Sandviksfjellet, offering rewarding views.",
+            "appeal": "Popular workout, stunning views (for the fit)."
+          }
+        ],
+        "dining": [
+          {
+            "name": "Local Cafes/Restaurants",
+            "cuisine": "Cafe, Pub fare, Local",
+            "price_range": "€€-€€€",
+            "known_for": "Neighborhood spots (e.g., Dr. Wiesener)",
+            "atmosphere": "Casual and local, limited options compared to center."
+          }
+        ],
+        "activities": [
+          {
+            "name": "Explore Wooden House Areas",
+            "type": "Walking/Sightseeing",
+            "description": "Wander the charming, narrow streets (like Skuteviksveien, Øvre Blekeveien) and admire the dense, colourful wooden houses.",
+            "suitable_for": [
+              "Photographers",
+              "Architecture lovers"
+            ]
+          },
+          {
+            "name": "Visit Storeblå Aquaculture Centre",
+            "type": "Visitor Centre/Exhibition",
+            "description": "Learn about modern fish farming (aquaculture) in Norway through interactive exhibits.",
+            "suitable_for": [
+              "Families",
+              "Those interested in industry"
+            ]
+          },
+          {
+            "name": "Coastal Walk",
+            "type": "Walking",
+            "description": "Enjoy a walk along the Sandviksveien waterfront, with views across the fjord.",
+            "suitable_for": [
+              "Everyone"
+            ]
+          }
+        ]
+      },
+      "stay_here_if": [
+        "You love historic wooden architecture and charming streets",
+        "You plan to visit Gamle Bergen or the Fisheries Museum",
+        "You seek a quieter, more authentic residential feel than the city center",
+        "You are looking for potentially more budget-friendly accommodation (rentals)"
+      ],
+      "avoid_if": [
+        "You want immediate access to central shopping, dining, and nightlife",
+        "You dislike steep hills",
+        "You rely heavily on hotels (fewer options than central areas)"
+      ],
+      "insider_tips": [
+        "Gamle Bergen often has actors portraying historical figures during summer.",
+        "Stoltzekleiven is very popular; go early or on weekdays to avoid crowds. It's a strenuous climb!",
+        "Explore the different small 'hamlets' within Sandviken for varying atmospheres."
+      ]
+    },
+    {
+      "name": "Møhlenpris",
+      "alternate_names": [
+        "Vestre Sydnes", "Marineholmen"
+      ],
+      "character": "An evolving neighborhood south of Nygårdshøyden, bordering Puddefjorden. Historically industrial, now blends older residential areas with modern developments (Marineholmen innovation district), the VilVite Science Center, waterfront access (including a city beach), and a growing number of cafes and cultural spots. Popular with students and young families.",
+      "location": {
+        "central": true,
+        "description": "Located south/southwest of Nygårdshøyden hill, between the hill and the Puddefjorden.",
+        "borders": [
+          "Nygårdshøyden (north/east)",
+          "Puddefjorden (south/west)",
+          "Solheimsviken (further east)"
+        ],
+        "landmarks": [
+          "VilVite Bergen Science Centre",
+          "Nygårdsparken (southern part)",
+          "Marineholmen (Innovation district, beach)",
+          "Puddefjordsbroen (Bridge)",
+          "Cornerteateret (Theatre)",
+          "Bergen Technical Museum (Bergens Tekniske Museum)"
+        ]
+      },
+      "history": {
+        "overview": "Named after 17th-century industrialist Jørgen Thor Møhlen. Historically an industrial and working-class area. Undergoing significant transformation in recent years with the development of Marineholmen as a hub for marine research and business, alongside new residential buildings and public spaces.",
+        "significance": "Represents Bergen's modern urban renewal, combining industrial heritage with innovation, education, and residential life.",
+        "notable_events": [
+          "Industrial development by Jørgen Thor Møhlen (17th C)",
+          "Development of Marineholmen (21st C)"
+        ]
+      },
+      "practical_info": {
+        "transit": [
+          "Walkable to Sentrum (via Nygårdshøyden)",
+          "Served by bus lines",
+          "Bybanen (Light Rail) stop Florida nearby",
+          "Småpudden pedestrian bridge connects to Laksevåg side"
+        ],
+        "safety": "Generally safe, evolving area.",
+        "best_time_to_visit": "Daytime for VilVite, park, beach (summer). Check Cornerteateret schedule for evening events.",
+        "walkability": "Good walkability, mostly flat, especially along the waterfront."
+      },
+      "appeal": {
+        "known_for": [
+          "VilVite Science Centre",
+          "Marineholmen development (beach, innovation hub)",
+          "Proximity to Nygårdsparken",
+          "Cornerteateret",
+          "Waterfront access (Puddefjorden)"
+        ],
+        "atmosphere": [
+          "Developing",
+          "Mixed (old/new)",
+          "Student-influenced",
+          "Waterfront (parts)",
+          "Relaxed"
+        ],
+        "best_for": [
+          "Families (VilVite, Park, Beach)",
+          "Students",
+          "Visitors interested in urban development",
+          "Science enthusiasts (VilVite)"
+        ]
+      },
+      "categories": {
+        "touristy": 2,
+        "residential": 4,
+        "green_spaces": 4,
+        "shopping": 1,
+        "dining": 2,
+        "nightlife": 1,
+        "cultural": 3,
+        "historic": 2
+      },
+      "highlights": {
+        "attractions": [
+          {
+            "name": "VilVite Bergen Science Centre",
+            "type": "Science Museum/Activity Centre",
+            "description": "Interactive science center with hands-on exhibits covering technology, natural science, and the human body. Engaging for children and adults.",
+            "appeal": "Fun, educational, interactive experience."
+          },
+          {
+            "name": "Marineholmen Beach & Area",
+            "type": "Urban Beach/Development",
+            "description": "Modern development area with offices, research facilities, cafes, and a popular small city beach.",
+            "appeal": "Urban renewal example, place to swim/relax in summer."
+          },
+          {
+            "name": "Nygårdsparken (Southern Part)",
+            "type": "Park",
+            "description": "The lower, flatter section of Nygårdsparken bordering Møhlenpris.",
+            "appeal": "Easy access to green space."
+          }
+        ],
+        "dining": [
+          {
+            "name": "Local Cafes & Eateries",
+            "cuisine": "Cafe, Pizza, Casual",
+            "price_range": "€€-€€€",
+            "known_for": "Neighborhood spots, student-friendly options (e.g., Bergen Kaffebrenneri, Godt Brød)",
+            "atmosphere": "Casual, relaxed."
+          }
+        ],
+        "activities": [
+          {
+            "name": "Explore VilVite",
+            "type": "Family Activity/Education",
+            "description": "Spend several hours engaging with the interactive exhibits at the science center.",
+            "suitable_for": [
+              "Families",
+              "Curious minds of all ages"
+            ]
+          },
+          {
+            "name": "Walk/Bike across Småpudden Bridge",
+            "type": "Walking/Cycling",
+            "description": "Cross the pedestrian/cycle bridge over Puddefjorden for views and access to the Laksevåg side.",
+            "suitable_for": [
+              "Walkers",
+              "Cyclists"
+            ]
+          },
+           {
+            "name": "Visit Bergen Technical Museum",
+            "type": "Museum",
+            "description": "Volunteer-run museum showcasing transport and technical history, often with a running vintage tram on Sundays.",
+            "appeal": "Niche historical interest, vintage tram ride.",
+            "suitable_for": [
+              "Transport history enthusiasts"
+            ]
+          }
+        ]
+      },
+      "stay_here_if": [
+        "You are visiting VilVite or have business in Marineholmen",
+        "You want proximity to Nygårdsparken and a slightly less central feel",
+        "You find suitable student-oriented or newer apartment accommodation"
+      ],
+      "avoid_if": [
+        "You prioritize historic charm (better in Bryggen/Nordnes/Sandviken)",
+        "You want extensive dining, shopping, or nightlife options immediately available",
+        "You seek traditional hotel accommodation (options may be limited)"
+      ],
+      "insider_tips": [
+        "Check VilVite's opening hours as they can vary.",
+        "Bergen Kaffebrenneri in Møhlenpris is a great spot for locally roasted coffee.",
+        "The walk along the Marineholmen waterfront is pleasant."
+      ]
+    }
+  ],
+  "activityTypes": {
+    "spring": [
+      "Constitution Day (May 17th) celebrations, processions through Sentrum, traditional bunad costumes",
+      "Hiking Mount Fløyen or Ulriken as trails become clearer",
+      "Enjoying outdoor seating at cafes/restaurants in Sentrum, Bryggen, Nordnes as weather improves",
+      "Visiting Muséhagen (Botanical Garden) on Nygårdshøyden as flowers bloom",
+      "Exploring Bryggen before the peak summer crowds arrive"
+    ],
+    "summer": [
+      "Taking the Fløibanen funicular or Ulriksbanen cable car for views and hiking",
+      "Exploring Bryggen and the Fish Market at their liveliest",
+      "Swimming at Nordnes Sjøbad or the Marineholmen beach",
+      "Visiting Gamle Bergen Museum for outdoor history experience",
+      "Fjord cruises departing from the harbor near Bryggen/Fish Market",
+      "Enjoying long evenings exploring Sentrum, Bryggen, or Nordnes"
+    ],
+    "autumn": [
+      "Hiking in the surrounding mountains (e.g., Fløyen, Ulriken, Stoltzekleiven) for autumn colors",
+      "Visiting museums (KODE, University Museum, Hanseatic Museum, Fisheries Museum)",
+      "Enjoying cozy cafes in Sentrum, Nordnes, or Møhlenpris",
+      "Exploring the charming streets of Nordnes and Sandviken",
+      "Attending cultural events (check Grieghallen, USF Verftet schedules)"
+    ],
+    "winter": [
+      "Visiting Christmas markets (e.g., Festplassen near the lake)",
+      "Enjoying the festive lights and atmosphere in Sentrum and Bryggen",
+      "Ice skating (if a rink is set up, often near the lake)",
+      "Visiting indoor attractions like KODE museums, Bergen Aquarium, VilVite",
+      "Cozying up in traditional pubs or cafes (e.g., Pingvinen in Sentrum)",
+      "Experiencing traditional Norwegian Christmas food (Pinnekjøtt, Persetorsk - check restaurant availability)"
+    ]
+  }
+}

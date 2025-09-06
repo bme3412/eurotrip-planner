@@ -1,0 +1,443 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Gastromé",
+                "cuisine_type": "New Nordic with French techniques",
+                "signature_dishes": [
+                    "Seasonal seafood from Danish waters",
+                    "Venison with foraged herbs and berries"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and intimate in a restored townhouse",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Latin Quarter",
+                "local_tips": "One of Aarhus's most acclaimed restaurants; exceptional wine pairing option; seasonal menu changes regularly based on available local ingredients"
+            },
+            {
+                "name": "Restaurant Frederikshøj",
+                "cuisine_type": "Contemporary Danish",
+                "signature_dishes": [
+                    "Multi-course seasonal tasting menu",
+                    "Danish seafood with innovative preparations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Refined and modern with minimalist décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 months in advance, closed Sundays and Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Southern Aarhus",
+                "local_tips": "Headed by celebrity chef Wassim Hallal; extraordinary attention to detail; consider the juice pairing for a non-alcoholic option; complimentary shuttle service from central Aarhus"
+            },
+            {
+                "name": "Restaurant Domestic",
+                "cuisine_type": "Modern Nordic",
+                "signature_dishes": [
+                    "Fermented and preserved local ingredients",
+                    "Dry-aged Danish beef"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Rustic-elegant in historic vault-ceilinged space",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 months in advance, request counter seating to watch the kitchen",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "City Center",
+                "local_tips": "Focus on hyper-local ingredients and traditional preservation techniques; excellent natural wine selection; intimate dining space with open kitchen"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Aarhus Street Food",
+                "cuisine_type": "International food hall",
+                "signature_dishes": [
+                    "Danish smørrebrød (open sandwiches)",
+                    "International street food classics"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Vibrant indoor market in former bus garage",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but arrive outside peak hours to find seating",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Over 30 food stalls offering diverse cuisines; popular with locals; great for groups with different food preferences; lively weekend atmosphere"
+            },
+            {
+                "name": "Langhoff & Juul",
+                "cuisine_type": "Modern Danish",
+                "signature_dishes": [
+                    "Seasonal open sandwiches",
+                    "Organic brunch plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and hygge with rustic Danish design",
+                "best_time": "Breakfast or Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for brunch on weekends",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Excellent for traditional Danish breakfast; focus on organic and local ingredients; beautiful interior design shop attached; popular with locals for business lunches"
+            },
+            {
+                "name": "Café Smagløs",
+                "cuisine_type": "Danish Comfort Food",
+                "signature_dishes": [
+                    "Frikadeller (Danish meatballs)",
+                    "Stegt flæsk med persillesovs (crispy pork with parsley sauce)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Homey and unpretentious",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner service",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Authentic Danish home-style cooking; generous portions; where locals go for traditional Danish cuisine; excellent value for money"
+            },
+            {
+                "name": "Café Gaya",
+                "cuisine_type": "Vegetarian/Vegan Nordic",
+                "signature_dishes": [
+                    "Plant-based smørrebrød",
+                    "Seasonal vegetable plates with Nordic herbs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright and airy with Scandinavian minimalism",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins welcome but arrive early for lunch rush",
+                "dress_code": "Casual",
+                "location": "Frederiksbjerg",
+                "local_tips": "Aarhus's best vegetarian restaurant; creative plant-based interpretations of Danish classics; excellent coffee program; peaceful atmosphere good for conversations"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Havnegrillen",
+                "specialties": [
+                    "Danish hot dogs with traditional toppings",
+                    "Frikadeller sandwich",
+                    "Freshly fried fish"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 7:00 PM (later on summer weekends)",
+                "location": "Aarhus Harbor",
+                "seating": "Outdoor benches",
+                "local_tips": "Authentic Danish street food experience; where locals go for quick harbor-side meals; try the classic 'rød pølse' (red sausage) with all toppings"
+            },
+            {
+                "name": "Café Gemmestedet",
+                "specialties": [
+                    "Danish pastries",
+                    "Æbleskiver (traditional pancake balls)",
+                    "Hot chocolate"
+                ],
+                "price_range": "€-€€",
+                "hours": "8:00 AM - 5:00 PM",
+                "location": "Latin Quarter",
+                "seating": "Some indoor and outdoor seating",
+                "local_tips": "Some of the city's best Danish pastries; seasonal specialties during holidays; perfect morning treat while exploring the Latin Quarter"
+            },
+            {
+                "name": "Grød",
+                "specialties": [
+                    "Creative porridge bowls",
+                    "Danish risotto variations",
+                    "Seasonal grain dishes"
+                ],
+                "price_range": "€€",
+                "hours": "7:30 AM - 6:00 PM",
+                "location": "City Center",
+                "seating": "Limited indoor seating",
+                "local_tips": "Denmark's famous porridge bar; transforms humble grains into gourmet meals; perfect healthy breakfast option; try the apple-cinnamon porridge with caramel sauce"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "La Cabra",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Pour-Over",
+                    "House-baked cardamom buns"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist Scandinavian design",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Danish pastries and light meals",
+                "local_tips": "Internationally acclaimed coffee roaster; beans roasted on-site; multiple locations throughout Aarhus; flagship store offers brewing workshops"
+            },
+            {
+                "name": "Great Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat white",
+                    "Danish cinnamon rolls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy industrial with warm wooden elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and small bites",
+                "local_tips": "Perfect place to experience Danish coffee culture; excellent selection of beans; friendly baristas happy to discuss coffee preferences"
+            },
+            {
+                "name": "Café Fika",
+                "specialty": "Scandinavian Coffee Tradition",
+                "must_try": [
+                    "Traditional filter coffee with refills",
+                    "Kanelsnurrer (cinnamon twists)"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Classic Nordic café with hygge elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Danish pastries and open-faced sandwiches",
+                "local_tips": "Authentic Scandinavian 'fika' (coffee break) experience; no laptops policy encourages conversation; excellent place to experience hygge culture"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Mig & Ølsnedkeren",
+                "type": "Craft Beer Bar",
+                "specialty": "Danish Microbrews",
+                "signature_drinks": [
+                    "Aarhus-brewed craft beers",
+                    "Seasonal local brews",
+                    "Danish microbrewery selections"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Rustic beer hall with communal tables",
+                "best_time": "Evening",
+                "food_options": "Cheese boards and sausages",
+                "reservation_needed": false,
+                "local_tips": "Over 20 rotating taps featuring Danish craft brewers; knowledgeable bartenders offering samples; hidden courtyard seating in summer"
+            },
+            {
+                "name": "Aarhus Bryghus",
+                "type": "Brewery Taproom",
+                "specialty": "Local Aarhus Beer",
+                "signature_drinks": [
+                    "Aarhus Bryghus Pilsner",
+                    "Extra Pilsner",
+                    "Seasonal specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern brewery with industrial touches",
+                "best_time": "Afternoon",
+                "food_options": "Danish snacks",
+                "reservation_needed": false,
+                "local_tips": "Aarhus's premier local brewery; excellent guided tours with tastings; beer flight samplers available; friendly atmosphere with mix of locals and visitors"
+            },
+            {
+                "name": "St. Pauls Apothek",
+                "type": "Cocktail Bar",
+                "specialty": "Nordic-inspired craft cocktails",
+                "signature_drinks": [
+                    "Aquavit-based cocktails",
+                    "Seasonal ingredients from Danish forests",
+                    "Classics with Scandinavian twists"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant former pharmacy with vintage details",
+                "best_time": "Evening",
+                "food_options": "Gourmet small plates",
+                "reservation_needed": true,
+                "local_tips": "Award-winning cocktail destination; located in a historic pharmacy; bartenders create custom drinks based on preferences; reservations essential on weekends"
+            },
+            {
+                "name": "Herr Bartels",
+                "type": "Traditional Danish Bodega",
+                "specialty": "Danish Spirits",
+                "signature_drinks": [
+                    "Gammel Dansk bitters",
+                    "Traditional aquavit",
+                    "Local beers"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Authentic Danish brown bar with historic charm",
+                "best_time": "Evening",
+                "food_options": "Traditional bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Authentic Danish bodega experience; where locals gather; inexpensive drinks; traditional Danish drinking songs on weekend evenings; oldest bar in Aarhus"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Aarhus Tour",
+                "focus": "Danish Culinary Traditions",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional smørrebrød tasting",
+                    "Danish pastry sampling",
+                    "Local beer tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Danish",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; tour includes substantial walking"
+            },
+            {
+                "name": "Nordic Gastronomy Experience",
+                "focus": "New Nordic Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visits to innovative Aarhus restaurants",
+                    "Foraged ingredient tasting",
+                    "Modern Danish food philosophy"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "booking_tips": "Book 2 weeks ahead; focuses on contemporary Danish cuisine"
+            },
+            {
+                "name": "Craft Beer Journey",
+                "focus": "Aarhus Brewing Tradition",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Aarhus Bryghus visit",
+                    "Microbrewery tastings",
+                    "Beer and Danish food pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes substantial beer tastings; eat before the tour"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Danish Cooking Academy",
+                "cuisine_focus": "Traditional Danish Home Cooking",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Smørrebrød preparation",
+                    "Frikadeller (Danish meatballs)",
+                    "Rødkål (sweet-sour red cabbage)"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer or wine pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held twice weekly"
+            },
+            {
+                "name": "New Nordic Workshop",
+                "cuisine_focus": "Modern Danish Gastronomy",
+                "duration": "5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Foraging principles",
+                    "Fermentation techniques",
+                    "Modern plating and presentation"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "includes": [
+                    "Premium ingredients, foraging excursion, multi-course meal with wine pairing"
+                ],
+                "booking_tips": "Book 3 weeks ahead; for enthusiasts with some cooking experience"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Aarhus Central Food Market",
+                "type": "Indoor Food Hall",
+                "highlights": [
+                    "Artisanal food stalls",
+                    "Local Danish specialties",
+                    "International cuisine options",
+                    "Fresh produce"
+                ],
+                "hours": "Tuesday to Saturday, 10 AM - 7 PM, Sunday 10 AM - 4 PM",
+                "best_time": "Late morning",
+                "location": "City Center",
+                "local_tips": "Modern food hall with high-quality vendors; excellent lunch spot with diverse options; mixture of takeaway and eat-in options"
+            },
+            {
+                "name": "Ingerslevs Boulevard Market",
+                "type": "Outdoor Farmers Market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Danish cheeses",
+                    "Seasonal fruits and vegetables",
+                    "Artisanal breads"
+                ],
+                "hours": "Wednesdays and Saturdays, 8 AM - 2 PM",
+                "best_time": "Early morning",
+                "location": "Frederiksbjerg",
+                "local_tips": "Aarhus's largest traditional outdoor market; where locals shop for fresh ingredients; excellent for picnic supplies; vibrant atmosphere especially on Saturdays"
+            },
+            {
+                "name": "Aarhus Street Food",
+                "type": "Street Food Market",
+                "highlights": [
+                    "International food stalls",
+                    "Craft beer bars",
+                    "Danish street food",
+                    "Casual dining options"
+                ],
+                "hours": "Monday to Thursday 12 PM - 9 PM, Friday to Saturday 12 PM - 10 PM, Sunday 12 PM - 7 PM",
+                "best_time": "Evening",
+                "location": "Near Bus Station",
+                "local_tips": "Vibrant covered market in former bus garage; over 30 food stalls; popular with locals and students; great evening atmosphere with communal seating"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Nye kartofler med smør (new potatoes with butter and dill)",
+            "Stenbiderrogn (lumpfish roe) with traditional accompaniments",
+            "Ramsløg (wild garlic) featured in seasonal dishes"
+        ],
+        "summer": [
+            "Smørrebrød with fresh local vegetables and herbs",
+            "Grilled fish from local waters",
+            "Danish strawberries with cream"
+        ],
+        "autumn": [
+            "Game dishes with seasonal mushrooms",
+            "Æbleflæsk (pork with apples and onions)",
+            "Seasonal root vegetables with traditional preparations"
+        ],
+        "winter": [
+            "Flæskesteg (roast pork with crackling)",
+            "Rødkål (sweet-sour red cabbage)",
+            "Æbleskiver (spherical pancakes) with traditional accompaniments"
+        ]
+    }
+}

@@ -1,0 +1,351 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The iconic French capital with world-famous monuments, museums, and cuisine.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "2h",
+                "frequency": "Multiple daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h10m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Grenoble",
+            "country": "France",
+            "whyGo": "Gateway to the Alps with excellent museums, historic cable car, and vibrant university atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "1h30m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Global diplomatic center on a beautiful lake with excellent museums and international atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "1h50m",
+                "frequency": "Several daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Annecy",
+            "country": "France",
+            "whyGo": "Picturesque alpine town with a stunning lake, charming old town, and excellent outdoor activities.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "2h",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Avignon",
+            "country": "France",
+            "whyGo": "Historic papal city with impressive medieval architecture, famous bridge, and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Perrache",
+                "journeyTime": "1h10m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Dijon",
+            "country": "France",
+            "whyGo": "Capital of Burgundy region known for mustard, wine, and well-preserved medieval architecture.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "1h40m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "France's oldest city with vibrant multicultural atmosphere, historic port, and dramatic coastline.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "1h40m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Chambéry",
+            "country": "France",
+            "whyGo": "Former capital of Savoy with medieval old town, château, and gateway to numerous alpine ski resorts.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "1h10m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Chamonix",
+            "country": "France",
+            "whyGo": "Renowned mountain resort at the foot of Mont Blanc with spectacular alpine scenery and outdoor activities.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "3h30m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Pérouges",
+            "country": "France",
+            "whyGo": "Perfectly preserved medieval walled town with cobblestone streets and historic architecture.",
+            "directWithinCountryBus": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "45m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "A global capital of fashion and design with stunning cathedral and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "4h30m",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Turin",
+            "country": "Italy",
+            "whyGo": "Elegant city with baroque architecture, renowned Egyptian Museum, and chocolate traditions.",
+            "intraEuropeTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "3h40m",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, and culture.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and cycling culture.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Clermont-Ferrand",
+            "country": "France",
+            "whyGo": "Historic city surrounded by volcanic landscapes with impressive Gothic cathedral and Michelin heritage.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "2h10m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with nearly 3,000 years of globally influential art, architecture, and culture.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its colorful buildings, historic trams, and rich maritime heritage.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "European Union headquarters with impressive Grand Place, Art Nouveau architecture, and renowned cuisine.",
+            "intraEuropeTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "3h50m",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic city known for its art scene, modern landmarks, and vibrant nightlife.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its medieval Old Town, baroque architecture, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "3-4 times weekly"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its imperial palaces, classical music legacy, and café culture.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "World-famous wine region with elegant 18th-century architecture and vibrant culinary scene.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "4h45m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Transcontinental city bridging Europe and Asia with rich Byzantine and Ottoman heritage.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "3h10m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "European Parliament seat with stunning medieval center and unique Alsatian culture.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "3h40m",
+                "frequency": "Several daily"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient city with world-famous archaeological sites like the Acropolis.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Saint-Étienne",
+            "country": "France",
+            "whyGo": "Former industrial city with modern design museum, vibrant arts scene, and passionate football culture.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Perrache",
+                "journeyTime": "45m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Legendary city of canals, Renaissance art, and Gothic architecture.",
+            "intraEuropeFlight": {
+                "airportsInLyon": [
+                    "Lyon-Saint Exupéry"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Beaune",
+            "country": "France",
+            "whyGo": "Medieval town at the center of Burgundy wine region with historic Hôtel-Dieu and exceptional gastronomy.",
+            "directWithinCountryTrain": {
+                "stationInLyon": "Lyon Part-Dieu",
+                "journeyTime": "1h30m",
+                "frequency": "Several daily"
+            }
+        }
+    ]
+}

@@ -1,0 +1,642 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurante Chikito",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Remojon Granadino (Orange and Cod Salad)",
+                    "Habas con Jamón (Broad Beans with Ham)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant, historic restaurant with classic décor, once frequented by Federico García Lorca and his literary circle",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Centro Histórico, near Plaza Bib-Rambla",
+                "local_tips": "Ask for a table in the Federico García Lorca room; the restaurant has historic significance as a gathering place for Granada's intellectual elite"
+            },
+            {
+                "name": "El Claustro",
+                "cuisine_type": "Creative Andalusian",
+                "signature_dishes": [
+                    "Suckling Pig with Sierra Nevada Honey",
+                    "Granada Sturgeon with Caviar"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining room set in a restored 16th-century convent with elegant vaulted ceilings",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 weeks in advance, jacket recommended for gentlemen",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "Inside the AC Palacio de Santa Paula Hotel",
+                "local_tips": "Chef Juan Andrés Morilla focuses on seasonal ingredients from Granada province; their extensive wine list features excellent selections from nearby Alpujarra vineyards"
+            },
+            {
+                "name": "Alameda",
+                "cuisine_type": "Contemporary Mediterranean",
+                "signature_dishes": [
+                    "Ajo Blanco with Red Shrimp",
+                    "Roasted Kid Goat with Mountain Herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, sophisticated space with minimalist design and intimate lighting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Near the Cathedral",
+                "local_tips": "Chef Álvaro Arriaga creates innovative dishes with traditional Granada ingredients; the tasting menu offers the best experience with expertly paired local wines"
+            },
+            {
+                "name": "Damasqueros",
+                "cuisine_type": "Creative Spanish",
+                "signature_dishes": [
+                    "Oxtail Cannelloni with Foie Gras",
+                    "Squid with Iberian Pork Belly"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, contemporary dining room with stone walls and modern accents",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, request counter seating to watch the kitchen",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Realejo district",
+                "local_tips": "Chef Lola Marín offers excellent seasonal tasting menus that change monthly; the wine pairings feature small producers from Granada and across Spain"
+            },
+            {
+                "name": "La Fábula",
+                "cuisine_type": "Avant-garde Andalusian",
+                "signature_dishes": [
+                    "Granada Caviar with Creamy Potato",
+                    "Segureño Lamb with Mountain Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, contemporary restaurant with garden views inside a luxury hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks ahead, closed Sundays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "Inside Villa Oniria Hotel",
+                "local_tips": "Chef Ismael Delgado López creates artistic presentations of traditional Andalusian flavors; their 'Granada Experience' tasting menu showcases local producers and specialties"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Bodegas Castañeda",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Jamón de Trevélez",
+                    "Berenjenas con Miel (Fried Eggplant with Honey)",
+                    "Tortilla del Sacromonte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic bodega with barrels, hams hanging from the ceiling, and lively authentic ambiance",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive early or be prepared to wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Near Plaza Nueva",
+                "local_tips": "One of Granada's most authentic tapas experiences; order a glass of local wine and receive generous complimentary tapas"
+            },
+            {
+                "name": "Los Diamantes",
+                "cuisine_type": "Seafood Tapas",
+                "signature_dishes": [
+                    "Boquerones Fritos (Fried Anchovies)",
+                    "Calamares Fritos (Fried Squid)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling, traditional bar with standing room and a few tables, always packed with locals",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations accepted; avoid peak hours if you want a table",
+                "dress_code": "Casual",
+                "location": "Calle Navas",
+                "local_tips": "Granada's most famous seafood tapas bar despite being far from the coast; the original location on Calle Navas is the most authentic"
+            },
+            {
+                "name": "Bar Los Manueles",
+                "cuisine_type": "Traditional Granada",
+                "signature_dishes": [
+                    "Tortilla del Sacromonte",
+                    "Rabo de Toro (Oxtail Stew)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Granada tavern with bullfighting memorabilia and traditional décor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner, especially weekends",
+                "dress_code": "Casual",
+                "location": "Calle Reyes Católicos",
+                "local_tips": "Serving traditional Granada cuisine since 1917; famous for generous tapas with each drink; their house vermouth is excellent"
+            },
+            {
+                "name": "La Botillería",
+                "cuisine_type": "Modern Tapas",
+                "signature_dishes": [
+                    "Salmorejo with Iberian Ham",
+                    "Slow-cooked Pork Cheeks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary tavern with rustic touches and a warm ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for dinner; lunch usually accommodates walk-ins",
+                "dress_code": "Casual",
+                "location": "Realejo district",
+                "local_tips": "Great selection of local wines by the glass; offers more refined versions of traditional tapas in a relaxed setting"
+            },
+            {
+                "name": "Café Bar Ávila",
+                "cuisine_type": "Traditional Tapas",
+                "signature_dishes": [
+                    "Migas with Chorizo",
+                    "Habas con Jamón (Broad Beans with Ham)"
+                ],
+                "price_range": "€",
+                "atmosphere": "No-frills local bar with limited seating and authentic vibe",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; extremely popular with locals",
+                "dress_code": "Casual",
+                "location": "Albaicín district",
+                "local_tips": "Known for serving the most generous free tapas in Granada; order a caña (small beer) for €2 and receive a substantial tapa"
+            },
+            {
+                "name": "Bar Poë",
+                "cuisine_type": "International-Spanish Fusion",
+                "signature_dishes": [
+                    "Moroccan-Spiced Meatballs",
+                    "Fusion Patatas Bravas"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky, literary-themed bar with eclectic décor and intimate seating",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; popular with international crowd and students",
+                "dress_code": "Casual",
+                "location": "Realejo district",
+                "local_tips": "Offers more creative tapas than traditional bars; each drink comes with a choice of tapas from their menu"
+            },
+            {
+                "name": "El Bar de Fede",
+                "cuisine_type": "Creative Andalusian",
+                "signature_dishes": [
+                    "Croquetas de Puchero",
+                    "Tataki de Atún (Tuna Tataki)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, trendy space with industrial touches and a lively vibe",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner; active social media presence for updates",
+                "dress_code": "Smart casual",
+                "location": "Centro",
+                "local_tips": "Chef Federico Ávila creates innovative tapas that blend traditional Andalusian flavors with modern techniques; excellent cocktail menu"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Piononos de Santa Fe",
+                "specialties": [
+                    "Piononos (Sweet Cakes with Cinnamon)",
+                    "Traditional Pastries"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 8:00 PM, Closed Mondays",
+                "location": "Plaza Bib-Rambla",
+                "seating": "Limited",
+                "local_tips": "The famous pionono is a sweet cylindrical pastry originated in Santa Fe near Granada; this downtown location offers the authentic version"
+            },
+            {
+                "name": "Mercado San Agustín",
+                "specialties": [
+                    "Fresh Produce",
+                    "Local Cheeses",
+                    "Tapas and Wine"
+                ],
+                "price_range": "€€",
+                "hours": "8:00 AM - 3:00 PM, Closed Sundays",
+                "location": "Centro",
+                "seating": "Limited",
+                "local_tips": "Historic market with food stalls; visit the bar inside for fresh tapas made with market ingredients"
+            },
+            {
+                "name": "Shawarma King",
+                "specialties": [
+                    "Shawarma",
+                    "Falafel",
+                    "Kebabs"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 2:00 AM",
+                "location": "Near Plaza Nueva",
+                "seating": "Limited",
+                "local_tips": "Popular late-night spot reflecting Granada's Moorish heritage and multicultural present; generous portions at excellent prices"
+            },
+            {
+                "name": "Heladería Los Italianos",
+                "specialties": [
+                    "Artisanal Gelato",
+                    "Cassata Ice Cream"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 12:00 AM (summer), shorter hours in winter",
+                "location": "Gran Vía",
+                "seating": false,
+                "local_tips": "Historic ice cream shop operating since 1936; locals line up even in winter; try their cassata or leche merengada"
+            },
+            {
+                "name": "Tetería As-Sirat",
+                "specialties": [
+                    "Moroccan Tea",
+                    "Middle Eastern Pastries",
+                    "Crepes"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "Albaicín",
+                "seating": true,
+                "local_tips": "Traditional tea house in the Moroccan style; perfect spot to experience Granada's Moorish heritage with mountain views from its terrace"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café 4 Gatos",
+                "specialty": "Traditional and Specialty Coffee",
+                "must_try": [
+                    "Café Bombón (Espresso with Condensed Milk)",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy, bohemian café with artistic décor and local art displays",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Breakfast items, sandwiches, and homemade pastries",
+                "local_tips": "Popular with students and artists; excellent place to experience Granada's creative scene while enjoying specialty coffee"
+            },
+            {
+                "name": "La Finca Coffee",
+                "specialty": "Third-Wave Coffee",
+                "must_try": [
+                    "Single-Origin Pour-Over",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist, modern space with Scandinavian-inspired design",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Artisanal pastries and light brunch items",
+                "local_tips": "Granada's premier specialty coffee roaster; they roast their own beans and offer various brewing methods"
+            },
+            {
+                "name": "Bohemian Jazz Café",
+                "specialty": "Coffee & Cocktails",
+                "must_try": [
+                    "Café con Leche",
+                    "Homemade Carrot Cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vintage-inspired jazz café with live music evenings and retro décor",
+                "best_time": "Evening",
+                "wifi_friendly": true,
+                "food_options": "Tapas, cakes, and light meals",
+                "local_tips": "Transforms from coffee shop by day to jazz venue by night; great atmosphere for both working and socializing"
+            },
+            {
+                "name": "Cafetería Alhambra",
+                "specialty": "Traditional Spanish Coffee",
+                "must_try": [
+                    "Café Cortado",
+                    "Churros with Chocolate"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic Spanish café with history dating back to the 1940s",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Traditional Spanish breakfast items",
+                "local_tips": "Historic café frequented by locals; traditional Spanish coffee culture with no frills"
+            },
+            {
+                "name": "Pan de Mis Abuelos",
+                "specialty": "Artisanal Bakery & Coffee",
+                "must_try": [
+                    "Café con Leche",
+                    "Artisanal Sourdough Bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic bakery-café with the aroma of freshly baked bread",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Artisanal bread, pastries, and light lunch options",
+                "local_tips": "Best bakery in Granada using traditional methods; their breakfast menu features excellent coffee paired with their fresh-baked goods"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Bar Los Diamantes",
+                "type": "Traditional Tapas Bar",
+                "specialty": "Seafood and Wine",
+                "signature_drinks": [
+                    "Tinto de Verano",
+                    "Local Wines from Granada Province"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling, authentic bar with locals standing shoulder to shoulder",
+                "best_time": "Evening",
+                "food_options": "Excellent seafood tapas",
+                "reservation_needed": false,
+                "local_tips": "Granada classic since 1942; the original location on Calle Navas is always packed; each drink comes with excellent complimentary seafood tapas"
+            },
+            {
+                "name": "Bodegas La Mancha",
+                "type": "Traditional Wine Bar",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "House Vermouth on Tap",
+                    "Wines from the Alpujarras"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic bodega with barrels, classic tiles, and authentic old-school ambiance",
+                "best_time": "Afternoon",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "One of Granada's oldest bars with excellent free tapas; the house vermouth is a must-try local specialty"
+            },
+            {
+                "name": "El Huerto de Juan Ranas",
+                "type": "Terrace Bar",
+                "specialty": "Cocktails and Wine",
+                "signature_drinks": [
+                    "Sangria",
+                    "Local Ecological Wines"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stunning terrace with panoramic views of the Alhambra and Generalife gardens",
+                "best_time": "Sunset",
+                "food_options": "Tapas and full menu",
+                "reservation_needed": true,
+                "local_tips": "The best views of the Alhambra in the city; reserve well in advance for sunset terrace tables"
+            },
+            {
+                "name": "Pub La Tertulia",
+                "type": "Literary Bar",
+                "specialty": "Craft Beer and Cocktails",
+                "signature_drinks": [
+                    "Local Craft Beers",
+                    "Literary-themed Cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bohemian bar with literary references, bookcases, and intellectual vibe",
+                "best_time": "Late Night",
+                "food_options": "Light tapas",
+                "reservation_needed": false,
+                "local_tips": "Named after the Spanish tradition of intellectual gatherings; popular with university professors and students; hosts poetry readings and book presentations"
+            },
+            {
+                "name": "Granada 10",
+                "type": "Cocktail Bar",
+                "specialty": "Creative Cocktails",
+                "signature_drinks": [
+                    "Granada 10 (Pomegranate Cocktail)",
+                    "Craft Gin & Tonics"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, modern cocktail bar with elegant design and sophisticated ambiance",
+                "best_time": "Night",
+                "food_options": "Gourmet tapas",
+                "reservation_needed": true,
+                "local_tips": "Granada's premier cocktail destination; mixologists create drinks using local ingredients including pomegranate (granada in Spanish)"
+            },
+            {
+                "name": "Tetería Al-Andalus",
+                "type": "Moroccan Tea House",
+                "specialty": "Moroccan Teas and Shisha",
+                "signature_drinks": [
+                    "Tea with Mint and Pine Nuts",
+                    "Spiced Chai"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Exotic Moroccan décor with low seating, lanterns, and ornate metalwork",
+                "best_time": "Evening",
+                "food_options": "Middle Eastern pastries and light meals",
+                "reservation_needed": false,
+                "local_tips": "Authentic tea house experience reflecting Granada's Moorish heritage; over 100 tea varieties available"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Albaicín Tapas Tour",
+                "focus": "Traditional Granada Tapas and History",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of historic Albaicín's best tapas bars",
+                    "Tasting of 6-8 signature tapas",
+                    "Cultural and historical context of Granada's cuisine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable shoes recommended for the hillside Albaicín neighborhood"
+            },
+            {
+                "name": "Granada Market to Table Experience",
+                "focus": "Local Markets and Cooking",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Guided tour of San Agustín Market",
+                    "Shopping for ingredients with a local chef",
+                    "Hands-on cooking class of traditional Granada dishes",
+                    "Lunch with local wines"
+                ],
+                "booking_required": true,
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; morning tours only when market is most active"
+            },
+            {
+                "name": "Wine and Tapas in Historic Granada",
+                "focus": "Granada Wine Region",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tasting of wines from Granada province",
+                    "Visit to historic bodegas in the city center",
+                    "Paired tapas with each wine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; focuses on little-known wines from the Alpujarras and Calahorra regions"
+            },
+            {
+                "name": "Sacromonte Cave Dining Experience",
+                "focus": "Gypsy Cuisine and Flamenco",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Traditional zambra flamenco performance in caves",
+                    "Dinner featuring Roma-Andalusian cuisine",
+                    "Cultural insights into Granada's gypsy heritage"
+                ],
+                "booking_required": true,
+                "group_size": "Max 20 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book several weeks ahead; includes transportation to and from Sacromonte hill"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Granada Cooking Workshop",
+                "cuisine_focus": "Authentic Granada Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic Tortilla del Sacromonte",
+                    "Remojón Granadino (Orange and Cod Salad)",
+                    "Habas con Jamón (Broad Beans with Ham)"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; begins with shopping at San Agustín Market"
+            },
+            {
+                "name": "Moorish-Influenced Granada Cuisine",
+                "cuisine_focus": "Andalusian-Arabic Fusion",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Authentic Moroccan-style Couscous",
+                    "Saffron-infused Chicken Pastela",
+                    "Almond-based Desserts"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with tea and wine"
+                ],
+                "booking_tips": "Book at least 5 days in advance; explores the Arab influences on Granada's culinary traditions"
+            },
+            {
+                "name": "Alpujarran Mountain Cooking",
+                "cuisine_focus": "Regional Sierra Nevada Cuisine",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Plato Alpujarreño (Mountain-style eggs, potatoes, chorizo, and ham)",
+                    "Trucha a la Alpujarreña (Trout with Ham)",
+                    "Monkey Nuts (Local Almond Sweet)"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Transportation to Alpujarras village, all materials, recipes, full meal with local wine"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes transport to a small village in the Alpujarras mountain region"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado San Agustín",
+                "type": "Historic Food Market",
+                "highlights": [
+                    "Traditional market in the city center",
+                    "Fresh produce, meats, seafood, and specialty products",
+                    "Small tapas bar within the market"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 3:00 PM, Closed Sundays",
+                "best_time": "Weekday mornings",
+                "location": "Centro Histórico",
+                "local_tips": "The oldest market in Granada; look for mountain cheeses from the Alpujarras and jamón from Trevélez"
+            },
+            {
+                "name": "Mercado de Abastos de Granada",
+                "type": "Neighborhood Food Market",
+                "highlights": [
+                    "Local market with authentic atmosphere",
+                    "Variety of fresh food stalls",
+                    "Lower prices than tourist areas"
+                ],
+                "hours": "Monday to Saturday 8:00 AM - 3:00 PM",
+                "best_time": "Morning",
+                "location": "Near the Cathedral",
+                "local_tips": "More frequented by locals than tourists; great place to find authentic Andalusian ingredients and observing local shopping habits"
+            },
+            {
+                "name": "San Agustín Gourmet Market",
+                "type": "Renovated Food Hall",
+                "highlights": [
+                    "Updated section of the traditional market",
+                    "Gourmet food stalls and eateries",
+                    "Modern take on market dining"
+                ],
+                "hours": "Tuesday to Sunday 10:00 AM - Midnight",
+                "best_time": "Evening",
+                "location": "Centro Histórico",
+                "local_tips": "The renovated section offers a more contemporary market experience; good for evening drinks and tapas hopping under one roof"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Habas con Jamón (Broad Beans with Ham)",
+            "Tortilla del Sacromonte (Granada-style Omelet with Offal)",
+            "Alcachofas Confitadas (Confit Artichokes)"
+        ],
+        "summer": [
+            "Gazpacho Andaluz",
+            "Remojón Granadino (Orange and Cod Salad)",
+            "Pionono de Santa Fe (Cinnamon Sponge Cake)"
+        ],
+        "autumn": [
+            "Setas al Ajillo (Garlic Mushrooms)",
+            "Carne de Monte (Game Meat Stews)",
+            "Castañas Asadas (Roasted Chestnuts)"
+        ],
+        "winter": [
+            "Olla de San Antón (Bean and Pork Stew)",
+            "Migas con Chorizo (Fried Breadcrumbs with Chorizo)",
+            "Ponche de Granada (Local Eggnog-style Drink)"
+        ]
+    }
+}

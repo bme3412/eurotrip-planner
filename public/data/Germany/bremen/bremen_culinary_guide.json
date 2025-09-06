@@ -1,0 +1,316 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Kleines Haus",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "North Sea Crab with Local Herbs",
+                    "Weser River Pike with Seasonal Vegetables"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Contemporary design with maritime touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Schnoor Quarter",
+                "local_tips": "One of Bremen's most prestigious restaurants; excellent wine list featuring German wines; beautiful historic setting"
+            },
+            {
+                "name": "Luv",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Local Fish with Modern Sauces",
+                    "Seasonal Game with Local Produce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern dining room with river views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 week in advance",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Schlachte",
+                "local_tips": "Beautiful riverfront setting; excellent seafood; great wine selection"
+            },
+            {
+                "name": "Ratskeller",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Bremen Labskaus",
+                    "Local Fish Dishes",
+                    "Traditional German Classics"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic wine cellar dating back to 1405",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Town Hall",
+                "local_tips": "Bremen's most historic restaurant; authentic German cuisine; historic atmosphere"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Bremer Ratskeller",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Bremen Labskaus",
+                    "Grünkohl (Kale) with Pinkel",
+                    "Local Fish Dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic wine cellar with traditional wooden interior",
+                "best_time": "Lunch and Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Town Hall",
+                "local_tips": "Famous for traditional Bremen cuisine; historic wine cellar; great location in the old town"
+            },
+            {
+                "name": "Schlachte Zoll",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Local Fish Specialties",
+                    "Traditional German Dishes",
+                    "Local Beer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with river views",
+                "best_time": "Lunch and Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner",
+                "dress_code": "Casual",
+                "location": "Schlachte",
+                "local_tips": "Historic restaurant; excellent seafood; great beer selection"
+            },
+            {
+                "name": "Böttcherstraße Restaurant",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Local Specialties",
+                    "Traditional German Dishes",
+                    "Seasonal Menu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with traditional charm",
+                "best_time": "Lunch and Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential for dinner",
+                "dress_code": "Casual",
+                "location": "Böttcherstraße",
+                "local_tips": "One of Bremen's oldest restaurants; authentic atmosphere; excellent traditional food"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Bremen Christmas Market",
+                "specialties": [
+                    "Bremen Labskaus",
+                    "Grünkohl",
+                    "Glühwein",
+                    "Local Specialties"
+                ],
+                "price_range": "€-€€",
+                "hours": "10:00 AM - 9:00 PM (November-December)",
+                "location": "Market Square",
+                "seating": "Limited",
+                "local_tips": "Historic Christmas market; traditional food and drinks; festive atmosphere"
+            },
+            {
+                "name": "Schlachte",
+                "specialties": [
+                    "Local Fish Dishes",
+                    "Traditional Snacks",
+                    "Street Food"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 10:00 PM",
+                "location": "River Weser",
+                "seating": "Limited",
+                "local_tips": "Historic waterfront; traditional food stalls; authentic atmosphere"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Knigge",
+                "specialty": "Traditional Coffee House",
+                "must_try": [
+                    "House-made Cakes",
+                    "Traditional Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with elegant interior",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, cakes, and light meals",
+                "local_tips": "Historic café in beautiful location; excellent pastries"
+            },
+            {
+                "name": "Café Sand",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Coffee",
+                    "Artisanal Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light meals",
+                "local_tips": "Best specialty coffee in Bremen; great for working"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Beck's Brewery",
+                "type": "Brewery",
+                "specialty": "Local Beer",
+                "signature_drinks": [
+                    "Beck's Beer",
+                    "Seasonal Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brewery with traditional elements",
+                "best_time": "Evening",
+                "food_options": "Traditional German cuisine",
+                "reservation_needed": false,
+                "local_tips": "Fresh craft beers; good food menu; lively atmosphere"
+            },
+            {
+                "name": "Bremen Beer House",
+                "type": "Craft Beer Bar",
+                "specialty": "Craft Beer",
+                "signature_drinks": [
+                    "Local Craft Beers",
+                    "International Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern bar with industrial design",
+                "best_time": "Evening",
+                "food_options": "Bar snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Great craft beer selection; friendly atmosphere; regular events"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Bremen Food Tour",
+                "focus": "Traditional German Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic restaurants",
+                    "Traditional food tastings",
+                    "Local food history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; tours run daily except Sundays"
+            },
+            {
+                "name": "Bremen Beer Tour",
+                "focus": "Local Beer Culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic breweries",
+                    "Beer tastings",
+                    "Local beer history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable walking shoes required"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "German Cooking Workshop",
+                "cuisine_focus": "Traditional German Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional German dishes",
+                    "Local specialties",
+                    "Seasonal cooking"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held weekly"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Market Square",
+                "type": "Daily Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Traditional food"
+                ],
+                "hours": "7:00 AM - 6:00 PM (Monday-Saturday)",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "Historic market square; excellent selection of local products; beautiful fountain"
+            },
+            {
+                "name": "Schlachte",
+                "type": "Daily Market",
+                "highlights": [
+                    "Fresh fish",
+                    "Local specialties",
+                    "Regional products"
+                ],
+                "hours": "10:00 AM - 6:00 PM",
+                "best_time": "Morning",
+                "location": "River Weser",
+                "local_tips": "Historic waterfront; traditional atmosphere; great for seafood"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise",
+            "Fresh Herbs and Wild Garlic",
+            "Spring Fish from Weser"
+        ],
+        "summer": [
+            "Fresh Berries from Local Farms",
+            "Grilled Local Fish",
+            "Beer Festival Specialties"
+        ],
+        "autumn": [
+            "Grünkohl (Kale) with Pinkel",
+            "Fresh Fish from North Sea",
+            "Autumn Game Dishes"
+        ],
+        "winter": [
+            "Christmas Market Specialties",
+            "Glühwein and Punch",
+            "Traditional German Winter Dishes"
+        ]
+    }
+} 

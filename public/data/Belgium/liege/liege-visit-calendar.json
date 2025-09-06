@@ -1,0 +1,160 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {"days": [1], "score": 2, "special": true, "event": "New Year's Day", "notes": "Holiday crowds, cold, many closures"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 2, "notes": "Winter cold, post-holiday period, indoor museum season"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 2, "notes": "Low season, fewer crowds, Grand Curtius Museum popular"}
+      ],
+      "weatherHighC": 3,
+      "weatherLowC": -2,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 2, "notes": "Winter conditions, indoor activities preferred"},
+        {"days": [14], "score": 3, "special": true, "event": "Valentine's Day", "notes": "Special events at chocolate shops, romantic dining"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 2, "special": true, "event": "Carnival", "notes": "Some carnival celebrations, winter conditions"}
+      ],
+      "weatherHighC": 5,
+      "weatherLowC": -1,
+      "tourismLevel": 3
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "notes": "Early spring, gradual warming, beginning of outdoor café season"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 3, "notes": "Spring beginning, Botanical Garden starts to bloom"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Liege Literary Festival", "notes": "Literary events, moderate tourism"}
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 2,
+      "tourismLevel": 4
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7], "score": 4, "notes": "Spring flowers, pleasant temperatures, Easter period"},
+        {"days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 4, "special": true, "event": "Cherry Blossom Festival", "notes": "Parks in bloom, special cultural events"},
+        {"days": [21, 22, 23, 24, 25, 26, 27], "score": 4, "notes": "Ideal spring weather, increasing outdoor activities"},
+        {"days": [28, 29, 30], "score": 4, "special": true, "event": "King's Day", "notes": "National holiday celebrations"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 4,
+      "tourismLevel": 6
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day", "notes": "Many closures but special events"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Excellent spring weather, blooming gardens"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], "score": 5, "special": true, "event": "Festival de Liège", "notes": "Performing arts celebrations, diverse cultural events"},
+        {"days": [26, 27, 28, 29], "score": 4, "special": true, "event": "Ascension Day (May 29)", "notes": "Religious holiday, some businesses closed"},
+        {"days": [30, 31], "score": 4, "notes": "Warm weather, outdoor café culture, approaching summer"}
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 7,
+      "tourismLevel": 7
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8], "score": 5, "notes": "Excellent weather, long daylight, outdoor markets"},
+        {"days": [9], "score": 4, "special": true, "event": "Whit Monday", "notes": "Public holiday, some closures"},
+        {"days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], "score": 5, "special": true, "event": "Les Epicuriales", "notes": "Gastronomy festival, largest open-air restaurant in Liege"},
+        {"days": [26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Summer Beer Lovers' Festival", "notes": "Craft beer celebration showcasing Wallonian breweries"}
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 10,
+      "tourismLevel": 8
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9], "score": 4, "notes": "Summer weather, outdoor activities, moderate crowds"},
+        {"days": [10, 11], "score": 5, "special": true, "event": "Walloon Holiday", "notes": "Regional celebrations, cultural events"},
+        {"days": [12, 13, 14], "score": 5, "special": true, "event": "Bastille Day Celebrations", "notes": "French holiday celebrated in Liege with public dances and markets"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 3, "notes": "Peak tourist season, warm weather"},
+        {"days": [21], "score": 4, "special": true, "event": "Belgian National Day", "notes": "Parades, celebrations, fireworks"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Les Ardentes", "notes": "Major music festival featuring international and Belgian artists"}
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 12,
+      "tourismLevel": 9
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "notes": "Summer weather continues, many locals on vacation"},
+        {"days": [15], "score": 4, "special": true, "event": "Assumption Day / Outremeuse Festival", "notes": "Major folk festival in Outremeuse district with parades and celebrations"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Pleasant summer conditions, gradually less crowded as vacations end"}
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 12,
+      "tourismLevel": 8
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent post-peak season, warm weather continues"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 5, "special": true, "event": "Wallonia Festival", "notes": "Regional celebration of Wallonian culture and heritage"},
+        {"days": [24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "BIAM Contemporary Art", "notes": "Biennial art exhibitions, cultural activities"}
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 9,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7], "score": 4, "special": true, "event": "Nocturne des Coteaux de la Citadelle", "notes": "Night festival with 20,000 candles illuminating the historic hillsides"},
+        {"days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], "score": 4, "special": true, "event": "Liege Fair", "notes": "Belgium's largest fun fair with over 170 attractions for six weeks"},
+        {"days": [22, 23, 24, 25, 26, 27, 28], "score": 4, "special": true, "event": "Liege Organ Festival", "notes": "Prestigious music festival in historic churches"},
+        {"days": [29, 30, 31], "score": 3, "special": true, "event": "Halloween Events", "notes": "Spooky tours, special museum nights"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 6,
+      "tourismLevel": 5
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Holiday, some closures"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Fall atmosphere, cooling temperatures"},
+        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "score": 3, "notes": "Museums and indoor activities, cooler weather"},
+        {"days": [30], "score": 3, "special": true, "event": "Christmas Village begins", "notes": "Start of winter celebrations"}
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 2,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 4, "special": true, "event": "Christmas Village", "notes": "One of Belgium's largest Christmas markets with over 200 chalets"},
+        {"days": [24, 25, 26], "score": 3, "special": true, "event": "Christmas", "notes": "Festive atmosphere but many closures"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - museum visits, shopping"},
+        {"days": [31], "score": 3, "special": true, "event": "New Year's Eve", "notes": "Celebrations at Place Saint-Lambert, fireworks on the Meuse River"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 0,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": ["Passerelle La Belle Liégeoise Walks", "La Boverie Art Museum", "Botanical Garden", "La Batte Sunday Market", "Saint Paul's Cathedral", "Meuse Riverside Walks", "Outdoor Cafés", "Royal Opera House"],
+    "summer": ["Outdoor Festivals", "La Boverie Park", "Meuse River Cruises", "Citadelle Hill Walks", "Rooftop Terraces", "Cycling Tours", "August 15th Outremeuse Festival", "Street Food Markets"],
+    "autumn": ["Liege Fair", "Grand Curtius Museum", "Contemporary Art Galleries", "Guillemins Station Tours", "Cultural Events", "Wallonian Beer Tours", "Chocolate Workshops", "Liege Organ Festival"],
+    "winter": ["Christmas Village", "Ice Skating at Place Cathédrale", "Archeoforum Underground Museum", "Historical Cafés", "Indoor Markets", "Belgian Beer Tasting", "Puppet Shows in Outremeuse", "Winter Light Festival"]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+  }
+}

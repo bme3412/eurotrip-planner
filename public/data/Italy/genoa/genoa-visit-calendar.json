@@ -1,0 +1,435 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 2,
+          "special": true,
+          "event": "New Year's Day",
+          "notes": "Holiday atmosphere, many businesses closed, special Mass at Genoa Cathedral"
+        },
+        {
+          "days": [2, 3, 4, 5],
+          "score": 3,
+          "special": true,
+          "event": "Post-holiday period",
+          "notes": "Gradually reopening businesses, Christmas decorations still visible"
+        },
+        {
+          "days": [6],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany (La Befana)",
+          "notes": "Holiday celebrating the 'good witch' who brings gifts to children, Cavalcade of the Magi procession through historic center"
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "special": true,
+          "event": "Winter Sales (Saldi)",
+          "notes": "Major shopping discounts throughout the city, especially on Via Garibaldi and Via XX Settembre"
+        }
+      ],
+      "weatherHighC": 11,
+      "weatherLowC": 3,
+      "tourismLevel": 3
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Quiet winter period, fewer tourists, excellent time for museum visits without crowds"
+        },
+        {
+          "days": [14],
+          "score": 3,
+          "special": true,
+          "event": "Valentine's Day",
+          "notes": "Romantic atmosphere in the city, special menus at restaurants, panoramic views from Spianata Castelletto popular with couples"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 4,
+          "special": true,
+          "event": "Carnival (Carnevale)",
+          "notes": "Period before Lent with street celebrations, masquerade events, and traditional pastries like pandolce"
+        }
+      ],
+      "weatherHighC": 12,
+      "weatherLowC": 4,
+      "tourismLevel": 4
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+          "score": 4,
+          "notes": "Early spring weather, blooming trees in parks, moderate crowds before Holy Week"
+        },
+        {
+          "days": [17, 18, 19],
+          "score": 4,
+          "special": true,
+          "event": "Feast of San Giuseppe",
+          "notes": "Traditional frittelle and zeppole pastries in bakeries, street celebrations"
+        },
+        {
+          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Spring weather improving, coastal walks becoming more pleasant, moderate tourism levels"
+        }
+      ],
+      "weatherHighC": 15,
+      "weatherLowC": 6,
+      "tourismLevel": 5
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "score": 5,
+          "special": true,
+          "event": "Holy Week & Easter",
+          "notes": "Significant religious ceremonies at the Cathedral of San Lorenzo, traditional Easter celebrations throughout the city"
+        },
+        {
+          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 5,
+          "notes": "Perfect spring weather, blooming flowers in Villa Durazzo Gardens, excellent conditions for coastal activities"
+        },
+        {
+          "days": [21, 22, 23, 24],
+          "score": 5,
+          "special": true,
+          "event": "Genoa International Boat Show",
+          "notes": "Europe's important boat show at Porto Antico, showcasing luxury yachts and marine technology"
+        },
+        {
+          "days": [25],
+          "score": 5,
+          "special": true,
+          "event": "Liberation Day",
+          "notes": "National holiday on April 25th with parades, ceremonies, and some business closures"
+        },
+        {
+          "days": [26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Ideal spring weather, perfect for outdoor exploration and coastal dining"
+        }
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 8,
+      "tourismLevel": 7
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 4,
+          "special": true,
+          "event": "Labor Day",
+          "notes": "Public holiday, many businesses closed but outdoor celebrations and concerts"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Perfect spring weather, flowers in bloom at Villa Durazzo Gardens, ideal for coastal activities"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Pesto alla Genovese Festival",
+          "notes": "Celebration of Genoa's signature dish with tastings, demonstrations, and competitions in Piazza San Lorenzo"
+        },
+        {
+          "days": [31],
+          "score": 5,
+          "notes": "Late spring perfection, excellent for exploring the historic center and coastal areas"
+        }
+      ],
+      "weatherHighC": 23,
+      "weatherLowC": 12,
+      "tourismLevel": 8
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 5,
+          "notes": "Early summer weather, excellent for exploring outdoor sites and coastal areas"
+        },
+        {
+          "days": [2],
+          "score": 4,
+          "special": true,
+          "event": "Festa della Repubblica",
+          "notes": "National holiday with celebrations and some business closures"
+        },
+        {
+          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 5,
+          "notes": "Long daylight hours, perfect for evening harbor strolls and outdoor dining"
+        },
+        {
+          "days": [24],
+          "score": 5,
+          "special": true,
+          "event": "Feast of San Giovanni (St. John)",
+          "notes": "Traditional celebrations with local events, Palio Marinaro maritime regatta, and evening festivities"
+        },
+        {
+          "days": [25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Estate Genovese Begins",
+          "notes": "Start of summer events and performances throughout the city, outdoor cinema and concerts"
+        }
+      ],
+      "weatherHighC": 26,
+      "weatherLowC": 16,
+      "tourismLevel": 9
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 4,
+          "special": true,
+          "event": "Estate Genovese Festival",
+          "notes": "Outdoor performances in historic venues, concerts in piazzas, cultural events throughout the city"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Peak summer heat, many locals away, some restaurants may close, high tourist season"
+        }
+      ],
+      "weatherHighC": 29,
+      "weatherLowC": 19,
+      "tourismLevel": 9
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 2,
+          "notes": "Peak summer heat, many locals away, significant restaurant and shop closures"
+        },
+        {
+          "days": [15],
+          "score": 3,
+          "special": true,
+          "event": "Ferragosto (Assumption Day)",
+          "notes": "National holiday with widespread closures but special events and some restaurants remain open for tourists"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 2,
+          "notes": "Continued heat and business closures; major attractions remain open but city feels emptier of locals"
+        },
+        {
+          "days": [31],
+          "score": 3,
+          "notes": "Businesses begin to reopen as locals return from vacation"
+        }
+      ],
+      "weatherHighC": 29,
+      "weatherLowC": 19,
+      "tourismLevel": 8
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+          "score": 5,
+          "notes": "Perfect late summer weather, locals return, cultural activities resume, ideal visiting conditions"
+        },
+        {
+          "days": [28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "European Heritage Days",
+          "notes": "Special access to historical sites and buildings normally closed to the public"
+        }
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 16,
+      "tourismLevel": 8
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 5,
+          "notes": "Beautiful autumn colors in Villa Durazzo Gardens and other parks, pleasant temperatures, ideal for sightseeing"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Autumn food festivals",
+          "notes": "Seasonal truffle and mushroom menus appear in restaurants, wine harvest events in surrounding Ligurian countryside"
+        },
+        {
+          "days": [31],
+          "score": 4,
+          "special": true,
+          "event": "Halloween",
+          "notes": "Not traditionally celebrated but increasing popularity with events at clubs and restaurants"
+        }
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 12,
+      "tourismLevel": 7
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day",
+          "notes": "Public holiday, many businesses closed, special masses at major churches"
+        },
+        {
+          "days": [2],
+          "score": 3,
+          "special": true,
+          "event": "All Souls' Day",
+          "notes": "Traditional visits to cemeteries, special masses for the deceased"
+        },
+        {
+          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "score": 4,
+          "notes": "Autumn atmosphere, fewer tourists, excellent museum and indoor site visiting weather"
+        },
+        {
+          "days": [30],
+          "score": 4,
+          "special": true,
+          "event": "Genoa Marathon",
+          "notes": "Major sporting event passing through historic center and along the coast, some road closures but festive atmosphere"
+        }
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 8,
+      "tourismLevel": 5
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7],
+          "score": 4,
+          "notes": "Pre-Christmas atmosphere, holiday decorations appearing throughout the city"
+        },
+        {
+          "days": [8],
+          "score": 4,
+          "special": true,
+          "event": "Immaculate Conception",
+          "notes": "Public holiday, start of Christmas season, lighting of city Christmas tree in Piazza San Lorenzo"
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets",
+          "notes": "Holiday markets in Piazza San Lorenzo and other locations, G-Light Festival illuminations"
+        },
+        {
+          "days": [24, 25],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Eve and Day",
+          "notes": "Midnight Mass at the Cathedral of San Lorenzo, limited dining options but major hotels offer special meals"
+        },
+        {
+          "days": [26],
+          "score": 3,
+          "special": true,
+          "event": "Santo Stefano",
+          "notes": "National holiday, continued celebrations, some businesses remain closed"
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 4,
+          "notes": "Between Christmas and New Year's, festive atmosphere continues"
+        },
+        {
+          "days": [31],
+          "score": 5,
+          "special": true,
+          "event": "New Year's Eve",
+          "notes": "Celebrations in major piazzas (Piazza San Lorenzo, Porto Antico), concerts, fireworks over the harbor"
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 5,
+      "tourismLevel": 6
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Villa Durazzo Pallavicini Gardens for Spring Blooms",
+      "Coastal Walks in Boccadasse",
+      "Porto Antico Exploration",
+      "Mercato Orientale Shopping",
+      "Strade Nuove Palace Tours",
+      "Day Trips to Ligurian Coast",
+      "Genoa International Boat Show",
+      "Easter Celebrations at Cathedral"
+    ],
+    "summer": [
+      "Evening Harbor Walks",
+      "Sunset at Spianata Castelletto",
+      "Rooftop Bars with Harbor Views",
+      "Boccadasse Nightlife",
+      "Estate Genovese Events",
+      "Seafood Tasting Tours",
+      "Beach Day at Boccadasse",
+      "Outdoor Cinema Events"
+    ],
+    "autumn": [
+      "Aquarium of Genoa With Fewer Crowds",
+      "Truffle and Mushroom Cuisine",
+      "Fall Colors in Villa Durazzo Gardens",
+      "Grape Harvest in Ligurian Vineyards",
+      "Museum Exhibitions",
+      "Genoa Marathon (late November)",
+      "Day Trips to Nervi for Gardens",
+      "Wine Tasting Tours"
+    ],
+    "winter": [
+      "Christmas Markets in Historic Squares",
+      "G-Light Festival Illuminations",
+      "Winter Museum Visits",
+      "Hot Chocolate at Historic Cafes",
+      "New Year's Eve Events",
+      "Winter Sales Shopping",
+      "Day Trips to Coastal Villages",
+      "Traditional Winter Ligurian Cuisine"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very low/high tourism (business closures)",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+  }
+}

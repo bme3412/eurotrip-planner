@@ -1,0 +1,660 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 2, 
+          "special": true, 
+          "event": "New Year's Day", 
+          "notes": "Major holiday - many attractions closed, cold weather (-2 to 3°C), post-celebration cleanup, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 1
+          },
+          "attractions": {
+            "spilberkCastle": "Closed",
+            "villaTugendhat": "Closed", 
+            "cathedral": "Open with limited hours",
+            "moravianMuseum": "Closed",
+            "technicalMuseum": "Closed"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with snow", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 2, 
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, very cold (-3 to 2°C)", 
+          "location": "Shopping centers and museums", 
+          "time": "All day", 
+          "price": "Lower prices", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 2
+          },
+          "attractions": {
+            "spilberkCastle": "Open, no queues",
+            "villaTugendhat": "Perfect for interior tours",
+            "moravianMuseum": "Excellent conditions",
+            "shopping": "Sales up to 50% off",
+            "museums": "Perfect for cultural immersion"
+          },
+          "considerations": ["Excellent for museum marathons", "Shopping sales active", "Bring thermal clothing", "Limited daylight 7:45am-4:30pm"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 2, 
+          "notes": "Coldest period (-4 to 1°C), possible snow, ideal for indoor activities, very low tourism", 
+          "location": "Museums and galleries", 
+          "time": "Daytime 9am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 3
+          },
+          "attractions": {
+            "villaTugendhat": "Excellent - special winter tours",
+            "moravianMuseum": "Perfect conditions",
+            "technicalMuseum": "Indoor exhibits ideal",
+            "cafes": "Cozy atmosphere", 
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for Villa Tugendhat tours", "Cafés are warm sanctuaries", "Early sunset around 4:30pm"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 2,
+        "lowC": -3,
+        "avgC": -0.5,
+        "realFeelC": -5,
+        "rainfallMm": 25,
+        "rainDays": 8,
+        "snowDays": 8,
+        "sunshineHours": 2,
+        "daylightHours": 8.5,
+        "sunrise": "07:45",
+        "sunset": "16:30",
+        "humidity": 85,
+        "windKmh": 12
+      },
+      "tourismLevel": 2,
+      "priceLevel": "Low",
+      "crowdLevel": "Very Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "Late January", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 2, 
+          "notes": "Winter continues, cold (-2 to 4°C), fewer crowds, excellent museum time", 
+          "location": "Museums and covered areas", 
+          "time": "Daytime 9am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 3, 
+          "notes": "Gradual warming (0 to 6°C), winter sales ending, university town coming alive", 
+          "location": "University areas, cultural venues", 
+          "time": "All day", 
+          "price": "End of sales", 
+          "crowdLevel": "Low",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate", "dates": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]},
+            "description": "Czech school holidays - increased family tourism"
+          },
+          "considerations": ["University students return", "Museum queues increase slightly", "Book family restaurants ahead"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 3, 
+          "notes": "Spring hints, gradually warming (2 to 8°C), days noticeably longer", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low-Moderate",
+          "considerations": ["Days getting longer", "Early signs of spring in parks", "Good time for planning wine region visits"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 6,
+        "lowC": -2,
+        "avgC": 2,
+        "realFeelC": -1,
+        "rainfallMm": 30,
+        "rainDays": 7,
+        "snowDays": 5,
+        "sunshineHours": 3,
+        "daylightHours": 10,
+        "sunrise": "07:15",
+        "sunset": "17:45",
+        "humidity": 80,
+        "windKmh": 13
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Early spring transition, variable weather (2 to 10°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6:30am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "University city fully active"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Spring awakening, pleasant temperatures (5 to 12°C), perfect for walking", 
+          "location": "Parks and city center", 
+          "time": "Full day exploration", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "springActivities": ["Lužánky Park visits", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for Špilberk Castle", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "special": true, 
+          "event": "Spring Equinox & Easter Preparations", 
+          "notes": "Spring officially arrives, excellent conditions (7 to 15°C), Easter market preparations", 
+          "location": "Zelný trh, city parks", 
+          "time": "Optimal 9am-6pm", 
+          "price": "Free for parks", 
+          "crowdLevel": "Moderate",
+          "springLocations": {
+            "luzankyPark": "First spring flowers, Central Europe's oldest park",
+            "denisGardens": "Below Špilberk Castle, city views",
+            "zelnyTrh": "Market preparations for Easter",
+            "spilberkGrounds": "Castle grounds reopening"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Perfect for photography", "Outdoor dining fully returns", "Wine region day trips become feasible"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 12,
+        "lowC": 3,
+        "avgC": 7.5,
+        "realFeelC": 6,
+        "rainfallMm": 35,
+        "rainDays": 9,
+        "snowDays": 2,
+        "sunshineHours": 4.5,
+        "daylightHours": 12,
+        "sunrise": "06:30",
+        "sunset": "18:30",
+        "humidity": 75,
+        "windKmh": 14
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7], 
+          "score": 4, 
+          "notes": "Beautiful spring weather (8 to 16°C), cherry blossoms and spring flowers", 
+          "location": "Parks and gardens", 
+          "time": "All day", 
+          "price": "Free for park viewing", 
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Spring blooms in Lužánky Park and Denis Gardens"
+        },
+        {
+          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "special": true, 
+          "event": "Easter Season & Spring Festivals", 
+          "notes": "Easter celebrations, spring markets, ideal weather (10 to 18°C), perfect for sightseeing", 
+          "location": "Zelný trh, Cathedral, city center", 
+          "time": "All day", 
+          "price": "Free markets, paid attractions", 
+          "crowdLevel": "Moderate-High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "easterActivities": {
+            "zelnyTrh": "Traditional Easter markets with Moravian crafts",
+            "cathedral": "Special Easter services and tours",
+            "luzankyPark": "Spring blooms at their peak",
+            "traditionalCrafts": "Painted eggs and folk art demonstrations"
+          },
+          "considerations": ["Easter weekend very busy", "Book restaurants in advance", "Perfect weather for walking tours", "Traditional Czech Easter traditions"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 5, 
+          "notes": "Perfect spring conditions (12 to 20°C), comfortable temperatures, ideal sightseeing", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6am-7:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "optimalActivities": ["Villa Tugendhat tours", "Špilberk Castle exploration", "Wine region day trips", "Outdoor dining", "Photography tours"],
+          "considerations": ["Perfect temperature for long walks", "Outdoor dining fully active", "Wine region accessible", "Book popular attractions ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 17,
+        "lowC": 6,
+        "avgC": 11.5,
+        "realFeelC": 12,
+        "rainfallMm": 45,
+        "rainDays": 9,
+        "sunshineHours": 6,
+        "daylightHours": 13.5,
+        "sunrise": "06:00",
+        "sunset": "19:30",
+        "humidity": 70,
+        "windKmh": 13,
+        "uvIndex": 4
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "specialConsiderations": {
+        "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
+        "springBreaks": "University students and families increase tourism",
+        "weather": "Most stable spring weather, excellent for outdoor activities"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day (Svátek práce)", "notes": "Many closures but special events, beautiful spring weather", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "special": true, "event": "Brno Design Days", "notes": "International design festival, perfect weather (13-21°C), cultural events", "location": "Various venues citywide", "time": "All day", "price": "Varies", "crowdLevel": "High"},
+        {"days": [8], "score": 4, "special": true, "event": "Liberation Day", "notes": "Historical commemorations, some closures, spring flowers peak", "location": "Memorial sites", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 5, "notes": "Excellent weather, not peak tourism yet, perfect for all activities (15-23°C)", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate-High"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 11,
+      "weatherAvgC": 16.5,
+      "rainfallMm": 65,
+      "sunshineHours": 7.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 5, "notes": "Excellent weather (16-25°C), long daylight, pre-peak season", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 5, "special": true, "event": "Ignis Brunensis Fireworks Festival", "notes": "International fireworks competition at Brno Dam, perfect weather", "location": "Brno Dam", "time": "Evening", "price": "Free", "crowdLevel": "Very High"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "special": true, "event": "Shakespeare Festival & Open Gardens", "notes": "Outdoor Shakespeare at Špilberk, Festival of Open Gardens, summer begins", "location": "Špilberk Castle, private gardens", "time": "Evening/All day", "price": "Paid events", "crowdLevel": "High"}
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 15,
+      "weatherAvgC": 20,
+      "rainfallMm": 70,
+      "sunshineHours": 8.5,
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 3, "special": true, "event": "Summer Festival Season", "notes": "Peak tourism season, hot weather (18-27°C), crowded attractions", "location": "Citywide", "time": "All day", "price": "Expensive", "crowdLevel": "Very High"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Continued heat, many locals on vacation, student population reduced", "location": "Citywide", "time": "All day", "price": "High", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 27,
+      "weatherLowC": 16,
+      "weatherAvgC": 21.5,
+      "rainfallMm": 75,
+      "sunshineHours": 9,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 3, "notes": "Hot weather (17-27°C), many locals on vacation, reduced university population", "location": "Citywide", "time": "All day", "price": "High", "crowdLevel": "High"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "University Preparation", "notes": "Students returning, weather still warm, crowds decreasing", "location": "University areas", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 26,
+      "weatherLowC": 16,
+      "weatherAvgC": 21,
+      "rainfallMm": 70,
+      "sunshineHours": 8.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Moderate-High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "special": true, "event": "University Term & Wine Harvest", "notes": "Excellent post-peak season, warm weather continues (14-22°C), wine harvest begins", "location": "City center and wine region", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Moravian Autumn Festival", "notes": "Perfect temperatures, cultural events, wine harvest tours, autumn colors", "location": "Various venues citywide", "time": "All day", "price": "Varies", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 12,
+      "weatherAvgC": 17,
+      "rainfallMm": 55,
+      "sunshineHours": 6.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "special": true, "event": "Autumn Colors & Wine Harvest", "notes": "Beautiful fall colors, comfortable temperatures (8-16°C), wine harvest continues", "location": "Denis Gardens, wine region", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Peak autumn colors, golden light for photography, comfortable walking weather", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 6,
+      "weatherAvgC": 11,
+      "rainfallMm": 45,
+      "sunshineHours": 4.5,
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Fall colors continue, cooling temperatures (4-10°C), fewer crowds", "location": "Museums and galleries", "time": "Daytime", "price": "Standard", "crowdLevel": "Low"},
+        {"days": [17], "score": 3, "special": true, "event": "Velvet Revolution Day", "notes": "National holiday commemorations, some closures, historical significance", "location": "City center", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 3, "special": true, "event": "Christmas Market Preparation", "notes": "Festive atmosphere begins, cooler weather, holiday preparations", "location": "Zelný trh area", "time": "All day", "price": "Free", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 3,
+      "weatherAvgC": 6,
+      "rainfallMm": 40,
+      "sunshineHours": 2.5,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 4, "special": true, "event": "Christmas Markets", "notes": "Festive atmosphere, Christmas markets at Zelný trh and Freedom Square, mulled wine, Moravian crafts", "location": "Zelný trh, Freedom Square", "time": "All day", "price": "Free markets", "crowdLevel": "High"},
+        {"days": [24, 25, 26], "score": 2, "special": true, "event": "Christmas Holiday", "notes": "Many closures but special atmosphere, family celebrations, quiet streets", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Very Low"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - moderate tourist activity, sales begin", "location": "Shopping areas", "time": "All day", "price": "Sales", "crowdLevel": "Moderate"},
+        {"days": [31], "score": 4, "special": true, "event": "New Year's Eve", "notes": "Fireworks over Špilberk Castle, special events, festive celebrations", "location": "Špilberk Castle, Freedom Square", "time": "Evening", "price": "Free outdoor events", "crowdLevel": "High"}
+      ],
+      "weatherHighC": 4,
+      "weatherLowC": -1,
+      "weatherAvgC": 1.5,
+      "rainfallMm": 35,
+      "sunshineHours": 1.5,
+      "tourismLevel": 6,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Lužánky Park Walks",
+      "Špilberk Castle Tours",
+      "Villa Tugendhat Visits",
+      "Wine Region Day Trips",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Photography Tours",
+      "Markets & Shopping",
+      "University Campus Visits",
+      "Denis Gardens Exploration"
+    ],
+    "summer": [
+      "Ignis Brunensis Fireworks",
+      "Shakespeare Festival",
+      "Open Garden Tours",
+      "Moravian Wine Tastings",
+      "Outdoor Festivals",
+      "Evening Castle Tours",
+      "Brewery Tours",
+      "Cycling to Wine Region",
+      "Outdoor Concerts",
+      "Rooftop Dining"
+    ],
+    "autumn": [
+      "Moravian Autumn Festival",
+      "Wine Harvest Tours",
+      "Museum Visits",
+      "Cultural Events",
+      "Fall Foliage Photography",
+      "Harvest Festivals",
+      "Technical Museum",
+      "Cooking Classes",
+      "Historical Tours",
+      "University Cultural Events"
+    ],
+    "winter": [
+      "Christmas Markets",
+      "Villa Tugendhat Winter Tours",
+      "Classical Concerts",
+      "Museum Visits",
+      "Cozy Pubs and Cafés",
+      "Historical Sites",
+      "Theater Shows",
+      "Shopping in Covered Areas",
+      "Moravian Museum",
+      "Traditional Czech Experiences"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["May wine season", "June Shakespeare Festival", "September harvest", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "February"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "University city atmosphere", "Easy navigation"],
+      "considerations": ["Safety", "Language", "Solo dining comfort", "Student-friendly environment"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["July", "August", "December"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings", "University schedule"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free attractions", "Student areas", "Local pubs"],
+      "considerations": ["Accommodation deals", "Student discounts", "Free events", "Public transport"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "experiences": ["Fine dining", "Wine region tours", "Private Villa Tugendhat tours", "Premium accommodations"],
+      "considerations": ["Advance bookings", "Seasonal availability", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "activityCategories": {
+    "outdoor": {
+      "optimal": ["April", "May", "June", "September", "October"],
+      "activities": ["Walking tours", "Castle exploration", "Garden visits", "Wine region tours", "Photography"],
+      "weatherDependent": true
+    },
+    "cultural": {
+      "yearRound": true,
+      "peak": ["September", "October", "November", "December", "January"],
+      "activities": ["Museums", "Villa Tugendhat", "Galleries", "Theater", "Concerts"],
+      "seasonalHighlights": {
+        "autumn": "Moravian Autumn Festival",
+        "winter": "Christmas cultural events",
+        "spring": "Brno Design Days"
+      }
+    },
+    "wine": {
+      "optimal": ["May", "June", "September", "October"],
+      "activities": ["Vineyard tours", "Wine tastings", "Harvest participation", "Cellar visits"],
+      "seasonalHighlights": {
+        "spring": "New wine releases",
+        "autumn": "Harvest season"
+      }
+    },
+    "festivals": {
+      "spring": ["Brno Design Days"],
+      "summer": ["Ignis Brunensis", "Shakespeare Festival", "Open Gardens"],
+      "autumn": ["Moravian Autumn Festival", "Wine harvest festivals"],
+      "winter": ["Christmas markets"]
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 16 hours",
+      "shortest": "December 21st - 8.5 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "publicTransport": {
+        "system": "Trams and buses",
+        "coverage": "Excellent citywide",
+        "studentFriendly": "Significant student discounts"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (heat)"
+      },
+      "cycling": {
+        "bikeSharing": "Available",
+        "optimal": "April-October",
+        "wineRegion": "Excellent cycling routes to vineyards"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August", "December"],
+        "events": ["Ignis Brunensis", "Design Days", "Christmas markets"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 1-2 months ahead for best rates"
+      },
+      "studentAreas": "Veveří neighborhood offers budget options near university"
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["New Year's Eve", "Christmas Eve", "Design Days"],
+        "recommended": "High season (June-August)",
+        "timeline": "1-2 weeks ahead for popular restaurants"
+      },
+      "localTraditions": {
+        "lunch": "Main meal, many restaurants offer lunch menus",
+        "beer": "Central to dining culture",
+        "wine": "South Moravian wines featured prominently"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter atmosphere, cozy museums, Villa Tugendhat tours, low crowds",
+    "february": "Authentic local experience, excellent museum conditions, budget-friendly",
+    "march": "Spring awakening, comfortable temperatures, university life returns",
+    "april": "Perfect spring weather, Easter markets, ideal for walking tours",
+    "may": "Brno Design Days, excellent conditions, wine region accessible",
+    "june": "Ignis Brunensis fireworks, Shakespeare Festival, peak weather",
+    "july": "Peak summer, outdoor dining, high tourism",
+    "august": "Warm weather, student life resuming, manageable crowds",
+    "september": "Wine harvest season, Moravian Autumn Festival, perfect conditions",
+    "october": "Autumn colors, comfortable temperatures, wine harvest continues",
+    "november": "Cozy atmosphere, cultural events, fewer crowds",
+    "december": "Christmas markets, festive atmosphere, New Year's celebrations"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, beautiful blooms",
+      "summer": "Warm to hot, occasional thunderstorms, excellent for outdoor activities",
+      "autumn": "Comfortable temperatures, beautiful colors, wine harvest season",
+      "winter": "Cold but manageable, occasional snow, perfect for indoor attractions"
+    },
+    "transportation": {
+      "publicTransport": "Excellent tram and bus system, student-friendly",
+      "walking": "Very walkable city center, comfortable distances",
+      "cycling": "Good infrastructure, wine region cycling routes",
+      "regional": "Easy access to Vienna (1.5h), Prague (2.5h), wine region (30min)"
+    },
+    "uniqueFeatures": {
+      "wineRegion": "Gateway to South Moravian wine country",
+      "universities": "Major university city with vibrant student life",
+      "architecture": "Mix of historical and modernist (Villa Tugendhat)",
+      "festivals": "Strong cultural calendar throughout the year"
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+    "destinations": [
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the Netherlands' vibrant capital with its iconic canals, world-class museums, and distinctive architecture.",
+            "directWithinCountryTrain": {
+                "stationInHaarlem": "Haarlem",
+                "journeyTime": "approx. 15-20 minutes",
+                "frequency": "Multiple per hour"
+            },
+            "intraEuropeFlight": {
+                "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "Not applicable - train is much faster",
+                "frequency": "Not applicable"
+            }
+        },
+        {
+            "city": "Rotterdam",
+            "country": "Netherlands",
+            "whyGo": "Discover the Netherlands' second-largest city known for its modern architecture, innovative design, and bustling harbor.",
+            "directWithinCountryTrain": {
+                "stationInHaarlem": "Haarlem",
+                "journeyTime": "approx. 1 hour (may require change)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "The Hague",
+            "country": "Netherlands",
+            "whyGo": "Visit the seat of Dutch government, international courts, royal palaces, and beautiful North Sea beaches.",
+            "directWithinCountryTrain": {
+                "stationInHaarlem": "Haarlem",
+                "journeyTime": "approx. 30-40 minutes (direct or change)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Utrecht",
+            "country": "Netherlands",
+            "whyGo": "Explore this historic city with its iconic Dom Tower, charming canals, and rich cultural heritage.",
+            "directWithinCountryTrain": {
+                "stationInHaarlem": "Haarlem",
+                "journeyTime": "approx. 45-50 minutes (change at Amsterdam)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Leeuwarden",
+            "country": "Netherlands",
+            "whyGo": "Explore the capital of Friesland, known for its canals, historic center, and the leaning Oldehove tower.",
+             "directWithinCountryTrain": {
+                "stationInHaarlem": "Haarlem",
+                "journeyTime": "approx. 2 hours 30 minutes (change required)",
+                "frequency": "Hourly+"
+            }
+        },
+         {
+            "city": "Zwolle",
+            "country": "Netherlands",
+            "whyGo": "Discover this charming Hanseatic city with its star-shaped moat, historic Sassenpoort gate, and Museum de Fundatie.",
+             "directWithinCountryTrain": {
+                "stationInHaarlem": "Haarlem",
+                "journeyTime": "approx. 1 hour 30 minutes (change required)",
+                "frequency": "Multiple per hour"
+            }
+        },
+        {
+            "city": "Bremen",
+            "country": "Germany",
+            "whyGo": "Visit this historic Hanseatic city in Germany, famous for the Town Musicians of Bremen statue and its beautiful market square.",
+            "intraEuropeTrain": {
+                "stationInHaarlem": "Haarlem (change at Amsterdam/Schiphol)",
+                "journeyTime": "approx. 4 hours 30 minutes - 5 hours",
+                "frequency": "Several times daily"
+            },
+             "intraEuropeFlight": {
+                 "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour (from AMS)",
+                "frequency": "Few daily (from AMS)"
+            }
+        },
+        {
+            "city": "Hamburg",
+            "country": "Germany",
+            "whyGo": "Explore Germany's second-largest city, known for its large harbor, Speicherstadt warehouse district, and vibrant nightlife.",
+            "intraEuropeTrain": {
+                "stationInHaarlem": "Haarlem (change at Amsterdam/Schiphol)",
+                "journeyTime": "approx. 5 hours 30 minutes - 6 hours",
+                "frequency": "Several times daily"
+            },
+             "intraEuropeFlight": {
+                 "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour (from AMS)",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Explore the EU capital with its magnificent Grand Place, Art Nouveau architecture, and renowned chocolate and beer.",
+            "intraEuropeTrain": {
+                "stationInHaarlem": "Haarlem (change at Schiphol/Rotterdam)",
+                "journeyTime": "approx. 2 hours 30 minutes - 3 hours",
+                "frequency": "Hourly+"
+            },
+            "intraEuropeFlight": {
+                 "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 45 minutes (from AMS)",
+                "frequency": "Few daily (from AMS) - Train recommended"
+            }
+        },
+         {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Explore one of the world's most dynamic cities with its historic landmarks, cultural diversity, and cutting-edge arts scene.",
+            "intraEuropeTrain": {
+                "stationInHaarlem": "Haarlem (change at Rotterdam/Brussels)",
+                "journeyTime": "approx. 4 hours 30 minutes - 5 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Experience the iconic City of Light with its world-famous landmarks, unparalleled museums, and legendary culinary scene.",
+            "intraEuropeTrain": {
+                "stationInHaarlem": "Haarlem (change at Schiphol/Rotterdam)",
+                "journeyTime": "approx. 3 hours 30 minutes - 4 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour 15 minutes (from AMS)",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Discover Germany's dynamic capital with its turbulent history, cutting-edge arts scene, and legendary nightlife.",
+            "intraEuropeTrain": {
+                 "stationInHaarlem": "Haarlem (change at Amsterdam/Amersfoort)",
+                "journeyTime": "approx. 6 hours 30 minutes - 7 hours",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                 "airportsNearHaarlem": ["Amsterdam Schiphol (AMS)"],
+                "approxFlightTime": "approx. 1 hour 20 minutes (from AMS)",
+                "frequency": "Multiple times daily (from AMS)"
+            }
+        }
+    ]
+} 

@@ -1,0 +1,488 @@
+{
+    "destinations": [
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Experience the fashion capital of Italy with its stunning Duomo and world-class shopping.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "1 hour 40 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Explore the romantic canals and historic charm of Venice.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "2 hours 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Visit the Eternal City with its ancient ruins, Vatican, and vibrant street life.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Naples",
+            "country": "Italy",
+            "whyGo": "Visit the birthplace of pizza and gateway to Pompeii and the Amalfi Coast.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "2 hours 50 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Bologna",
+            "country": "Italy",
+            "whyGo": "Savor the culinary delights in the gastronomic capital of Italy.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "35 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Bari",
+            "country": "Italy",
+            "whyGo": "Experience the charm of Puglia with its unique trulli houses and beautiful coastline.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "6 hours 15 minutes",
+                "frequency": "Every 4 hours"
+            }
+        },
+        {
+            "city": "Pisa",
+            "country": "Italy",
+            "whyGo": "See the famous Leaning Tower and explore this historic Tuscan city.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "50 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Siena",
+            "country": "Italy",
+            "whyGo": "Discover this beautiful medieval city known for its historic Palio horse race and stunning architecture.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Explore the beautiful lakeside city of Zurich, known for banking and finance.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "6 hours 30 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the city of lights, known for its art, fashion, and culture.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "9 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Enjoy the Bavarian culture and the world-famous Oktoberfest.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "7 hours 45 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 25 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Experience the imperial history and musical heritage of Vienna.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "9 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Enjoy the vibrant culture and stunning architecture of Barcelona.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "13 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Explore the ancient history and vibrant culture of Athens.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Relax on the beautiful beaches of the French Riviera.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "6 hours 15 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Discover the international city known for diplomacy and finance.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "7 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Explore the vibrant culture and history of Germany's capital.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "12 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Discover the fairytale charm and rich history of Prague.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "14 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Experience the stunning architecture and vibrant culture of Budapest.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "12 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 35 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant nightlife and cultural heritage of Madrid.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "16 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Enjoy the sun-soaked city with a rich history and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "27 hours 30 minutes",
+                "frequency": "Once daily with multiple transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 50 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the canals and cultural diversity of Amsterdam.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "13 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Enjoy the cosmopolitan atmosphere and famous chocolates of Brussels.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "12 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Explore the Danish capital known for its design and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "20 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 20 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Discover the striking architecture and innovative culture of Stockholm.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "24 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 50 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Enjoy the friendly atmosphere and rich literary history of Dublin.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Discover the rich history and cultural heritage of Warsaw.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "22 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Experience the unique blend of European and Asian cultures in this historic city.",
+            "intraEuropeTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Palermo",
+            "country": "Italy",
+            "whyGo": "Explore Sicily's vibrant capital with its unique Arabic-Norman architecture and amazing street food.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "12 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Catania",
+            "country": "Italy",
+            "whyGo": "Visit the historic Sicilian city at the foot of Mount Etna.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "10 hours 15 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInFlorence": [
+                    "Florence Airport (FLR)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Lucca",
+            "country": "Italy",
+            "whyGo": "Discover this charming walled city with Renaissance architecture and beautiful piazzas.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "1 hour 20 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Arezzo",
+            "country": "Italy",
+            "whyGo": "Explore this historic Tuscan city known for its antiquities fair and stunning Piero della Francesca frescoes.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "40 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "San Gimignano",
+            "country": "Italy",
+            "whyGo": "Visit this stunning medieval hill town known for its preserved towers and excellent Vernaccia wine.",
+            "directWithinCountryTrain": {
+                "stationInFlorence": "Firenze Santa Maria Novella",
+                "journeyTime": "1 hour 45 minutes",
+                "frequency": "Requires bus transfer from Poggibonsi train station"
+            }
+        }
+    ]
+}

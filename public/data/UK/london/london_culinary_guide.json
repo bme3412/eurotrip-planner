@@ -1,0 +1,851 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "The Ledbury",
+                "cuisine_type": "Modern British",
+                "signature_dishes": [
+                    "Flame-grilled mackerel with cucumber",
+                    "Hereford beef with bone marrow"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Sophisticated and elegant with contemporary styling",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for Saturday evenings",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 2,
+                "location": "Notting Hill",
+                "local_tips": "Try the exceptional wine pairings and ask about seasonal menu changes"
+            },
+            {
+                "name": "Core by Clare Smyth",
+                "cuisine_type": "Modern British",
+                "signature_dishes": [
+                    "County Armagh apple tart",
+                    "Potato and roe"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Contemporary and refined with an open kitchen view",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations open 3 months ahead, book immediately when released",
+                "dress_code": "Smart casual",
+                "michelin_stars": 3,
+                "location": "Notting Hill",
+                "local_tips": "Opt for the chef's table for an immersive culinary experience"
+            },
+            {
+                "name": "Sketch",
+                "cuisine_type": "French Contemporary",
+                "signature_dishes": [
+                    "Langoustine with caviar",
+                    "Duck with blackcurrant"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Avant-garde and theatrical with pink velvet interiors",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially for the pink room",
+                "dress_code": "Smart dress code",
+                "michelin_stars": 2,
+                "location": "Mayfair",
+                "local_tips": "Don't miss the famous egg-shaped bathroom pods"
+            },
+            {
+                "name": "Alain Ducasse at The Dorchester",
+                "cuisine_type": "French",
+                "signature_dishes": [
+                    "Dorset crab with caviar",
+                    "Bresse chicken en vessie"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Opulent and luxurious with champagne-colored décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 6-8 weeks ahead for weekend dining",
+                "dress_code": "Formal attire required",
+                "michelin_stars": 3,
+                "location": "Mayfair",
+                "local_tips": "Experience the famous Table Lumière private dining room"
+            },
+            {
+                "name": "Restaurant Gordon Ramsay",
+                "cuisine_type": "French",
+                "signature_dishes": [
+                    "Roast lobster with herb risotto",
+                    "Pressed foie gras with Sauternes"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Intimate and refined with classic French elegance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2+ months in advance, lunch is slightly easier to secure",
+                "dress_code": "Jacket required for men",
+                "michelin_stars": 3,
+                "location": "Chelsea",
+                "local_tips": "Request a table by the window for the best ambiance"
+            },
+            {
+                "name": "Dinner by Heston Blumenthal",
+                "cuisine_type": "Historic British",
+                "signature_dishes": [
+                    "Meat fruit (c.1500)",
+                    "Tipsy cake (c.1810)"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Modern and theatrical with views of Hyde Park",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 months ahead, lunch offers better availability",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Knightsbridge",
+                "local_tips": "Each dish is inspired by historical British recipes with dates listed"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "The Ivy",
+                "cuisine_type": "Modern British",
+                "signature_dishes": [
+                    "Shepherd's pie",
+                    "Fish and chips",
+                    "Sticky toffee pudding"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Elegant brasserie with art deco styling and celebrity spotting",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks ahead for weekend slots",
+                "dress_code": "Smart casual",
+                "location": "Covent Garden",
+                "local_tips": "Try the afternoon tea and ask for a table in the main dining room"
+            },
+            {
+                "name": "Dishoom",
+                "cuisine_type": "Indian (Bombay-style)",
+                "signature_dishes": [
+                    "Black daal",
+                    "Chicken ruby",
+                    "Bacon naan"
+                ],
+                "price_range": "££",
+                "atmosphere": "Vintage Bombay café with art deco fixtures and bustling energy",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, expect queues but they move quickly",
+                "dress_code": "Casual",
+                "location": "Multiple locations",
+                "local_tips": "Try the breakfast menu and don't miss the house chai"
+            },
+            {
+                "name": "St. John",
+                "cuisine_type": "Nose-to-tail British",
+                "signature_dishes": [
+                    "Bone marrow and parsley salad",
+                    "Roast middlewhite",
+                    "Eccles cake"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Minimalist and austere with focus on exceptional ingredients",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, lunch is more accessible than dinner",
+                "dress_code": "Casual",
+                "location": "Smithfield",
+                "local_tips": "Be adventurous with the organ meats and unusual cuts"
+            },
+            {
+                "name": "Padella",
+                "cuisine_type": "Italian (Fresh Pasta)",
+                "signature_dishes": [
+                    "Pici cacio e pepe",
+                    "Ragu ragusano",
+                    "Burrata ravioli"
+                ],
+                "price_range": "££",
+                "atmosphere": "Casual counter dining with open kitchen and energetic vibe",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, expect 30+ minute queues during peak times",
+                "dress_code": "Casual",
+                "location": "Borough Market",
+                "local_tips": "Watch the pasta being made fresh while you wait in line"
+            },
+            {
+                "name": "Rules",
+                "cuisine_type": "Traditional British",
+                "signature_dishes": [
+                    "Venison with juniper",
+                    "Steak and kidney pudding",
+                    "Spotted dick"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Historic Victorian dining room with taxidermy and traditional British charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "Covent Garden",
+                "local_tips": "London's oldest restaurant (1798) - try the game during season"
+            },
+            {
+                "name": "Hoppers",
+                "cuisine_type": "Sri Lankan",
+                "signature_dishes": [
+                    "Hoppers with egg",
+                    "Kothu roti",
+                    "Black pork curry"
+                ],
+                "price_range": "££",
+                "atmosphere": "Lively and authentic with communal seating and vibrant spices",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early or be prepared to wait",
+                "dress_code": "Casual",
+                "location": "Soho",
+                "local_tips": "Order multiple hoppers and share various curries"
+            },
+            {
+                "name": "The Palomar",
+                "cuisine_type": "Modern Jerusalem",
+                "signature_dishes": [
+                    "Jerusalem polenta",
+                    "Kubaneh bread",
+                    "Lamb shoulder"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Intimate counter dining with Middle Eastern energy and open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Limited reservations, many seats held for walk-ins",
+                "dress_code": "Casual",
+                "location": "Soho",
+                "local_tips": "Sit at the zinc counter for the best experience"
+            },
+            {
+                "name": "Franco Manca",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Sourdough pizza with tomato and mozzarella",
+                    "Chorizo and mozzarella pizza",
+                    "Courgette flower pizza"
+                ],
+                "price_range": "£",
+                "atmosphere": "Casual and bustling with communal tables and quick service",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, expect short waits during peak times",
+                "dress_code": "Casual",
+                "location": "Multiple locations",
+                "local_tips": "Try pizza number 4 and pair with their organic wine selection"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Borough Market",
+                "specialties": [
+                    "Artisan cheese",
+                    "Gourmet sandwiches",
+                    "International street food",
+                    "Fresh oysters"
+                ],
+                "price_range": "££",
+                "hours": "Wed-Thu: 10am-5pm, Fri: 10am-6pm, Sat: 8am-5pm",
+                "location": "London Bridge",
+                "seating": true,
+                "local_tips": "Arrive early on Saturdays, try Monmouth Coffee and Neal's Yard Dairy"
+            },
+            {
+                "name": "Camden Market",
+                "specialties": [
+                    "Global street food",
+                    "Bubble tea",
+                    "Korean BBQ",
+                    "Gourmet hot dogs"
+                ],
+                "price_range": "££",
+                "hours": "Daily: 10am-6pm",
+                "location": "Camden Town",
+                "seating": true,
+                "local_tips": "Explore all sections - Lock Market, Stables Market, and Buck Street Market"
+            },
+            {
+                "name": "Brick Lane",
+                "specialties": [
+                    "Bangladeshi curry",
+                    "Salt beef bagels",
+                    "Vintage donuts",
+                    "Ethiopian coffee"
+                ],
+                "price_range": "£",
+                "hours": "Varies by vendor",
+                "location": "Shoreditch",
+                "seating": false,
+                "local_tips": "Visit Beigel Bake for 24/7 salt beef bagels and explore the Sunday UpMarket"
+            },
+            {
+                "name": "Maltby Street Market",
+                "specialties": [
+                    "Artisan bread",
+                    "St. John donuts",
+                    "Champagne and oysters",
+                    "Monkfish scampi"
+                ],
+                "price_range": "££",
+                "hours": "Sat: 9am-4pm, Sun: 11am-4pm",
+                "location": "Bermondsey",
+                "seating": true,
+                "local_tips": "Less crowded than Borough Market, great for weekend brunch vibes"
+            },
+            {
+                "name": "Street Feast (various locations)",
+                "specialties": [
+                    "Rotating food trucks",
+                    "Craft beer",
+                    "Asian fusion",
+                    "Artisan burgers"
+                ],
+                "price_range": "££",
+                "hours": "Check website for schedules",
+                "location": "Various locations",
+                "seating": true,
+                "local_tips": "Follow on social media for pop-up locations and special events"
+            },
+            {
+                "name": "Southbank Centre Food Market",
+                "specialties": [
+                    "International cuisine",
+                    "Real food market stalls",
+                    "Artisan coffee",
+                    "Baked goods"
+                ],
+                "price_range": "££",
+                "hours": "Fri-Sun: 12pm-8pm",
+                "location": "South Bank",
+                "seating": true,
+                "local_tips": "Perfect before or after visiting Tate Modern or Globe Theatre"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Monmouth Coffee Company",
+                "specialty": "Artisan coffee roasting",
+                "must_try": [
+                    "Fresh roasted espresso",
+                    "Single origin filter coffee"
+                ],
+                "price_range": "££",
+                "atmosphere": "Bustling traditional coffee shop with exposed beans and vintage feel",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light snacks",
+                "local_tips": "Expect queues but they move fast - worth the wait for quality"
+            },
+            {
+                "name": "Workshop Coffee",
+                "specialty": "Third-wave specialty coffee",
+                "must_try": [
+                    "Pour-over single origins",
+                    "Flat white",
+                    "Cold brew"
+                ],
+                "price_range": "££",
+                "atmosphere": "Industrial chic with communal tables and coffee roasting on-site",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Artisan pastries and breakfast items",
+                "local_tips": "Multiple locations, Fitzrovia flagship has the best atmosphere"
+            },
+            {
+                "name": "Kaffeine",
+                "specialty": "Australian-style coffee",
+                "must_try": [
+                    "Long black",
+                    "Piccolo latte",
+                    "Batch brew"
+                ],
+                "price_range": "££",
+                "atmosphere": "Cozy Australian-inspired café with friendly baristas",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "All-day breakfast and light lunch options",
+                "local_tips": "Try the banana bread and arrive early for best seating"
+            },
+            {
+                "name": "The Breakfast Club",
+                "specialty": "All-day breakfast and coffee",
+                "must_try": [
+                    "American-style coffee",
+                    "Full English breakfast",
+                    "Pancakes"
+                ],
+                "price_range": "££",
+                "atmosphere": "Quirky retro diner with vintage décor and energetic vibe",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Extensive breakfast and brunch menu",
+                "local_tips": "Expect weekend queues, multiple locations across London"
+            },
+            {
+                "name": "Grind",
+                "specialty": "Specialty coffee and cocktails",
+                "must_try": [
+                    "Espresso martini",
+                    "Flat white",
+                    "Cold drip coffee"
+                ],
+                "price_range": "££",
+                "atmosphere": "Modern and sleek with transitions from coffee to cocktails",
+                "best_time": "All day",
+                "wifi_friendly": true,
+                "food_options": "Light bites and pastries",
+                "local_tips": "Perfect for coffee by day, cocktails by night concept"
+            },
+            {
+                "name": "Ozone Coffee Roasters",
+                "specialty": "New Zealand-style coffee",
+                "must_try": [
+                    "Ozone blend espresso",
+                    "Pour-over coffee",
+                    "Turmeric latte"
+                ],
+                "price_range": "££",
+                "atmosphere": "Warehouse-style space with industrial design and coffee roasting",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Brunch dishes and fresh pastries",
+                "local_tips": "Great for working, spacious seating and strong WiFi"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Artesian",
+                "type": "Hotel Bar",
+                "specialty": "Award-winning cocktails",
+                "signature_drinks": [
+                    "Sazerac",
+                    "Artesian Punch",
+                    "Twisted Classics"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Luxurious art deco with theatrical presentation",
+                "best_time": "Evening",
+                "food_options": "High-end bar snacks",
+                "reservation_needed": true,
+                "local_tips": "World's best bar multiple years running - book well in advance"
+            },
+            {
+                "name": "Connaught Bar",
+                "type": "Hotel Bar",
+                "specialty": "Gin cocktails and classics",
+                "signature_drinks": [
+                    "Dry Martini",
+                    "Gin & It",
+                    "Connaught Cocktail"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Sophisticated and elegant with platinum and onyx interiors",
+                "best_time": "Early evening",
+                "food_options": "Premium bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Famous for their martini trolley service"
+            },
+            {
+                "name": "American Bar at The Savoy",
+                "type": "Historic Hotel Bar",
+                "specialty": "Classic American cocktails",
+                "signature_drinks": [
+                    "Hanky Panky",
+                    "White Lady",
+                    "Corpse Reviver #2"
+                ],
+                "price_range": "££££",
+                "atmosphere": "Timeless elegance with live piano and art deco design",
+                "best_time": "Early evening",
+                "food_options": "Traditional bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Home of many classic cocktails - dress code enforced"
+            },
+            {
+                "name": "Satan's Whiskers",
+                "type": "Cocktail Bar",
+                "specialty": "Creative seasonal cocktails",
+                "signature_drinks": [
+                    "Satan's Whiskers cocktail",
+                    "Seasonal martinis",
+                    "House punches"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Intimate and quirky with vintage taxidermy and curiosities",
+                "best_time": "Evening",
+                "food_options": "Small plates and charcuterie",
+                "reservation_needed": false,
+                "local_tips": "Tiny space, arrive early or expect to wait"
+            },
+            {
+                "name": "BYOC",
+                "type": "Cocktail Bar",
+                "specialty": "Build Your Own Cocktail concept",
+                "signature_drinks": [
+                    "Custom cocktails",
+                    "Negroni variations",
+                    "House specialties"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Industrial chic with exposed brick and communal tables",
+                "best_time": "After work",
+                "food_options": "Sharing plates",
+                "reservation_needed": false,
+                "local_tips": "Interactive cocktail creation with expert guidance"
+            },
+            {
+                "name": "The George Inn",
+                "type": "Historic Pub",
+                "specialty": "Traditional ales and atmosphere",
+                "signature_drinks": [
+                    "Real ales",
+                    "Traditional bitters",
+                    "House wines"
+                ],
+                "price_range": "££",
+                "atmosphere": "17th-century galleried coaching inn with authentic character",
+                "best_time": "Evening",
+                "food_options": "Traditional pub food",
+                "reservation_needed": false,
+                "local_tips": "Only galleried coaching inn left in London, owned by National Trust"
+            },
+            {
+                "name": "The Blackfriar",
+                "type": "Historic Pub",
+                "specialty": "Art Nouveau architecture and ales",
+                "signature_drinks": [
+                    "Fuller's London Pride",
+                    "Guest ales",
+                    "Traditional pub drinks"
+                ],
+                "price_range": "££",
+                "atmosphere": "Extraordinary art nouveau interior with bronze friezes and marble",
+                "best_time": "After work",
+                "food_options": "Traditional British pub food",
+                "reservation_needed": false,
+                "local_tips": "Wedge-shaped building with incredible period interior details"
+            },
+            {
+                "name": "Sky Garden",
+                "type": "Rooftop Bar",
+                "specialty": "Views and cocktails",
+                "signature_drinks": [
+                    "Seasonal cocktails",
+                    "Champagne",
+                    "Wine selection"
+                ],
+                "price_range": "£££",
+                "atmosphere": "Stunning 360-degree views from London's highest public garden",
+                "best_time": "Sunset",
+                "food_options": "Light bites and canapés",
+                "reservation_needed": true,
+                "local_tips": "Free entry but book online in advance - spectacular city views"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "London Food Lovers Tour",
+                "focus": "Traditional British and multicultural London cuisine",
+                "duration": "3.5 hours",
+                "price_range": "£££",
+                "highlights": [
+                    "Borough Market tastings",
+                    "Traditional pub experience",
+                    "Fish and chips",
+                    "Afternoon tea"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book 1-2 weeks in advance, especially for weekend tours"
+            },
+            {
+                "name": "East London Food Tour",
+                "focus": "Multicultural East London cuisine",
+                "duration": "4 hours",
+                "price_range": "£££",
+                "highlights": [
+                    "Brick Lane curry houses",
+                    "Beigel Bake",
+                    "Craft beer tastings",
+                    "Street art and food"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Tours include dietary restrictions, mention when booking"
+            },
+            {
+                "name": "Soho Food Tour",
+                "focus": "Historic Soho dining scene",
+                "duration": "3 hours",
+                "price_range": "£££",
+                "highlights": [
+                    "Chinatown authentic eateries",
+                    "Historic pubs",
+                    "Italian delicatessens",
+                    "Craft chocolate shops"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Evening tours available with different restaurant experiences"
+            },
+            {
+                "name": "Greenwich Food Tour",
+                "focus": "Maritime history and local food",
+                "duration": "3 hours",
+                "price_range": "££",
+                "highlights": [
+                    "Greenwich Market",
+                    "Traditional pie and mash",
+                    "Craft breweries",
+                    "Thames riverside dining"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Combine with Greenwich attractions for a full day experience"
+            },
+            {
+                "name": "Secret Food Tours London",
+                "focus": "Hidden culinary gems",
+                "duration": "3.5 hours",
+                "price_range": "£££",
+                "highlights": [
+                    "Hidden local favorites",
+                    "Traditional British dishes",
+                    "Modern fusion cuisine",
+                    "Local market secrets"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Multiple neighborhood options available - choose based on interest"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "L'atelier des Chefs London",
+                "cuisine_focus": "French cuisine and techniques",
+                "duration": "2-4 hours",
+                "price_range": "£££",
+                "what_you_learn": [
+                    "Classic French techniques",
+                    "Seasonal British ingredients",
+                    "Wine pairing",
+                    "Professional skills"
+                ],
+                "group_size": "16",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Meal and wine"
+                ],
+                "booking_tips": "Multiple class types available - book online for best selection"
+            },
+            {
+                "name": "Divertimenti Cooking School",
+                "cuisine_focus": "International cuisine",
+                "duration": "3-6 hours",
+                "price_range": "£££",
+                "what_you_learn": [
+                    "Italian pasta making",
+                    "Asian techniques",
+                    "British classics",
+                    "Baking and pastry"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Equipment use",
+                    "Recipe cards"
+                ],
+                "booking_tips": "Check seasonal schedules and special guest chef classes"
+            },
+            {
+                "name": "The Avenue Cookery School",
+                "cuisine_focus": "British and international",
+                "duration": "Half day to full day",
+                "price_range": "£££",
+                "what_you_learn": [
+                    "Knife skills",
+                    "British classics",
+                    "International cuisines",
+                    "Professional techniques"
+                ],
+                "group_size": "14",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Equipment",
+                    "Lunch/dinner",
+                    "Wine"
+                ],
+                "booking_tips": "Offers gift vouchers and private group bookings"
+            },
+            {
+                "name": "Borough Kitchen Cookery School",
+                "cuisine_focus": "Market-fresh cooking",
+                "duration": "2-4 hours",
+                "price_range": "££",
+                "what_you_learn": [
+                    "Borough Market ingredients",
+                    "Seasonal cooking",
+                    "Simple techniques",
+                    "Flavor combinations"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market-fresh ingredients",
+                    "Recipe cards",
+                    "Tasting meal"
+                ],
+                "booking_tips": "Located near Borough Market - combine with market visit"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Borough Market",
+                "type": "Historic covered market",
+                "highlights": [
+                    "Artisan producers",
+                    "International food stalls",
+                    "Specialty cheeses",
+                    "Fresh seafood",
+                    "Craft beer and wine"
+                ],
+                "hours": "Wed-Thu: 10am-5pm, Fri: 10am-6pm, Sat: 8am-5pm",
+                "best_time": "Thursday or Friday mornings",
+                "location": "London Bridge",
+                "local_tips": "Arrive early Saturday to avoid crowds, try Monmouth Coffee and Neal's Yard Dairy"
+            },
+            {
+                "name": "Portobello Road Market",
+                "type": "Street market with antiques and food",
+                "highlights": [
+                    "Caribbean food stalls",
+                    "Vintage finds",
+                    "Fresh produce",
+                    "International street food"
+                ],
+                "hours": "Mon-Wed, Fri-Sat: 9am-6pm, Thu: 9am-1pm",
+                "best_time": "Saturday for full experience",
+                "location": "Notting Hill",
+                "local_tips": "Saturday is busiest with most stalls open, great for vintage shopping too"
+            },
+            {
+                "name": "Columbia Road Flower Market",
+                "type": "Sunday flower and food market",
+                "highlights": [
+                    "Fresh flowers",
+                    "Artisan bread",
+                    "Local cafés",
+                    "Vintage shops"
+                ],
+                "hours": "Sunday: 8am-3pm",
+                "best_time": "Mid-morning",
+                "location": "Bethnal Green",
+                "local_tips": "Combine with Brick Lane visit, arrive early for best flower selection"
+            },
+            {
+                "name": "Greenwich Market",
+                "type": "Covered Victorian market",
+                "highlights": [
+                    "International street food",
+                    "Handmade crafts",
+                    "Artisan products",
+                    "Local specialties"
+                ],
+                "hours": "Wed-Sun: 10am-5:30pm",
+                "best_time": "Weekend afternoons",
+                "location": "Greenwich",
+                "local_tips": "Perfect after visiting Greenwich attractions, good variety of hot food"
+            },
+            {
+                "name": "Broadway Market",
+                "type": "Saturday artisan market",
+                "highlights": [
+                    "Organic produce",
+                    "Artisan bakeries",
+                    "Local designers",
+                    "Street food"
+                ],
+                "hours": "Saturday: 9am-5pm",
+                "best_time": "Late morning",
+                "location": "Hackney",
+                "local_tips": "Trendy local market with excellent independent shops and cafés"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "English asparagus with butter",
+            "Spring lamb with mint sauce",
+            "Fresh pea and mint soup",
+            "Jersey Royal new potatoes",
+            "Wild garlic dishes",
+            "Rhubarb and custard desserts"
+        ],
+        "summer": [
+            "Strawberries and cream",
+            "Pimm's and cucumber",
+            "Fresh crab salads",
+            "Elderflower cordial",
+            "Summer pudding",
+            "Barbecued sausages",
+            "Cricket tea sandwiches"
+        ],
+        "autumn": [
+            "Game birds (grouse, pheasant)",
+            "Blackberry and apple crumble",
+            "Roasted chestnuts",
+            "Harvest festival produce",
+            "Wild mushroom dishes",
+            "Toffee apples",
+            "Hot toddies"
+        ],
+        "winter": [
+            "Christmas pudding",
+            "Mince pies",
+            "Roast turkey with all trimmings",
+            "Mulled wine",
+            "Hot cross buns (late winter)",
+            "Steak and kidney pudding",
+            "Warming soups and stews",
+            "Burns Night haggis (January)"
+        ]
+    }
+}
