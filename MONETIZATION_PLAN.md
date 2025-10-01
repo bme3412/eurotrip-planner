@@ -6,7 +6,6 @@ Offer a “Pro” tier that unlocks AI-powered planning, higher limits, and conv
 ### What to sell (feature ideas)
 - **AI itinerary generator (multi-city)**: Input dates, budget, interests; get a day-by-day plan with activities from `public/data/**`, travel times, and map pins.
 - **Smart constraint solver**: Adjust plans around opening hours, weather seasonality (monthly JSONs), crowds, and budget.
-- **RAG-powered city guide chat**: Q&A grounded in your `public/data/**` guides; suggest neighborhoods, restaurants, hidden gems.
 - **Auto-reschedule**: One-click reflow when a museum is closed or weather turns.
 - **Export & share**: PDF, Google Calendar, Apple Calendar, offline pack, sharable links.
 - **Saved trips & collaboration**: Save multiple itineraries, invite a co-planner.
@@ -15,7 +14,7 @@ Offer a “Pro” tier that unlocks AI-powered planning, higher limits, and conv
 - **Affiliate helper (optional hybrid)**: Embedded booking widgets (hotels, trains, experiences) with affiliate links.
 
 ### Pricing & packaging
-- **Free**: 1 itinerary/day, basic chat (limited turns), no export, no save.
+- **Free**: 1 itinerary/day, no export, no save.
 - **Pro Monthly**: Unlimited or high limits, full exports, save/share, collaboration, priority compute.
 - **Pro Annual**: Discounted; maybe add exclusive “city packs”.
 - **Credit add-ons**: Buy extra AI credits above plan.
@@ -31,25 +30,23 @@ Offer a “Pro” tier that unlocks AI-powered planning, higher limits, and conv
 ### Where it fits in this repo
 - **API routes** (`src/app/api/**`):
   - `src/app/api/ai/generate/route.js`: itinerary generation
-  - `src/app/api/ai/chat/route.js`: RAG chat
   - `src/app/api/usage/route.js`: read usage counters
   - `src/app/api/webhooks/{stripe|lemonsqueezy}/route.js`: subscription events
 - **UI gating**:
   - Add `src/app/subscribe/page.js` and `src/app/account/**` for portal, saved trips.
   - Gate premium actions inside `src/components/EuroTripPlanner.js`, `src/components/DateSelector.jsx`, and map components with a `useUser()` + `useEntitlements()` hook.
 - **Data use**:
-  - Build your RAG index from `public/data/**` and monthly JSONs to ground AI answers.
+  - Use `public/data/**` and monthly JSONs to ground AI itinerary generation.
   - Cache AI results per user inputs to control cost.
 
 ### Data and storage
 - **DB**: Add a managed DB (Supabase, Neon/Postgres, or MongoDB Atlas).
-  - Tables: `users`, `subscriptions`, `usage_counters`, `itineraries`, `chat_sessions`, `cache_entries`, `audit_logs`.
+  - Tables: `users`, `subscriptions`, `usage_counters`, `itineraries`, `cache_entries`, `audit_logs`.
 - **Caching**: Deduplicate identical prompts; short TTL cache for “explore” to keep UX snappy and reduce spend.
-- **Embeddings/RAG**: Preprocess `public/data/**` into embeddings (nightly job). Store vectors in a vector DB (pgvector on Postgres, Pinecone, or Supabase Vector).
 
 ### Limits, metering, and abuse control
 - **Rate limits**: Per-IP and per-user caps (middleware or API-level), burst + daily quotas.
-- **Usage accounting**: Increment counters per generate/chat call; show a usage meter in Account.
+- **Usage accounting**: Increment counters per generate call; show a usage meter in Account.
 - **Cost controls**: Streaming responses, smaller models for draft, upgrade to larger for “refine”; cache popular routes (e.g., Paris/4 days).
 - **Observability**: Sentry for errors, PostHog/Amplitude for funnels and plan conversions.
 
@@ -67,7 +64,7 @@ Offer a “Pro” tier that unlocks AI-powered planning, higher limits, and conv
 ### Rollout plan
 - **Phase 1**: Auth + Stripe/Lemon Squeezy + Pro flag + paywall; ship one standout AI feature (multi-city itinerary).
 - **Phase 2**: Save/share itineraries, exports, usage meter, portal.
-- **Phase 3**: RAG chat over your city data; auto-reschedule; collaboration.
+- **Phase 3**: Auto-reschedule; collaboration.
 - **Phase 4**: Annual plan, teams, affiliate integrations.
 
 ### Growth loops
@@ -103,7 +100,7 @@ Implement minimally: add auth + billing + a single premium API route (`/api/ai/g
 | Consent/GDPR | OneTrust | Cookiebot | Block trackers until consent; DPA; CMP logs |
 | Emails | Resend | Postmark | DMARC/SPF/DKIM; branded templates; webhook events |
 | A/B + Flags | LaunchDarkly | GrowthBook | Price/paywall/CTA experiments; kill switches |
-| Jobs/Workflows | Inngest | Trigger.dev, Vercel Cron | RAG indexing, sitemap refresh, emails, retries |
+| Jobs/Workflows | Inngest | Trigger.dev, Vercel Cron | Sitemap refresh, emails, retries |
 | WAF/DDoS | Cloudflare | Fastly | Bot mitigation, Turnstile on critical forms |
 | Affiliate | Booking.com, GetYourGuide, Trainline via Impact/CJ | Viator, Omio | Server-side deep-link redirector; UTM governance |
 | Exports | DocRaptor | PDFMonkey | PDF/ICS server-side; rate-limit |
@@ -126,9 +123,8 @@ Implement minimally: add auth + billing + a single premium API route (`/api/ai/g
   - Webhooks via Svix → entitlement table; admin override
   - Usage counters + in-app meter; receipts/invoices emails
 
-- Phase 3 (2–3 weeks): AI + RAG
-  - Embeddings pipeline from `public/data/**`; store in pgvector
-  - AI endpoints (itinerary, chat) with caching and rate limits
+- Phase 3 (2–3 weeks): AI + Advanced Features
+  - AI endpoints (itinerary generation) with caching and rate limits
   - Langfuse tracing; cost limits; fallbacks to smaller models
 
 - Phase 4 (3–4 weeks): Scale and SEO
@@ -177,7 +173,7 @@ Implement minimally: add auth + billing + a single premium API route (`/api/ai/g
 
 ### Alignment with plan
 - The proposed deterministic rankings engine (date/window scoring using `public/data/**` weather/crowd/events) aligns with the plan’s core AI itinerary feature and data use guidance.
-- RAG over `public/data/**` for itinerary composition and chat is in scope; vector DB usage is supported (primary: pgvector; Pinecone as an alternative at scale).
+- AI-powered itinerary composition using `public/data/**` is in scope.
 - Caching and per‑query keys, server‑only AI calls, and explainable outputs match plan guardrails.
 
 ### Adjustments to remain compliant
@@ -188,30 +184,25 @@ Implement minimally: add auth + billing + a single premium API route (`/api/ai/g
 - Observability: add tracing (Langfuse) and error monitoring (Sentry); track latency/cost.
 - Compliance: GDPR/VAT via chosen billing provider; consent banner; privacy policy.
 
-### Minimal delivery checklist (rankings + RAG)
+### Minimal delivery checklist (rankings + AI)
 - API surface:
   - `/api/ai/generate` (Pro‑gated itinerary generator, cached)
-  - `/api/ai/chat` (already present; add RAG grounding)
   - `/api/usage` (usage counters)
   - `/api/webhooks/{stripe|lemonsqueezy}` (subscription events → entitlements)
 - Rankings engine:
   - Deterministic composite score per city for user dates/months
   - Factors: base day/month scores, events bonus, weather comfort, crowds penalty, interest match; user‑tunable weights
   - Explainability payload (why this city) and data‑coverage guardrails
-- Embeddings/RAG:
-  - Nightly embeddings job over `public/data/**` (attractions, neighborhoods, seasonal activities, visit calendars)
-  - Store vectors in pgvector; include metadata filters (`city_id`, `country`, `category`, `months[]`, `tags[]`)
-  - Retrieval → rerank with deterministic signals → compose itinerary modules
+- AI Integration:
+  - Use `public/data/**` (attractions, neighborhoods, seasonal activities, visit calendars) for itinerary generation
+  - Deterministic scoring → compose itinerary modules
 - Ops:
   - Rate limits + usage counters; cache by (dates, interests, candidate cities) hash
   - Tracing/analytics; error monitoring; server‑only secrets
 
-### Vector DB notes
-- Start: pgvector (Neon) to reduce vendor surface; keep Pinecone as a drop‑in for larger indices/latency SLAs.
-- Retrieval pattern: hybrid (metadata filters + vector similarity), MMR for diversity, deterministic rerank with rankings engine outputs.
 
 ### Data privacy and content scope
-- Ground only on `public/data/**`; avoid personal data in embeddings.
+- Ground only on `public/data/**`; avoid personal data in AI processing.
 - Provide citations/snippets for itinerary justifications.
 
 ### Future extensions (non‑blocking)
