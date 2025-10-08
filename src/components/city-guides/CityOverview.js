@@ -336,26 +336,46 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       {overviewParagraph && (
         <div className="relative overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-500"></div>
-          <div className="p-6">
-            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mb-3">Best Time to Visit</h2>
-            <p className="max-w-5xl text-[15.5px] md:text-[16.5px] leading-8 text-slate-700 font-medium [text-wrap:pretty] first-letter:text-3xl first-letter:font-semibold first-letter:text-slate-900 first-letter:mr-2 first-letter:float-left first-line:tracking-tight">
-              {overviewParagraph}
+          <div className="p-5 md:p-6 space-y-2 md:space-y-3">
+            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Best Time to Visit</h2>
+            <p className="text-[15px] md:text-[16px] leading-7 text-slate-700 [text-wrap:pretty] md:max-w-none">
+              Spring (Apr–Jun) and early fall (Sep–Oct) are the sweet spot: café terraces hum, gardens bloom or turn gold, and walking weather is ideal.
+              July brings long evenings and blockbuster events—but also peak crowds and higher prices; in August some boutiques and smaller restaurants close.
+              Winter (Nov–Feb) is quieter and cozy—think museum days, patisserie stops, and twinkling holiday lights—while March begins to warm with the odd shower.
             </p>
+
+            <div className="mt-1 md:mt-2 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs md:text-sm">
+                🌸/🍂 Spring & Early Fall <span className="hidden sm:inline">· best mix of weather + crowds</span>
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 px-3 py-1 text-xs md:text-sm">
+                ☀️ Jul–Aug <span className="hidden sm:inline">· long days & events; peak demand</span>
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-sky-50 text-sky-700 px-3 py-1 text-xs md:text-sm">
+                ❄️ Nov–Feb <span className="hidden sm:inline">· cozy, quieter, good hotel value</span>
+              </span>
+            </div>
           </div>
         </div>
       )}
 
       {/* 12-Month Calendar Container */}
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Year at a Glance</h2>
-        {overview?.best_time_to_visit?.summary && (
-          <p className="text-sm text-gray-700 mb-5 leading-relaxed">
-            {overview.best_time_to_visit.summary}
-          </p>
+      <div className="bg-white rounded-xl p-5 md:p-6 shadow-sm border border-gray-100">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Year at a Glance</h2>
+        <p className="text-[15px] md:text-[16px] leading-7 text-gray-700 mb-2 md:max-w-none [text-wrap:pretty]">
+          Spring and early fall bring the best mix of weather and atmosphere. July delivers late sunsets and festivals (with lines and higher rates),
+          while August can see some independent shops and restaurants on holiday. Winter is calm and charming; March gradually warms with occasional showers.
+        </p>
+
+        {/* Data completeness notice (if some months are missing fine-grained data) */}
+        {visitCalendar?.months && Object.keys(visitCalendar.months).length < 12 && (
+          <div className="mb-3 rounded-md border border-amber-200 bg-amber-50 text-amber-800 px-3 py-2 text-xs md:text-sm">
+            This calendar currently has detailed day-by-day data for {Object.keys(visitCalendar.months).length} month(s). Other months use general guidance and will be updated soon.
+          </div>
         )}
         
         {/* Color Legend */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-6 p-3 bg-gray-50 rounded-lg">
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-4 p-3 bg-gray-50 rounded-lg">
           <div className="flex items-center">
             <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#10b981'}}></div>
             <span className="text-xs text-gray-700 font-medium">Perfect Time</span>
@@ -378,7 +398,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
           </div>
         </div>
         
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
           {Array.from({ length: 12 }, (_, monthIndex) => {
             const months = [
               'January', 'February', 'March', 'April', 'May', 'June',
@@ -468,7 +488,8 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
             for (let i = 1; i <= daysInMonth; i++) {
               const monthData = getMonthData(months[monthIndex]);
               let dayDetails = monthData ? getDayDetails(i, monthData) : null;
-              const rating = dayDetails ? dayDetails.score : 3;
+              const hasDetails = Boolean(dayDetails);
+              const rating = hasDetails ? dayDetails.score : 3;
               days.push({
                 type: 'day',
                 dayOfMonth: i,
@@ -479,21 +500,25 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                 notes: dayDetails && dayDetails.notes,
                 weather: dayDetails && dayDetails.weather,
                 crowdLevel: dayDetails && dayDetails.crowdLevel,
-                price: dayDetails && dayDetails.price
+                price: dayDetails && dayDetails.price,
+                isPlaceholder: !hasDetails
               });
             }
             
             return (
-              <div key={monthIndex} className="border rounded-lg">
+              <div key={monthIndex} className={`border rounded-lg ${!getMonthData(months[monthIndex]) ? 'opacity-90' : ''}`}>
                 {/* Month Header */}
-                <div className="bg-gray-50 p-2 text-center border-b">
+                <div className="bg-gray-50 p-2 text-center border-b flex items-center justify-center gap-2">
                   <div className="text-xs font-medium text-gray-700">
                     {months[monthIndex].substring(0, 3)}
                   </div>
+                  {!getMonthData(months[monthIndex]) && (
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-200">general</span>
+                  )}
                 </div>
                 
                 {/* Days of Week */}
-                <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 bg-gray-50">
+                <div className="grid grid-cols-7 text-center text-[11px] font-medium text-gray-500 bg-gray-50">
                   {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
                     <div key={i} className="p-1">{day}</div>
                   ))}
@@ -507,7 +532,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                     ) : (
                       <div
                         key={`day-${day.dayOfMonth}`}
-                        className={`day-cell aspect-square flex items-center justify-center text-xs relative cursor-pointer hover:scale-105 transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
+                        className={`day-cell aspect-square flex items-center justify-center text-[11px] relative cursor-pointer hover:scale-[1.03] transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
                         style={{ backgroundColor: day.color }}
                         onClick={() => toggleTooltip(day, monthIndex, day.dayOfMonth)}
                         onMouseEnter={() => setActiveTooltip(buildTooltipData(day, monthIndex, day.dayOfMonth))}
@@ -521,27 +546,30 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
 
                         {/* Inline hover tooltip (desktop) */}
                         {activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === day.dayOfMonth && (
-                          <div className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full z-40 w-56">
-                            <div className="rounded-lg shadow-lg bg-white ring-1 ring-black/5 p-3">
+                          <div className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-full z-40 w-52">
+                            <div className="rounded-md shadow-lg bg-white ring-1 ring-black/5 p-2">
                               {activeTooltip.event && (
-                                <div className="text-sm font-semibold text-gray-900 mb-1 truncate" title={activeTooltip.event}>{activeTooltip.event}</div>
+                                <div className="text-xs font-semibold text-gray-900 mb-0.5 truncate" title={activeTooltip.event}>{activeTooltip.event}</div>
                               )}
                               {activeTooltip.notes && (
-                                <div className="text-xs text-gray-600 mb-2 line-clamp-3" title={activeTooltip.notes}>{activeTooltip.notes}</div>
+                                <div className="text-[11px] text-gray-600 mb-1 line-clamp-2" title={activeTooltip.notes}>{activeTooltip.notes}</div>
                               )}
-                              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                              {!day.event && !day.notes && day.isPlaceholder && (
+                                <div className="text-[11px] text-gray-600">General guidance only — detailed day data coming soon.</div>
+                              )}
+                              <div className="flex flex-wrap gap-x-2 gap-y-0.5">
                                 {activeTooltip.weather && (
-                                  <div className="flex items-center text-[11px] text-gray-700">
+                                  <div className="flex items-center text-[10px] text-gray-700">
                                     <span className="mr-1">🌡️</span>{activeTooltip.weather}
                                   </div>
                                 )}
                                 {activeTooltip.crowdLevel && (
-                                  <div className="flex items-center text-[11px] text-gray-700">
+                                  <div className="flex items-center text-[10px] text-gray-700">
                                     <span className="mr-1">👥</span>{activeTooltip.crowdLevel}
                                   </div>
                                 )}
                                 {activeTooltip.price && (
-                                  <div className="flex items-center text-[11px] text-gray-700">
+                                  <div className="flex items-center text-[10px] text-gray-700">
                                     <span className="mr-1">💰</span>{activeTooltip.price}
                                   </div>
                                 )}

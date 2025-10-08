@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 
 // Original calendar palette
 const RATING_COLORS = { 5: '#10b981', 4: '#34d399', 3: '#fbbf24', 2: '#fb923c', 1: '#ef4444' };
@@ -11,7 +11,7 @@ function getMonthData(visitCalendar, monthIndex) {
   return visitCalendar.months[MONTHS[monthIndex].toLowerCase()] || null;
 }
 
-function buildDays(monthIndex, monthData) {
+function buildDays(monthIndex, monthData, eventMap = {}) {
   const year = new Date().getFullYear();
   const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
   const firstDow = new Date(year, monthIndex, 1).getDay();
@@ -20,9 +20,60 @@ function buildDays(monthIndex, monthData) {
   for (let d = 1; d <= daysInMonth; d++) {
     const range = monthData?.ranges?.find(r => Array.isArray(r.days) && r.days.includes(d));
     const rating = range?.score ?? 3;
-    days.push({ type: 'day', d, rating, color: RATING_COLORS[rating] });
+    const events = Array.isArray(eventMap[d]) ? eventMap[d] : [];
+    days.push({ type: 'day', d, rating, color: RATING_COLORS[rating], events, hasEvent: events.length > 0 });
   }
   return days;
+}
+
+// Build map: dayOfMonth -> [events]
+function buildEventMapForMonth(monthIndex, monthJson) {
+  if (!monthJson || typeof monthJson !== 'object') return {};
+
+  const all = [];
+  const fh = Array.isArray(monthJson?.first_half?.events_holidays) ? monthJson.first_half.events_holidays : [];
+  const sh = Array.isArray(monthJson?.second_half?.events_holidays) ? monthJson.second_half.events_holidays : [];
+  const fh2 = Array.isArray(monthJson?.first_half?.events) ? monthJson.first_half.events : [];
+  const sh2 = Array.isArray(monthJson?.second_half?.events) ? monthJson.second_half.events : [];
+  const root1 = Array.isArray(monthJson?.events_holidays) ? monthJson.events_holidays : [];
+  const root2 = Array.isArray(monthJson?.events) ? monthJson.events : [];
+  all.push(...fh, ...sh, ...fh2, ...sh2, ...root1, ...root2);
+
+  const eventMap = {};
+  const coerceInt = (n) => {
+    const num = Number(n);
+    return Number.isFinite(num) && num >= 1 && num <= 31 ? num : null;
+  };
+  const normalize = (s) => (s || '').toString().trim();
+
+  for (const ev of all) {
+    const dateStr = normalize(ev?.date);
+    if (!dateStr) continue;
+    const unified = dateStr.replace(/[–—−]/g, '-');
+    // Range like 7-16 or 07-16
+    let matched = unified.match(/\b(\d{1,2})\s*-\s*(\d{1,2})\b/);
+    if (matched) {
+      const start = coerceInt(matched[1]);
+      const end = coerceInt(matched[2]);
+      if (start && end && end >= start) {
+        for (let d = start; d <= end; d++) {
+          eventMap[d] = eventMap[d] || [];
+          eventMap[d].push(ev);
+        }
+        continue;
+      }
+    }
+    // Explicit day like "July 14, 2025" or "Oct 3" or just "14"
+    matched = unified.match(/\b(\d{1,2})\b/);
+    if (matched) {
+      const day = coerceInt(matched[1]);
+      if (day) {
+        eventMap[day] = eventMap[day] || [];
+        eventMap[day].push(ev);
+      }
+    }
+  }
+  return eventMap;
 }
 
 export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName, countryName }) {
@@ -32,6 +83,14 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   const [expandedConsider, setExpandedConsider] = useState(false);
   const [expandedEvents, setExpandedEvents] = useState(false);
   const [taglines, setTaglines] = useState(null);
+  const [extraMonths, setExtraMonths] = useState({});
+  const fetchedMonthsRef = useRef(new Set());
+  const inflightMonthsRef = useRef(new Set());
+  const getTooltipPositionClasses = (colIndex) => {
+    if (colIndex <= 1) return { box: 'left-0 translate-x-0 ml-2', arrow: 'left-3' };
+    if (colIndex >= 5) return { box: 'right-0 translate-x-0 mr-2', arrow: 'right-3' };
+    return { box: 'left-1/2 -translate-x-1/2', arrow: 'left-1/2 -translate-x-1/2' };
+  };
 
   // Load monthly taglines JSON if available
   useEffect(() => {
@@ -62,25 +121,45 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
       weatherHighC: undefined,
       ranges: [{ score: 3, days: Array.from({ length: new Date(new Date().getFullYear(), idx + 1, 0).getDate() }, (_, i) => i + 1) }]
     } : raw;
+    // We'll compute event map later per selected month; for now keep empty
     return {
       idx,
       name: MONTHS[idx],
       data: synthesized,
-      days: buildDays(idx, synthesized)
+      days: buildDays(idx, synthesized, {})
     };
   }), [visitCalendar]);
 
   const m = months[selectedIdx];
-  // Support both 'August' and 'august' keys
-  const monthJson = monthlyData?.[m.name] || monthlyData?.[m.name?.toLowerCase()];
+  // Support multiple shapes:
+  // 1) monthlyData["July"] = { ... }
+  // 2) monthlyData["July"] = { "July": { ... } }
+  // 3) lowercase keys
+  // Prefer freshly fetched full month data over partial index entries
+  const monthContainer =
+    extraMonths?.[m.name] ||
+    extraMonths?.[m.name?.toLowerCase()] ||
+    monthlyData?.[m.name] ||
+    monthlyData?.[m.name?.toLowerCase()];
+  const monthJson = monthContainer?.[m.name] || monthContainer?.[m.name?.toLowerCase()] || monthContainer || {};
   const visitList = Array.isArray(monthJson?.reasons_to_visit) ? monthJson.reasons_to_visit : [];
   const considerList = Array.isArray(monthJson?.reasons_to_reconsider) ? monthJson.reasons_to_reconsider : [];
   const firstHalf = monthJson?.first_half || {};
   const secondHalf = monthJson?.second_half || {};
+  // Merge events from multiple possible keys to handle month-to-month schema drift
   const events = [
     ...(Array.isArray(firstHalf?.events_holidays) ? firstHalf.events_holidays : []),
     ...(Array.isArray(secondHalf?.events_holidays) ? secondHalf.events_holidays : []),
+    ...(Array.isArray(firstHalf?.events) ? firstHalf.events : []),
+    ...(Array.isArray(secondHalf?.events) ? secondHalf.events : []),
+    ...(Array.isArray(monthJson?.events_holidays) ? monthJson.events_holidays : []),
+    ...(Array.isArray(monthJson?.events) ? monthJson.events : []),
   ];
+
+  // If we fetched a full month, also surface reasons/consider lists even if index JSON had empty arrays
+  const hasFetchedMonth = !!(extraMonths?.[m.name] || extraMonths?.[m.name?.toLowerCase()]);
+  const effectiveVisitList = hasFetchedMonth ? visitList : visitList;
+  const effectiveConsiderList = hasFetchedMonth ? considerList : considerList;
 
   const tempString = (p) => {
     const t = p?.weather?.average_temperature;
@@ -97,6 +176,71 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   const showMoreVisitCount = Math.max(visitList.length - 3, 0);
   const showMoreConsiderCount = Math.max(considerList.length - 3, 0);
   const showMoreEventsCount = Math.max(events.length - 3, 0);
+
+  // Rebuild the selected month's days to include event markers
+  const eventMap = useMemo(() => buildEventMapForMonth(m.idx, monthJson), [m.idx, monthJson]);
+  const selectedMonthDays = useMemo(() => buildDays(m.idx, m.data, eventMap), [m.idx, m.data, eventMap]);
+
+  // Fallback: if the currently selected month is missing in monthlyData,
+  // fetch just that month JSON and cache it locally so the panel renders.
+  useEffect(() => {
+    const monthKey = m?.name;
+    if (!monthKey || !cityName || !countryName) return;
+    const candidateContainer = monthlyData?.[monthKey] || monthlyData?.[monthKey.toLowerCase()] || extraMonths?.[monthKey] || extraMonths?.[monthKey.toLowerCase()];
+    const candidateJson = candidateContainer?.[monthKey] || candidateContainer?.[monthKey.toLowerCase()] || candidateContainer;
+
+    const isCompleteMonth = (() => {
+      if (!candidateJson || typeof candidateJson !== 'object' || Array.isArray(candidateJson)) return false;
+      const fh = candidateJson.first_half || {};
+      const sh = candidateJson.second_half || {};
+      const hasReasons = Array.isArray(candidateJson.reasons_to_visit) || Array.isArray(candidateJson.reasons_to_reconsider);
+      const hasEvents = Array.isArray(fh.events_holidays) || Array.isArray(sh.events_holidays) || Array.isArray(fh.events) || Array.isArray(sh.events);
+      const hasWeather = !!(fh.weather || sh.weather);
+      return hasReasons || hasEvents || hasWeather;
+    })();
+    const shouldFetch = !candidateJson || !isCompleteMonth;
+    if (!shouldFetch) return;
+
+    let cancelled = false;
+    const citySlug = String(cityName).toLowerCase();
+    const cityCap = String(cityName).charAt(0).toUpperCase() + String(cityName).slice(1);
+    const countrySlug = String(countryName).toLowerCase();
+    const countryCap = String(countryName).charAt(0).toUpperCase() + String(countryName).slice(1);
+    const cacheKey = `${countrySlug}|${citySlug}|${monthKey.toLowerCase()}`;
+
+    if (fetchedMonthsRef.current.has(cacheKey) || inflightMonthsRef.current.has(cacheKey)) return;
+    inflightMonthsRef.current.add(cacheKey);
+    const candidates = [
+      `/data/${countryName}/${citySlug}/monthly/${monthKey.toLowerCase()}.json`,
+      `/data/${countryName}/${cityCap}/monthly/${monthKey.toLowerCase()}.json`,
+      `/data/${countryCap}/${citySlug}/monthly/${monthKey.toLowerCase()}.json`,
+      `/data/${countryCap}/${cityCap}/monthly/${monthKey.toLowerCase()}.json`,
+      `/data/${countrySlug}/${citySlug}/monthly/${monthKey.toLowerCase()}.json`,
+      `/data/${countrySlug}/${cityCap}/monthly/${monthKey.toLowerCase()}.json`
+    ];
+    (async () => {
+      try {
+        for (const url of candidates) {
+          const res = await fetch(url, { cache: 'force-cache' });
+          if (!res.ok) continue;
+          const json = await res.json();
+          const extractedKey = Object.keys(json)[0];
+          const payload = extractedKey ? json[extractedKey] : json;
+          if (!cancelled && payload && typeof payload === 'object') {
+            setExtraMonths(prev => ({ ...prev, [extractedKey || monthKey]: payload }));
+            fetchedMonthsRef.current.add(cacheKey);
+            break;
+          }
+        }
+      } catch (_) {
+        // ignore
+      } finally {
+        inflightMonthsRef.current.delete(cacheKey);
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [m?.name, cityName, countryName, monthlyData, extraMonths]);
 
   // Generate a brief, positive tagline for the month header
   const generateMonthTagline = () => {
@@ -173,7 +317,7 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
       </div>
 
       {/* Selected month content */}
-      <section className="rounded-lg ring-1 ring-gray-100 overflow-hidden bg-white">
+      <section className="rounded-lg ring-1 ring-gray-100 overflow-visible bg-white">
         {/* Compact month header (single visible tagline) */}
         <header className="px-4 py-3 bg-gray-50/60 border-b border-gray-100">
           <div className="flex items-center gap-2">
@@ -201,11 +345,45 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
               {['S','M','T','W','T','F','S'].map((d, i) => <div key={`${d}-${i}`} className="py-1">{d}</div>)}
             </div>
             <div className="grid grid-cols-7 gap-px bg-white">
-              {m.days.map((day, i) => day.type === 'empty' ? (
+              {selectedMonthDays.map((day, i) => day.type === 'empty' ? (
                 <div key={`e-${i}`} className="aspect-square" />
               ) : (
-                <div key={`d-${m.idx}-${day.d}`} className="aspect-square flex items-center justify-center rounded" style={{ backgroundColor: day.color }}>
+                <div
+                  key={`d-${m.idx}-${day.d}`}
+                  className="group aspect-square flex items-center justify-center rounded relative"
+                  style={{ backgroundColor: day.color }}
+                >
                   <span className="text-white text-[9px] font-semibold drop-shadow">{day.d}</span>
+                  {day.hasEvent && (
+                    <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-red-500 ring-1 ring-white"></span>
+                  )}
+                  {day.hasEvent && (
+                    <>
+                      {(() => { const pos = getTooltipPositionClasses(i % 7); return (
+                        <div className={`pointer-events-none absolute bottom-full ${pos.box} mb-2 w-64 rounded-lg bg-white text-gray-900 text-[12px] leading-snug px-3 py-2.5 shadow-xl ring-1 ring-gray-200 opacity-0 group-hover:opacity-100 transition-opacity z-50 whitespace-normal break-words border-l-4`}
+                          style={{ borderLeftColor: day.color }}>
+                          <div className="font-semibold mb-1.5 text-[12.5px]">{m.name} {day.d}</div>
+                        <ul className="space-y-1.5">
+                          {day.events.slice(0,3).map((ev, j) => (
+                              <li key={`evtip-${m.idx}-${day.d}-${j}`} className="flex items-start gap-2">
+                                <span className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: day.color }}></span>
+                                <div className="flex-1">
+                                  <div className="font-medium text-[12px] leading-tight">{ev.name || ev.event || 'Event'}</div>
+                                  <div className="text-[11px] text-gray-500">{ev.date || ''}</div>
+                                </div>
+                            </li>
+                          ))}
+                        </ul>
+                        {day.events.length > 3 && (
+                            <div className="text-[11px] text-gray-500 mt-1">+{day.events.length - 3} more</div>
+                        )}
+                        </div>
+                      ); })()}
+                      {(() => { const pos = getTooltipPositionClasses(i % 7); return (
+                        <span className={`pointer-events-none absolute -bottom-1 ${pos.arrow} w-2 h-2 bg-white rotate-45 opacity-0 group-hover:opacity-100 z-50 ring-1 ring-gray-200`}></span>
+                      ); })()}
+                    </>
+                  )}
                 </div>
               ))}
             </div>

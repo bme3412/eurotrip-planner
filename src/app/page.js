@@ -45,74 +45,127 @@ export default function Page() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="px-6 py-4 border-b border-gray-200">
+      {/* Clean Header */}
+      <header className="px-6 py-6 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <div className="w-full max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-gray-900">EuroExplorer</span>
+          <div className="flex items-center">
+            <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              EuroExplorer
+            </span>
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center gap-6">
-            <button onClick={submit} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <div className="w-6 h-6 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </div>
-              <span className="font-medium text-gray-700">{loading ? "Generating…" : "Itineraries"}</span>
+          <nav className="flex items-center gap-8">
+            <button 
+              onClick={submit} 
+              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-sm hover:shadow-md"
+            >
+              {loading ? "Generating…" : "Get Itineraries"}
             </button>
-            <Link href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <span className="font-medium text-gray-700">City Guides</span>
+            <Link 
+              href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} 
+              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+            >
+              City Guides
             </Link>
-            <button type="button" onClick={() => setShowPreview(true)} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <div className="w-6 h-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <span className="font-medium text-gray-700">Countries</span>
+            <Link 
+              href="/explore" 
+              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+            >
+              Explore Map
+            </Link>
+            <button 
+              type="button" 
+              onClick={() => setShowPreview(true)} 
+              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+            >
+              Countries
             </button>
-          </div>
+          </nav>
         </div>
       </header>
 
-      {/* Hero Search Section */}
-      <section className="px-6 py-8">
-        <div className="w-full max-w-6xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            Plan your <span className="bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">Eurotrip</span> in minutes
-          </h1>
-          
-          <div className="max-w-2xl mx-auto">
-            <DateSelector onChange={setDates} />
+      {/* Enhanced Hero Section */}
+      <section className="relative px-6 py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat'
+          }}></div>
+        </div>
+        
+        <div className="relative w-full max-w-6xl mx-auto">
+          {/* Main headline with better hierarchy */}
+          <div className="text-center mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+              Plan your perfect <br />
+              <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                European adventure
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Discover hidden gems, avoid tourist traps, and create unforgettable memories with our 
+              <span className="font-semibold text-gray-800"> AI-powered trip planner</span> that knows Europe inside out.
+            </p>
+          </div>
+
+          {/* Compact search interface */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
+              <div className="text-center mb-4">
+                <h2 className="text-xl font-bold text-gray-900 mb-1">When do you want to travel?</h2>
+                <p className="text-gray-600 text-sm">Get personalized recommendations based on your travel dates</p>
+              </div>
+              <DateSelector onChange={setDates} />
+              
+              {/* Quick action buttons */}
+              <div className="flex flex-wrap justify-center gap-2 mt-4">
+                <button 
+                  onClick={() => setDates({ mode: "dates", ...getNextWeekendRange() })}
+                  className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors text-sm font-medium"
+                >
+                  This Weekend
+                </button>
+                <button 
+                  onClick={() => setDates({ mode: "dates", start: addDays("", 30), end: addDays("", 37) })}
+                  className="px-3 py-1.5 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors text-sm font-medium"
+                >
+                  Next Month
+                </button>
+                <button 
+                  onClick={() => setDates({ mode: "dates", start: addDays("", 90), end: addDays("", 97) })}
+                  className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors text-sm font-medium"
+                >
+                  Summer Trip
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Results or Curated Sections */}
-      {results?.length > 0 ? (
-        <main className="px-6 pb-20">
-          <ResultsGrid results={results} sortBy={sortBy} setSortBy={setSortBy} />
-        </main>
-      ) : (
-        <main className="px-6 pb-20 pt-4">
-          <div className="mx-auto max-w-6xl space-y-8">
-            {/* September Experiences */}
-            <section>
-              <h2 className="mb-3 text-sm font-semibold text-zinc-700">Best Experiences in September</h2>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Immediate Content - No Scrolling Required */}
+      {results?.length === 0 && (
+        <section className="px-6 py-8 bg-white">
+          <div className="max-w-6xl mx-auto">
+            {/* September Experiences - Immediately Visible */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-1">Best Experiences in September</h2>
+                  <p className="text-gray-600 text-sm">Perfect timing for festivals, harvest season, and comfortable weather</p>
+                </div>
+                <Link href="/city-guides" className="hidden sm:flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm">
+                  View all cities
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   "munich", // Oktoberfest
                   "barcelona", // La Mercè
@@ -125,12 +178,23 @@ export default function Page() {
                     <CityCard key={city.id} city={city} />
                   ))}
               </div>
-            </section>
+            </div>
 
             {/* Mediterranean Beach Towns */}
-            <section>
-              <h2 className="mb-3 text-sm font-semibold text-zinc-700">Best Mediterranean Beach Towns</h2>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-1">Mediterranean Paradise</h2>
+                  <p className="text-gray-600 text-sm">Stunning coastlines, crystal-clear waters, and charming seaside towns</p>
+                </div>
+                <Link href="/city-guides" className="hidden sm:flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm">
+                  View all cities
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {["nice", "santorini", "valencia", "dubrovnik"]
                   .map((id) => cityById[id])
                   .filter(Boolean)
@@ -138,12 +202,30 @@ export default function Page() {
                     <CityCard key={city.id} city={city} />
                   ))}
               </div>
-            </section>
+            </div>
+          </div>
+        </section>
+      )}
 
+      {/* Additional Content Sections */}
+      {results?.length === 0 && (
+        <section className="px-6 py-8 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
             {/* Alpine Gems */}
-            <section>
-              <h2 className="mb-3 text-sm font-semibold text-zinc-700">Overlooked Alpine Gems</h2>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-1">Hidden Alpine Treasures</h2>
+                  <p className="text-gray-600 text-sm">Mountain towns with breathtaking scenery and authentic charm</p>
+                </div>
+                <Link href="/city-guides" className="hidden sm:flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm">
+                  View all cities
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {["innsbruck", "graz", "lucerne", "bern"]
                   .map((id) => cityById[id])
                   .filter(Boolean)
@@ -151,32 +233,55 @@ export default function Page() {
                     <CityCard key={city.id} city={city} />
                   ))}
               </div>
-            </section>
+            </div>
 
-            {/* Popular Eurotrips */}
-            <section>
-              <h2 className="mb-3 text-sm font-semibold text-zinc-700">Popular Eurotrips</h2>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Ready-Made Adventures */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-1">Ready-Made Adventures</h2>
+                  <p className="text-gray-600 text-sm">Popular routes that combine the best of Europe in perfect itineraries</p>
+                </div>
+                <Link href="/start-planning" className="hidden sm:flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm">
+                  Start planning
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { title: "Classic Capitals", subtitle: "Paris → Amsterdam → Berlin → Prague", weeks: "2 weeks" },
-                  { title: "Mediterranean Highlights", subtitle: "Barcelona → Nice → Rome", weeks: "10–14 days" },
-                  { title: "Alpine + Lakes", subtitle: "Munich → Salzburg → Lake Bled", weeks: "1–2 weeks" },
-                  { title: "Iberian Explorer", subtitle: "Lisbon → Porto → Madrid → Granada", weeks: "2 weeks" },
+                  { title: "Classic Capitals", subtitle: "Paris → Amsterdam → Berlin → Prague", weeks: "2 weeks", color: "blue" },
+                  { title: "Mediterranean Highlights", subtitle: "Barcelona → Nice → Rome", weeks: "10–14 days", color: "green" },
+                  { title: "Alpine + Lakes", subtitle: "Munich → Salzburg → Lake Bled", weeks: "1–2 weeks", color: "purple" },
+                  { title: "Iberian Explorer", subtitle: "Lisbon → Porto → Madrid → Granada", weeks: "2 weeks", color: "orange" },
                 ].map((trip, i) => (
-                  <Link key={i} href={{ pathname: "/start-planning", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} className="card p-5 hover:-translate-y-0.5 transition bg-white">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-sm font-semibold text-zinc-800">{trip.title}</div>
-                        <div className="text-sm text-zinc-600">{trip.subtitle}</div>
-                        <div className="mt-2 text-xs text-zinc-500">{trip.weeks}</div>
+                  <Link key={i} href={{ pathname: "/start-planning", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} className="group block">
+                    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-3 h-3 rounded-full bg-${trip.color}-500`}></div>
+                        <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-2">{trip.title}</h3>
+                        <p className="text-gray-600 text-sm mb-3">{trip.subtitle}</p>
+                        <div className="text-xs text-gray-500 font-medium">{trip.weeks}</div>
+                      </div>
                     </div>
                   </Link>
                 ))}
               </div>
-            </section>
+            </div>
           </div>
+        </section>
+      )}
+
+      {/* Results Section */}
+      {results?.length > 0 && (
+        <main className="px-6 pb-20">
+          <ResultsGrid results={results} sortBy={sortBy} setSortBy={setSortBy} />
         </main>
       )}
 

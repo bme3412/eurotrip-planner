@@ -44,20 +44,14 @@ function generateThumbnailPath(cityId, country = null) {
     return getImageUrl(`/images/${cityId}.jpeg`);
   }
   
-  // For local development, check things-to-do directory first (e.g., /images/things-to-do/France/paris.jpeg)
+  // Standardize local dev to /images/optimized; if missing, fall back to things-to-do
+  const optimizedPath = `/images/optimized/${cityId}.jpeg`;
+  const optimizedFullPath = path.join(process.cwd(), 'public', optimizedPath);
+  if (fs.existsSync(optimizedFullPath)) return optimizedPath;
   if (country) {
     const thingsToDoPath = `/images/things-to-do/${country}/${cityId}.jpeg`;
     const thingsToDoFullPath = path.join(process.cwd(), 'public', thingsToDoPath);
-    if (fs.existsSync(thingsToDoFullPath)) {
-      return thingsToDoPath;
-    }
-  }
-  
-  // Check optimized directory as fallback
-  const optimizedPath = `/images/optimized/${cityId}.jpeg`;
-  const optimizedFullPath = path.join(process.cwd(), 'public', optimizedPath);
-  if (fs.existsSync(optimizedFullPath)) {
-    return optimizedPath;
+    if (fs.existsSync(thingsToDoFullPath)) return thingsToDoPath;
   }
   
   // Check country-specific thumbnail directory first (e.g., /images/city-thumbnail/France/paris-thumbnail.jpeg)
