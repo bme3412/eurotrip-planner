@@ -202,7 +202,7 @@ function CityPageClient({ cityData, cityName }) {
               cityName={cityName}
               center={center}
               zoom={12}
-              title={`${cityName} Interactive Map`}
+              title={`${displayName} Interactive Map`}
               subtitle="Explore attractions, neighborhoods, and more"
             />
           </MapSuspenseWrapper>
@@ -284,6 +284,22 @@ function CityPageClient({ cityData, cityName }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
+      {/* Top breadcrumb - fixed, transparent over hero (no header bar) */}
+      <div className="fixed top-0 left-0 right-0 z-40">
+        <div className="mx-auto max-w-6xl px-6 py-2">
+          <nav className="text-sm flex items-center gap-2 text-white drop-shadow-md">
+            <Link href="/" className="inline-flex items-center gap-1 hover:opacity-90">
+              <span aria-hidden>←</span>
+              <span>Home</span>
+            </Link>
+            <span className="opacity-80">/</span>
+            <Link href="/city-guides" className="hover:opacity-90">City Guides</Link>
+            <span className="opacity-80">/</span>
+            <span className="font-medium">{displayName}</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero */}
       <Hero
         cityName={cityName && typeof cityName === 'string' ? cityName.toLowerCase() : undefined}
@@ -293,9 +309,9 @@ function CityPageClient({ cityData, cityName }) {
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
         subtitle={getCityHeaderInfo(cityData)?.subtitle || "A City to Explore"}
         description={description}
-        primaryCta={{ label: 'Plan Your Journey', disabled: true, variant: 'solid' }}
-        secondaryCta={{ label: 'Explore Seasonal Picks', onClick: () => { setActiveTab('monthly'); loadAllMonthly(); }, variant: 'outline' }}
       />
+
+      {/* (breadcrumb moved to top) */}
 
       {/* Tabs */}
       <div className="mx-auto max-w-6xl px-6">

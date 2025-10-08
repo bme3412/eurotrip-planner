@@ -13,6 +13,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [endDate, setEndDate] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('all');
   const [experiences, setExperiences] = useState(null);
+  const [quickFilters, setQuickFilters] = useState({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
   
   // Month options for filtering
   const months = [
@@ -183,6 +184,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     return score;
   }, [monthlyData]);
 
+  // Badge color for overall score (0-10)
+  const overallScoreClass = (score) => {
+    if (typeof score !== 'number') return 'bg-gray-100 text-gray-800';
+    if (score >= 9) return 'bg-emerald-100 text-emerald-800';
+    if (score >= 8) return 'bg-blue-100 text-blue-800';
+    if (score >= 7) return 'bg-indigo-100 text-indigo-800';
+    return 'bg-gray-100 text-gray-800';
+  };
+
   // Get effective month for scoring
   const getEffectiveMonth = useCallback(() => {
     if (dateFilterType === 'exact' && selectedDate) {
@@ -211,6 +221,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         searchTerm === '' || attraction.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         attraction.description?.toLowerCase().includes(searchTerm.toLowerCase())
       )
+      .filter(attraction => {
+        // Apply quick filters
+        if (quickFilters.indoorOnly && attraction.indoor === false) return false;
+        if (quickFilters.outdoorOnly && attraction.indoor === true) return false;
+        if (quickFilters.freeOnly && String(attraction.price_range || '').toLowerCase() !== 'free') return false;
+        if (quickFilters.budgetOnly && !['budget', 'free'].includes(String(attraction.price_range || '').toLowerCase())) return false;
+        if (quickFilters.shortVisitsOnly && !(Number(attraction?.ratings?.suggested_duration_hours) > 0 && Number(attraction?.ratings?.suggested_duration_hours) <= 1.5)) return false;
+        return true;
+      })
       .map(attraction => ({
         ...attraction,
         seasonalScore: getSeasonalScore(attraction, getEffectiveMonth())
@@ -223,7 +242,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         if (comp !== 0) return comp;
         return (b.ratings?.cultural_significance || 0) - (a.ratings?.cultural_significance || 0);
       });
-  }, [dataSource, searchTerm, dateFilterType, getEffectiveMonth, getSeasonalScore]);
+  }, [dataSource, searchTerm, dateFilterType, getEffectiveMonth, getSeasonalScore, quickFilters]);
   
   // Format price range for display
   const getPriceIcon = (priceRange) => {
@@ -357,7 +376,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         </p>
       </div>
 
-      {/* Filters (search only) */}
+      {/* Filters */}
       <div className="mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
         <div className="flex flex-col space-y-4">
           {/* Search bar */}
@@ -376,6 +395,21 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
+          </div>
+          {/* Quick filters */}
+          <div className="flex flex-wrap gap-2">
+            <button onClick={() => setQuickFilters(f => ({ ...f, indoorOnly: !f.indoorOnly, outdoorOnly: false }))}
+              className={`px-3 py-1.5 rounded-full text-sm border ${quickFilters.indoorOnly ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}>Indoor</button>
+            <button onClick={() => setQuickFilters(f => ({ ...f, outdoorOnly: !f.outdoorOnly, indoorOnly: false }))}
+              className={`px-3 py-1.5 rounded-full text-sm border ${quickFilters.outdoorOnly ? 'bg-sky-600 text-white border-sky-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}>Outdoor</button>
+            <button onClick={() => setQuickFilters(f => ({ ...f, shortVisitsOnly: !f.shortVisitsOnly }))}
+              className={`px-3 py-1.5 rounded-full text-sm border ${quickFilters.shortVisitsOnly ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}>
+              ≤ 1.5h
+            </button>
+            <button onClick={() => setQuickFilters(f => ({ ...f, freeOnly: !f.freeOnly, budgetOnly: f.freeOnly ? f.budgetOnly : false }))}
+              className={`px-3 py-1.5 rounded-full text-sm border ${quickFilters.freeOnly ? 'bg-amber-600 text-white border-amber-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}>Free</button>
+            <button onClick={() => setQuickFilters(f => ({ ...f, budgetOnly: !f.budgetOnly, freeOnly: false }))}
+              className={`px-3 py-1.5 rounded-full text-sm border ${quickFilters.budgetOnly ? 'bg-amber-600 text-white border-amber-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}>Budget</button>
           </div>
         
           {/* View mode toggle (hidden when forceList) */}
@@ -574,101 +608,83 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             
             return (
               <div key={attractionId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                {attraction.image && (
-                  <div className="relative w-full h-40">
-                    <Image src={attraction.image} alt={attraction.name} fill sizes="100vw" className="object-cover" />
-                  </div>
-                )}
-                <div className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <span className="text-2xl">{getTypeIcon(attraction.type)}</span>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 text-lg">{attraction.name}</h3>
-                        <p className="text-sm text-gray-500">{attraction.type}</p>
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{getTypeIcon(attraction.type)}</span>
+                        <h3 className="font-semibold text-gray-900 text-[16px] truncate">{attraction.name}</h3>
+                        {attraction.category && (
+                          <span className="ml-2 px-2 py-0.5 text-[11px] rounded-full bg-gray-100 text-gray-700 border border-gray-200 truncate max-w-[140px]">{String(attraction.category).toLowerCase()}</span>
+                        )}
+                      </div>
+                      {attraction.description && (
+                        <p className="text-sm text-gray-700 mt-1 line-clamp-2">{attraction.description}</p>
+                      )}
+                      <div className="mt-3 grid grid-cols-3 gap-2">
+                        <div className="rounded-md bg-gray-50 p-2 text-center">
+                          <div className="text-[13px] font-semibold text-gray-900">{attraction.ratings?.suggested_duration_hours ? `${attraction.ratings.suggested_duration_hours}h` : '—'}</div>
+                          <div className="text-[11px] text-gray-500">Duration</div>
+                        </div>
+                        <div className="rounded-md bg-gray-50 p-2 text-center">
+                          <div className="text-[13px] font-semibold text-gray-900">{getPriceIcon(attraction.price_range)}</div>
+                          <div className="text-[11px] text-gray-500">Price</div>
+                        </div>
+                        <div className="rounded-md bg-gray-50 p-2 text-center">
+                          <div className={`inline-block px-2 py-0.5 rounded-full text-[12px] font-semibold ${overallScoreClass(attraction.compositeScore)}`}>{typeof attraction.compositeScore === 'number' ? attraction.compositeScore.toFixed(2) : '—'}</div>
+                          <div className="text-[11px] text-gray-500 mt-0.5">Overall</div>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="text-center">
-                        <div className="text-sm font-medium text-gray-900">
-                          {attraction.ratings?.suggested_duration_hours ? `${attraction.ratings.suggested_duration_hours}h` : 'N/A'}
-                        </div>
-                        <div className="text-xs text-gray-500">Duration</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-sm font-medium text-gray-900">
-                          {getPriceIcon(attraction.price_range)}
-                        </div>
-                        <div className="text-xs text-gray-500">Price</div>
-                      </div>
-                      {typeof attraction.compositeScore === 'number' && !Number.isNaN(attraction.compositeScore) && (
-                        <div className="text-center">
-                          <span className="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">
-                            {attraction.compositeScore.toFixed(2)}
-                          </span>
-                          <div className="text-xs text-gray-500 mt-1">Overall</div>
-                        </div>
-                      )}
+                    <div className="shrink-0 flex flex-col items-end gap-2">
                       {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
-                        <div className="text-center">
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
-                            {attraction.seasonalScore}★
-                          </span>
-                          <div className="text-xs text-gray-500 mt-1">Seasonal</div>
-                        </div>
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>{attraction.seasonalScore}★ seasonal</span>
                       )}
+                      <div className="flex items-center gap-2">
+                        {attraction.latitude && attraction.longitude && (
+                          <button className="px-3 py-1.5 text-sm rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200" onClick={() => console.log('map', attraction.latitude, attraction.longitude)}>Show on map</button>
+                        )}
+                        {attraction.website && (
+                          <a href={attraction.website} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 text-sm rounded-md bg-blue-600 text-white hover:bg-blue-700">Book</a>
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <p className="text-gray-700 text-sm mt-3">{attraction.description}</p>
+
                   {attraction.aggregates && (
-                    <div className="grid grid-cols-3 gap-2 mt-3">
-                      <div className="text-center p-2 bg-gray-50 rounded-lg">
-                        <div className="text-sm font-semibold text-gray-900">
-                          {typeof attraction.aggregates.culturalValue === 'number' ? attraction.aggregates.culturalValue.toFixed(2) : '—'}
-                        </div>
+                    <div className="mt-4 grid grid-cols-3 gap-2">
+                      <div className="text-center p-2 bg-white rounded-lg border border-gray-200">
+                        <div className="text-sm font-semibold text-gray-900">{typeof attraction.aggregates.culturalValue === 'number' ? attraction.aggregates.culturalValue.toFixed(2) : '—'}</div>
                         <div className="text-[11px] text-gray-500">Cultural Impact</div>
                       </div>
-                      <div className="text-center p-2 bg-gray-50 rounded-lg">
-                        <div className="text-sm font-semibold text-gray-900">
-                          {typeof attraction.aggregates.experienceQuality === 'number' ? attraction.aggregates.experienceQuality.toFixed(2) : '—'}
-                        </div>
+                      <div className="text-center p-2 bg-white rounded-lg border border-gray-200">
+                        <div className="text-sm font-semibold text-gray-900">{typeof attraction.aggregates.experienceQuality === 'number' ? attraction.aggregates.experienceQuality.toFixed(2) : '—'}</div>
                         <div className="text-[11px] text-gray-500">Visit Quality</div>
                       </div>
-                      <div className="text-center p-2 bg-gray-50 rounded-lg">
-                        <div className="text-sm font-semibold text-gray-900">
-                          {typeof attraction.aggregates.practicalEase === 'number' ? attraction.aggregates.practicalEase.toFixed(2) : '—'}
-                        </div>
+                      <div className="text-center p-2 bg-white rounded-lg border border-gray-200">
+                        <div className="text-sm font-semibold text-gray-900">{typeof attraction.aggregates.practicalEase === 'number' ? attraction.aggregates.practicalEase.toFixed(2) : '—'}</div>
                         <div className="text-[11px] text-gray-500">Logistics & Value</div>
                       </div>
                     </div>
                   )}
                 </div>
-                <div className="border-t border-gray-100 bg-gray-50 p-6">
+
+                {/* Details */}
+                <div className="border-t border-gray-100 bg-gray-50 p-5">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Best Time to Visit</h4>
+                      <h4 className="font-medium text-gray-900 mb-1">Best Time to Visit</h4>
                       <p className="text-sm text-gray-700">{attraction.best_time || '—'}</p>
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Seasonal Notes</h4>
+                      <h4 className="font-medium text-gray-900 mb-1">Seasonal Notes</h4>
                       <p className="text-sm text-gray-700">{attraction.seasonal_notes || '—'}</p>
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Booking Tips</h4>
+                      <h4 className="font-medium text-gray-900 mb-1">Booking Tips</h4>
                       <p className="text-sm text-gray-700">{attraction.booking_tips || '—'}</p>
                     </div>
                   </div>
-                  {dateFilterType !== 'none' && attraction.seasonalScore !== undefined && (
-                    <div className="mt-4 pt-4 border-t border-gray-200">
-                      <h4 className="font-medium text-gray-900 mb-2">Seasonal Appeal</h4>
-                      <div className="flex items-center space-x-2">
-                        <span className={`px-3 py-1 text-sm font-medium rounded-full ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
-                          {attraction.seasonalScore} out of 5 stars
-                        </span>
-                        <span className="text-sm text-gray-600">for {getDateFilterDisplay()}</span>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             );

@@ -17,12 +17,33 @@ export default function MapSection({
 }) {
   const [isClient, setIsClient] = useState(false);
   const [selectedAttraction, setSelectedAttraction] = useState(null);
-  const [activeFilters, setActiveFilters] = useState([]);
+  // Define clusters once so we can use them for defaults and filtering
+  const CATEGORY_CLUSTERS = {
+    'Landmarks': ['Monument', 'Cathedral', 'Basilica', 'Chapel', 'Church', 'Palace'],
+    'Museums & Arts': ['Museum', 'Contemporary Art Center', 'Art Center', 'Digital Art Center'],
+    'Parks & Nature': ['Park', 'Garden', 'Waterway', 'Bridge'],
+    'Districts & Streets': ['District', 'Street', 'Square'],
+    'Entertainment': ['Opera House', 'Activity', 'River Cruise'],
+    'Shopping & Markets': ['Department Store', 'Market', 'Market Street'],
+    'Historical Sites': ['Historical Site', 'Cemetery'],
+    'Other': ['Exhibition Hall', 'Skyscraper', 'Library']
+  };
+  const ALL_CLUSTERS = Object.keys(CATEGORY_CLUSTERS);
+  // Default to All selected
+  const [activeFilters, setActiveFilters] = useState(ALL_CLUSTERS);
+  // Pagination state for the attractions list
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 10;
   
   // Effect to ensure the component only renders on client
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Reset page when filters change
+  useEffect(() => {
+    setPage(1);
+  }, [activeFilters, cityName]);
 
   // Process default values for title and subtitle
   const mapTitle = title || `${cityName} at a Glance`;
@@ -64,11 +85,10 @@ export default function MapSection({
               <div className="flex space-x-2">
                 <button 
                   onClick={() => {
-                    const allClusters = ['Landmarks', 'Museums & Arts', 'Parks & Nature', 'Districts & Streets', 'Entertainment', 'Shopping & Markets', 'Historical Sites', 'Other'];
-                    setActiveFilters(allClusters);
+                    setActiveFilters(ALL_CLUSTERS);
                   }}
                   className={`text-xs px-3 py-1 rounded transition-colors ${
-                    activeFilters.length > 0 
+                    activeFilters.length === ALL_CLUSTERS.length 
                       ? 'bg-blue-600 hover:bg-blue-700 text-white' 
                       : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
                   }`}
@@ -92,29 +112,17 @@ export default function MapSection({
             
             <div className="flex gap-2 overflow-x-auto pb-2">
               {(() => {
-                // Define category clusters
-                const categoryClusters = {
-                  'Landmarks': ['Monument', 'Cathedral', 'Basilica', 'Chapel', 'Church', 'Palace'],
-                  'Museums & Arts': ['Museum', 'Contemporary Art Center', 'Art Center', 'Digital Art Center'],
-                  'Parks & Nature': ['Park', 'Garden', 'Waterway', 'Bridge'],
-                  'Districts & Streets': ['District', 'Street', 'Square'],
-                  'Entertainment': ['Opera House', 'Activity', 'River Cruise'],
-                  'Shopping & Markets': ['Department Store', 'Market', 'Market Street'],
-                  'Historical Sites': ['Historical Site', 'Cemetery'],
-                  'Other': ['Exhibition Hall', 'Skyscraper', 'Library']
-                };
-                
                 // Calculate counts for each cluster
                 const clusterCounts = {};
-                Object.keys(categoryClusters).forEach(cluster => {
+                Object.keys(CATEGORY_CLUSTERS).forEach(cluster => {
                   clusterCounts[cluster] = attractions.filter(attr => {
                     const attrCategory = attr.type || attr.category || 'Other';
-                    return categoryClusters[cluster].includes(attrCategory);
+                    return CATEGORY_CLUSTERS[cluster].includes(attrCategory);
                   }).length;
                 });
                 
                 // Only show clusters that have attractions
-                return Object.keys(categoryClusters)
+                return Object.keys(CATEGORY_CLUSTERS)
                   .filter(cluster => clusterCounts[cluster] > 0)
                   .map((cluster) => {
                     const isActive = activeFilters.includes(cluster);
@@ -148,37 +156,36 @@ export default function MapSection({
       {attractions && attractions.length > 0 && (
         <div className="p-6 bg-white border-t border-gray-200">
           {(() => {
-            // Define category clusters for filtering
-            const categoryClusters = {
-              'Landmarks': ['Monument', 'Cathedral', 'Basilica', 'Chapel', 'Church', 'Palace'],
-              'Museums & Arts': ['Museum', 'Contemporary Art Center', 'Art Center', 'Digital Art Center'],
-              'Parks & Nature': ['Park', 'Garden', 'Waterway', 'Bridge'],
-              'Districts & Streets': ['District', 'Street', 'Square'],
-              'Entertainment': ['Opera House', 'Activity', 'River Cruise'],
-              'Shopping & Markets': ['Department Store', 'Market', 'Market Street'],
-              'Historical Sites': ['Historical Site', 'Cemetery'],
-              'Other': ['Exhibition Hall', 'Skyscraper', 'Library']
-            };
-            
             // Filter attractions based on active filters
             const filteredAttractions = activeFilters.length > 0 
               ? attractions.filter(attraction => {
                   const attrCategory = attraction.type || attraction.category || 'Other';
-                  return activeFilters.some(filter => 
-                    categoryClusters[filter]?.includes(attrCategory)
-                  );
+                  return activeFilters.some(filter => CATEGORY_CLUSTERS[filter]?.includes(attrCategory));
                 })
               : attractions;
+
+            // Pagination calculations
+            const total = filteredAttractions.length;
+            const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+            const safePage = Math.min(Math.max(1, page), totalPages);
+            const startIndex = (safePage - 1) * PAGE_SIZE;
+            const currentItems = filteredAttractions.slice(startIndex, startIndex + PAGE_SIZE);
             
             return (
               <>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  {activeFilters.length > 0 ? `Filtered Attractions (${filteredAttractions.length})` : `All Attractions (${attractions.length})`}
-                </h3>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    {activeFilters.length > 0 ? `Filtered Attractions (${filteredAttractions.length})` : `All Attractions (${attractions.length})`}
+                  </h3>
+                  <div className="text-sm text-gray-600">
+                    Showing {total === 0 ? 0 : startIndex + 1}–{Math.min(startIndex + PAGE_SIZE, total)} of {total}
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {filteredAttractions.map((attraction, index) => (
+                  {currentItems.map((attraction, index) => (
                     <div 
-                      key={index} 
+                      key={`${attraction.name}-${startIndex + index}`} 
                       className={`border-b border-gray-200 pb-4 last:border-b-0 transition-colors cursor-pointer ${
                         selectedAttraction?.name === attraction.name ? 'bg-blue-100 border-l-4 border-l-blue-500' : 'hover:bg-gray-50'
                       }`}
@@ -192,7 +199,7 @@ export default function MapSection({
                                 ? 'bg-blue-600 text-white scale-110 shadow-lg' 
                                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                             }`}>
-                              {index + 1}
+                              {startIndex + index + 1}
                             </span>
                             <h4 className={`font-semibold transition-colors duration-300 ${
                               selectedAttraction?.name === attraction.name ? 'text-blue-700' : 'text-gray-900'
@@ -226,6 +233,43 @@ export default function MapSection({
                     </div>
                   ))}
                 </div>
+
+                {/* Pagination controls */}
+                {totalPages > 1 && (
+                  <div className="mt-6 flex items-center justify-center gap-2">
+                    <button
+                      onClick={() => setPage((p) => Math.max(1, p - 1))}
+                      className="px-3 py-1.5 rounded border border-gray-300 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                      disabled={safePage === 1}
+                    >
+                      Prev
+                    </button>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1)
+                      .filter(n => n === 1 || n === totalPages || Math.abs(n - safePage) <= 1)
+                      .map((n, idx, arr) => (
+                        <React.Fragment key={n}>
+                          {idx > 0 && arr[idx - 1] !== n - 1 && (
+                            <span className="px-1 text-gray-400">…</span>
+                          )}
+                          <button
+                            onClick={() => setPage(n)}
+                            className={`px-3 py-1.5 rounded border text-sm ${
+                              n === safePage ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                            }`}
+                          >
+                            {n}
+                          </button>
+                        </React.Fragment>
+                      ))}
+                    <button
+                      onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                      className="px-3 py-1.5 rounded border border-gray-300 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                      disabled={safePage === totalPages}
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
               </>
             );
           })()}
