@@ -97,9 +97,32 @@ const PLAN_SCHEMA = {
   },
 };
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+/**
+ * Lazily create the OpenAI client so that builds don't fail when
+ * OPENAI_API_KEY isn't set in the environment.
+ *
+ * Next.js will execute this module during build when collecting page
+ * data, so we must avoid constructing the client at import time –
+ * the OpenAI SDK throws immediately if apiKey is missing.
+ */
+let openaiClient = null;
+
+function getOpenAIClient() {
+  const apiKey = process.env.OPENAI_API_KEY;
+
+  if (!apiKey) {
+    // We intentionally don't throw a low–level OpenAI error here.
+    // The POST handler already checks for the env var and returns
+    // a clean JSON error; this guard simply protects build time.
+    throw new Error("OPENAI_API_KEY is not set in the environment");
+  }
+
+  if (!openaiClient) {
+    openaiClient = new OpenAI({ apiKey });
+  }
+
+  return openaiClient;
+}
 
 function sanitizeTrip(input) {
   if (!input || typeof input !== "object") return null;
@@ -173,7 +196,9 @@ function formatPrompt({ trip, context }) {
 
 async function callOpenAI(messages, attempt = 0) {
   try {
-    const completion = await openai.chat.completions.create({
+    const client = getOpenAIClient();
+
+    const completion = await client.chat.completions.create({
       model: MODEL_NAME,
       temperature: 0.4,
       response_format: { type: "json_schema", json_schema: PLAN_SCHEMA },
