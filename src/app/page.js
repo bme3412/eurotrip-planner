@@ -45,46 +45,46 @@ export default function Page() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Clean Header */}
-      <header className="px-6 py-6 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
-        <div className="w-full max-w-6xl mx-auto flex items-center justify-between">
+      {/* Header */}
+      <header className="px-6 md:px-10 py-5 md:py-6 border-b border-white/10 bg-slate-950/70 backdrop-blur-md">
+        <div className="w-full max-w-6xl mx-auto flex items-center justify-between gap-4 md:gap-8">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              EuroExplorer
+            <span className="font-display text-2xl tracking-tight text-slate-50">
+              Euro<span className="text-amber-300">Trip</span> Planner
             </span>
           </div>
 
           {/* Navigation */}
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-4 md:gap-7">
             <button 
               onClick={submit} 
-              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-sm hover:shadow-md"
+              className="btn-primary text-sm"
             >
               {loading ? "Generating…" : "Get Itineraries"}
             </button>
             <Link 
               href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} 
-              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+              className="text-slate-200 hover:text-amber-200 font-medium text-sm tracking-wide uppercase"
             >
               City Guides
             </Link>
             <Link
               href="/paris-trip"
-              className="px-4 py-2 font-medium text-indigo-600 transition-colors border border-indigo-100 rounded-lg bg-indigo-50 hover:bg-indigo-100 hover:text-indigo-700 shadow-sm"
+              className="px-4 py-2 rounded-full border border-amber-400/60 bg-amber-50/10 text-amber-200 text-sm font-medium tracking-wide uppercase hover:bg-amber-50/20 hover:border-amber-300 transition-colors"
             >
               Paris Planner
             </Link>
             <Link 
               href="/explore" 
-              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+              className="text-slate-200 hover:text-amber-200 font-medium text-sm tracking-wide uppercase"
             >
               Explore Map
             </Link>
             <button 
               type="button" 
               onClick={() => setShowPreview(true)} 
-              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+              className="text-slate-200 hover:text-amber-200 font-medium text-sm tracking-wide uppercase"
             >
               Countries
             </button>
@@ -92,60 +92,93 @@ export default function Page() {
         </div>
       </header>
 
-      {/* Enhanced Hero Section */}
-      <section className="relative px-6 py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat'
-          }}></div>
-        </div>
-        
-        <div className="relative w-full max-w-6xl mx-auto">
-          {/* Main headline with better hierarchy */}
-          <div className="text-center mb-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-              Plan your perfect <br />
-              <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                European adventure
-              </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Discover hidden gems, avoid tourist traps, and create unforgettable memories with our 
-              <span className="font-semibold text-gray-800"> AI-powered trip planner</span> that knows Europe inside out.
-            </p>
+      {/* Distilled‑aesthetic Hero */}
+      <section className="relative px-6 eu-hero overflow-hidden">
+        <div className="eu-hero-orbit" />
+        <div className="relative w-full max-w-6xl mx-auto eu-hero-grid">
+          {/* Left: narrative & CTA */}
+          <div className="flex flex-col justify-center space-y-6 animate-fade-in">
+            <div>
+              <h1 className="font-display text-[clamp(2.6rem,4vw,3.6rem)] leading-tight text-slate-50 mb-4">
+                Design a{" "}
+                <span className="text-amber-200">trip that feels curated</span>
+                <br />
+                not copy‑pasted from a blog.
+              </h1>
+              <p className="text-base md:text-lg text-slate-200/80 max-w-xl">
+                Drop in your dates and let the planner stitch together cities, seasons, and
+                festivals into an itinerary that actually matches how you like to travel – not a
+                generic “10 days in Europe” template.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={submit}
+                className="btn-primary bg-amber-300 text-slate-950 hover:bg-amber-200"
+              >
+                Start from my dates
+              </button>
+              <Link
+                href="/city-guides"
+                className="btn-secondary text-slate-100 bg-slate-900/60 border border-slate-500/60 hover:bg-slate-900"
+              >
+                Browse city guides
+              </Link>
+              <p className="text-xs text-slate-300/80">
+                No login required • Data‑driven, not influencer‑driven
+              </p>
+            </div>
           </div>
 
-          {/* Compact search interface */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
-              <div className="text-center mb-4">
-                <h2 className="text-xl font-bold text-gray-900 mb-1">When do you want to travel?</h2>
-                <p className="text-gray-600 text-sm">Get personalized recommendations based on your travel dates</p>
+          {/* Right: planner capsule */}
+          <div className="relative animate-fade-in-delay mt-4 md:mt-6">
+            <div className="eu-hero-card p-5 md:p-6">
+              <div className="flex items-center justify-between mb-5 md:mb-6">
+                <p className="text-[11px] uppercase tracking-[0.24em] text-slate-300">
+                  Trip snapshot
+                </p>
+                <p className="text-[11px] text-slate-100/80">
+                  Late‑September • 12 nights • Rail‑first
+                </p>
               </div>
-              <DateSelector onChange={setDates} />
-              
-              {/* Quick action buttons */}
-              <div className="flex flex-wrap justify-center gap-2 mt-4">
-                <button 
-                  onClick={() => setDates({ mode: "dates", ...getNextWeekendRange() })}
-                  className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors text-sm font-medium"
+
+              <div className="mt-5 md:mt-6">
+                <DateSelector onChange={setDates} />
+              </div>
+
+              <div className="mt-5 grid grid-cols-3 gap-3 text-xs text-slate-200/90">
+                {[
+                  { label: "Weather", value: "Mild days, crisp evenings", score: "◎◎◎◎" },
+                  { label: "Crowds", value: "Post‑summer, theatre season starts", score: "◎◎◎" },
+                  { label: "Budget", value: "Flights down, hotels sane", score: "◎◎◎◎" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-slate-600/70 bg-slate-900/60 px-3 py-3"
+                  >
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
+                      {item.label}
+                    </p>
+                    <p className="mt-1 text-[11px] leading-snug">{item.value}</p>
+                    <p className="mt-1 text-[10px] text-amber-300/80">{item.score}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 flex items-center justify-between text-[11px] text-slate-300/80">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-300/20 text-amber-200 text-[10px]">
+                    AI
+                  </span>
+                  <span>Uses live seasonality, not static “best month” blurbs.</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowPreview(true)}
+                  className="underline underline-offset-4 decoration-amber-300/60 hover:text-amber-200"
                 >
-                  This Weekend
-                </button>
-                <button 
-                  onClick={() => setDates({ mode: "dates", start: addDays("", 30), end: addDays("", 37) })}
-                  className="px-3 py-1.5 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors text-sm font-medium"
-                >
-                  Next Month
-                </button>
-                <button 
-                  onClick={() => setDates({ mode: "dates", start: addDays("", 90), end: addDays("", 97) })}
-                  className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors text-sm font-medium"
-                >
-                  Summer Trip
+                  Peek at a sample itinerary
                 </button>
               </div>
             </div>
@@ -155,7 +188,7 @@ export default function Page() {
 
       {/* Immediate Content - No Scrolling Required */}
       {results?.length === 0 && (
-        <section className="px-6 py-8 bg-white">
+        <section className="px-6 py-8 mt-8 md:mt-10 bg-white rounded-t-3xl shadow-[0_-12px_40px_rgba(15,23,42,0.35)]">
           <div className="max-w-6xl mx-auto">
             {/* September Experiences - Immediately Visible */}
             <div className="mb-8">
