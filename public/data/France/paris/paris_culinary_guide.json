@@ -1,654 +1,817 @@
 {
-    "restaurants": {
-        "fine_dining": [
-            {
-                "name": "Le Meurice",
-                "cuisine_type": "French",
-                "signature_dishes": [
-                    "Pigeon with cherries",
-                    "Langoustine with caviar"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Opulent and elegant with classic Parisian style",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Book at least one month in advance, especially on weekends",
-                "dress_code": "Formal attire",
-                "michelin_stars": 2,
-                "location": "1st arrondissement",
-                "local_tips": "Request a window seat for views over the Tuileries Garden"
-            },
-            {
-                "name": "L'Arpège",
-                "cuisine_type": "French, Vegetarian",
-                "signature_dishes": [
-                    "Beetroot tartare",
-                    "Vegetable ravioli"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Minimalist and intimate with a focus on vegetables",
-                "best_time": "Lunch",
-                "reservation_needed": true,
-                "booking_tips": "Reservations open three months in advance, book early",
-                "dress_code": "Smart casual",
-                "michelin_stars": 3,
-                "location": "7th arrondissement",
-                "local_tips": "Opt for the lunch tasting menu for a more affordable experience"
-            },
-            {
-                "name": "Epicure",
-                "cuisine_type": "French",
-                "signature_dishes": [
-                    "Black truffle stuffed macaroni",
-                    "Bresse chicken"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Luxurious and classic with a garden view",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Reservations are essential, book at least two months in advance",
-                "dress_code": "Formal attire",
-                "michelin_stars": 3,
-                "location": "8th arrondissement",
-                "local_tips": "Enjoy a pre-dinner cocktail at the hotel's bar for a complete experience"
-            },
-            {
-                "name": "Guy Savoy",
-                "cuisine_type": "French",
-                "signature_dishes": [
-                    "Artichoke soup with black truffle",
-                    "Roasted pigeon"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Artistic and sophisticated with notable artwork",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Book at least a month in advance, especially for weekends",
-                "dress_code": "Business casual",
-                "michelin_stars": 3,
-                "location": "17th arrondissement",
-                "local_tips": "After dinner, take a stroll along the nearby Seine"
-            },
-            {
-                "name": "Pavillon Ledoyen",
-                "cuisine_type": "French",
-                "signature_dishes": [
-                    "Sea bass with caviar",
-                    "Caramelized pigeon"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Historic and elegant with a view of the Champs-Élysées",
-                "best_time": "Both",
-                "reservation_needed": true,
-                "booking_tips": "Book a month in advance, and inquire about seasonal menus",
-                "dress_code": "Formal",
-                "michelin_stars": 3,
-                "location": "8th arrondissement",
-                "local_tips": "Visit in the evening for a magical ambiance with city lights"
-            }
+  "restaurants": {
+    "fine_dining": [
+      {
+        "name": "Le Meurice",
+        "cuisine_type": "French",
+        "signature_dishes": [
+          "Pigeon with cherries",
+          "Langoustine with caviar"
         ],
-        "casual_dining": [
-            {
-                "name": "Le Comptoir de la Gastronomie",
-                "cuisine_type": "French Bistro",
-                "signature_dishes": [
-                    "Duck confit",
-                    "Foie gras ravioli"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Warm and bustling with a traditional bistro feel",
-                "best_time": "Dinner",
-                "reservation_needed": true,
-                "booking_tips": "Book a week in advance, especially on weekends",
-                "dress_code": "Casual",
-                "location": "1st arrondissement",
-                "local_tips": "Try their selection of house-made terrines and pâtés"
-            },
-            {
-                "name": "Le Relais de l’Entrecôte",
-                "cuisine_type": "French",
-                "signature_dishes": [
-                    "Steak frites",
-                    "Chocolate profiteroles"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Lively and convivial with simple decor",
-                "best_time": "Dinner",
-                "reservation_needed": false,
-                "booking_tips": "No reservations, arrive early to avoid long waits",
-                "dress_code": "Casual",
-                "location": "Multiple locations",
-                "local_tips": "The secret sauce is a must-try, enjoy unlimited fries"
-            },
-            {
-                "name": "Chez Janou",
-                "cuisine_type": "Provençal",
-                "signature_dishes": [
-                    "Pistou soup",
-                    "Chocolate mousse"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Charming and rustic with a Provençal flair",
-                "best_time": "Lunch",
-                "reservation_needed": true,
-                "booking_tips": "Reserve a table on the terrace during warm weather",
-                "dress_code": "Casual",
-                "location": "3rd arrondissement",
-                "local_tips": "Ask for the daily specials and house wine"
-            },
-            {
-                "name": "Les Philosophes",
-                "cuisine_type": "Traditional French",
-                "signature_dishes": [
-                    "Onion soup",
-                    "Duck breast"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Relaxed bistro with classic Parisian charm",
-                "best_time": "Both",
-                "reservation_needed": false,
-                "booking_tips": "Arrive early for lunch to secure a good spot",
-                "dress_code": "Casual",
-                "location": "4th arrondissement",
-                "local_tips": "Their homemade desserts are a delight, especially the tarte Tatin"
-            },
-            {
-                "name": "Café de Flore",
-                "cuisine_type": "Café/Bistro",
-                "signature_dishes": [
-                    "Croque monsieur",
-                    "Oeufs mayonnaise"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Historic and iconic, popular with artists and intellectuals",
-                "best_time": "Breakfast",
-                "reservation_needed": false,
-                "booking_tips": "Arrive early to avoid crowds, especially on weekends",
-                "dress_code": "Casual",
-                "location": "6th arrondissement",
-                "local_tips": "Ideal for people-watching, try the hot chocolate"
-            },
-            {
-                "name": "Chez Gladines",
-                "cuisine_type": "Basque",
-                "signature_dishes": [
-                    "Duck confit salad",
-                    "Basque chicken"
-                ],
-                "price_range": "€",
-                "atmosphere": "Laid-back and vibrant with a youthful vibe",
-                "best_time": "Dinner",
-                "reservation_needed": false,
-                "booking_tips": "Arrive early to avoid long waits, no reservations",
-                "dress_code": "Casual",
-                "location": "13th arrondissement",
-                "local_tips": "Portion sizes are generous, consider sharing dishes"
-            },
-            {
-                "name": "Le Bouillon Pigalle",
-                "cuisine_type": "French",
-                "signature_dishes": [
-                    "Escargots",
-                    "Beef bourguignon"
-                ],
-                "price_range": "€",
-                "atmosphere": "Bustling and lively with a classic bouillon style",
-                "best_time": "Lunch",
-                "reservation_needed": false,
-                "booking_tips": "No reservations, arrive early to avoid queues",
-                "dress_code": "Casual",
-                "location": "9th arrondissement",
-                "local_tips": "Try the affordable daily specials and classic desserts"
-            },
-            {
-                "name": "L’As du Fallafel",
-                "cuisine_type": "Middle Eastern",
-                "signature_dishes": [
-                    "Falafel sandwich",
-                    "Shawarma"
-                ],
-                "price_range": "€",
-                "atmosphere": "Casual and vibrant with a bustling street vibe",
-                "best_time": "Lunch",
-                "reservation_needed": false,
-                "booking_tips": "No reservations, expect lines during peak hours",
-                "dress_code": "Casual",
-                "location": "4th arrondissement",
-                "local_tips": "Order the falafel with all toppings for the full experience"
-            }
+        "price_range": "€€€€",
+        "atmosphere": "Opulent and elegant with classic Parisian style",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Book at least one month in advance, especially on weekends",
+        "dress_code": "Formal attire",
+        "michelin_stars": 2,
+        "location": "1st arrondissement",
+        "local_tips": "Request a window seat for views over the Tuileries Garden",
+        "arrondissement": "1th",
+        "neighborhood": "1e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "18:30-22:30",
+        "booking_url": null
+      },
+      {
+        "name": "L'Arpège",
+        "cuisine_type": "French, Vegetarian",
+        "signature_dishes": [
+          "Beetroot tartare",
+          "Vegetable ravioli"
         ],
-        "street_food": [
-            {
-                "name": "Marché des Enfants Rouges",
-                "specialties": [
-                    "Crepes",
-                    "Moroccan tagine"
-                ],
-                "price_range": "€",
-                "hours": "Tue-Sat: 8:30am-7:30pm, Sun: 8:30am-2:30pm",
-                "location": "3rd arrondissement",
-                "seating": true,
-                "local_tips": "Visit during weekdays to avoid crowds, try the Lebanese food stall"
-            },
-            {
-                "name": "Rue Sainte-Anne",
-                "specialties": [
-                    "Japanese ramen",
-                    "Bento boxes"
-                ],
-                "price_range": "€€",
-                "hours": "Varies by vendor",
-                "location": "2nd arrondissement",
-                "seating": false,
-                "local_tips": "Explore different stalls for a variety of Asian cuisines"
-            },
-            {
-                "name": "La Droguerie du Marais",
-                "specialties": [
-                    "Sweet crepes",
-                    "Savory galettes"
-                ],
-                "price_range": "€",
-                "hours": "Mon-Sun: 11:00am-10:00pm",
-                "location": "4th arrondissement",
-                "seating": false,
-                "local_tips": "Try the Nutella-banana crepe for a classic treat"
-            },
-            {
-                "name": "Rue Mouffetard",
-                "specialties": [
-                    "Artisan cheese",
-                    "Charcuterie"
-                ],
-                "price_range": "€€",
-                "hours": "Varies by vendor",
-                "location": "5th arrondissement",
-                "seating": false,
-                "local_tips": "Visit on weekends for live street music and a lively atmosphere"
-            },
-            {
-                "name": "Le Camion Qui Fume",
-                "specialties": [
-                    "Gourmet burgers",
-                    "Truffle fries"
-                ],
-                "price_range": "€€",
-                "hours": "Varies, check website for locations",
-                "location": "Various locations",
-                "seating": false,
-                "local_tips": "Follow their social media for current locations and specials"
-            }
-        ]
-    },
-    "bars_and_cafes": {
-        "coffee_shops": [
-            {
-                "name": "Café de la Paix",
-                "specialty": "Classic French café experience",
-                "must_try": [
-                    "Espresso",
-                    "Croissant"
-                ],
-                "price_range": "€€€",
-                "atmosphere": "Elegant and historic with grand interiors",
-                "best_time": "Morning",
-                "wifi_friendly": true,
-                "food_options": "Traditional French pastries and light meals",
-                "local_tips": "Sit on the terrace for a view of the Palais Garnier"
-            },
-            {
-                "name": "La Caféothèque",
-                "specialty": "Artisanal coffee",
-                "must_try": [
-                    "Single-origin espresso",
-                    "Cold brew"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Cozy and rustic with a focus on coffee quality",
-                "best_time": "Afternoon",
-                "wifi_friendly": true,
-                "food_options": "Light snacks and pastries",
-                "local_tips": "Attend a coffee tasting session for a deeper appreciation"
-            },
-            {
-                "name": "Coutume Café",
-                "specialty": "Specialty coffee",
-                "must_try": [
-                    "Flat white",
-                    "Chemex brew"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Trendy and modern with an industrial chic vibe",
-                "best_time": "Morning",
-                "wifi_friendly": true,
-                "food_options": "Brunch options and baked goods",
-                "local_tips": "Try their weekend brunch menu for a full experience"
-            },
-            {
-                "name": "Café Kitsuné",
-                "specialty": "Fashionable café culture",
-                "must_try": [
-                    "Matcha latte",
-                    "Iced coffee"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Stylish and minimalist with a garden setting",
-                "best_time": "Afternoon",
-                "wifi_friendly": false,
-                "food_options": "Selection of pastries",
-                "local_tips": "Explore the Palais Royal Gardens after your coffee"
-            },
-            {
-                "name": "Ten Belles",
-                "specialty": "Third-wave coffee",
-                "must_try": [
-                    "Filter coffee",
-                    "Cinnamon bun"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Casual and quaint with a neighborhood feel",
-                "best_time": "Morning",
-                "wifi_friendly": true,
-                "food_options": "Homemade pastries and sandwiches",
-                "local_tips": "Perfect for a quiet morning with a good book"
-            }
+        "price_range": "€€€€",
+        "atmosphere": "Minimalist and intimate with a focus on vegetables",
+        "best_time": "Lunch",
+        "reservation_needed": true,
+        "booking_tips": "Reservations open three months in advance, book early",
+        "dress_code": "Smart casual",
+        "michelin_stars": 3,
+        "location": "7th arrondissement",
+        "local_tips": "Opt for the lunch tasting menu for a more affordable experience",
+        "arrondissement": "7th",
+        "latitude": 48.85736,
+        "longitude": 2.3097,
+        "neighborhood": "7e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "12:00-14:30",
+        "booking_url": null
+      },
+      {
+        "name": "Epicure",
+        "cuisine_type": "French",
+        "signature_dishes": [
+          "Black truffle stuffed macaroni",
+          "Bresse chicken"
         ],
-        "bars": [
-            {
-                "name": "Experimental Cocktail Club",
-                "type": "Cocktail Bar",
-                "specialty": "Innovative cocktails",
-                "signature_drinks": [
-                    "Old Cuban",
-                    "Penicillin"
-                ],
-                "price_range": "€€€",
-                "atmosphere": "Trendy and intimate with dim lighting",
-                "best_time": "Evening",
-                "food_options": "Light bar snacks",
-                "reservation_needed": true,
-                "local_tips": "Request a seat at the bar for the best cocktail-making view"
-            },
-            {
-                "name": "Le Syndicat",
-                "type": "Cocktail Bar",
-                "specialty": "French spirits",
-                "signature_drinks": [
-                    "French Negroni",
-                    "Cognac Sour"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Edgy and modern with a focus on local ingredients",
-                "best_time": "Evening",
-                "food_options": "N/A",
-                "reservation_needed": false,
-                "local_tips": "Ask the bartenders for off-menu creations"
-            },
-            {
-                "name": "Bar Hemingway",
-                "type": "Hotel Bar",
-                "specialty": "Classic cocktails",
-                "signature_drinks": [
-                    "Serendipity",
-                    "Bloody Mary"
-                ],
-                "price_range": "€€€€",
-                "atmosphere": "Historic and luxurious with a literary legacy",
-                "best_time": "Late evening",
-                "food_options": "Light bar snacks",
-                "reservation_needed": true,
-                "local_tips": "Dress smartly and enjoy the rich history and stories"
-            },
-            {
-                "name": "Harry's New York Bar",
-                "type": "Cocktail Bar",
-                "specialty": "Classic American cocktails",
-                "signature_drinks": [
-                    "French 75",
-                    "Sidecar"
-                ],
-                "price_range": "€€€",
-                "atmosphere": "Classic and cozy with an American vibe",
-                "best_time": "Evening",
-                "food_options": "N/A",
-                "reservation_needed": false,
-                "local_tips": "Visit during happy hour for a more relaxed atmosphere"
-            },
-            {
-                "name": "Le Perchoir",
-                "type": "Rooftop Bar",
-                "specialty": "Panoramic views and cocktails",
-                "signature_drinks": [
-                    "Mojito",
-                    "Aperol Spritz"
-                ],
-                "price_range": "€€€",
-                "atmosphere": "Trendy and vibrant with stunning views",
-                "best_time": "Sunset",
-                "food_options": "Tapas and small plates",
-                "reservation_needed": true,
-                "local_tips": "Visit at sunset for the best views of the city"
-            },
-            {
-                "name": "Candelaria",
-                "type": "Speakeasy",
-                "specialty": "Creative cocktails",
-                "signature_drinks": [
-                    "Mezcal Margarita",
-                    "Paloma"
-                ],
-                "price_range": "€€",
-                "atmosphere": "Hidden and intimate with a lively backroom",
-                "best_time": "Night",
-                "food_options": "Tacos and Mexican snacks",
-                "reservation_needed": false,
-                "local_tips": "Enter through the taqueria for the full speakeasy experience"
-            }
-        ]
-    },
-    "food_experiences": {
-        "food_tours": [
-            {
-                "name": "Secret Food Tours Paris",
-                "focus": "Local Parisian cuisine",
-                "duration": "3 hours",
-                "price_range": "€€€",
-                "highlights": [
-                    "Hidden patisseries",
-                    "Traditional markets",
-                    "Cheese tastings"
-                ],
-                "booking_required": true,
-                "group_size": "12",
-                "languages": [
-                    "English",
-                    "French"
-                ],
-                "booking_tips": "Book a week in advance to secure your preferred date"
-            },
-            {
-                "name": "Paris by Mouth Food Tours",
-                "focus": "Gourmet experiences",
-                "duration": "4 hours",
-                "price_range": "€€€",
-                "highlights": [
-                    "Boulangeries",
-                    "Artisan cheese shops",
-                    "Wine pairings"
-                ],
-                "booking_required": true,
-                "group_size": "8",
-                "languages": [
-                    "English"
-                ],
-                "booking_tips": "Check for seasonal tours and special events"
-            },
-            {
-                "name": "Taste of Saint Germain",
-                "focus": "Saint Germain's culinary scene",
-                "duration": "3.5 hours",
-                "price_range": "€€€",
-                "highlights": [
-                    "Local cafés",
-                    "Historic chocolatiers",
-                    "Wine cellars"
-                ],
-                "booking_required": true,
-                "group_size": "10",
-                "languages": [
-                    "English",
-                    "French"
-                ],
-                "booking_tips": "Book early for weekend tours as they fill up quickly"
-            },
-            {
-                "name": "Montmartre Food and Wine Tour",
-                "focus": "Montmartre's food culture",
-                "duration": "3 hours",
-                "price_range": "€€",
-                "highlights": [
-                    "Local bistros",
-                    "Cheese and charcuterie",
-                    "Wine tasting"
-                ],
-                "booking_required": true,
-                "group_size": "10",
-                "languages": [
-                    "English",
-                    "French"
-                ],
-                "booking_tips": "Wear comfortable shoes for walking in the hilly area"
-            }
+        "price_range": "€€€€",
+        "atmosphere": "Luxurious and classic with a garden view",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Reservations are essential, book at least two months in advance",
+        "dress_code": "Formal attire",
+        "michelin_stars": 3,
+        "location": "8th arrondissement",
+        "local_tips": "Enjoy a pre-dinner cocktail at the hotel's bar for a complete experience",
+        "arrondissement": "8th",
+        "latitude": 48.8661,
+        "longitude": 2.3132,
+        "neighborhood": "8e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "18:30-22:30",
+        "booking_url": null
+      },
+      {
+        "name": "Guy Savoy",
+        "cuisine_type": "French",
+        "signature_dishes": [
+          "Artichoke soup with black truffle",
+          "Roasted pigeon"
         ],
-        "cooking_classes": [
-            {
-                "name": "Le Foodist Cooking Class",
-                "cuisine_focus": "French cuisine",
-                "duration": "4 hours",
-                "price_range": "€€€",
-                "what_you_learn": [
-                    "Soufflé",
-                    "Coq au vin",
-                    "Crème brûlée"
-                ],
-                "group_size": "12",
-                "languages": [
-                    "English",
-                    "French"
-                ],
-                "includes": [
-                    "Ingredients",
-                    "Recipes",
-                    "Wine pairing"
-                ],
-                "booking_tips": "Reserve your spot at least two weeks in advance"
-            },
-            {
-                "name": "La Cuisine Paris",
-                "cuisine_focus": "Pastry and baking",
-                "duration": "3 hours",
-                "price_range": "€€",
-                "what_you_learn": [
-                    "Macarons",
-                    "Croissants",
-                    "Pain au chocolat"
-                ],
-                "group_size": "10",
-                "languages": [
-                    "English",
-                    "French"
-                ],
-                "includes": [
-                    "Ingredients",
-                    "Recipes",
-                    "Hands-on instruction"
-                ],
-                "booking_tips": "Check for seasonal classes and holiday specials"
-            },
-            {
-                "name": "Cook’n With Class",
-                "cuisine_focus": "French market-to-table",
-                "duration": "5 hours",
-                "price_range": "€€€",
-                "what_you_learn": [
-                    "Market shopping",
-                    "Seasonal dishes",
-                    "Cooking techniques"
-                ],
-                "group_size": "8",
-                "languages": [
-                    "English"
-                ],
-                "includes": [
-                    "Market tour",
-                    "Ingredients",
-                    "Lunch"
-                ],
-                "booking_tips": "Book in advance for market tours, which are popular"
-            }
+        "price_range": "€€€€",
+        "atmosphere": "Artistic and sophisticated with notable artwork",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Book at least a month in advance, especially for weekends",
+        "dress_code": "Business casual",
+        "michelin_stars": 3,
+        "location": "17th arrondissement",
+        "local_tips": "After dinner, take a stroll along the nearby Seine",
+        "arrondissement": "17th",
+        "neighborhood": "17e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "18:30-22:30",
+        "booking_url": null
+      },
+      {
+        "name": "Pavillon Ledoyen",
+        "cuisine_type": "French",
+        "signature_dishes": [
+          "Sea bass with caviar",
+          "Caramelized pigeon"
         ],
-        "markets": [
-            {
-                "name": "Marché Bastille",
-                "type": "Outdoor food market",
-                "highlights": [
-                    "Fresh produce",
-                    "Artisan cheese",
-                    "Seafood"
-                ],
-                "hours": "Thu & Sun: 7:00am-2:30pm",
-                "best_time": "Morning",
-                "location": "11th arrondissement",
-                "local_tips": "Arrive early for the freshest selections and fewer crowds"
-            },
-            {
-                "name": "Marché d'Aligre",
-                "type": "Indoor and outdoor market",
-                "highlights": [
-                    "Antiques",
-                    "Spices",
-                    "Boulangeries"
-                ],
-                "hours": "Tue-Sun: 7:30am-1:30pm",
-                "best_time": "Mid-morning",
-                "location": "12th arrondissement",
-                "local_tips": "Explore the flea market section for unique finds"
-            },
-            {
-                "name": "Marché des Enfants Rouges",
-                "type": "Covered market",
-                "highlights": [
-                    "Global street food",
-                    "Organic produce",
-                    "Flowers"
-                ],
-                "hours": "Tue-Sat: 8:30am-7:30pm, Sun: 8:30am-2:30pm",
-                "best_time": "Lunch",
-                "location": "3rd arrondissement",
-                "local_tips": "Perfect spot for a casual lunch with diverse options"
-            }
-        ]
-    },
-    "seasonal_specialties": {
-        "spring": [
-            "Asparagus with hollandaise sauce",
-            "Strawberry tart",
-            "Fresh pea soup"
+        "price_range": "€€€€",
+        "atmosphere": "Historic and elegant with a view of the Champs-Élysées",
+        "best_time": "Both",
+        "reservation_needed": true,
+        "booking_tips": "Book a month in advance, and inquire about seasonal menus",
+        "dress_code": "Formal",
+        "michelin_stars": 3,
+        "location": "8th arrondissement",
+        "local_tips": "Visit in the evening for a magical ambiance with city lights",
+        "arrondissement": "8th",
+        "latitude": 48.8661,
+        "longitude": 2.3132,
+        "neighborhood": "8e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": null,
+        "booking_url": null
+      }
+    ],
+    "casual_dining": [
+      {
+        "name": "Le Comptoir de la Gastronomie",
+        "cuisine_type": "French Bistro",
+        "signature_dishes": [
+          "Duck confit",
+          "Foie gras ravioli"
         ],
-        "summer": [
-            "Ratatouille",
-            "Salade Niçoise",
-            "Chilled gazpacho"
+        "price_range": "€€",
+        "atmosphere": "Warm and bustling with a traditional bistro feel",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Book a week in advance, especially on weekends",
+        "dress_code": "Casual",
+        "location": "1st arrondissement",
+        "local_tips": "Try their selection of house-made terrines and pâtés",
+        "arrondissement": "1th",
+        "neighborhood": "1e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "18:30-22:30",
+        "booking_url": null
+      },
+      {
+        "name": "Le Relais de l’Entrecôte",
+        "cuisine_type": "French",
+        "signature_dishes": [
+          "Steak frites",
+          "Chocolate profiteroles"
         ],
-        "autumn": [
-            "Mushroom risotto",
-            "Chestnut soup",
-            "Apple cider"
+        "price_range": "€€",
+        "atmosphere": "Lively and convivial with simple decor",
+        "best_time": "Dinner",
+        "reservation_needed": false,
+        "booking_tips": "No reservations, arrive early to avoid long waits",
+        "dress_code": "Casual",
+        "location": "Multiple locations",
+        "local_tips": "The secret sauce is a must-try, enjoy unlimited fries",
+        "duration_minutes": 90,
+        "best_time_window": "18:30-22:30",
+        "booking_url": null
+      },
+      {
+        "name": "Chez Janou",
+        "cuisine_type": "Provençal",
+        "signature_dishes": [
+          "Pistou soup",
+          "Chocolate mousse"
         ],
-        "winter": [
-            "Cassoulet",
-            "Onion soup",
-            "Beef bourguignon"
-        ]
-    }
+        "price_range": "€€",
+        "atmosphere": "Charming and rustic with a Provençal flair",
+        "best_time": "Lunch",
+        "reservation_needed": true,
+        "booking_tips": "Reserve a table on the terrace during warm weather",
+        "dress_code": "Casual",
+        "location": "3rd arrondissement",
+        "local_tips": "Ask for the daily specials and house wine",
+        "arrondissement": "3th",
+        "neighborhood": "3e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "12:00-14:30",
+        "booking_url": null
+      },
+      {
+        "name": "Les Philosophes",
+        "cuisine_type": "Traditional French",
+        "signature_dishes": [
+          "Onion soup",
+          "Duck breast"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Relaxed bistro with classic Parisian charm",
+        "best_time": "Both",
+        "reservation_needed": false,
+        "booking_tips": "Arrive early for lunch to secure a good spot",
+        "dress_code": "Casual",
+        "location": "4th arrondissement",
+        "local_tips": "Their homemade desserts are a delight, especially the tarte Tatin",
+        "arrondissement": "4th",
+        "latitude": 48.853,
+        "longitude": 2.3499,
+        "neighborhood": "4e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": null,
+        "booking_url": null
+      },
+      {
+        "name": "Café de Flore",
+        "cuisine_type": "Café/Bistro",
+        "signature_dishes": [
+          "Croque monsieur",
+          "Oeufs mayonnaise"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Historic and iconic, popular with artists and intellectuals",
+        "best_time": "Breakfast",
+        "reservation_needed": false,
+        "booking_tips": "Arrive early to avoid crowds, especially on weekends",
+        "dress_code": "Casual",
+        "location": "6th arrondissement",
+        "local_tips": "Ideal for people-watching, try the hot chocolate",
+        "arrondissement": "6th",
+        "latitude": 48.853,
+        "longitude": 2.333,
+        "neighborhood": "6e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "08:00-10:30",
+        "booking_url": null
+      },
+      {
+        "name": "Chez Gladines",
+        "cuisine_type": "Basque",
+        "signature_dishes": [
+          "Duck confit salad",
+          "Basque chicken"
+        ],
+        "price_range": "€",
+        "atmosphere": "Laid-back and vibrant with a youthful vibe",
+        "best_time": "Dinner",
+        "reservation_needed": false,
+        "booking_tips": "Arrive early to avoid long waits, no reservations",
+        "dress_code": "Casual",
+        "location": "13th arrondissement",
+        "local_tips": "Portion sizes are generous, consider sharing dishes",
+        "arrondissement": "13th",
+        "neighborhood": "13e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "18:30-22:30",
+        "booking_url": null
+      },
+      {
+        "name": "Le Bouillon Pigalle",
+        "cuisine_type": "French",
+        "signature_dishes": [
+          "Escargots",
+          "Beef bourguignon"
+        ],
+        "price_range": "€",
+        "atmosphere": "Bustling and lively with a classic bouillon style",
+        "best_time": "Lunch",
+        "reservation_needed": false,
+        "booking_tips": "No reservations, arrive early to avoid queues",
+        "dress_code": "Casual",
+        "location": "9th arrondissement",
+        "local_tips": "Try the affordable daily specials and classic desserts",
+        "arrondissement": "9th",
+        "latitude": 48.87895,
+        "longitude": 2.3339,
+        "neighborhood": "9e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "12:00-14:30",
+        "booking_url": null
+      },
+      {
+        "name": "L’As du Fallafel",
+        "cuisine_type": "Middle Eastern",
+        "signature_dishes": [
+          "Falafel sandwich",
+          "Shawarma"
+        ],
+        "price_range": "€",
+        "atmosphere": "Casual and vibrant with a bustling street vibe",
+        "best_time": "Lunch",
+        "reservation_needed": false,
+        "booking_tips": "No reservations, expect lines during peak hours",
+        "dress_code": "Casual",
+        "location": "4th arrondissement",
+        "local_tips": "Order the falafel with all toppings for the full experience",
+        "arrondissement": "4th",
+        "latitude": 48.853,
+        "longitude": 2.3499,
+        "neighborhood": "4e arrondissement",
+        "duration_minutes": 90,
+        "best_time_window": "12:00-14:30",
+        "booking_url": null
+      }
+    ],
+    "street_food": [
+      {
+        "name": "Marché des Enfants Rouges",
+        "specialties": [
+          "Crepes",
+          "Moroccan tagine"
+        ],
+        "price_range": "€",
+        "hours": "Tue-Sat: 8:30am-7:30pm, Sun: 8:30am-2:30pm",
+        "location": "3rd arrondissement",
+        "seating": true,
+        "local_tips": "Visit during weekdays to avoid crowds, try the Lebanese food stall",
+        "arrondissement": "3th",
+        "neighborhood": "3e arrondissement",
+        "duration_minutes": 30,
+        "booking_url": null
+      },
+      {
+        "name": "Rue Sainte-Anne",
+        "specialties": [
+          "Japanese ramen",
+          "Bento boxes"
+        ],
+        "price_range": "€€",
+        "hours": "Varies by vendor",
+        "location": "2nd arrondissement",
+        "seating": false,
+        "local_tips": "Explore different stalls for a variety of Asian cuisines",
+        "arrondissement": "2th",
+        "neighborhood": "2e arrondissement",
+        "duration_minutes": 30,
+        "booking_url": null
+      },
+      {
+        "name": "La Droguerie du Marais",
+        "specialties": [
+          "Sweet crepes",
+          "Savory galettes"
+        ],
+        "price_range": "€",
+        "hours": "Mon-Sun: 11:00am-10:00pm",
+        "location": "4th arrondissement",
+        "seating": false,
+        "local_tips": "Try the Nutella-banana crepe for a classic treat",
+        "arrondissement": "4th",
+        "latitude": 48.853,
+        "longitude": 2.3499,
+        "neighborhood": "4e arrondissement",
+        "duration_minutes": 30,
+        "booking_url": null
+      },
+      {
+        "name": "Rue Mouffetard",
+        "specialties": [
+          "Artisan cheese",
+          "Charcuterie"
+        ],
+        "price_range": "€€",
+        "hours": "Varies by vendor",
+        "location": "5th arrondissement",
+        "seating": false,
+        "local_tips": "Visit on weekends for live street music and a lively atmosphere",
+        "arrondissement": "5th",
+        "latitude": 48.8466,
+        "longitude": 2.34475,
+        "neighborhood": "5e arrondissement",
+        "duration_minutes": 30,
+        "booking_url": null
+      },
+      {
+        "name": "Le Camion Qui Fume",
+        "specialties": [
+          "Gourmet burgers",
+          "Truffle fries"
+        ],
+        "price_range": "€€",
+        "hours": "Varies, check website for locations",
+        "location": "Various locations",
+        "seating": false,
+        "local_tips": "Follow their social media for current locations and specials",
+        "duration_minutes": 30,
+        "booking_url": null
+      }
+    ]
+  },
+  "bars_and_cafes": {
+    "coffee_shops": [
+      {
+        "name": "Café de la Paix",
+        "specialty": "Classic French café experience",
+        "must_try": [
+          "Espresso",
+          "Croissant"
+        ],
+        "price_range": "€€€",
+        "atmosphere": "Elegant and historic with grand interiors",
+        "best_time": "Morning",
+        "wifi_friendly": true,
+        "food_options": "Traditional French pastries and light meals",
+        "local_tips": "Sit on the terrace for a view of the Palais Garnier",
+        "duration_minutes": 45,
+        "best_time_window": "08:00-11:30",
+        "booking_url": null
+      },
+      {
+        "name": "La Caféothèque",
+        "specialty": "Artisanal coffee",
+        "must_try": [
+          "Single-origin espresso",
+          "Cold brew"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Cozy and rustic with a focus on coffee quality",
+        "best_time": "Afternoon",
+        "wifi_friendly": true,
+        "food_options": "Light snacks and pastries",
+        "local_tips": "Attend a coffee tasting session for a deeper appreciation",
+        "duration_minutes": 45,
+        "best_time_window": "14:00-17:30",
+        "booking_url": null
+      },
+      {
+        "name": "Coutume Café",
+        "specialty": "Specialty coffee",
+        "must_try": [
+          "Flat white",
+          "Chemex brew"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Trendy and modern with an industrial chic vibe",
+        "best_time": "Morning",
+        "wifi_friendly": true,
+        "food_options": "Brunch options and baked goods",
+        "local_tips": "Try their weekend brunch menu for a full experience",
+        "duration_minutes": 45,
+        "best_time_window": "08:00-11:30",
+        "booking_url": null
+      },
+      {
+        "name": "Café Kitsuné",
+        "specialty": "Fashionable café culture",
+        "must_try": [
+          "Matcha latte",
+          "Iced coffee"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Stylish and minimalist with a garden setting",
+        "best_time": "Afternoon",
+        "wifi_friendly": false,
+        "food_options": "Selection of pastries",
+        "local_tips": "Explore the Palais Royal Gardens after your coffee",
+        "duration_minutes": 45,
+        "best_time_window": "14:00-17:30",
+        "booking_url": null
+      },
+      {
+        "name": "Ten Belles",
+        "specialty": "Third-wave coffee",
+        "must_try": [
+          "Filter coffee",
+          "Cinnamon bun"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Casual and quaint with a neighborhood feel",
+        "best_time": "Morning",
+        "wifi_friendly": true,
+        "food_options": "Homemade pastries and sandwiches",
+        "local_tips": "Perfect for a quiet morning with a good book",
+        "duration_minutes": 45,
+        "best_time_window": "08:00-11:30",
+        "booking_url": null
+      }
+    ],
+    "bars": [
+      {
+        "name": "Experimental Cocktail Club",
+        "type": "Cocktail Bar",
+        "specialty": "Innovative cocktails",
+        "signature_drinks": [
+          "Old Cuban",
+          "Penicillin"
+        ],
+        "price_range": "€€€",
+        "atmosphere": "Trendy and intimate with dim lighting",
+        "best_time": "Evening",
+        "food_options": "Light bar snacks",
+        "reservation_needed": true,
+        "local_tips": "Request a seat at the bar for the best cocktail-making view",
+        "duration_minutes": 90,
+        "best_time_window": "18:00-23:00",
+        "booking_url": null
+      },
+      {
+        "name": "Le Syndicat",
+        "type": "Cocktail Bar",
+        "specialty": "French spirits",
+        "signature_drinks": [
+          "French Negroni",
+          "Cognac Sour"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Edgy and modern with a focus on local ingredients",
+        "best_time": "Evening",
+        "food_options": "N/A",
+        "reservation_needed": false,
+        "local_tips": "Ask the bartenders for off-menu creations",
+        "duration_minutes": 90,
+        "best_time_window": "18:00-23:00",
+        "booking_url": null
+      },
+      {
+        "name": "Bar Hemingway",
+        "type": "Hotel Bar",
+        "specialty": "Classic cocktails",
+        "signature_drinks": [
+          "Serendipity",
+          "Bloody Mary"
+        ],
+        "price_range": "€€€€",
+        "atmosphere": "Historic and luxurious with a literary legacy",
+        "best_time": "Late evening",
+        "food_options": "Light bar snacks",
+        "reservation_needed": true,
+        "local_tips": "Dress smartly and enjoy the rich history and stories",
+        "duration_minutes": 90,
+        "best_time_window": null,
+        "booking_url": null
+      },
+      {
+        "name": "Harry's New York Bar",
+        "type": "Cocktail Bar",
+        "specialty": "Classic American cocktails",
+        "signature_drinks": [
+          "French 75",
+          "Sidecar"
+        ],
+        "price_range": "€€€",
+        "atmosphere": "Classic and cozy with an American vibe",
+        "best_time": "Evening",
+        "food_options": "N/A",
+        "reservation_needed": false,
+        "local_tips": "Visit during happy hour for a more relaxed atmosphere",
+        "duration_minutes": 90,
+        "best_time_window": "18:00-23:00",
+        "booking_url": null
+      },
+      {
+        "name": "Le Perchoir",
+        "type": "Rooftop Bar",
+        "specialty": "Panoramic views and cocktails",
+        "signature_drinks": [
+          "Mojito",
+          "Aperol Spritz"
+        ],
+        "price_range": "€€€",
+        "atmosphere": "Trendy and vibrant with stunning views",
+        "best_time": "Sunset",
+        "food_options": "Tapas and small plates",
+        "reservation_needed": true,
+        "local_tips": "Visit at sunset for the best views of the city",
+        "duration_minutes": 90,
+        "best_time_window": null,
+        "booking_url": null
+      },
+      {
+        "name": "Candelaria",
+        "type": "Speakeasy",
+        "specialty": "Creative cocktails",
+        "signature_drinks": [
+          "Mezcal Margarita",
+          "Paloma"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Hidden and intimate with a lively backroom",
+        "best_time": "Night",
+        "food_options": "Tacos and Mexican snacks",
+        "reservation_needed": false,
+        "local_tips": "Enter through the taqueria for the full speakeasy experience",
+        "duration_minutes": 90,
+        "best_time_window": "21:00-01:00",
+        "booking_url": null
+      }
+    ]
+  },
+  "food_experiences": {
+    "food_tours": [
+      {
+        "name": "Secret Food Tours Paris",
+        "focus": "Local Parisian cuisine",
+        "duration": "3 hours",
+        "price_range": "€€€",
+        "highlights": [
+          "Hidden patisseries",
+          "Traditional markets",
+          "Cheese tastings"
+        ],
+        "booking_required": true,
+        "group_size": "12",
+        "languages": [
+          "English",
+          "French"
+        ],
+        "booking_tips": "Book a week in advance to secure your preferred date",
+        "duration_minutes": 90,
+        "booking_url": null
+      },
+      {
+        "name": "Paris by Mouth Food Tours",
+        "focus": "Gourmet experiences",
+        "duration": "4 hours",
+        "price_range": "€€€",
+        "highlights": [
+          "Boulangeries",
+          "Artisan cheese shops",
+          "Wine pairings"
+        ],
+        "booking_required": true,
+        "group_size": "8",
+        "languages": [
+          "English"
+        ],
+        "booking_tips": "Check for seasonal tours and special events",
+        "duration_minutes": 90,
+        "booking_url": null
+      },
+      {
+        "name": "Taste of Saint Germain",
+        "focus": "Saint Germain's culinary scene",
+        "duration": "3.5 hours",
+        "price_range": "€€€",
+        "highlights": [
+          "Local cafés",
+          "Historic chocolatiers",
+          "Wine cellars"
+        ],
+        "booking_required": true,
+        "group_size": "10",
+        "languages": [
+          "English",
+          "French"
+        ],
+        "booking_tips": "Book early for weekend tours as they fill up quickly",
+        "duration_minutes": 90,
+        "booking_url": null
+      },
+      {
+        "name": "Montmartre Food and Wine Tour",
+        "focus": "Montmartre's food culture",
+        "duration": "3 hours",
+        "price_range": "€€",
+        "highlights": [
+          "Local bistros",
+          "Cheese and charcuterie",
+          "Wine tasting"
+        ],
+        "booking_required": true,
+        "group_size": "10",
+        "languages": [
+          "English",
+          "French"
+        ],
+        "booking_tips": "Wear comfortable shoes for walking in the hilly area",
+        "duration_minutes": 90,
+        "booking_url": null
+      }
+    ],
+    "cooking_classes": [
+      {
+        "name": "Le Foodist Cooking Class",
+        "cuisine_focus": "French cuisine",
+        "duration": "4 hours",
+        "price_range": "€€€",
+        "what_you_learn": [
+          "Soufflé",
+          "Coq au vin",
+          "Crème brûlée"
+        ],
+        "group_size": "12",
+        "languages": [
+          "English",
+          "French"
+        ],
+        "includes": [
+          "Ingredients",
+          "Recipes",
+          "Wine pairing"
+        ],
+        "booking_tips": "Reserve your spot at least two weeks in advance",
+        "duration_minutes": 90,
+        "booking_url": null
+      },
+      {
+        "name": "La Cuisine Paris",
+        "cuisine_focus": "Pastry and baking",
+        "duration": "3 hours",
+        "price_range": "€€",
+        "what_you_learn": [
+          "Macarons",
+          "Croissants",
+          "Pain au chocolat"
+        ],
+        "group_size": "10",
+        "languages": [
+          "English",
+          "French"
+        ],
+        "includes": [
+          "Ingredients",
+          "Recipes",
+          "Hands-on instruction"
+        ],
+        "booking_tips": "Check for seasonal classes and holiday specials",
+        "duration_minutes": 90,
+        "booking_url": null
+      },
+      {
+        "name": "Cook’n With Class",
+        "cuisine_focus": "French market-to-table",
+        "duration": "5 hours",
+        "price_range": "€€€",
+        "what_you_learn": [
+          "Market shopping",
+          "Seasonal dishes",
+          "Cooking techniques"
+        ],
+        "group_size": "8",
+        "languages": [
+          "English"
+        ],
+        "includes": [
+          "Market tour",
+          "Ingredients",
+          "Lunch"
+        ],
+        "booking_tips": "Book in advance for market tours, which are popular",
+        "duration_minutes": 90,
+        "booking_url": null
+      }
+    ],
+    "markets": [
+      {
+        "name": "Marché Bastille",
+        "type": "Outdoor food market",
+        "highlights": [
+          "Fresh produce",
+          "Artisan cheese",
+          "Seafood"
+        ],
+        "hours": "Thu & Sun: 7:00am-2:30pm",
+        "best_time": "Morning",
+        "location": "11th arrondissement",
+        "local_tips": "Arrive early for the freshest selections and fewer crowds",
+        "arrondissement": "11th",
+        "neighborhood": "11e arrondissement",
+        "duration_minutes": 30,
+        "best_time_window": "08:00-11:30",
+        "booking_url": null
+      },
+      {
+        "name": "Marché d'Aligre",
+        "type": "Indoor and outdoor market",
+        "highlights": [
+          "Antiques",
+          "Spices",
+          "Boulangeries"
+        ],
+        "hours": "Tue-Sun: 7:30am-1:30pm",
+        "best_time": "Mid-morning",
+        "location": "12th arrondissement",
+        "local_tips": "Explore the flea market section for unique finds",
+        "arrondissement": "12th",
+        "latitude": 48.8293,
+        "longitude": 2.4356,
+        "neighborhood": "12e arrondissement",
+        "duration_minutes": 30,
+        "best_time_window": null,
+        "booking_url": null
+      },
+      {
+        "name": "Marché des Enfants Rouges",
+        "type": "Covered market",
+        "highlights": [
+          "Global street food",
+          "Organic produce",
+          "Flowers"
+        ],
+        "hours": "Tue-Sat: 8:30am-7:30pm, Sun: 8:30am-2:30pm",
+        "best_time": "Lunch",
+        "location": "3rd arrondissement",
+        "local_tips": "Perfect spot for a casual lunch with diverse options",
+        "arrondissement": "3th",
+        "neighborhood": "3e arrondissement",
+        "duration_minutes": 30,
+        "best_time_window": "12:00-14:30",
+        "booking_url": null
+      }
+    ]
+  },
+  "seasonal_specialties": {
+    "spring": [
+      "Asparagus with hollandaise sauce",
+      "Strawberry tart",
+      "Fresh pea soup"
+    ],
+    "summer": [
+      "Ratatouille",
+      "Salade Niçoise",
+      "Chilled gazpacho"
+    ],
+    "autumn": [
+      "Mushroom risotto",
+      "Chestnut soup",
+      "Apple cider"
+    ],
+    "winter": [
+      "Cassoulet",
+      "Onion soup",
+      "Beef bourguignon"
+    ]
+  }
 }

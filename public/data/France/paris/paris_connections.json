@@ -94,15 +94,6 @@
                 "frequency": "Every 30 minutes",
                 "trainType": "TGV",
                 "priceRange": "€20-60"
-            },
-            "intraEuropeFlight": {
-                "airportsInParis": [
-                    "Charles de Gaulle",
-                    "Orly"
-                ],
-                "approxFlightTime": "1h",
-                "frequency": "Multiple daily",
-                "priceRange": "€70-180"
             }
         },
         {
@@ -133,7 +124,7 @@
             "directWithinCountryTrain": {
                 "stationInParis": "Gare Montparnasse",
                 "journeyTime": "4h20m",
-                "frequency": "Several daily",
+                "frequency": "Every 2 hours",
                 "trainType": "TGV",
                 "priceRange": "€40-110"
             },
@@ -197,7 +188,7 @@
                 "stationInParis": "Gare du Nord",
                 "journeyTime": "1h30m",
                 "frequency": "Every 30 minutes",
-                "trainType": "Thalys",
+                "trainType": "Eurostar",
                 "priceRange": "€35-90"
             },
             "intraEuropeFlight": {
@@ -218,7 +209,7 @@
                 "stationInParis": "Gare du Nord",
                 "journeyTime": "3h20m",
                 "frequency": "Every 2 hours",
-                "trainType": "Thalys",
+                "trainType": "Eurostar",
                 "priceRange": "€45-120"
             },
             "intraEuropeFlight": {
@@ -416,6 +407,13 @@
                 "approxFlightTime": "1h30m",
                 "frequency": "Multiple daily",
                 "priceRange": "€95-280"
+            },
+            "intraEuropeTrain": {
+                "stationInParis": "Gare de Lyon",
+                "journeyTime": "6h45m",
+                "frequency": "Twice daily",
+                "trainType": "Frecciarossa / TGV",
+                "priceRange": "€60-160"
             }
         },
         {

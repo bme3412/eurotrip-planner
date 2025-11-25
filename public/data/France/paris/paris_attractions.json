@@ -1,1280 +1,2817 @@
 {
-    "sites": [
-      {
-        "name": "Eiffel Tower",
-        "type": "Monument",
-        "description": "The Eiffel Tower is an iconic iron lattice tower located on the Champ de Mars. Built in 1889 as the entrance arch to the 1889 World's Fair, it has become a global cultural icon of France and one of the most recognizable structures in the world. Visitors can ascend to three different levels, with restaurants on the first and second levels and an observation deck at the top.",
-        "indoor": false,
-        "best_time": "Evening",
-        "price_range": "Expensive",
-        "seasonal_notes": "Summer months are extremely busy. Winter offers shorter lines but occasional closures due to weather.",
-        "booking_tips": "Book tickets online weeks in advance to avoid long queues. Evening visits with tower illumination are highly recommended.",
-        "ratings": {
-          "cost_estimate": 36,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8584,
-        "longitude": 2.2945
-      },
-      {
-        "name": "Arc de Triomphe",
-        "type": "Monument",
-        "description": "Standing at the center of Place Charles de Gaulle, this triumphal arch honors those who fought for France, particularly during the Napoleonic Wars. Visitors can climb to the top for a spectacular view of Paris and the twelve radiating avenues.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "The viewing platform can be windy in winter. Beautiful at night when the Champs-Élysées is illuminated.",
-        "booking_tips": "Online tickets allow you to skip the line. Use the underground passage to reach the monument.",
-        "ratings": {
-          "cost_estimate": 13,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8738,
-        "longitude": 2.295
-      },
-      {
-        "name": "Panthéon",
-        "type": "Monument",
-        "description": "Originally built as a church, this neoclassical monument now serves as a mausoleum for distinguished French citizens. Its crypt houses the remains of luminaries like Voltaire, Rousseau, Victor Hugo, Marie Curie, and Alexandre Dumas.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Foucault's pendulum demonstration is a highlight. The dome offers excellent views of Paris.",
-        "booking_tips": "Tickets available online or on-site. Included in the Paris Museum Pass.",
-        "ratings": {
-          "cost_estimate": 12,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8462,
-        "longitude": 2.3464
-      },
-      {
-        "name": "La Défense Grande Arche",
-        "type": "Monument",
-        "description": "A modern architectural landmark in Paris's business district, the Grande Arche stands as a contemporary counterpart to the historic Arc de Triomphe. It offers panoramic views of the city and hosts art installations and exhibitions.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Surrounding areas are vibrant with modern art installations. Clear days provide the best panoramic views.",
-        "booking_tips": "Elevator access may require a ticket. Check in advance for exhibitions inside the arch.",
-        "ratings": {
-          "cost_estimate": 10,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8924,
-        "longitude": 2.2369
-      },
-      {
-        "name": "Tour Saint-Jacques",
-        "type": "Monument",
-        "description": "A historic tower that once crowned a church, offering visitors a glimpse into medieval Paris along with panoramic views from its summit.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Early visits are ideal to avoid crowds; note that the climb may be challenging for some.",
-        "booking_tips": "Tickets can be purchased online; be prepared for a steep climb to the top.",
-        "ratings": {
-          "cost_estimate": 10,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.858,
-        "longitude": 2.343
-      },
-      {
-        "name": "Notre-Dame Cathedral",
-        "type": "Cathedral",
-        "description": "Notre-Dame is a medieval Catholic cathedral on the Île de la Cité. Known for its French Gothic architecture, magnificent stained glass, and flying buttresses. Following the 2019 fire, the cathedral has been fully restored and reopened to visitors in 2024, showcasing both its historical grandeur and renewed beauty.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Popular year-round; early morning visits offer a more peaceful experience. The restored interior features renewed stained glass and stonework.",
-        "booking_tips": "Free entry to the cathedral. Timed entry tickets may be required during peak periods - check the official website. Tower visits require separate tickets.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 5
-        },
-        "latitude": 48.853,
-        "longitude": 2.3499
-      },
-      {
-        "name": "Sacré-Cœur Basilica",
-        "type": "Basilica",
-        "description": "Perched atop Montmartre hill, this white-domed basilica offers panoramic views of Paris. Built as a symbol of hope after the Franco-Prussian War, its romano-byzantine architecture and interior mosaics are breathtaking. The surrounding Montmartre district is known for its artistic history.",
-        "indoor": true,
-        "best_time": "Sunset",
-        "price_range": "Free",
-        "seasonal_notes": "Busy year-round, especially during sunset. Early morning offers a more peaceful experience.",
-        "booking_tips": "No booking required for the basilica. Dome and crypt visits require a small fee paid on-site.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8867,
-        "longitude": 2.3431
-      },
-      {
-        "name": "Louvre Museum",
-        "type": "Museum",
-        "description": "The Louvre is the world's largest art museum and a historic monument. Home to thousands of works of art including the Mona Lisa and Venus de Milo, the museum is housed in the Louvre Palace, originally built as a fortress in the late 12th century. The museum's glass pyramid entrance has become an iconic symbol of Paris.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Busiest during summer and holidays. Wednesdays and Fridays have evening hours with smaller crowds.",
-        "booking_tips": "Purchase tickets online in advance. Enter through the Carrousel du Louvre entrance to avoid the longest lines.",
-        "ratings": {
-          "cost_estimate": 22,
-          "suggested_duration_hours": 4,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8606,
-        "longitude": 2.3376
-      },
-      {
-        "name": "Musée d'Orsay",
-        "type": "Museum",
-        "description": "Housed in the former Gare d'Orsay railway station, this museum holds mainly French art dating from 1848 to 1914, including masterpieces by Monet, Renoir, Van Gogh, and Degas. The building itself, with its magnificent clock, is a work of art.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Less crowded on Thursday evenings when open late. Closed on Mondays.",
-        "booking_tips": "Book online in advance. The museum pass offers good value if visiting multiple attractions.",
-        "ratings": {
-          "cost_estimate": 16,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 5
-        },
-        "latitude": 48.86,
-        "longitude": 2.3266
-      },
-      {
-        "name": "Centre Pompidou",
-        "type": "Museum",
-        "description": "This high-tech architectural marvel houses the National Museum of Modern Art, a vast public library, and a center for music research. Known for its exposed structural elements and mechanical systems, it offers a striking contrast to Paris's traditional architecture.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "The rooftop offers spectacular views year-round. Special exhibitions may increase visitor numbers.",
-        "booking_tips": "Book online to avoid queues. The museum is closed on Tuesdays.",
-        "ratings": {
-          "cost_estimate": 15,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8607,
-        "longitude": 2.3522
-      },
-      {
-        "name": "Musée de l'Orangerie",
-        "type": "Museum",
-        "description": "Famous for housing eight of Claude Monet's Water Lilies murals, displayed in two oval rooms specifically designed to showcase these masterpieces. The museum also contains works by other impressionist and post-impressionist painters.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Less crowded than larger museums. Natural light in the Monet rooms changes throughout the day.",
-        "booking_tips": "Book online to avoid queues. Closed on Tuesdays.",
-        "ratings": {
-          "cost_estimate": 13,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8637,
-        "longitude": 2.3232
-      },
-      {
-        "name": "Musée Rodin",
-        "type": "Museum",
-        "description": "Located in the Hôtel Biron and its surrounding garden, this museum is dedicated to the works of sculptor Auguste Rodin. Famous pieces like 'The Thinker' and 'The Gates of Hell' are displayed in the beautifully landscaped gardens.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "The garden is particularly beautiful in spring and summer. Gardens-only ticket available at reduced price.",
-        "booking_tips": "Book online to avoid waiting. The garden cafe offers a pleasant rest spot.",
-        "ratings": {
-          "cost_estimate": 14,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8558,
-        "longitude": 2.3159
-      },
-      {
-        "name": "Petit Palais",
-        "type": "Museum",
-        "description": "A fine arts museum housed in a Beaux-Arts building adjacent to the Grand Palais, featuring a diverse collection of paintings, sculptures, and decorative arts. Its charming garden and ornate architecture make it a favorite for art lovers.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Less crowded in the early hours. Some temporary exhibitions may require a fee.",
-        "booking_tips": "Check the schedule online and plan for a short visit to explore the collections.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8665,
-        "longitude": 2.313
-      },
-      {
-        "name": "Cité des Sciences et de l'Industrie",
-        "type": "Museum",
-        "description": "Europe's largest science museum, offering interactive exhibits, a planetarium, and hands-on experiments that engage visitors of all ages in the wonders of science and technology.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekends can be busy. Check for special exhibitions and events.",
-        "booking_tips": "Buy tickets online to skip the queue. Look for family packages and discounts.",
-        "ratings": {
-          "cost_estimate": 18,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8969,
-        "longitude": 2.386
-      },
-      {
-        "name": "Musée Quai Branly - Jacques Chirac",
-        "type": "Museum",
-        "description": "Dedicated to indigenous art and cultures from Africa, Asia, Oceania, and the Americas, this museum offers a rich collection of artifacts and a lush garden setting.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Evenings may be less crowded. Special exhibitions highlight rare collections.",
-        "booking_tips": "Online booking is recommended. Combine with a visit to the Eiffel Tower.",
-        "ratings": {
-          "cost_estimate": 17,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.86,
-        "longitude": 2.297
-      },
-      {
-        "name": "Musée Jacquemart-André",
-        "type": "Museum",
-        "description": "Housed in a grand 19th-century mansion, this museum showcases an impressive collection of art, furniture, and historical artifacts, providing insights into the lives of French nobility.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Less crowded during weekdays. The mansion's decor changes with seasonal exhibitions.",
-        "booking_tips": "Book tickets online in advance to secure guided tours.",
-        "ratings": {
-          "cost_estimate": 16,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8765,
-        "longitude": 2.3131
-      },
-      {
-        "name": "Musée Marmottan Monet",
-        "type": "Museum",
-        "description": "Home to the largest collection of Claude Monet's works, this museum offers a quiet and intimate setting for exploring Impressionist masterpieces along with other art collections.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekdays are less crowded. The museum is tucked away in a quiet neighborhood.",
-        "booking_tips": "Advance booking may be required for special exhibits.",
-        "ratings": {
-          "cost_estimate": 15,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.855,
-        "longitude": 2.273
-      },
-      {
-        "name": "Musée Picasso",
-        "type": "Museum",
-        "description": "Dedicated to the prolific artist Pablo Picasso, this museum houses an extensive collection of his paintings, sculptures, and sketches, showcasing his creative evolution over decades.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekdays offer a quieter visit, and temporary exhibitions provide fresh insights into Picasso’s work.",
-        "booking_tips": "Book tickets online to avoid queues. Consider using an audio guide for deeper context.",
-        "ratings": {
-          "cost_estimate": 14,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8600,
-        "longitude": 2.3620
-      },
-      {
-        "name": "Institut du Monde Arabe",
-        "type": "Museum",
-        "description": "A cultural center that celebrates Arab art and civilization through interactive exhibits and an impressive collection of artifacts, complemented by a panoramic terrace overlooking the Seine.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Evenings are generally quieter. Temporary exhibits often highlight various facets of Arab culture.",
-        "booking_tips": "Purchase tickets online and make sure to explore the multimedia displays and rooftop views.",
-        "ratings": {
-          "cost_estimate": 16,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8575,
-        "longitude": 2.3541
-      },
-      {
-        "name": "Musée des Arts Décoratifs",
-        "type": "Museum",
-        "description": "Showcases decorative arts and design, featuring collections of furniture, graphic arts, and fashion accessories that illustrate the evolution of style and craftsmanship.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekdays are quieter and temporary exhibitions change the ambiance regularly.",
-        "booking_tips": "Tickets can be purchased online and it’s ideal to combine a visit with a trip to the Louvre.",
-        "ratings": {
-          "cost_estimate": 15,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8625,
-        "longitude": 2.3361
-      },
-      {
-        "name": "Musée d'Art Moderne de la Ville de Paris",
-        "type": "Museum",
-        "description": "Dedicated to modern and contemporary art, this museum features an impressive collection of 20th-century masterpieces and innovative temporary exhibitions.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekday visits are ideal; check the calendar for rotating temporary exhibits.",
-        "booking_tips": "Tickets can be bought online and the museum is often included in art-focused passes.",
-        "ratings": {
-          "cost_estimate": 16,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.865,
-        "longitude": 2.295
-      },
-      {
-        "name": "Musée de Cluny - National Museum of the Middle Ages",
-        "type": "Museum",
-        "description": "Set in medieval buildings, this museum houses a vast collection of Middle Ages artifacts, including the famous 'Lady and the Unicorn' tapestries.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Less crowded on weekdays; combined tickets are available with nearby historic sites.",
-        "booking_tips": "Advance booking online is recommended for guided tours and to save waiting time.",
-        "ratings": {
-          "cost_estimate": 14,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.846,
-        "longitude": 2.344
-      },
-      {
-        "name": "Musée Guimet",
-        "type": "Museum",
-        "description": "Dedicated to Asian art, this museum offers an extensive collection of artifacts, sculptures, and textiles that reflect the rich cultural heritage of Asia.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Visit on weekday mornings for a quieter experience; special exhibits highlight rare collections.",
-        "booking_tips": "Tickets are available online; combining with a nearby park visit is recommended.",
-        "ratings": {
-          "cost_estimate": 16,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.865,
-        "longitude": 2.272
-      },
-      {
-        "name": "Musée de la Chasse et de la Nature",
-        "type": "Museum",
-        "description": "A unique museum celebrating the art of hunting and nature with eclectic displays of taxidermy, art, and historical artifacts in an elegant setting.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Off-peak hours provide a more intimate viewing experience; exhibits are periodically refreshed.",
-        "booking_tips": "Booking tickets online is advised, particularly on weekends.",
-        "ratings": {
-          "cost_estimate": 15,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.861,
-        "longitude": 2.358
-      },
-      {
-        "name": "Musée des Égouts de Paris",
-        "type": "Museum",
-        "description": "Explore the underground world of Paris at this museum dedicated to its innovative sewer system, offering insights into the city’s hidden infrastructure and urban history.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "The tour is best enjoyed in the cooler morning hours; not recommended for those with claustrophobia.",
-        "booking_tips": "Advance booking is advised due to limited group sizes on guided tours.",
-        "ratings": {
-          "cost_estimate": 12,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 3
-        },
-        "latitude": 48.844,
-        "longitude": 2.351
-      },
-      {
-        "name": "Les Invalides",
-        "type": "Museum",
-        "description": "A grand complex housing the Army Museum and the tomb of Napoleon, offering a deep dive into French military history in a majestic architectural setting.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Weekdays are less crowded; expect higher visitor numbers during peak tourist seasons.",
-        "booking_tips": "Tickets can be purchased online and guided tours provide enriched historical context.",
-        "ratings": {
-          "cost_estimate": 18,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 5
-        },
-        "latitude": 48.856,
-        "longitude": 2.313
-      },
-      {
-        "name": "Champs-Élysées",
-        "type": "Street",
-        "description": "One of the world's most famous avenues, stretching from Place de la Concorde to the Arc de Triomphe. It's lined with luxury shops, cafes, theaters, and chestnut trees, embodying the elegance and vivacity of Paris.",
-        "indoor": false,
-        "best_time": "Evening",
-        "price_range": "Free",
-        "seasonal_notes": "Beautiful during Christmas with holiday lights and markets. Summer offers pleasant cafe seating.",
-        "booking_tips": "No booking required. Shops are typically open late, especially on weekends.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8698,
-        "longitude": 2.3075
-      },
-      {
-        "name": "Montmartre",
-        "type": "District",
-        "description": "A historic hilltop district and former artists' village, known for its bohemian past, winding streets, and the white-domed Sacré-Cœur Basilica. It retains a village-like atmosphere with small shops, cafes, and the famous Place du Tertre where artists still set up their easels.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Crowded year-round, especially during summer. Early morning offers the most authentic experience.",
-        "booking_tips": "No booking required. Consider taking the funicular up the hill to avoid the steep climb.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8865,
-        "longitude": 2.3431
-      },
-      {
-        "name": "Le Marais",
-        "type": "District",
-        "description": "A historic district that spreads across parts of the 3rd and 4th arrondissements. Known for its preserved pre-revolutionary buildings, Jewish quarter, vibrant LGBTQ+ community, trendy boutiques, and excellent dining options.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Busy on Sundays when many Parisian neighborhoods are quiet. Most shops open late morning.",
-        "booking_tips": "No booking required. One of the few areas where shops open on Sundays.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8567,
-        "longitude": 2.36
-      },
-      {
-        "name": "Latin Quarter",
-        "type": "District",
-        "description": "A historic and vibrant neighborhood known for its narrow winding streets, lively cafés, and bookshops. Home to the Sorbonne, it exudes an intellectual and bohemian spirit.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Bustling during university terms, with an energetic vibe in the evenings thanks to street performers and local eateries.",
-        "booking_tips": "No booking required. Consider joining a walking tour to uncover its rich literary and cultural history.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8493,
-        "longitude": 2.3470
-      },
-      {
-        "name": "Saint-Germain-des-Prés",
-        "type": "District",
-        "description": "A historic neighborhood celebrated for its literary heritage, classic cafés, and chic boutiques. It embodies the intellectual and bohemian spirit of Paris.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Evenings are especially vibrant as cafés buzz with conversation.",
-        "booking_tips": "No booking required. Exploring on foot or joining a guided tour is recommended to fully appreciate its history.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 5
-        },
-        "latitude": 48.853,
-        "longitude": 2.333
-      },
-      {
-        "name": "Île Saint-Louis",
-        "type": "District",
-        "description": "A quaint island in the Seine characterized by narrow streets, charming boutiques, and traditional ice cream parlors, offering a peaceful retreat from bustling Paris.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Best enjoyed in the morning when the atmosphere is calm; winter visits are especially serene.",
-        "booking_tips": "No booking required. Enjoy a leisurely walk and try the famous Berthillon ice cream.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.855,
-        "longitude": 2.365
-      },
-      {
-        "name": "Sainte-Chapelle",
-        "type": "Chapel",
-        "description": "This Gothic royal chapel is renowned for its spectacular stained glass windows, which depict over 1,000 biblical scenes. Built in the 13th century to house religious relics, it's considered one of the highest achievements of Rayonnant Gothic architecture.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Visit on sunny days when the stained glass is most vibrant. Combined tickets with Conciergerie available.",
-        "booking_tips": "Book online to avoid lines. The chapel is included in the Museum Pass.",
-        "ratings": {
-          "cost_estimate": 12,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8553,
-        "longitude": 2.3454
-      },
-      {
-        "name": "Luxembourg Gardens",
-        "type": "Park",
-        "description": "These formal gardens, created in the 17th century, surround the Luxembourg Palace (now the Senate). The park features manicured lawns, tree-lined promenades, model sailboats on the pond, tennis courts, and numerous statues and fountains.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Beautiful in spring when flowers bloom. Summer weekends bring puppet shows and concerts.",
-        "booking_tips": "No booking required. Bring a picnic and book to enjoy the tranquility.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8462,
-        "longitude": 2.3372
-      },
-      {
-        "name": "Tuileries Garden",
-        "type": "Park",
-        "description": "Created by Catherine de' Medici in the 16th century, these formal gardens between the Louvre and Place de la Concorde offer tree-lined paths, fountains, and statues. In summer, a carnival with a Ferris wheel provides entertainment.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Perfect for relaxation after visiting the Louvre. Cafes and ice cream vendors available in warmer months.",
-        "booking_tips": "No booking required. Metal chairs around the fountains are perfect for people-watching.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8634,
-        "longitude": 2.3275
-      },
-      {
-        "name": "Parc des Buttes-Chaumont",
-        "type": "Park",
-        "description": "A picturesque park in northeastern Paris featuring dramatic cliffs, a suspension bridge, a temple, and cascading waterfalls. It's known for its unique landscape and relaxed atmosphere.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Spring and summer offer lush greenery and blooming flowers. Autumn colors add charm.",
-        "booking_tips": "No booking required. Ideal for picnics and leisurely strolls.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 3
-        },
-        "latitude": 48.8796,
-        "longitude": 2.3828
-      },
-      {
-        "name": "Promenade Plantée",
-        "type": "Park",
-        "description": "An elevated linear park built on a former railway viaduct, offering a unique green pathway with gardens, sculptures, and views of the city streets below. It's a precursor to New York City's High Line.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Spring and summer are ideal for enjoying the blooming flora. It can be busy on weekends.",
-        "booking_tips": "No booking required. Wear comfortable shoes for a leisurely walk.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 3
-        },
-        "latitude": 48.8325,
-        "longitude": 2.379
-      },
-      {
-        "name": "Parc Monceau",
-        "type": "Park",
-        "description": "A charming urban park characterized by classical statues, a serene pond, and winding paths. It’s a favorite for picnics and peaceful strolls in a refined setting.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Spring brings beautiful blooms and weekends can be lively with families and locals.",
-        "booking_tips": "No booking is required—simply bring a picnic and enjoy the tranquility.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.879,
-        "longitude": 2.312
-      },
-      {
-        "name": "Parc de la Villette",
-        "type": "Park",
-        "description": "A sprawling cultural park hosting themed gardens, concert venues, and interactive museums. It’s a hub for family outings and art enthusiasts alike.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Summer brings festivals and outdoor installations; events vary by season.",
-        "booking_tips": "No booking required. Check event schedules for special happenings.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.892,
-        "longitude": 2.393
-      },
-      {
-        "name": "Place de la Concorde",
-        "type": "Square",
-        "description": "Paris's largest square, featuring the Luxor Obelisk, ornate fountains, and statues representing French cities. It marks the beginning of the Champs-Élysées and has been the site of many historic events, including executions during the French Revolution.",
-        "indoor": false,
-        "best_time": "Evening",
-        "price_range": "Free",
-        "seasonal_notes": "Beautiful when illuminated at night. The giant Ferris wheel is present during winter holidays.",
-        "booking_tips": "No booking required. Combine with visits to the Tuileries Garden and Champs-Élysées.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 0.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8656,
-        "longitude": 2.3212
-      },
-      {
-        "name": "Place des Vosges",
-        "type": "Square",
-        "description": "One of the oldest planned squares in Paris, renowned for its symmetrical architecture, arcades, and serene gardens. A historic gathering spot in the Marais, it exudes classic Parisian charm.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Especially delightful in spring when flowers bloom. Occasional art exhibits and local markets add to its allure.",
-        "booking_tips": "No booking required. Enjoy a leisurely stroll and relax at one of the surrounding cafés.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8556,
-        "longitude": 2.3654
-      },
-      {
-        "name": "Place Vendôme",
-        "type": "Square",
-        "description": "A historic and elegant square known for its luxury jewelry stores, classic architecture, and the Vendôme Column commemorating Napoleon’s victories.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Bathed in sunlight during the day, it offers a glamorous atmosphere with fewer crowds in the early hours.",
-        "booking_tips": "No booking required – perfect for window shopping and enjoying nearby cafés.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.866,
-        "longitude": 2.331
-      },
-      {
-        "name": "Père Lachaise Cemetery",
-        "type": "Cemetery",
-        "description": "The largest cemetery in Paris and the most visited in the world, Père Lachaise is the final resting place of many famous figures including Oscar Wilde, Jim Morrison, and Édith Piaf. Its cobblestone paths, Gothic mausoleums, and ancient trees create a serene, contemplative atmosphere.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Beautiful in autumn with changing leaves. Maps available at entrances.",
-        "booking_tips": "No booking required. Wear comfortable shoes for walking the hilly terrain.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8616,
-        "longitude": 2.3938
-      },
-      {
-        "name": "Palais Garnier",
-        "type": "Opera House",
-        "description": "This opulent opera house, built in the 19th century, is a masterpiece of Second Empire architecture. Its grand staircase, auditorium ceiling painted by Marc Chagall, and magnificent chandelier inspired 'The Phantom of the Opera' story.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Guided tours available daily. Check schedule for performances if you wish to see a show.",
-        "booking_tips": "Book guided tours in advance. For performances, reserve months ahead, especially for popular shows.",
-        "ratings": {
-          "cost_estimate": 14,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 5
-        },
-        "latitude": 48.872,
-        "longitude": 2.3316
-      },
-      {
-        "name": "Opéra Bastille",
-        "type": "Opera House",
-        "description": "A modern opera house with a sleek design, it offers a dynamic program of opera, ballet, and concerts. Its spacious interiors and state-of-the-art acoustics contrast with the historic Opéra Garnier.",
-        "indoor": true,
-        "best_time": "Evening",
-        "price_range": "Expensive",
-        "seasonal_notes": "Booking well in advance is recommended for popular performances. Check for matinee shows during the day.",
-        "booking_tips": "Tickets often sell out quickly. Look for online deals and subscriptions for season passes.",
-        "ratings": {
-          "cost_estimate": 30,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.853,
-        "longitude": 2.369
-      },
-      {
-        "name": "Seine River Cruise",
-        "type": "Activity",
-        "description": "A boat cruise along the Seine offers a unique perspective of Paris's monuments and bridges. Many historical buildings face the river, and the banks of the Seine themselves are a UNESCO World Heritage site.",
-        "indoor": false,
-        "best_time": "Sunset",
-        "price_range": "Moderate",
-        "seasonal_notes": "Available year-round, but especially magical at sunset or after dark when monuments are illuminated.",
-        "booking_tips": "Many options available, from basic sightseeing to dinner cruises. Book online for discounts.",
-        "ratings": {
-          "cost_estimate": 20,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8584,
-        "longitude": 2.349
-      },
-      {
-        "name": "Les Catacombes",
-        "type": "Historical Site",
-        "description": "These underground ossuaries hold the remains of more than six million people, transferred from Parisian cemeteries in the late 18th century. The eerie tunnel network stretches for over 200 miles, though only a small portion is open to the public.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Constant temperature of 14°C (57°F) year-round, so bring a light jacket even in summer.",
-        "booking_tips": "Book online well in advance to secure your preferred time slot. Not recommended for those with mobility issues or claustrophobia.",
-        "ratings": {
-          "cost_estimate": 15,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8338,
-        "longitude": 2.3324
-      },
-      {
-        "name": "Conciergerie",
-        "type": "Historical Site",
-        "description": "A former royal palace and prison on the Île de la Cité, this medieval building played a significant role during the French Revolution. Marie Antoinette was imprisoned here before her execution, and visitors can see her reconstructed cell.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Combined tickets with Sainte-Chapelle available. Less crowded than major attractions.",
-        "booking_tips": "Included in the Paris Museum Pass. Audio guides enhance the experience.",
-        "ratings": {
-          "cost_estimate": 12,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8565,
-        "longitude": 2.3451
-      },
-      {
-        "name": "Grand Palais",
-        "type": "Exhibition Hall",
-        "description": "A historic exhibition hall located on the Champs-Élysées, renowned for its glass-domed roof and impressive exhibitions ranging from art to fashion. It hosts major events and art shows throughout the year.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Exhibitions vary seasonally. Check the schedule for special events and limited-time exhibitions.",
-        "booking_tips": "Purchase tickets online in advance during major events. Free entry for some exhibitions.",
-        "ratings": {
-          "cost_estimate": 20,
-          "suggested_duration_hours": 2.5,
-          "cultural_significance": 4.5
-        },
-        "latitude": 48.8662,
-        "longitude": 2.3125
-      },
-      {
-        "name": "Montparnasse Tower",
-        "type": "Skyscraper",
-        "description": "One of the tallest buildings in Paris, offering an observation deck with 360-degree views of the city. The tower is also known for its modern design and bustling surrounding neighborhood.",
-        "indoor": true,
-        "best_time": "Evening",
-        "price_range": "Moderate",
-        "seasonal_notes": "Clear evenings provide the best views. Crowds can form during peak tourist season.",
-        "booking_tips": "Buy tickets online to avoid long lines and consider a sunset visit for stunning views.",
-        "ratings": {
-          "cost_estimate": 20,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 3
-        },
-        "latitude": 48.8422,
-        "longitude": 2.3212
-      },
-      {
-        "name": "Jardin des Plantes",
-        "type": "Garden",
-        "description": "A historic botanical garden featuring a wide variety of plant species, greenhouses, and a small zoo. It's an ideal place for a leisurely walk and learning about flora from around the world.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Spring and summer bring a vibrant display of flowers. Winter offers a quieter, reflective atmosphere.",
-        "booking_tips": "No booking required. Some greenhouses may require an entry fee.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 3
-        },
-        "latitude": 48.843,
-        "longitude": 2.357
-      },
-      {
-        "name": "Jardin du Palais Royal",
-        "type": "Garden",
-        "description": "A tranquil garden nestled behind the historic Palais Royal, known for its beautifully maintained lawns, modern art installations, and a peaceful escape from the city’s hustle and bustle.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Ideal for a quiet stroll, particularly in spring when the gardens burst into bloom. Frequently featured in fashion and photography.",
-        "booking_tips": "No booking required. Combine your visit with a tour of the nearby Palais Royal galleries and boutiques.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8633,
-        "longitude": 2.3371
-      },
-      {
-        "name": "Rue Cler",
-        "type": "Market Street",
-        "description": "A charming pedestrian street lined with cafes, bakeries, and gourmet food shops. It's a favorite destination for both locals and visitors seeking an authentic Parisian market experience.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Best experienced on sunny mornings. Weekend mornings may be busier with market vendors.",
-        "booking_tips": "No booking required. Enjoy a leisurely stroll and sample local delicacies.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 3
-        },
-        "latitude": 48.856,
-        "longitude": 2.312
-      },
-      {
-        "name": "Galeries Lafayette",
-        "type": "Department Store",
-        "description": "An iconic Parisian department store famed for its stunning glass dome, extensive luxury collections, and gourmet food hall. It offers both high-end shopping and a cultural experience.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Expensive",
-        "seasonal_notes": "The store dazzles during the holiday season with elaborate window displays and festive decorations.",
-        "booking_tips": "No booking required. Don’t miss the rooftop terrace for panoramic city views.",
-        "ratings": {
-          "cost_estimate": 25,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8724,
-        "longitude": 2.3306
-      },
-      {
-        "name": "Le Bon Marché",
-        "type": "Department Store",
-        "description": "One of the world’s first department stores, celebrated for its curated selection of high-end fashion, home décor, and gourmet foods. It epitomizes Parisian sophistication and style.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Expensive",
-        "seasonal_notes": "Less crowded on weekdays with seasonal events and exclusive designer showcases.",
-        "booking_tips": "No booking required for shopping. Pair your visit with a meal at the in-house café for a complete experience.",
-        "ratings": {
-          "cost_estimate": 30,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8531,
-        "longitude": 2.3242
-      },
-      {
-        "name": "Marché aux Puces de Saint-Ouen",
-        "type": "Market",
-        "description": "One of the largest flea markets in the world, offering a treasure trove of antiques, vintage clothing, art, and collectibles. Ideal for both serious collectors and casual browsers.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Varies",
-        "seasonal_notes": "Best experienced early on weekends for the best finds. The market often hosts special themed events.",
-        "booking_tips": "No booking required. Wear comfortable shoes and be ready to haggle for unique pieces.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 4
-        },
-        "latitude": 48.9047,
-        "longitude": 2.3339
-      },
-      {
-        "name": "Palais de Tokyo",
-        "type": "Contemporary Art Center",
-        "description": "A dynamic space dedicated to modern art and experimental exhibitions, housed in a striking modern building that challenges traditional museum formats.",
-        "indoor": true,
-        "best_time": "Evening",
-        "price_range": "Moderate",
-        "seasonal_notes": "Evening visits offer a unique ambiance; special event nights are frequent.",
-        "booking_tips": "Tickets are available online and some exhibitions require a separate admission fee.",
-        "ratings": {
-          "cost_estimate": 18,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8645,
-        "longitude": 2.288
-      },
-      {
-        "name": "Canal Saint-Martin",
-        "type": "Waterway",
-        "description": "A picturesque canal lined with bohemian cafés, boutiques, and tree-lined quays. It’s perfect for leisurely walks or a canal boat ride.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Especially vibrant in spring and summer, with locals and tourists enjoying its relaxed atmosphere.",
-        "booking_tips": "No booking required – simply enjoy a stroll or choose one of the many boat tours.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.87,
-        "longitude": 2.365
-      },
-      {
-        "name": "Église Saint-Sulpice",
-        "type": "Church",
-        "description": "One of Paris's largest churches, renowned for its impressive twin towers, striking murals, and storied past that continues to draw visitors and worshippers alike.",
-        "indoor": true,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Early mornings are quieter and occasional concerts add to the spiritual ambiance.",
-        "booking_tips": "No booking required for a self-guided visit; guided tours are also available.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 4
-        },
-        "latitude": 48.852,
-        "longitude": 2.345
-      },
-      {
-        "name": "Bibliothèque Nationale de France (François-Mitterrand)",
-        "type": "Library",
-        "description": "The modern National Library of France, famed for its innovative architecture and extensive collections, serving as a hub of research and culture.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Weekdays offer a quiet atmosphere and occasional exhibitions highlight unique aspects of the collection.",
-        "booking_tips": "No booking is needed for general entry, though guided tours may be available.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.833,
-        "longitude": 2.374
-      },
-      {
-        "name": "Atelier des Lumières",
-        "type": "Digital Art Center",
-        "description": "An immersive space that transforms classical art into a multisensory digital experience with dynamic projections that cover walls and floors.",
-        "indoor": true,
-        "best_time": "Evening",
-        "price_range": "Moderate",
-        "seasonal_notes": "Highly popular during the evenings; check for themed exhibits that change periodically.",
-        "booking_tips": "Booking tickets online in advance is essential due to limited entry slots.",
-        "ratings": {
-          "cost_estimate": 17,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.864,
-        "longitude": 2.382
-      },
-      {
-        "name": "Pont Alexandre III",
-        "type": "Bridge",
-        "description": "An ornate bridge adorned with sculptures and lamps, celebrated for its grand design and offering panoramic views of Paris landmarks, especially when illuminated at night.",
-        "indoor": false,
-        "best_time": "Evening",
-        "price_range": "Free",
-        "seasonal_notes": "The bridge is particularly stunning at night and a favorite spot for photography.",
-        "booking_tips": "No booking required. Ideal for a leisurely stroll or capturing sunset views.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 0.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.863,
-        "longitude": 2.313
-      },
-      {
-        "name": "La Fondation Cartier pour l'art contemporain",
-        "type": "Art Center",
-        "description": "A cutting-edge art center that hosts contemporary art exhibitions and multimedia projects in a striking modern building.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Exhibitions rotate frequently, ensuring a fresh experience with each visit.",
-        "booking_tips": "Tickets are available online; check the schedule for special events and workshops.",
-        "ratings": {
-          "cost_estimate": 17,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.841,
-        "longitude": 2.327
-      },
-      {
-        "name": "Palace of Versailles",
-        "type": "Palace",
-        "description": "Explore the opulent palace and its expansive gardens, a UNESCO World Heritage site. The palace showcases the grandeur of French royalty with its Hall of Mirrors, royal apartments, and extensive gardens with fountains and sculptures.",
-        "indoor": true,
-        "best_time": "Early morning",
-        "price_range": "Expensive",
-        "seasonal_notes": "Spring and summer offer the best garden experience with fountains running. Book tickets in advance to avoid long queues.",
-        "booking_tips": "Consider a guided tour for a comprehensive experience, and plan for a full day trip. Purchase tickets online to skip the line.",
-        "ratings": {
-          "cost_estimate": 25,
-          "suggested_duration_hours": 4,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8044,
-        "longitude": 2.1232
-      },
-      {
-        "name": "Montmartre",
-        "type": "District",
-        "description": "Explore the charming streets, visit the Sacré-Cœur Basilica, and enjoy street performances. This historic district offers stunning views of Paris and a bohemian atmosphere with artists and musicians.",
-        "indoor": false,
-        "best_time": "Mid-morning",
-        "price_range": "Free",
-        "seasonal_notes": "Wear comfortable shoes for walking uphill and avoid peak afternoon for a more relaxed experience.",
-        "booking_tips": "No booking required. Take the funicular or walk up the hill. Visit early to avoid crowds.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8867,
-        "longitude": 2.3431
-      },
-      {
-        "name": "Seine River Cruise",
-        "type": "River Cruise",
-        "description": "Cruise along the Seine to admire Paris' landmarks from the water, especially beautiful in the spring light. See the Eiffel Tower, Notre-Dame, and other iconic sights from a unique perspective.",
-        "indoor": false,
-        "best_time": "Late afternoon to evening",
-        "price_range": "Moderate",
-        "seasonal_notes": "Evening cruises offer illuminated views of Paris landmarks. Spring and summer provide the most pleasant weather.",
-        "booking_tips": "Book tickets online for discounts and consider an evening cruise for illuminated views. Most boats are accessible, but check with operator.",
-        "ratings": {
-          "cost_estimate": 18,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      {
-        "name": "Musée d'Orsay",
-        "type": "Museum",
-        "description": "Discover an extensive collection of Impressionist and Post-Impressionist masterpieces in a former railway station. The museum houses works by Monet, Van Gogh, Renoir, and other famous artists.",
-        "indoor": true,
-        "best_time": "Afternoon",
-        "price_range": "Moderate",
-        "seasonal_notes": "Less crowded than the Louvre. The building itself is a work of art with its grand clock and architecture.",
-        "booking_tips": "Purchase tickets online to avoid queues. Included in the Paris Museum Pass.",
-        "ratings": {
-          "cost_estimate": 16,
-          "suggested_duration_hours": 2.5,
-          "cultural_significance": 5
-        },
-        "latitude": 48.8600,
-        "longitude": 2.3266
-      },
-      {
-        "name": "Luxembourg Gardens",
-        "type": "Garden",
-        "description": "Relax in the beautifully manicured gardens and enjoy a classic Parisian picnic. These gardens are particularly beautiful in spring with blooming flowers and lively fountains.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Great for a leisurely walk or to relax with a book; avoid weekends for a quieter experience.",
-        "booking_tips": "No booking required. Perfect for picnics and people-watching.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8462,
-        "longitude": 2.3372
-      },
-      {
-        "name": "Marché aux Puces de Saint-Ouen",
-        "type": "Flea Market",
-        "description": "Browse one of the largest antique markets in the world, offering unique vintage finds. Discover antiques, vintage clothing, furniture, and collectibles in this sprawling market.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Variable",
-        "seasonal_notes": "Bargaining is common; visit early to find the best treasures. The market is busiest on weekends.",
-        "booking_tips": "No booking required. Bring cash for bargaining and wear comfortable shoes for walking.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 3,
-          "cultural_significance": 4
-        },
-        "latitude": 48.9000,
-        "longitude": 2.3333
-      },
-      {
-        "name": "Le Marais",
-        "type": "District",
-        "description": "A historic district known for its medieval streets, trendy boutiques, and vibrant LGBTQ+ community. Explore charming cobblestone streets, art galleries, and fashionable shops.",
-        "indoor": false,
-        "best_time": "Afternoon",
-        "price_range": "Free",
-        "seasonal_notes": "Visit on a weekday to avoid crowds and enjoy café terraces. The area is known for its trendy atmosphere.",
-        "booking_tips": "No booking required. Perfect for shopping, dining, and exploring historic architecture.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8600,
-        "longitude": 2.3622
-      },
-      {
-        "name": "Moulin Rouge",
-        "type": "Cabaret",
-        "description": "Experience the world-famous cabaret show featuring dazzling performances. The iconic red windmill is a symbol of Parisian nightlife and entertainment.",
-        "indoor": true,
-        "best_time": "Evening",
-        "price_range": "Expensive",
-        "seasonal_notes": "Shows run year-round. Dress smartly for the occasion and arrive early for the full experience.",
-        "booking_tips": "Book tickets well in advance and dress smartly for the occasion. Shows often sell out quickly.",
-        "ratings": {
-          "cost_estimate": 150,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8841,
-        "longitude": 2.3322
-      },
-      {
-        "name": "Catacombs of Paris",
-        "type": "Historical Site",
-        "description": "Explore the underground ossuaries holding the remains of over six million people. This unique attraction offers a fascinating glimpse into Paris's history beneath the streets.",
-        "indoor": true,
-        "best_time": "Early morning",
-        "price_range": "Moderate",
-        "seasonal_notes": "Dress warmly due to cool underground temperatures. The experience is the same year-round.",
-        "booking_tips": "Purchase tickets in advance as lines can be long, and dress warmly due to cool underground temperatures.",
-        "ratings": {
-          "cost_estimate": 14,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8339,
-        "longitude": 2.3324
-      },
-      {
-        "name": "Bike Ride Along the Seine",
-        "type": "Outdoor Activity",
-        "description": "Rent a bike and enjoy a scenic ride along the riverbanks, taking in the sights of Paris. Use the Vélib' bike-sharing system for convenience.",
-        "indoor": false,
-        "best_time": "Late afternoon",
-        "price_range": "Low",
-        "seasonal_notes": "Avoid rush hour traffic. Spring and summer provide the best weather for cycling.",
-        "booking_tips": "Use the Vélib' bike-sharing system for convenience; avoid rush hour traffic.",
-        "ratings": {
-          "cost_estimate": 5,
-          "suggested_duration_hours": 2,
-          "cultural_significance": 3
-        },
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      {
-        "name": "Wine Tasting",
-        "type": "Culinary Experience",
-        "description": "Sample a variety of French wines in a guided tasting session. Various wine bars throughout Paris offer educational and enjoyable wine experiences.",
-        "indoor": true,
-        "best_time": "Evening",
-        "price_range": "Moderate",
-        "seasonal_notes": "Available year-round. Choose a session that includes local snacks for a fuller experience.",
-        "booking_tips": "Book in advance, and choose a session that includes local snacks for a fuller experience.",
-        "ratings": {
-          "cost_estimate": 40,
-          "suggested_duration_hours": 1.5,
-          "cultural_significance": 4
-        },
-        "latitude": 48.8566,
-        "longitude": 2.3522
-      },
-      {
-        "name": "Cherry Blossom Viewing",
-        "type": "Seasonal Activity",
-        "description": "Experience the stunning cherry blossoms in full bloom, a favorite among locals and tourists alike. Visit Jardin des Plantes or Parc de Sceaux for the best displays.",
-        "indoor": false,
-        "best_time": "Morning",
-        "price_range": "Free",
-        "seasonal_notes": "Best in April when cherry blossoms are in full bloom. Visit early in the morning to avoid crowds.",
-        "booking_tips": "Visit early in the morning to avoid crowds and capture beautiful photographs. Wheelchair accessible paths in most parks.",
-        "ratings": {
-          "cost_estimate": 0,
-          "suggested_duration_hours": 1,
-          "cultural_significance": 3
-        },
-        "latitude": 48.8434,
-        "longitude": 2.3568
+  "sites": [
+    {
+      "name": "Eiffel Tower",
+      "type": "Monument / Tower",
+      "description": "Arguably the most iconic silhouette in Paris, the **Eiffel Tower** (completed 1889) soars over the Champ de Mars, its lattice ironwork framing the sky. By day it draws the eye upward against the clouds; by night the tower **glitters with 20,000 lights** for five minutes each hour. Visiting at dusk lets you see the city bathed in golden light and then twinkling as the lights come alive.",
+      "indoor": false,
+      "best_time": "Evening / Dusk",
+      "price_range": "Moderate to High (depending on level accessed)",
+      "seasonal_notes": "Open late in summer (often until midnight) for better evening views.",
+      "booking_tips": "Reserve tickets well in advance on the official site to avoid long queues and ensure your preferred time slot.",
+      "ratings": {
+        "cost_estimate": 25,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "arrondissement": "7th",
+      "neighborhood": "Champ de Mars / Quai Branly",
+      "opening_hours": {
+        "weekday": "09:30-23:00 (off-peak) / 09:00-00:00 (summer)",
+        "weekend": "09:30-23:00 (off-peak) / 09:00-00:00 (summer)",
+        "notes": "Closing extended in summer; last elevator up ~30 minutes before closing."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-00:00",
+        "winter": "09:30-23:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "6",
+            "station": "Bir-Hakeim",
+            "walk_minutes": 7
+          },
+          {
+            "line": "9",
+            "station": "Trocadéro",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Champ de Mars – Tour Eiffel",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Evening metro trains stop ~midnight; plan return accordingly."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Montparnasse Tower nearby for indoor view"
+      },
+      "website": "https://www.toureiffel.paris/en",  
+      "ticket_url": "https://www.toureiffel.paris/en/rates-opening-times"  
+    },
+    {
+      "name": "Arc de Triomphe",
+      "type": "Monument / Arch",
+      "description": "Standing at the western end of the Champs-Élysées, the **Arc de Triomphe** commands a grand vista of twelve radiating avenues. Climb its **284-step spiral staircase** or take the partial elevator to reach the rooftop panorama — from here, the Eiffel Tower, La Défense, and the city’s boulevards unfold in a sweeping ring of Parisian splendor. The interior also houses a small museum about the arch’s construction and symbolism.",
+      "indoor": true,
+      "best_time": "Golden Hour / Late Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open later in peak season (April–Sept) until ~23:00; in off-peak until ~22:30.",
+      "booking_tips": "Buy tickets ahead via the official monument site to skip lines and reserve times.",
+      "ratings": {
+        "cost_estimate": 16,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8738,
+      "longitude": 2.2950,
+      "arrondissement": "8th / 16th / 17th (border)",
+      "neighborhood": "Place Charles de Gaulle / Champs-Élysées",
+      "opening_hours": {
+        "weekday": "10:00-23:00 (Apr–Sept) / 10:00-22:30 (Oct–Mar)",
+        "weekend": "10:00-23:00 (Apr–Sept) / 10:00-22:30 (Oct–Mar)",
+        "notes": "Last admission 45 minutes before closing. Closed on some holiday mornings."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-23:00",
+        "winter": "10:00-22:30"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-07-14",
+          "reason": "Holiday morning closure"
+        },
+        {
+          "date": "2025-11-11",
+          "reason": "Holiday morning closure"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1 / 2 / 6",
+            "station": "Charles de Gaulle-Étoile",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Charles de Gaulle-Étoile",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Metro lines 1, 2, 6 and RER A converge here; evening coverage is good but check schedules."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Dôme des Invalides nearby"
+      },
+      "website": "https://www.paris-arc-de-triomphe.fr/en",  
+      "ticket_url": "https://tickets.monuments-nationaux.fr/en-GB/families?site=2032863779450400197"  
+    },
+    {
+      "name": "Louvre Museum",
+      "type": "Museum / Art Gallery",
+      "description": "The **Louvre Museum**, once a royal palace, now houses one of the world’s most vast and spectacular art collections — **35,000 works** across eight curatorial departments. Wander through halls of ancient sculpture, Renaissance masterpieces, and modern creation. The glass **pyramid entrance** glimmers in daylight, and the courtyards create dramatic spatial dialogues between old and new. A visit in late afternoon gives you a moment of quiet between the crowds and the sunset light across the cour Carrée.",
+      "indoor": true,
+      "best_time": "Late Afternoon / Early Evening",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open late (to 21:00) on Wednesdays and Fridays.",
+      "booking_tips": "Reserve a timed-entry ticket in advance via the official site; use lesser-crowded entrances like Carrousel or Porte des Lions.",
+      "ratings": {
+        "cost_estimate": 17,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "arrondissement": "1st",
+      "neighborhood": "Louvre / Palais Royal",
+      "opening_hours": {
+        "weekday": "09:00-18:00 (Mon, Thu, Sat, Sun) / 09:00-21:00 (Wed, Fri)",
+        "weekend": "09:00-18:00 (Sat, Sun) / 09:00-21:00 (Fri)",
+        "notes": "Closed Tuesdays. Last entry ~1 hour before closing; rooms begin clearing ~30 min prior."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1 / 7",
+            "station": "Palais Royal – Musée du Louvre",
+            "walk_minutes": 2
+          },
+          {
+            "line": "14",
+            "station": "Pyramides",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "A / B / C",
+          "station": "Châtelet – Les Halles",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Evening train changes at Châtelet can be busy; allow buffer time."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2.5 hours",
+        "weather_fallback": "Nearby Musée de l’Orangerie or Musée d’Orsay"
+      },
+      "website": "https://www.louvre.fr/en",  
+      "ticket_url": "https://www.louvre.fr/en/visit/hours-admission"  
+    },
+    {
+      "name": "Notre-Dame de Paris",
+      "type": "Cathedral",
+      "description": "A timeless emblem of Gothic grandeur, **Notre-Dame de Paris** (begun c. 1163) soars with flying buttresses, rose windows, and sculpted gargoyles. Though scarred by fire, its nave, stained glass, and crypts stand restored. Enter in the soft morning or late evening light to sense centuries of prayer and stone in quiet dialogue.",
+      "indoor": true,
+      "best_time": "Morning / Late Evening",
+      "price_range": "Free / Optional Paid (treasury / tours)",
+      "seasonal_notes": "Cathedral interior is freely accessible; paid access applies to treasury and tower ascent. During high tourist flow, timed free reservations may reduce wait times. :contentReference[oaicite:0]{index=0}",
+      "booking_tips": "Make a (free) timeslot reservation via the official website to smooth your entry. :contentReference[oaicite:1]{index=1}",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 5
+      },
+      "latitude": 48.852968,
+      "longitude": 2.349902,
+      "arrondissement": "4th (Île de la Cité)",
+      "neighborhood": "Île de la Cité",
+      "opening_hours": {
+        "weekday": "07:50-19:00 (normal schedule; extended Thurs until ~22:00) :contentReference[oaicite:2]{index=2}",
+        "weekend": "07:50-19:00 / extended Thurs to ~22:00 :contentReference[oaicite:3]{index=3}",
+        "notes": "Interior access is free; certain areas (treasury, towers) require paid access. Last entry ~30 min before close."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "4",
+            "station": "Cité",
+            "walk_minutes": 3
+          },
+          {
+            "line": "1 / 4 / 7 / 11 / 14",
+            "station": "Châtelet",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "B / C",
+          "station": "Saint-Michel–Notre-Dame",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Evening return via Châtelet hub may be busy; give buffer time."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Explore the crypt or treasury if inclement"
+      },
+      "website": "https://www.notredamedeparis.fr/en/",  
+      "ticket_url": "https://resa.notredamedeparis.fr/en/tickets (free reservation) :contentReference[oaicite:4]{index=4}"
+    },
+    {
+      "name": "Sainte-Chapelle",
+      "type": "Chapel",
+      "description": "One of Paris’s most enchanting jewels, **Sainte-Chapelle** was built in 1248 to house holy relics and is celebrated for its luminous **1,113 stained-glass windows** that bathe the interior in jewel-tone color. The soaring upper chapel is a celestial vault of glass, best seen when sunlight streams through and animates the biblical narratives in glass. A serene, reverent experience awaits midday or late morning.",
+      "indoor": true,
+      "best_time": "Midday / Late Morning",
+      "price_range": "Low to Moderate",
+      "seasonal_notes": "Last entry is ~40 minutes before closing. Admission is free on European Heritage Days and first Sundays (Nov–Mar). :contentReference[oaicite:5]{index=5}",
+      "booking_tips": "Reserve a timed-entry ticket via Monuments Nationaux portal ahead of time to guarantee access. :contentReference[oaicite:6]{index=6}",
+      "ratings": {
+        "cost_estimate": 3,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8553,
+      "longitude": 2.3454,
+      "arrondissement": "1st",
+      "neighborhood": "Île de la Cité / Boulevard du Palais",
+      "opening_hours": {
+        "weekday": "09:00-19:00 (Apr–Sep) / 09:00-17:00 (Oct–Mar) :contentReference[oaicite:7]{index=7}",
+        "weekend": "09:00-19:00 (Apr–Sep) / 09:00-17:00 (Oct–Mar) :contentReference[oaicite:8]{index=8}",
+        "notes": "Last entry ~40 min before closing; chapel closed Jan 1, May 1, Dec 25. :contentReference[oaicite:9]{index=9}"
+      },
+      "seasonal_hours": {
+        "summer": "09:00-19:00",
+        "winter": "09:00-17:00"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "4",
+            "station": "Cité",
+            "walk_minutes": 3
+          },
+          {
+            "line": "1 / 7 / 11 / 14",
+            "station": "Châtelet",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "B / C",
+          "station": "Saint-Michel–Notre-Dame",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Return via Châtelet is central but can be crowded in evenings."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.0,
+        "ideal_time_block": "45 minutes",
+        "weather_fallback": "Visit Conciergerie next door"
+      },
+      "website": "https://www.sainte-chapelle.fr/en/visit",  
+      "ticket_url": "https://tickets.monuments-nationaux.fr/en-GB/families?site=2035141861660400306 (timed-entry) :contentReference[oaicite:10]{index=10}"
+    },
+    {
+      "name": "Panthéon",
+      "type": "Monument / Mausoleum",
+      "description": "An imposing neoclassical edifice crowning the Latin Quarter hill, the **Panthéon** (by Soufflot, 18th c.) was transformed into the secular mausoleum of France’s greatest minds. Inside, a solemn nave echoes with memory, and in the crypt rest Voltaire, Hugo, Marie Curie, and others. On crisp afternoons, ascend to the dome for panoramic views across Paris rooftops.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Panorama (cupola) access requires an extra fee in summer. :contentReference[oaicite:11]{index=11}",
+      "booking_tips": "Book tickets in advance via the official Panthéon site to secure entry, especially on peak days. :contentReference[oaicite:12]{index=12}",
+      "ratings": {
+        "cost_estimate": 13,
+        "suggested_duration_hours": 1.25,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8462,
+      "longitude": 2.3460,
+      "arrondissement": "5th",
+      "neighborhood": "Latin Quarter / Montagne Sainte-Geneviève",
+      "opening_hours": {
+        "weekday": "10:00-18:30 (Apr–Sep) / 10:00-18:00 (Oct–Mar), opening 12:00 on first working Monday monthly :contentReference[oaicite:13]{index=13}",
+        "weekend": "10:00-18:30 (Apr–Sep) / 10:00-18:00 (Oct–Mar) :contentReference[oaicite:14]{index=14}",
+        "notes": "Last admission 45 min before closing. Closed Jan 1, May 1, Dec 25. Panoramic dome often closed outside April–Oct. :contentReference[oaicite:15]{index=15}"
+      },
+      "seasonal_hours": {
+        "summer": "10:00-18:30",
+        "winter": "10:00-18:00"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "10",
+            "station": "Maubert–Mutualité",
+            "walk_minutes": 4
+          },
+          {
+            "line": "7",
+            "station": "Place Monge",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "B",
+          "station": "Luxembourg",
+          "walk_minutes": 9
+        },
+        "last_train_consideration": "Evening trains via Luxembourg may have fewer departures; check schedules."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.25 hours",
+        "weather_fallback": "Use crypt and interior galleries if dome is closed"
+      },
+      "website": "https://www.paris-pantheon.fr/en",  
+      "ticket_url": "https://www.paris-pantheon.fr/en/visit/practical-information (ticketing info) :contentReference[oaicite:16]{index=16}"
+    },
+    {
+      "name": "Basilique du Sacré-Cœur de Montmartre",
+      "type": "Basilica / Landmark Viewpoint",
+      "description": "Perched atop Montmartre’s hill, the **Sacré-Cœur Basilica** gleams white against the Paris skyline — its Romano-Byzantine domes visible for miles. Inside, the vast mosaic of *Christ in Majesty* radiates gold and azure light across the sanctuary. Climb the **300-step dome** for panoramic views, linger for the sunset bells, and watch the city unfold beneath your feet.",
+      "indoor": true,
+      "best_time": "Sunset / Early Evening",
+      "price_range": "Free (Basilica) / Small fee (Dome & Crypt)",
+      "seasonal_notes": "The basilica is open daily; the dome may close in winter or bad weather. Continuous adoration since 1885 makes it one of Paris’s most spiritual spaces.",
+      "booking_tips": "No reservation required for entry; purchase dome tickets on-site. Arrive 30 min before sunset for best light atop the dome.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8867,
+      "longitude": 2.3431,
+      "arrondissement": "18th",
+      "neighborhood": "Montmartre",
+      "opening_hours": {
+        "weekday": "06:30–22:30 (Basilica) / 08:30–20:00 (Dome, Apr–Sep) / 09:00–17:00 (Oct–Mar)",
+        "weekend": "06:30–22:30 (Basilica) / 08:30–20:00 (Dome, Apr–Sep) / 09:00–17:00 (Oct–Mar)",
+        "notes": "Last entry ~30 min before close; dome closed during rain or strong winds."
+      },
+      "seasonal_hours": {
+        "summer": "Dome open 08:30–20:00",
+        "winter": "Dome open 09:00–17:00"
+      },
+      "closures": [
+        {"date": "2025-12-25", "reason": "Open with special Christmas Mass schedule only"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "2", "station": "Anvers", "walk_minutes": 8},
+          {"line": "12", "station": "Abbesses", "walk_minutes": 6}
+        ],
+        "closest_rer": {"line": "B", "station": "Gare du Nord", "walk_minutes": 15},
+        "last_train_consideration": "Funicular runs until ~00:30; stairs open later but steep."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "90 minutes",
+        "weather_fallback": "Indoor basilica and crypt access"
+      },
+      "website": "https://www.sacre-coeur-montmartre.com/english/",
+      "ticket_url": "https://www.sacre-coeur-montmartre.com/english/informations/access-schedules/"
+    },
+    {
+      "name": "Musée d’Orsay",
+      "type": "Museum",
+      "description": "A radiant temple of light and color, the **Musée d’Orsay** occupies a converted Beaux-Arts train station overlooking the Seine. Inside, visitors encounter the world’s most celebrated collection of **Impressionist and Post-Impressionist masterpieces** — Monet’s water lilies, Degas’s dancers, Van Gogh’s swirls, and Gauguin’s Tahitian hues. The museum’s glass roof floods the galleries with daylight, transforming each canvas into a conversation with the Paris sky.",
+      "indoor": true,
+      "best_time": "Morning / Thursday Evening",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Mondays. Thursday nocturne (open until 21:45) offers quieter viewing and golden evening light on the Seine.",
+      "booking_tips": "Reserve timed entry online; Thursdays after 18:00 are serene. Combine visit with nearby Orangerie or Rodin for a full artistic circuit.",
+      "ratings": {
+        "cost_estimate": 16,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8600,
+      "longitude": 2.3266,
+      "arrondissement": "7th",
+      "neighborhood": "Left Bank / Saint-Thomas d’Aquin",
+      "opening_hours": {
+        "weekday": "Tue/Wed/Fri/Sat/Sun 09:30-18:00; Thu 09:30-21:45",
+        "weekend": "Sat/Sun 09:30-18:00",
+        "notes": "Closed Mondays and May 1; last admission ~17:00 (Thu 20:45)."
+      },
+      "seasonal_hours": {
+        "summer": "Standard; longer lines June–Aug",
+        "winter": "Standard"
+      },
+      "closures": [
+        {"date": "2025-05-01", "reason": "Closed (Labour Day)"},
+        {"date": "2025-12-25", "reason": "Closed (Christmas Day)"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "12", "station": "Solférino", "walk_minutes": 5},
+          {"line": "12", "station": "Assemblée Nationale", "walk_minutes": 8}
+        ],
+        "closest_rer": {"line": "C", "station": "Musée d’Orsay", "walk_minutes": 2},
+        "last_train_consideration": "Thursday night openings end 21:45; check RER C evening frequency."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "Half Day",
+        "weather_fallback": "Indoor galleries and café with Seine views"
+      },
+      "website": "https://www.musee-orsay.fr/en",
+      "ticket_url": "https://www.musee-orsay.fr/en/visit/buy-tickets"
+    },
+    {
+      "name": "Palais Garnier (Opéra Garnier)",
+      "type": "Historic Opera House",
+      "description": "An opulent ode to the arts, the **Palais Garnier** (1875) dazzles with marble staircases, gilded foyers, and a ceiling painted by **Marc Chagall**. Beneath its grand chandelier lies the setting that inspired *The Phantom of the Opera*. Guided or self-guided tours reveal intricate mosaics, mirrors, and the red-and-gold auditorium — a living masterpiece of Second Empire luxury and acoustical perfection.",
+      "indoor": true,
+      "best_time": "Late Afternoon / Pre-Performance Hours",
+      "price_range": "Moderate",
+      "seasonal_notes": "Hours vary with performances and in summer (July – Aug reduced hours).",
+      "booking_tips": "Book tickets for guided or self-guided visits online. On show nights, last tour entry is earlier.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8725,
+      "longitude": 2.3314,
+      "arrondissement": "9th",
+      "neighborhood": "Opéra / Boulevard des Capucines",
+      "opening_hours": {
+        "weekday": "10:00-19:00 (generally) / 10:30-18:00 (Jul 17 – Aug 30)",
+        "weekend": "10:00-19:00 / 10:30-18:00 (Jul 17 – Aug 30)",
+        "notes": "Hours adjust on performance days; last entry 45 min before closing."
+      },
+      "seasonal_hours": {
+        "summer": "Reduced hours late July – Aug",
+        "winter": "Standard"
+      },
+      "closures": [
+        {"date": "2025-07-17", "reason": "Summer schedule begins (10:30–18:00 until Aug 30)"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "3 / 7 / 8", "station": "Opéra", "walk_minutes": 2}
+        ],
+        "closest_rer": {"line": "A", "station": "Auber", "walk_minutes": 3},
+        "last_train_consideration": "After evening performances, RER A and metro run until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 – 2 hours",
+        "weather_fallback": "Indoor galleries and covered passages near Opéra"
+      },
+      "website": "https://www.operadeparis.fr/en/visits/palais-garnier",
+      "ticket_url": "https://www.operadeparis.fr/en/visits"
+    },
+    {
+      "name": "Conciergerie",
+      "type": "Historic Monument / Palace Prison",
+      "description": "Once the royal palace of the Capetian kings, the **Conciergerie** later became the **Revolutionary tribunal prison** that held Marie-Antoinette before her execution. Today, its vast Gothic halls, rib-vaulted ceilings, and recreated cells immerse visitors in medieval and Revolutionary history. Paired with Sainte-Chapelle next door, it offers a window into centuries of justice and power on the Île de la Cité.",
+      "indoor": true,
+      "best_time": "Morning / Midday",
+      "price_range": "Moderate",
+      "seasonal_notes": "Quietest early morning; combined tickets available with Sainte-Chapelle.",
+      "booking_tips": "Book a timed ticket online via the official Monuments Nationaux site. Audio guide (Histopad) recommended for immersive storytelling.",
+      "ratings": {
+        "cost_estimate": 13,
+        "suggested_duration_hours": 1.25,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8550,
+      "longitude": 2.3450,
+      "arrondissement": "1st",
+      "neighborhood": "Île de la Cité / Boulevard du Palais",
+      "opening_hours": {
+        "weekday": "09:30-18:00",
+        "weekend": "09:30-18:00",
+        "notes": "Last entry ~17:15; closed May 1 and Dec 25."
+      },
+      "seasonal_hours": {
+        "summer": "Standard",
+        "winter": "Standard"
+      },
+      "closures": [
+        {"date": "2025-05-01", "reason": "Closed (Labour Day)"},
+        {"date": "2025-12-25", "reason": "Closed (Christmas Day)"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "4", "station": "Cité", "walk_minutes": 4},
+          {"line": "1 / 7 / 11 / 14", "station": "Châtelet", "walk_minutes": 10}
+        ],
+        "closest_rer": {"line": "B / C", "station": "Saint-Michel – Notre-Dame", "walk_minutes": 7},
+        "last_train_consideration": "Central hub area; allow extra time for security queues at Palais de Justice."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 – 1.25 hours",
+        "weather_fallback": "Sainte-Chapelle next door (fully indoor)"
+      },
+      "website": "https://www.paris-conciergerie.fr/en",
+      "ticket_url": "https://tickets.monuments-nationaux.fr/en-GB/families?site=2035141881030400307"
+    },
+    {
+      "name": "Musée Rodin",
+      "type": "Museum / Sculpture Garden",
+      "description": "Set within a serene 18th-century mansion and tranquil rose gardens, the **Musée Rodin** celebrates the genius of Auguste Rodin. Bronze and marble works such as *The Thinker*, *The Kiss*, and *The Gates of Hell* populate sun-dappled lawns and quiet galleries. The play of natural light on his figures, combined with the scent of roses and the hum of bees, makes this one of Paris’s most poetic escapes.",
+      "indoor": true,
+      "best_time": "Morning or Early Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Gardens are most vibrant April–September. Tuesdays closed; free entry first Sundays (Oct–Mar).",
+      "booking_tips": "Reserve tickets online to skip the queue. Combine with Invalides or Orsay nearby.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8557,
+      "longitude": 2.3151,
+      "arrondissement": "7th",
+      "neighborhood": "Invalides / Rue de Varenne",
+      "opening_hours": {
+        "weekday": "10:00–18:30 (Tue closed)",
+        "weekend": "10:00–18:30",
+        "notes": "Last admission 17:45; closed Jan 1, May 1, Dec 25."
+      },
+      "seasonal_hours": {
+        "summer": "10:00–18:30",
+        "winter": "10:00–18:30"
+      },
+      "closures": [
+        {"date": "2025-01-01", "reason": "Holiday closure"},
+        {"date": "2025-05-01", "reason": "Holiday closure"},
+        {"date": "2025-12-25", "reason": "Holiday closure"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "13", "station": "Varenne", "walk_minutes": 2},
+          {"line": "8", "station": "Invalides", "walk_minutes": 6}
+        ],
+        "closest_rer": {"line": "C", "station": "Invalides", "walk_minutes": 6},
+        "last_train_consideration": "Close to central hub; trains run until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Indoor sculpture halls"
+      },
+      "website": "https://www.musee-rodin.fr/en",
+      "ticket_url": "https://www.musee-rodin.fr/en/visit/buy-tickets"
+    },
+    {
+      "name": "Musée de l’Orangerie",
+      "type": "Museum / Impressionist Gallery",
+      "description": "An intimate sanctuary of light and color, the **Musée de l’Orangerie** houses Monet’s monumental **Water Lilies** murals — eight vast panels enveloping two oval rooms designed for peaceful contemplation. The lower floors feature works by Cézanne, Renoir, Matisse, and Modigliani, forming a concise yet radiant survey of early modern art in the heart of the Tuileries Gardens.",
+      "indoor": true,
+      "best_time": "Morning / Late Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Tuesdays; late-day visits are calmer. Free entry first Sundays (Oct–Mar).",
+      "booking_tips": "Reserve a timed entry ticket online to avoid queues; combo tickets with Musée d’Orsay available.",
+      "ratings": {
+        "cost_estimate": 13,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8638,
+      "longitude": 2.3226,
+      "arrondissement": "1st",
+      "neighborhood": "Tuileries / Place de la Concorde",
+      "opening_hours": {
+        "weekday": "09:00–18:00 (closed Tue)",
+        "weekend": "09:00–18:00",
+        "notes": "Last admission 17:15; rooms begin clearing 17:45."
+      },
+      "seasonal_hours": {
+        "summer": "Standard",
+        "winter": "Standard"
+      },
+      "closures": [
+        {"date": "2025-01-01", "reason": "Holiday closure"},
+        {"date": "2025-05-01", "reason": "Holiday closure"},
+        {"date": "2025-07-14", "reason": "Morning closure for parade"},
+        {"date": "2025-12-25", "reason": "Holiday closure"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "1", "station": "Concorde", "walk_minutes": 3}
+        ],
+        "closest_rer": {"line": "A", "station": "Auber", "walk_minutes": 8},
+        "last_train_consideration": "Metro line 1 and RER A provide reliable late service until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Indoor collection entirely covered"
+      },
+      "website": "https://www.musee-orangerie.fr/en",
+      "ticket_url": "https://billetterie.musee-orangerie.fr/en-GB/families"
+    },
+    {
+      "name": "Musée Picasso–Paris",
+      "type": "Museum",
+      "description": "Housed in a restored 17th-century hôtel particulier in the Marais, the **Musée Picasso–Paris** offers the most comprehensive collection of **Pablo Picasso’s** works anywhere: paintings, sculptures, ceramics, and sketchbooks spanning his prolific career. The airy rooms blend classic French architecture with modern curation, revealing the artist’s evolution from Blue Period introspection to Cubist revolution.",
+      "indoor": true,
+      "best_time": "Late Morning / Early Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Mondays. Peak mid-afternoon hours see tour groups; mornings are quieter.",
+      "booking_tips": "Reserve skip-the-line entry online. Combination tickets sometimes offered with Musée Rodin.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8599,
+      "longitude": 2.3625,
+      "arrondissement": "3rd",
+      "neighborhood": "Le Marais / Rue de Thorigny",
+      "opening_hours": {
+        "weekday": "10:30–18:00 (Tue–Fri)",
+        "weekend": "09:30–18:00 (Sat–Sun)",
+        "notes": "Closed Monday; last entry 17:15."
+      },
+      "seasonal_hours": {
+        "summer": "Standard",
+        "winter": "Standard"
+      },
+      "closures": [
+        {"date": "2025-01-01", "reason": "Holiday closure"},
+        {"date": "2025-05-01", "reason": "Holiday closure"},
+        {"date": "2025-12-25", "reason": "Holiday closure"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "1 / 8", "station": "Saint-Paul", "walk_minutes": 7},
+          {"line": "8", "station": "Chemin Vert", "walk_minutes": 6}
+        ],
+        "closest_rer": {"line": "A / B / D", "station": "Châtelet – Les Halles", "walk_minutes": 12},
+        "last_train_consideration": "Le Marais area remains active late; metro until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor visit"
+      },
+      "website": "https://www.museepicassoparis.fr/en",
+      "ticket_url": "https://billetterie.museepicassoparis.fr/en-GB/families"
+    },
+    {
+      "name": "Centre Pompidou",
+      "type": "Modern Art Museum / Cultural Center",
+      "description": "A radical emblem of modern architecture, the **Centre Pompidou** (1977, by Piano & Rogers) wears its pipes, ducts, and escalators on the outside, embodying transparency and motion. Inside unfolds Europe’s largest modern art collection — from Kandinsky to Pollock, Duchamp to Bourgeois — alongside ever-changing installations and a panoramic rooftop terrace overlooking the skyline of Paris.",
+      "indoor": true,
+      "best_time": "Afternoon / Early Evening",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Tuesdays. Rooftop terrace and restaurant open independently of galleries.",
+      "booking_tips": "Reserve entry online; avoid peak weekends. Evening visits around 17:00 – 19:00 offer thinner crowds.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8606,
+      "longitude": 2.3522,
+      "arrondissement": "4th",
+      "neighborhood": "Beaubourg / Le Marais",
+      "opening_hours": {
+        "weekday": "11:00–21:00 (closed Tue)",
+        "weekend": "11:00–21:00",
+        "notes": "Last admission 20:00; rooftop terrace closes earlier in winter."
+      },
+      "seasonal_hours": {
+        "summer": "11:00–21:00",
+        "winter": "11:00–21:00 (terrace until dusk)"
+      },
+      "closures": [
+        {"date": "2025-05-01", "reason": "Closed (Labour Day)"},
+        {"date": "2025-12-25", "reason": "Closed (Christmas Day)"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "11", "station": "Rambuteau", "walk_minutes": 1},
+          {"line": "1 / 4 / 7 / 11 / 14", "station": "Châtelet", "walk_minutes": 5}
+        ],
+        "closest_rer": {"line": "A / B / D", "station": "Châtelet – Les Halles", "walk_minutes": 5},
+        "last_train_consideration": "Evening exit through Les Halles area offers easy night service."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 3.5,
+        "ideal_time_block": "2.5 hours",
+        "weather_fallback": "Fully indoor; rooftop terrace weather-dependent"
+      },
+      "website": "https://www.centrepompidou.fr/en",
+      "ticket_url": "https://billetterie.centrepompidou.fr/en-GB/families"
+    },
+    {
+      "name": "Palais Garnier (Opéra Garnier)",
+      "type": "Historic Opera House",
+      "description": "19th-century jewel box by Charles Garnier with grand staircase, Chagall ceiling, and lavish foyers; tours and occasional performances.",
+      "indoor": true,
+      "best_time": "Late Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Hours can shift on performance days and in late July–Aug; check day-of schedule.",
+      "booking_tips": "Book self-guided or guided tour slots; last entries earlier on show nights.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8725,
+      "longitude": 2.3314,
+      "arrondissement": "9th (Opéra)",
+      "neighborhood": "Opéra / Boulevard des Capucines",
+      "opening_hours": {
+        "weekday": "Generally 10:00-19:00; 10:30-18:00 from Jul 17–Aug 30",
+        "weekend": "Generally 10:00-19:00; 10:30-18:00 from Jul 17–Aug 30",
+        "notes": "Open until end of performances; hours vary with events."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Reduced hours late Jul–Aug"
+      },
+      "closures": [
+        {
+          "date": "2025-07-17",
+          "reason": "Summer schedule starts (10:30–18:00 until Aug 30)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "3/7/8",
+            "station": "Opéra",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Auber",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "After evening performances, RER A still frequent; mind last museum entries earlier on show nights."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1–2 hours",
+        "weather_fallback": "Galeries Lafayette rooftop (covered access nearby)."
       }
-    ]
-  }
-  
+    },
+    {
+      "name": "Conciergerie",
+      "type": "Historic Monument",
+      "description": "Medieval royal palace turned prison on Île de la Cité, known for Revolutionary history including Marie-Antoinette’s cell.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Joint tickets sometimes offered with Sainte-Chapelle; check for security lines at Palais de Justice.",
+      "booking_tips": "Reserve a time slot; Histopad tablets available until late afternoon.",
+      "ratings": {
+        "cost_estimate": 13,
+        "suggested_duration_hours": 1.25,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8538,
+      "longitude": 2.3454,
+      "arrondissement": "1st",
+      "neighborhood": "Île de la Cité / Boulevard du Palais",
+      "opening_hours": {
+        "weekday": "09:30-18:00",
+        "weekend": "09:30-18:00",
+        "notes": "Last entry ~17:15; closed May 1 and Dec 25."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "4",
+            "station": "Cité",
+            "walk_minutes": 5
+          },
+          {
+            "line": "1/7/11/14",
+            "station": "Châtelet",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_rer": {
+          "line": "B/C",
+          "station": "Saint-Michel – Notre-Dame",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Evening Seine area is lively; allow several extra minutes for security screening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1–1.5 hours",
+        "weather_fallback": "Sainte-Chapelle next door."
+      }
+    },
+    {
+      "name": "Panthéon",
+      "type": "Historic Monument",
+      "description": "A neoclassical landmark in the Latin Quarter originally built as a church, now serving as a mausoleum for distinguished French citizens including Voltaire, Rousseau, Marie Curie, and Victor Hugo.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Sunny mornings provide ideal lighting inside the dome; expect larger groups in spring and summer.",
+      "booking_tips": "Purchase skip-the-line tickets or combined passes online. Dome access requires an extra ticket and is closed in winter months.",
+      "ratings": {
+        "cost_estimate": 13,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8462,
+      "longitude": 2.3458,
+      "arrondissement": "5th",
+      "neighborhood": "Latin Quarter / Place du Panthéon",
+      "opening_hours": {
+        "weekday": "10:00-18:30 (Apr–Sep) / 10:00-18:00 (Oct–Mar)",
+        "weekend": "10:00-18:30 (Apr–Sep) / 10:00-18:00 (Oct–Mar)",
+        "notes": "Last entry ~45 min before close; dome access limited in winter or heavy rain."
+      },
+      "seasonal_hours": {
+        "winter": "10:00-18:00; dome closed",
+        "summer": "10:00-18:30; dome open"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "10",
+            "station": "Cardinal Lemoine",
+            "walk_minutes": 7
+          },
+          {
+            "line": "7",
+            "station": "Place Monge",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "B",
+          "station": "Luxembourg",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "RER B continues until ~00:30; allow 15 min walk from closing time."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1–2 hours",
+        "weather_fallback": "Nearby Musée de Cluny or covered cafés of Rue Soufflot."
+      }
+    },
+    {
+      "name": "Les Invalides & Musée de l’Armée",
+      "type": "Monument / Museum Complex",
+      "description": "Dominated by its gilded dome, **Les Invalides** unites history, architecture, and reverence. Built by Louis XIV to house wounded soldiers, it now shelters the **Musée de l’Armée**, chronicling French military history from medieval armor to World War II, and the solemn **tomb of Napoleon I** beneath a golden cupola that glows at sunset. The mixture of grandeur and quiet reflection makes it one of Paris’s most profound sites.",
+      "indoor": true,
+      "best_time": "Morning or Late Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open daily except first Mondays of each month (Jan–Jun, Oct–Dec). The Dome Church interior shines under afternoon light.",
+      "booking_tips": "Purchase skip-the-line tickets online; combined passes available with Rodin Museum or Orsay.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8554,
+      "longitude": 2.3123,
+      "arrondissement": "7th",
+      "neighborhood": "Invalides / Esplanade des Invalides",
+      "opening_hours": {
+        "weekday": "10:00–18:00 (Apr–Oct) / 10:00–17:00 (Nov–Mar)",
+        "weekend": "10:00–18:00 (Apr–Oct) / 10:00–17:00 (Nov–Mar)",
+        "notes": "Closed Jan 1, May 1, Dec 25; last entry 30 min before close."
+      },
+      "seasonal_hours": {
+        "summer": "10:00–18:00",
+        "winter": "10:00–17:00"
+      },
+      "closures": [
+        {"date": "2025-01-01", "reason": "Holiday closure"},
+        {"date": "2025-05-01", "reason": "Holiday closure"},
+        {"date": "2025-12-25", "reason": "Holiday closure"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "8 / 13", "station": "Invalides", "walk_minutes": 5},
+          {"line": "8", "station": "La Tour-Maubourg", "walk_minutes": 4}
+        ],
+        "closest_rer": {"line": "C", "station": "Invalides", "walk_minutes": 5},
+        "last_train_consideration": "Evening returns well served; short walk to Seine bridges."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Indoor museum galleries"
+      },
+      "website": "https://www.musee-armee.fr/en",
+      "ticket_url": "https://billetterie.musee-armee.fr/en-GB/families"
+    },
+    {
+      "name": "Hôtel de Ville de Paris",
+      "type": "Historic Building / City Hall",
+      "description": "The **Hôtel de Ville** — Paris’s ornate neo-Renaissance city hall — anchors the Right Bank with grandeur and civic pride. Its sculpted façade bears the likenesses of French luminaries, while the square hosts skating rinks in winter and open-air events in summer. Interior tours (by reservation) reveal gilded salons rivaling Versailles in detail.",
+      "indoor": true,
+      "best_time": "Afternoon / Early Evening",
+      "price_range": "Free (outside) / Guided tours require reservation",
+      "seasonal_notes": "Exterior illuminated at night; occasional temporary closures during official ceremonies.",
+      "booking_tips": "Free to view exterior anytime; guided interior visits require advance booking via City Hall website.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8566,
+      "longitude": 2.3522,
+      "arrondissement": "4th",
+      "neighborhood": "Le Marais / Right Bank",
+      "opening_hours": {
+        "weekday": "08:00–19:30 (administrative hours) / Facade and square 24 h access",
+        "weekend": "Square open 24 h",
+        "notes": "Interior tours by reservation only; check official schedule."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "1 / 11", "station": "Hôtel de Ville", "walk_minutes": 1}
+        ],
+        "closest_rer": {"line": "B / C", "station": "Saint-Michel – Notre-Dame", "walk_minutes": 10},
+        "last_train_consideration": "Central hub with service until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.25,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Nearby BH V Marais arcade or Café Marcel"
+      },
+      "website": "https://www.paris.fr/hotel-de-ville",
+      "ticket_url": "https://www.paris.fr/pages/visites-de-l-hotel-de-ville-107"
+    },
+    {
+      "name": "Pont Alexandre III",
+      "type": "Bridge / Architectural Landmark",
+      "description": "The **Pont Alexandre III** is Paris’s most ornate bridge — an exuberant Belle Époque masterpiece adorned with gilded nymphs, winged horses, and Art Nouveau lamps. Linking the Champs-Élysées with Les Invalides, it frames unforgettable views of the Seine and the Eiffel Tower, especially magical at dusk when its lamps shimmer against the water.",
+      "indoor": false,
+      "best_time": "Sunset / Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Best photographed near golden hour; night lighting from both banks enhances reflections.",
+      "booking_tips": "No ticket needed; go around blue-hour for photos and minimal crowds.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8638,
+      "longitude": 2.3130,
+      "arrondissement": "8th / 7th",
+      "neighborhood": "Invalides / Grand Palais area",
+      "opening_hours": {
+        "weekday": "Open 24 h",
+        "weekend": "Open 24 h",
+        "notes": "Lighting typically on from sunset to ~01:00."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "8 / 13", "station": "Invalides", "walk_minutes": 6},
+          {"line": "1 / 9", "station": "Franklin D. Roosevelt", "walk_minutes": 10}
+        ],
+        "closest_rer": {"line": "C", "station": "Invalides", "walk_minutes": 6},
+        "last_train_consideration": "Bridge easily walkable to Champs-Élysées or Eiffel Tower metro lines."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 1,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Nearby Grand Palais or Bateaux-Mouches cruise"
+      },
+      "website": "https://en.parisinfo.com/paris-museum-monument/71187/Pont-Alexandre-III",
+      "ticket_url": "N/A"
+    },
+    {
+      "name": "Seine River Cruises (Port de la Bourdonnais / Bateaux Parisiens)",
+      "type": "River Experience / Sightseeing Tour",
+      "description": "Drifting beneath Paris’s bridges on a **Seine River cruise** offers a living postcard of the city — Notre-Dame, the Louvre, and the Eiffel Tower glide by as narration recounts centuries of history. **Bateaux Parisiens**, departing from the foot of the Eiffel Tower, run day and illuminated night cruises, with dining options that pair cuisine and skyline sparkle.",
+      "indoor": false,
+      "best_time": "Sunset / Night",
+      "price_range": "Moderate to High (depends on cruise type)",
+      "seasonal_notes": "Open year-round; covered boats operate in winter; advance bookings recommended in summer.",
+      "booking_tips": "Reserve online for timed boarding at Port de la Bourdonnais. Arrive 15 min early for boarding and best deck views.",
+      "ratings": {
+        "cost_estimate": 20,
+        "suggested_duration_hours": 1.25,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8625,
+      "longitude": 2.3060,
+      "arrondissement": "7th",
+      "neighborhood": "Eiffel Tower / Port de la Bourdonnais",
+      "opening_hours": {
+        "weekday": "10:00–22:30 (depending on season)",
+        "weekend": "10:00–22:30",
+        "notes": "Dinner cruises depart 19:30–21:00; schedules vary with sunset."
+      },
+      "seasonal_hours": {
+        "summer": "Frequent departures 10:00–22:30",
+        "winter": "Reduced departures 11:00–20:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "6", "station": "Bir-Hakeim", "walk_minutes": 5}
+        ],
+        "closest_rer": {"line": "C", "station": "Champ de Mars – Tour Eiffel", "walk_minutes": 5},
+        "last_train_consideration": "Late night cruise returns match RER C final departures (~23:00)."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "75–90 minutes",
+        "weather_fallback": "Enclosed boats with panoramic windows"
+      },
+      "website": "https://www.bateauxparisiens.com/en.html",
+      "ticket_url": "https://www.bateauxparisiens.com/en/reservation.html"
+    },
+    {
+      "name": "Musée Picasso Paris",
+      "type": "Museum",
+      "description": "Occupying the 17th-century Hôtel Salé, this museum holds the world’s largest collection of Picasso’s works spanning every creative phase, from Blue Period to late ceramics.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Mondays; lighter crowds at opening or late afternoon.",
+      "booking_tips": "Reserve timed tickets online. Café and rooftop terrace provide breaks between galleries.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8598,
+      "longitude": 2.3623,
+      "arrondissement": "3rd",
+      "neighborhood": "Le Marais / Rue de Thorigny",
+      "opening_hours": {
+        "weekday": "Tue–Fri 10:30-18:00",
+        "weekend": "Sat–Sun 09:30-18:00",
+        "notes": "Closed Monday; last entry 17:15; museum shop open until 18:30."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Saint-Paul",
+            "walk_minutes": 9
+          },
+          {
+            "line": "8",
+            "station": "Filles du Calvaire",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "A/B/D",
+          "station": "Châtelet–Les Halles",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Metro line 8 runs until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Nearby Musée Carnavalet or Maison Européenne de la Photographie."
+      }
+    },
+    {
+      "name": "Jeu de Paume",
+      "type": "Photography & Media Arts Center",
+      "description": "Contemporary photography and video art exhibitions in a neoclassical pavilion within the Tuileries Gardens.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Monday; garden entrance can flood lightly in winter rain—use north entry.",
+      "booking_tips": "Timed tickets recommended; free on first Sunday of each month.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.25,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8648,
+      "longitude": 2.3222,
+      "arrondissement": "1st",
+      "neighborhood": "Tuileries / Place de la Concorde",
+      "opening_hours": {
+        "weekday": "Tue 11:00-21:00; Wed–Sun 11:00-19:00; Mon closed",
+        "weekend": "11:00-19:00",
+        "notes": "Last admission 45 min before closing."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1/8/12",
+            "station": "Concorde",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Auber",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Evening Tue late sessions align with metro until midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1–1.5 hours",
+        "weather_fallback": "Musée de l’Orangerie across the gardens."
+      }
+    },
+    {
+      "name": "Centre Pompidou Constellation (2025–2030 Off-site Venues)",
+      "type": "Cultural Network",
+      "description": "During the main Centre Pompidou’s renovation, major works tour France and Europe under the ‘Constellation’ banner, with satellite exhibitions hosted at venues such as the Grand Palais Immersif, Bourse de Commerce, and new Pompidou-kiosks across Paris.",
+      "indoor": true,
+      "best_time": "Varies by site",
+      "price_range": "Varies (mostly moderate)",
+      "seasonal_notes": "Rotating schedules 2025–2027; consult Pompidou official listings for current constellation sites.",
+      "booking_tips": "Reserve online per venue; schedules differ across Paris and regional partner museums.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8609,
+      "longitude": 2.3375,
+      "arrondissement": "Multiple (temporary sites citywide)",
+      "neighborhood": "Grand Palais, Bourse de Commerce, La Villette, and partner galleries",
+      "opening_hours": {
+        "weekday": "Varies; typically 10:00-19:00 for host museums",
+        "weekend": "Varies; late evenings for select immersive shows",
+        "notes": "Each site maintains its own calendar under Pompidou Constellation program."
+      },
+      "seasonal_hours": {
+        "winter": "Dependent on host venues",
+        "summer": "Extended hours for open-air or immersive programs"
+      },
+      "closures": [
+        {
+          "date": "2025-09-22",
+          "reason": "Main Pompidou closed for renovation; satellite schedule begins"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1/7/14",
+            "station": "Châtelet",
+            "walk_minutes": 5
+          },
+          {
+            "line": "7/14",
+            "station": "Pyramides",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "A/B/D",
+          "station": "Châtelet–Les Halles",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Evening installations often end ~22:00; allow 15–20 min for return travel."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Half-day per site",
+        "weather_fallback": "Alternate partner museums or cinemas within Constellation circuit."
+      }
+    },
+    {
+      "name": "Musée d’Art Moderne de Paris",
+      "type": "Museum",
+      "description": "Dedicated to modern and contemporary art, this museum showcases 20th- and 21st-century masterpieces by artists like Matisse, Delaunay, and Picasso in the striking Palais de Tokyo complex.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free (permanent collections) / Moderate (temporary exhibits)",
+      "seasonal_notes": "Closed Mondays; best visited weekday afternoons for calm galleries.",
+      "booking_tips": "Permanent collections are free; special exhibitions require separate tickets. Combine with nearby Palais de Tokyo.",
+      "ratings": {
+        "cost_estimate": 16,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8642,
+      "longitude": 2.2964,
+      "arrondissement": "16th",
+      "neighborhood": "Palais de Tokyo / Trocadéro",
+      "opening_hours": {
+        "weekday": "Tue–Sun 10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays and certain holidays. Last entry 45 min before closing."
+      },
+      "seasonal_hours": {
+        "winter": "Standard; closed Dec 25 & Jan 1",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "9",
+            "station": "Alma–Marceau",
+            "walk_minutes": 8
+          },
+          {
+            "line": "9",
+            "station": "Iéna",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Pont de l’Alma",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Evening events sometimes run late; nearby bus routes operate until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2–3 hours",
+        "weather_fallback": "Palais de Tokyo exhibitions next door."
+      }
+    },
+    {
+      "name": "Petit Palais – Musée des Beaux-Arts de la Ville de Paris",
+      "type": "Museum",
+      "description": "Built for the 1900 World’s Fair, this elegant Beaux-Arts palace houses fine arts from antiquity through the early 20th century, with a lush inner courtyard café.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free (permanent exhibits)",
+      "seasonal_notes": "Quiet in early mornings; courtyard garden ideal in warm weather.",
+      "booking_tips": "No ticket required for the permanent collection; special exhibitions are ticketed.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8661,
+      "longitude": 2.3132,
+      "arrondissement": "8th",
+      "neighborhood": "Avenue Winston-Churchill / Champs-Élysées",
+      "opening_hours": {
+        "weekday": "Tue–Sun 10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays and holidays; last entry 17:15."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard; courtyard café open extended hours"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1/13",
+            "station": "Champs-Élysées – Clemenceau",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Auber",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Easy late-evening access via metro 1 until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1–2 hours",
+        "weather_fallback": "Musée d’Orsay or Grand Palais Immersif nearby."
+      }
+    },
+    {
+      "name": "Musée de Cluny – Musée National du Moyen Âge",
+      "type": "Museum",
+      "description": "A medieval jewel showcasing artifacts of daily life and art from the Middle Ages, including the celebrated ‘Lady and the Unicorn’ tapestries.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Cool interior even in summer; less busy on weekday mornings.",
+      "booking_tips": "Reserve timed tickets or use the Paris Museum Pass. Audio guides recommended for tapestry gallery.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.847,
+      "longitude": 2.3437,
+      "arrondissement": "5th",
+      "neighborhood": "Latin Quarter / Boulevard Saint-Michel",
+      "opening_hours": {
+        "weekday": "Wed–Mon 09:30-18:15",
+        "weekend": "09:30-18:15",
+        "notes": "Closed Tuesdays; last entry 17:45."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "10",
+            "station": "Cluny – La Sorbonne",
+            "walk_minutes": 2
+          },
+          {
+            "line": "4",
+            "station": "Saint-Michel",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "B/C",
+          "station": "Saint-Michel – Notre-Dame",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Area lively late; RER B to airports runs until ~00:15."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1–2 hours",
+        "weather_fallback": "Nearby Panthéon or bookstores along Boulevard Saint-Michel."
+      }
+    },
+    {
+      "name": "Musée Guimet – Musée National des Arts Asiatiques",
+      "type": "Museum",
+      "description": "France’s premier Asian art museum with over 60,000 works from across Asia, including Khmer sculptures, Japanese screens, and Himalayan bronzes.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Tuesdays; upper-floor galleries can warm in midsummer afternoons.",
+      "booking_tips": "Book online; combined tickets available with the Panthéon Bouddhique annex nearby.",
+      "ratings": {
+        "cost_estimate": 16,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8649,
+      "longitude": 2.2939,
+      "arrondissement": "16th",
+      "neighborhood": "Place d’Iéna / Trocadéro",
+      "opening_hours": {
+        "weekday": "Wed–Mon 10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Tuesdays; last admission 17:15."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "9",
+            "station": "Iéna",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Pont de l’Alma",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Area well-lit at night; easy returns via line 9 until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Nearby Palais Galliera or Musée d’Art Moderne."
+      }
+    },
+    {
+      "name": "Musée des Arts Décoratifs",
+      "type": "Museum",
+      "description": "Part of the Louvre complex, this museum chronicles decorative arts, fashion, and design from the Middle Ages to the present with an emphasis on craftsmanship and creativity.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Mondays; late openings on Thursdays until 21:00.",
+      "booking_tips": "Book online; the temporary fashion exhibits are highly popular and time-slot controlled.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8625,
+      "longitude": 2.3361,
+      "arrondissement": "1st",
+      "neighborhood": "Louvre / Rue de Rivoli",
+      "opening_hours": {
+        "weekday": "Tue–Sun 11:00-18:00; Thu until 21:00",
+        "weekend": "11:00-18:00",
+        "notes": "Closed Mondays; last entry 17:15 (or 20:15 Thu)."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Palais Royal – Musée du Louvre",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Auber",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Thursday nocturnes end 21:00; metro 1 operates until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1–2 hours",
+        "weather_fallback": "Louvre galleries nearby."
+      }
+    },
+    {
+      "name": "Musée Carnavalet – Histoire de Paris",
+      "type": "Museum",
+      "description": "Located in two adjoining mansions in the Marais, this museum traces the rich and turbulent history of Paris from its origins to the present day through art, maps, furniture, and historical artifacts.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free (permanent collection) / Moderate (temporary exhibitions)",
+      "seasonal_notes": "Closed Mondays; pleasant courtyard café in spring and summer.",
+      "booking_tips": "Free entry to permanent exhibits; book temporary show tickets online.",
+      "ratings": {
+        "cost_estimate": 10,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8575,
+      "longitude": 2.3626,
+      "arrondissement": "3rd",
+      "neighborhood": "Le Marais / Rue de Sévigné",
+      "opening_hours": {
+        "weekday": "Tue–Sun 10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays and some holidays; last entry 17:15."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Saint-Paul",
+            "walk_minutes": 5
+          },
+          {
+            "line": "8",
+            "station": "Chemin Vert",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "A/B/D",
+          "station": "Châtelet–Les Halles",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Area quiet by late evening; metro 1 runs until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Musée Picasso or Maison de Victor Hugo nearby."
+      }
+    },
+    {
+      "name": "Musée de la Vie Romantique",
+      "type": "Historic House Museum",
+      "description": "A charming museum in the former home of painter Ary Scheffer, devoted to Romantic-era art and literature with strong links to George Sand and Frédéric Chopin.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free (permanent) / Moderate (temporary exhibits)",
+      "seasonal_notes": "Closed Mondays; lovely garden café open seasonally from April to October.",
+      "booking_tips": "Permanent galleries free; temporary exhibitions require tickets available online.",
+      "ratings": {
+        "cost_estimate": 10,
+        "suggested_duration_hours": 1.25,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8818,
+      "longitude": 2.3346,
+      "arrondissement": "9th",
+      "neighborhood": "Pigalle / Nouvelle Athènes",
+      "opening_hours": {
+        "weekday": "Tue–Sun 10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays; café open seasonally 10:00–17:30."
+      },
+      "seasonal_hours": {
+        "winter": "Standard; café closed",
+        "summer": "Standard; garden café open April–Oct"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "2",
+            "station": "Pigalle",
+            "walk_minutes": 6
+          },
+          {
+            "line": "12",
+            "station": "Saint-Georges",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Auber",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Metro lines 2 and 12 run until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1–1.5 hours",
+        "weather_fallback": "Nearby Musée Gustave Moreau (indoor)."
+      }
+    },
+    {
+      "name": "Palais de Tokyo – Contemporary Art Center",
+      "type": "Museum & Exhibition Space",
+      "description": "Europe’s largest contemporary art center, housed in an immense 1937 building opposite the Eiffel Tower, known for bold, experimental installations and late-night hours.",
+      "indoor": true,
+      "best_time": "Evening",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Tuesdays; café terrace popular on warm nights.",
+      "booking_tips": "Online booking advised for major installations. Exhibits change every few months.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8647,
+      "longitude": 2.2969,
+      "arrondissement": "16th",
+      "neighborhood": "Trocadéro / Seine Left Bank",
+      "opening_hours": {
+        "weekday": "Wed–Mon 12:00-00:00",
+        "weekend": "12:00-00:00",
+        "notes": "Closed Tuesdays; last entry ~23:15."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard; terrace bar open until late"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "9",
+            "station": "Iéna",
+            "walk_minutes": 4
+          },
+          {
+            "line": "9",
+            "station": "Alma–Marceau",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Pont de l’Alma",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Late openings make metro preferable; last train ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Evening outing",
+        "weather_fallback": "Indoor exhibitions unaffected by weather."
+      }
+    },
+    {
+      "name": "Musée des Égouts de Paris",
+      "type": "Museum",
+      "description": "A fascinating underground museum exploring the city’s extensive sewer system, engineering marvels, and environmental management.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Cool year-round; may close temporarily after heavy rain for safety.",
+      "booking_tips": "Book online due to group limits. Not recommended for visitors sensitive to odors or confined spaces.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 48.8573,
+      "longitude": 2.2986,
+      "arrondissement": "7th",
+      "neighborhood": "Pont de l’Alma / Left Bank",
+      "opening_hours": {
+        "weekday": "Tue–Sun 10:00-17:00",
+        "weekend": "10:00-17:00",
+        "notes": "Closed Mondays and public holidays; last entry 16:15."
+      },
+      "seasonal_hours": {
+        "winter": "10:00-17:00; occasional flood closures",
+        "summer": "10:00-17:00"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "9",
+            "station": "Alma–Marceau",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Pont de l’Alma",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Allow extra time if visiting during rain; RER C occasionally suspends service."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1–1.5 hours",
+        "weather_fallback": "Musée d’Orsay or Rodin Museum nearby."
+      }
+    },
+    {
+      "name": "Musée de la Chasse et de la Nature",
+      "type": "Museum",
+      "description": "An eccentric and artful museum in the Marais blending hunting artifacts, taxidermy, and contemporary art, exploring humanity’s relationship with nature.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Closed Mondays; special installations rotate often.",
+      "booking_tips": "Book online—limited capacity and high local interest. Free entry first Sunday monthly.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.861,
+      "longitude": 2.358,
+      "arrondissement": "3rd",
+      "neighborhood": "Le Marais / Rue des Archives",
+      "opening_hours": {
+        "weekday": "Tue–Sun 11:00-18:00",
+        "weekend": "11:00-18:00",
+        "notes": "Closed Mondays and some holidays; last entry 17:30."
+      },
+      "seasonal_hours": {
+        "winter": "Standard",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Saint-Paul",
+            "walk_minutes": 7
+          },
+          {
+            "line": "11",
+            "station": "Rambuteau",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "A/B/D",
+          "station": "Châtelet–Les Halles",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Evenings calm; metro line 1 runs until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1–2 hours",
+        "weather_fallback": "Nearby Carnavalet Museum."
+      }
+    },
+    {
+      "name": "Catacombes de Paris",
+      "type": "Historic Underground Site",
+      "description": "A labyrinthine ossuary beneath southern Paris housing the remains of over six million Parisians, arranged in haunting artistic formations within 18th-century tunnels.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Cool (14°C/57°F) year-round; ideal summer activity. Closed Mondays.",
+      "booking_tips": "Advance online booking mandatory; timed entries strictly enforced. Not suitable for claustrophobia or mobility issues.",
+      "ratings": {
+        "cost_estimate": 30,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8338,
+      "longitude": 2.3324,
+      "arrondissement": "14th",
+      "neighborhood": "Montparnasse / Denfert-Rochereau",
+      "opening_hours": {
+        "weekday": "Tue–Sun 09:45-20:30",
+        "weekend": "09:45-20:30",
+        "notes": "Closed Mondays and major holidays; last entry 19:30."
+      },
+      "seasonal_hours": {
+        "winter": "Standard; may close for maintenance",
+        "summer": "Standard"
+      },
+      "closures": [
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "4/6",
+            "station": "Denfert-Rochereau",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "B",
+          "station": "Denfert-Rochereau",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Last Catacombs entry 19:30; RER B runs until ~00:20."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "N/A (fully indoor)."
+      }
+    },
+    {
+      "name": "Parc des Buttes-Chaumont",
+      "type": "Public Park",
+      "description": "A dramatic 19th-century park in northeastern Paris, known for its steep cliffs, suspension bridge, waterfalls, and the Temple de la Sibylle perched atop an artificial island.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Cherry blossoms in spring; picnics and concerts in summer. Some paths close during icy conditions.",
+      "booking_tips": "No ticket required; arrive early on weekends for quiet walks.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8809,
+      "longitude": 2.3826,
+      "arrondissement": "19th",
+      "neighborhood": "Buttes-Chaumont / Belleville",
+      "opening_hours": {
+        "weekday": "07:00-20:00 (Oct–Apr) / 07:00-22:00 (May–Sep)",
+        "weekend": "07:00-22:00 (May–Sep)",
+        "notes": "Gates close progressively 30 min before stated time."
+      },
+      "seasonal_hours": {
+        "winter": "07:00-20:00",
+        "summer": "07:00-22:00"
+      },
+      "closures": [
+        {
+          "date": "2025-02-05",
+          "reason": "Partial path closures for maintenance (lower lake area)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "7bis",
+            "station": "Buttes-Chaumont",
+            "walk_minutes": 3
+          },
+          {
+            "line": "11",
+            "station": "Pyrénées",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "E",
+          "station": "Belleville",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Evening exits unlit in winter; metro runs until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Cité des Sciences nearby."
+      }
+    },
+    {
+      "name": "Grand Palais Éphémère",
+      "type": "Temporary Exhibition Hall / Cultural Venue",
+      "description": "Facing the Eiffel Tower on the Champ-de-Mars, the **Grand Palais Éphémère** is a striking wood-and-glass structure designed by Jean-Michel Wilmotte. It temporarily replaces the Grand Palais during renovations and hosts art fairs, haute couture shows, and exhibitions beneath its elegant arched roof. Its transparent form frames both the Invalides and the Tower — a symbol of modern Parisian culture in motion.",
+      "indoor": true,
+      "best_time": "Afternoon / During Major Exhibitions",
+      "price_range": "Varies by event",
+      "seasonal_notes": "Event-based schedule; check website for current exhibitions and hours.",
+      "booking_tips": "Book directly via each event organizer or through the official venue site. Entry hours depend on exhibition programming.",
+      "ratings": {
+        "cost_estimate": 20,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8558,
+      "longitude": 2.3032,
+      "arrondissement": "7th",
+      "neighborhood": "Champ-de-Mars / École Militaire",
+      "opening_hours": {
+        "weekday": "Varies by event (typically 10:00–20:00)",
+        "weekend": "Varies by event",
+        "notes": "Closed between exhibitions; schedules updated online."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "8", "station": "École Militaire", "walk_minutes": 4}
+        ],
+        "closest_rer": {"line": "C", "station": "Pont de l’Alma", "walk_minutes": 10},
+        "last_train_consideration": "Central area, well served until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Fully indoor; café nearby"
+      },
+      "website": "https://www.grandpalais.fr/en/grand-palais-ephemere",
+      "ticket_url": "https://www.grandpalais.fr/en/events"
+    },
+    {
+      "name": "Jardin des Tuileries",
+      "type": "Public Garden / Historic Landmark",
+      "description": "Stretching between the Louvre and Place de la Concorde, the **Jardin des Tuileries** is the historic heart of Parisian promenades. Designed by Le Nôtre in the 17th century, its grand alleys, ornamental ponds, and sculptures invite both flâneurs and families. Carousel music, art installations, and open-air cafés create an elegant rhythm of daily life, especially radiant in late afternoon light.",
+      "indoor": false,
+      "best_time": "Afternoon / Golden Hour",
+      "price_range": "Free",
+      "seasonal_notes": "Spring tulips and autumn foliage are stunning; hosts the Tuileries Fun Fair in summer.",
+      "booking_tips": "Free entry; visit weekdays for quieter strolls.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8635,
+      "longitude": 2.3270,
+      "arrondissement": "1st",
+      "neighborhood": "Louvre / Concorde",
+      "opening_hours": {
+        "weekday": "07:00–23:00 (Apr–Sept) / 07:30–19:30 (Oct–Mar)",
+        "weekend": "07:00–23:00 (Apr–Sept) / 07:30–19:30 (Oct–Mar)",
+        "notes": "Closing hours vary slightly with daylight."
+      },
+      "seasonal_hours": {
+        "summer": "07:00–23:00",
+        "winter": "07:30–19:30"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "1", "station": "Tuileries", "walk_minutes": 1},
+          {"line": "1 / 8 / 12", "station": "Concorde", "walk_minutes": 5}
+        ],
+        "closest_rer": {"line": "A / B / D", "station": "Châtelet – Les Halles", "walk_minutes": 10},
+        "last_train_consideration": "Central area, multiple late-night metro options."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Nearby Musée de l’Orangerie"
+      },
+      "website": "https://en.parisinfo.com/paris-museum-monument/71343/Jardin-des-Tuileries",
+      "ticket_url": "N/A"
+    },
+    {
+      "name": "Cimetière du Père-Lachaise",
+      "type": "Cemetery / Cultural Landmark",
+      "description": "A labyrinth of cobblestone paths shaded by chestnut trees, **Père-Lachaise Cemetery** is both a tranquil park and an open-air museum. Its ornate tombs honor artists, writers, and thinkers — from **Oscar Wilde** and **Chopin** to **Jim Morrison**. The soft hush and filtered light make it one of Paris’s most contemplative walks, rich in symbolism and history.",
+      "indoor": false,
+      "best_time": "Morning or Late Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Beautiful year-round; autumn colors are especially atmospheric.",
+      "booking_tips": "Pick up a free map at the entrance; guided tours available on weekends.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8614,
+      "longitude": 2.3933,
+      "arrondissement": "20th",
+      "neighborhood": "Ménilmontant / Gambetta",
+      "opening_hours": {
+        "weekday": "08:00–18:00 (Apr–Oct) / 08:00–17:30 (Nov–Mar)",
+        "weekend": "08:30–18:00 (Apr–Oct) / 08:30–17:30 (Nov–Mar)",
+        "notes": "Last entry 15 min before closing; office closed on major holidays."
+      },
+      "seasonal_hours": {
+        "summer": "08:00–18:00",
+        "winter": "08:00–17:30"
+      },
+      "closures": [
+        {"date": "2025-01-01", "reason": "Holiday closure"},
+        {"date": "2025-12-25", "reason": "Holiday closure"}
+      ],
+      "transit": {
+        "closest_metro": [
+          {"line": "2", "station": "Philippe Auguste", "walk_minutes": 2},
+          {"line": "3", "station": "Gambetta", "walk_minutes": 5}
+        ],
+        "closest_rer": {"line": "A", "station": "Nation", "walk_minutes": 15},
+        "last_train_consideration": "Peripheral location; last metro departures around 00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "None — bring umbrella in case of rain"
+      },
+      "website": "https://www.paris.fr/lieux/cimetiere-du-pere-lachaise-1796",
+      "ticket_url": "N/A"
+    },
+    {
+      "name": "La Villette & Philharmonie de Paris",
+      "type": "Cultural Park / Music Venue",
+      "description": "The **Parc de la Villette** blends futuristic architecture with green spaces and performance halls. Its crown jewel, the **Philharmonie de Paris** by Jean Nouvel, shimmers like folded metal, offering world-class acoustics and panoramic terraces. From jazz festivals to science exhibits, La Villette is where culture, design, and community converge in northern Paris.",
+      "indoor": true,
+      "best_time": "Evening (Concerts) / Afternoon (Exhibitions)",
+      "price_range": "Varies (Free Park / Paid Concerts)",
+      "seasonal_notes": "Outdoor events flourish in summer; indoor concerts and expos year-round.",
+      "booking_tips": "Reserve concert tickets early at Philharmonie’s official site. Family-friendly museum and cinema options nearby.",
+      "ratings": {
+        "cost_estimate": 25,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8899,
+      "longitude": 2.3934,
+      "arrondissement": "19th",
+      "neighborhood": "La Villette / Porte de Pantin",
+      "opening_hours": {
+        "weekday": "09:00–22:00 (parks) / concert and exhibit hours vary",
+        "weekend": "09:00–22:00",
+        "notes": "Exhibits typically open 10:00–18:00; concerts start evenings."
+      },
+      "seasonal_hours": {
+        "summer": "Longer park hours; late concerts",
+        "winter": "Shorter daylight access"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "5", "station": "Porte de Pantin", "walk_minutes": 3},
+          {"line": "7", "station": "Corentin Cariou", "walk_minutes": 7}
+        ],
+        "closest_rer": {"line": "E", "station": "Pantin", "walk_minutes": 12},
+        "last_train_consideration": "Late shows end ~22:30; check last metro schedule."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2.5 hours",
+        "weather_fallback": "Indoor Philharmonie or Cité des Sciences"
+      },
+      "website": "https://philharmoniedeparis.fr/en",
+      "ticket_url": "https://philharmoniedeparis.fr/en/tickets"
+    },
+    {
+      "name": "Fondation Louis Vuitton",
+      "type": "Modern Art Museum",
+      "description": "Designed by Frank Gehry, this glass-sail architectural marvel in the Bois de Boulogne hosts rotating modern and contemporary art exhibitions.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Expensive",
+      "seasonal_notes": "Evening light on the sails is stunning; long queues for blockbuster shows.",
+      "booking_tips": "Pre-book timed tickets online; shuttle bus runs from Place Charles de Gaulle every 20 min.",
+      "ratings": {
+        "cost_estimate": 22,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8753,
+      "longitude": 2.2634,
+      "arrondissement": "16th",
+      "neighborhood": "Bois de Boulogne / Porte Dauphine",
+      "opening_hours": {
+        "weekday": "Mon–Thu 11:00-20:00; Fri until 23:00",
+        "weekend": "10:00-20:00",
+        "notes": "Hours vary with exhibitions; last entry ~1 h before closing."
+      },
+      "seasonal_hours": {
+        "winter": "Reduced evening openings",
+        "summer": "Late Friday nocturnes"
+      },
+      "closures": [
+        {
+          "date": "2025-01-01",
+          "reason": "Closed (New Year’s Day)"
+        },
+        {
+          "date": "2025-05-01",
+          "reason": "Closed (Labour Day)"
+        },
+        {
+          "date": "2025-12-25",
+          "reason": "Closed (Christmas Day)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Les Sablons",
+            "walk_minutes": 15
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Avenue Foch",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Late Friday openings align with last metro departures ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 3.5,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Indoor museum; optional stroll in Jardin d’Acclimatation next door."
+      }
+    },
+    
+    {
+      "name": "Parc de la Villette",
+      "type": "Cultural Park",
+      "description": "A vast urban park integrating architecture, music, and science, featuring themed gardens, the Cité des Sciences, concert halls, and open-air cinema in summer.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Best in spring/summer; lawns host festivals and outdoor screenings.",
+      "booking_tips": "No entry fee; check event calendar for concerts or Cinéma en plein air.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8945,
+      "longitude": 2.3907,
+      "arrondissement": "19th",
+      "neighborhood": "La Villette / Porte de Pantin",
+      "opening_hours": {
+        "weekday": "06:00-01:00",
+        "weekend": "06:00-01:00",
+        "notes": "Individual venues (Cité des Sciences, Zénith) follow separate hours."
+      },
+      "seasonal_hours": {
+        "winter": "06:00-00:00",
+        "summer": "06:00-01:00"
+      },
+      "closures": [
+        {
+          "date": "2025-02-15",
+          "reason": "Partial closures for snow/ice clearing"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "5",
+            "station": "Porte de Pantin",
+            "walk_minutes": 3
+          },
+          {
+            "line": "7",
+            "station": "Corentin Cariou",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "E",
+          "station": "Pantin",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "Late events finish before last metro at ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Cité des Sciences or Philharmonie indoor venues."
+      }
+    },
+    {
+      "name": "Palais Royal & Gardens",
+      "type": "Historic Courtyard / Garden",
+      "description": "A hidden oasis in the 1st arrondissement, the **Palais Royal** combines elegant 17th-century arcades, designer boutiques, and the photogenic **Colonnes de Buren** art installation. Beyond lies a perfectly symmetrical garden framed by lime trees — a quiet sanctuary where Parisians read and sip coffee between the Louvre and Opéra. In spring, chestnut blossoms perfume the air.",
+      "indoor": false,
+      "best_time": "Morning or Late Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Best in spring and early autumn. Benches fill quickly at lunchtime.",
+      "booking_tips": "No ticket required; café terraces open from 08:00.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8638,
+      "longitude": 2.3371,
+      "arrondissement": "1st",
+      "neighborhood": "Palais Royal / Louvre",
+      "opening_hours": {
+        "weekday": "07:00–22:30 (Apr–May–Sep) / 07:30–20:30 (Oct–Mar)",
+        "weekend": "07:00–22:30 (Apr–May–Sep) / 07:30–20:30 (Oct–Mar)",
+        "notes": "Palais Royal arcades follow shop hours (~10:00–19:00)."
+      },
+      "seasonal_hours": {
+        "summer": "07:00–22:30",
+        "winter": "07:30–20:30"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "1 / 7", "station": "Palais Royal – Musée du Louvre", "walk_minutes": 2}
+        ],
+        "closest_rer": {"line": "A / B / D", "station": "Châtelet – Les Halles", "walk_minutes": 7},
+        "last_train_consideration": "Area well served until late; short walk to Louvre metro stops."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Café Kitten or Galerie de Valois arcades"
+      },
+      "website": "https://www.paris-conciergerie.fr/en/nearby/palais-royal",
+      "ticket_url": "N/A"
+    },
+    {
+      "name": "Jardin du Luxembourg",
+      "type": "Public Garden / Landmark",
+      "description": "Commissioned by Marie de Médicis in the 17th century, the **Jardin du Luxembourg** is Paris’s most beloved park — a tapestry of flowerbeds, statues, sailboat ponds, and leafy promenades. Locals play chess, read newspapers, and bask by the Medici Fountain. At golden hour, the palace façade glows against the trees and fountains, epitomizing Parisian leisure at its most elegant.",
+      "indoor": false,
+      "best_time": "Afternoon / Golden Hour",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round; spring and autumn offer the richest colors. Expect music and puppet shows weekends.",
+      "booking_tips": "Free entry; morning runs or sunset picnics both ideal.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 48.8462,
+      "longitude": 2.3371,
+      "arrondissement": "6th",
+      "neighborhood": "Latin Quarter / Saint-Germain-des-Prés",
+      "opening_hours": {
+        "weekday": "Opens ~07:30 (winter) / ~07:00 (summer); closes at dusk (21:30 summer / 16:30 winter)",
+        "weekend": "Same as weekday",
+        "notes": "Hours adjust monthly with daylight; last entry 30 min before close."
+      },
+      "seasonal_hours": {
+        "summer": "07:00–21:30",
+        "winter": "07:30–16:30"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {"line": "4", "station": "Saint-Sulpice", "walk_minutes": 6},
+          {"line": "10", "station": "Odéon", "walk_minutes": 8}
+        ],
+        "closest_rer": {"line": "B", "station": "Luxembourg", "walk_minutes": 2},
+        "last_train_consideration": "Central area; RER B runs until ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Nearby Musée du Luxembourg"
+      },
+      "website": "https://www.senat.fr/visite/jardin/index.html",
+      "ticket_url": "N/A"
+    },
+    {
+      "name": "Tour Montparnasse Observation Deck",
+      "type": "Observation Tower",
+      "description": "Paris’s tallest skyscraper, offering 360° panoramic views from its 56th-floor observation deck and rooftop terrace, including the best Eiffel Tower vantage point.",
+      "indoor": true,
+      "best_time": "Sunset",
+      "price_range": "Expensive",
+      "seasonal_notes": "Indoor deck open year-round; rooftop terrace weather-dependent.",
+      "booking_tips": "Book online for discounted rates; sunset tickets sell out early.",
+      "ratings": {
+        "cost_estimate": 21,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.842,
+      "longitude": 2.3211,
+      "arrondissement": "15th",
+      "neighborhood": "Montparnasse",
+      "opening_hours": {
+        "weekday": "11:00-22:30",
+        "weekend": "11:00-23:30",
+        "notes": "Extended summer hours; last elevator ~30 min before closing."
+      },
+      "seasonal_hours": {
+        "winter": "11:00-22:30",
+        "summer": "11:00-23:30"
+      },
+      "closures": [
+        {
+          "date": "2025-01-10",
+          "reason": "Maintenance closure for elevator inspection"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "4/6/12/13",
+            "station": "Montparnasse–Bienvenüe",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "B",
+          "station": "Port-Royal",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Evening visits ideal; metro connections plentiful until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "Evening / Sunset",
+        "weather_fallback": "Indoor deck remains open in poor weather."
+      }
+    },
+    {
+      "name": "Église de la Sainte-Trinité",
+      "type": "Church",
+      "description": "A grand 19th-century Neo-Renaissance church near Opéra, known for its ornate façade, monumental dome, and excellent acoustics for classical concerts.",
+      "indoor": true,
+      "best_time": "Late Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Open daily except during services; cool refuge in summer heat.",
+      "booking_tips": "No ticket required; check posted schedules for organ recitals.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8761,
+      "longitude": 2.3332,
+      "arrondissement": "9th",
+      "neighborhood": "Opéra / Saint-Lazare",
+      "opening_hours": {
+        "weekday": "07:30-19:00",
+        "weekend": "08:00-19:00",
+        "notes": "Masses held mornings and evenings; tourists asked to remain quiet."
+      },
+      "seasonal_hours": {
+        "winter": "07:30-19:00",
+        "summer": "07:30-19:30"
+      },
+      "closures": [
+        {
+          "date": "2025-04-14",
+          "reason": "Organ maintenance; interior access limited for one week"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "12/13/14",
+            "station": "Saint-Lazare",
+            "walk_minutes": 5
+          },
+          {
+            "line": "12",
+            "station": "Trinité – d’Estienne d’Orves",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "E",
+          "station": "Haussmann–Saint-Lazare",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Evening concerts end before metro close (~00:45)."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Nearby Galeries Lafayette rooftop view (indoor access)."
+      }
+    },
+    {
+      "name": "Canal Saint-Martin",
+      "type": "Urban Waterway & Walkway",
+      "description": "A picturesque 19th-century canal stretching through the 10th and 11th arrondissements, lined with cafés, iron footbridges, and popular picnic spots.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Bustling in summer; canal-boat cruises operate Apr–Oct.",
+      "booking_tips": "No ticket for walking; cruise tickets from companies like Canauxrama.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 48.872,
+      "longitude": 2.364,
+      "arrondissement": "10th/11th",
+      "neighborhood": "République / Oberkampf / Quai de Jemmapes",
+      "opening_hours": {
+        "weekday": "Open 24h (public area)",
+        "weekend": "Open 24h",
+        "notes": "Locks occasionally closed to traffic for maintenance; walking paths remain open."
+      },
+      "seasonal_hours": {
+        "winter": "Open; fewer cruises",
+        "summer": "Cruises daily Apr–Oct"
+      },
+      "closures": [
+        {
+          "date": "2025-03-15",
+          "reason": "Canal lock inspection (partial cruise suspension)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "5/9",
+            "station": "République",
+            "walk_minutes": 3
+          },
+          {
+            "line": "7",
+            "station": "Louis Blanc",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "E",
+          "station": "Magenta",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Popular evening stroll; metro lines 5 and 9 run until ~00:45."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "Afternoon / Early Evening",
+        "weather_fallback": "Bars and galleries along Quai de Jemmapes."
+      }
+    },
+    {
+      "name": "Bois de Boulogne",
+      "type": "Urban Park & Forest",
+      "description": "Spanning 2,000 acres on Paris’s western edge, this landscaped park offers lakes, gardens, riding trails, the Fondation Louis Vuitton, and quiet escapes from city bustle.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Ideal for cycling and boating April–October; evening areas dimly lit.",
+      "booking_tips": "Free entry; boat rentals and zoo tickets at additional cost.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8636,
+      "longitude": 2.2467,
+      "arrondissement": "16th",
+      "neighborhood": "Porte Dauphine / Bois de Boulogne",
+      "opening_hours": {
+        "weekday": "Open 24h (gates for cars close at 22:00)",
+        "weekend": "Open 24h",
+        "notes": "Some paths unlit at night; lakes and attractions have separate hours."
+      },
+      "seasonal_hours": {
+        "winter": "Accessible; fewer services",
+        "summer": "Boat rentals and cafés open"
+      },
+      "closures": [
+        {
+          "date": "2025-01-15",
+          "reason": "Annual pruning and path maintenance"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Porte Maillot",
+            "walk_minutes": 10
+          },
+          {
+            "line": "10",
+            "station": "Boulogne – Jean Jaurès",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "C",
+          "station": "Avenue Foch",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Best visited by day; limited lighting after dusk."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Fondation Louis Vuitton indoor galleries nearby."
+      }
+    },
+    {
+      "name": "Bois de Vincennes",
+      "type": "Urban Park & Recreation Area",
+      "description": "The largest green space in Paris, on the eastern edge, featuring lakes, trails, a zoo, floral gardens, and the medieval Château de Vincennes.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free (park) / Moderate (zoo, castle)",
+      "seasonal_notes": "Popular for boating in summer; less crowded in winter.",
+      "booking_tips": "No ticket for park entry; book castle and zoo separately.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 4
+      },
+      "latitude": 48.8293,
+      "longitude": 2.4356,
+      "arrondissement": "12th",
+      "neighborhood": "Porte Dorée / Vincennes border",
+      "opening_hours": {
+        "weekday": "Open 24h (partial gate locks at 22:00)",
+        "weekend": "Open 24h",
+        "notes": "Zoo and Château follow separate schedules."
+      },
+      "seasonal_hours": {
+        "winter": "Open; shorter daylight",
+        "summer": "Full amenities and events"
+      },
+      "closures": [
+        {
+          "date": "2025-03-12",
+          "reason": "Annual zoo maintenance (zoological park closed for 3 days)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "1",
+            "station": "Château de Vincennes",
+            "walk_minutes": 3
+          },
+          {
+            "line": "8",
+            "station": "Porte Dorée",
+            "walk_minutes": 15
+          }
+        ],
+        "closest_rer": {
+          "line": "A",
+          "station": "Vincennes",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Easily accessible until ~00:45; park lit only along main paths."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "Half-day",
+        "weather_fallback": "Château de Vincennes interior visit."
+      }
+    },
+    {
+      "name": "Saint-Germain-des-Prés Church",
+      "type": "Historic church",
+      "description": "One of the oldest churches in Paris, a serene pause between gallery hopping and café stops in Saint-Germain-des-Prés.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Cool interior on hot days; occasional concerts in the evening.",
+      "booking_tips": "No ticket needed; check parish schedule for special events.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 4
+      },
+      "latitude": 48.853,
+      "longitude": 2.3331,
+      "arrondissement": "6th",
+      "neighborhood": "Saint-Germain-des-Prés",
+      "opening_hours": {
+        "weekday": "08:00-19:45",
+        "weekend": "08:30-19:45"
+      },
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "4",
+            "station": "Saint-Germain-des-Prés",
+            "walk_minutes": 2
+          }
+        ]
+      },
+      "visit_profile": {
+        "ideal_time_block": "Quick stop",
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.75,
+        "weather_fallback": "Musée d'Orsay"
+      }
+    }
+  ]
+}

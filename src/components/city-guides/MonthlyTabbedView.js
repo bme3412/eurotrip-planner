@@ -136,12 +136,23 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   // 2) monthlyData["July"] = { "July": { ... } }
   // 3) lowercase keys
   // Prefer freshly fetched full month data over partial index entries
-  const monthContainer =
-    extraMonths?.[m.name] ||
-    extraMonths?.[m.name?.toLowerCase()] ||
-    monthlyData?.[m.name] ||
-    monthlyData?.[m.name?.toLowerCase()];
-  const monthJson = monthContainer?.[m.name] || monthContainer?.[m.name?.toLowerCase()] || monthContainer || {};
+  const monthName = m?.name;
+  const monthContainer = useMemo(() => {
+    if (!monthName) return null;
+    const lowered = monthName.toLowerCase();
+    return (
+      extraMonths?.[monthName] ||
+      extraMonths?.[lowered] ||
+      monthlyData?.[monthName] ||
+      monthlyData?.[lowered] ||
+      null
+    );
+  }, [extraMonths, monthlyData, monthName]);
+  const monthJson = useMemo(() => {
+    if (!monthContainer || !monthName) return {};
+    const lowered = monthName.toLowerCase();
+    return monthContainer?.[monthName] || monthContainer?.[lowered] || monthContainer || {};
+  }, [monthContainer, monthName]);
   const visitList = Array.isArray(monthJson?.reasons_to_visit) ? monthJson.reasons_to_visit : [];
   const considerList = Array.isArray(monthJson?.reasons_to_reconsider) ? monthJson.reasons_to_reconsider : [];
   const firstHalf = monthJson?.first_half || {};
@@ -496,5 +507,4 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
     </div>
   );
 }
-
 

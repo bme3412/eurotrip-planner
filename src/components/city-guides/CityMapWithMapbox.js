@@ -185,7 +185,10 @@ export default function CityMapWithMapbox({
     return attraction.indoor === (filter === "indoor");
   };
   
-  const matchesSmartFiltersLocal = (attraction) => matchesSmartFilters(attraction, smartFilters);
+  const matchesSmartFiltersLocal = useCallback(
+    (attraction) => matchesSmartFilters(attraction, smartFilters),
+    [smartFilters]
+  );
   
   // Handle selected attraction animation and map focus
   useEffect(() => {
@@ -817,7 +820,7 @@ export default function CityMapWithMapbox({
       console.error('Error adding map features:', err);
       setMapError(err.message || 'Failed to add map features');
     }
-  }, [mapLoaded, styleLoaded, attractions, activeCategories, smartFilters, showingIconicOnly, iconicAttractionNames, selectedAttraction, categoriesProcessed, processCategories, renderCue]);
+  }, [mapLoaded, styleLoaded, attractions, activeCategories, smartFilters, showingIconicOnly, iconicAttractionNames, selectedAttraction, categoriesProcessed, processCategories, renderCue, ENABLE_HIGHLIGHT_TOUR, autoOpenedHighlights, matchesSmartFiltersLocal]);
 
   // Get the list of categories to show in filters - now memoized
   const getFilterCategories = () => {

@@ -69,6 +69,12 @@ export default function Page() {
             >
               City Guides
             </Link>
+            <Link
+              href="/paris-trip"
+              className="px-4 py-2 font-medium text-indigo-600 transition-colors border border-indigo-100 rounded-lg bg-indigo-50 hover:bg-indigo-100 hover:text-indigo-700 shadow-sm"
+            >
+              Paris Planner
+            </Link>
             <Link 
               href="/explore" 
               className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
@@ -349,4 +355,3 @@ export default function Page() {
     </div>
   );
 }
-

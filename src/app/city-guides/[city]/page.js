@@ -82,97 +82,81 @@ async function getCityData(cityName) {
   }
 
   const baseDir = path.join(process.cwd(), 'public', 'data', cityData.country, cityData.directoryName);
-  // Prefer consolidated index.json if present
   const consolidatedPath = path.join(baseDir, 'index.json');
-  if (await pathExists(consolidatedPath)) {
-    const idx = await readJsonFile(consolidatedPath);
-    if (idx) {
-      // Minimal monthly seed (current + next) as before
-      const monthlyDir = path.join(baseDir, 'monthly');
-      const currentMonth = new Date().getMonth();
-      const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
-                         'july', 'august', 'september', 'october', 'november', 'december'];
-      const monthlyData = {};
-      for (const monthName of [monthNames[currentMonth], monthNames[(currentMonth + 1) % 12]]) {
-        const filePath = path.join(monthlyDir, `${monthName}.json`);
-        if (await pathExists(filePath)) {
-          const monthData = await readJsonFile(filePath);
-          if (monthData) {
-            const monthKey = Object.keys(monthData)[0];
-            if (monthKey) monthlyData[monthKey.toLowerCase()] = monthData[monthKey];
-          }
-        }
-      }
+  const monthlyDir = path.join(baseDir, 'monthly');
+  const monthNames = ['january', 'february', 'march', 'april', 'may', 'june',
+    'july', 'august', 'september', 'october', 'november', 'december'];
 
-      return {
-        cityName: cityName.charAt(0).toUpperCase() + cityName.slice(1),
-        country: idx.country ?? cityData.country,
-        overview: idx.overview ?? null,
-        attractions: idx.attractions ?? null,
-        neighborhoods: idx.neighborhoods ?? null,
-        culinaryGuide: idx.culinaryGuide ?? null,
-        connections: idx.connections ?? null,
-        seasonalActivities: idx.seasonalActivities ?? null,
-        monthlyEvents: monthlyData,
-        summary: idx.summary ?? null,
-        visitCalendar: idx.visitCalendar ?? null,
-      };
-    }
-  }
-  
-  // Helper function to read files with fallbacks
-  const readWithFallbacks = async (baseDir, filenames) => {
+  const readWithFallbacks = async (dir, filenames) => {
     for (const filename of filenames) {
-      const filePath = path.join(baseDir, filename);
+      const filePath = path.join(dir, filename);
       if (await pathExists(filePath)) {
         const data = await readJsonFile(filePath);
-        if (data) return data;
+        if (data) {
+          return data;
+        }
       }
     }
     return null;
   };
 
+  let idx = null;
+  if (await pathExists(consolidatedPath)) {
+    idx = await readJsonFile(consolidatedPath);
+  }
+
+  let overview = idx?.overview ?? null;
+  if (overview && typeof overview === 'object') {
+    overview = { ...overview, dataCountry: cityData.country };
+  }
+  let attractions = idx?.attractions ?? null;
+  let neighborhoods = idx?.neighborhoods ?? null;
+  let culinaryGuide = idx?.culinaryGuide ?? null;
+  let connections = idx?.connections ?? null;
+  let seasonalActivities = idx?.seasonalActivities ?? null;
+  let summary = idx?.summary ?? null;
+  let visitCalendar = idx?.visitCalendar ?? null;
+
   try {
-    // Load critical data first, defer non-essential data
-    const [
-      overview,
-      attractions
-    ] = await Promise.all([
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-overview.json`, `${cityName.toLowerCase()}_overview.json`, 'overview.json', 'city_overview.json']),
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_attractions.json`, 'attractions.json', 'sites.json'])
-    ]);
+    if (!overview) {
+      overview = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-overview.json`, `${cityName.toLowerCase()}_overview.json`, 'overview.json', 'city_overview.json']);
+    }
+    if (overview && typeof overview === 'object') {
+      overview = { ...overview, dataCountry: cityData.country };
+    }
 
-    // Load remaining data in parallel but separately
-    const [
-      neighborhoods,
-      culinaryGuide,
-      connections,
-      seasonalActivities,
-      summary,
-      visitCalendar
-    ] = await Promise.all([
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_neighborhoods.json`, 'neighborhoods.json', 'areas.json']),
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_culinary_guide.json`, 'culinary_guide.json', 'food.json']),
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_connections.json`, 'connections.json', 'transport.json']),
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json']),
-      readWithFallbacks(baseDir, ['summary.json', 'visit_summary.json']),
-      readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-visit-calendar.json`, 'visit-calendar.json'])
-    ]);
+    if (!attractions) {
+      attractions = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_attractions.json`, 'attractions.json', 'sites.json']);
+    }
 
-    // Load monthly data more efficiently - only load current and next month initially
-    const monthlyDir = path.join(baseDir, 'monthly');
-    const currentMonth = new Date().getMonth();
-    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
-                       'july', 'august', 'september', 'october', 'november', 'december'];
-    
+    if (!neighborhoods) {
+      neighborhoods = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_neighborhoods.json`, 'neighborhoods.json', 'areas.json']);
+    }
+
+    if (!culinaryGuide) {
+      culinaryGuide = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_culinary_guide.json`, 'culinary_guide.json', 'food.json']);
+    }
+
+    if (!connections) {
+      connections = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_connections.json`, 'connections.json', 'transport.json']);
+    }
+
+    if (!seasonalActivities) {
+      seasonalActivities = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json']);
+    }
+
+    if (!summary) {
+      summary = await readWithFallbacks(baseDir, ['summary.json', 'visit_summary.json']);
+    }
+
+    if (!visitCalendar) {
+      visitCalendar = await readWithFallbacks(baseDir, [`${cityName.toLowerCase()}-visit-calendar.json`, 'visit-calendar.json']);
+    }
+
     const monthlyData = {};
-    
-    // Load only current and next month for faster initial load
-    const priorityMonths = [
-      monthNames[currentMonth],
-      monthNames[(currentMonth + 1) % 12]
-    ];
-    
+    const currentMonth = new Date().getMonth();
+    const priorityMonths = [monthNames[currentMonth], monthNames[(currentMonth + 1) % 12]];
+
     for (const monthName of priorityMonths) {
       const filePath = path.join(monthlyDir, `${monthName}.json`);
       if (await pathExists(filePath)) {
@@ -188,7 +172,7 @@ async function getCityData(cityName) {
 
     return {
       cityName: cityName.charAt(0).toUpperCase() + cityName.slice(1),
-      country: cityData.country,
+      country: idx?.country ?? cityData.country,
       overview,
       attractions,
       neighborhoods,

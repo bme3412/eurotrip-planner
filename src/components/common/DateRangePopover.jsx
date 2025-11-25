@@ -17,7 +17,7 @@ function formatDisplay(iso) {
   }
 }
 
-export default function DateRangePopover({ value, onChange }) {
+export default function DateRangePopover({ value, onChange, showSearchLabelOnSelection = true }) {
   const [temp, setTemp] = useState(value || { start: "", end: "" });
   const initialLoaded = useRef(false);
 
@@ -73,7 +73,7 @@ export default function DateRangePopover({ value, onChange }) {
               <svg className="w-5 h-5" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
               </svg>
-              {value?.start && value?.end && <span>Search</span>}
+              {value?.start && value?.end && showSearchLabelOnSelection && <span>Search</span>}
             </button>
           </div>
 
@@ -137,5 +137,4 @@ export default function DateRangePopover({ value, onChange }) {
     </Popover>
   );
 }
-
 
