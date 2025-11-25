@@ -1,0 +1,605 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Trattoria Gianni",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Tortellini in Brodo",
+                    "Tagliatelle al Ragù"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant dining room with traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Via Clavature",
+                "local_tips": "Family-run since 1960; their tortellini are made fresh daily by hand"
+            },
+            {
+                "name": "Ristorante Da Gianni",
+                "cuisine_type": "Modern Bolognese",
+                "signature_dishes": [
+                    "Gramigna alla Salsiccia",
+                    "Cotoletta alla Bolognese"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary space with traditional touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, request window seating",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Via San Felice",
+                "local_tips": "Known for their creative takes on traditional dishes while maintaining authenticity"
+            },
+            {
+                "name": "Osteria dell'Orsa",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Lasagna Verde",
+                    "Bollito Misto"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic osteria with wooden beams and warm lighting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, especially for weekend evenings",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Via Mentana",
+                "local_tips": "Their lasagna verde is made with traditional green pasta and rich ragù"
+            },
+            {
+                "name": "Ristorante Al Cambio",
+                "cuisine_type": "Creative Bolognese",
+                "signature_dishes": [
+                    "Risotto al Ragù",
+                    "Cappelletti in Brodo"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern dining room with artistic touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, ask about seasonal specials",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Via Santo Stefano",
+                "local_tips": "Known for their innovative interpretations of classic Bolognese dishes"
+            },
+            {
+                "name": "Trattoria da Gianni",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Tortelloni di Zucca",
+                    "Gramigna alla Salsiccia"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks ahead, especially for weekend evenings",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Via Clavature",
+                "local_tips": "Their tortelloni di zucca (pumpkin-filled pasta) is a local favorite"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria da Gianni",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Tortellini in Brodo",
+                    "Tagliatelle al Ragù"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively trattoria with shared tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Via Clavature",
+                "local_tips": "Popular with locals and students; their tortellini are made fresh daily"
+            },
+            {
+                "name": "Osteria del Sole",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Mortadella",
+                    "Prosciutto di Parma"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1465",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "BYOB (Bring Your Own Bottle) - wine shop next door",
+                "dress_code": "Casual",
+                "location": "Vicolo Ranocchi",
+                "local_tips": "Oldest osteria in Bologna; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Trattoria da Gianni",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Lasagna Verde",
+                    "Bollito Misto"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Via Clavature",
+                "local_tips": "Their lasagna verde is made with traditional green pasta"
+            },
+            {
+                "name": "Osteria dell'Orsa",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Tortellini in Brodo",
+                    "Tagliatelle al Ragù"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic osteria with wooden beams",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days ahead, especially for weekend evenings",
+                "dress_code": "Casual",
+                "location": "Via Mentana",
+                "local_tips": "Popular with students and locals; their tortellini are made fresh daily"
+            },
+            {
+                "name": "Trattoria da Gianni",
+                "cuisine_type": "Traditional Bolognese",
+                "signature_dishes": [
+                    "Gramigna alla Salsiccia",
+                    "Cotoletta alla Bolognese"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria with traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Via Clavature",
+                "local_tips": "Their gramigna alla salsiccia is a local favorite"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercato di Mezzo",
+                "specialties": [
+                    "Tortellini",
+                    "Mortadella"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 8:00 PM",
+                "location": "Via Clavature",
+                "seating": "Limited",
+                "local_tips": "Historic food market with traditional food shops and eateries"
+            },
+            {
+                "name": "Pasticceria Gamberini",
+                "specialties": [
+                    "Torta di Riso",
+                    "Certosino"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 8:00 PM",
+                "location": "Via Ugo Bassi",
+                "seating": false,
+                "local_tips": "Historic pastry shop since 1907; famous for their torta di riso"
+            },
+            {
+                "name": "Salumeria Simoni",
+                "specialties": [
+                    "Prosciutto di Parma",
+                    "Mortadella"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 8:00 PM",
+                "location": "Via Pescherie Vecchie",
+                "seating": false,
+                "local_tips": "Historic deli with excellent cured meats and cheeses"
+            },
+            {
+                "name": "Pasticceria Tamburini",
+                "specialties": [
+                    "Torta degli Addobbi",
+                    "Certosino"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 8:00 PM",
+                "location": "Via Caprarie",
+                "seating": false,
+                "local_tips": "Historic pastry shop with traditional Bolognese sweets"
+            },
+            {
+                "name": "Mercato delle Erbe",
+                "specialties": [
+                    "Fresh Pasta",
+                    "Local Produce"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 1:00 PM",
+                "location": "Via Ugo Bassi",
+                "seating": "Limited",
+                "local_tips": "Historic market with fresh pasta makers and local produce"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Zanarini",
+                "specialty": "Traditional Italian Coffee",
+                "must_try": [
+                    "Cappuccino",
+                    "Torta di Riso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with elegant decor",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light lunch",
+                "local_tips": "Historic café in Piazza Galvani; perfect for people-watching"
+            },
+            {
+                "name": "Caffè Terzi",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Cappuccino"
+                ],
+                "price_range": "€",
+                "atmosphere": "Modern coffee shop",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries",
+                "local_tips": "Known for their high-quality coffee beans and brewing methods"
+            },
+            {
+                "name": "Caffè San Pietro",
+                "specialty": "Traditional Italian Coffee",
+                "must_try": [
+                    "Cappuccino",
+                    "Torta degli Addobbi"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic café near San Pietro Cathedral",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries",
+                "local_tips": "Historic café with traditional atmosphere"
+            },
+            {
+                "name": "Caffè Pasticceria Gamberini",
+                "specialty": "Traditional Pastries",
+                "must_try": [
+                    "Torta di Riso",
+                    "Certosino"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic pastry shop and café",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Wide selection of pastries",
+                "local_tips": "Historic pastry shop since 1907; famous for their torta di riso"
+            },
+            {
+                "name": "Caffè Pasticceria Tamburini",
+                "specialty": "Traditional Pastries",
+                "must_try": [
+                    "Torta degli Addobbi",
+                    "Certosino"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic pastry shop and café",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Wide selection of pastries",
+                "local_tips": "Historic pastry shop with traditional Bolognese sweets"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Osteria del Sole",
+                "type": "Historic Osteria",
+                "specialty": "Traditional Wines",
+                "signature_drinks": [
+                    "Lambrusco",
+                    "Sangiovese"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1465",
+                "best_time": "Evening",
+                "food_options": "BYOB (Bring Your Own Bottle)",
+                "reservation_needed": false,
+                "local_tips": "Oldest osteria in Bologna; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Cantina Bentivoglio",
+                "type": "Wine Bar",
+                "specialty": "Italian Wines",
+                "signature_drinks": [
+                    "Lambrusco",
+                    "Sangiovese"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with live jazz",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Known for their wine selection and live jazz music"
+            },
+            {
+                "name": "Osteria del Sole",
+                "type": "Historic Osteria",
+                "specialty": "Traditional Wines",
+                "signature_drinks": [
+                    "Lambrusco",
+                    "Sangiovese"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1465",
+                "best_time": "Evening",
+                "food_options": "BYOB (Bring Your Own Bottle)",
+                "reservation_needed": false,
+                "local_tips": "Oldest osteria in Bologna; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Cantina Bentivoglio",
+                "type": "Wine Bar",
+                "specialty": "Italian Wines",
+                "signature_drinks": [
+                    "Lambrusco",
+                    "Sangiovese"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with live jazz",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Known for their wine selection and live jazz music"
+            },
+            {
+                "name": "Osteria del Sole",
+                "type": "Historic Osteria",
+                "specialty": "Traditional Wines",
+                "signature_drinks": [
+                    "Lambrusco",
+                    "Sangiovese"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic osteria since 1465",
+                "best_time": "Evening",
+                "food_options": "BYOB (Bring Your Own Bottle)",
+                "reservation_needed": false,
+                "local_tips": "Oldest osteria in Bologna; bring your own food and buy drinks here"
+            },
+            {
+                "name": "Cantina Bentivoglio",
+                "type": "Wine Bar",
+                "specialty": "Italian Wines",
+                "signature_drinks": [
+                    "Lambrusco",
+                    "Sangiovese"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with live jazz",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Known for their wine selection and live jazz music"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Bologna Food Tour",
+                "focus": "Traditional Bolognese Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Tortellini",
+                    "Tagliatelle al Ragù",
+                    "Mortadella"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable shoes for walking"
+            },
+            {
+                "name": "Bologna Market Tour",
+                "focus": "Local Markets and Food Culture",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Mercato di Mezzo",
+                    "Mercato delle Erbe",
+                    "Traditional food shops"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "French"
+                ],
+                "booking_tips": "Reserve 10-14 days ahead; tour includes tastings at various locations"
+            },
+            {
+                "name": "Bologna Cooking Experience",
+                "focus": "Hands-on Cooking Class",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fresh pasta making",
+                    "Traditional sauces",
+                    "Local wine tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book early in high season (April-October); wear comfortable clothes"
+            },
+            {
+                "name": "Bologna Food and Wine Tour",
+                "focus": "Food and Wine Pairing",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Local wines",
+                    "Traditional dishes",
+                    "Food and wine pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Come hungry; tour includes tastings at multiple locations"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Bologna Pasta Workshop",
+                "cuisine_focus": "Fresh Pasta Making",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Fresh pasta dough",
+                    "Tortellini making",
+                    "Traditional sauces"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "All ingredients, instruction, meal with wine, and recipe"
+                ],
+                "booking_tips": "Book 2 weeks ahead; hands-on class where you make your own pasta"
+            },
+            {
+                "name": "Bologna Traditional Cooking",
+                "cuisine_focus": "Traditional Bolognese Dishes",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Ragù alla Bolognese",
+                    "Lasagna Verde",
+                    "Traditional desserts"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, full meal with wine, and recipes"
+                ],
+                "booking_tips": "Reserve 2-3 weeks in advance; begins with market tour when possible"
+            },
+            {
+                "name": "Bologna Family Recipes",
+                "cuisine_focus": "Home-style Bolognese Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional recipes",
+                    "Local ingredients",
+                    "Family cooking techniques"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, instruction, meal with local wine, recipe booklet"
+                ],
+                "booking_tips": "Classes held in family home for authentic experience; book 1-2 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato di Mezzo",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh pasta makers",
+                    "Traditional food shops",
+                    "Local specialties"
+                ],
+                "hours": "9:00 AM - 8:00 PM",
+                "best_time": "Morning",
+                "location": "Via Clavature",
+                "local_tips": "Historic food market with traditional food shops and eateries"
+            },
+            {
+                "name": "Mercato delle Erbe",
+                "type": "General Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Traditional food shops"
+                ],
+                "hours": "7:00 AM - 1:00 PM",
+                "best_time": "Morning",
+                "location": "Via Ugo Bassi",
+                "local_tips": "Historic market with fresh pasta makers and local produce"
+            },
+            {
+                "name": "Mercato Ritrovato",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Local produce",
+                    "Artisanal products",
+                    "Traditional specialties"
+                ],
+                "hours": "9:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Piazza VIII Agosto",
+                "local_tips": "Farmers market with local and organic products"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Tortellini di Zucca",
+            "Asparagi alla Parmigiana",
+            "Fave e Pecorino"
+        ],
+        "summer": [
+            "Insalata di Riso",
+            "Pesche di Vignola",
+            "Anguria di Faenza"
+        ],
+        "autumn": [
+            "Tortellini in Brodo",
+            "Castagne Arrosto",
+            "Zuppa di Zucca"
+        ],
+        "winter": [
+            "Bollito Misto",
+            "Certosino",
+            "Torta degli Addobbi"
+        ]
+    }
+} 

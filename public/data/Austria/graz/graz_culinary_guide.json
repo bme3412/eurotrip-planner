@@ -1,0 +1,701 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Eckstein by Albert",
+                "cuisine_type": "Austrian / Styrian",
+                "signature_dishes": [
+                    "Styrian Tasting Menu",
+                    "Pumpkin Seed Oil Risotto",
+                    "Backhendl with Styrian Sauvignon Blanc",
+                    "Wild Mushroom Soup"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Upscale, cozy wine cellar feel with intimate dining rooms",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially weekends. Popular with locals and food enthusiasts.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City Center (Mehlplatz)",
+                "local_tips": "Excellent wine list featuring Styrian wines, knowledgeable staff. Ask for wine pairings with regional specialties. The tasting menu is the best way to experience the full range of Styrian cuisine."
+            },
+            {
+                "name": "Aiola Upstairs",
+                "cuisine_type": "Regional / International",
+                "signature_dishes": [
+                    "Styrian Corn-Fed Chicken",
+                    "Ceviche with Local Fish",
+                    "Local Fish with Seasonal Vegetables",
+                    "Styrian Wine Pairings"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, panoramic city views with elegant contemporary design",
+                "best_time": "Dinner (sunset views)",
+                "reservation_needed": true,
+                "booking_tips": "Request outdoor seating in summer for the best views of Graz. Book at least a week in advance for weekend dining.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Schlossberg",
+                "local_tips": "Accessible via Schlossberg lift or funicular. Perfect for romantic dinners with stunning city views. Try their seasonal menu featuring local Styrian ingredients."
+            },
+            {
+                "name": "Aiola im Schloss",
+                "cuisine_type": "Regional / Styrian",
+                "signature_dishes": [
+                    "Regional Specialties",
+                    "Event Catering Focus",
+                    "Styrian Wine Tastings",
+                    "Seasonal Garden-to-Table Dishes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, historic mansion with beautiful gardens and refined dining rooms",
+                "best_time": "Dinner / Events",
+                "reservation_needed": true,
+                "booking_tips": "Ideal for special occasions, requires car/taxi. Book well in advance for events and weekend dining.",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 0,
+                "location": "Outskirts of Graz (Andritz)",
+                "local_tips": "Beautiful setting, especially the gardens. Perfect for wedding receptions and corporate events. The wine cellar offers excellent regional wine selections."
+            },
+            {
+                "name": "Landhauskeller",
+                "cuisine_type": "Traditional Austrian / Styrian",
+                "signature_dishes": [
+                    "Styrian Backhendl",
+                    "Käsespätzle",
+                    "Traditional Austrian Schnitzel",
+                    "Styrian Wine Selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic cellar restaurant with traditional Austrian charm and warm ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve ahead, especially for weekend dining. Popular with both locals and tourists.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Landhausgasse (Old Town)",
+                "local_tips": "Historic setting in the heart of Graz. Excellent for experiencing traditional Austrian cuisine in an authentic atmosphere. Try their house-made schnapps."
+            },
+            {
+                "name": "Steirereck im Stadtpark",
+                "cuisine_type": "Austrian / Styrian",
+                "signature_dishes": [
+                    "Styrian Tasting Menu",
+                    "Local Fish with Herbs",
+                    "Seasonal Vegetable Dishes",
+                    "Artisanal Cheese Selection"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and sophisticated with park views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Stadtpark",
+                "local_tips": "Request a window seat for views over the park. Perfect for special occasions and experiencing Styrian fine dining."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Der Steirer",
+                "cuisine_type": "Styrian / Austrian / Slovenian",
+                "signature_dishes": [
+                    "Backhendl (Fried Chicken)",
+                    "Styrian Tapas",
+                    "Meat and Potato Dishes",
+                    "Brettljause (Charcuterie Board)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, noisy, popular with a warm and welcoming vibe",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Reserve ahead, can be very busy especially during lunch and dinner hours.",
+                "dress_code": "Casual",
+                "location": "Near Jakominiplatz",
+                "local_tips": "Extensive local wine list featuring Styrian wines. Also has a shop selling regional products. Try their Brettljause for a traditional Styrian experience."
+            },
+            {
+                "name": "Gasthaus Glöcklbräu",
+                "cuisine_type": "Traditional Austrian / Styrian",
+                "signature_dishes": [
+                    "Backhendl",
+                    "Käsespätzle",
+                    "Traditional Austrian Schnitzel",
+                    "House-Made Beer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic, traditional gasthaus with cozy interior and beer garden",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Good spot for lunch in the Old Town. No reservations needed but can get busy during peak hours.",
+                "dress_code": "Casual",
+                "location": "Glockenspielplatz",
+                "local_tips": "Try the local Glöckl Bräu beer or Schilcher wine. The beer garden is perfect for summer dining. Traditional Austrian hospitality at its best."
+            },
+            {
+                "name": "Gösser Bräu",
+                "cuisine_type": "Austrian / Brewery Food",
+                "signature_dishes": [
+                    "Pretzels",
+                    "Traditional Austrian dishes",
+                    "House-Made Sausages",
+                    "Brewery Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewery, beer garden with lively atmosphere",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Large beer garden is great in summer. No reservations needed but can get crowded during peak hours.",
+                "dress_code": "Casual",
+                "location": "Near Lendplatz",
+                "local_tips": "Try different types of Gösser beer. The beer garden offers a perfect setting for enjoying traditional Austrian cuisine with friends."
+            },
+            {
+                "name": "Gasthaus zur Steirischen Weinstube",
+                "cuisine_type": "Styrian / Austrian",
+                "signature_dishes": [
+                    "Styrian Wine Pairings",
+                    "Regional Specialties",
+                    "Traditional Austrian Dishes",
+                    "Seasonal Menu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine tavern with traditional Styrian charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve ahead for dinner, especially on weekends. Popular with wine enthusiasts.",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Excellent wine list focusing on Styrian wines. Perfect for experiencing the region's wine culture. Ask for wine recommendations with your meal."
+            },
+            {
+                "name": "Gasthaus Lendplatzl",
+                "cuisine_type": "Traditional Austrian",
+                "signature_dishes": [
+                    "Schnitzel",
+                    "Goulash",
+                    "Traditional Austrian Dishes",
+                    "House-Made Desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional Austrian gasthaus with warm, family-friendly atmosphere",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed but can get busy during peak hours. Good for families.",
+                "dress_code": "Casual",
+                "location": "Lendplatz",
+                "local_tips": "Family-run establishment with authentic Austrian hospitality. Perfect for experiencing traditional Austrian cuisine in a relaxed setting."
+            },
+            {
+                "name": "Café Central",
+                "cuisine_type": "Café/Bistro",
+                "signature_dishes": [
+                    "Wiener Schnitzel",
+                    "Apfelstrudel",
+                    "Traditional Austrian Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and iconic, popular with artists and intellectuals",
+                "best_time": "Breakfast",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid crowds, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Glockenspielplatz",
+                "local_tips": "Ideal for people-watching, try the hot chocolate and traditional Austrian pastries"
+            },
+            {
+                "name": "Gasthaus zum Steirer",
+                "cuisine_type": "Styrian",
+                "signature_dishes": [
+                    "Backhendl",
+                    "Käferbohnensalat",
+                    "Pumpkin Seed Oil Dishes"
+                ],
+                "price_range": "€",
+                "atmosphere": "Laid-back and vibrant with a youthful vibe",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid long waits, no reservations",
+                "dress_code": "Casual",
+                "location": "Lend district",
+                "local_tips": "Portion sizes are generous, consider sharing dishes. Perfect for experiencing authentic Styrian cuisine."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Delikatessen Frankowitsch",
+                "specialties": [
+                    "Belegte Brote (Open Sandwiches)",
+                    "Pastries",
+                    "Coffee",
+                    "Traditional Austrian Snacks"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 8:00am-6:00pm",
+                "location": "City Center",
+                "seating": true,
+                "local_tips": "Historic institution, part deli/cafe. Can be busy, grab a pfiff (small beer). Perfect for a quick lunch or coffee break. Try their traditional Austrian sandwiches."
+            },
+            {
+                "name": "Standl 5 – Wurscht is my business",
+                "specialties": [
+                    "Sausages (Wurst)",
+                    "Traditional Austrian Street Food",
+                    "Local Specialties"
+                ],
+                "price_range": "€",
+                "hours": "Market hours (typically 6:00am-1:00pm)",
+                "location": "Kaiser Josef Platz Market",
+                "seating": false,
+                "local_tips": "A popular sausage stand often found at markets. Perfect for experiencing authentic Austrian street food. Try their traditional Austrian sausages with mustard."
+            },
+            {
+                "name": "Bäckerei Sorger",
+                "specialties": [
+                    "Traditional Austrian Pastries",
+                    "Bread",
+                    "Coffee",
+                    "Local Specialties"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 6:00am-6:00pm",
+                "location": "Multiple locations in Graz",
+                "seating": true,
+                "local_tips": "Traditional Austrian bakery with excellent pastries and bread. Perfect for breakfast or coffee break. Try their traditional Austrian pastries."
+            },
+            {
+                "name": "Eis Greissler",
+                "specialties": [
+                    "Artisanal Ice Cream",
+                    "Seasonal Flavors",
+                    "Local Ingredients"
+                ],
+                "price_range": "€",
+                "hours": "Seasonal (typically 11:00am-10:00pm)",
+                "location": "City Center",
+                "seating": false,
+                "local_tips": "High-quality artisanal ice cream made with local ingredients. Perfect for a sweet treat while exploring the city. Try their seasonal flavors."
+            },
+            {
+                "name": "Kaiser Josef Platz Market",
+                "specialties": [
+                    "Fresh Produce",
+                    "Local Cheeses",
+                    "Styrian Wines",
+                    "Artisanal Products"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 6:00am-1:00pm",
+                "location": "Kaiser-Josef-Platz",
+                "seating": false,
+                "local_tips": "Visit during weekdays to avoid crowds. Perfect for experiencing local food culture and buying regional specialties like pumpkin seed oil."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Hofbäckerei Edegger-Tax",
+                "specialty": "Historic bakery and café experience",
+                "must_try": [
+                    "Coffee",
+                    "Pastries",
+                    "Cakes",
+                    "Sissi-Busserl (macaroons)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming, historic with beautiful traditional Austrian décor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional Austrian pastries, cakes, and light meals",
+                "local_tips": "Oldest bakery in Graz (since 1569), beautiful facade. Perfect for experiencing traditional Austrian café culture. Try their famous Sissi-Busserl."
+            },
+            {
+                "name": "Delikatessen Frankowitsch",
+                "specialty": "Traditional Austrian café and deli",
+                "must_try": [
+                    "Coffee",
+                    "Pastries",
+                    "Open Sandwiches",
+                    "Traditional Austrian Snacks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling, traditional with authentic Austrian charm",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional Austrian sandwiches, pastries, and coffee",
+                "local_tips": "Good for a quick coffee and snack, Austrian aperitivo feel. Historic institution perfect for experiencing local café culture."
+            },
+            {
+                "name": "Café Central",
+                "specialty": "Classic Austrian café culture",
+                "must_try": [
+                    "Vienna Coffee",
+                    "Apfelstrudel",
+                    "Traditional Austrian Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant, historic with classic Austrian café charm",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Traditional Austrian pastries, cakes, and light meals",
+                "local_tips": "Classic Austrian café experience in the heart of Graz. Perfect for people-watching and enjoying traditional Austrian coffee culture."
+            },
+            {
+                "name": "Café Promenade",
+                "specialty": "Modern café with local flair",
+                "must_try": [
+                    "Specialty Coffee",
+                    "Local Pastries",
+                    "Seasonal Drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, cozy with contemporary Austrian style",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Modern Austrian cuisine, pastries, and coffee",
+                "local_tips": "Contemporary take on Austrian café culture. Perfect for working or meeting friends. Try their seasonal coffee specialties."
+            },
+            {
+                "name": "Café Kaiserfeld",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Filter Coffee",
+                    "Cinnamon Bun",
+                    "Specialty Brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and quaint with a neighborhood feel",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Homemade pastries and sandwiches",
+                "local_tips": "Perfect for a quiet morning with a good book. Excellent coffee quality and relaxed atmosphere."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Gösser Bräu",
+                "type": "Brewery / Beer Garden",
+                "specialty": "Traditional Austrian beer culture",
+                "signature_drinks": [
+                    "Gösser Beer varieties",
+                    "Local Austrian Beers",
+                    "Seasonal Brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional, lively with authentic Austrian beer garden atmosphere",
+                "best_time": "Evening",
+                "food_options": "Traditional Austrian pub food, pretzels, and hearty dishes",
+                "reservation_needed": false,
+                "local_tips": "Classic Austrian beer experience. Perfect for experiencing traditional Austrian beer culture. The beer garden is especially popular in summer."
+            },
+            {
+                "name": "Aiola Upstairs Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Craft cocktails with city views",
+                "signature_drinks": [
+                    "Cocktails",
+                    "Wine",
+                    "Seasonal Drinks"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, panoramic views with modern cocktail bar ambiance",
+                "best_time": "Evening",
+                "food_options": "Light bar snacks and small plates",
+                "reservation_needed": true,
+                "local_tips": "Great spot for drinks with a view, especially at sunset. Perfect for romantic evenings or special occasions. Book ahead for the best seats."
+            },
+            {
+                "name": "Brot & Spiele",
+                "type": "Craft Beer Bar",
+                "specialty": "Local and international craft beers",
+                "signature_drinks": [
+                    "Craft Beers",
+                    "Local Austrian Brews",
+                    "International Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual, modern with craft beer focus",
+                "best_time": "Evening",
+                "food_options": "Bar snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Excellent selection of craft beers from Austria and beyond. Perfect for beer enthusiasts. Knowledgeable staff can recommend beers based on your preferences."
+            },
+            {
+                "name": "Kulturhauskeller",
+                "type": "Cultural Bar",
+                "specialty": "Cultural events and drinks",
+                "signature_drinks": [
+                    "Local Wines",
+                    "Cocktails",
+                    "Traditional Austrian Drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cultural, vibrant with artistic atmosphere",
+                "best_time": "Evening",
+                "food_options": "Light meals and bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Located in a cultural center, often hosts events and live music. Perfect for experiencing Graz's cultural scene while enjoying drinks."
+            },
+            {
+                "name": "Le Perchoir Graz",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "Mojito",
+                    "Aperol Spritz",
+                    "Local Wine Selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy and vibrant with stunning views",
+                "best_time": "Sunset",
+                "food_options": "Tapas and small plates",
+                "reservation_needed": true,
+                "local_tips": "Visit at sunset for the best views of the city. Perfect for romantic evenings or special occasions."
+            },
+            {
+                "name": "Speakeasy Graz",
+                "type": "Speakeasy",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "Mezcal Margarita",
+                    "Paloma",
+                    "Local Austrian Spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hidden and intimate with a lively backroom",
+                "best_time": "Night",
+                "food_options": "Light snacks and bar food",
+                "reservation_needed": false,
+                "local_tips": "Enter through the unmarked door for the full speakeasy experience. Perfect for a unique night out in Graz."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Graz Food Tour with Testesser",
+                "focus": "Local Styrian cuisine and culture",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Sampling local Styrian specialties",
+                    "Visiting traditional markets",
+                    "Learning about Graz culinary scene",
+                    "Wine tastings"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance. Perfect for food enthusiasts wanting to explore Styrian cuisine."
+            },
+            {
+                "name": "Graz Food Festival Tours",
+                "focus": "Festival culinary experiences",
+                "duration": "2-4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Specialized tastings",
+                    "Culinary walking tours",
+                    "Foodie workshops",
+                    "Chef demonstrations"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Check Graz Food Festival schedule (typically August). Book early as festival events are popular."
+            },
+            {
+                "name": "Styrian Wine Tour",
+                "focus": "Regional wine culture",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Wine tastings",
+                    "Vineyard visits",
+                    "Wine pairing with local cuisine",
+                    "Educational wine sessions"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Perfect for wine enthusiasts. Tours include transportation to nearby vineyards."
+            },
+            {
+                "name": "Graz Market Tour",
+                "focus": "Local market culture",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Market exploration",
+                    "Local product sampling",
+                    "Cultural insights",
+                    "Shopping tips"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book early for weekend tours as they fill up quickly. Perfect for experiencing local market culture."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Styrian Cooking Workshop",
+                "cuisine_focus": "Traditional Styrian cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Backhendl preparation",
+                    "Käsespätzle making",
+                    "Pumpkin seed oil dishes",
+                    "Traditional Austrian desserts"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Wine pairing",
+                    "Take-home goodies"
+                ],
+                "booking_tips": "Reserve your spot at least two weeks in advance. Perfect for learning authentic Styrian cooking techniques."
+            },
+            {
+                "name": "Austrian Pastry Workshop",
+                "cuisine_focus": "Traditional Austrian pastries",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Apfelstrudel",
+                    "Sachertorte",
+                    "Traditional Austrian cookies",
+                    "Pastry techniques"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Hands-on instruction",
+                    "Take-home pastries"
+                ],
+                "booking_tips": "Check for seasonal classes and holiday specials. Popular during Christmas season."
+            },
+            {
+                "name": "Styrian Market-to-Table",
+                "cuisine_focus": "Seasonal Styrian dishes",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal dishes",
+                    "Cooking techniques"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market tour",
+                    "Ingredients",
+                    "Lunch"
+                ],
+                "booking_tips": "Book in advance for market tours, which are popular. Perfect for experiencing seasonal Styrian cuisine."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Farmers Market at Kaiser Josef Platz",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Fresh regional produce",
+                    "Pumpkin seed oil",
+                    "Local cheeses",
+                    "Flowers",
+                    "Food stalls (e.g., sausage stands)",
+                    "Styrian wines"
+                ],
+                "hours": "Mon-Sat: 6:00am-1:00pm",
+                "best_time": "Morning, especially Saturday",
+                "location": "Kaiser-Josef-Platz",
+                "local_tips": "Largest farmers market in Graz, great atmosphere. Perfect for experiencing local food culture and buying regional specialties."
+            },
+            {
+                "name": "Farmers Market at Lendplatz",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Artisanal products",
+                    "More relaxed atmosphere than Kaiser Josef Platz"
+                ],
+                "hours": "Mon-Sat: 6:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Lendplatz",
+                "local_tips": "Located in the Lend district, good to combine with exploring the area. Less crowded than the main market."
+            },
+            {
+                "name": "Christmas Market",
+                "type": "Seasonal Market",
+                "highlights": [
+                    "Traditional Austrian Christmas treats",
+                    "Mulled wine (Glühwein)",
+                    "Handcrafted gifts",
+                    "Seasonal specialties"
+                ],
+                "hours": "Seasonal (typically Dec 1-24)",
+                "best_time": "Evening",
+                "location": "Hauptplatz and various locations",
+                "local_tips": "Magical Christmas atmosphere with traditional Austrian treats. Perfect for experiencing Austrian Christmas culture."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus (Spargel) with hollandaise sauce",
+            "Wild garlic (Bärlauch) dishes",
+            "Fresh spring vegetables",
+            "Light seasonal salads"
+        ],
+        "summer": [
+            "Runner Bean Salad (Käferbohnensalat)",
+            "Fresh berries and fruit",
+            "Light summer dishes",
+            "Grilled specialties"
+        ],
+        "autumn": [
+            "Pumpkin (Kürbis) dishes (soup, oil)",
+            "Wild game (Wildgerichte)",
+            "Mushrooms (e.g., Chanterelles - Eierschwammerl)",
+            "Sturm (young wine)",
+            "Autumn harvest specialties"
+        ],
+        "winter": [
+            "Backhendl (often available year-round)",
+            "Hearty stews and roasts",
+            "Christmas cookies and pastries",
+            "Glühwein (Mulled Wine)",
+            "Traditional winter comfort food"
+        ]
+    }
+} 

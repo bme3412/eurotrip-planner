@@ -1,0 +1,701 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "L'Atlantide 1874",
+                "cuisine_type": "Creative French with Atlantic influences",
+                "signature_dishes": [
+                    "Lobster with citrus and shellfish juice",
+                    "Wild sea bass with artichokes",
+                    "Grand dessert selection"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant contemporary dining room with Loire River views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, request window table for river views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Sainte-Anne hill overlooking the Loire",
+                "local_tips": "Chef Jean-Yves Guého celebrates local seafood with innovative techniques"
+            },
+            {
+                "name": "La Mare aux Oiseaux",
+                "cuisine_type": "Refined Regional Cuisine",
+                "signature_dishes": [
+                    "Pigeon with chocolate and spices",
+                    "Local fish with Brière marsh herbs",
+                    "Lamb from the salt meadows"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Rustic-elegant with natural materials and marsh views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance, worth the short drive from Nantes",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Saint-Joachim (30 minutes from Nantes)",
+                "local_tips": "Located in the Brière regional park with a unique focus on local marsh ingredients"
+            },
+            {
+                "name": "Restaurant Lulu Rouget",
+                "cuisine_type": "Creative Modern French",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Inventive seafood preparations",
+                    "Artistic plating"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate contemporary space with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, opt for the surprise tasting menu",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Graslin district",
+                "local_tips": "Chef Ludovic Pouzelgues trained with Alain Passard and creates truly innovative cuisine"
+            },
+            {
+                "name": "Le Manoir de la Boulaie",
+                "cuisine_type": "Haute Cuisine with Regional Influences",
+                "signature_dishes": [
+                    "Brittany lobster",
+                    "Vendée pigeon",
+                    "Atlantic seafood creations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant château dining room with garden views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, worth the drive from Nantes",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Haute-Goulaine (15 minutes from Nantes)",
+                "local_tips": "Chef Thierry Drapeau creates artistic presentations inspired by the local landscape"
+            },
+            {
+                "name": "Song",
+                "cuisine_type": "Creative Franco-Asian",
+                "signature_dishes": [
+                    "Tasting menu blending French technique with Asian flavors",
+                    "Wagyu beef with Japanese influences",
+                    "Inventive flavor combinations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek modern interior with minimalist Asian touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least two weeks in advance, counter seating available for kitchen views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City center",
+                "local_tips": "Chef Song creates a unique fusion of French technique with Korean and Japanese influences"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "La Cigale",
+                "cuisine_type": "Classic French Brasserie",
+                "signature_dishes": [
+                    "Seafood platters",
+                    "Traditional beef tartare",
+                    "Classic French desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic Art Nouveau brasserie with ornate decor (since 1895)",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekend meals",
+                "dress_code": "Smart casual",
+                "location": "Place Graslin",
+                "local_tips": "A Nantes institution with stunning Belle Époque interiors, worth visiting even just for coffee"
+            },
+            {
+                "name": "Crêperie Heb Ken",
+                "cuisine_type": "Traditional Breton Crêpes",
+                "signature_dishes": [
+                    "Galette complète (buckwheat crêpe with ham, egg, cheese)",
+                    "Sweet crêpes with salted caramel",
+                    "Breton cider"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy traditional crêperie with Breton decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid waiting, especially at dinner",
+                "dress_code": "Casual",
+                "location": "Bouffay district",
+                "local_tips": "One of the most authentic Breton crêperies in Nantes, serving traditional buckwheat galettes"
+            },
+            {
+                "name": "Le 1",
+                "cuisine_type": "Modern Bistro",
+                "signature_dishes": [
+                    "Seasonal market-driven menu",
+                    "Excellent fish dishes",
+                    "Creative appetizers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary bistro with simple elegant decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, lunch menu offers great value",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Chef Julien Moreau creates well-executed bistro classics with modern touches"
+            },
+            {
+                "name": "La Raffinerie",
+                "cuisine_type": "Creative Industrial Canteen",
+                "signature_dishes": [
+                    "Gourmet burgers",
+                    "Creative salads",
+                    "Sharing plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic former sugar refinery with high ceilings",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner, lunch is more casual, good for groups",
+                "dress_code": "Casual",
+                "location": "Île de Nantes",
+                "local_tips": "Trendy spot that transforms from casual lunch spot to vibrant evening venue with DJs"
+            },
+            {
+                "name": "Pickles",
+                "cuisine_type": "Contemporary Market Cuisine",
+                "signature_dishes": [
+                    "Changing blackboard menu",
+                    "Fresh local fish preparations",
+                    "Creative seasonal vegetables"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, intimate bistro with personal service",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Run by British chef Dominic Quirke, offering excellent value lunch menus with market-fresh ingredients"
+            },
+            {
+                "name": "Le Nid",
+                "cuisine_type": "Casual Bites with a View",
+                "signature_dishes": [
+                    "Cheese and charcuterie boards",
+                    "Simple sandwiches and snacks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Panoramic bar/café atop Tour Bretagne with bird-themed design",
+                "best_time": "Afternoon",
+                "reservation_needed": false,
+                "booking_tips": "Come for the view rather than the food, expect lines on weekends",
+                "dress_code": "Casual",
+                "location": "Tour Bretagne (32nd floor)",
+                "local_tips": "More about the spectacular 360° views of Nantes than the simple menu"
+            },
+            {
+                "name": "Crêperie Le Vieux Quimper",
+                "cuisine_type": "Traditional Breton Crêpes",
+                "signature_dishes": [
+                    "Galettes with scallops",
+                    "Regional specialties from Brittany",
+                    "Kouign-amann dessert"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional with Breton decorations and authentic atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance for dinner, specify if you prefer indoor or outdoor seating",
+                "dress_code": "Casual",
+                "location": "Bouffay district",
+                "local_tips": "One of Nantes' most respected crêperies, focusing on high-quality ingredients"
+            },
+            {
+                "name": "Sépia",
+                "cuisine_type": "Neo-Bistro",
+                "signature_dishes": [
+                    "Seasonal set menu",
+                    "Creative fish dishes",
+                    "Excellent desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist dining room with open kitchen",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a week in advance, excellent value lunch menu",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Chef Xavier Thuaud creates precise, modern dishes with excellent price-quality ratio"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché de Talensac",
+                "specialties": [
+                    "Fresh oysters",
+                    "Regional cheeses",
+                    "Prepared foods",
+                    "Breton specialties"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "location": "Near city center",
+                "seating": false,
+                "local_tips": "Nantes' largest and most important covered market, excellent for sampling local produce"
+            },
+            {
+                "name": "Lieu Unique Café",
+                "specialties": [
+                    "Creative sandwiches",
+                    "Quiches",
+                    "Cakes and pastries"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 11:00am-12:00am, Sun: 11:00am-8:00pm",
+                "location": "Le Lieu Unique cultural center",
+                "seating": true,
+                "local_tips": "Trendy café in the former LU biscuit factory, with canal-side terrace in summer"
+            },
+            {
+                "name": "Bouffay District Food Stalls",
+                "specialties": [
+                    "Crêpes and galettes",
+                    "Kebabs",
+                    "International street food"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:00am-10:00pm (later on weekends)",
+                "location": "Bouffay pedestrian area",
+                "seating": false,
+                "local_tips": "The historic heart of Nantes offers many quick food options, especially popular with students"
+            },
+            {
+                "name": "La Fraiseraie",
+                "specialties": [
+                    "Strawberry ice cream",
+                    "Strawberry pastries",
+                    "Strawberry products from Pornic"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 10:00am-7:00pm",
+                "location": "Multiple locations in city center",
+                "seating": false,
+                "local_tips": "Famous regional specialty from nearby Pornic, their strawberry ice cream is a must-try"
+            },
+            {
+                "name": "Maison Grimaud",
+                "specialties": [
+                    "Fouées (small puffed breads filled to order)",
+                    "Regional specialties",
+                    "Artisanal bakery items"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 10:00am-7:00pm",
+                "location": "City center",
+                "seating": false,
+                "local_tips": "Try the fouées, a specialty from the Loire Valley rarely found elsewhere"
+            },
+            {
+                "name": "Provost",
+                "specialties": [
+                    "Berlingots nantais (striped hard candies)",
+                    "Regional sweet specialties",
+                    "Traditional confectionery"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 9:30am-7:00pm",
+                "location": "City center",
+                "seating": false,
+                "local_tips": "Historic confectionery shop making traditional Nantes candies since 1920"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Félix",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "House-made pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright minimalist space with plants and large windows",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast bowls, sandwiches, cakes",
+                "local_tips": "One of Nantes' pioneering specialty coffee shops with excellent brunch options"
+            },
+            {
+                "name": "Owl",
+                "specialty": "Specialty coffee and homemade food",
+                "must_try": [
+                    "Flat white",
+                    "Seasonal lunch bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, Nordic-inspired design with wooden elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Healthy bowls, sandwiches, homemade cakes",
+                "local_tips": "Excellent coffee paired with healthy, creative food options"
+            },
+            {
+                "name": "Flower",
+                "specialty": "Coffee and plants",
+                "must_try": [
+                    "Specialty coffee drinks",
+                    "Vegan treats"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Plant-filled space with bright interior",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast options, vegetarian and vegan choices",
+                "local_tips": "Part café, part plant shop with a beautiful atmosphere and quality coffee"
+            },
+            {
+                "name": "Gentlemen Baristas",
+                "specialty": "English-inspired coffee",
+                "must_try": [
+                    "Batch brew coffee",
+                    "British-inspired baked goods"
+                ],
+                "price_range": "€",
+                "atmosphere": "Vintage-inspired with British touches",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Scones, cakes, light lunch options",
+                "local_tips": "English owners bring unique perspective to the Nantes coffee scene"
+            },
+            {
+                "name": "La Sarazine Cantine",
+                "specialty": "Coffee and healthy food",
+                "must_try": [
+                    "House blend coffee",
+                    "Daily lunch specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm industrial space with communal tables",
+                "best_time": "Lunch",
+                "wifi_friendly": true,
+                "food_options": "Full lunch menu with vegetarian options",
+                "local_tips": "Popular with local workers for lunch but also good for working remotely"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Nid",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views",
+                "signature_drinks": [
+                    "Cocktails",
+                    "Local craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Artistic space with bird theme and 360° views of Nantes",
+                "best_time": "Sunset",
+                "food_options": "Simple snacks and sharing plates",
+                "reservation_needed": false,
+                "local_tips": "The giant bird sculpture by artist Jean Jullien is iconic; go for the views rather than the drinks"
+            },
+            {
+                "name": "John McByrne",
+                "type": "Irish Pub",
+                "specialty": "Extensive beer selection",
+                "signature_drinks": [
+                    "Guinness",
+                    "Irish whiskeys",
+                    "Local and international craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional pub atmosphere with live music",
+                "best_time": "Evening",
+                "food_options": "Pub fare",
+                "reservation_needed": false,
+                "local_tips": "Popular expat hangout with regular live music and sports screenings"
+            },
+            {
+                "name": "Le Lieu Unique",
+                "type": "Cultural Center Bar",
+                "specialty": "Creative atmosphere",
+                "signature_drinks": [
+                    "Craft cocktails",
+                    "Natural wines",
+                    "Local beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic in former LU biscuit factory with canal-side terrace",
+                "best_time": "Evening",
+                "food_options": "Creative small plates",
+                "reservation_needed": false,
+                "local_tips": "Cultural hub with exhibitions, performances and a great bar scene, especially in summer"
+            },
+            {
+                "name": "Little Atlantique Brewery",
+                "type": "Craft Brewery",
+                "specialty": "House-brewed craft beers",
+                "signature_drinks": [
+                    "IPA, stout, and seasonal beers",
+                    "Beer tasting flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial brewery with riverside views",
+                "best_time": "Afternoon",
+                "food_options": "Beer-friendly snacks and meals",
+                "reservation_needed": false,
+                "local_tips": "Local microbrewery with taproom on the Loire riverbank, excellent outdoor space"
+            },
+            {
+                "name": "Le Café du Commerce",
+                "type": "Wine Bar",
+                "specialty": "Natural and organic wines",
+                "signature_drinks": [
+                    "Loire Valley wines",
+                    "Natural wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French bistro with vintage elements",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Excellent selection of natural wines and knowledgeable staff"
+            },
+            {
+                "name": "La Civelle",
+                "type": "Riverside Bar",
+                "specialty": "Waterfront setting",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Regional wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming setting in fishing village with Loire views",
+                "best_time": "Sunset",
+                "food_options": "Full seafood restaurant menu",
+                "reservation_needed": true,
+                "local_tips": "Located in picturesque Trentemoult across the Loire, accessible by boat shuttle from Nantes"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Nantes Walking Tour",
+                "focus": "Local Nantes specialties and Breton influences",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Talensac Market exploration",
+                    "Breton pastry tastings",
+                    "Local chocolate and candy specialties"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Morning tours recommended to experience the market at its best"
+            },
+            {
+                "name": "Muscadet Wine Country Tour",
+                "focus": "Regional wine exploration",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vineyard visits in Muscadet region",
+                    "Wine tastings with winemakers",
+                    "Food pairings with regional products"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation from Nantes, wear comfortable shoes for vineyard walking"
+            },
+            {
+                "name": "Gourmet Bouffay District Tour",
+                "focus": "Historic center food specialties",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional crêperies",
+                    "Historic Graslin district",
+                    "Sweet specialties of Nantes"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Afternoon tours available, focuses on the historic heart of the city"
+            },
+            {
+                "name": "Maritime Flavors of Nantes",
+                "focus": "Seafood and Loire River influence",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fresh seafood tastings",
+                    "Île de Nantes food scene",
+                    "Loire river culinary history"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes boat transportation on the Loire, seafood focus"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "L'Atelier de Laurence",
+                "cuisine_focus": "Traditional Breton and Loire Valley cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Galette and crêpe preparation",
+                    "Seafood techniques",
+                    "Breton butter cookies"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Meal with local cider or wine"
+                ],
+                "booking_tips": "Classes for all levels, focus on regional specialties"
+            },
+            {
+                "name": "Atelier des Chefs Nantes",
+                "cuisine_focus": "Modern French techniques",
+                "duration": "1-2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Quick gourmet recipes",
+                    "Professional techniques",
+                    "Market-inspired cooking"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Digital recipes",
+                    "Meal with wine"
+                ],
+                "booking_tips": "Express lunch format available, larger classes but professional setting"
+            },
+            {
+                "name": "Cuisine et Moi",
+                "cuisine_focus": "Home cooking with local products",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal cooking",
+                    "Loire Valley specialties"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French",
+                    "English (with advance notice)"
+                ],
+                "includes": [
+                    "Market visit",
+                    "All ingredients",
+                    "Full meal with regional wines"
+                ],
+                "booking_tips": "Small-group experience in home kitchen setting with market visit"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché de Talensac",
+                "type": "Covered market and surrounding streets",
+                "highlights": [
+                    "Largest market in Nantes",
+                    "Fresh seafood, produce, and prepared foods",
+                    "Regional specialties"
+                ],
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Near city center",
+                "local_tips": "The heart of food shopping in Nantes, busiest on weekend mornings"
+            },
+            {
+                "name": "Marché de la Petite Hollande",
+                "type": "Open-air market",
+                "highlights": [
+                    "Large produce selection",
+                    "Flowers and plants",
+                    "Local farmers"
+                ],
+                "hours": "Sat: 8:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "City center along the Loire",
+                "local_tips": "One of the city's largest markets, only on Saturdays but worth planning around"
+            },
+            {
+                "name": "Marché Biologique de la Place Saint-Felix",
+                "type": "Organic market",
+                "highlights": [
+                    "Certified organic produce",
+                    "Artisanal breads and cheeses",
+                    "Natural wines"
+                ],
+                "hours": "Wed: 4:00pm-8:00pm",
+                "best_time": "Early evening",
+                "location": "Saint-Felix square",
+                "local_tips": "The place for organic and sustainable products, popular with eco-conscious locals"
+            },
+            {
+                "name": "Marché de Trentemoult",
+                "type": "Riverside village market",
+                "highlights": [
+                    "Small but charming market",
+                    "Fresh seafood",
+                    "Picturesque setting"
+                ],
+                "hours": "Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Trentemoult village across the Loire",
+                "local_tips": "Worth combining with lunch in this colorful former fishing village, accessible by boat shuttle"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus from the Loire Valley",
+            "Young Curé Nantais cheese",
+            "First of the season Muscadet wine"
+        ],
+        "summer": [
+            "Préfou (garlic bread from Vendée)",
+            "Strawberries from Pornic",
+            "Fresh sardines from the Atlantic"
+        ],
+        "autumn": [
+            "Buckwheat galettes with mushrooms",
+            "Loire Valley game dishes",
+            "Fouace (brioche-like bread)"
+        ],
+        "winter": [
+            "Seafood platters with local oysters",
+            "Breton Kig Ha Farz (meat and buckwheat dumpling stew)",
+            "Gâteau Nantais (rum cake with almond)"
+        ]
+    }
+}

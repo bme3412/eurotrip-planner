@@ -1,0 +1,316 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Basil",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "Local Game with Seasonal Vegetables",
+                    "North German Fish Specialties"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Contemporary design with garden views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Herrenhausen",
+                "local_tips": "One of Hannover's most prestigious restaurants; excellent wine list featuring German wines; beautiful garden setting"
+            },
+            {
+                "name": "La Table",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Creative Tasting Menus",
+                    "Seasonal Specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern dining room with city views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 week in advance",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "City Center",
+                "local_tips": "Creative cuisine; excellent wine pairing; great service"
+            },
+            {
+                "name": "Ratskeller",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Hannover Calenberger Pfannenschlag",
+                    "Local Game Dishes",
+                    "Traditional German Classics"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic wine cellar dating back to 1913",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "New Town Hall",
+                "local_tips": "Hannover's most historic restaurant; authentic German cuisine; historic atmosphere"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Herrenhausen Brewery",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Hannover Calenberger Pfannenschlag",
+                    "Grünkohl (Kale) with Pinkel",
+                    "Local Beer Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brewery with garden seating",
+                "best_time": "Lunch and Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Herrenhausen",
+                "local_tips": "Famous for traditional Hannover cuisine; historic brewery; great location near the gardens"
+            },
+            {
+                "name": "Markthalle",
+                "cuisine_type": "International",
+                "signature_dishes": [
+                    "Various International Cuisines",
+                    "Local Specialties",
+                    "Fresh Produce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic market hall with various food stalls",
+                "best_time": "Lunch and Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but can get busy during peak hours",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Historic market hall; diverse food options; great atmosphere"
+            },
+            {
+                "name": "Altstadt Restaurant",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Local Specialties",
+                    "Traditional German Dishes",
+                    "Seasonal Menu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with traditional charm",
+                "best_time": "Lunch and Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential for dinner",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "One of Hannover's oldest restaurants; authentic atmosphere; excellent traditional food"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Hannover Christmas Market",
+                "specialties": [
+                    "Hannover Calenberger Pfannenschlag",
+                    "Grünkohl",
+                    "Glühwein",
+                    "Local Specialties"
+                ],
+                "price_range": "€-€€",
+                "hours": "10:00 AM - 9:00 PM (November-December)",
+                "location": "Market Square",
+                "seating": "Limited",
+                "local_tips": "Historic Christmas market; traditional food and drinks; festive atmosphere"
+            },
+            {
+                "name": "Maschsee Festival",
+                "specialties": [
+                    "Local Food Specialties",
+                    "International Street Food",
+                    "Traditional Snacks"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 10:00 PM (Summer)",
+                "location": "Maschsee Lake",
+                "seating": "Limited",
+                "local_tips": "Lakeside festival; diverse food options; great atmosphere"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Künstlerklause",
+                "specialty": "Traditional Coffee House",
+                "must_try": [
+                    "House-made Cakes",
+                    "Traditional Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with artistic interior",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, cakes, and light meals",
+                "local_tips": "Historic café in beautiful location; excellent pastries"
+            },
+            {
+                "name": "Café Mezzo",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Coffee",
+                    "Artisanal Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light meals",
+                "local_tips": "Best specialty coffee in Hannover; great for working"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Herrenhäuser Brewery",
+                "type": "Brewery",
+                "specialty": "Local Beer",
+                "signature_drinks": [
+                    "Herrenhäuser Beer",
+                    "Seasonal Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brewery with traditional elements",
+                "best_time": "Evening",
+                "food_options": "Traditional German cuisine",
+                "reservation_needed": false,
+                "local_tips": "Fresh craft beers; good food menu; lively atmosphere"
+            },
+            {
+                "name": "Hannover Beer House",
+                "type": "Craft Beer Bar",
+                "specialty": "Craft Beer",
+                "signature_drinks": [
+                    "Local Craft Beers",
+                    "International Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern bar with industrial design",
+                "best_time": "Evening",
+                "food_options": "Bar snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Great craft beer selection; friendly atmosphere; regular events"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Hannover Food Tour",
+                "focus": "Traditional German Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic restaurants",
+                    "Traditional food tastings",
+                    "Local food history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; tours run daily except Sundays"
+            },
+            {
+                "name": "Hannover Beer Tour",
+                "focus": "Local Beer Culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic breweries",
+                    "Beer tastings",
+                    "Local beer history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable walking shoes required"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "German Cooking Workshop",
+                "cuisine_focus": "Traditional German Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional German dishes",
+                    "Local specialties",
+                    "Seasonal cooking"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held weekly"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Market Square",
+                "type": "Daily Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Traditional food"
+                ],
+                "hours": "7:00 AM - 6:00 PM (Monday-Saturday)",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "Historic market square; excellent selection of local products; beautiful fountain"
+            },
+            {
+                "name": "Maschsee Market",
+                "type": "Weekly Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Regional products"
+                ],
+                "hours": "10:00 AM - 6:00 PM (Saturdays)",
+                "best_time": "Morning",
+                "location": "Maschsee Lake",
+                "local_tips": "Lakeside market; traditional atmosphere; great for local products"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise",
+            "Fresh Herbs and Wild Garlic",
+            "Spring Fish from Local Waters"
+        ],
+        "summer": [
+            "Fresh Berries from Local Farms",
+            "Grilled Local Fish",
+            "Beer Festival Specialties"
+        ],
+        "autumn": [
+            "Grünkohl (Kale) with Pinkel",
+            "Fresh Game Dishes",
+            "Autumn Mushrooms"
+        ],
+        "winter": [
+            "Christmas Market Specialties",
+            "Glühwein and Punch",
+            "Traditional German Winter Dishes"
+        ]
+    }
+} 

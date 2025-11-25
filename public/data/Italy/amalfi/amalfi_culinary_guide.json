@@ -1,0 +1,477 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Ristorante Marina Grande",
+                "cuisine_type": "Italian Fine Dining",
+                "signature_dishes": [
+                    "Linguine alle vongole (clams)",
+                    "Branzino al sale (salt-baked sea bass)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant waterfront dining with stunning views of Amalfi's harbor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book weeks in advance, especially during summer season",
+                "dress_code": "Smart casual",
+                "michelin_recognition": "Bib Gourmand",
+                "location": "Marina Grande, Amalfi",
+                "local_tips": "Request a terrace table for the best sea views and sunset atmosphere"
+            },
+            {
+                "name": "Il Tari",
+                "cuisine_type": "Traditional Amalfi",
+                "signature_dishes": [
+                    "Scialatielli ai frutti di mare",
+                    "Coniglio all'Ischitana (Ischia-style rabbit)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining in historic building with garden terrace",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals and discerning tourists",
+                "dress_code": "Smart casual",
+                "michelin_recognition": "Local favorite",
+                "location": "Via Capuano, Amalfi",
+                "local_tips": "Their homemade pasta is made fresh daily using traditional Amalfi techniques"
+            },
+            {
+                "name": "La Caravella",
+                "cuisine_type": "Contemporary Italian",
+                "signature_dishes": [
+                    "Risotto al limone di Amalfi",
+                    "Tonno rosso con verdure di stagione"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern restaurant with Mediterranean elegance",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Lunch menu offers excellent value for high-quality cuisine",
+                "dress_code": "Smart casual",
+                "location": "Via Lorenzo d'Amalfi",
+                "local_tips": "Their lemon risotto showcases the famous Amalfi lemons perfectly"
+            },
+            {
+                "name": "Da Gemma",
+                "cuisine_type": "Traditional Amalfi",
+                "signature_dishes": [
+                    "Spaghetti alle vongole veraci",
+                    "Pesce spada alla griglia"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic family restaurant with authentic local atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Family-run establishment with generations of tradition",
+                "dress_code": "Smart casual",
+                "location": "Via Fra Gerardo Sasso",
+                "local_tips": "Ask about their daily catch and traditional family recipes"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria da Maria",
+                "cuisine_type": "Traditional Italian",
+                "signature_dishes": [
+                    "Pizza margherita con bufala",
+                    "Spaghetti alla puttanesca"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic family trattoria with checkered tablecloths",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Perfect for authentic local atmosphere",
+                "dress_code": "Casual",
+                "location": "Via Capuano",
+                "local_tips": "Try their homemade limoncello after dinner - a local specialty"
+            },
+            {
+                "name": "Pizzeria Donna Stella",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Pizza marinara",
+                    "Pizza quattro stagioni"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling pizzeria popular with locals and tourists",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Via Lorenzo d'Amalfi",
+                "local_tips": "Wood-fired pizzas using traditional Neapolitan techniques"
+            },
+            {
+                "name": "Osteria Il Mulino",
+                "cuisine_type": "Italian Osteria",
+                "signature_dishes": [
+                    "Antipasto misto della casa",
+                    "Pasta e fagioli"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy osteria with extensive Italian wine selection",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Great for wine tasting and traditional Italian dinner",
+                "dress_code": "Casual",
+                "location": "Via Fra Gerardo Sasso",
+                "local_tips": "Excellent selection of Campania wines and local specialties"
+            },
+            {
+                "name": "Ristorante L'Abside",
+                "cuisine_type": "Mediterranean Italian",
+                "signature_dishes": [
+                    "Insalata di mare",
+                    "Grigliata mista di pesce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming restaurant with sea views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Perfect for a peaceful lunch with sea views",
+                "dress_code": "Casual",
+                "location": "Marina Grande",
+                "local_tips": "Uses fresh ingredients from local fishermen daily"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Pasticceria Pansa",
+                "specialties": [
+                    "Sfogliatella riccia",
+                    "Delizia al limone"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 7:00am-9:00pm",
+                "location": "Piazza del Duomo",
+                "seating": true,
+                "local_tips": "Try their famous lemon delights - a true Amalfi specialty"
+            },
+            {
+                "name": "Gelateria Artigianale",
+                "specialties": [
+                    "Gelato al limone di Amalfi",
+                    "Gelato alla nocciola"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10:00am-11:00pm",
+                "location": "Via Lorenzo d'Amalfi",
+                "seating": false,
+                "local_tips": "Famous for their Amalfi lemon gelato made with local lemons"
+            },
+            {
+                "name": "Panificio Amalfi",
+                "specialties": [
+                    "Focaccia al rosmarino",
+                    "Taralli al limone"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 6:00am-8:00pm",
+                "location": "Via Capuano",
+                "seating": false,
+                "local_tips": "Fresh bread and pastries made daily using traditional recipes"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Amalfi",
+                "specialty": "Traditional Italian coffee culture",
+                "must_try": [
+                    "Espresso con panna",
+                    "Cappuccino e cornetto"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Italian café with terrace people-watching",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Italian pastries and light breakfast",
+                "local_tips": "Prime location for observing Amalfi's daily life in the main square"
+            },
+            {
+                "name": "Pasticceria Andrea Pansa",
+                "specialty": "Artisanal coffee and pastries",
+                "must_try": [
+                    "Espresso ristretto",
+                    "Sfogliatella calda"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic pastry shop with artisanal focus",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Gourmet pastries and light lunches",
+                "local_tips": "Known for exceptional coffee quality and traditional Amalfi pastries"
+            },
+            {
+                "name": "Bar Marina",
+                "specialty": "Seaside café with views",
+                "must_try": [
+                    "Cappuccino",
+                    "Granita al limone"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Beachside café with Mediterranean views",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Light breakfast and snacks",
+                "local_tips": "Perfect spot for coffee with a view of the Mediterranean and harbor"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Rooftop Bar Hotel Santa Caterina",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "Limoncello Spritz",
+                    "Amalfi Coast Martini"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated rooftop with stunning views of Amalfi Coast",
+                "best_time": "Sunset",
+                "food_options": "Gourmet Italian tapas",
+                "reservation_needed": true,
+                "local_tips": "Book ahead for sunset cocktails with breathtaking coastal views"
+            },
+            {
+                "name": "Bar Il Chiostro",
+                "type": "Historic Bar",
+                "specialty": "Traditional Italian aperitivo",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic bar in historic setting with Mediterranean charm",
+                "best_time": "Evening",
+                "food_options": "Italian aperitivo snacks",
+                "reservation_needed": true,
+                "local_tips": "Famous for its historic atmosphere and traditional Italian cocktails"
+            },
+            {
+                "name": "L'Africana",
+                "type": "Beach Club Bar",
+                "specialty": "Beachfront cocktails",
+                "signature_drinks": [
+                    "Mojito al limone",
+                    "Prosecco cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Glamorous beach club with Mediterranean luxury",
+                "best_time": "Afternoon",
+                "food_options": "Mediterranean cuisine",
+                "reservation_needed": true,
+                "local_tips": "Exclusive beach club atmosphere with stunning sea views"
+            },
+            {
+                "name": "Irish Pub Amalfi",
+                "type": "Irish Pub",
+                "specialty": "International crowd and live music",
+                "signature_drinks": [
+                    "Guinness",
+                    "Italian craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively pub atmosphere with live music",
+                "best_time": "Evening",
+                "food_options": "Pub food and Italian bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular with international visitors and expats"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Amalfi Coast Culinary Walking Tour",
+                "focus": "Italian Mediterranean specialties",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local market visit",
+                    "Traditional specialties tasting",
+                    "Wine and cheese pairing"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "Italian",
+                    "English"
+                ],
+                "booking_tips": "Book online at least 2 days in advance"
+            },
+            {
+                "name": "Amalfi Lemon Experience",
+                "focus": "Local lemon production and cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Lemon grove visit",
+                    "Limoncello making",
+                    "Traditional lemon-based dishes"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "Italian",
+                    "English"
+                ],
+                "booking_tips": "Includes transportation to local lemon groves"
+            },
+            {
+                "name": "Amalfi Coast Cooking Experience",
+                "focus": "Traditional Italian cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Market shopping",
+                    "Hands-on cooking",
+                    "Three-course meal"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "Italian",
+                    "English"
+                ],
+                "booking_tips": "Classes available morning and afternoon"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Amalfi Cooking Workshop",
+                "cuisine_focus": "Traditional Amalfi Coast cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making fresh pasta",
+                    "Preparing seafood dishes",
+                    "Lemon-based desserts"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "Italian",
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe cards",
+                    "Full meal with wine"
+                ],
+                "booking_tips": "Learn authentic techniques from local Amalfi chefs"
+            },
+            {
+                "name": "Italian Pastry Masterclass",
+                "cuisine_focus": "Italian patisserie",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Sfogliatella technique",
+                    "Cannoli making",
+                    "Lemon delights"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "Italian",
+                    "English"
+                ],
+                "includes": [
+                    "Professional equipment use",
+                    "Take-home pastries",
+                    "Recipe collection"
+                ],
+                "booking_tips": "Perfect for aspiring bakers and pastry enthusiasts"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato di Amalfi",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh Mediterranean produce",
+                    "Local Amalfi specialties",
+                    "Seasonal fruits and vegetables"
+                ],
+                "hours": "Mon-Sat: 7:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Via Capuano",
+                "local_tips": "Best selection early morning; many vendors offer tastings"
+            },
+            {
+                "name": "Pescheria di Amalfi",
+                "type": "Fresh seafood market",
+                "highlights": [
+                    "Daily Mediterranean catch",
+                    "Local fishermen",
+                    "Seasonal specialties"
+                ],
+                "hours": "Daily: 6:00am-11:00am",
+                "best_time": "Early morning",
+                "location": "Marina Grande",
+                "local_tips": "Freshest fish early morning; prices negotiable"
+            },
+            {
+                "name": "Pasticceria e Panificio",
+                "type": "Bakery and pastry shop",
+                "highlights": [
+                    "Fresh bread daily",
+                    "Traditional pastries",
+                    "Local specialties"
+                ],
+                "hours": "Daily: 6:00am-8:00pm",
+                "best_time": "Morning",
+                "location": "Via Capuano",
+                "local_tips": "Best selection of fresh bread and pastries in the morning"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Carciofi (artichokes) from local farms",
+            "Fresh asparagus with olive oil",
+            "Young vegetables in Mediterranean salads"
+        ],
+        "summer": [
+            "Grilled fish with local herbs",
+            "Caprese salad with buffalo mozzarella",
+            "Fresh fruit granitas and gelato"
+        ],
+        "autumn": [
+            "Tartufo nero (black truffle) dishes",
+            "Grape harvest celebrations",
+            "Wild mushroom specialties"
+        ],
+        "winter": [
+            "Hearty Italian stews",
+            "Citrus fruits from Amalfi lemon groves",
+            "Traditional holiday pastries"
+        ]
+    },
+    "local_specialties": {
+        "signature_dishes": [
+            "Scialatielli ai frutti di mare - local pasta with seafood",
+            "Linguine alle vongole - clams with pasta",
+            "Pesce spada alla griglia - grilled swordfish",
+            "Delizia al limone - lemon delight dessert"
+        ],
+        "local_products": [
+            "Limoni di Amalfi (Amalfi lemons)",
+            "Extra virgin olive oil",
+            "Local honey varieties",
+            "Mediterranean sea salt"
+        ],
+        "beverages": [
+            "Limoncello di Amalfi",
+            "Campania wines",
+            "Local craft beers",
+            "Citrus-infused waters"
+        ],
+        "sweets": [
+            "Sfogliatella riccia",
+            "Delizia al limone",
+            "Pastiera napoletana",
+            "Fresh fruit tarts"
+        ]
+    }
+}

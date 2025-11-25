@@ -1,0 +1,639 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Podium onder de Dom",
+                "cuisine_type": "Modern Dutch",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "North Sea Fish with Local Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining in a historic building near the Dom Tower",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dinners",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "City Center",
+                "local_tips": "Chef Leon Mazairac creates dishes highlighting Dutch produce with French techniques; pre-dinner drinks in their historic cellar recommended"
+            },
+            {
+                "name": "Voltaire",
+                "cuisine_type": "Contemporary French",
+                "signature_dishes": [
+                    "Lamb with Seasonal Vegetables",
+                    "Langoustine with Citrus and Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining room in the historic Park Oudwijk area",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 3 weeks in advance, closed Sunday and Monday",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Oudwijk",
+                "local_tips": "Their wine pairings are exceptional; the sommelier specializes in small-production European wines"
+            },
+            {
+                "name": "Karel 5",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Venison with Black Truffle",
+                    "Dover Sole with Dutch Shrimp"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Grand dining room in a 15th-century monastery with garden views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request garden seating in summer",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "City Center",
+                "local_tips": "Located within the Grand Hotel Karel V; their private garden provides many of the herbs and edible flowers used in dishes"
+            },
+            {
+                "name": "YUZU",
+                "cuisine_type": "Japanese-Dutch Fusion",
+                "signature_dishes": [
+                    "Wagyu with Dashi and Local Vegetables",
+                    "North Sea Fish with Japanese Influences"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Minimalist, elegant space with Japanese aesthetic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks ahead, omakase menu requires advance notice",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City Center",
+                "local_tips": "Chef Kasper Stiekema blends Japanese techniques with Dutch ingredients; counter seating offers view of the open kitchen"
+            },
+            {
+                "name": "Héron",
+                "cuisine_type": "Modern French-Dutch",
+                "signature_dishes": [
+                    "Seasonal Seafood Platter",
+                    "Dutch Duck with Cherry Sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary dining space with canal views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, lunch offers excellent value",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Oudegracht",
+                "local_tips": "Request a table by the windows for canal views; the restaurant sits directly on Utrecht's characteristic wharf cellars"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Eetcafé De Vingerhoed",
+                "cuisine_type": "Traditional Dutch",
+                "signature_dishes": [
+                    "Stamppot with Seasonal Vegetables",
+                    "Dutch Meatballs in Gravy"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy brown café with wood paneling and historic charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book few days ahead for dinner; lunch usually accommodates walk-ins",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "One of Utrecht's oldest eateries; traditional Dutch comfort food at its best with local beers"
+            },
+            {
+                "name": "Café Olivier",
+                "cuisine_type": "Belgian-Dutch",
+                "signature_dishes": [
+                    "Flemish Beef Stew with Beer",
+                    "Moules Frites (Mussels and Fries)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted church with Belgian abbey décor and impressive beer selection",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for weekend dinners; weekdays more flexible",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Over 200 Belgian beers available; staff provides excellent pairing recommendations"
+            },
+            {
+                "name": "Meneer Smakers",
+                "cuisine_type": "Gourmet Burgers",
+                "signature_dishes": [
+                    "De Royale (Wagyu Beef Burger)",
+                    "Dutch Cheese Burger with Local Gouda"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, casual burger joint with industrial décor",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; expect a wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Multiple Locations",
+                "local_tips": "Local chain beloved by Utrecht students; all beef is locally and sustainably sourced"
+            },
+            {
+                "name": "De Zakkendrager",
+                "cuisine_type": "Modern Dutch",
+                "signature_dishes": [
+                    "Seasonal Fish Specials",
+                    "Dutch Asparagus (spring)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic building with modern interior and canal-level dining",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for canal-side tables",
+                "dress_code": "Smart casual",
+                "location": "Oudegracht",
+                "local_tips": "Located in one of Utrecht's characteristic wharf cellars; beautiful setting directly on the canal level"
+            },
+            {
+                "name": "Sla",
+                "cuisine_type": "Organic Salad Bar",
+                "signature_dishes": [
+                    "Build-Your-Own Organic Salads",
+                    "Seasonal Grain Bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, contemporary space with sustainable design elements",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed; busiest during lunch hours",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "All produce is organic and locally sourced when possible; excellent for vegetarians and vegans"
+            },
+            {
+                "name": "Hygge",
+                "cuisine_type": "Nordic-Inspired",
+                "signature_dishes": [
+                    "Smørrebrød (Open-Faced Sandwiches)",
+                    "Swedish Meatballs with Lingonberry"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Scandinavian minimalist design with cozy accents",
+                "best_time": "Breakfast/Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Reservations accepted for groups; weekend brunches get busy",
+                "dress_code": "Casual",
+                "location": "University Quarter",
+                "local_tips": "The ultimate brunch spot with excellent coffee; try their homemade cardamom buns"
+            },
+            {
+                "name": "KEEK",
+                "cuisine_type": "Contemporary Café",
+                "signature_dishes": [
+                    "Artisanal Cakes and Tarts",
+                    "Seasonal Quiches"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming, bright café with homey feel",
+                "best_time": "Afternoon",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; find a table early on weekend afternoons",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "All pastries are made in-house daily; their Utrecht-themed pastries make great edible souvenirs"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Vredenburg Market",
+                "specialties": [
+                    "Stroopwafels",
+                    "Dutch Cheeses",
+                    "Fresh Herring"
+                ],
+                "price_range": "€",
+                "hours": "Wednesday, Friday, Saturday 10:00 AM - 5:00 PM",
+                "location": "Vredenburg Square",
+                "seating": "Limited",
+                "local_tips": "Utrecht's largest market offers fantastic fresh stroopwafels made before your eyes; best on Saturday when all vendors are present"
+            },
+            {
+                "name": "Broodje Mario",
+                "specialties": [
+                    "Dutch-Italian Sandwiches",
+                    "Croquette Rolls"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 6:00 PM, Monday to Saturday",
+                "location": "Oudegracht",
+                "seating": false,
+                "local_tips": "Legendary sandwich shop frequented by Utrecht University students for decades; often has a queue but worth the wait"
+            },
+            {
+                "name": "Manneken Pis",
+                "specialties": [
+                    "Belgian-style Fries",
+                    "Specialty Sauces"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "Vinkenburgstraat",
+                "seating": false,
+                "local_tips": "The best fries in Utrecht with over 20 sauce options; try the 'Oorlog' (war) sauce - a mix of mayonnaise, peanut sauce, and onions"
+            },
+            {
+                "name": "De Hoop Dutch Pancakes",
+                "specialties": [
+                    "Traditional Dutch Pancakes",
+                    "Poffertjes (Mini Pancakes)"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 7:00 PM",
+                "location": "Vredenburg Market",
+                "seating": false,
+                "local_tips": "Market stand selling authentic Dutch pancakes with traditional toppings like stroop (syrup) and powdered sugar"
+            },
+            {
+                "name": "Roberto Gelato",
+                "specialties": [
+                    "Artisanal Italian Gelato",
+                    "Dutch-Inspired Flavors"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 10:00 PM (summer), shorter hours in winter",
+                "location": "Poortstraat",
+                "seating": "Limited",
+                "local_tips": "Award-winning gelato that attracts lines around the block in summer; local specialties include stroopwafel and speculaas flavors"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "The Village Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Pour-Over",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, contemporary café with brick walls and wooden elements",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Homemade pastries and light lunch",
+                "local_tips": "One of Utrecht's pioneering specialty coffee shops; their baristas regularly compete in national championships"
+            },
+            {
+                "name": "30ml Coffee Roasters",
+                "specialty": "House-Roasted Coffee",
+                "must_try": [
+                    "Espresso Tonic",
+                    "Dutch Apple Pie with Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic café with on-site roastery",
+                "best_time": "Any time",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, sandwiches, and cakes",
+                "local_tips": "They roast their beans in-house; watch the roasting process through the glass partition"
+            },
+            {
+                "name": "Blackbird Coffee",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Chemex Brew",
+                    "Homemade Banana Bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist, Scandinavian-inspired space with plenty of plants",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Light breakfast and lunch options",
+                "local_tips": "Great for remote working with good wifi and plenty of power outlets; excellent house-baked goods"
+            },
+            {
+                "name": "Cornelis",
+                "specialty": "Coffee & Pastries",
+                "must_try": [
+                    "Traditional Coffee with Speculaas",
+                    "Dutch Appeltaart"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Dutch brown café meets modern coffee shop",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Dutch pastries and light lunch",
+                "local_tips": "Their apple pie is made according to a decades-old family recipe; perfect with fresh whipped cream"
+            },
+            {
+                "name": "Koffie Leute",
+                "specialty": "Organic Coffee & Vegan Options",
+                "must_try": [
+                    "Oat Milk Cappuccino",
+                    "Vegan Zucchini Bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Eco-friendly café with upcycled furniture and plants",
+                "best_time": "Morning or Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Vegan breakfast, lunch and pastries",
+                "local_tips": "Utrecht's best café for plant-based eaters; all food is made in-house with organic ingredients"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Café Belgique",
+                "type": "Belgian Beer Bar",
+                "specialty": "Belgian Abbey and Trappist Beers",
+                "signature_drinks": [
+                    "Rotating Trappist Selection",
+                    "Belgian Beer Flight"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic Belgian café with vintage brewery advertisements and cozy seating",
+                "best_time": "Evening",
+                "food_options": "Belgian bar snacks and cheese plates",
+                "reservation_needed": false,
+                "local_tips": "Over 100 Belgian beers available; ask for the seasonal recommendations from knowledgeable staff"
+            },
+            {
+                "name": "Café Olivier",
+                "type": "Beer Specialist",
+                "specialty": "Belgian and Dutch Craft Beers",
+                "signature_drinks": [
+                    "La Trappe Quadrupel on Tap",
+                    "Beer Tasting Paddles"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted church with stained glass windows and wooden pews turned into benches",
+                "best_time": "Evening",
+                "food_options": "Full Belgian-inspired menu",
+                "reservation_needed": true,
+                "local_tips": "The building was a church until the 1980s; incredible atmosphere with vaulted ceilings and ecclesiastical details"
+            },
+            {
+                "name": "De Vingerhoed",
+                "type": "Traditional Dutch Bar",
+                "specialty": "Dutch Genever and Local Beer",
+                "signature_drinks": [
+                    "Genever Tasting Flight",
+                    "Utrecht Craft Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Dutch brown café with dark wood and historic photographs",
+                "best_time": "Evening",
+                "food_options": "Traditional Dutch bar snacks",
+                "reservation_needed": false,
+                "local_tips": "One of the oldest bars in Utrecht; try their house-aged genever served in the traditional tulip glass"
+            },
+            {
+                "name": "The Rum Club",
+                "type": "Cocktail Bar",
+                "specialty": "Rum-Based Cocktails",
+                "signature_drinks": [
+                    "Utrecht Mule (Rum-based Moscow Mule)",
+                    "Caribbean Old Fashioned"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, tropical-inspired speakeasy with vintage elements",
+                "best_time": "Night",
+                "food_options": "Small Caribbean-inspired plates",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the charm; call ahead as space is limited but the craft cocktails are the best in the city"
+            },
+            {
+                "name": "Kafé België",
+                "type": "Beer Bar",
+                "specialty": "Global Craft Beer Selection",
+                "signature_drinks": [
+                    "Rotating Craft Beer Taps",
+                    "Rare Bottle Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, artistic bar with eclectic décor and regular events",
+                "best_time": "Evening",
+                "food_options": "Bar snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "A Utrecht institution since 1984; attracts a diverse crowd from students to beer aficionados"
+            },
+            {
+                "name": "Lebowski",
+                "type": "Cocktail & Film-Themed Bar",
+                "specialty": "White Russians and Classic Cocktails",
+                "signature_drinks": [
+                    "El Duderino (White Russian Variation)",
+                    "Craft G&Ts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Film-inspired bar with retro furniture and city garden",
+                "best_time": "Sunset",
+                "food_options": "Full dinner menu available",
+                "reservation_needed": true,
+                "local_tips": "Great terrace in summer; named after the Coen Brothers film with subtle references throughout the menu"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Utrecht Canals & Cuisine Tour",
+                "focus": "Dutch Culinary Highlights along Canals",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Tastings at canal-level restaurants in historic wharf cellars",
+                    "Traditional Dutch snacks and sweets",
+                    "Historical background on Utrecht's unique two-level canals"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; combines Utrecht's distinctive canal architecture with local culinary specialties"
+            },
+            {
+                "name": "Utrecht Craft Beer Journey",
+                "focus": "Local Breweries and Beer History",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visits to multiple craft breweries in Utrecht",
+                    "Guided tastings of local beers",
+                    "Utrecht's brewing history from medieval times to present"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Reserve 7-10 days ahead; includes beer tastings at 3-4 locations"
+            },
+            {
+                "name": "Hidden Utrecht Food Walk",
+                "focus": "Local Favorites Off the Tourist Trail",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Neighborhood eateries beloved by locals",
+                    "Street food and small producer tastings",
+                    "Utrecht's evolving food scene in different districts"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book early for weekend tours; explores areas outside the immediate city center"
+            },
+            {
+                "name": "Utrecht Market to Table Experience",
+                "focus": "Seasonal Dutch Ingredients",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Guided tour of Vredenburg Market",
+                    "Ingredient shopping with a local chef",
+                    "Cooking workshop using market ingredients",
+                    "Shared meal with Dutch wine pairings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book 2 weeks ahead; only available on market days (Wednesday, Friday, Saturday)"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Dutch Home Cooking Workshop",
+                "cuisine_focus": "Traditional Dutch",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Erwtensoep (Split Pea Soup)",
+                    "Hutspot (Carrot and Onion Stew)",
+                    "Appelflappen (Dutch Apple Turnovers)"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer and wine"
+                ],
+                "booking_tips": "Reserve 2 weeks ahead; held in a traditional Dutch home in the historic center"
+            },
+            {
+                "name": "Utrecht Baking Masterclass",
+                "cuisine_focus": "Dutch Pastries and Breads",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional Dutch Apple Pie",
+                    "Speculaas Spice Cookies",
+                    "Basic Dutch Bread"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, baked goods to take home"
+                ],
+                "booking_tips": "Book at least 10 days in advance; suitable for all skill levels"
+            },
+            {
+                "name": "Seasonal Dutch Cooking",
+                "cuisine_focus": "Modern Dutch with Local Ingredients",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seasonal Starters with Dutch Cheeses",
+                    "Main Course featuring Dutch Produce",
+                    "Modern Dutch Dessert"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, wine pairings, recipe collection"
+                ],
+                "booking_tips": "Book 2 weeks ahead; menu changes based on seasonal availability"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Vredenburg Market",
+                "type": "Outdoor Market",
+                "highlights": [
+                    "Utrecht's largest market with food and non-food items",
+                    "Fresh produce, cheeses, fish, and baked goods",
+                    "Street food stalls and specialty Dutch treats"
+                ],
+                "hours": "Wednesday, Friday, Saturday 10:00 AM - 5:00 PM",
+                "best_time": "Morning",
+                "location": "Vredenburg Square",
+                "local_tips": "Saturday is the largest market day with all vendors present; arrive early for the freshest selection"
+            },
+            {
+                "name": "Breedstraat Organic Market",
+                "type": "Specialty Food Market",
+                "highlights": [
+                    "Certified organic produce and products",
+                    "Local farmers and producers",
+                    "Sustainable and ethical food options"
+                ],
+                "hours": "Friday 10:00 AM - 5:00 PM",
+                "best_time": "Mid-morning",
+                "location": "Breedstraat",
+                "local_tips": "Best place for organic and biodynamic products; many vendors offer samples"
+            },
+            {
+                "name": "Twijnstraat",
+                "type": "Gourmet Shopping Street",
+                "highlights": [
+                    "Concentration of specialty food shops",
+                    "Artisanal bakeries, cheese shops, and butchers",
+                    "Wine merchants and delicatessens"
+                ],
+                "hours": "Monday to Saturday 9:00 AM - 6:00 PM, Sunday some shops open 12:00 PM - 5:00 PM",
+                "best_time": "Afternoon",
+                "location": "Twijnstraat",
+                "local_tips": "Not a market per se, but Utrecht's best food shopping street with multiple specialty stores in one area"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise Sauce (April-June)",
+            "Morels and Spring Vegetables",
+            "Fresh Herb-Infused Seasonal Beers"
+        ],
+        "summer": [
+            "Fresh Herring with Onions (June-July)",
+            "Utrecht Garden Strawberries",
+            "Seasonal Fruit Pies and Tarts"
+        ],
+        "autumn": [
+            "Wild Game Dishes",
+            "Pumpkin and Root Vegetable Specialties",
+            "Fresh Stroopwafels at Autumn Markets"
+        ],
+        "winter": [
+            "Erwtensoep (Dutch Split Pea Soup)",
+            "Stamppot Variations (Dutch Winter Comfort Food)",
+            "Oliebollen (Dutch Doughnuts, especially for New Year)",
+            "Glühwein and Spiced Treats at Christmas Markets"
+        ]
+    }
+}

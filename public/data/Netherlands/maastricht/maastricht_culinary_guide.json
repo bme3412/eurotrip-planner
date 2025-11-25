@@ -1,0 +1,558 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Beluga Loves You",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Limburg Lamb with Local Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant riverside setting with contemporary decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, especially for weekend dinners",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 2,
+                "location": "Céramique District",
+                "local_tips": "Chef Hans van Wolde creates innovative dishes highlighting regional produce; request a table with Maas River views"
+            },
+            {
+                "name": "Château Neercanne",
+                "cuisine_type": "French-Dutch",
+                "signature_dishes": [
+                    "Game specialties",
+                    "Château Wine Cellar Selection"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic 17th-century terraced castle with marl caves",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks in advance, lunch offers spectacular terrace views",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 1,
+                "location": "Southern Maastricht",
+                "local_tips": "Only restaurant in the Netherlands housed in a castle; tour the historic wine cellars before your meal"
+            },
+            {
+                "name": "Tout à Fait",
+                "cuisine_type": "French-International",
+                "signature_dishes": [
+                    "Seasonal Surprise Menu",
+                    "Local Fish Preparations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate dining in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, chef's table experience available",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Jekerkwartier",
+                "local_tips": "Hidden gem with exceptional wine pairings; ask for recommendations from Limburg vineyards"
+            },
+            {
+                "name": "Bistro de Commanderie",
+                "cuisine_type": "French-Dutch",
+                "signature_dishes": [
+                    "Burgundian Specials",
+                    "Game during hunting season"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic bistro in historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, lunch is less crowded",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City Center",
+                "local_tips": "Perfect for traditional Limburgian cuisine with French influences; excellent value lunch menu"
+            },
+            {
+                "name": "Restaurant O",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Chef's Market Menu",
+                    "Local Cheese Selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary space with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, communal dining experiences available",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Wyck District",
+                "local_tips": "Chef focuses on sustainable, local ingredients; vegetarian tasting menu is exceptional"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Café Sjiek",
+                "cuisine_type": "Limburgian",
+                "signature_dishes": [
+                    "Zuurvlees (Sweet-Sour Beef Stew)",
+                    "Limburgse Vlaai (Regional Pie)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy traditional café with stone walls",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve several days ahead, popular with locals",
+                "dress_code": "Casual",
+                "location": "Jekerkwartier",
+                "local_tips": "Authentic local cuisine; their Zuurvlees is considered the best in town"
+            },
+            {
+                "name": "Frape",
+                "cuisine_type": "Mediterranean-Dutch Fusion",
+                "signature_dishes": [
+                    "Seasonal Flatbreads",
+                    "Local Fish Dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, bright space with riverside terrace",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations necessary but recommended for dinner",
+                "dress_code": "Casual",
+                "location": "Wyck District",
+                "local_tips": "Great for lunch with excellent riverside views; menu changes with the seasons"
+            },
+            {
+                "name": "Eetcafé Céramique",
+                "cuisine_type": "Dutch-Belgian",
+                "signature_dishes": [
+                    "Dutch Classics with a Twist",
+                    "Belgian Beer Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary café in cultural district",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Busier on weekends, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Céramique District",
+                "local_tips": "Perfect stop after visiting the Bonnefanten Museum; great value daily specials"
+            },
+            {
+                "name": "Petit Café Burgermeester",
+                "cuisine_type": "Gourmet Burgers",
+                "signature_dishes": [
+                    "Limburg Beef Burger",
+                    "Vegetarian Mushroom Burger"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, casual space with outdoor seating",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; busy during peak hours",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Best burgers in Maastricht; they use local beef and produce"
+            },
+            {
+                "name": "Grand Café D'n Ingel",
+                "cuisine_type": "Dutch-French",
+                "signature_dishes": [
+                    "Limburg Asparagus (in season)",
+                    "Traditional Sandwiches"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic grand café overlooking Vrijthof",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Reserve for terrace seating in summer",
+                "dress_code": "Casual",
+                "location": "Vrijthof",
+                "local_tips": "Prime people-watching spot; perfect for coffee and vlaai (local pie)"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Vrijthof Market",
+                "specialties": [
+                    "Traditional Dutch Street Food",
+                    "Local Produce",
+                    "Regional Specialties"
+                ],
+                "price_range": "€",
+                "hours": "Wednesday and Friday 8:00 AM - 2:00 PM",
+                "location": "Vrijthof Square",
+                "seating": "Limited",
+                "local_tips": "Historic market in Maastricht's main square; Friday is more extensive"
+            },
+            {
+                "name": "Markt Square Market",
+                "specialties": [
+                    "Regional Produce",
+                    "Cheeses and Breads",
+                    "Street Food Vendors"
+                ],
+                "price_range": "€",
+                "hours": "Monday and Thursday 8:00 AM - 2:00 PM",
+                "location": "Markt Square",
+                "seating": "Limited",
+                "local_tips": "Authentic local market; best selection in the morning"
+            },
+            {
+                "name": "Bisschopsmolen",
+                "specialties": [
+                    "Traditional Bread",
+                    "Limburgse Vlaai",
+                    "Spelt Products"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 5:30 PM, Closed Sundays",
+                "location": "Jekerkwartier",
+                "seating": true,
+                "local_tips": "Historic water mill with bakery; watch bread being made with traditional methods"
+            },
+            {
+                "name": "Reitz",
+                "specialties": [
+                    "Artisanal Ice Cream",
+                    "Seasonal Flavors",
+                    "Local Fruit Specialties"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 9:00 PM (seasonal)",
+                "location": "Wyck District",
+                "seating": "Limited",
+                "local_tips": "Family-run ice cream parlor; try the Limburg fruit flavors"
+            },
+            {
+                "name": "Pinky's Frietjes",
+                "specialties": [
+                    "Belgian-style Fries",
+                    "Unique Sauces",
+                    "Dutch Snacks"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 9:00 PM",
+                "location": "City Center",
+                "seating": false,
+                "local_tips": "Some of the best fries in town; try their special curry sauce"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Alley Cat",
+                "specialty": "Single Origin Coffee",
+                "must_try": [
+                    "Pour-Over Specialties",
+                    "Homemade Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, bohemian space in historic alley",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light lunch",
+                "local_tips": "Hidden gem with excellent coffee; quiet spot for working"
+            },
+            {
+                "name": "Coffeelovers",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Local Coffee Blends"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern café in historic Dominican church",
+                "best_time": "Any time",
+                "wifi_friendly": true,
+                "food_options": "Sandwiches and cakes",
+                "local_tips": "Located inside Dominicanen bookstore; spectacular setting in 13th-century church"
+            },
+            {
+                "name": "Lab 17",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Cold Brew",
+                    "Specialty Brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic space with minimalist decor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light lunch",
+                "local_tips": "Coffee enthusiasts' favorite; offers brewing workshops"
+            },
+            {
+                "name": "De Brandweerkantine",
+                "specialty": "Coffee & Creative Space",
+                "must_try": [
+                    "House Blend Coffee",
+                    "Seasonal Specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted fire station with industrial vibe",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Lunch menu and snacks",
+                "local_tips": "Creative hub with events; outdoor seating in warmer months"
+            },
+            {
+                "name": "Café Tribunal",
+                "specialty": "Traditional Dutch Café",
+                "must_try": [
+                    "Coffee with Limburgse Vlaai",
+                    "Dutch Apple Pie"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic café with historic interior",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light meals",
+                "local_tips": "Authentic traditional café experience; perfect for trying local pastries"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Take One",
+                "type": "Beer Café",
+                "specialty": "Belgian and Dutch Beers",
+                "signature_drinks": [
+                    "Local Craft Beer Selection",
+                    "Over 100 Belgian Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy traditional beer café with wooden interior",
+                "best_time": "Evening",
+                "food_options": "Beer snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Over 200 beers available; knowledgeable staff can provide recommendations"
+            },
+            {
+                "name": "In de Karkol",
+                "type": "Traditional Brown Café",
+                "specialty": "Local Brews",
+                "signature_drinks": [
+                    "Limburg Regional Beers",
+                    "Dutch Jenever"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic Dutch brown café with historic interior",
+                "best_time": "Evening",
+                "food_options": "Traditional bar snacks",
+                "reservation_needed": false,
+                "local_tips": "One of the oldest bars in Maastricht; locals' favorite for authentic atmosphere"
+            },
+            {
+                "name": "Café de Gouverneur",
+                "type": "Grand Café",
+                "specialty": "Gin & Tonics",
+                "signature_drinks": [
+                    "Extensive Gin Selection",
+                    "Local Wine List"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant café in historic building near Vrijthof",
+                "best_time": "Evening",
+                "food_options": "Substantial bar menu",
+                "reservation_needed": false,
+                "local_tips": "Great Vrijthof views; excellent for pre-dinner drinks"
+            },
+            {
+                "name": "Café Zondag",
+                "type": "Modern Bar",
+                "specialty": "Cocktails",
+                "signature_drinks": [
+                    "Creative Cocktail Menu",
+                    "Dutch Spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary space with outdoor terrace",
+                "best_time": "Evening",
+                "food_options": "Tapas and small plates",
+                "reservation_needed": false,
+                "local_tips": "Popular with younger crowd; great for sunset drinks on the terrace"
+            },
+            {
+                "name": "Café Forum",
+                "type": "Student Bar",
+                "specialty": "Beer",
+                "signature_drinks": [
+                    "Student Specials",
+                    "Local Drafts"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively student hangout with outdoor space",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular university hangout; lively atmosphere and good value"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Maastricht Culinary Walking Tour",
+                "focus": "Local Specialties",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional Limburgian cuisine",
+                    "Historic food shops",
+                    "Local market visit"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; includes tastings at multiple locations"
+            },
+            {
+                "name": "Three-Country Food Tour",
+                "focus": "Cross-Border Cuisine",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Dutch, Belgian and German specialties",
+                    "Cross-border culinary traditions",
+                    "Regional wine and beer tastings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes transportation to locations in three countries"
+            },
+            {
+                "name": "Craft Beer Tour Maastricht",
+                "focus": "Local Breweries",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visits to local craft breweries",
+                    "Beer and food pairings",
+                    "Brewing history of the region"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Reserve 7-10 days ahead; includes several beer tastings"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Limburg Regional Cooking",
+                "cuisine_focus": "Traditional Limburgian",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Zuurvlees (Sweet-Sour Beef)",
+                    "Limburgse Vlaai (Fruit Pie)",
+                    "Regional Preserves"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with wine pairings"
+                ],
+                "booking_tips": "Book 2 weeks ahead; set in a traditional Limburg farmhouse kitchen"
+            },
+            {
+                "name": "Three-Country Cuisine Workshop",
+                "cuisine_focus": "Dutch-Belgian-German Fusion",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Cross-Border Specialties",
+                    "Regional Wine Pairings",
+                    "Modern Interpretations of Classic Dishes"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with regional wines"
+                ],
+                "booking_tips": "Reserve 10 days in advance; suitable for all skill levels"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Vrijthof Market",
+                "type": "Outdoor Market",
+                "highlights": [
+                    "Traditional market on historic square",
+                    "Local produce and products",
+                    "Street food options"
+                ],
+                "hours": "Wednesday and Friday 8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Vrijthof Square",
+                "local_tips": "Historic setting; great for fresh produce and local specialties"
+            },
+            {
+                "name": "Markt Square Market",
+                "type": "Outdoor Market",
+                "highlights": [
+                    "Produce and goods market",
+                    "Local cheeses and breads",
+                    "Flowers and plants"
+                ],
+                "hours": "Monday and Thursday 8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Markt Square",
+                "local_tips": "More locals than tourists; best prices on fresh produce"
+            },
+            {
+                "name": "Jekerkwartier Food Shops",
+                "type": "Specialty Food District",
+                "highlights": [
+                    "Artisanal bakeries",
+                    "Cheese shops",
+                    "Specialty food stores"
+                ],
+                "hours": "Tuesday to Saturday 9:00 AM - 6:00 PM",
+                "best_time": "Afternoon",
+                "location": "Jekerkwartier",
+                "local_tips": "Historic neighborhood with concentration of gourmet shops"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Limburg White Asparagus (April-June)",
+            "Spring Lamb with Local Herbs",
+            "Wild Garlic Dishes from the Jekerdal Valley"
+        ],
+        "summer": [
+            "Maas River Fish Specialties",
+            "Limburg Fruit Desserts",
+            "Al Fresco Dining in Vrijthof Square"
+        ],
+        "autumn": [
+            "Game Dishes from the Limburg Hills",
+            "Mushroom Specialties",
+            "Autumn Wine Festivals"
+        ],
+        "winter": [
+            "Zuurvlees (Sweet-Sour Beef Stew)",
+            "Underground Christmas Markets with Traditional Foods",
+            "Limburgse Vlaai (Regional Fruit Pies)",
+            "Glühwein and Winter Warmers"
+        ]
+    }
+} 

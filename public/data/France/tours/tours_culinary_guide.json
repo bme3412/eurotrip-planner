@@ -1,0 +1,701 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "L'Atelier Gourmand",
+                "cuisine_type": "Creative French with Loire Valley influences",
+                "signature_dishes": [
+                    "Lamb with local herbs and red wine reduction",
+                    "Fresh Loire River fish with seasonal vegetables",
+                    "Grand dessert selection with local honey and nuts"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant contemporary dining room with garden views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, request garden table for best atmosphere",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Near Place du Capitole",
+                "local_tips": "Chef celebrates local Loire Valley ingredients with innovative French techniques"
+            },
+            {
+                "name": "La Table du Grand Marché",
+                "cuisine_type": "Refined Regional Cuisine",
+                "signature_dishes": [
+                    "Pigeon with black truffle and wild mushrooms",
+                    "Local fish with Loire Valley herbs",
+                    "Lamb from the region with local honey"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Rustic-elegant with natural materials and market views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one month in advance, excellent value lunch menu",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Historic center",
+                "local_tips": "Located in the heart of Tours with a unique focus on local Loire Valley ingredients"
+            },
+            {
+                "name": "Restaurant Le Bistrot de la Place",
+                "cuisine_type": "Creative Modern French",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Inventive seafood preparations",
+                    "Artistic plating with local herbs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate contemporary space with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, opt for the surprise tasting menu",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Place Plumereau",
+                "local_tips": "Chef trained with Alain Ducasse and creates truly innovative French cuisine"
+            },
+            {
+                "name": "Le Château de Tours",
+                "cuisine_type": "Haute Cuisine with Loire Valley Influences",
+                "signature_dishes": [
+                    "Local game meat",
+                    "Loire Valley lamb",
+                    "Fresh river fish creations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant château dining room with garden views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, worth the special occasion",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Historic center",
+                "local_tips": "Chef creates artistic presentations inspired by the local Loire Valley landscape"
+            },
+            {
+                "name": "L'Atelier du Chef",
+                "cuisine_type": "Creative Franco-Loire",
+                "signature_dishes": [
+                    "Tasting menu blending French technique with Loire Valley flavors",
+                    "Local beef with regional herbs",
+                    "Inventive flavor combinations with local produce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek modern interior with minimalist French touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least two weeks in advance, counter seating available for kitchen views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City center",
+                "local_tips": "Chef creates a unique fusion of French technique with Loire Valley influences"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "La Maison du Bistrot",
+                "cuisine_type": "Classic French Bistro",
+                "signature_dishes": [
+                    "Rillettes de Tours (pork pâté)",
+                    "Traditional beef tartare",
+                    "Classic French desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic bistro with traditional decor (since 1920)",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekend meals",
+                "dress_code": "Smart casual",
+                "location": "Place du Marché",
+                "local_tips": "A Tours institution with authentic French atmosphere, worth visiting for local specialties"
+            },
+            {
+                "name": "Crêperie Le Petit Tours",
+                "cuisine_type": "Traditional French Crêpes",
+                "signature_dishes": [
+                    "Galette complète (buckwheat crêpe with ham, egg, cheese)",
+                    "Sweet crêpes with chestnut cream",
+                    "Local cider and wine"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy traditional crêperie with French decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid waiting, especially at dinner",
+                "dress_code": "Casual",
+                "location": "Medieval quarter",
+                "local_tips": "One of the most authentic crêperies in Tours, serving traditional buckwheat galettes"
+            },
+            {
+                "name": "Le Bistrot Moderne",
+                "cuisine_type": "Modern Bistro",
+                "signature_dishes": [
+                    "Seasonal market-driven menu",
+                    "Excellent fish dishes",
+                    "Creative appetizers with local herbs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary bistro with simple elegant decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, lunch menu offers great value",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Chef creates well-executed bistro classics with modern French touches"
+            },
+            {
+                "name": "La Table du Marché",
+                "cuisine_type": "Creative Market Cuisine",
+                "signature_dishes": [
+                    "Gourmet burgers with local cheese",
+                    "Creative salads with Loire Valley ingredients",
+                    "Sharing plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with high ceilings and market views",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner, lunch is more casual, good for groups",
+                "dress_code": "Casual",
+                "location": "Near Marché Victor Hugo",
+                "local_tips": "Trendy spot that transforms from casual lunch spot to vibrant evening venue"
+            },
+            {
+                "name": "Le Petit Comptoir",
+                "cuisine_type": "Contemporary Market Cuisine",
+                "signature_dishes": [
+                    "Changing blackboard menu",
+                    "Fresh local fish preparations",
+                    "Creative seasonal vegetables"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, intimate bistro with personal service",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Run by local chef, offering excellent value lunch menus with market-fresh ingredients"
+            },
+            {
+                "name": "Le Carré d'Art",
+                "cuisine_type": "Casual Bites with a View",
+                "signature_dishes": [
+                    "Cheese and charcuterie boards",
+                    "Simple sandwiches and snacks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern café with views of the historic center",
+                "best_time": "Afternoon",
+                "reservation_needed": false,
+                "booking_tips": "Come for the view rather than the food, expect lines on weekends",
+                "dress_code": "Casual",
+                "location": "City center",
+                "local_tips": "More about the spectacular views of the historic center than the simple menu"
+            },
+            {
+                "name": "Crêperie La Maison Carrée",
+                "cuisine_type": "Traditional French Crêpes",
+                "signature_dishes": [
+                    "Galettes with local ingredients",
+                    "Regional specialties from the Loire Valley",
+                    "Local dessert specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional with French decorations and authentic atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance for dinner, specify if you prefer indoor or outdoor seating",
+                "dress_code": "Casual",
+                "location": "Near Place du Capitole",
+                "local_tips": "One of Tours' most respected crêperies, focusing on high-quality local ingredients"
+            },
+            {
+                "name": "L'Assiette du Chef",
+                "cuisine_type": "Neo-Bistro",
+                "signature_dishes": [
+                    "Seasonal set menu",
+                    "Creative fish dishes",
+                    "Excellent desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist dining room with open kitchen",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a week in advance, excellent value lunch menu",
+                "dress_code": "Smart casual",
+                "location": "City center",
+                "local_tips": "Chef creates precise, modern dishes with excellent price-quality ratio"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché Victor Hugo",
+                "specialties": [
+                    "Fresh local produce and herbs",
+                    "Regional cheeses",
+                    "Prepared foods",
+                    "Loire Valley specialties"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "location": "Near city center",
+                "seating": false,
+                "local_tips": "Tours' largest and most important covered market, excellent for sampling local produce"
+            },
+            {
+                "name": "Carré d'Art Café",
+                "specialties": [
+                    "Creative sandwiches",
+                    "Quiches",
+                    "Cakes and pastries"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 11:00am-12:00am, Sun: 11:00am-8:00pm",
+                "location": "City center",
+                "seating": true,
+                "local_tips": "Trendy café in the modern art museum, with terrace views of the historic center"
+            },
+            {
+                "name": "Medieval Quarter Food Stalls",
+                "specialties": [
+                    "Crêpes and galettes",
+                    "Kebabs",
+                    "International street food"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:00am-10:00pm (later on weekends)",
+                "location": "Medieval quarter pedestrian area",
+                "seating": false,
+                "local_tips": "The historic heart of Tours offers many quick food options, especially popular with students"
+            },
+            {
+                "name": "La Glacerie du Tours",
+                "specialties": [
+                    "Local fruit ice creams",
+                    "Loire Valley herb ice creams",
+                    "Regional fruit sorbets"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 10:00am-7:00pm",
+                "location": "Multiple locations in city center",
+                "seating": false,
+                "local_tips": "Famous regional specialty, their local fruit ice creams are a must-try"
+            },
+            {
+                "name": "Maison du Pain",
+                "specialties": [
+                    "Fougasse (French flatbread filled to order)",
+                    "Regional specialties",
+                    "Artisanal bakery items"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 10:00am-7:00pm",
+                "location": "City center",
+                "seating": false,
+                "local_tips": "Try the fougasse, a specialty from the region rarely found elsewhere"
+            },
+            {
+                "name": "Confiserie du Tours",
+                "specialties": [
+                    "Local candies and chocolates",
+                    "Regional sweet specialties",
+                    "Traditional confectionery"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 9:30am-7:00pm",
+                "location": "City center",
+                "seating": false,
+                "local_tips": "Historic confectionery shop making traditional French candies since 1920"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Central",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "House-made pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright minimalist space with plants and large windows",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast bowls, sandwiches, cakes",
+                "local_tips": "One of Tours' pioneering specialty coffee shops with excellent brunch options"
+            },
+            {
+                "name": "Le Petit Café",
+                "specialty": "Specialty coffee and homemade food",
+                "must_try": [
+                    "Flat white",
+                    "Seasonal lunch bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, French-inspired design with wooden elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Healthy bowls, sandwiches, homemade cakes",
+                "local_tips": "Excellent coffee paired with healthy, creative food options"
+            },
+            {
+                "name": "Café des Jardins",
+                "specialty": "Coffee and plants",
+                "must_try": [
+                    "Specialty coffee drinks",
+                    "Vegan treats"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Plant-filled space with bright interior",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast options, vegetarian and vegan choices",
+                "local_tips": "Part café, part plant shop with a beautiful atmosphere and quality coffee"
+            },
+            {
+                "name": "Café Français",
+                "specialty": "French-inspired coffee",
+                "must_try": [
+                    "Batch brew coffee",
+                    "French-inspired baked goods"
+                ],
+                "price_range": "€",
+                "atmosphere": "Vintage-inspired with French touches",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Scones, cakes, light lunch options",
+                "local_tips": "Local owners bring unique French perspective to the Tours coffee scene"
+            },
+            {
+                "name": "La Cantine du Marché",
+                "specialty": "Coffee and healthy food",
+                "must_try": [
+                    "House blend coffee",
+                    "Daily lunch specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm industrial space with communal tables",
+                "best_time": "Lunch",
+                "wifi_friendly": true,
+                "food_options": "Full lunch menu with vegetarian options",
+                "local_tips": "Popular with local workers for lunch but also good for working remotely"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Carré d'Art",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views",
+                "signature_drinks": [
+                    "Cocktails",
+                    "Local craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern space with 360° views of Tours and historic center",
+                "best_time": "Sunset",
+                "food_options": "Simple snacks and sharing plates",
+                "reservation_needed": false,
+                "local_tips": "The rooftop terrace offers spectacular views of the historic center; go for the views rather than the drinks"
+            },
+            {
+                "name": "Le Pub Irlandais",
+                "type": "Irish Pub",
+                "specialty": "Extensive beer selection",
+                "signature_drinks": [
+                    "Guinness",
+                    "Irish whiskeys",
+                    "Local and international craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional pub atmosphere with live music",
+                "best_time": "Evening",
+                "food_options": "Pub fare",
+                "reservation_needed": false,
+                "local_tips": "Popular expat hangout with regular live music and sports screenings"
+            },
+            {
+                "name": "Le Lieu Unique",
+                "type": "Cultural Center Bar",
+                "specialty": "Creative atmosphere",
+                "signature_drinks": [
+                    "Craft cocktails",
+                    "Natural wines",
+                    "Local beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with terrace views of the city",
+                "best_time": "Evening",
+                "food_options": "Creative small plates",
+                "reservation_needed": false,
+                "local_tips": "Cultural hub with exhibitions, performances and a great bar scene, especially in summer"
+            },
+            {
+                "name": "Little French Brewery",
+                "type": "Craft Brewery",
+                "specialty": "House-brewed craft beers",
+                "signature_drinks": [
+                    "IPA, stout, and seasonal beers",
+                    "Beer tasting flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial brewery with city views",
+                "best_time": "Afternoon",
+                "food_options": "Beer-friendly snacks and meals",
+                "reservation_needed": false,
+                "local_tips": "Local microbrewery with taproom, excellent outdoor space"
+            },
+            {
+                "name": "Le Café du Commerce",
+                "type": "Wine Bar",
+                "specialty": "Natural and organic wines",
+                "signature_drinks": [
+                    "Loire Valley wines",
+                    "Natural wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French bistro with vintage elements",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Excellent selection of natural wines and knowledgeable staff"
+            },
+            {
+                "name": "La Terrasse",
+                "type": "Rooftop Bar",
+                "specialty": "City views",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Regional wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming rooftop setting with city views",
+                "best_time": "Sunset",
+                "food_options": "Full restaurant menu",
+                "reservation_needed": true,
+                "local_tips": "Located in the heart of the city with excellent views of the historic center"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Tours Walking Tour",
+                "focus": "Local Tours specialties and Loire Valley influences",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Victor Hugo Market exploration",
+                    "French pastry tastings",
+                    "Local chocolate and candy specialties"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Morning tours recommended to experience the market at its best"
+            },
+            {
+                "name": "Loire Valley Wine Country Tour",
+                "focus": "Regional wine exploration",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vineyard visits in Loire Valley region",
+                    "Wine tastings with winemakers",
+                    "Food pairings with regional products"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation from Tours, wear comfortable shoes for vineyard walking"
+            },
+            {
+                "name": "Gourmet Historic Quarter Tour",
+                "focus": "Historic center food specialties",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional crêperies",
+                    "Historic medieval quarter",
+                    "Sweet specialties of Tours"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Afternoon tours available, focuses on the historic heart of the city"
+            },
+            {
+                "name": "French Flavors of Tours",
+                "focus": "French cuisine and Loire Valley influence",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fresh French tastings",
+                    "City center food scene",
+                    "French culinary history"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes walking tour of the city, French focus"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "L'Atelier de Marie",
+                "cuisine_focus": "Traditional French and Loire Valley cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Classic French dishes",
+                    "Seafood techniques",
+                    "French herb cookies"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Meal with local wine"
+                ],
+                "booking_tips": "Classes for all levels, focus on regional specialties"
+            },
+            {
+                "name": "Atelier des Chefs Tours",
+                "cuisine_focus": "Modern French techniques",
+                "duration": "1-2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Quick gourmet recipes",
+                    "Professional techniques",
+                    "Market-inspired cooking"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Digital recipes",
+                    "Meal with wine"
+                ],
+                "booking_tips": "Express lunch format available, larger classes but professional setting"
+            },
+            {
+                "name": "Cuisine et Moi",
+                "cuisine_focus": "Home cooking with local products",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal cooking",
+                    "French specialties"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French",
+                    "English (with advance notice)"
+                ],
+                "includes": [
+                    "Market visit",
+                    "All ingredients",
+                    "Full meal with regional wines"
+                ],
+                "booking_tips": "Small-group experience in home kitchen setting with market visit"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché Victor Hugo",
+                "type": "Covered market and surrounding streets",
+                "highlights": [
+                    "Largest market in Tours",
+                    "Fresh seafood, produce, and prepared foods",
+                    "Regional specialties"
+                ],
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Near city center",
+                "local_tips": "The heart of food shopping in Tours, busiest on weekend mornings"
+            },
+            {
+                "name": "Marché de la Place du Marché",
+                "type": "Open-air market",
+                "highlights": [
+                    "Large produce selection",
+                    "Flowers and plants",
+                    "Local farmers"
+                ],
+                "hours": "Sat: 8:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "City center",
+                "local_tips": "One of the city's largest markets, only on Saturdays but worth planning around"
+            },
+            {
+                "name": "Marché Biologique de la Place Saint-Felix",
+                "type": "Organic market",
+                "highlights": [
+                    "Certified organic produce",
+                    "Artisanal breads and cheeses",
+                    "Natural wines"
+                ],
+                "hours": "Wed: 4:00pm-8:00pm",
+                "best_time": "Early evening",
+                "location": "Saint-Felix square",
+                "local_tips": "The place for organic and sustainable products, popular with eco-conscious locals"
+            },
+            {
+                "name": "Marché des Halles",
+                "type": "Covered market",
+                "highlights": [
+                    "Small but charming market",
+                    "Fresh produce",
+                    "Picturesque setting"
+                ],
+                "hours": "Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "City center",
+                "local_tips": "Worth combining with lunch in this charming market setting"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus from the Loire Valley",
+            "Young goat cheese from the region",
+            "First of the season Loire Valley wine"
+        ],
+        "summer": [
+            "Fougasse (garlic bread from the region)",
+            "Strawberries from the Loire Valley",
+            "Fresh river fish from the Loire"
+        ],
+        "autumn": [
+            "Buckwheat galettes with mushrooms",
+            "Loire Valley game dishes",
+            "Fougasse (French flatbread)"
+        ],
+        "winter": [
+            "Seafood platters with local oysters",
+            "French Daube (beef stew with wine)",
+            "Gâteau Tours (rum cake with almond)"
+        ]
+    }
+}

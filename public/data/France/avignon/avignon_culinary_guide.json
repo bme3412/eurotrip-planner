@@ -1,0 +1,490 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "La Mirande",
+                "cuisine_type": "Haute Provençal",
+                "signature_dishes": [
+                    "Truffle-infused lamb with herbs de Provence",
+                    "Sea bass with saffron and local vegetables"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant 17th-century mansion with garden terrace",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 2 weeks in advance, especially during summer and festival season",
+                "dress_code": "Smart casual",
+                "michelin_recognition": "1 Star",
+                "location": "4 Place de l'Amirande",
+                "local_tips": "Request a table in the garden for a magical evening atmosphere"
+            },
+            {
+                "name": "L'Essentiel",
+                "cuisine_type": "Modern Provençal",
+                "signature_dishes": [
+                    "Duck breast with lavender honey",
+                    "Local goat cheese soufflé"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary bistro with warm Provençal charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, reserve 1 week ahead",
+                "dress_code": "Smart casual",
+                "location": "2 Rue Petite Fusterie",
+                "local_tips": "Try their tasting menu for the full Provençal experience"
+            },
+            {
+                "name": "Le Jardin de la Tour",
+                "cuisine_type": "Traditional Provençal",
+                "signature_dishes": [
+                    "Bouillabaisse Provençale",
+                    "Lamb with olives and herbs de Provence"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Charming garden setting with historic tower views",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Garden tables are highly sought after in summer",
+                "dress_code": "Smart casual",
+                "location": "Rue de la Tour",
+                "local_tips": "Their lunch menu offers excellent value for quality cuisine"
+            },
+            {
+                "name": "Christian Etienne",
+                "cuisine_type": "Gourmet Provençal",
+                "signature_dishes": [
+                    "Truffle menu (seasonal)",
+                    "Local fish with Provençal herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining room in historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, especially for truffle season",
+                "dress_code": "Smart casual",
+                "location": "10 Rue de Mons",
+                "local_tips": "Famous for their seasonal truffle menus in winter"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Le Petit Bistrot",
+                "cuisine_type": "Traditional Provençal",
+                "signature_dishes": [
+                    "Ratatouille with local vegetables",
+                    "Daube Provençale (beef stew)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy neighborhood bistro with local charm",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch to avoid crowds",
+                "dress_code": "Casual",
+                "location": "Rue des Teinturiers",
+                "local_tips": "Try their daily specials featuring fresh market ingredients"
+            },
+            {
+                "name": "Le Grand Café",
+                "cuisine_type": "Brasserie/Provençal",
+                "signature_dishes": [
+                    "Salade Niçoise",
+                    "Grilled fish with herbs de Provence"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with Belle Époque charm and terrace",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Perfect for people-watching on Place de l'Horloge",
+                "dress_code": "Casual",
+                "location": "Place de l'Horloge",
+                "local_tips": "Great spot for aperitif with views of the clock tower"
+            },
+            {
+                "name": "L'Épicerie",
+                "cuisine_type": "Provençal Bistro",
+                "signature_dishes": [
+                    "Tapenade with local olives",
+                    "Goat cheese salad with honey"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and cozy with exposed stone walls",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Rue Saint-Agricol",
+                "local_tips": "Excellent selection of local wines and Provençal specialties"
+            },
+            {
+                "name": "Le Bistrot du Palais",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Octopus salad with local olive oil",
+                    "Grilled sea bream with herbs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern bistro with palace views",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Terrace seating fills up quickly in summer",
+                "dress_code": "Casual",
+                "location": "Place du Palais",
+                "local_tips": "Fresh seafood arrives daily from local markets"
+            },
+            {
+                "name": "La Ferme",
+                "cuisine_type": "Farm-to-table Provençal",
+                "signature_dishes": [
+                    "Grilled lamb with herbs de Provence",
+                    "Local vegetable tian"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic farmhouse style with local produce focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Ingredients sourced daily from local farms",
+                "dress_code": "Casual",
+                "location": "Outskirts of Avignon",
+                "local_tips": "Try their seasonal menu featuring the best of Provence"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Les Halles d'Avignon Food Stalls",
+                "specialties": [
+                    "Panisses (chickpea fritters)",
+                    "Socca (chickpea flatbread)"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 7:00am-1:00pm",
+                "location": "Place Pie",
+                "seating": false,
+                "local_tips": "Try the fresh calissons from local vendors"
+            },
+            {
+                "name": "Place de l'Horloge Food Trucks",
+                "specialties": [
+                    "Provençal sandwiches",
+                    "Fresh fish wraps"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:00am-9:00pm (seasonal)",
+                "location": "Place de l'Horloge",
+                "seating": false,
+                "local_tips": "Perfect for a quick meal while exploring the old town"
+            },
+            {
+                "name": "Glacier du Palais",
+                "specialties": [
+                    "Lavender honey ice cream",
+                    "Rosé wine sorbet"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10:00am-11:00pm",
+                "location": "Place du Palais",
+                "seating": false,
+                "local_tips": "Unique Provençal flavors you won't find elsewhere"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de la Paix",
+                "specialty": "Traditional Provençal coffee culture",
+                "must_try": [
+                    "Café au lait with local honey",
+                    "Calissons (traditional almond sweets)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French café with Provençal charm",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional pastries and light breakfast",
+                "local_tips": "Popular meeting spot for locals - great for people-watching"
+            },
+            {
+                "name": "Bar des Amis",
+                "specialty": "Local gathering place",
+                "must_try": [
+                    "Espresso",
+                    "Fresh pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic neighborhood café with regular locals",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Simple breakfast items",
+                "local_tips": "Experience authentic Provençal café culture"
+            },
+            {
+                "name": "Café du Palais",
+                "specialty": "Historic setting",
+                "must_try": [
+                    "Macchiato",
+                    "Local almond cookies"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with palace views",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Located near the Palais des Papes - perfect for history buffs"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Bar du Palais",
+                "type": "Wine Bar",
+                "specialty": "Rhône Valley wines",
+                "signature_drinks": [
+                    "Châteauneuf-du-Pape red wine",
+                    "Côtes du Rhône rosé"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine cellar atmosphere with local vintages",
+                "best_time": "Evening",
+                "food_options": "Charcuterie and cheese platters",
+                "reservation_needed": false,
+                "local_tips": "Ask for recommendations on lesser-known Rhône producers"
+            },
+            {
+                "name": "Le Pub Irlandais",
+                "type": "Traditional Pub",
+                "specialty": "Local beers and spirits",
+                "signature_drinks": [
+                    "Local craft beer",
+                    "Pastis (Provençal anise drink)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively pub with live music and local crowd",
+                "best_time": "Night",
+                "food_options": "Tapas and bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Try the pastis - a traditional Provençal aperitif"
+            },
+            {
+                "name": "Chez Tao",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails with local ingredients",
+                "signature_drinks": [
+                    "Lavender Mojito",
+                    "Provençal Spritz"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern cocktail lounge with palace views",
+                "best_time": "Evening",
+                "food_options": "Gourmet tapas",
+                "reservation_needed": true,
+                "local_tips": "Sunset cocktails on the terrace are spectacular"
+            },
+            {
+                "name": "L'Alcôve Bar",
+                "type": "Wine Bar",
+                "specialty": "Waterfront drinks",
+                "signature_drinks": [
+                    "Rosé wine",
+                    "Aperol Spritz"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed setting with Mediterranean vibe",
+                "best_time": "Sunset",
+                "food_options": "Fresh seafood and salads",
+                "reservation_needed": false,
+                "local_tips": "Perfect spot for aperitif before dinner"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Provence Walking Tour",
+                "focus": "Traditional Provençal specialties",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local olive oil tasting",
+                    "Goat cheese sampling",
+                    "Traditional bakeries"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Book online at least 3 days in advance"
+            },
+            {
+                "name": "Avignon Market Tour",
+                "focus": "Local market and ingredients",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Les Halles market exploration",
+                    "Seasonal produce tasting",
+                    "Meeting local vendors"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "French"
+                ],
+                "booking_tips": "Tours run Tuesday, Thursday, and Saturday mornings"
+            },
+            {
+                "name": "Rhône Valley Wine Experience",
+                "focus": "Local wine and food pairing",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vineyard visit",
+                    "Wine tasting",
+                    "Traditional lunch"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Includes transportation to local vineyard"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Provençal Cooking Workshop",
+                "cuisine_focus": "Traditional Provençal cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making ratatouille",
+                    "Preparing bouillabaisse",
+                    "Tapenade and local specialties"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipes",
+                    "Full meal"
+                ],
+                "booking_tips": "Classes held in traditional Provençal kitchen setting"
+            },
+            {
+                "name": "Olive Oil and Cheese Tasting",
+                "cuisine_focus": "Provençal specialties",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Olive oil varieties",
+                    "Local cheese varieties",
+                    "Tasting techniques"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French"
+                ],
+                "includes": [
+                    "Product samples",
+                    "Take-home portions",
+                    "Tasting guide"
+                ],
+                "booking_tips": "Learn from local artisan producers"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Les Halles d'Avignon",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Provençal charcuterie",
+                    "Local cheeses"
+                ],
+                "hours": "Tue-Sun: 7:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Place Pie",
+                "local_tips": "Best selection early morning; try free samples from vendors"
+            },
+            {
+                "name": "Marché Bio",
+                "type": "Organic market",
+                "highlights": [
+                    "Organic produce",
+                    "Artisanal products",
+                    "Local honey and preserves"
+                ],
+                "hours": "Saturdays: 8:00am-1:00pm",
+                "best_time": "Mid-morning",
+                "location": "Place du Palais",
+                "local_tips": "Seasonal specialties like lavender in summer"
+            },
+            {
+                "name": "Place de l'Horloge Market",
+                "type": "Fresh produce market",
+                "highlights": [
+                    "Daily produce",
+                    "Local farmers",
+                    "Seasonal specialties"
+                ],
+                "hours": "Daily: 8:00am-12:00pm",
+                "best_time": "Early morning",
+                "location": "Place de l'Horloge",
+                "local_tips": "Produce arrives fresh each morning; prices best before 10am"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Artichauts à la Provençale (Provençal-style artichokes)",
+            "Fresh goat cheese with wild herbs",
+            "Young lamb with spring vegetables"
+        ],
+        "summer": [
+            "Grilled fish with herbs de Provence",
+            "Ratatouille with local vegetables",
+            "Fresh fruit sorbets with lavender"
+        ],
+        "autumn": [
+            "Truffle-based dishes",
+            "Wild mushrooms with local herbs",
+            "New wine and grape harvest"
+        ],
+        "winter": [
+            "Daube Provençale (beef stew)",
+            "Hearty stews with local game",
+            "Preserved meats and aged cheeses"
+        ]
+    },
+    "local_specialties": {
+        "charcuterie": [
+            "Saucisson d'Arles - cured sausage",
+            "Jambon de Bayonne - cured ham",
+            "Saucisse de Toulouse - Toulouse sausage",
+            "Pâté de campagne - country pâté"
+        ],
+        "cheeses": [
+            "Chèvre frais - fresh goat cheese",
+            "Roquefort - blue cheese",
+            "Tomme de Provence - aged sheep cheese",
+            "Banon - wrapped in chestnut leaves"
+        ],
+        "beverages": [
+            "Châteauneuf-du-Pape wines",
+            "Côtes du Rhône wines",
+            "Pastis - anise-flavored aperitif",
+            "Lavender-infused liqueurs"
+        ],
+        "sweets": [
+            "Calissons - almond sweets",
+            "Nougat de Montélimar",
+            "Fruits confits - candied fruits",
+            "Lavender honey specialties"
+        ]
+    }
+}

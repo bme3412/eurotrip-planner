@@ -1,0 +1,531 @@
+{
+  "sites": [
+    {
+      "name": "Lake Zurich",
+      "type": "Nature",
+      "description": "The focal point of the city, offering boat trips (round trips, Limmat river cruises), swimming spots (badis), lakeside promenades for walking and cycling, and beautiful views extending towards the Alps on clear days.",
+      "indoor": false,
+      "best_time": "Daytime (Summer for swimming/boating)",
+      "price_range": "Free",
+      "seasonal_notes": "Accessible year-round. Boat services operate most of the year but with reduced schedules in winter. Swimming areas (badis) are typically open June-September and often have entrance fees. Lakeside is popular year-round.",
+      "booking_tips": "Public boat trips (ZSG) can be used with ZVV public transport tickets (check zones) or purchased separately. No booking needed for promenade access. Badis might get crowded on hot days.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3480,
+      "longitude": 8.5500
+    },
+    {
+      "name": "Old Town (Altstadt)",
+      "type": "Historic District",
+      "description": "Zurich's historic heart, spanning both sides of the Limmat river. Features medieval alleys, cobblestone streets, guild houses, churches like Grossmünster and Fraumünster, squares (Lindenhof), boutiques, cafes, and restaurants. Niederdorf (east bank) is known for nightlife.",
+      "indoor": false,
+      "best_time": "Daytime/Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Charming year-round. Can be busy, especially Niederdorf in the evenings and weekends. Christmas markets in December.",
+      "booking_tips": "Best explored on foot. Free to wander. Allow ample time to explore both sides of the river. Guided walking tours are available.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3.0,
+        "cultural_significance": 5
+      },
+      "latitude": 47.3717,
+      "longitude": 8.5417
+    },
+    {
+      "name": "Grossmünster",
+      "type": "Landmark",
+      "description": "Iconic Romanesque-style Protestant church, a major landmark of Zurich. Known for its twin towers (Karlsturm offers panoramic city views), stained glass windows by Sigmar Polke and Augusto Giacometti, and its historical significance to the Reformation in Switzerland.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round, but check opening hours, especially for tower climbs. Modest dress code advised.",
+      "booking_tips": "Free entry to the church; a small fee applies to climb the tower (Karlsturm). Steep climb with rewarding views. Located in the Old Town.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 1.0,
+        "cultural_significance": 5
+      },
+      "latitude": 47.3700,
+      "longitude": 8.5439
+    },
+    {
+      "name": "Fraumünster",
+      "type": "Landmark",
+      "description": "Former abbey church known for its stunning stained glass windows created by Marc Chagall (five in the choir) and Augusto Giacometti (north transept). Features a slender blue spire.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round, check opening hours. Photography of Chagall windows often restricted. Modest dress code advised.",
+      "booking_tips": "Small entrance fee applies. Audio guides available. Located opposite Grossmünster across the Limmat.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3693,
+      "longitude": 8.5415
+    },
+    {
+      "name": "Bahnhofstrasse",
+      "type": "Shopping District",
+      "description": "One of the world's most expensive and exclusive shopping avenues, running from the main train station (Hauptbahnhof) towards Lake Zurich. Features luxury boutiques, department stores (Jelmoli, Globus), watchmakers, and international brands.",
+      "indoor": false,
+      "best_time": "Daytime (Store hours)",
+      "price_range": "High",
+      "seasonal_notes": "Stores generally open Mon-Sat. Busy shopping street. Beautiful Christmas lights in winter.",
+      "booking_tips": "Free to window shop and walk. Primarily pedestrian-friendly. Connects major transport hubs and attractions.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3730,
+      "longitude": 8.5380
+    },
+    {
+      "name": "Swiss National Museum (Landesmuseum Zürich)",
+      "type": "Museum",
+      "description": "Switzerland's most important museum of cultural history, housed in a fairytale castle-like building with a modern extension. Exhibits cover Swiss history from prehistory to the present, including archaeology, crafts, and everyday life.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round (usually closed Mondays). Check website for current exhibitions and hours.",
+      "booking_tips": "Located next to the main train station (Hauptbahnhof). Allow 2-3 hours. Consider the Zurich Pass for entry.",
+      "ratings": {
+        "cost_estimate": 10,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 47.3790,
+      "longitude": 8.5400
+    },
+    {
+      "name": "Kunsthaus Zürich",
+      "type": "Museum",
+      "description": "Zurich's museum of fine arts, featuring a significant collection spanning from the Middle Ages to contemporary art. Holds major collections of Swiss artists like Giacometti and Hodler, Impressionist/Post-Impressionist masters, and modern art. Includes a large extension by David Chipperfield.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round (check specific hours, often closed Mondays). Popular, especially for temporary exhibitions.",
+      "booking_tips": "Book tickets online, especially for special exhibitions. Allow 2-3 hours. Located near Schauspielhaus Zürich.",
+      "ratings": {
+        "cost_estimate": 23,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3703,
+      "longitude": 8.5476
+    },
+    {
+      "name": "Uetliberg Mountain",
+      "type": "Nature",
+      "description": "Zurich's local mountain (871m), offering panoramic views of the city, Lake Zurich, and the Alps. Accessible by train (S10). Features hiking trails, viewpoints, a lookout tower (fee), restaurants, and the 'Planetenweg' (Planet Trail) hike.",
+      "indoor": false,
+      "best_time": "Daytime (Clear weather)",
+      "price_range": "Budget",
+      "seasonal_notes": "Accessible year-round. Views best on clear days. Train runs frequently. Can be foggy/cloudy, especially in winter. Hiking trails may be muddy/snowy depending on season.",
+      "booking_tips": "Train journey (S10 from Hauptbahnhof) takes ~25 mins, covered by ZVV ticket (check zones). Short walk from Uetliberg station to the summit. Lookout tower costs a small fee.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 3.0,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3494,
+      "longitude": 8.4911
+    },
+    {
+      "name": "Lindt Home of Chocolate",
+      "type": "Museum",
+      "description": "An interactive museum dedicated to Swiss chocolate, featuring multimedia exhibits on chocolate history and production, a giant chocolate fountain, tasting opportunities, the world's largest Lindt shop, a café, and chocolate-making courses.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round, daily. Very popular, especially with families.",
+      "booking_tips": "Located in Kilchberg (short train/bus/boat ride from central Zurich). Booking tickets online with a time slot is highly recommended. Allow 1.5-2 hours for the tour.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 2.0,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3309,
+      "longitude": 8.5486
+    },
+    {
+      "name": "FIFA Museum",
+      "type": "Museum",
+      "description": "Celebrates the history of world football and FIFA. Features interactive exhibits, historical artifacts, the original FIFA World Cup Trophy, jerseys, a giant pinball machine, and multimedia displays covering memorable moments in football.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round (check hours, often closed Mondays).",
+      "booking_tips": "Located near Bahnhof Enge. Book tickets online. Allow 2-3 hours. Engaging for football fans of all ages.",
+      "ratings": {
+        "cost_estimate": 24,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3631,
+      "longitude": 8.5320
+    },
+    {
+      "name": "Zurich Zoo",
+      "type": "Zoo",
+      "description": "One of Europe's leading zoos, known for its conservation efforts and naturalistic habitats like the Masoala Rainforest Hall (Madagascar ecosystem), Kaeng Krachan Elephant Park (Asian elephants), Lewa Savannah (African animals), and Pantanal (South American wetland).",
+      "indoor": false,
+      "best_time": "Daytime",
+      "price_range": "High",
+      "seasonal_notes": "Open 365 days a year. Masoala Hall is indoors and warm year-round. Can be busy on weekends and holidays.",
+      "booking_tips": "Located slightly outside the city center (accessible by tram). Allow at least 3-4 hours, potentially a full day. Tickets can be bought online.",
+      "ratings": {
+        "cost_estimate": 29,
+        "suggested_duration_hours": 4.0,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3847,
+      "longitude": 8.5733
+    },
+    {
+      "name": "Rietberg Museum",
+      "type": "Museum",
+      "description": "Switzerland's only museum dedicated to non-European art and culture. Housed in several historic villas set in the scenic Rieterpark, with a modern underground extension ('Emerald'). Collections feature art from Asia, Africa, the Americas, and Oceania.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round (check hours, often closed Mondays). The park itself is accessible anytime.",
+      "booking_tips": "Located near Bahnhof Enge. Allow 2-3 hours for the museum. The surrounding Rieterpark offers nice views and walks.",
+      "ratings": {
+        "cost_estimate": 18,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3598,
+      "longitude": 8.5316
+    },
+    {
+      "name": "Lindenhof",
+      "type": "Historic Site",
+      "description": "A peaceful hilltop park in the heart of the Old Town, offering panoramic views over the Limmat river, Grossmünster, City Hall, and the eastern part of the city. Site of a former Roman fort and imperial residence. Popular spot for relaxation and chess players.",
+      "indoor": false,
+      "best_time": "Daytime/Sunset",
+      "price_range": "Free",
+      "seasonal_notes": "Accessible year-round. Offers shade in summer. Great spot for photos.",
+      "booking_tips": "Free access. Requires a short uphill walk from the surrounding Old Town streets. Perfect for a break while exploring the Altstadt.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3725,
+      "longitude": 8.5408
+    },
+    {
+      "name": "St. Peter's Church (Kirche St. Peter)",
+      "type": "Landmark",
+      "description": "The oldest parish church in Zurich, famous for having the largest church clock face in Europe (8.7 meters diameter). Located in the Old Town near Lindenhof.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round, check visiting hours. Less crowded than Grossmünster/Fraumünster.",
+      "booking_tips": "Free entry. Worth visiting for the clock tower history and its prominent place in the Old Town skyline.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3708,
+      "longitude": 8.5406
+    },
+    {
+      "name": "Zurich Opera House (Opernhaus Zürich)",
+      "type": "Cultural Venue",
+      "description": "A renowned opera house located at Sechseläutenplatz near Lake Zurich. Hosts opera, ballet performances, and concerts. The building itself is an architectural gem from the late 19th century.",
+      "indoor": true,
+      "best_time": "Evening (for performances)",
+      "price_range": "High",
+      "seasonal_notes": "Performance season typically runs September to June. Check schedule online.",
+      "booking_tips": "Book performance tickets well in advance online. Guided tours of the building may be available (check website). Located in a scenic area near the lake.",
+      "ratings": {
+        "cost_estimate": 80,
+        "suggested_duration_hours": 3.0,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3653,
+      "longitude": 8.5471
+    },
+    {
+      "name": "ETH Zürich",
+      "type": "Educational Institution",
+      "description": "Switzerland's most prestigious university for science and technology. The main building offers impressive architecture, a terrace with panoramic views of the city, the Geological and Earth Sciences collections, and the Focusterra exhibition on Earth sciences.",
+      "indoor": true,
+      "best_time": "Daytime (Weekdays)",
+      "price_range": "Free",
+      "seasonal_notes": "Main areas accessible year-round during university hours. Some exhibitions may have limited weekend access. Less busy during semester breaks.",
+      "booking_tips": "No booking required for general visit. Free access to main building and terraces. Located on a hill near the University Quarter, accessible by Polybahn funicular from Central.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3763,
+      "longitude": 8.5475
+    },
+    {
+      "name": "China Garden (Chinagarten)",
+      "type": "Garden",
+      "description": "An authentic Chinese garden gifted to Zurich by its sister city Kunming. Features traditional pavilions, bridges, water features, and carefully arranged vegetation according to Chinese garden principles.",
+      "indoor": false,
+      "best_time": "Daytime (Spring/Summer)",
+      "price_range": "Budget",
+      "seasonal_notes": "Open April to October. Closed during winter months. Most beautiful when flowers are blooming.",
+      "booking_tips": "Small entrance fee. Located at Zürichhorn along the lake. Can combine with a lakeside walk. No advance booking needed.",
+      "ratings": {
+        "cost_estimate": 4,
+        "suggested_duration_hours": 1.0,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3529,
+      "longitude": 8.5572
+    },
+    {
+      "name": "Botanical Garden (Botanischer Garten)",
+      "type": "Garden",
+      "description": "Run by the University of Zurich, featuring collections of over 9,000 plant species from around the world. Includes three large domes with tropical, subtropical, and desert plants, plus outdoor themed gardens and alpine species.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round. Indoor greenhouses great for rainy/cold days. Outdoor areas most impressive during growing season.",
+      "booking_tips": "Free entry. Located near University of Zurich. Check opening hours before visiting.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3593,
+      "longitude": 8.5633
+    },
+    {
+      "name": "Limmat River Cruise",
+      "type": "Boat Tour",
+      "description": "A scenic boat trip along the Limmat River through the heart of Zurich, passing important landmarks like City Hall, Fraumünster, Grossmünster, and the Swiss National Museum. Offers a unique perspective of the city from the water.",
+      "indoor": false,
+      "best_time": "Daytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Operates April to October. Multiple departures daily during peak season.",
+      "booking_tips": "Tickets can be purchased at landing stages or online. Some routes covered by the ZürichCARD. Cruises last approximately 1 hour.",
+      "ratings": {
+        "cost_estimate": 15,
+        "suggested_duration_hours": 1.0,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3700,
+      "longitude": 8.5410
+    },
+    {
+      "name": "Thermalbad & Spa Zürich",
+      "type": "Spa",
+      "description": "A thermal bath and spa located in a former brewery. Features indoor and outdoor pools, including a rooftop thermal pool with city views. Offers saunas, steam baths, and various spa treatments.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "High",
+      "seasonal_notes": "Open year-round. Rooftop pool especially impressive in winter when steaming against the cold air.",
+      "booking_tips": "Online booking recommended, especially for weekends. Bring swimwear and towel or rent there. Located in the trendy Zurich West area.",
+      "ratings": {
+        "cost_estimate": 38,
+        "suggested_duration_hours": 3.0,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3883,
+      "longitude": 8.5260
+    },
+    {
+      "name": "Prime Tower",
+      "type": "Modern Architecture",
+      "description": "Switzerland's second-tallest skyscraper (126m), located in the redeveloped industrial district of Zurich West. Houses offices, restaurants, and the Clouds bar/restaurant on the top floor offering panoramic views.",
+      "indoor": true,
+      "best_time": "Evening (for sunset/cityscape)",
+      "price_range": "Moderate",
+      "seasonal_notes": "Clouds restaurant and bar open year-round. Reservations highly recommended, especially for dinner and weekend visits.",
+      "booking_tips": "Public access only via the Clouds restaurant/bar (reservation recommended). The building itself is primarily offices. Located in Zurich West.",
+      "ratings": {
+        "cost_estimate": 20,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3878,
+      "longitude": 8.5169
+    },
+    {
+      "name": "Pavillon Le Corbusier",
+      "type": "Architecture",
+      "description": "The last building designed by legendary architect Le Corbusier, a striking glass and steel structure featuring his characteristic use of primary colors. Houses changing exhibitions on architecture and design.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Budget",
+      "seasonal_notes": "Open seasonally, typically May to November only. Closed during winter months.",
+      "booking_tips": "Check opening hours before visit. Located at Blatterwiese near Lake Zurich. Small entrance fee.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3537,
+      "longitude": 8.5509
+    },
+    {
+      "name": "Museum Rietberg",
+      "type": "Museum",
+      "description": "Switzerland's only museum dedicated to non-European art and cultures. Features collections from Asia, Africa, the Americas, and Oceania in historic villas surrounded by a beautiful park.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round. The park is particularly nice in spring and summer.",
+      "booking_tips": "Check for special exhibitions. Located in Rieterpark. Accessible by public transportation.",
+      "ratings": {
+        "cost_estimate": 18,
+        "suggested_duration_hours": 2.0,
+        "cultural_significance": 4
+      },
+      "latitude": 47.3598,
+      "longitude": 8.5316
+    },
+    {
+      "name": "Felsenegg Viewpoint",
+      "type": "Nature",
+      "description": "A mountain viewpoint accessible via cable car from Adliswil, offering panoramic views of Lake Zurich, the city, and on clear days, the Alps. Features hiking trails and a restaurant.",
+      "indoor": false,
+      "best_time": "Daytime (Clear weather)",
+      "price_range": "Budget",
+      "seasonal_notes": "Cable car operates year-round. Best views on clear days. Popular for hiking in summer and sledding in winter.",
+      "booking_tips": "Cable car (Luftseilbahn Adliswil-Felsenegg) runs regularly. No reservation needed. Short train ride from Zurich to Adliswil, then short walk to cable car station.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 3.0,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3108,
+      "longitude": 8.5222
+    },
+    {
+      "name": "Freitag Tower",
+      "type": "Shopping",
+      "description": "An iconic stack of 19 shipping containers housing the flagship store of Swiss bag brand Freitag, known for recycled truck tarpaulin products. Offers views from the top container.",
+      "indoor": true,
+      "best_time": "Store hours",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round. The viewing platform at the top offers nice city views.",
+      "booking_tips": "Free to visit. Located in Zurich West near Frau Gerolds Garten and Viadukt.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3870,
+      "longitude": 8.5203
+    },
+    {
+      "name": "Museum of Digital Art (MuDA)",
+      "type": "Museum",
+      "description": "Europe's first physical and virtual museum dedicated to digital arts. Features rotating exhibitions exploring the intersection of art, technology, and digital culture.",
+      "indoor": true,
+      "best_time": "Anytime",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open year-round. Check website for current exhibitions and events.",
+      "booking_tips": "Located near Bahnhof Wiedikon. Check opening hours as they can be limited.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3729,
+      "longitude": 8.5252
+    },
+    {
+      "name": "Sukkulenten-Sammlung Zürich",
+      "type": "Garden",
+      "description": "One of the largest succulent plant collections in the world, featuring over 6,500 species from various arid regions globally. Seven greenhouses organize plants by geographic region.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round. Indoor greenhouses make it perfect for rainy days.",
+      "booking_tips": "Free admission. Located near Enge harbor. Small but impressive specialist botanical garden.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.0,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3584,
+      "longitude": 8.5341
+    },
+    {
+      "name": "Museum für Gestaltung",
+      "type": "Museum",
+      "description": "Switzerland's leading museum of design and visual communication. Split between two locations: Ausstellungsstrasse (near Hauptbahnhof) and Toni-Areal in Zurich West. Features exhibitions on product design, graphic design, and decorative arts.",
+      "indoor": true,
+      "best_time": "Daytime",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round. Check which location is hosting current exhibitions of interest.",
+      "booking_tips": "Two separate locations - check which exhibitions are at which venue. Toni-Areal is the larger, newer space in Zurich West.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 2.0,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3845,
+      "longitude": 8.5214
+    },
+    {
+      "name": "Im Viadukt",
+      "type": "Shopping District",
+      "description": "A repurposed railway viaduct in trendy Zurich West, housing boutique shops, designer stores, restaurants, and the popular Markthalle indoor food market featuring local produce and specialty foods.",
+      "indoor": true,
+      "best_time": "Daytime/Evening",
+      "price_range": "Moderate",
+      "seasonal_notes": "Shops open year-round with regular shopping hours. Markthalle particularly nice to visit for lunch or gathering food for a picnic.",
+      "booking_tips": "No booking required. Free to browse. Located in Zurich West area, easily accessible by tram.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.0,
+        "cultural_significance": 2
+      },
+      "latitude": 47.3878,
+      "longitude": 8.5203
+    },
+    {
+      "name": "Wildnispark Zürich Sihlwald",
+      "type": "Nature",
+      "description": "A protected forest area south of Zurich, allowing the forest to grow naturally. Features hiking trails, a visitor center, and the Wildlife Park Langenberg with native Swiss wildlife like bears, wolves, and lynx.",
+      "indoor": false,
+      "best_time": "Daytime",
+      "price_range": "Free/Budget",
+      "seasonal_notes": "Open year-round. Colors change seasonally. Visitor center has limited winter hours. Wildlife Park Langenberg charges admission.",
+      "booking_tips": "Accessible by S-Bahn train. Forest is free to visit. Wildlife park has small entrance fee. Good day trip option from the city.",
+      "ratings": {
+        "cost_estimate": 8,
+        "suggested_duration_hours": 4.0,
+        "cultural_significance": 2
+      },
+      "latitude": 47.2727,
+      "longitude": 8.5560
+    },
+    {
+      "name": "Zurich West",
+      "type": "Urban District",
+      "description": "Former industrial area transformed into a trendy district with restaurants, bars, shops, and cultural venues. Notable spots include Frau Gerolds Garten, Viadukt shopping, Freitag Tower, Prime Tower, and Schiffbau cultural center.",
+      "indoor": false,
+      "best_time": "Afternoon/Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Lively year-round. Outdoor areas like Frau Gerolds Garten most enjoyable in warm weather.",
+      "booking_tips": "Free to explore. Individual venues may require reservations. Easily accessible by tram from the city center.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3.0,
+        "cultural_significance": 3
+      },
+      "latitude": 47.3867,
+      "longitude": 8.5183
+    }
+  ]
+}

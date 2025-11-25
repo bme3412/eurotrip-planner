@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "monthly_features.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cityId", "months", "meta"],
+  "properties": {
+    "cityId": { "type": "string" },
+    "months": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "baseMonthScore": { "type": "number", "minimum": 1, "maximum": 5 },
+          "weatherComfortScore": { "type": "number", "minimum": 1, "maximum": 5 },
+          "crowdScore": { "type": "number", "minimum": 1, "maximum": 5 },
+          "eventDensity": { "type": "integer", "minimum": 0, "maximum": 62 },
+          "dataCoverage": { "type": "number", "minimum": 0, "maximum": 1 },
+          "interestTags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
+
+

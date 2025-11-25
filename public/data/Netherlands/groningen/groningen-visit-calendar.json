@@ -1,0 +1,342 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 2,
+          "special": true,
+          "event": "New Year's Day",
+          "notes": "Public holiday, most businesses closed. Cold winter weather. Good for cozy cafes if open."
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Winter sales continue. Cold, possibly freezing weather. Low tourist season before ESNS."
+        },
+        {
+          "days": [14, 15, 16, 17, 18, 19, 20, 21], 
+          "score": 5, 
+          "special": true,
+          "event": "Eurosonic Noorderslag (ESNS - mid-Jan)",
+          "notes": "Major European music showcase festival. City buzzing with music industry & fans. Venues packed, accommodation scarce/expensive. Check exact dates."
+        },
+        {
+          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Post-ESNS lull. Continued cold weather. Good for museum visits (Groninger Museum, Forum) without crowds."
+        }
+      ],
+      "weatherHighC": 4,
+      "weatherLowC": -1,
+      "tourismLevel": 6 
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Cold winter month, potentially snow or ice. Very low season for tourism. Ideal for indoor attractions."
+        },
+        {
+          "days": [14],
+          "score": 3,
+          "special": true,
+          "event": "Valentine's Day",
+          "notes": "Some restaurants may offer specials. Cozy time for pubs."
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 3,
+          "notes": "Still winter, though days get slightly longer. University life continues as normal."
+        }
+      ],
+      "weatherHighC": 5,
+      "weatherLowC": -1,
+      "tourismLevel": 2
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Early spring arrives. Weather is unpredictable but improving. First signs of life on terraces on sunny days. Noorderplantsoen starts to green."
+        }
+      ],
+      "weatherHighC": 9,
+      "weatherLowC": 1,
+      "tourismLevel": 4
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+          "score": 4,
+          "special": true,
+          "event": "Easter (Varies)",
+          "notes": "Spring weather improving. Parks become pleasant. Terraces get busier. Potential Easter events."
+        },
+        {
+          "days": [26, 27],
+          "score": 5,
+          "special": true,
+          "event": "King's Day (Koningsdag)",
+          "notes": "Huge celebration across the city. Orange crowds, music stages (Grote Markt/Vismarkt often ticketed in evening), flea markets. Book accommodation far ahead."
+        },
+        {
+          "days": [28, 29, 30],
+          "score": 4,
+          "notes": "Pleasant spring conditions generally. Good time for cycling and exploring the city."
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 3,
+      "tourismLevel": 7
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4],
+          "score": 5,
+          "notes": "Often beautiful spring weather. Parks (Noorderplantsoen, Stadspark) are lovely."
+        },
+        {
+          "days": [5],
+          "score": 4,
+          "special": true,
+          "event": "Liberation Day (Bevrijdingsdag)",
+          "notes": "Usually free festivals/concerts in Stadspark or city center. Check local listings."
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "notes": "Typically excellent weather. Perfect for terraces, cycling, exploring canals (boat/SUP/canoe), visiting markets. Tourism levels increase."
+        }
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 7,
+      "tourismLevel": 7
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "notes": "Start of summer. Long daylight hours. Ideal for outdoor activities like visiting Hoornseplas lake, exploring parks, enjoying terraces. Busy student city vibe before summer break."
+        }
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 10,
+      "tourismLevel": 8
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5,
+          "notes": "Warmest month, peak summer. Ideal for swimming at Hoornseplas, canoeing, enjoying city life outdoors. Fewer students, more tourists. Check for smaller local festivals/events."
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 12,
+      "tourismLevel": 9
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+         {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+          "score": 5,
+          "notes": "Continued summer weather. City might feel slightly quieter before Noorderzon begins."
+        },
+        {
+          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 5, 
+          "special": true,
+          "event": "Noorderzon Performing Arts Festival (Late Aug)",
+          "notes": "Major 11-day international arts festival in Noorderplantsoen park. Unique atmosphere, theatre, music, food. Park access free, shows ticketed. Very popular, check exact dates."
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 12,
+      "tourismLevel": 10 
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 5,
+          "notes": "Late summer feel often continues. Students return, city vibe picks up. Weather usually still pleasant."
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "special": true,
+          "event": "Start of Cultural Season / Bokbier Season",
+          "notes": "More autumnal weather. Theaters/music venues start new programs. Autumn bock beers appear in pubs."
+        }
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 9,
+      "tourismLevel": 7
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Autumn colors in parks (Noorderplantsoen, Stadspark). Weather cooler, potentially rainy. Good month for museums, cozy pubs, enjoying Bokbier."
+        }
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 6,
+      "tourismLevel": 5
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Low season. Weather often grey, cool, damp. Focus on indoor activities."
+        },
+        {
+          "days": [11],
+          "score": 3,
+          "special": true,
+          "event": "Sint Maarten",
+          "notes": "Children's lantern songs/processions, mainly residential areas."
+        },
+         {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "score": 3,
+          "special": true,
+          "event": "Arrival of Sinterklaas (mid-Nov)",
+          "notes": "Sinterklaas arrives by boat, parade through city. Festive kick-off. Check exact date."
+        },
+        {
+          "days": [30],
+          "score": 3,
+          "notes": "Build-up to Sinterklaas gift evening (Dec 5th). Shops get busy."
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 3,
+      "tourismLevel": 4
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4],
+          "score": 3,
+          "notes": "Sinterklaas shopping continues."
+        },
+        {
+          "days": [5],
+          "score": 3,
+          "special": true,
+          "event": "Sinterklaas Eve (Pakjesavond)",
+          "notes": "Dutch gift-giving evening, primarily celebrated at home."
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 4,
+          "notes": "Christmas lights appear. Festive atmosphere begins. Oliebollen stalls arrive."
+        },
+        {
+          "days": [15, 16, 17],
+          "score": 5,
+          "special": true,
+          "event": "WinterWelVaart (mid-Dec weekend)",
+          "notes": "Atmospheric festival with historic ships lit up along Hoge/Lage der A canals, music/art onboard and quayside market stalls. Check exact dates."
+        },
+        {
+          "days": [18, 19, 20, 21, 22, 23],
+          "score": 4,
+          "notes": "Lead-up to Christmas, festive shopping. Check Forum or local listings for smaller Christmas events."
+        },
+        {
+          "days": [24],
+          "score": 3,
+          "special": true,
+          "event": "Christmas Eve",
+          "notes": "Shops close early. Quiet evening."
+        },
+        {
+          "days": [25, 26],
+          "score": 2,
+          "special": true,
+          "event": "Christmas & Second Christmas Day",
+          "notes": "Public holidays. Most businesses closed. Very quiet city."
+        },
+        {
+          "days": [27, 28, 29, 30],
+          "score": 3,
+          "notes": "Quiet period between Christmas and New Year. Check opening hours."
+        },
+        {
+          "days": [31],
+          "score": 3,
+          "special": true,
+          "event": "New Year's Eve",
+          "notes": "Shops close early. Extensive private fireworks expected. Some bars/restaurants have events (book ahead)."
+        }
+      ],
+      "weatherHighC": 5,
+      "weatherLowC": 0,
+      "tourismLevel": 5
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "King's Day Celebrations",
+      "Enjoying Noorderplantsoen Park",
+      "Terrace Sitting (Grote Markt, Vismarkt)",
+      "Vismarkt Market Visits",
+      "Cycling in/around the City",
+      "Day Trip to Lauwersmeer NP"
+    ],
+    "summer": [
+      "Noorderzon Festival (Aug)",
+      "Swimming/Relaxing at Hoornseplas",
+      "Outdoor Dining & Drinks (Terraces)",
+      "Exploring Canals (Canoe/SUP/Tour Boat)",
+      "Attending Smaller Festivals/Events",
+      "Cycling to nearby villages"
+    ],
+    "autumn": [
+      "Attending Cultural Season Events",
+      "Bokbier Tasting in Pubs",
+      "Cozy Cafe/Pub Visits",
+      "Museum Exploration (Groninger Museum, Forum)",
+      "Walking in Autumn Parks (Noorderplantsoen, Stadspark)",
+      "Vismarkt Market Visits"
+    ],
+    "winter": [
+      "Eurosonic Noorderslag (Jan)",
+      "WinterWelVaart Festival (Dec)",
+      "Sinterklaas Arrival (Nov)",
+      "Enjoying Festive Lights & Atmosphere",
+      "Ice Skating (Kardinge or temporary rink)",
+      "Eating Oliebollen & Eierballen",
+      "Museum Visits & Indoor Culture"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "3": "Average: Standard conditions, typical weather, moderate tourism, potential for specific event crowds",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very low/high tourism (business closures)",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+  }
+} 

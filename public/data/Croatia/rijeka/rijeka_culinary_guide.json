@@ -1,0 +1,661 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Nebo",
+                "cuisine_type": "Modern Croatian with Mediterranean influences",
+                "signature_dishes": [
+                    "Adriatic sea bass with Istrian truffle",
+                    "Wagyu beef with local herbs and wine reduction"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining with harbor views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "City Center",
+                "local_tips": "Located near the harbor with beautiful sea views; excellent wine list featuring Istrian and Croatian wines; perfect for special occasions"
+            },
+            {
+                "name": "Restaurant Zlatna Školjka",
+                "cuisine_type": "Mediterranean seafood",
+                "signature_dishes": [
+                    "Lobster risotto with saffron",
+                    "Black truffle pasta with Istrian truffles"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant waterfront dining with sea views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, request terrace seating",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "Harbor",
+                "local_tips": "Stunning views of the Kvarner Bay; excellent seafood selection; perfect for romantic dinners; try the daily catch specials"
+            },
+            {
+                "name": "Restaurant Capriccio",
+                "cuisine_type": "Italian with Croatian influences",
+                "signature_dishes": [
+                    "Grilled Adriatic fish with herbs",
+                    "Seafood platter with local catch"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Upscale Italian trattoria",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, popular with locals",
+                "dress_code": "Smart casual",
+                "location": "City Center",
+                "local_tips": "Authentic Italian cuisine with Croatian twists; excellent pasta dishes; great wine selection; family-run establishment"
+            },
+            {
+                "name": "Restaurant Molo Longo",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Black risotto with cuttlefish",
+                    "Adriatic sea bass with local herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Upscale with harbor views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, request waterfront table",
+                "dress_code": "Smart casual",
+                "location": "Harbor",
+                "local_tips": "Excellent Croatian wine selection; terrace offers beautiful harbor views; try the daily catch specials; perfect for business dining"
+            },
+            {
+                "name": "Restaurant Fiume",
+                "cuisine_type": "Modern Croatian with international influences",
+                "signature_dishes": [
+                    "Seafood curry with local spices",
+                    "Grilled octopus with Istrian olive oil"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and vibrant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, popular with locals",
+                "dress_code": "Smart casual",
+                "location": "City Center",
+                "local_tips": "Creative fusion of Croatian and international flavors; excellent vegetarian options; great cocktails; trendy atmosphere"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Konoba Feral",
+                "cuisine_type": "Traditional Croatian",
+                "signature_dishes": [
+                    "Mussels buzara",
+                    "Black risotto with seafood"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and traditional",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Famous for fresh mussels and oysters; local favorite; arrive before noon to avoid crowds; authentic Croatian experience"
+            },
+            {
+                "name": "Restaurant Kantinon",
+                "cuisine_type": "Modern Mediterranean",
+                "signature_dishes": [
+                    "Lamb with local herbs",
+                    "Seafood pasta with fresh catch"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary and stylish",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance",
+                "dress_code": "Smart casual",
+                "location": "City Center",
+                "local_tips": "Excellent wine pairing suggestions; seasonal menu changes; great for foodies; modern Croatian cuisine"
+            },
+            {
+                "name": "Restaurant Marina",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Grilled fish with herbs",
+                    "Seafood risotto"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant marina setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, request waterfront table",
+                "dress_code": "Smart casual",
+                "location": "Marina",
+                "local_tips": "Beautiful marina views; fresh seafood; excellent service; perfect for special occasions; yacht-watching"
+            },
+            {
+                "name": "Restaurant Trsat",
+                "cuisine_type": "Traditional Croatian",
+                "signature_dishes": [
+                    "Peka (slow-cooked meat)",
+                    "Fresh Adriatic fish with herbs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and authentic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, especially in summer",
+                "dress_code": "Casual",
+                "location": "Trsat",
+                "local_tips": "Traditional Croatian cooking methods; family-run; excellent local wine selection; beautiful views from Trsat hill"
+            },
+            {
+                "name": "Pizzeria Napoli",
+                "cuisine_type": "Authentic Italian",
+                "signature_dishes": [
+                    "Margherita pizza",
+                    "Seafood pizza",
+                    "Truffle pizza"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and family-friendly",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early for dinner",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Wood-fired oven; authentic Italian style; great for families; excellent pizza and pasta"
+            },
+            {
+                "name": "Restaurant Korzo",
+                "cuisine_type": "Croatian with international touches",
+                "signature_dishes": [
+                    "Grilled Adriatic fish",
+                    "Seafood platter"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Casual waterfront with fresh seafood focus",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early to secure a table",
+                "dress_code": "Casual",
+                "location": "Korzo",
+                "local_tips": "Fresh seafood grilled over open fire; BYOB (bring your own wine); cash only; arrive before 7 PM to avoid long waits"
+            },
+            {
+                "name": "Restaurant Fiume",
+                "cuisine_type": "Modern Croatian",
+                "signature_dishes": [
+                    "Seafood curry",
+                    "Grilled octopus"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and vibrant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, popular with locals",
+                "dress_code": "Smart casual",
+                "location": "City Center",
+                "local_tips": "Creative fusion of Croatian and international flavors; excellent vegetarian options; great cocktails"
+            },
+            {
+                "name": "Restaurant Marina",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Grilled fish",
+                    "Seafood risotto"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant marina setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, request waterfront table",
+                "dress_code": "Smart casual",
+                "location": "Marina",
+                "local_tips": "Beautiful marina views; fresh seafood; excellent service; perfect for special occasions"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Burek Stand",
+                "specialties": [
+                    "Burek (meat pie)",
+                    "Cheese burek",
+                    "Spinach burek"
+                ],
+                "price_range": "€",
+                "hours": "6:00 AM - 2:00 PM",
+                "location": "Korzo",
+                "seating": "Limited",
+                "local_tips": "Best enjoyed hot in the morning; traditional Balkan pastry; perfect for breakfast on the go; local favorite"
+            },
+            {
+                "name": "Gelato Corner",
+                "specialties": [
+                    "Homemade gelato",
+                    "Sorbet",
+                    "Ice cream"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 10:00 PM",
+                "location": "Korzo",
+                "seating": "Some outdoor seating",
+                "local_tips": "Perfect for cooling off in summer; try local flavors like lavender and olive oil; Italian-style gelato"
+            },
+            {
+                "name": "Seafood Market",
+                "specialties": [
+                    "Fresh oysters",
+                    "Grilled fish",
+                    "Seafood sandwiches"
+                ],
+                "price_range": "€€",
+                "hours": "8:00 AM - 6:00 PM",
+                "location": "Harbor",
+                "seating": "Limited",
+                "local_tips": "Fresh daily catch; arrive early for best selection; perfect for lunch by the sea; local fishermen's catch"
+            },
+            {
+                "name": "Pizza Corner",
+                "specialties": [
+                    "Margherita pizza",
+                    "Seafood pizza",
+                    "Truffle pizza"
+                ],
+                "price_range": "€€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "City Center",
+                "seating": "Limited",
+                "local_tips": "Wood-fired oven; authentic Italian style; great for quick dinner; family-friendly"
+            },
+            {
+                "name": "Cevapi Stand",
+                "specialties": [
+                    "Cevapi (grilled meat)",
+                    "Pljeskavica (burger)",
+                    "Kajmak (cream cheese)"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Korzo",
+                "seating": "Limited",
+                "local_tips": "Traditional Balkan street food; served with fresh bread; perfect for lunch; popular with locals"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Korzo",
+                "specialty": "Traditional Croatian coffee",
+                "must_try": [
+                    "Turkish coffee",
+                    "Croatian pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional pastries and light meals",
+                "local_tips": "Historic café on the main promenade; perfect for people-watching; excellent coffee culture; local meeting point"
+            },
+            {
+                "name": "Café Trsat",
+                "specialty": "Hilltop coffee with views",
+                "must_try": [
+                    "Espresso",
+                    "Local wine"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and scenic",
+                "best_time": "Sunset",
+                "wifi_friendly": false,
+                "food_options": "Simple snacks",
+                "local_tips": "Located on Trsat hill with stunning city views; perfect for sunset drinks; historic setting"
+            },
+            {
+                "name": "Café Rijeka",
+                "specialty": "Modern coffee culture",
+                "must_try": [
+                    "Flat white",
+                    "Cold brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary and cozy",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light meals",
+                "local_tips": "Great for working remotely; excellent coffee quality; relaxed atmosphere; modern café culture"
+            },
+            {
+                "name": "Café Bar Atlas",
+                "specialty": "Local coffee tradition",
+                "must_try": [
+                    "Croatian coffee",
+                    "Homemade cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and welcoming",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional Croatian pastries",
+                "local_tips": "Family-run café; authentic local experience; excellent homemade desserts; historic café"
+            },
+            {
+                "name": "Café Bar D'vino",
+                "specialty": "Wine bar with coffee",
+                "must_try": [
+                    "Croatian wines",
+                    "Coffee selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Wine-focused and sophisticated",
+                "best_time": "Evening",
+                "wifi_friendly": false,
+                "food_options": "Wine and cheese pairings",
+                "local_tips": "Excellent Croatian wine selection; knowledgeable staff; perfect for wine lovers; sophisticated atmosphere"
+            }
+        ],
+        "bars": [
+            {
+                "name": "D'vino Wine Bar",
+                "type": "Wine Bar",
+                "specialty": "Croatian wines",
+                "signature_drinks": [
+                    "Plavac Mali",
+                    "Graševina",
+                    "Teran"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated wine bar",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": true,
+                "local_tips": "Extensive Croatian wine list; knowledgeable sommeliers; perfect for wine tasting; excellent Istrian wines"
+            },
+            {
+                "name": "Café Trsat",
+                "type": "Hilltop Bar",
+                "specialty": "Sunset cocktails",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Local wines",
+                    "Craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic hilltop setting",
+                "best_time": "Sunset",
+                "food_options": "Simple snacks",
+                "reservation_needed": false,
+                "local_tips": "Located on Trsat hill; stunning sunset views over the city; cash only; arrive early for best spots"
+            },
+            {
+                "name": "Harbor Bar",
+                "type": "Harbor Bar",
+                "specialty": "Harbor cocktails",
+                "signature_drinks": [
+                    "Mojito",
+                    "Pina Colada",
+                    "Local beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Harborfront and relaxed",
+                "best_time": "Afternoon",
+                "food_options": "Harbor snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Beautiful harbor setting; perfect for afternoon drinks; great for watching ships; maritime atmosphere"
+            },
+            {
+                "name": "Cocktail Bar Fiume",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "Mediterranean Mule",
+                    "Kvarner Sunset",
+                    "Local herb cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and trendy",
+                "best_time": "Evening",
+                "food_options": "Tapas and small plates",
+                "reservation_needed": true,
+                "local_tips": "Creative cocktail menu; excellent food pairing; great for pre-dinner drinks; trendy atmosphere"
+            },
+            {
+                "name": "Café Bar Atlas",
+                "type": "Local Bar",
+                "specialty": "Local beers and spirits",
+                "signature_drinks": [
+                    "Karlovačko beer",
+                    "Rakija (local spirit)",
+                    "Croatian wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and friendly",
+                "best_time": "Evening",
+                "food_options": "Traditional Croatian snacks",
+                "reservation_needed": false,
+                "local_tips": "Authentic local experience; friendly atmosphere; great for meeting locals; historic bar"
+            },
+            {
+                "name": "Rooftop Bar Nebo",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "Rijeka Sunset",
+                    "Kvarner Breeze",
+                    "Premium cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Luxurious rooftop setting",
+                "best_time": "Sunset",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Panoramic city and harbor views; perfect for sunset cocktails; dress smartly; book in advance"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Rijeka Food Tour",
+                "focus": "Traditional Croatian cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local market visit",
+                    "Traditional restaurants",
+                    "Wine tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable walking shoes"
+            },
+            {
+                "name": "Seafood Experience",
+                "focus": "Adriatic seafood",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fish market visit",
+                    "Seafood cooking class",
+                    "Wine pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes hands-on cooking; fresh ingredients provided"
+            },
+            {
+                "name": "Wine Tasting Tour",
+                "focus": "Croatian wines",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local wine bars",
+                    "Wine tasting",
+                    "Cheese pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book 1 week ahead; includes substantial wine tastings; eat before the tour"
+            },
+            {
+                "name": "Korzo Food Walk",
+                "focus": "Historic food culture",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Historic restaurants",
+                    "Traditional pastries",
+                    "Local specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book early for weekend tours; includes food tastings; comfortable walking required"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Croatian Cooking Workshop",
+                "cuisine_focus": "Traditional Croatian cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Peka (slow-cooked meat)",
+                    "Black risotto",
+                    "Traditional desserts"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with wine pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held three times weekly"
+            },
+            {
+                "name": "Seafood Cooking Class",
+                "cuisine_focus": "Adriatic seafood",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Fish preparation",
+                    "Seafood risotto",
+                    "Grilled octopus"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "includes": [
+                    "Fresh seafood ingredients, take-home recipes, wine pairing"
+                ],
+                "booking_tips": "Book 2 weeks ahead; suitable for all skill levels"
+            },
+            {
+                "name": "Market to Table",
+                "cuisine_focus": "Local ingredients",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal dishes",
+                    "Cooking techniques"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market tour, ingredients, lunch"
+                ],
+                "booking_tips": "Book in advance for market tours; early morning start"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Rijeka Central Market",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Olive oil",
+                    "Croatian specialties"
+                ],
+                "hours": "Every day, 7 AM - 2 PM",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "Arrive early for the freshest selections; excellent place to sample local products; great for photography; local vendors"
+            },
+            {
+                "name": "Harbor Fish Market",
+                "type": "Local fish market",
+                "highlights": [
+                    "Fresh fish",
+                    "Local seafood",
+                    "Artisan bread",
+                    "Regional products"
+                ],
+                "hours": "Every day, 6 AM - 1 PM",
+                "best_time": "Early morning",
+                "location": "Harbor",
+                "local_tips": "Best for fresh seafood; local fishermen; authentic experience; arrive early for best selection"
+            },
+            {
+                "name": "Korzo Market",
+                "type": "Street market",
+                "highlights": [
+                    "Fresh produce",
+                    "Seafood",
+                    "Local meats",
+                    "Regional specialties"
+                ],
+                "hours": "Every day, 6 AM - 2 PM",
+                "best_time": "Morning",
+                "location": "Korzo",
+                "local_tips": "Convenient location on main promenade; excellent variety; great for quick shopping; local atmosphere"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus with Istrian olive oil and lemon",
+            "Fresh pea soup with local herbs",
+            "Spring lamb with wild herbs from Učka"
+        ],
+        "summer": [
+            "Grilled Adriatic fish with Mediterranean herbs",
+            "Fresh tomato and basil salad with local olive oil",
+            "Summer fruit desserts with local berries from Gorski Kotar"
+        ],
+        "autumn": [
+            "Mushroom risotto with Istrian truffle",
+            "Pumpkin soup with local spices",
+            "Autumn fruit pies and tarts with local honey"
+        ],
+        "winter": [
+            "Peka (slow-cooked meat with vegetables)",
+            "Warm chestnut desserts from Gorski Kotar",
+            "Traditional Croatian Christmas cookies and fritule"
+        ]
+    }
+}

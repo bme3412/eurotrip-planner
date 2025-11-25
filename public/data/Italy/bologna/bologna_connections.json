@@ -1,0 +1,234 @@
+{
+    "destinations": [
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Experience the birthplace of the Renaissance with its world-class art museums and stunning architecture.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "35 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Explore the romantic canals and historic charm of Venice.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "1 hour 25 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Experience the fashion capital of Italy with its stunning Duomo and world-class shopping.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "1 hour 10 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Visit the Eternal City with its ancient ruins, Vatican, and vibrant street life.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "2 hours",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Naples",
+            "country": "Italy",
+            "whyGo": "Experience the vibrant southern Italian city with its rich history and famous pizza.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "3 hours 40 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Ravenna",
+            "country": "Italy",
+            "whyGo": "Marvel at the stunning Byzantine mosaics in this historic city.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "1 hour",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Ferrara",
+            "country": "Italy",
+            "whyGo": "Explore this Renaissance city with its well-preserved medieval center and Este Castle.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "30 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Modena",
+            "country": "Italy",
+            "whyGo": "Visit the home of balsamic vinegar and Ferrari, with its beautiful cathedral and historic center.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "20 minutes",
+                "frequency": "Every 15 minutes"
+            }
+        },
+        {
+            "city": "Parma",
+            "country": "Italy",
+            "whyGo": "Experience the city of food and music, famous for its cheese and ham.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "50 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rimini",
+            "country": "Italy",
+            "whyGo": "Enjoy the beaches and Roman history of this popular Adriatic resort town.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "1 hour",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "San Marino",
+            "country": "San Marino",
+            "whyGo": "Visit the world's oldest republic with its medieval towers and stunning views.",
+            "directWithinCountryTrain": {
+                "stationInBologna": "Bologna Centrale",
+                "journeyTime": "1 hour 30 minutes to Rimini + 20 minute bus",
+                "frequency": "Hourly trains, frequent buses"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the city of lights, known for its art, fashion, and culture.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Experience the diverse culture, iconic landmarks, and world-class museums of the UK's capital.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Explore the vibrant culture and history of Germany's capital.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the canals and cultural diversity of Amsterdam.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Enjoy the vibrant culture and stunning architecture of Barcelona.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Experience the imperial history and musical heritage of Vienna.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Enjoy the Bavarian culture and the world-famous Oktoberfest.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Explore the beautiful architecture and rich history of Prague.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Experience the unique blend of European and Asian cultures in Istanbul.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Dubrovnik",
+            "country": "Croatia",
+            "whyGo": "Visit the stunning walled city and beautiful Adriatic coastline.",
+            "intraEuropeFlight": {
+                "airportsInBologna": [
+                    "Bologna Guglielmo Marconi Airport (BLQ)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        }
+    ]
+} 

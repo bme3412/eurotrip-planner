@@ -1,0 +1,444 @@
+{
+    "destinations": [
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "whyGo": "Experience Italy's fashion and design capital with its magnificent Gothic Duomo, Leonardo da Vinci's Last Supper, and world-class shopping districts.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "2 hours 30 minutes",
+          "frequency": "Hourly"
+        }
+      },
+      {
+        "city": "Florence",
+        "country": "Italy",
+        "whyGo": "Discover the cradle of the Renaissance with its extraordinary art collections, stunning Duomo, and atmospheric historic center.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "2 hours 5 minutes",
+          "frequency": "Hourly"
+        }
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "whyGo": "Explore the Eternal City with its ancient ruins, Vatican treasures, and vibrant street life spanning nearly 3,000 years of history.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "3 hours 45 minutes",
+          "frequency": "Hourly"
+        }
+      },
+      {
+        "city": "Bologna",
+        "country": "Italy",
+        "whyGo": "Savor the culinary capital of Italy with its medieval porticoed streets, oldest university in Europe, and rich food traditions.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "1 hour 30 minutes",
+          "frequency": "Hourly"
+        }
+      },
+      {
+        "city": "Verona",
+        "country": "Italy",
+        "whyGo": "Visit the romantic city of Romeo and Juliet with its well-preserved Roman arena, medieval center, and Renaissance architecture.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "1 hour 10 minutes",
+          "frequency": "Every 30 minutes"
+        }
+      },
+      {
+        "city": "Padua",
+        "country": "Italy",
+        "whyGo": "Discover a historic university city with Giotto's revolutionary frescoes, one of the oldest botanical gardens in the world, and vibrant squares.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "25 minutes",
+          "frequency": "Every 15-30 minutes"
+        }
+      },
+      {
+        "city": "Trieste",
+        "country": "Italy",
+        "whyGo": "Experience the Habsburg elegance of this border city with its literary heritage, café culture, and unique blend of Italian, Austrian, and Slavic influences.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "2 hours",
+          "frequency": "Every 2 hours"
+        }
+      },
+      {
+        "city": "Treviso",
+        "country": "Italy",
+        "whyGo": "Explore this charming walled city with its network of picturesque canals, medieval streets, and as the birthplace of Prosecco and tiramisu.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "30 minutes",
+          "frequency": "Hourly"
+        }
+      },
+      {
+        "city": "Turin",
+        "country": "Italy",
+        "whyGo": "Discover the elegant first capital of Italy with its royal palaces, renowned Egyptian Museum, and sophisticated food and wine culture.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "3 hours 50 minutes",
+          "frequency": "Every 2 hours"
+        }
+      },
+      {
+        "city": "Udine",
+        "country": "Italy",
+        "whyGo": "Experience the heart of Friuli with its Venetian-Gothic architecture, Tiepolo masterpieces, and gateway to the region's renowned wineries.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "1 hour 40 minutes",
+          "frequency": "Hourly"
+        }
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "whyGo": "Experience the imperial grandeur and musical heritage of the former Habsburg capital with its coffee houses, palaces, and artistic treasures.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "7 hours 30 minutes",
+          "frequency": "Once daily via Nightjet"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 15 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "whyGo": "Explore Bavaria's capital with its blend of historic architecture, world-class museums, beer gardens, and gateway to the Alps.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "6 hours 30 minutes",
+          "frequency": "Once daily via direct EuroCity"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 10 minutes",
+          "frequency": "Several times daily"
+        }
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "whyGo": "Visit the city of light with its iconic monuments, world-class art museums, and unparalleled culinary and fashion scenes.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "11 hours",
+          "frequency": "Once daily with transfer"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 55 minutes",
+          "frequency": "Several times daily"
+        }
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "whyGo": "Discover this financial center with its pristine lake, medieval old town, and gateway to the Swiss Alps.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "5 hours 45 minutes",
+          "frequency": "Once daily via EuroCity"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 15 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "whyGo": "Experience the charming capital of Slovenia with its riverside cafés, dragon bridges, and vibrant cultural scene set against alpine scenery.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "2 hours 30 minutes",
+          "frequency": "Twice daily"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "45 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "whyGo": "Explore Croatia's capital with its well-preserved Austro-Hungarian architecture, vibrant café culture, and distinctive museums.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "6 hours",
+          "frequency": "Once daily with transfer in Ljubljana"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 10 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "whyGo": "Enjoy this Mediterranean gem with its surreal Gaudí architecture, vibrant street life, and beautiful beaches.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "14 hours",
+          "frequency": "Once daily with multiple transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 50 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "whyGo": "Discover the birthplace of democracy with its ancient Acropolis, captivating museums, and lively modern culture.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "Not applicable",
+          "frequency": "Not applicable"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "2 hours 10 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "whyGo": "Experience the picturesque canal city with its world-class museums, cycling culture, and progressive atmosphere.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "14 hours",
+          "frequency": "Once daily with transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "2 hours",
+          "frequency": "Several times daily"
+        }
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "whyGo": "Explore the fairytale city with its preserved medieval center, castle complex, and renowned beer culture.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "12 hours",
+          "frequency": "Once daily with transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 30 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "whyGo": "Visit the Pearl of the Danube with its stunning parliament building, thermal baths, and vibrant ruin bars.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "12 hours 30 minutes",
+          "frequency": "Once daily with transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 20 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "whyGo": "Experience one of the world's most vibrant capitals with its royal heritage, diverse neighborhoods, and cultural landmarks.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "15 hours",
+          "frequency": "Once daily with multiple transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "2 hours 25 minutes",
+          "frequency": "Several times daily"
+        }
+      },
+      {
+        "city": "Bari",
+        "country": "Italy",
+        "whyGo": "Discover the capital of Puglia with its atmospheric old town, delicious cuisine, and gateway to the Adriatic coast.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "7 hours 30 minutes",
+          "frequency": "Several times daily with transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 20 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Naples",
+        "country": "Italy",
+        "whyGo": "Experience the vibrant southern Italian city with its archaeological treasures, world-famous pizza, and gateway to Pompeii and the Amalfi Coast.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "5 hours",
+          "frequency": "Hourly"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 15 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Palermo",
+        "country": "Italy",
+        "whyGo": "Discover Sicily's culturally rich capital with its Norman-Arab architecture, vibrant markets, and exceptional street food.",
+        "directWithinCountryTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "17 hours with overnight ferry",
+          "frequency": "Once daily"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 40 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "whyGo": "Experience Germany's dynamic capital with its turbulent history, cutting-edge arts scene, and diverse neighborhoods.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "13 hours",
+          "frequency": "Once daily with transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 50 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "whyGo": "Visit the capital of the EU with its grand central square, Art Nouveau architecture, and renowned chocolate and beer.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "13 hours",
+          "frequency": "Once daily with transfers"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "2 hours",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "whyGo": "Explore the city straddling two continents with its Byzantine and Ottoman splendors, vibrant bazaars, and Bosphorus views.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "Not applicable",
+          "frequency": "Not applicable"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "2 hours 30 minutes",
+          "frequency": "Daily"
+        }
+      },
+      {
+        "city": "Innsbruck",
+        "country": "Austria",
+        "whyGo": "Experience this alpine gem with its imperial heritage, dramatic mountain backdrop, and gateway to world-class skiing.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "5 hours",
+          "frequency": "Twice daily via EuroCity"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "55 minutes",
+          "frequency": "Daily (seasonal)"
+        }
+      },
+      {
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "whyGo": "Visit the 'Pearl of the Adriatic' with its perfectly preserved medieval walls, stunning coastal setting, and Game of Thrones filming locations.",
+        "intraEuropeTrain": {
+          "stationInVenice": "Venezia Santa Lucia",
+          "journeyTime": "Not applicable",
+          "frequency": "Not applicable"
+        },
+        "intraEuropeFlight": {
+          "airportsInVenice": [
+            "Venice Marco Polo Airport"
+          ],
+          "approxFlightTime": "1 hour 15 minutes",
+          "frequency": "Several times weekly (seasonal)"
+        }
+      }
+    ]
+  }

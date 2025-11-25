@@ -1,0 +1,705 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "La Réserve Rimbaud",
+                "cuisine_type": "Contemporary Mediterranean",
+                "signature_dishes": [
+                    "Seasonal fish with Mediterranean flavors",
+                    "Beef fillet with local truffles",
+                    "Artisanal cheese selection from Cévennes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant riverside dining room with Lez River views and terrace",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, request riverside terrace in summer",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Rimbaud neighborhood alongside River Lez",
+                "local_tips": "Chef Charles Fontes creates refined dishes using the freshest seasonal ingredients from Languedoc"
+            },
+            {
+                "name": "Le Jardin des Sens",
+                "cuisine_type": "Inventive Mediterranean Haute Cuisine",
+                "signature_dishes": [
+                    "Foie gras with seasonal fruits",
+                    "Mediterranean sea bass with olive oil foam",
+                    "Signature chocolate dessert sphere"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern elegant dining room with contemporary art and garden views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, opt for the tasting menu for the full experience",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Port Marianne district",
+                "local_tips": "The legendary Pourcel twins' flagship restaurant, recently relocated and reimagined after a hiatus"
+            },
+            {
+                "name": "Pastis Kitchen",
+                "cuisine_type": "Creative Market Cuisine",
+                "signature_dishes": [
+                    "Chef's surprise tasting menu",
+                    "Seasonal seafood creations",
+                    "Innovative desserts with Mediterranean ingredients"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate contemporary space with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, counter seating available to watch the chefs",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Historic center near Place de la Canourgue",
+                "local_tips": "Chef Daniel Lutrand works with daily market ingredients, creating an ever-changing menu"
+            },
+            {
+                "name": "Leclere",
+                "cuisine_type": "Contemporary French with Mediterranean Influences",
+                "signature_dishes": [
+                    "Seasonal tasting menu",
+                    "Languedoc lamb preparations",
+                    "Creative seafood dishes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek, minimalist dining room with terrace in historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least two weeks ahead, excellent lunch menu offers great value",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Historical center",
+                "local_tips": "Chef's technical precision and creative presentations make this a rising star in Montpellier's dining scene"
+            },
+            {
+                "name": "La Coquerie",
+                "cuisine_type": "Refined Modern French",
+                "signature_dishes": [
+                    "Seasonal market menu",
+                    "Local fish with Mediterranean accents",
+                    "Herb-infused creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated dining room with understated elegance",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one week in advance, lunch offers excellent value for the quality",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Beaux-Arts district",
+                "local_tips": "Chef Matthieu de Lauzun creates precise, flavorful dishes that highlight the best local ingredients"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "L'Entrecôte",
+                "cuisine_type": "Traditional French Bistro",
+                "signature_dishes": [
+                    "Steak frites with secret sauce",
+                    "Green salad with walnuts",
+                    "Profiteroles with chocolate sauce"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic bistro with close-set tables and bustling service",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekend dinners",
+                "dress_code": "Casual",
+                "location": "Historic center near Place de la Comédie",
+                "local_tips": "Famous for their single menu: salad, steak with unlimited frites, and dessert - simple but perfectly executed"
+            },
+            {
+                "name": "La Panacée Café",
+                "cuisine_type": "Creative Contemporary",
+                "signature_dishes": [
+                    "Seasonal plates for sharing",
+                    "Creative vegetable dishes",
+                    "Fusion tapas"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright modern space within contemporary art center with courtyard",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Reservation recommended for dinner and Sunday brunch",
+                "dress_code": "Casual",
+                "location": "Historic center in MOCO art center",
+                "local_tips": "Popular with the creative crowd, excellent spot to combine with visiting the art exhibitions"
+            },
+            {
+                "name": "Les Bains",
+                "cuisine_type": "Mediterranean Brasserie",
+                "signature_dishes": [
+                    "Fresh seafood platters",
+                    "Grilled fish of the day",
+                    "Regional specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant brasserie in converted bathhouse with terrace",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for lunch, especially for terrace seating in good weather",
+                "dress_code": "Smart casual",
+                "location": "Historic center",
+                "local_tips": "Historic location in ancient public baths, excellent seafood selection"
+            },
+            {
+                "name": "Le Petit Jardin",
+                "cuisine_type": "Mediterranean Bistro",
+                "signature_dishes": [
+                    "Seasonal risottos",
+                    "Mediterranean-style fish",
+                    "Lamb from the Cévennes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Romantic garden setting in the historic center",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead and request garden seating in good weather",
+                "dress_code": "Smart casual",
+                "location": "Historic center near the cathedral",
+                "local_tips": "One of the most beautiful outdoor dining settings in Montpellier, magical in summer"
+            },
+            {
+                "name": "Burger & Brass",
+                "cuisine_type": "Gourmet Burgers",
+                "signature_dishes": [
+                    "Black Angus beef burgers",
+                    "Truffle fries",
+                    "Craft beer selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern industrial-chic with brass accents",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for dinner to avoid waiting, busiest on weekends",
+                "dress_code": "Casual",
+                "location": "Ecusson district",
+                "local_tips": "Quality ingredients and house-made sauces elevate this beyond typical burger joints"
+            },
+            {
+                "name": "La Tomate",
+                "cuisine_type": "Modern Mediterranean",
+                "signature_dishes": [
+                    "Seasonal vegetable tarts",
+                    "Fresh pasta dishes",
+                    "Mediterranean fish"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, contemporary space with open kitchen",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, excellent lunch menu value",
+                "dress_code": "Casual",
+                "location": "Near Place Saint-Roch",
+                "local_tips": "Market-fresh ingredients and excellent daily specials written on the blackboard"
+            },
+            {
+                "name": "La Coutinelle",
+                "cuisine_type": "Traditional Occitan",
+                "signature_dishes": [
+                    "Cassoulet",
+                    "Duck confit",
+                    "Regional charcuterie"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic traditional with stone walls and wooden beams",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Historic center",
+                "local_tips": "One of the best places to try authentic regional cuisine from Languedoc and Occitanie"
+            },
+            {
+                "name": "L'Artichaut",
+                "cuisine_type": "Creative Vegetarian",
+                "signature_dishes": [
+                    "Seasonal vegetable plates",
+                    "Artichoke specialties",
+                    "Innovative plant-based creations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern space with plant-focused decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, popular with health-conscious locals",
+                "dress_code": "Casual",
+                "location": "Les Arceaux district",
+                "local_tips": "One of Montpellier's best vegetarian restaurants, even meat-eaters are impressed"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Les Halles Castellane",
+                "specialties": [
+                    "Fresh oysters from Bouzigues",
+                    "Regional cheeses",
+                    "Charcuterie",
+                    "Wine by the glass"
+                ],
+                "price_range": "€€",
+                "hours": "Tue-Sun: 7:00am-2:00pm",
+                "location": "Historic center",
+                "seating": true,
+                "local_tips": "The central covered market with excellent seafood counters where you can eat on the spot"
+            },
+            {
+                "name": "Marché du Lez Food Trucks",
+                "specialties": [
+                    "Rotating selection of food trucks",
+                    "International street food",
+                    "Craft beverages"
+                ],
+                "price_range": "€€",
+                "hours": "Wed-Sun: 11:00am-10:00pm (later on weekends)",
+                "location": "Marché du Lez complex",
+                "seating": true,
+                "local_tips": "Trendy outdoor food space with varied options, particularly lively on weekend evenings"
+            },
+            {
+                "name": "Place Jean Jaurès Food Stalls",
+                "specialties": [
+                    "Lebanese sandwiches",
+                    "Falafel",
+                    "Crêpes",
+                    "International quick bites"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 11:00am-11:00pm",
+                "location": "Around Place Jean Jaurès",
+                "seating": false,
+                "local_tips": "Student-friendly area with affordable international options, particularly Middle Eastern specialties"
+            },
+            {
+                "name": "La Baraque à Huîtres",
+                "specialties": [
+                    "Fresh oysters from Thau lagoon",
+                    "Seafood platters",
+                    "White wine by the glass"
+                ],
+                "price_range": "€€",
+                "hours": "Tue-Sun: 10:00am-7:00pm",
+                "location": "Near Les Halles Castellane",
+                "seating": true,
+                "local_tips": "No-frills oyster bar where locals come for the freshest seafood, perfect with a glass of Picpoul de Pinet"
+            },
+            {
+                "name": "Crêperie L'Appart",
+                "specialties": [
+                    "Savory buckwheat galettes",
+                    "Sweet crêpes",
+                    "Artisanal cider"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 11:30am-10:00pm",
+                "location": "Historic center",
+                "seating": true,
+                "local_tips": "Quick service with quality ingredients, good value and authentic Breton recipes"
+            },
+            {
+                "name": "Pâtisserie du Palais",
+                "specialties": [
+                    "Grisettes de Montpellier (local honey candy)",
+                    "Macarons",
+                    "Traditional French pastries"
+                ],
+                "price_range": "€€",
+                "hours": "Tue-Sat: 8:00am-7:00pm",
+                "location": "Near Place de la Canourgue",
+                "seating": false,
+                "local_tips": "Historic patisserie offering local specialties including the traditional Grisettes, honey-flavored candies unique to Montpellier"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café BUN",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single-origin espresso",
+                    "Homemade pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist Scandinavian-inspired design with plenty of light",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast bowls, avocado toast, freshly baked goods",
+                "local_tips": "Montpellier's pioneer specialty coffee shop with serious coffee credentials"
+            },
+            {
+                "name": "The Gazelle",
+                "specialty": "Coffee and healthy food",
+                "must_try": [
+                    "Cold brew coffee",
+                    "Seasonal grain bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, plant-filled space with modern furnishings",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Healthy lunch bowls, vegan options, homemade cakes",
+                "local_tips": "Popular with digital nomads, excellent for remote working with good coffee"
+            },
+            {
+                "name": "L'Heure Bleue",
+                "specialty": "French artisanal coffee",
+                "must_try": [
+                    "French press coffee",
+                    "Homemade tarts"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy, eclectic space with book exchange and local art",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Quiches, simple sandwiches, homemade desserts",
+                "local_tips": "Friendly neighborhood café with relaxed atmosphere and regular cultural events"
+            },
+            {
+                "name": "Fairview Coffee",
+                "specialty": "Specialty coffee and brunch",
+                "must_try": [
+                    "Pour-over coffee",
+                    "Weekend brunch plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with communal tables",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full brunch menu, sandwiches, bagels",
+                "local_tips": "Popular expat hangout with excellent weekend brunch, arrive early to avoid waiting"
+            },
+            {
+                "name": "Café de la Mer",
+                "specialty": "Traditional French café with view",
+                "must_try": [
+                    "Classic French café au lait",
+                    "Croissants and pain au chocolat"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French café with terrace on Comédie square",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries, simple sandwiches, salads",
+                "local_tips": "More about the prime people-watching location than the coffee quality, but a quintessential Montpellier experience"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Courreau des Halles",
+                "type": "Wine Bar",
+                "specialty": "Natural and regional wines",
+                "signature_drinks": [
+                    "Languedoc-Roussillon wines by the glass",
+                    "Natural wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic-modern wine bar with barrel tables and stone walls",
+                "best_time": "Evening",
+                "food_options": "Excellent tapas, regional charcuterie and cheese plates",
+                "reservation_needed": false,
+                "local_tips": "The place for discovering local wines with knowledgeable staff and well-paired small plates"
+            },
+            {
+                "name": "Le Clandestin",
+                "type": "Speakeasy Cocktail Bar",
+                "specialty": "Craft cocktails",
+                "signature_drinks": [
+                    "Herb-infused original cocktails",
+                    "Classic cocktails with local twists"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Hidden speakeasy with vintage decor and intimate lighting",
+                "best_time": "Late evening",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the experience, make reservations or arrive early"
+            },
+            {
+                "name": "La Barbote",
+                "type": "Craft Beer Bar",
+                "specialty": "Local and international craft beers",
+                "signature_drinks": [
+                    "Rotating taps of regional craft beers",
+                    "Curated selection of international brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Laid-back beer bar with industrial touches",
+                "best_time": "Evening",
+                "food_options": "Beer-friendly snacks, charcuterie boards",
+                "reservation_needed": false,
+                "local_tips": "The best craft beer selection in town with knowledgeable staff and regular tasting events"
+            },
+            {
+                "name": "Terrasse Pétanque",
+                "type": "Outdoor Bar",
+                "specialty": "Casual outdoor drinking",
+                "signature_drinks": [
+                    "Pastis",
+                    "Local wines",
+                    "Simple cocktails"
+                ],
+                "price_range": "€",
+                "atmosphere": "Large outdoor space with pétanque courts and relaxed vibe",
+                "best_time": "Sunset",
+                "food_options": "Simple snacks and occasional food trucks",
+                "reservation_needed": false,
+                "local_tips": "Popular summer spot where you can play pétanque while enjoying a pastis like a true local"
+            },
+            {
+                "name": "Le Bistrot d'Alco",
+                "type": "Traditional Bar",
+                "specialty": "Classic French drinking experience",
+                "signature_drinks": [
+                    "Pastis",
+                    "Local wines by the glass",
+                    "Beer on tap"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic neighborhood bar with no pretensions",
+                "best_time": "Afternoon",
+                "food_options": "Simple bar food, sandwiches",
+                "reservation_needed": false,
+                "local_tips": "Experience everyday local life with regulars who have been coming for years, unfussy and authentic"
+            },
+            {
+                "name": "Papa Doble",
+                "type": "Rum Bar",
+                "specialty": "Rum cocktails",
+                "signature_drinks": [
+                    "Daiquiri variations",
+                    "Rum tasting flights",
+                    "Tiki cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Caribbean-inspired decor with Hemingway references",
+                "best_time": "Evening",
+                "food_options": "Caribbean-inspired tapas",
+                "reservation_needed": false,
+                "local_tips": "Named after Hemingway's favorite daiquiri, offers the best rum selection in Montpellier"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Montpellier Gourmet Walking Tour",
+                "focus": "Local specialties and Mediterranean influences",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Les Halles Castellane market exploration",
+                    "Regional cheese and wine tastings",
+                    "Local olive oil and honey sampling"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Morning tours recommended to experience the market at its best"
+            },
+            {
+                "name": "Pic Saint-Loup Wine Tour",
+                "focus": "Regional wine exploration",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vineyard visits in the picturesque Pic Saint-Loup area",
+                    "Tastings at three different wineries",
+                    "Gourmet picnic lunch with vineyard views"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation from Montpellier, bring a hat and sunscreen in summer"
+            },
+            {
+                "name": "Historic Montpellier Food Trail",
+                "focus": "Culinary history of the medieval center",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Hidden culinary gems in the Ecusson district",
+                    "Historic cafés and food shops",
+                    "Sweet specialties of Languedoc"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Comfortable walking shoes recommended, available as afternoon tours"
+            },
+            {
+                "name": "Mediterranean Seafood Experience",
+                "focus": "Coastal cuisine and fishing traditions",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to Étang de Thau lagoon",
+                    "Oyster farm tour with tasting",
+                    "Seafood lunch in Sète or Bouzigues"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation from Montpellier to the coast, not suitable for shellfish allergies"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Atelier Gourmet",
+                "cuisine_focus": "Traditional Languedoc and Mediterranean cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Regional fish preparation",
+                    "Olive oil-based techniques",
+                    "Traditional desserts of the region"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe cards",
+                    "Meal with regional wines"
+                ],
+                "booking_tips": "Classes for all levels, focuses on seasonal Mediterranean cooking"
+            },
+            {
+                "name": "Les Ateliers de la Maison Méditerranéenne",
+                "cuisine_focus": "Modern Mediterranean techniques",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Seafood preparation",
+                    "Languedoc herb usage",
+                    "Modern plating techniques"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "French",
+                    "English (with advance notice)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Digital recipe collection",
+                    "Wine pairing with meal"
+                ],
+                "booking_tips": "More advanced techniques, some cooking experience helpful but not required"
+            },
+            {
+                "name": "Cook'n with Class Montpellier",
+                "cuisine_focus": "Market-to-table French cooking",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping techniques",
+                    "Seasonal cooking methods",
+                    "French culinary fundamentals"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Market visit and shopping",
+                    "All ingredients",
+                    "Full meal with wine pairings"
+                ],
+                "booking_tips": "Small-group experience with market tour included, begins in the morning"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Les Halles Castellane",
+                "type": "Covered market",
+                "highlights": [
+                    "Traditional covered market in the city center",
+                    "Fresh seafood, produce, and prepared foods",
+                    "Oyster bars and wine counters where you can eat on-site"
+                ],
+                "hours": "Tue-Sun: 7:00am-2:00pm",
+                "best_time": "Morning",
+                "location": "Historic center",
+                "local_tips": "The heart of food shopping in Montpellier, with several counters where you can eat freshly shucked oysters with a glass of white wine"
+            },
+            {
+                "name": "Marché des Arceaux",
+                "type": "Open-air market",
+                "highlights": [
+                    "Large organic and conventional produce selection",
+                    "Local farmers and producers",
+                    "Regional specialties and street food"
+                ],
+                "hours": "Tue and Sat: 7:00am-1:30pm",
+                "best_time": "Early morning",
+                "location": "Under the aqueduct arches (Les Arceaux)",
+                "local_tips": "One of the most picturesque markets, held beneath the 18th-century aqueduct with a focus on organic and local products"
+            },
+            {
+                "name": "Marché du Lez",
+                "type": "Food hall and creative market",
+                "highlights": [
+                    "Contemporary food hall with various vendors",
+                    "Craft food producers",
+                    "Regular farmers markets and special events"
+                ],
+                "hours": "Wed-Sun: 10:00am-10:00pm (varies by vendor)",
+                "best_time": "Afternoon",
+                "location": "Lez riverside development",
+                "local_tips": "Modern market complex with a selection of trendy food vendors, regular special events and farmers markets on weekends"
+            },
+            {
+                "name": "Marché Plan Cabanes",
+                "type": "Multicultural market",
+                "highlights": [
+                    "North African and Mediterranean specialties",
+                    "Spices and international ingredients",
+                    "Affordable produce"
+                ],
+                "hours": "Tue-Sat: 7:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Figuerolles district",
+                "local_tips": "Reflects Montpellier's cultural diversity with North African and Mediterranean influences"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus from local farms",
+            "Young goat cheeses from the Cévennes",
+            "First of the season rosé wines from Languedoc"
+        ],
+        "summer": [
+            "Tielle sétoise (octopus pie from Sète)",
+            "Fresh oysters from Bouzigues",
+            "Seasonal fruit sorbets and granitas"
+        ],
+        "autumn": [
+            "Mushrooms from the Cévennes mountains",
+            "Chestnuts and chestnut desserts",
+            "New olive oil from the first pressing"
+        ],
+        "winter": [
+            "Truffle dishes from local black truffles",
+            "Hearty cassoulet",
+            "Grisettes de Montpellier (honey candies)"
+        ]
+    }
+}

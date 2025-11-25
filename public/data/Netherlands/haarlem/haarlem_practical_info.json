@@ -1,0 +1,143 @@
+{
+    "getting_around": {
+        "main_train_station": {
+            "name": "Haarlem Station",
+            "location": "North edge of the city center (Stationsplein)",
+            "connections": [
+                "National rail services (NS) to major Dutch cities (Frequent direct trains to Amsterdam Centraal, Amsterdam Sloterdijk, Leiden Centraal, Den Haag Centraal, Rotterdam Centraal)",
+                "Direct connection to Zandvoort aan Zee (beach)",
+                "Easy connection to Schiphol Airport (via Amsterdam Sloterdijk or Leiden Centraal)",
+                "International connections via Amsterdam/Rotterdam/Schiphol"
+            ]
+        },
+        "local_transport": [
+            {
+                "type": "Bus",
+                "provider": "Connexxion / R-net",
+                "details": "Extensive city and regional bus network serving the city center, outer neighborhoods, surrounding towns (e.g., Zandvoort, Bloemendaal), and Schiphol Airport (R-net line 300).",
+                "payment": "OV-chipkaart or contactless debit/credit card."
+            },
+            {
+                "type": "Bicycle",
+                "provider": "Numerous rental shops (near station, city center), OV-fiets",
+                "details": "Haarlem is extremely bike-friendly with excellent infrastructure. Highly recommended for exploring the city and nearby dunes/beach. OV-fiets rental available at the station.",
+                "payment": "Rental fees (daily/hourly). OV-fiets requires personal OV-chipkaart."
+            },
+            {
+                "type": "Walking",
+                "provider": "N/A",
+                "details": "The historic city center is compact and highly walkable. Ideal for exploring hofjes, shopping streets, and the Grote Markt area. Be aware of cyclists.",
+                "payment": "Free"
+            }
+        ],
+        "nearby_airports": [
+            {
+                "name": "Amsterdam Airport Schiphol (AMS)",
+                "distance_km": 20,
+                "connection": "Frequent direct bus (R-net 300, approx. 40 min) or Train (change at Amsterdam Sloterdijk or Leiden Centraal, approx. 30-40 min total). Taxi/Uber also available.",
+                "approx_time": "30-45 minutes"
+            },
+            {
+                "name": "Rotterdam The Hague Airport (RTM)",
+                "distance_km": 70,
+                "connection": "Train to Rotterdam Centraal, then bus/metro to airport. Less convenient than Schiphol.",
+                "approx_time": "1 hour 15 minutes - 1 hour 30 minutes (total travel)"
+            }
+        ],
+        "car_travel": {
+            "parking": "Parking in the immediate city center is very limited and expensive. Use designated parking garages (e.g., Stationsplein, Raaks, Houtplein, De Kamp) or Park & Ride (P+R) facilities if available (check current options).",
+            "accessibility": "Many central streets are pedestrianized or have restricted vehicle access. Driving and parking in the center is generally discouraged."
+        }
+    },
+    "safety_and_health": {
+        "general_safety": "Haarlem is considered a very safe city. Take standard precautions against petty theft, especially bike theft (use two good locks!) and pickpocketing in busy areas (Grote Markt, train station, events).",
+        "emergency_number": "112 (for police, fire brigade, and ambulance)",
+        "police_non_emergency": "0900-8844",
+        "pharmacies": {
+            "availability": "Numerous pharmacies ('Apotheek') available. Check locations for 'dienstapotheek' (duty pharmacy) for out-of-hours service.",
+            "notes": "Standard prescription and over-the-counter medications available."
+        },
+        "hospitals": [
+            {
+                "name": "Spaarne Gasthuis Haarlem Zuid",
+                "location": "Boerhaavelaan 22, 2035 RC Haarlem",
+                "notes": "Main hospital for the area, includes emergency department ('Spoedeisende Hulp')."
+            },
+            {
+                "name": "Spaarne Gasthuis Haarlem Noord",
+                "location": "Vondelweg 999, 2026 BW Haarlem",
+                "notes": "Another location of the main hospital, may have different specialist services."
+            }
+        ],
+        "tap_water": "Safe to drink and of excellent quality."
+    },
+    "money_and_communication": {
+        "currency": {
+            "name": "Euro",
+            "symbol": "€",
+            "code": "EUR"
+        },
+        "atms": "Widely available ('geldautomaat'), mainly branded as Geldmaat, found in shopping areas, near supermarkets, and the station.",
+        "credit_cards": "Visa and Mastercard widely accepted. Contactless payments (debit/credit card, phone) are standard. American Express acceptance is less common.",
+        "tipping": {
+            "restaurants_cafes": "Service charge is included. Tipping is not required but appreciated for excellent service (rounding up the bill or adding 5-10%).",
+            "taxis": "Rounding up the fare is customary.",
+            "hotels": "Optional (€1-2 for specific services like luggage assistance)."
+        },
+        "language": {
+            "official": "Dutch",
+            "english_proficiency": "Extremely high. English is widely spoken in virtually all shops, restaurants, hotels, and services.",
+            "basic_phrases": [
+                {"Dutch": "Hallo / Hoi", "English": "Hello / Hi (informal)"}, 
+                {"Dutch": "Goedendag", "English": "Good day (more formal hello)"}, 
+                {"Dutch": "Dank u wel / Dank je wel", "English": "Thank you (formal/informal)"}, 
+                {"Dutch": "Alsjeblieft / Alstublieft", "English": "Please / Here you go (informal/formal)"}, 
+                {"Dutch": "Ja / Nee", "English": "Yes / No"},
+                {"Dutch": "Spreekt u Engels?", "English": "Do you speak English?"},
+                {"Dutch": "Sorry / Pardon", "English": "Sorry/Excuse me"},
+                {"Dutch": "Proost!", "English": "Cheers!"}
+            ]
+        },
+        "connectivity": {
+            "wifi": "Widely available in cafes, restaurants, hotels, libraries, and some public areas.",
+            "mobile_data": "Excellent 4G/5G coverage. Local SIM cards or eSIMs available."
+        },
+        "postal_services": "PostNL service points typically located within supermarkets or designated shops."
+    },
+    "general_information": {
+        "tourist_information": {
+            "name": "VVV Haarlem (Tourist Information)",
+            "location": "Grote Markt 2 (in the City Hall - Stadhuis)",
+            "services": "City information, maps, tours (canal cruises, walking tours), event tickets, souvenirs, accommodation booking assistance."
+        },
+        "opening_hours": {
+            "shops": "Generally Mon 11:00/13:00-18:00, Tue-Fri 10:00-18:00 (late night shopping often Thu until 21:00), Sat 10:00-17:00/18:00. Many city center shops open Sundays (12:00-17:00). Supermarkets have extended hours.",
+            "museums": "Typically Tue-Sun 10:00/11:00-17:00. Always check specific museum websites as hours and closing days (often Mondays) vary."
+        },
+        "public_holidays": [
+            "New Year's Day (Jan 1)",
+            "Good Friday (Varies)",
+            "Easter Sunday & Monday (Varies)",
+            "King's Day (April 27)",
+            "Liberation Day (May 5 - public holiday status varies)",
+            "Ascension Day (Varies)",
+            "Whit Sunday & Monday (Pentecost, Varies)",
+            "Christmas Day (Dec 25)",
+            "Boxing Day (Dec 26)"
+        ],
+        "electrical_plugs": {
+            "type": "Type F (Schuko)",
+            "voltage": "230V",
+            "frequency": "50Hz"
+        },
+        "useful_apps": [
+            "NS (Dutch Railways - train schedules & tickets)",
+            "Connexxion (Local/Regional bus info)",
+            "9292 (National public transport planner)",
+            "Buienradar / Weeronline (Weather forecast)",
+            "Google Maps / Citymapper (Navigation)",
+            "Thuisbezorgd.nl / Uber Eats (Food delivery)",
+            "ParkMobile / EasyPark (Parking payment, if driving)"
+        ]
+    }
+} 

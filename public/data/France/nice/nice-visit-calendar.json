@@ -1,0 +1,287 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {"days": [1], "score": 2, "special": true, "event": "New Year's Day", "notes": "Holiday celebrations, mild winter weather (8-13°C), some closures, post-celebration atmosphere"},
+        {"days": [2, 3, 4, 5], "score": 3, "notes": "Quiet post-holiday period, winter sales begin, mild temperatures (7-12°C), fewer crowds"},
+        {"days": [6], "score": 3, "special": true, "event": "Epiphany", "notes": "Local celebrations, traditional king cake, pleasant winter weather (8-13°C)"},
+        {"days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Low season, sunny winter days, fewer crowds, comfortable temperatures (6-12°C)"}
+      ],
+      "weatherHighC": 13,
+      "weatherLowC": 5,
+      "weatherAvgC": 9,
+      "rainfallMm": 69,
+      "sunshineHours": 5.5,
+      "tourismLevel": 3,
+      "priceLevel": "Low",
+      "crowdLevel": "Low"
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9], "score": 3, "notes": "Mild Mediterranean winter, almond trees blooming, pleasant temperatures (7-14°C)"},
+        {"days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "score": 4, "special": true, "event": "Nice Carnival", "notes": "Famous carnival with parades, flower battles, and festivities, increased tourism, book ahead"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 6,
+      "weatherAvgC": 10,
+      "rainfallMm": 63,
+      "sunshineHours": 6.5,
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5], "score": 4, "special": true, "event": "Nice Carnival (concludes)", "notes": "Final carnival celebrations, still busy but manageable"},
+        {"days": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 4, "notes": "Early spring, mild temperatures (9-16°C), blooming gardens, pleasant weather"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Spring flowers, pleasant temperatures (10-17°C), pre-tourism season, outdoor activities"}
+      ],
+      "weatherHighC": 16,
+      "weatherLowC": 8,
+      "weatherAvgC": 12,
+      "rainfallMm": 69,
+      "sunshineHours": 7.5,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Pleasant spring weather (12-18°C), Easter period, moderate tourism, outdoor dining"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 5, "special": true, "event": "Spring Food Festivals", "notes": "Local gastronomy events, perfect weather (13-19°C), cultural activities"},
+        {"days": [24, 25, 26, 27, 28, 29, 30], "score": 5, "notes": "Warm days, beach weather beginning, pre-peak season, excellent conditions"}
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 10,
+      "weatherAvgC": 14,
+      "rainfallMm": 69,
+      "sunshineHours": 8.5,
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 4, "special": true, "event": "Labor Day", "notes": "Public holiday, some closures, pleasant weather (14-21°C), local celebrations"},
+        {"days": [2, 3, 4, 5, 6, 7], "score": 5, "notes": "Beautiful weather, not yet crowded, perfect temperatures (15-22°C), outdoor activities"},
+        {"days": [8], "score": 4, "special": true, "event": "Victory in Europe Day", "notes": "Commemorations, some closures, historical significance"},
+        {"days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], "score": 5, "special": true, "event": "Cannes Film Festival", "notes": "International film festival nearby, elegant atmosphere, increased tourism, book ahead"},
+        {"days": [27, 28, 29, 30, 31], "score": 5, "special": true, "event": "Monaco Grand Prix", "notes": "Famous car race in neighboring Monaco, increased tourism, luxury atmosphere"}
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 14,
+      "weatherAvgC": 17.5,
+      "rainfallMm": 58,
+      "sunshineHours": 9.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "score": 5, "notes": "Perfect beach weather (18-24°C), increasing tourism, long days, outdoor activities"},
+        {"days": [21], "score": 5, "special": true, "event": "Fête de la Musique", "notes": "Music festival, summer solstice celebrations, free concerts, festive atmosphere"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Summer begins in earnest, beaches getting busier, warm weather (19-25°C)"}
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 17,
+      "weatherAvgC": 20.5,
+      "rainfallMm": 36,
+      "sunshineHours": 11,
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 3, "notes": "Peak tourist season, busy beaches, hot weather (20-28°C), crowded attractions"},
+        {"days": [14], "score": 4, "special": true, "event": "Bastille Day", "notes": "National holiday, fireworks over the Bay of Angels, celebrations, book ahead"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Nice Jazz Festival", "notes": "International jazz festival, very crowded beaches, hot weather (21-28°C), peak tourism"}
+      ],
+      "weatherHighC": 28,
+      "weatherLowC": 20,
+      "weatherAvgC": 24,
+      "rainfallMm": 15,
+      "sunshineHours": 12,
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 2, "notes": "Peak season, extremely crowded, hot weather (21-28°C), high prices"},
+        {"days": [15], "score": 2, "special": true, "event": "Assumption Day", "notes": "Public holiday, maximum beach crowds, very busy, book everything ahead"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 2, "notes": "Hot weather continues, crowded beaches, peak prices, challenging for sightseeing"}
+      ],
+      "weatherHighC": 28,
+      "weatherLowC": 20,
+      "weatherAvgC": 24,
+      "rainfallMm": 26,
+      "sunshineHours": 11.5,
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 5, "notes": "Post-peak season begins, excellent swimming weather continues, fewer crowds, pleasant temperatures (18-25°C)"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "European Heritage Days", "notes": "Cultural sites open to public, warm weather, reduced crowds, perfect conditions"}
+      ],
+      "weatherHighC": 25,
+      "weatherLowC": 17,
+      "weatherAvgC": 21,
+      "rainfallMm": 81,
+      "sunshineHours": 8.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 4, "notes": "Pleasant autumn weather, swimming still possible, comfortable temperatures (15-22°C)"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "Olive Harvest Season", "notes": "Local gastronomy events, beautiful autumn light, cultural activities, moderate crowds"}
+      ],
+      "weatherHighC": 21,
+      "weatherLowC": 13,
+      "weatherAvgC": 17,
+      "rainfallMm": 88,
+      "sunshineHours": 7,
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Public holiday, some closures, mild autumn weather (10-17°C)"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Mild autumn, quieter city atmosphere, pleasant temperatures (9-16°C)"},
+        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures, historical significance"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 3, "notes": "Low season begins, pleasant mild days, fewer crowds, comfortable weather (8-15°C)"}
+      ],
+      "weatherHighC": 17,
+      "weatherLowC": 9,
+      "weatherAvgC": 13,
+      "rainfallMm": 106,
+      "sunshineHours": 5.5,
+      "tourismLevel": 3,
+      "priceLevel": "Low",
+      "crowdLevel": "Low"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 3, "special": true, "event": "Christmas Markets", "notes": "Holiday decorations, festive atmosphere along Promenade des Anglais, mild winter weather (7-14°C)"},
+        {"days": [24, 25], "score": 3, "special": true, "event": "Christmas", "notes": "Many closures but special atmosphere, family celebrations, mild temperatures"},
+        {"days": [26, 27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - quiet period, pleasant winter weather (6-13°C)"},
+        {"days": [31], "score": 4, "special": true, "event": "New Year's Eve", "notes": "Celebrations along the seafront, festive atmosphere, book ahead"}
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 6,
+      "weatherAvgC": 10,
+      "rainfallMm": 93,
+      "sunshineHours": 4.5,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Beach Walks",
+      "Museums & Galleries",
+      "Gardens & Parks",
+      "Old Town Exploration",
+      "Food Markets",
+      "Hiking in Hills",
+      "Boat Tours",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Photography Tours",
+      "Wine Tasting",
+      "Historical Sites"
+    ],
+    "summer": [
+      "Beaches & Swimming",
+      "Water Sports",
+      "Outdoor Dining",
+      "Evening Promenades",
+      "Music Festivals",
+      "Boat Trips",
+      "Coastal Hikes",
+      "Beach Clubs",
+      "Sailing",
+      "Snorkeling",
+      "Sunset Watching",
+      "Open-Air Events"
+    ],
+    "autumn": [
+      "Museums & Galleries",
+      "Gastronomy Tours",
+      "Wine Tasting",
+      "Coastal Walks",
+      "Markets & Shopping",
+      "Cultural Events",
+      "Day Trips",
+      "Hiking",
+      "Art Exhibitions",
+      "Cooking Classes",
+      "Historical Tours",
+      "Photography"
+    ],
+    "winter": [
+      "Art Galleries",
+      "Museums",
+      "Winter Sun Bathing",
+      "Gastronomy",
+      "Shopping",
+      "Historical Sites",
+      "Carnivals",
+      "Indoor Activities",
+      "Cultural Events",
+      "Spa & Wellness",
+      "Theater Shows",
+      "Cozy Cafés"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions due to excessive crowds or occasional rain, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["July", "August"],
+      "medium": ["May", "June", "September", "October", "December"],
+      "low": ["January", "February", "March", "April", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Mild Mediterranean climate, pleasant temperatures, occasional rain, perfect for outdoor activities",
+      "summer": "Hot and dry, excellent beach weather, occasional heatwaves, evening sea breezes",
+      "autumn": "Gradually cooling, beautiful light, comfortable for walking, occasional rain",
+      "winter": "Mild Mediterranean winter, rarely cold, sunny days, perfect for winter sun"
+    },
+    "transportation": {
+      "tram": "Efficient year-round, air-conditioned, connects major attractions",
+      "walking": "Excellent year-round, especially along Promenade des Anglais",
+      "cycling": "Great in spring and autumn, dedicated bike lanes, scenic coastal routes",
+      "boats": "Scenic year-round, trips to nearby islands and coastal towns"
+    },
+    "accommodation": {
+      "peakPricing": ["July", "August", "May (Cannes Film Festival)", "February (Carnival)"],
+      "valuePricing": ["January", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season, especially during festivals"
+    }
+  }
+}

@@ -1,0 +1,571 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Ricard Camarena Restaurant",
+                "cuisine_type": "Contemporary Mediterranean",
+                "signature_dishes": [
+                    "Smoked Rice with Eel",
+                    "Tomato Textures with Local Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern, minimalist dining room with open kitchen and garden views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 months in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Bombas Gens Centre d'Art",
+                "local_tips": "Chef Ricard Camarena's tasting menu highlights local Valencian produce with innovative techniques"
+            },
+            {
+                "name": "El Poblet",
+                "cuisine_type": "Modern Valencian",
+                "signature_dishes": [
+                    "Deconstructed Paella",
+                    "Red Prawns from Dénia"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining space with contemporary decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Historic Center",
+                "local_tips": "Chef Quique Dacosta's urban restaurant exploring modern Valencian cuisine"
+            },
+            {
+                "name": "Riff",
+                "cuisine_type": "Creative Mediterranean",
+                "signature_dishes": [
+                    "Seasonal Mushroom Dish",
+                    "Mediterranean Fish with Citrus"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate dining room with elegant minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks ahead, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Colón district",
+                "local_tips": "Chef Bernd Knöller combines Mediterranean flavors with German precision"
+            },
+            {
+                "name": "La Salita",
+                "cuisine_type": "Contemporary Mediterranean",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Albufera Rice Dishes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern elegant space with minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Ruzafa district",
+                "local_tips": "Chef Begoña Rodrigo offers seasonal tasting menus with focus on local products"
+            },
+            {
+                "name": "Lienzo",
+                "cuisine_type": "Contemporary Valencian",
+                "signature_dishes": [
+                    "Octopus with Almond Cream",
+                    "Dry-aged Duck"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Artistic dining space with modern decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, closed Sundays",
+                "dress_code": "Smart casual",
+                "location": "Ruzafa district",
+                "local_tips": "Chef Maria José Martínez combines art and gastronomy with seasonal ingredients"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Casa Carmela",
+                "cuisine_type": "Traditional Valencian",
+                "signature_dishes": [
+                    "Authentic Paella Valenciana",
+                    "Arroz a Banda"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional restaurant with rustic decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for lunch, especially on weekends. Paella only served at lunch",
+                "dress_code": "Smart casual",
+                "location": "Near Malvarrosa Beach",
+                "local_tips": "One of Valencia's most authentic paella restaurants since 1922, cooked over orange wood"
+            },
+            {
+                "name": "La Pepica",
+                "cuisine_type": "Traditional Valencian",
+                "signature_dishes": [
+                    "Seafood Paella",
+                    "Fideuà"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic beach restaurant with seafront views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for lunch, especially on weekends",
+                "dress_code": "Smart casual",
+                "location": "Malvarrosa Beach",
+                "local_tips": "Historic restaurant once frequented by Hemingway, known for authentic paella since 1898"
+            },
+            {
+                "name": "Canalla Bistro",
+                "cuisine_type": "Global Fusion",
+                "signature_dishes": [
+                    "Steamed Bao Buns",
+                    "Ceviche"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant bistro with contemporary design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, especially for weekend dining",
+                "dress_code": "Smart casual",
+                "location": "Ruzafa district",
+                "local_tips": "Chef Ricard Camarena's casual concept with international street food influences"
+            },
+            {
+                "name": "Navarro",
+                "cuisine_type": "Traditional Valencian",
+                "signature_dishes": [
+                    "Paella Valenciana",
+                    "Fresh Seafood"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic restaurant with elegant traditional decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for lunch, especially on weekends",
+                "dress_code": "Smart casual",
+                "location": "Historic Center",
+                "local_tips": "Family-owned restaurant focusing on traditional Valencian recipes"
+            },
+            {
+                "name": "Saona",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Rice Dishes",
+                    "Fresh Pasta"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern restaurant with bright and airy design",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for weekend dining",
+                "dress_code": "Casual",
+                "location": "Multiple locations throughout Valencia",
+                "local_tips": "Popular local chain with excellent fixed-price menus and fresh ingredients"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercado Central",
+                "specialties": [
+                    "Fresh Seafood",
+                    "Iberian Ham",
+                    "Local Produce",
+                    "Horchata"
+                ],
+                "price_range": "€€",
+                "hours": "8:00 AM - 3:00 PM, Closed Sundays",
+                "location": "Historic Center",
+                "seating": "Limited",
+                "local_tips": "One of Europe's largest fresh food markets in a stunning modernist building; try the horchata at the central bar"
+            },
+            {
+                "name": "Mercado de Colón",
+                "specialties": [
+                    "Gourmet Tapas",
+                    "Local Wines",
+                    "Craft Beer",
+                    "Artisanal Products"
+                ],
+                "price_range": "€€",
+                "hours": "9:00 AM - 10:00 PM",
+                "location": "Colón district",
+                "seating": "Multiple cafes and restaurants with seating",
+                "local_tips": "Beautiful restored modernist market building with upscale food options and regular events"
+            },
+            {
+                "name": "Horchatería Santa Catalina",
+                "specialties": [
+                    "Horchata",
+                    "Fartons",
+                    "Traditional Pastries"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 9:00 PM",
+                "location": "Historic Center",
+                "seating": "Traditional café seating",
+                "local_tips": "Historic establishment serving Valencia's traditional tiger nut drink since 1836"
+            },
+            {
+                "name": "La Mallorquina",
+                "specialties": [
+                    "Traditional Pastries",
+                    "Buñuelos",
+                    "Chocolate con Churros"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 2:00 PM, 5:00 PM - 8:00 PM",
+                "location": "Near Plaza de la Reina",
+                "seating": "Limited",
+                "local_tips": "Traditional pastry shop famous for seasonal specialties like buñuelos during Fallas"
+            },
+            {
+                "name": "Mercado de Ruzafa",
+                "specialties": [
+                    "Fresh Produce",
+                    "Local Specialties",
+                    "Gourmet Food Stalls"
+                ],
+                "price_range": "€€",
+                "hours": "8:00 AM - 3:00 PM, Closed Sundays",
+                "location": "Ruzafa district",
+                "seating": "Limited",
+                "local_tips": "Neighborhood market in the trendy Ruzafa district with fresh local produce and specialty shops"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Dulce de Leche",
+                "specialty": "Artisanal Coffee and Pastries",
+                "must_try": [
+                    "Specialty Coffee",
+                    "Argentinian Pastries",
+                    "Brunch"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy café with rustic-chic decor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full brunch menu and pastries",
+                "local_tips": "Popular brunch spot with excellent pastries; arrive early on weekends"
+            },
+            {
+                "name": "Bluebell Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Pour-over Coffee",
+                    "Homemade Cakes",
+                    "Avocado Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, brunch, and healthy options",
+                "local_tips": "One of Valencia's first specialty coffee shops with excellent brunch options"
+            },
+            {
+                "name": "Retrogusto Coffee Mates",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single-origin Coffee",
+                    "Coffee Tasting Flights",
+                    "Healthy Breakfast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic café with coffee lab",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast options and light meals",
+                "local_tips": "Serious coffee enthusiasts' destination with coffee classes available"
+            },
+            {
+                "name": "Horchatería El Siglo",
+                "specialty": "Traditional Horchata",
+                "must_try": [
+                    "Horchata",
+                    "Fartons",
+                    "Traditional Pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic café with traditional decor",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional pastries",
+                "local_tips": "Historic café serving traditional Valencian horchata since 1836"
+            },
+            {
+                "name": "La Más Bonita",
+                "specialty": "Beach Café",
+                "must_try": [
+                    "Cakes",
+                    "Breakfast",
+                    "Fresh Juices"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Beachy, Mediterranean décor with terrace",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "All-day breakfast, healthy options, cakes",
+                "local_tips": "Popular café with multiple locations; the Patacona beach location offers sea views"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Café de las Horas",
+                "type": "Cocktail Bar",
+                "specialty": "Agua de Valencia",
+                "signature_drinks": [
+                    "Agua de Valencia",
+                    "Craft Cocktails",
+                    "Local Wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Baroque-inspired décor with ornate details",
+                "best_time": "Evening",
+                "food_options": "Tapas and light bites",
+                "reservation_needed": false,
+                "local_tips": "Famous for Agua de Valencia, the city's signature cocktail made with cava and orange juice"
+            },
+            {
+                "name": "La Gintonería",
+                "type": "Gin Bar",
+                "specialty": "Craft Gin and Tonics",
+                "signature_drinks": [
+                    "Premium Gin and Tonics",
+                    "Craft Cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stylish modern bar with elegant décor",
+                "best_time": "Evening",
+                "food_options": "Light bites",
+                "reservation_needed": false,
+                "local_tips": "Extensive selection of gins from around the world with creative garnishes"
+            },
+            {
+                "name": "Radio City",
+                "type": "Live Music Venue",
+                "specialty": "Live Music and Cultural Events",
+                "signature_drinks": [
+                    "Local Beers",
+                    "Classic Cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Eclectic venue with concert space",
+                "best_time": "Evening",
+                "food_options": "Limited",
+                "reservation_needed": false,
+                "local_tips": "Iconic venue in Carmen district hosting live music, poetry readings, and cultural events"
+            },
+            {
+                "name": "Marina Beach Club",
+                "type": "Beach Club",
+                "specialty": "Seaside Drinks",
+                "signature_drinks": [
+                    "Signature Cocktails",
+                    "Champagne",
+                    "Premium Spirits"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Upscale beach club with pool and sea views",
+                "best_time": "Afternoon and Evening",
+                "food_options": "Full restaurant menu",
+                "reservation_needed": true,
+                "local_tips": "Trendy beach club with day beds, restaurant, and DJ sessions; book in advance for summer weekends"
+            },
+            {
+                "name": "Café Sant Jaume",
+                "type": "Traditional Bar",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "Agua de Valencia",
+                    "Vermouth",
+                    "Local Wines"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic bar with traditional décor",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "Historic bar in the old town with authentic local atmosphere"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Valencia Culinary Tour",
+                "focus": "Traditional Valencian Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit the Central Market",
+                    "Taste authentic Valencian dishes",
+                    "Learn about rice cultivation and paella history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book at least a week in advance; tours include the best of traditional and modern Valencian cuisine"
+            },
+            {
+                "name": "Paella Cooking Experience",
+                "focus": "Authentic Paella",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit Albufera Natural Park",
+                    "Learn about rice cultivation",
+                    "Cook traditional paella over wood fire"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book 1-2 weeks in advance; includes transportation to Albufera"
+            },
+            {
+                "name": "Horchata and Fartons Tour",
+                "focus": "Traditional Valencian Sweets",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit traditional horchaterías",
+                    "Learn about tiger nut cultivation",
+                    "Taste variety of traditional sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Morning tours recommended; includes visit to artisanal producers"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Paella Cooking School",
+                "cuisine_focus": "Authentic Valencian Paella",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional Paella Valenciana",
+                    "Seafood Paella",
+                    "Proper Rice Cooking Techniques"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; includes market visit and traditional cooking methods"
+            },
+            {
+                "name": "Mediterranean Cuisine Workshop",
+                "cuisine_focus": "Valencian and Mediterranean Dishes",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Valencian Rice Dishes",
+                    "Fresh Seafood Preparation",
+                    "Local Vegetable Dishes"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with wine"
+                ],
+                "booking_tips": "Book at least 5 days in advance; focuses on seasonal ingredients"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado Central",
+                "type": "Historic Food Market",
+                "highlights": [
+                    "Fresh seafood",
+                    "Local produce",
+                    "Gourmet products",
+                    "Modernist architecture"
+                ],
+                "hours": "8:00 AM - 3:00 PM, Closed Sundays",
+                "best_time": "Morning",
+                "location": "Historic Center",
+                "local_tips": "One of Europe's largest fresh markets; arrive early for the best experience and try the horchata at the central bar"
+            },
+            {
+                "name": "Mercado de Colón",
+                "type": "Gourmet Food Market",
+                "highlights": [
+                    "Gourmet food stalls",
+                    "Restaurants and cafes",
+                    "Art nouveau architecture",
+                    "Events and exhibitions"
+                ],
+                "hours": "9:00 AM - 10:00 PM",
+                "best_time": "Afternoon",
+                "location": "Colón district",
+                "local_tips": "Beautiful restored modernist building with upscale dining options; perfect for a relaxed meal"
+            },
+            {
+                "name": "Mercado de Ruzafa",
+                "type": "Neighborhood Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Authentic atmosphere",
+                    "Surrounding cafes"
+                ],
+                "hours": "8:00 AM - 3:00 PM, Closed Sundays",
+                "best_time": "Morning",
+                "location": "Ruzafa district",
+                "local_tips": "Authentic neighborhood market in trendy Ruzafa; explore the surrounding streets for great cafes"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Esparragos (Spring Asparagus)",
+            "Alcachofas (Artichokes)",
+            "Fava beans with Jamón",
+            "Horchata (traditional during Fallas festival)"
+        ],
+        "summer": [
+            "Paella Valenciana",
+            "Fideuà",
+            "Gazpacho",
+            "Fresh Mediterranean Fish"
+        ],
+        "autumn": [
+            "Arroz al Horno (Oven-baked Rice)",
+            "Setas (Wild Mushrooms)",
+            "Calabaza (Pumpkin Dishes)",
+            "Buñuelos de Calabaza (Pumpkin Fritters)"
+        ],
+        "winter": [
+            "Cocido Valenciano (Valencian Stew)",
+            "Olla de la Plana (Bean and Pork Stew)",
+            "Arroz con Costra (Rice with Egg Crust)",
+            "Buñuelos de Viento (Wind Fritters)"
+        ]
+    }
+}

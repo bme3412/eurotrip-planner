@@ -1,0 +1,189 @@
+{
+    "destinations": [
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Experience the unique city of canals, visit St. Mark's Square, ride a gondola, and explore the historic palaces and museums.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 1 hour - 1 hour 15 minutes (Regional)",
+                "frequency": "Very Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 1.5 - 2 hours",
+                "frequency": "Frequent"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Visit Italy's fashion and business capital, see the Duomo, Leonardo da Vinci's Last Supper, and enjoy world-class shopping.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 1 hour 20 minutes - 2 hours",
+                "frequency": "Very Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 2 - 2.5 hours",
+                "frequency": "Frequent"
+            }
+        },
+        {
+            "city": "Bologna",
+            "country": "Italy",
+            "whyGo": "Explore one of Italy's culinary capitals, visit Europe's oldest university, and enjoy the historic porticoed streets and medieval towers.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 50 minutes - 1 hour 20 minutes",
+                "frequency": "Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 1.5 - 2 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Immerse yourself in Renaissance art and architecture, visit world-class museums like the Uffizi, and explore Tuscan cuisine.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 1 hour 30 minutes - 2 hours 30 minutes",
+                "frequency": "Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 3 - 3.5 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Discover the Eternal City with its ancient ruins, Vatican City, world-class art, and vibrant street life.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 3 - 4 hours (High-Speed)",
+                "frequency": "Frequent"
+            },
+            "intraEuropeFlight": {
+                "airportsInVerona": ["Verona Villafranca Airport (VRN)"],
+                "approxFlightTime": "Approx. 1 hour 10 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Lake Garda",
+            "country": "Italy",
+            "whyGo": "Visit Italy's largest lake with picturesque towns like Sirmione, Bardolino, and Malcesine. Enjoy water sports, beautiful scenery, and wine tasting.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 15 - 30 minutes (to Peschiera or Desenzano)",
+                "frequency": "Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 30 minutes - 1 hour (depending on destination)",
+                "frequency": "Frequent"
+            }
+        },
+        {
+            "city": "Mantua",
+            "country": "Italy",
+            "whyGo": "Explore this Renaissance gem surrounded by artificial lakes, with its Gonzaga palaces, historic center, and excellent cuisine.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 45 minutes - 1 hour (Regional)",
+                "frequency": "Regular"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Visit Bavaria's capital with its distinctive culture, beer halls, art museums, and historic architecture.",
+            "internationalTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 5 - 5.5 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVerona": ["Verona Villafranca Airport (VRN)"],
+                "approxFlightTime": "Approx. 1 hour",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Innsbruck",
+            "country": "Austria",
+            "whyGo": "Experience this alpine city with its Imperial architecture, mountain views, and outdoor activities in all seasons.",
+            "internationalTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 3 - 3.5 hours",
+                "frequency": "Several times daily"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 4 - 5 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Padua",
+            "country": "Italy",
+            "whyGo": "Visit this historic university town with Giotto's revolutionary frescoes, one of the world's oldest botanical gardens, and vibrant squares.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 40 minutes - 1 hour",
+                "frequency": "Very Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 1 hour 15 minutes",
+                "frequency": "Frequent"
+            }
+        },
+        {
+            "city": "Trento",
+            "country": "Italy",
+            "whyGo": "Explore this Alpine city with its Renaissance buildings, castle, and gateway to the Dolomites mountain range.",
+            "directWithinCountryTrain": {
+                "stationInVerona": "Verona Porta Nuova",
+                "journeyTime": "Approx. 1 hour (Regional)",
+                "frequency": "Frequent"
+            },
+            "bus": {
+                "stationInVerona": "Verona Bus Station (Stazione Autolinee)",
+                "journeyTime": "Approx. 1 hour 20 minutes",
+                "frequency": "Regular"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Fly to the diverse and historic capital of the UK for world-class museums, iconic landmarks, and international culture.",
+            "intraEuropeFlight": {
+                "airportsInVerona": ["Verona Villafranca Airport (VRN)"],
+                "approxFlightTime": "Approx. 2 hours",
+                "frequency": "Daily (seasonal variations)"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the City of Light for iconic landmarks, world-class museums, and exceptional cuisine.",
+            "intraEuropeFlight": {
+                "airportsInVerona": ["Verona Villafranca Airport (VRN)"],
+                "approxFlightTime": "Approx. 1 hour 30 minutes",
+                "frequency": "Daily (seasonal variations)"
+            }
+        }
+    ]
+} 

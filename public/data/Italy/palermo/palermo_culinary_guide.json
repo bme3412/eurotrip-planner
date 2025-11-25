@@ -1,0 +1,528 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Gagini Social Restaurant",
+                "cuisine_type": "Modern Sicilian/Mediterranean",
+                "signature_dishes": [
+                    "Creative Seafood Preparations",
+                    "Seasonal Tasting Menus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish, contemporary, housed in a former sculptor's studio",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially for weekends. Ideal for special occasions.",
+                "dress_code": "Smart casual to elegant",
+                "michelin_stars": 1,
+                "location": "Via dei Cassari (Kalsa/Vucciria area)",
+                "local_tips": "Known for innovative cuisine and presentation in a unique historical setting."
+            },
+            {
+                "name": "Osteria dei Vespri",
+                "cuisine_type": "Upscale Sicilian",
+                "signature_dishes": [
+                    "Refined Pasta Dishes",
+                    "Local Fish Specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant and intimate setting in Piazza Croce dei Vespri",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations highly recommended. Good wine list.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Piazza Croce dei Vespri (Kalsa area)",
+                "local_tips": "Offers a sophisticated take on Sicilian classics in a beautiful square."
+            },
+            {
+                "name": "Bye Bye Blues (Mondello)",
+                "cuisine_type": "Michelin-starred Seafood/Mediterranean",
+                "signature_dishes": [
+                    "Creative Seafood",
+                    "Pasta with Sea Urchin (seasonal)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, refined, located near the sea in Mondello",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance. Located outside the city center in Mondello.",
+                "dress_code": "Smart casual to elegant",
+                "michelin_stars": 1,
+                "location": "Via del Garofalo, Mondello",
+                "local_tips": "Considered one of Sicily's top fine dining experiences, focusing on seafood."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria Corona",
+                "cuisine_type": "Traditional Sicilian Seafood",
+                "signature_dishes": [
+                    "Grilled Fish",
+                    "Pasta with Seafood"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary but traditional fish trattoria",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular, booking advised, especially for dinner.",
+                "dress_code": "Casual",
+                "location": "Via Guglielmo Marconi (Near Politeama)",
+                "local_tips": "Focuses on fresh, simply prepared seafood."
+            },
+            {
+                "name": "Osteria Alivàru",
+                "cuisine_type": "Traditional Sicilian",
+                "signature_dishes": [
+                    "Caponata",
+                    "Seasonal Pasta Dishes",
+                    "Involtini"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, rustic, authentic Sicilian osteria",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Small place, booking essential. Ask for daily specials.",
+                "dress_code": "Casual",
+                "location": "Piazza Sant'Anna (Kalsa)",
+                "local_tips": "Known for soulful, home-style cooking using seasonal ingredients."
+            },
+            {
+                "name": "Ferro di Cavallo",
+                "cuisine_type": "Traditional Palermitan",
+                "signature_dishes": [
+                    "Pasta con le Sarde",
+                    "Boiled Octopus",
+                    "Fried Seafood"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, chaotic, traditional trattoria with shared tables",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, often has queues",
+                "booking_tips": "Be prepared for a bustling, noisy atmosphere. Popular with locals.",
+                "dress_code": "Casual",
+                "location": "Via Venezia (Near Via Maqueda)",
+                "local_tips": "A Palermo institution known for its classic dishes and vibrant chaos."
+            },
+            {
+                "name": "Trattoria Piccolo Napoli",
+                "cuisine_type": "Traditional Seafood",
+                "signature_dishes": [
+                    "Spaghetti con i Ricci (Sea Urchin Pasta - seasonal)",
+                    "Involtini di Spatola (Scabbard Fish Rolls)",
+                    "Polpo Bollito (Boiled Octopus)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Family-run, classic seafood restaurant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Essential to book, especially weekends. Ask about the catch of the day.",
+                "dress_code": "Casual to smart casual",
+                "location": "Piazzetta Mulino a Vento (Borgo Vecchio)",
+                "local_tips": "Authentic seafood experience, slightly off the main tourist path."
+            },
+            {
+                "name": "FUD Bottega Sicula",
+                "cuisine_type": "Sicilian Fast/Street Food (Gourmet)",
+                "signature_dishes": [
+                    "Shek Burgher (Donkey Burger)",
+                    "Horse Steak",
+                    "Gourmet Sandwiches"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, trendy, industrial-chic",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Often busy, might need to wait",
+                "booking_tips": "Good selection of Sicilian craft beers and wines.",
+                "dress_code": "Casual",
+                "location": "Piazza Olivella (Near Teatro Massimo)",
+                "local_tips": "Offers a modern, gourmet take on Sicilian ingredients, including unusual meats."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Antica Focacceria San Francesco",
+                "specialties": [
+                    "Pani ca Meusa (Spleen Sandwich)",
+                    "Panelle (Chickpea Fritters)",
+                    "Arancine"
+                ],
+                "price_range": "€",
+                "hours": "Lunch and Dinner",
+                "location": "Via Alessandro Paternostro (Kalsa)",
+                "seating": "Yes (Cafeteria style and outdoor)",
+                "local_tips": "Historic institution for Palermo street food, founded in 1834."
+            },
+            {
+                "name": "Nni Franco U Vastiddaru",
+                "specialties": [
+                    "Pani ca Meusa",
+                    "Panelle e Crocchè (Potato Croquettes)"
+                ],
+                "price_range": "€",
+                "hours": "Typically Lunch/Afternoon",
+                "location": "Via Vittorio Emanuele / Piazza Marina area",
+                "seating": "Limited/Outdoor",
+                "local_tips": "Considered one of the best places for Pani ca Meusa (spleen sandwich)."
+            },
+            {
+                "name": "Ke Palle Arancine d'Autore",
+                "specialties": [
+                    "Arancine (various creative fillings)"
+                ],
+                "price_range": "€",
+                "hours": "Typically 11:00 AM - late",
+                "location": "Via Maqueda (multiple locations possible)",
+                "seating": "Limited/Takeaway",
+                "local_tips": "Modern spot specializing in arancine with both classic and inventive fillings."
+            },
+            {
+                "name": "Ballarò Market Stalls",
+                "specialties": [
+                    "Sfincione (Sicilian Pizza)",
+                    "Stigghiola (Grilled Intestines)",
+                    "Frittola",
+                    "Boiled Octopus"
+                ],
+                "price_range": "€",
+                "hours": "Primarily Morning/Lunch",
+                "location": "Ballarò Market Area",
+                "seating": "None/Standing",
+                "local_tips": "Explore the market for a variety of authentic, gritty street food experiences."
+            },
+            {
+                "name": "Capo Market Stalls",
+                "specialties": [
+                    "Panelle e Crocchè",
+                    "Arancine",
+                    "Cooked Vegetables",
+                    "Sfincione"
+                ],
+                "price_range": "€",
+                "hours": "Primarily Morning/Lunch",
+                "location": "Capo Market Area (Porta Carini entrance)",
+                "seating": "None/Standing",
+                "local_tips": "Another great market for sampling various street foods in a lively atmosphere."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Casa Stagnitta",
+                "specialty": "Specialty Coffee & Pastries",
+                "must_try": [
+                    "Espresso",
+                    "Cannolo (filled to order)",
+                    "Granita (seasonal)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, popular cafe near Quattro Canti",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, light snacks, granita",
+                "local_tips": "Excellent quality coffee and a good spot for breakfast or a break."
+            },
+            {
+                "name": "Pasticceria Cappello",
+                "specialty": "Traditional Sicilian Pastries",
+                "must_try": [
+                    "Setteveli Cake",
+                    "Cannoli",
+                    "Cassata"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic, elegant pastry shop and café",
+                "best_time": "Anytime",
+                "wifi_friendly": false,
+                "food_options": "Extensive range of pastries, cakes, gelato",
+                "local_tips": "Famous for the rich, seven-layer chocolate Setteveli cake. Located near Monreale bus stop."
+            },
+            {
+                "name": "Pasticceria Costa",
+                "specialty": "Traditional Sicilian Pastries",
+                "must_try": [
+                    "Cannoli",
+                    "Cassata",
+                    "Almond Pastries (Paste di Mandorla)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic, traditional pasticceria",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Wide variety of traditional sweets",
+                "location": "Via Gabriele D'Annunzio / Via Maqueda",
+                "local_tips": "Long-standing reputation for high-quality traditional Sicilian pastries."
+            },
+            {
+                "name": "Bar Vabres",
+                "specialty": "Breakfast Pastries",
+                "must_try": [
+                    "Cornetto con Ricotta",
+                    "Cappuccino"
+                ],
+                "price_range": "€",
+                "atmosphere": "Local neighborhood bar/café",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Breakfast pastries, coffee",
+                "location": "Via Michele Cipolla (Near Central Station)",
+                "local_tips": "Good spot for a typical Italian breakfast like locals."
+            },
+            {
+                "name": "I Segreti del Chiostro (Convento di Santa Caterina)",
+                "specialty": "Traditional Convent Sweets",
+                "must_try": [
+                    "Cannoli (filled to order)",
+                    "Cassata",
+                    "Frutta Martorana (Marzipan Fruits)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Unique setting within a historic convent",
+                "best_time": "When open (check hours), expect queues",
+                "wifi_friendly": false,
+                "food_options": "Only traditional Sicilian sweets based on convent recipes",
+                "location": "Piazza Bellini (Inside Santa Caterina Church/Convent)",
+                "local_tips": "Incredible traditional sweets made by lay women using ancient recipes. A must-visit."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Bottega Monteleone",
+                "type": "Wine Bar/Shop",
+                "specialty": "Sicilian Wines",
+                "signature_drinks": [
+                    "Nero d'Avola",
+                    "Grillo",
+                    "Etna Rosso/Bianco"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional enoteca (wine shop) with seating",
+                "best_time": "Evening (Aperitivo/After Dinner)",
+                "food_options": "Cheese/Meat Platters",
+                "reservation_needed": false,
+                "local_tips": "Great place to sample local wines by the glass or bottle with knowledgeable staff."
+            },
+            {
+                "name": "CiCala",
+                "type": "Wine Bar / Cocktail Bar",
+                "specialty": "Marsala Wine & Natural Wines",
+                "signature_drinks": [
+                    "Extensive Marsala Selection",
+                    "Sicilian Craft Cocktails",
+                    "Natural Wines"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, modern bar near the Cala (marina)",
+                "best_time": "Evening",
+                "food_options": "Small plates / Aperitivo",
+                "reservation_needed": "Recommended for tables",
+                "local_tips": "Exceptional selection of Marsala wines and a curated list of other Sicilian/international wines."
+            },
+            {
+                "name": "Ballarak",
+                "type": "Brewpub",
+                "specialty": "Italian Craft Beer",
+                "signature_drinks": [
+                    "Local Sicilian Craft Beers",
+                    "Other Italian Craft Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, youthful atmosphere, often crowded",
+                "best_time": "Evening",
+                "food_options": "Pub food/Snacks",
+                "reservation_needed": false,
+                "location": "Via Sallemi (Near Ballarò/Albergheria)",
+                "local_tips": "Great spot for craft beer lovers with a good selection on tap."
+            },
+            {
+                "name": "Bar Botanico",
+                "type": "Cocktail Bar",
+                "specialty": "Herbal & Creative Cocktails",
+                "signature_drinks": [
+                    "Gin Tonics with local botanicals",
+                    "Seasonal Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy, often features DJ sets/dancing",
+                "best_time": "Late Evening/Night",
+                "food_options": "Limited/Aperitivo",
+                "reservation_needed": "Maybe for groups",
+                "location": "Piazza Sant'Anna (Kalsa)",
+                "local_tips": "Known for its creative cocktails and lively, sometimes party-like atmosphere."
+            },
+            {
+                "name": "Vucciria Market (Evening)",
+                "type": "Outdoor Bar Scene",
+                "specialty": "Basic Drinks (Beer, Wine, Spritz)",
+                "signature_drinks": [
+                    "Peroni Beer",
+                    "Basic Wine",
+                    "Aperol Spritz"
+                ],
+                "price_range": "€",
+                "atmosphere": "Chaotic, loud, outdoor street party (especially weekends)",
+                "best_time": "Late Evening (after 9-10 PM)",
+                "food_options": "Street food stalls nearby",
+                "reservation_needed": false,
+                "location": "Piazza Caracciolo (Vucciria)",
+                "local_tips": "Not a single bar, but the whole square turns into an open-air drinking area. Very local, very intense."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Palermo Street Food Walking Tour (e.g., Streaty)",
+                "focus": "Iconic Street Food & Markets",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Tasting Panelle, Arancine, Pani ca Meusa, Sfincione",
+                    "Visiting Capo or Ballarò market",
+                    "Learning about food history and culture"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (varies by operator)",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book in advance, wear comfortable shoes, come hungry!"
+            },
+            {
+                "name": "Market Tour & Tasting",
+                "focus": "Exploring Ballarò or Capo Market in depth",
+                "duration": "2-3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Navigating the market stalls",
+                    "Meeting vendors",
+                    "Tasting fresh produce, cheese, olives, street food"
+                ],
+                "booking_required": true,
+                "group_size": "Varies",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Best done in the morning when markets are most active."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Sicilian Cooking Class",
+                "cuisine_focus": "Traditional Sicilian Dishes",
+                "duration": "4-5 hours (including meal)",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Pasta con le Sarde",
+                    "Caponata",
+                    "Making fresh pasta or Arancine",
+                    "Seasonal Desserts"
+                ],
+                "group_size": "Small groups",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market visit (often), ingredients, hands-on instruction, lunch/dinner with wine"
+                ],
+                "booking_tips": "Search for classes that include a market visit for a fuller experience. Book ahead."
+            },
+            {
+                "name": "Palermo Home Cooking Experience",
+                "cuisine_focus": "Home-style Sicilian Recipes",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Family recipes",
+                    "Techniques passed down through generations",
+                    "Using local, seasonal ingredients"
+                ],
+                "group_size": "Very small groups or private",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Instruction in a local's home, ingredients, shared meal"
+                ],
+                "booking_tips": "Offers a more personal and authentic cultural immersion. Availability may be limited."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Ballarò Market",
+                "type": "Daily Street Market",
+                "highlights": [
+                    "Vast array of produce, fish, meat",
+                    "Loud vendors ('abbanniate')",
+                    "Iconic street food stalls",
+                    "Multicultural atmosphere"
+                ],
+                "hours": "Morning to early afternoon (food stalls may stay open longer)",
+                "best_time": "Morning (for peak activity)",
+                "location": "Albergheria district",
+                "local_tips": "Oldest, largest, and most chaotic market. Be aware of surroundings."
+            },
+            {
+                "name": "Mercato del Capo",
+                "type": "Daily Street Market",
+                "highlights": [
+                    "Excellent produce, spices, fish, meat",
+                    "Street food stalls (Panelle, Arancine)",
+                    "More manageable than Ballarò"
+                ],
+                "hours": "Morning to early afternoon",
+                "best_time": "Morning",
+                "location": "Monte di Pietà district (Enter via Porta Carini)",
+                "local_tips": "Still very lively but slightly less overwhelming than Ballarò."
+            },
+            {
+                "name": "Vucciria Market",
+                "type": "Historic Market Square / Evening Hub",
+                "highlights": [
+                    "Historically significant market (less daytime food now)",
+                    "Transforms into outdoor nightlife spot",
+                    "Street food vendors appear in evening",
+                    "Genius of Palermo fountain"
+                ],
+                "hours": "Limited daytime food stalls; Evening/Night for drinks/food",
+                "best_time": "Weekend evenings (for nightlife)",
+                "location": "Piazza Caracciolo (Castellammare/Loggia)",
+                "local_tips": "Visit during the day for history, visit at night (weekends) for the street party vibe."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Artichokes ('Carciofi')",
+            "Fava Beans ('Fave')",
+            "Wild Asparagus ('Asparagi Selvatici')",
+            "Strawberries ('Fragole')"
+        ],
+        "summer": [
+            "Aubergines ('Melanzane' - for Caponata, Parmigiana)",
+            "Tomatoes ('Pomodori')",
+            "Peaches ('Pesche')",
+            "Melons ('Meloni')",
+            "Granita (especially lemon, almond, coffee, mulberry)",
+            "Pasta con le Sarde (peak season for wild fennel)"
+        ],
+        "autumn": [
+            "Mushrooms ('Funghi' - especially from Nebrodi/Madonie mountains)",
+            "Chestnuts ('Castagne')",
+            "Grapes ('Uva')",
+            "Prickly Pears ('Fichi d'India')"
+        ],
+        "winter": [
+            "Citrus Fruits (Oranges 'Arance', Lemons 'Limoni', Mandarins 'Mandarini')",
+            "Fennel ('Finocchio')",
+            "Broccoli ('Broccoli')",
+            "Cardoons ('Cardi')",
+            "Sweeter Ricotta (ideal for Cannoli/Cassata)"
+        ]
+    }
+}

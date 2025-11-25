@@ -1,0 +1,637 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "FG Restaurant",
+                "cuisine_type": "Contemporary French",
+                "signature_dishes": [
+                    "Langoustine with Buttermilk and Caviar",
+                    "Duck with Foie Gras and Black Truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern, minimalist dining room with theatrical presentation",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dinners",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Lloydkwartier",
+                "local_tips": "Chef François Geurds is known for his experimental techniques; the restaurant features a 'taste lab' with over 200 salts"
+            },
+            {
+                "name": "Parkheuvel",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "North Sea Crab with Avocado and Tomato",
+                    "Anjou Pigeon with Foie Gras and Truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant riverside dining with panoramic park views in a modernist building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 months in advance, closed Sunday and Monday",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Het Park",
+                "local_tips": "Request a window table for stunning Maas River views; their cheese trolley is spectacular"
+            },
+            {
+                "name": "Fred",
+                "cuisine_type": "Contemporary Dutch",
+                "signature_dishes": [
+                    "North Sea Sole with Langoustine",
+                    "Veal with Sweetbreads and Morels"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated yet unpretentious dining room with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, closed Sunday and Monday",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Kralingen",
+                "local_tips": "Chef Fred Mustert offers a 'Pure Fred' menu showcasing classic techniques with Dutch ingredients"
+            },
+            {
+                "name": "FG Food Labs",
+                "cuisine_type": "Experimental Dutch",
+                "signature_dishes": [
+                    "Oyster with Dashi and Yuzu",
+                    "Wagyu with Artichoke and Black Garlic"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate dining room in a converted railway arch with industrial-chic design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks ahead, smaller sister restaurant to FG Restaurant",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Kop van Zuid",
+                "local_tips": "Their surprise tasting menu offers the most innovative dishes; wine pairings feature natural and biodynamic options"
+            },
+            {
+                "name": "Joelia",
+                "cuisine_type": "Modern French",
+                "signature_dishes": [
+                    "Turbot with Fennel and Beurre Blanc",
+                    "Lamb with Jerusalem Artichoke and Thyme"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant dining space in the Hilton Rotterdam with floor-to-ceiling windows",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, lunch offers excellent value with the same quality",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "City Center",
+                "local_tips": "Chef Mario Ridder's cooking combines classic French techniques with Dutch ingredients; the business lunch is particularly good value"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Fenix Food Factory",
+                "cuisine_type": "Market Food Hall",
+                "signature_dishes": [
+                    "Dutch Cheese Platters",
+                    "Artisanal Charcuterie Boards"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted warehouse with industrial vibe, communal seating and waterfront views",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive early on weekends to avoid crowds",
+                "dress_code": "Casual",
+                "location": "Katendrecht",
+                "local_tips": "Combines several artisanal vendors including a brewery, cheese maker, and butcher; excellent for grazing with local craft beer"
+            },
+            {
+                "name": "De Matroos en het Meisje",
+                "cuisine_type": "Modern Dutch",
+                "signature_dishes": [
+                    "Catch of the Day",
+                    "Seasonal Dutch Vegetables"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, maritime-themed restaurant with homey feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Katendrecht",
+                "local_tips": "No menu choices - everyone gets the same seasonal dishes served family-style; great value for high-quality cooking"
+            },
+            {
+                "name": "Bazar",
+                "cuisine_type": "Middle Eastern/North African",
+                "signature_dishes": [
+                    "Mixed Mezze Platter",
+                    "Moroccan Tagine"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant, colorful setting in a converted church with lively atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually accommodates walk-ins",
+                "dress_code": "Casual",
+                "location": "Witte de Withstraat",
+                "local_tips": "Enormous portions perfect for sharing; great for groups and vegetarians"
+            },
+            {
+                "name": "Picknick",
+                "cuisine_type": "Contemporary Cafe",
+                "signature_dishes": [
+                    "Dutch Pancakes with Seasonal Toppings",
+                    "Artisanal Sandwiches"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Airy, design-forward cafe with industrial touches",
+                "best_time": "Breakfast/Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; weekends get busy for brunch",
+                "dress_code": "Casual",
+                "location": "Oude Noorden",
+                "local_tips": "One of Rotterdam's best breakfast spots; they roast their own coffee and bake their own bread"
+            },
+            {
+                "name": "Ter Marsch & Co",
+                "cuisine_type": "Gourmet Burgers",
+                "signature_dishes": [
+                    "Award-Winning Angus Beef Burger",
+                    "Truffle Fries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, bustling burger bar with stylish decor",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; be prepared to wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Witte de Withstraat",
+                "local_tips": "Their burgers have won international awards; pair with local craft beers from their extensive selection"
+            },
+            {
+                "name": "Aloha Bar",
+                "cuisine_type": "International",
+                "signature_dishes": [
+                    "Seasonal Vegetable Plates",
+                    "Sustainable Seafood Dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted tropical swimming pool with riverside terrace and plant-filled interior",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually has availability",
+                "dress_code": "Casual",
+                "location": "Kralingen",
+                "local_tips": "Strong focus on sustainability and plant-based options; great riverside terrace in summer"
+            },
+            {
+                "name": "Héroine",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Dutch Seafood Specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Hip, contemporary restaurant with open kitchen and urban vibe",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend dinners at least a week ahead",
+                "dress_code": "Smart casual",
+                "location": "Oude Noorden",
+                "local_tips": "Their 'no nonsense' approach delivers excellent food without pretense; great wine program with natural wines"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Markthal Food Stalls",
+                "specialties": [
+                    "Stroopwafels",
+                    "Dutch Cheeses",
+                    "International Cuisines"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Markthal",
+                "seating": "Limited",
+                "local_tips": "The architectural marvel houses dozens of food stalls; try fresh stroopwafels made before your eyes"
+            },
+            {
+                "name": "Rotterdamsche Oude",
+                "specialties": [
+                    "Herring with Onions",
+                    "Kibbeling (Fried Cod Chunks)"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 6:00 PM",
+                "location": "Blaak Market",
+                "seating": false,
+                "local_tips": "Traditional Dutch raw herring is served with onions; eat it by holding the tail and lowering it into your mouth for the authentic experience"
+            },
+            {
+                "name": "Kebab House",
+                "specialties": [
+                    "Rotterdam Kapsalon",
+                    "Döner Kebab"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 2:00 AM",
+                "location": "West-Kruiskade",
+                "seating": "Limited",
+                "local_tips": "Kapsalon (meaning 'hair salon') was invented in Rotterdam - it's a layer of fries topped with shawarma, cheese, and salad"
+            },
+            {
+                "name": "Fritez",
+                "specialties": [
+                    "Belgian-style Fries",
+                    "Specialty Sauces"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 9:00 PM",
+                "location": "Witte de Withstraat",
+                "seating": false,
+                "local_tips": "Offers traditional and organic fries with over 20 homemade sauces; try the 'Rotterdamse Saus' for a local flavor"
+            },
+            {
+                "name": "De Ijssalon",
+                "specialties": [
+                    "Artisanal Gelato",
+                    "Dutch Speculaas Flavor"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 10:00 PM (summer), shorter hours in winter",
+                "location": "Meent",
+                "seating": "Limited",
+                "local_tips": "Award-winning ice cream with seasonal Dutch flavors; worth the queue in summer months"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Hopper Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Pour-Over",
+                    "Cortado"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist, Scandinavian-inspired cafe with focus on quality beans",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Homemade pastries and light lunches",
+                "local_tips": "They roast their own beans; pick up a bag of their Rotterdam Blend to take home"
+            },
+            {
+                "name": "De Zeeuwse Meisjes",
+                "specialty": "Dutch Bakery & Cafe",
+                "must_try": [
+                    "Bolus (Cinnamon-Sugar Pastry)",
+                    "Dutch Apple Pie"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, nostalgic bakery cafe with traditional Dutch elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Full bakery and lunch menu",
+                "local_tips": "Their Zeeuwse bolussen are a regional specialty from Zeeland; pairs perfectly with their coffee"
+            },
+            {
+                "name": "UEB West",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Homemade Banana Bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic cafe in a former water pumping station",
+                "best_time": "Any time",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, sandwiches, and cakes",
+                "local_tips": "Great remote working spot with plenty of outlets and large tables; excellent weekend brunch"
+            },
+            {
+                "name": "Harvest Coffee Brewers",
+                "specialty": "Specialty Coffee & Brunch",
+                "must_try": [
+                    "Aeropress Coffee",
+                    "Avocado Toast with Poached Eggs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, plant-filled cafe with large windows and contemporary design",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Full brunch menu with international influences",
+                "local_tips": "Among the best breakfast in Rotterdam; no laptops allowed on weekends to maintain the social atmosphere"
+            },
+            {
+                "name": "Lilith Coffee",
+                "specialty": "Coffee & Natural Wines",
+                "must_try": [
+                    "Specialty Filter Coffee",
+                    "Homemade Sourdough Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist yet warm cafe that transforms into a wine bar in the evening",
+                "best_time": "Morning or Evening",
+                "wifi_friendly": true,
+                "food_options": "Simple breakfast and lunch items",
+                "local_tips": "By day a great coffee spot, by night a natural wine bar - perfect for both morning meetings and evening dates"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Dr.",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Rotterdam Mule (Genever-based Moscow Mule)",
+                    "Seasonal Herb Infusions"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy-style bar with vintage medical theme and apothecary details",
+                "best_time": "Evening",
+                "food_options": "Small plates menu",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the experience; bartenders create custom 'prescriptions' based on your taste preferences"
+            },
+            {
+                "name": "The Stirr",
+                "type": "Classic Cocktail Bar",
+                "specialty": "Perfectly Executed Classics",
+                "signature_drinks": [
+                    "Negroni Variations",
+                    "House Barrel-Aged Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, elegant bar with knowledgeable bartenders and vintage feel",
+                "best_time": "Night",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Ask for off-menu classics; the bartenders are among the most knowledgeable in the city"
+            },
+            {
+                "name": "Kaapse Maria",
+                "type": "Craft Beer Bar",
+                "specialty": "Dutch and International Craft Beer",
+                "signature_drinks": [
+                    "Kaapse Brouwers Rotating Taps",
+                    "Curated International Beer Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic bar in the Fenix Food Factory with waterfront views",
+                "best_time": "Afternoon",
+                "food_options": "Cheese and charcuterie from market vendors",
+                "reservation_needed": false,
+                "local_tips": "Run by local brewery Kaapse Brouwers; try their seasonal specials made in Rotterdam"
+            },
+            {
+                "name": "BIRD",
+                "type": "Jazz Bar",
+                "specialty": "Classic Cocktails and Local Beers",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Rotterdam Craft Beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant jazz cafe with live music and artistic crowd",
+                "best_time": "Late Night",
+                "food_options": "Full dinner menu available",
+                "reservation_needed": true,
+                "local_tips": "Check their schedule for live jazz performances; great for dinner and drinks with entertainment"
+            },
+            {
+                "name": "De Witte Aap",
+                "type": "Local Bar",
+                "specialty": "Dutch and Belgian Beers",
+                "signature_drinks": [
+                    "La Chouffe on Tap",
+                    "Genever Tasting Flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, packed bar on Rotterdam's coolest street with diverse crowd",
+                "best_time": "Evening",
+                "food_options": "Bar snacks only",
+                "reservation_needed": false,
+                "local_tips": "Once named 'best bar in the world' by Lonely Planet; the perfect place to mingle with locals"
+            },
+            {
+                "name": "Ballroom",
+                "type": "Rooftop Bar",
+                "specialty": "Signature Cocktails",
+                "signature_drinks": [
+                    "Botanical Gin & Tonics",
+                    "Champagne Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish rooftop with panoramic city views and DJs on weekends",
+                "best_time": "Sunset",
+                "food_options": "Small plates and sharing platters",
+                "reservation_needed": true,
+                "local_tips": "The best sunset views in Rotterdam; arrive before sunset for the most dramatic urban vistas"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Rotterdam Markthal & Cube Houses Tour",
+                "focus": "Dutch Culinary Highlights",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of the architectural Markthal",
+                    "Traditional Dutch snack tastings",
+                    "Cheese, stroopwafel, and herring sampling"
+                ],
+                "booking_required": true,
+                "group_size": "Max.10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; tours combine culinary experiences with Rotterdam's iconic architecture"
+            },
+            {
+                "name": "Rotterdam Multicultural Food Walk",
+                "focus": "International Influences",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Exploration of West-Kruiskade neighborhood",
+                    "Surinamese, Chinese, and Caribbean food tastings",
+                    "Rotterdam's colonial history and immigration influence on cuisine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Reserve 7-10 days ahead; comfortable walking shoes recommended"
+            },
+            {
+                "name": "Katendrecht Culinary Journey",
+                "focus": "Rotterdam's Hip Food Scene",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Fenix Food Factory exploration",
+                    "Craft beer tastings",
+                    "Rotterdam's former sailor district transformation"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book early for weekend tours; includes a short water taxi ride for harbor views"
+            },
+            {
+                "name": "Rotterdam Harbor & Seafood Experience",
+                "focus": "Maritime Food Heritage",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Harbor tour by boat",
+                    "Fresh seafood tastings at local fish markets",
+                    "Traditional fish preparation demonstrations"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book 2 weeks ahead; weather dependent with indoor alternatives if necessary"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Dutch Classics Workshop",
+                "cuisine_focus": "Traditional Dutch",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Erwtensoep (Split Pea Soup)",
+                    "Stamppot (Mashed Potatoes with Vegetables)",
+                    "Dutch Apple Pie"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "Ingredients, recipes, full meal with beer and wine"
+                ],
+                "booking_tips": "Reserve 2 weeks ahead; vegetarian options available upon request"
+            },
+            {
+                "name": "Indonesian-Dutch Rijsttafel Class",
+                "cuisine_focus": "Indonesian-Dutch Colonial",
+                "duration": "5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Multiple small dishes for Rijsttafel (Rice Table)",
+                    "Satay preparation with peanut sauce",
+                    "Spice blending and balancing"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, traditional dinner service"
+                ],
+                "booking_tips": "Book at least 10 days in advance; explains the colonial history behind this cuisine"
+            },
+            {
+                "name": "Artisanal Dutch Cheese Making",
+                "cuisine_focus": "Traditional Dairy",
+                "duration": "6 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Fresh Cheese Production from Scratch",
+                    "Dutch Cheese Aging Techniques",
+                    "Cheese and Beer/Wine Pairing"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "German"
+                ],
+                "includes": [
+                    "All materials, cheese to take home, tasting of aged Dutch cheeses"
+                ],
+                "booking_tips": "Book 3 weeks ahead; includes theory and hands-on practice"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Markthal",
+                "type": "Indoor Food Hall",
+                "highlights": [
+                    "Iconic arched market hall with 100+ vendors",
+                    "Dutch and international specialty foods",
+                    "Stunning ceiling artwork"
+                ],
+                "hours": "Monday to Thursday 10:00 AM - 8:00 PM, Friday 10:00 AM - 9:00 PM, Saturday 10:00 AM - 8:00 PM, Sunday 12:00 PM - 6:00 PM",
+                "best_time": "Weekday mornings",
+                "location": "City Center",
+                "local_tips": "Visit on weekday mornings to avoid crowds; look up to see the massive artwork 'Horn of Plenty' covering the ceiling"
+            },
+            {
+                "name": "Blaak Market",
+                "type": "Outdoor Market",
+                "highlights": [
+                    "Traditional Dutch street foods",
+                    "Fresh produce and flowers",
+                    "Clothing and household items"
+                ],
+                "hours": "Tuesday and Saturday 8:00 AM - 5:00 PM",
+                "best_time": "Morning",
+                "location": "Blaak Square",
+                "local_tips": "One of the largest outdoor markets in the Netherlands; best for fresh herring and stroopwafels"
+            },
+            {
+                "name": "Fenix Food Factory",
+                "type": "Artisanal Food Market",
+                "highlights": [
+                    "Local producers under one roof",
+                    "Rotterdam craft brewery",
+                    "Cheese maker, butcher, baker, and more"
+                ],
+                "hours": "Wednesday to Sunday 12:00 PM - 10:00 PM",
+                "best_time": "Afternoon",
+                "location": "Katendrecht",
+                "local_tips": "Great waterfront terrace with Maas River views; all vendors are local producers making products on-site"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise Sauce",
+            "Fresh Herring (Hollandse Nieuwe) beginning in late spring",
+            "Seasonal Craft Beers from local Rotterdam breweries"
+        ],
+        "summer": [
+            "Raw Herring with Onions (best June-July)",
+            "Kibbeling (Fried Cod) with Garlic Sauce",
+            "Fresh Strawberries with Advocaat (Dutch Eggnog Liqueur)"
+        ],
+        "autumn": [
+            "Erwtensoep (Dutch Split Pea Soup)",
+            "Seasonal Game Dishes",
+            "Speculaas Spiced Treats"
+        ],
+        "winter": [
+            "Stamppot (Mashed Potatoes with Various Vegetables)",
+            "Oliebollen (Dutch Doughnuts, especially for New Year)",
+            "Bitterballen with Mustard at Winter Festivals"
+        ]
+    }
+}

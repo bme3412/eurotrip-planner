@@ -1,0 +1,491 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, romantic atmosphere, and unparalleled culinary scene.",
+            "intraEuropeTrain": {
+                "stationInLondon": "St Pancras International",
+                "journeyTime": "2h15m",
+                "frequency": "Up to 18 daily",
+                "trainType": "Eurostar",
+                "priceRange": "£58-300"
+            },
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton",
+                    "City"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Every 30-60 minutes",
+                "priceRange": "£45-250"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Vibrant capital of Belgium and the European Union, known for its historic Grand Place, Art Nouveau architecture, and excellent beer culture.",
+            "intraEuropeTrain": {
+                "stationInLondon": "St Pancras International",
+                "journeyTime": "2h01m",
+                "frequency": "Up to 8 daily",
+                "trainType": "Eurostar",
+                "priceRange": "£78-350"
+            },
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton",
+                    "City"
+                ],
+                "approxFlightTime": "1h20m",
+                "frequency": "Every 1-2 hours",
+                "priceRange": "£55-180"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInLondon": "St Pancras International",
+                "journeyTime": "3h52m",
+                "frequency": "Up to 3 daily",
+                "trainType": "Eurostar",
+                "priceRange": "£118-450"
+            },
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton",
+                    "City"
+                ],
+                "approxFlightTime": "1h20m",
+                "frequency": "Every 30-60 minutes",
+                "priceRange": "£48-220"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant capital with rich literary heritage, historic Trinity College, Temple Bar district, and friendly Irish hospitality.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton",
+                    "City"
+                ],
+                "approxFlightTime": "1h25m",
+                "frequency": "Every 30-60 minutes",
+                "priceRange": "£35-180"
+            },
+            "ferry": {
+                "portsInLondon": "Liverpool, Holyhead",
+                "journeyTime": "3h15m-8h",
+                "frequency": "Multiple daily",
+                "priceRange": "£25-120"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Historic Scottish capital with stunning castle, medieval Old Town, vibrant festivals, and dramatic volcanic landscape.",
+            "domesticTrain": {
+                "stationInLondon": "King's Cross",
+                "journeyTime": "4h20m",
+                "frequency": "Hourly",
+                "trainType": "LNER",
+                "priceRange": "£25-200"
+            },
+            "domesticFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton",
+                    "City"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Every 1-2 hours",
+                "priceRange": "£45-250"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic capital with rich history, world-class museums, vibrant nightlife, and symbols of reunification.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "1h55m",
+                "frequency": "Every 2-3 hours",
+                "priceRange": "£65-280"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest celebration, beer halls, excellent museums, and beautiful architecture blending tradition and modernity.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Multiple daily",
+                "priceRange": "£75-320"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline, excellent museums, historic old town, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "City"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Every 1-2 hours",
+                "priceRange": "£70-300"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Historic cathedral city with Roman heritage, excellent museums, vibrant arts scene, and traditional beer culture.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Stansted"
+                ],
+                "approxFlightTime": "1h35m",
+                "frequency": "Multiple daily",
+                "priceRange": "£65-250"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h40m",
+                "frequency": "Multiple daily",
+                "priceRange": "£85-350"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "£80-320"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "The unique city of canals, gondolas, St. Mark's Square, and historic palaces.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h20m",
+                "frequency": "Daily",
+                "priceRange": "£85-330"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renaissance art and architecture, world-class museums, and charming medieval streets.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "£90-340"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "£65-280"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art, vibrant cultural scene, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "£70-300"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for its well-preserved medieval old town, excellent museums, beautiful lake setting, and high quality of life.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "City"
+                ],
+                "approxFlightTime": "1h50m",
+                "frequency": "Multiple daily",
+                "priceRange": "£90-380"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city with Red Cross headquarters, United Nations offices, beautiful lake setting, and excellent museums.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick"
+                ],
+                "approxFlightTime": "2h10m",
+                "frequency": "Multiple daily",
+                "priceRange": "£95-400"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h25m",
+                "frequency": "Multiple daily",
+                "priceRange": "£85-350"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "£65-280"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h25m",
+                "frequency": "Multiple daily",
+                "priceRange": "£70-300"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h20m",
+                "frequency": "Multiple daily",
+                "priceRange": "£60-250"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "£80-320"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "£90-350"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "£100-380"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "£75-320"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "2h25m",
+                "frequency": "Daily",
+                "priceRange": "£70-300"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient capital with Acropolis, rich history, excellent museums, and gateway to Greek islands.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "3h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "£95-380"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where East meets West with stunning mosques, Grand Bazaar, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted"
+                ],
+                "approxFlightTime": "4h",
+                "frequency": "Multiple daily",
+                "priceRange": "£120-450"
+            }
+        },
+        {
+            "city": "Reykjavik",
+            "country": "Iceland",
+            "whyGo": "Gateway to Iceland's natural wonders, Northern Lights, unique culture, and geothermal attractions.",
+            "intraEuropeFlight": {
+                "airportsInLondon": [
+                    "Heathrow",
+                    "Gatwick",
+                    "Stansted",
+                    "Luton"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Multiple daily",
+                "priceRange": "£90-400"
+            }
+        }
+    ]
+}

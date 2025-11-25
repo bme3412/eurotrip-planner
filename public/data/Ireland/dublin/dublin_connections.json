@@ -1,0 +1,363 @@
+{
+    "destinations": [
+        {
+            "city": "Cork",
+            "country": "Ireland",
+            "whyGo": "A vibrant city known for its rich history and lively cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInDublin": "Dublin Heuston",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Galway",
+            "country": "Ireland",
+            "whyGo": "Famous for its festivals and scenic views along the Wild Atlantic Way.",
+            "directWithinCountryTrain": {
+                "stationInDublin": "Dublin Heuston",
+                "journeyTime": "2 hours 20 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Limerick",
+            "country": "Ireland",
+            "whyGo": "Known for its medieval heritage and the stunning King John’s Castle.",
+            "directWithinCountryTrain": {
+                "stationInDublin": "Dublin Heuston",
+                "journeyTime": "2 hours 10 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Belfast",
+            "country": "United Kingdom",
+            "whyGo": "A city rich in history, famous for the Titanic Belfast museum.",
+            "intraEuropeTrain": {
+                "stationInDublin": "Dublin Connolly",
+                "journeyTime": "2 hours 10 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A global city known for its iconic landmarks and cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Known for its historic and architectural attractions, including the Edinburgh Castle.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Manchester",
+            "country": "United Kingdom",
+            "whyGo": "A vibrant city known for its music scene and football culture.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Liverpool",
+            "country": "United Kingdom",
+            "whyGo": "Famous as the birthplace of The Beatles and its rich maritime history.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 5 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The romantic city of lights, known for its art, fashion, and gastronomy.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Known for its artistic heritage, elaborate canal system, and narrow houses.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The heart of European politics, famous for its chocolates and beers.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a rich history and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "A city steeped in history with a vibrant arts and cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "A lively capital known for its rich history, art museums, and vibrant nightlife.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its architecture by Gaudí and beautiful Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 25 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "A global center for banking and finance with beautiful lakeside scenery.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Known for its imperial history, classical music, and stunning architecture.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City, known for its rich ancient history and vibrant culture.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "A global fashion and design capital with a rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 25 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Known for its green spaces, museums, and stunning fjord views.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "A city spread across 14 islands, known for its beautiful architecture and museums.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Famous for its hygge lifestyle, historic landmarks, and vibrant culture.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its hilly, coastal landscape and rich maritime heritage.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 50 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Known for its medieval towers and grand castles along the Danube River.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "1-2 times daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "A city with a unique blend of modern and historical architecture.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its Old Town Square and stunning Gothic architecture.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Famous for its architectural landmarks and thermal baths.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 50 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Luxembourg City",
+            "country": "Luxembourg",
+            "whyGo": "Renowned for its fortified medieval old town perched on sheer cliffs.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "1-2 times daily"
+            }
+        },
+        {
+            "city": "Reykjavik",
+            "country": "Iceland",
+            "whyGo": "Gateway to Iceland’s stunning natural landscapes and geothermal wonders.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "2 hours 40 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Helsinki",
+            "country": "Finland",
+            "whyGo": "Known for its design district, vibrant cultural life, and beautiful archipelago.",
+            "intraEuropeFlight": {
+                "airportsInDublin": [
+                    "Dublin Airport"
+                ],
+                "approxFlightTime": "3 hours 10 minutes",
+                "frequency": "1-2 times daily"
+            }
+        }
+    ]
+}

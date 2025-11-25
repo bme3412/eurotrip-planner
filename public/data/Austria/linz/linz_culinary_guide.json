@@ -1,0 +1,289 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Verdi",
+                "cuisine_type": "Austrian / International",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Danube Fish Creations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, modern with riverside views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least one week in advance. Request window seating for Danube views.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Altstadt (Old Town)",
+                "local_tips": "Excellent wine pairings, ask sommelier for recommendations of Upper Austrian wines."
+            },
+            {
+                "name": "Promenadenhof",
+                "cuisine_type": "Modern Austrian / European",
+                "signature_dishes": [
+                    "Beef Tartare",
+                    "Seasonal Game"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Refined, traditional with modern touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead for weekend dining.",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Near Landstraße",
+                "local_tips": "Try their homemade bread with Upper Austrian spreads to start."
+            },
+            {
+                "name": "Eisvogel",
+                "cuisine_type": "Austrian / Mediterranean",
+                "signature_dishes": [
+                    "Fresh Fish",
+                    "Innovative Seasonal Menu"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Contemporary, panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request outdoor terrace seating in summer for best views.",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 0,
+                "location": "Danube riverside",
+                "local_tips": "Known for exceptional service and presentation."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Jindrak",
+                "cuisine_type": "Austrian / Café",
+                "signature_dishes": [
+                    "Linzer Torte",
+                    "Cafe classics",
+                    "Austrian pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional, historic cafe atmosphere",
+                "best_time": "Lunch, Coffee",
+                "reservation_needed": false,
+                "booking_tips": "Can be busy on weekends, go early.",
+                "dress_code": "Casual",
+                "location": "Altstadt (Old Town)",
+                "local_tips": "Home of the original Linzer Torte recipe dating back to 1653. Take some to go as gifts."
+            },
+            {
+                "name": "Josef",
+                "cuisine_type": "Modern Austrian / Regional",
+                "signature_dishes": [
+                    "Schweinsbraten (Roast Pork)",
+                    "Fresh fish from Danube"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, modern inn feel",
+                "best_time": "Both lunch and dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, reserve for dinner.",
+                "dress_code": "Casual",
+                "location": "Near Hauptplatz",
+                "local_tips": "Great place to try local beers with traditional food."
+            },
+            {
+                "name": "Cubus",
+                "cuisine_type": "International / Fusion",
+                "signature_dishes": [
+                    "Burgers",
+                    "Salads",
+                    "Cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, urban, stylish",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Popular for pre-theater dining, arrive early.",
+                "dress_code": "Casual",
+                "location": "Near Musiktheater",
+                "local_tips": "Good option for more international cuisine in Linz with great views."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Hauptplatz Market Stands",
+                "specialties": [
+                    "Leberkäse",
+                    "Sausages",
+                    "Local street food"
+                ],
+                "price_range": "€",
+                "hours": "Weekdays 10:00-18:00, Sat 9:00-15:00",
+                "location": "Hauptplatz",
+                "seating": false,
+                "local_tips": "Look for seasonal specialties like Maroni (roasted chestnuts) in winter."
+            },
+            {
+                "name": "Leberkas-Pepi",
+                "specialties": [
+                    "Leberkäse variants",
+                    "Traditional meat loaf sandwiches"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat 9:00-19:00",
+                "location": "Landstraße",
+                "seating": true,
+                "local_tips": "Popular local chain with many flavors of the traditional meat loaf. Try the cheese or chili variants."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+             {
+                "name": "Café Traxlmayr",
+                "type": "Traditional Viennese-style Café",
+                "atmosphere": "Classic, old-world charm",
+                "specialty_drinks_snacks": [
+                    "Linzer Torte",
+                    "Melange coffee",
+                    "Traditional pastries"
+                ],
+                "location": "Landstraße",
+                "local_tips": "Historic cafe operating since 1847, a local institution."
+            },
+             {
+                "name": "Café Johannes Kepler",
+                "type": "Modern Café",
+                "atmosphere": "Light, airy, contemporary",
+                "specialty_drinks_snacks": [
+                    "Specialty coffees",
+                    "Fresh pastries",
+                    "Light lunches"
+                ],
+                "location": "Near Johannes Kepler University",
+                "local_tips": "Popular student hangout with good wifi and study spaces."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Stadtwerkstatt",
+                "type": "Cultural Bar / Music Venue",
+                "atmosphere": "Alternative, artistic, lively",
+                "specialty_drinks_snacks": [
+                    "Craft beers",
+                    "Cocktails",
+                    "Small plates"
+                ],
+                "location": "Danube riverfront",
+                "local_tips": "Great place to experience Linz's alternative culture and music scene."
+            },
+            {
+                "name": "Solaris Bar",
+                "type": "Cocktail Bar",
+                "atmosphere": "Stylish, intimate",
+                "specialty_drinks_snacks": [
+                    "Craft cocktails",
+                    "Wine selection",
+                    "Tapas"
+                ],
+                "location": "Altstadt",
+                "local_tips": "One of the best cocktail bars in Linz, known for creative mixology."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                 "name": "Linz Culinary Walking Tour",
+                 "type": "Walking Food Tour",
+                 "highlights": [
+                     "Sampling Linzer Torte",
+                     "Local market visits",
+                     "Traditional Upper Austrian specialties"
+                 ],
+                 "booking_info": "Available through Linz Tourism, best booked several days in advance.",
+                 "local_tips": "Good introduction to local culinary traditions, especially for first-time visitors."
+            },
+            {
+                 "name": "Danube Valley Food & Wine Tour",
+                 "type": "Day Trip Tour",
+                 "highlights": [
+                     "Winery visits",
+                     "Regional cuisine",
+                     "Scenic Danube Valley"
+                 ],
+                 "booking_info": "Book through local tour operators or Linz Tourism.",
+                 "local_tips": "Combines food, wine, and beautiful landscapes of the surrounding region."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Linzer Torte Workshop",
+                "type": "Pastry Workshop",
+                "highlights": [
+                    "Learn to make authentic Linzer Torte",
+                    "History of the world's oldest cake recipe",
+                    "Hands-on experience"
+                ],
+                "booking_info": "Available at Jindrak or through Linz Tourism, book at least one week ahead.",
+                "local_tips": "Take home your own Linzer Torte and the traditional recipe."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Südbahnhofmarkt",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Regional specialties",
+                    "International foods"
+                ],
+                "hours": "Tue-Sat: 7:00-13:00",
+                "best_time": "Saturday morning",
+                "location": "Near South Train Station",
+                "local_tips": "Largest market in Linz, featuring both local farmers and international vendors."
+            },
+            {
+                "name": "Urfahraner Markt",
+                "type": "Traditional Market/Fair",
+                "highlights": [
+                    "Local food stalls",
+                    "Traditional crafts",
+                    "Seasonal produce"
+                ],
+                 "hours": "Biannual event (spring and autumn)",
+                "best_time": "Weekend afternoons",
+                "location": "Urfahr district",
+                "local_tips": "Historic market dating back to 1817, combines food with crafts and entertainment."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus dishes",
+            "Early berries",
+            "Fresh herbs from Danube Valley"
+        ],
+        "summer": [
+            "Danube fish dishes",
+            "Berry desserts",
+            "Fresh garden vegetables"
+        ],
+        "autumn": [
+            "Wild game",
+            "Sturm (young wine)",
+            "Pumpkin specialties",
+            "Mushroom dishes"
+        ],
+        "winter": [
+            "Glühwein (mulled wine)",
+            "Christmas cookies",
+            "Hearty stews",
+            "Roast goose (November-December)"
+        ],
+        "upper_austrian_classics": [
+            "Linzer Torte",
+            "Knödel (dumplings) varieties",
+            "Most (apple cider)",
+            "Leberkäse",
+            "Erdäpfelkas (potato spread)",
+            "Upper Austrian wines (Zierfandler, Rotgipfler)"
+        ]
+    }
+}

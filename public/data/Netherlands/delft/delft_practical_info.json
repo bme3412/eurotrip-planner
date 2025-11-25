@@ -1,0 +1,139 @@
+{
+    "getting_around": {
+        "main_train_station": {
+            "name": "Delft Station",
+            "location": "Edge of the city center",
+            "connections": [
+                "National rail services (NS) to major Dutch cities (Amsterdam, Rotterdam, The Hague, Utrecht)",
+                "International connections via Rotterdam Centraal or Schiphol Airport"
+            ]
+        },
+        "local_transport": [
+            {
+                "type": "Tram",
+                "provider": "HTM",
+                "details": "Line 1 runs through Delft, connecting the station, city center, TU Delft, and continues to The Hague Center, HS Station, and Scheveningen Beach.",
+                "payment": "OV-chipkaart or contactless debit/credit card."
+            },
+            {
+                "type": "Bus",
+                "provider": "EBS / RET",
+                "details": "Extensive network serving the city, TU Delft campus, and surrounding areas.",
+                "payment": "OV-chipkaart or contactless debit/credit card."
+            },
+            {
+                "type": "Bicycle",
+                "provider": "Various rental shops (near station, city center)",
+                "details": "Highly recommended way to explore Delft and surroundings. Excellent cycling infrastructure. OV-fiets rental available at the station.",
+                "payment": "Rental fees (daily/hourly). OV-fiets requires personal OV-chipkaart."
+            },
+            {
+                "type": "Walking",
+                "provider": "N/A",
+                "details": "The historic city center is compact and best explored on foot. Be mindful of cyclists and uneven cobblestones.",
+                "payment": "Free"
+            }
+        ],
+        "nearby_airports": [
+            {
+                "name": "Rotterdam The Hague Airport (RTM)",
+                "distance_km": 15,
+                "connection": "Bus (e.g., RET Airport Bus 33 to Meijersplein, then Metro E to Delft) or Taxi/Uber.",
+                "approx_time": "45-60 minutes"
+            },
+            {
+                "name": "Amsterdam Airport Schiphol (AMS)",
+                "distance_km": 50,
+                "connection": "Direct train from Schiphol Plaza to Delft Station.",
+                "approx_time": "35-45 minutes"
+            }
+        ],
+        "car_travel": {
+            "parking": "Limited and expensive within the historic center. Use designated parking garages (e.g., Marktgarage, Zuidpoortgarage, Prinsenhofgarage) or Park & Ride facilities outside the center.",
+            "accessibility": "Many central streets are pedestrianized or have restricted vehicle access."
+        }
+    },
+    "safety_and_health": {
+        "general_safety": "Delft is considered a very safe city. Exercise standard precautions against pickpocketing in crowded tourist areas (Markt, station) and lock your bike securely.",
+        "emergency_number": "112 (for police, fire brigade, and ambulance)",
+        "police_non_emergency": "0900-8844",
+        "pharmacies": {
+            "availability": "Widely available ('Apotheek'). Check for nearest duty pharmacy ('dienstapotheek') outside regular hours.",
+            "notes": "Standard prescription and over-the-counter medications available."
+        },
+        "hospitals": [
+            {
+                "name": "Reinier de Graaf Gasthuis",
+                "location": "Reinier de Graafweg 5, 2625 AD Delft",
+                "notes": "Main hospital serving Delft and surroundings, includes emergency department ('Spoedeisende Hulp')."
+            }
+        ],
+        "tap_water": "Safe to drink and of high quality."
+    },
+    "money_and_communication": {
+        "currency": {
+            "name": "Euro",
+            "symbol": "€",
+            "code": "EUR"
+        },
+        "atms": "Widely available ('geldautomaat'), especially near banks, shopping areas, and the station. Look for Geldmaat machines.",
+        "credit_cards": "Visa and Mastercard widely accepted in shops, restaurants, and hotels. American Express less common. Contactless payments are prevalent.",
+        "tipping": {
+            "restaurants_cafes": "Service charge is included by law. Tipping is not obligatory but appreciated for good service (rounding up the bill or leaving 5-10%).",
+            "taxis": "Rounding up the fare is common.",
+            "hotels": "Optional for porters or housekeeping (€1-2)."
+        },
+        "language": {
+            "official": "Dutch",
+            "english_proficiency": "Very high, especially in tourist areas, shops, restaurants, and among younger people.",
+            "basic_phrases": [
+                {"Dutch": "Hallo", "English": "Hello"},
+                {"Dutch": "Dank u wel / Dank je wel", "English": "Thank you (formal/informal)"},
+                {"Dutch": "Alsjeblieft / Alstublieft", "English": "Please / Here you go (informal/formal)"},
+                {"Dutch": "Ja / Nee", "English": "Yes / No"},
+                {"Dutch": "Spreekt u Engels?", "English": "Do you speak English?"},
+                {"Dutch": "Sorry", "English": "Sorry/Excuse me"},
+                {"Dutch": "Proost!", "English": "Cheers!"}
+            ]
+        },
+        "connectivity": {
+            "wifi": "Widely available in cafes, hotels, libraries, and some public areas. Eduroam available on TU Delft campus.",
+            "mobile_data": "Excellent 4G/5G coverage. Consider a local SIM card (available at supermarkets/phone shops) or an eSIM for longer stays."
+        },
+        "postal_services": "PostNL service points available in many supermarkets and shops for sending mail and parcels."
+    },
+    "general_information": {
+        "tourist_information": {
+            "name": "VVV Delft (Tourist Information)",
+            "location": "Kerkstraat 3 (near Nieuwe Kerk)",
+            "services": "Maps, brochures, guided tour bookings, hotel information, souvenirs."
+        },
+        "opening_hours": {
+            "shops": "Generally Mon 11:00-18:00, Tue-Fri 09:30/10:00-18:00, Sat 09:30/10:00-17:00. Supermarkets often open longer hours and on Sundays. Some city center shops open Sundays 12:00-17:00.",
+            "museums": "Typically Tue-Sun 10:00/11:00 - 17:00. Often closed on Mondays (except major holidays). Check individual museum websites."
+        },
+        "public_holidays": [
+            "New Year's Day (Jan 1)",
+            "Good Friday (Varies)",
+            "Easter Sunday & Monday (Varies)",
+            "King's Day (April 27)",
+            "Liberation Day (May 5 - public holiday varies)",
+            "Ascension Day (Varies)",
+            "Whit Sunday & Monday (Pentecost, Varies)",
+            "Christmas Day (Dec 25)",
+            "Boxing Day (Dec 26)"
+        ],
+        "electrical_plugs": {
+            "type": "Type F (Schuko)",
+            "voltage": "230V",
+            "frequency": "50Hz"
+        },
+        "useful_apps": [
+            "NS (Dutch Railways - train schedules & tickets)",
+            "9292 (Public transport planner for bus/tram/train)",
+            "Buienradar (Weather forecast, esp. rain)",
+            "Google Maps / Citymapper (Navigation)",
+            "Thuisbezorgd.nl / Uber Eats (Food delivery)"
+        ]
+    }
+} 
