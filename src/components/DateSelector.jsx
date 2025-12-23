@@ -29,6 +29,14 @@ export default function DateSelector({ onChange }) {
     return { start, end };
   }
 
+  // Handle date changes
+  const handleDateChange = (newDates) => {
+    setDates(newDates);
+    if (newDates && newDates.start && newDates.end) {
+      onChange?.({ mode: "dates", ...newDates });
+    }
+  };
+
   // Auto-propagate when both start and end are selected
   useEffect(() => {
     if (dates && dates.start && dates.end) {
@@ -38,7 +46,7 @@ export default function DateSelector({ onChange }) {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <DateRangePopover value={dates} onChange={(next) => setDates(next)} />
+      <DateRangePopover value={dates} onChange={handleDateChange} />
       {/* Add a bit more white space before CTAs */}
       <div className="h-3" />
     </div>

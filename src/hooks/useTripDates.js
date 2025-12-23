@@ -29,22 +29,25 @@ export function parseDatesFromParams(searchParams) {
   return null;
 }
 
-export function useTripDates(initialValue = null) {
+export function useTripDates(initialValue = null, { loadFromStorage = false } = {}) {
   const [dates, setDates] = useState(initialValue);
 
-  // Load from localStorage on mount
+  // Load from localStorage on mount (only if enabled)
   useEffect(() => {
+    if (!loadFromStorage) return; // skip loading from storage if disabled
     if (dates != null) return; // do not overwrite if provided
     try {
       const raw = typeof window !== "undefined" ? window.localStorage.getItem(STORAGE_KEY) : null;
       if (raw) setDates(JSON.parse(raw));
     } catch {}
-  }, [dates]);
+  }, [dates, loadFromStorage]);
 
-  // Persist to localStorage
+  // Persist to localStorage (only if dates are set)
   useEffect(() => {
     try {
-      if (dates) window.localStorage.setItem(STORAGE_KEY, JSON.stringify(dates));
+      if (dates) {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(dates));
+      }
     } catch {}
   }, [dates]);
 

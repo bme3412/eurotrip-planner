@@ -2,12 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:wght@500;600;700&display=swap');
-
 /* Global design tokens */
 :root {
-  --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'EB Garamond', 'Georgia', serif;
+  /* Font variables are now set by Next.js font optimization */
 }
 
 /* Ensure html and body take full height for background video */
@@ -58,6 +55,8 @@ main > .relative.z-10 { // Ensure content stays above the overlay
 body {
   color: var(--foreground);
   background: var(--background);
+  font-feature-settings: normal;
+  font-variant-ligatures: none;
 }
 
 @keyframes fade-in {
@@ -489,9 +488,12 @@ html, body {
 }
 body {
   color: rgb(var(--ink));
-  background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 40%);
+  background: #fafafa;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  font-feature-settings: normal;
+  font-variant-ligatures: none;
 }
 .btn-primary {
   @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-soft transition transform hover:-translate-y-0.5 active:translate-y-0;
@@ -540,18 +542,18 @@ body {
     radial-gradient(160% 200% at 0% 0%, #0b1120 0%, #020617 45%, #020617 60%, #020617 100%),
     radial-gradient(140% 180% at 100% 0%, #fef3c7 0%, #e5e7eb 40%, #0f172a 100%);
   color: #e5e7eb;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), system-ui, sans-serif;
   display: flex;
   flex-direction: column;
 }
 
 .font-display {
-  font-family: var(--font-display);
-  letter-spacing: -0.04em;
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.01em;
 }
 
 .font-sans-eu {
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 .eu-hero {

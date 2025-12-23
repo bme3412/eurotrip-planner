@@ -17,6 +17,9 @@ const config = {
         'fade-in': 'fadeIn 1.5s ease-out',
         'slide-up': 'slideUp 1s ease-out forwards',
       },
+      scale: {
+        '102': '1.02',
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
@@ -28,7 +31,8 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial'],
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
       },
       boxShadow: {
         soft: '0 10px 30px -10px rgba(0,0,0,0.15)',

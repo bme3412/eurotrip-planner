@@ -62,4 +62,85 @@ All long‑form city and seasonal content lives as JSON under `public/data/**`, 
 
 ---
 
+## Setup & Development
 
+### Prerequisites
+
+- Node.js 18+ recommended
+- npm (or your preferred package manager)
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Environment variables
+
+Create a `.env.local` file in the project root and set:
+
+```bash
+OPENAI_API_KEY=sk-...
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-nextauth-secret
+MAPBOX_ACCESS_TOKEN=your-mapbox-token
+SUPABASE_URL=your-supabase-url
+SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+- The app will **build** even if `OPENAI_API_KEY` is missing, but calls to `/api/ai/chat` will return an error until it is set.
+- If you are only working on static content / layout, you can leave AI and auth env vars unset.
+
+### Development server
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:3000` in your browser.
+
+### Build for production
+
+The build script also regenerates city/monthly indices from JSON:
+
+```bash
+npm run build
+```
+
+This runs, in order:
+
+- `npm run build:data` – `node scripts/generateMonthlyIndex.mjs`
+- `npm run build:cities` – `node scripts/generateCityIndex.mjs`
+- `next build`
+
+To start the production server locally:
+
+```bash
+npm run start
+```
+
+---
+
+## Data & Content Editing
+
+- City content lives in `public/data/<Country>/<City>/...` JSON files.
+- Shared version manifests live in `versions/*.json`.
+- When you add or edit city/monthly JSON, rerun:
+
+```bash
+npm run build:data
+npm run build:cities
+```
+
+The app reads directly from these JSON blobs in the browser (for static content) and in API routes for more advanced queries.
+
+---
+
+## Deployment
+
+This app is designed to deploy cleanly on Vercel:
+
+- Set the same environment variables in your Vercel project.
+- Use the default Vercel Next.js build settings (`npm run build`).
+
+Because most of the “content” is static JSON under `public/`, deployments are fast and the majority of the experience can be served statically, with API routes handling AI planning, suggestions, and dynamic data.

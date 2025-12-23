@@ -22,7 +22,7 @@ const regionColors = {
   "Other": "#6B7280", // gray
 };
 
-const CityCard = ({ city }) => {
+const CityCard = ({ city, priority = false }) => {
   const getRegionColorClass = (regionName) => {
     const hexColor = regionColors[regionName] || regionColors["Other"];
     switch(hexColor) {
@@ -82,10 +82,15 @@ const CityCard = ({ city }) => {
   }, [city]);
 
   const [srcIndex, setSrcIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const currentSrc = fallbacks[Math.min(srcIndex, fallbacks.length - 1)];
 
   const handleImgError = () => {
     setSrcIndex((prev) => (prev < fallbacks.length - 1 ? prev + 1 : prev));
+  };
+  
+  const handleImageLoad = () => {
+    setImageLoaded(true);
   };
   
   return (
@@ -93,7 +98,7 @@ const CityCard = ({ city }) => {
       <Link href={`/city-guides/${city.id}`} className="block">
         <div className="card overflow-hidden transition duration-300 hover:-translate-y-0.5">
           {/* Card image container */}
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative h-48 overflow-hidden bg-gray-100">
             <Image
               src={currentSrc}
               alt={`${city.name}, ${city.country} - European city guide`}
@@ -101,15 +106,14 @@ const CityCard = ({ city }) => {
               style={{ objectFit: 'cover' }}
               className="transition-transform duration-500 group-hover:scale-110"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              {...(priority ? { priority: true } : { loading: 'lazy' })}
+              quality={85}
               onError={handleImgError}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
             <div className="absolute top-3 left-3 px-3 py-1.5 text-xs font-medium bg-white/95 backdrop-blur-sm rounded-full text-gray-800 z-20 shadow-sm">
               <span className="mr-1">{getFlagEmoji(city.country)}</span>
               {city.country}
-            </div>
-            <div className={`absolute top-3 right-3 px-3 py-1.5 text-xs font-medium rounded-full border ${getRegionColorClass(city.region)} z-20 shadow-sm`}>
-              {city.region || 'Europe'}
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
               <h3 className="text-white font-bold text-xl drop-shadow-lg">

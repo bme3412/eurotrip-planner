@@ -13,6 +13,7 @@ import InlineDateControl from '@/components/InlineDateControl';
 import { parseDatesFromParams } from '@/hooks/useTripDates';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
+import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
 import { getCitiesData as getStaticCityData } from '@/components/city-guides/cityData';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 
@@ -66,11 +67,9 @@ function CityGuidesContent() {
   const [error, setError] = useState(null);
   const [activeFilterType, setActiveFilterType] = useState('euro-region');
 
-  const [itemsToShow, setItemsToShow] = useState(INITIAL_LOAD);
   const [displayed, setDisplayed] = useState([]);
-  const [hasMore, setHasMore] = useState(false);
-
-  const observerRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   /* ───────── date init from URL ───────── */
   const searchParams = useSearchParams();
@@ -92,15 +91,40 @@ function CityGuidesContent() {
     router.replace(`/city-guides?${p.toString()}`);
   }, [router]);
 
-  /* ───────── data load ───────── */
+  /* ───────── data load with caching ───────── */
   useEffect(() => {
     let cancelled = false;
 
     const load = async () => {
       setLoading(true);
       setError(null);
+      
       try {
-        const res = await fetch(`/api/cities?limit=all`, { cache: 'no-store' });
+        // Check cache first (5 minute cache)
+        const cacheKey = 'eurotrip_cities_data';
+        const cacheTimeKey = 'eurotrip_cities_timestamp';
+        const cacheExpiry = 5 * 60 * 1000; // 5 minutes
+        
+        const cachedData = localStorage.getItem(cacheKey);
+        const cachedTime = localStorage.getItem(cacheTimeKey);
+        const now = Date.now();
+        
+        if (cachedData && cachedTime && (now - parseInt(cachedTime)) < cacheExpiry) {
+          // Use cached data
+          const list = JSON.parse(cachedData);
+          if (!cancelled) {
+            setCities(list);
+            setAllCountries([...new Set(list.map((x) => x.country).filter(Boolean))].sort());
+            setLoading(false);
+          }
+          return;
+        }
+        
+        // Fetch fresh data
+        const res = await fetch(`/api/cities?limit=all`, { 
+          cache: 'force-cache',
+          next: { revalidate: 300 } // 5 minutes
+        });
         const json = await res.json();
         const list = (json?.data || []).map((c) => ({
           id: c.id,
@@ -112,6 +136,10 @@ function CityGuidesContent() {
         }));
 
         if (!cancelled) {
+          // Cache the data
+          localStorage.setItem(cacheKey, JSON.stringify(list));
+          localStorage.setItem(cacheTimeKey, now.toString());
+          
           setCities(list);
           setAllCountries([...new Set(list.map((x) => x.country).filter(Boolean))].sort());
           setLoading(false);
@@ -152,6 +180,16 @@ function CityGuidesContent() {
           const countries = EURO_REGION_GROUPS[selectedRegion] || [];
           matchesRegion = countries.includes(city.country);
         }
+      } else if (activeFilterType === 'travel-experience' && selectedRegion && selectedRegion !== 'All Experiences') {
+        // Filter by tourism categories from city data
+        const staticCityData = getStaticCityData();
+        const cityData = staticCityData.find(c => c.id === city.id);
+        
+        if (cityData && cityData.tourismCategories && Array.isArray(cityData.tourismCategories)) {
+          matchesRegion = cityData.tourismCategories.includes(selectedRegion);
+        } else {
+          matchesRegion = false;
+        }
       }
 
       return matchesSearch && matchesCountry && matchesRegion;
@@ -168,36 +206,23 @@ function CityGuidesContent() {
     return arr;
   }, [filtered]);
 
-  /* ───────── infinite scroll ───────── */
+  /* ───────── pagination ───────── */
   useEffect(() => {
-    setDisplayed(sorted.slice(0, INITIAL_LOAD));
-    setItemsToShow(INITIAL_LOAD);
-    setHasMore(sorted.length > INITIAL_LOAD);
+    setCurrentPage(1);
+    const total = Math.ceil(sorted.length / INITIAL_LOAD);
+    setTotalPages(total);
+    const start = 0;
+    const end = INITIAL_LOAD;
+    setDisplayed(sorted.slice(start, end));
   }, [sorted]);
 
-  const loadMore = useCallback(() => {
-    const next = itemsToShow + LOAD_INCREMENT;
-    setDisplayed(sorted.slice(0, next));
-    setItemsToShow(next);
-    setHasMore(sorted.length > next);
-  }, [itemsToShow, sorted]);
-
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && hasMore && !loading) {
-          loadMore();
-        }
-      },
-      { threshold: 1 },
-    );
-    
-    if (observerRef.current) {
-      io.observe(observerRef.current);
-    }
-    
-    return () => io.disconnect();
-  }, [hasMore, loading, loadMore]);
+  const goToPage = useCallback((page) => {
+    setCurrentPage(page);
+    const start = (page - 1) * INITIAL_LOAD;
+    const end = start + INITIAL_LOAD;
+    setDisplayed(sorted.slice(start, end));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [sorted]);
 
   /* ───────── UI handlers ───────── */
   const handleRegionChange = (region, type) => {
@@ -225,9 +250,48 @@ function CityGuidesContent() {
     setSearchTerm(value);
   };
 
+  /* ───────── dynamic heading ───────── */
+  const getResultsHeading = () => {
+    const count = sorted.length;
+    const hasFilters = selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences' || selectedCountries.length > 0 || searchTerm;
+    
+    if (!hasFilters) {
+      return 'Your curated picks';
+    }
+    
+    // Build a descriptive heading based on active filters
+    const parts = [];
+    
+    if (count === 0) {
+      return 'No cities found';
+    }
+    
+    parts.push(`${count} ${count === 1 ? 'city' : 'cities'}`);
+    
+    if (selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') {
+      if (activeFilterType === 'euro-region') {
+        parts.push(`in ${selectedRegion}`);
+      } else {
+        parts.push(`for ${selectedRegion}`);
+      }
+    }
+    
+    if (selectedCountries.length === 1) {
+      parts.push(`in ${selectedCountries[0]}`);
+    } else if (selectedCountries.length > 1) {
+      parts.push(`in ${selectedCountries.length} countries`);
+    }
+    
+    if (searchTerm) {
+      parts.push(`matching "${searchTerm}"`);
+    }
+    
+    return parts.join(' ');
+  };
+
   /* ───────── render ───────── */
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero */}
       <div className="px-6 pt-12 pb-6 text-center">
         <div className="mx-auto max-w-6xl">
@@ -254,53 +318,97 @@ function CityGuidesContent() {
             onClearFilters={clearFilters}
             activeFilterType={activeFilterType}
             onFilterTypeChange={setActiveFilterType}
-            rightExtras={<InlineDateControl value={tripDates} onChange={updateDates} />}
           />
         </div>
 
         <div className="mb-4 flex items-center justify-between gap-3">
-          <h2 className="text-xl font-semibold">Your curated picks</h2>
+          <h2 className="text-xl font-semibold">{getResultsHeading()}</h2>
         </div>
-
-        {/* Pill is now mounted inside the filter bar via rightExtras */}
 
         {/* Single unified grid */}
         {displayed.length > 0 && !error && (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {displayed.map((city) => (
-              <CityCard key={city.id} city={city} />
+            {displayed.map((city, index) => (
+              <CityCard 
+                key={city.id} 
+                city={city}
+                priority={index < 4} // Priority load first 4 images
+              />
             ))}
           </div>
         )}
 
-        {/* Infinite Scroll Sentinel */}
-        {hasMore && (
-          <div ref={observerRef} className="flex items-center justify-center py-4">
-            <div className="flex items-center space-x-2 text-gray-600">
-              <div className="w-5 h-5 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-              <span className="text-xs">Loading more cities...</span>
+        {/* Pagination */}
+        {sorted.length > INITIAL_LOAD && (
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+                aria-label="Previous page"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <div className="flex items-center gap-1">
+                {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                  let pageNum;
+                  if (totalPages <= 7) {
+                    pageNum = i + 1;
+                  } else if (currentPage <= 4) {
+                    pageNum = i + 1;
+                  } else if (currentPage >= totalPages - 3) {
+                    pageNum = totalPages - 6 + i;
+                  } else {
+                    pageNum = currentPage - 3 + i;
+                  }
+                  
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => goToPage(pageNum)}
+                      className={`min-w-[40px] px-3 py-2 rounded-lg font-medium transition-all ${
+                        currentPage === pageNum
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                      }`}
+                      aria-label={`Go to page ${pageNum}`}
+                      aria-current={currentPage === pageNum ? 'page' : undefined}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                })}
+              </div>
+              
+              <button
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+                aria-label="Next page"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Page info */}
+            <div className="text-sm text-gray-600">
+              Showing {((currentPage - 1) * INITIAL_LOAD) + 1}-{Math.min(currentPage * INITIAL_LOAD, sorted.length)} of {sorted.length} cities
             </div>
           </div>
         )}
 
-        {/* End of Results */}
-        {!hasMore && displayed.length > 0 && (
-          <div className="text-center py-4">
-            <div className="inline-flex items-center space-x-2 text-gray-500">
-              <div className="w-px h-3 bg-gray-300"></div>
-              <span className="text-xs">You&apos;ve reached the end</span>
-              <div className="w-px h-3 bg-gray-300"></div>
-            </div>
-          </div>
-        )}
-
-        {/* Initial Loading */}
+        {/* Initial Loading with Skeletons */}
         {loading && !error && (
-          <div className="flex items-center justify-center py-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-2"></div>
-              <p className="text-gray-600 text-sm">Loading amazing destinations...</p>
-            </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <CityCardSkeleton key={i} />
+            ))}
           </div>
         )}
 

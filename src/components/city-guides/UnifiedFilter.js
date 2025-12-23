@@ -106,11 +106,11 @@ const UnifiedFilter = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-3 transition-all duration-300">
-      {/* Top row: search + tabs + countries + right-aligned extras */}
+    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-5 transition-all duration-300">
+      {/* Top row: search + tabs + countries */}
       <div className="flex flex-wrap items-center gap-3">
-        {/* Search Bar - slightly wider for readability */}
-        <div className="w-56">
+        {/* Search Bar - responsive width */}
+        <div className="w-full sm:w-64">
           <div className="relative">
             <input
               type="text"
@@ -118,6 +118,7 @@ const UnifiedFilter = ({
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
               className="w-full pl-7 pr-3 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
+              aria-label="Search cities by name, country, or description"
             />
             <svg
               className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
@@ -136,29 +137,33 @@ const UnifiedFilter = ({
         </div>
 
         {/* Filter Type Tabs */}
-        <div className="bg-gray-100 p-1 rounded-lg">
-          <div className="flex space-x-1">
+        <div className="bg-gray-100 p-1.5 rounded-lg w-full sm:w-auto">
+          <div className="flex space-x-1.5">
             <button
               onClick={() => handleFilterTypeChange('euro-region')}
               className={`
-                px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
+                flex-1 sm:flex-none px-4 sm:px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ease-in-out
                 ${currentFilterType === 'euro-region'
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-white text-blue-600 shadow-md'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
                 }
               `}
+              aria-label="Filter by European regions"
+              aria-pressed={currentFilterType === 'euro-region'}
             >
               🗺️ Regions
             </button>
             <button
               onClick={() => handleFilterTypeChange('travel-experience')}
               className={`
-                px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
+                flex-1 sm:flex-none px-4 sm:px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ease-in-out
                 ${currentFilterType === 'travel-experience'
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-white text-blue-600 shadow-md'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
                 }
               `}
+              aria-label="Filter by travel experiences"
+              aria-pressed={currentFilterType === 'travel-experience'}
             >
               ✈️ Experiences
             </button>
@@ -166,10 +171,13 @@ const UnifiedFilter = ({
         </div>
 
         {/* Country Filter — sits immediately after the tabs */}
-        <div className="relative" ref={countryDropdownRef}>
+        <div className="relative w-full sm:w-auto" ref={countryDropdownRef}>
           <button
             onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-            className="px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm flex items-center space-x-2"
+            className="w-full sm:w-auto px-4 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm flex items-center justify-between space-x-2 font-medium"
+            aria-label="Filter by country"
+            aria-expanded={isCountryDropdownOpen}
+            aria-haspopup="true"
           >
             <span className="text-gray-900">{getCountryButtonLabel()}</span>
             <svg
@@ -179,13 +187,14 @@ const UnifiedFilter = ({
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
           {isCountryDropdownOpen && (
-            <div className="absolute z-50 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-64 overflow-y-auto min-w-48">
+            <div className="absolute z-50 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-64 overflow-y-auto min-w-48 md:min-w-56">
               <div className="py-2">
                 {/* All Countries option */}
                 <button
@@ -216,7 +225,10 @@ const UnifiedFilter = ({
                   return (
                     <button
                       key={country}
-                      onClick={() => handleCountryChange(country)}
+                      onClick={() => {
+                        handleCountryChange(country);
+                        // Keep dropdown open for multi-select
+                      }}
                       className="w-full flex items-center justify-between px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm"
                     >
                       <span className="text-gray-900">{country}</span>
@@ -237,31 +249,21 @@ const UnifiedFilter = ({
           )}
         </div>
 
-        {/* Spacer pushes extras to the far right on large screens */}
-        <div className="flex-1" />
-
-        {/* Extras on the bar (e.g., Add dates pill) */}
-        {rightExtras && (
-          <div className="ml-auto">
-            {rightExtras}
-          </div>
-        )}
-
-        {/* Clear Filters - Larger */}
+        {/* Clear Filters */}
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}
-            className="text-sm text-blue-600 hover:text-blue-800 font-medium px-3 py-2"
+            className="ml-auto px-4 py-2.5 text-sm text-blue-600 hover:text-blue-800 font-semibold hover:bg-blue-50 rounded-lg transition-colors"
           >
-            Clear
+            Clear Filters
           </button>
         )}
       </div>
 
       {/* Second row: filter option chips */}
-      <div className="mt-4 transition-all duration-300 ease-in-out">
+      <div className="mt-5 transition-all duration-300 ease-in-out">
         <div
-          className="flex flex-wrap gap-2 transition-all duration-300 ease-in-out"
+          className="flex flex-wrap gap-2.5 transition-all duration-300 ease-in-out"
           key={currentFilterType} // Force re-render for smooth transition
         >
           {getFilterOptions().map((option) => {
@@ -277,13 +279,21 @@ const UnifiedFilter = ({
                   handleRegionChange(option, currentFilterType);
                 }}
                 className={`
-                  px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out
+                  relative px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out
                   ${isSelected
-                    ? 'bg-blue-600 text-white shadow-md transform scale-105'
-                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-200 transform scale-105 ring-2 ring-blue-300 ring-offset-1'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:border-gray-300 hover:shadow-md hover:scale-102'
                   }
                 `}
+                aria-pressed={isSelected}
+                aria-label={`Filter by ${option}`}
               >
+                {isSelected && (
+                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                  </span>
+                )}
                 {option}
               </button>
             );
