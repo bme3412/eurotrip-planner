@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
+import { Bookmark, Eye, Plus, X, Check, Clock, MapPin, ChevronDown, ChevronUp, Filter, Star, SlidersHorizontal } from 'lucide-react';
 
 const MAX_SEASONAL_SCORE = 8;
 
@@ -62,6 +63,12 @@ const SORT_OPTIONS = [
   { id: 'category-desc', label: 'Category Z → A' }
 ];
 
+// Helper to capitalize city name
+const capitalizeCity = (name) => {
+  if (!name) return '';
+  return name.charAt(0).toUpperCase() + name.slice(1);
+};
+
 const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = 50 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedAttractions, setExpandedAttractions] = useState({});
@@ -74,6 +81,65 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [quickFilters, setQuickFilters] = useState({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
   const [sortOption, setSortOption] = useState('score-desc');
   const [activeCategories, setActiveCategories] = useState([]);
+  
+  // New state for UI improvements
+  const [showFilters, setShowFilters] = useState(false);
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [quickViewItem, setQuickViewItem] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+  const [toastMessage, setToastMessage] = useState(null);
+  const [showScoreBreakdown, setShowScoreBreakdown] = useState(false);
+  
+  // Helper to open quick view with fresh state
+  const openQuickView = (item) => {
+    setShowScoreBreakdown(false);
+    setQuickViewItem(item);
+  };
+  
+  // Properly capitalize city name
+  const displayCityName = capitalizeCity(cityName);
+  
+  // Load favorites from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(`favorites-${cityName}`);
+    if (stored) {
+      try {
+        setFavorites(JSON.parse(stored));
+      } catch (e) {
+        console.error('Failed to parse favorites', e);
+      }
+    }
+  }, [cityName]);
+  
+  // Save favorites to localStorage
+  const toggleFavorite = (item) => {
+    const itemId = item.name || item.activity || item.title;
+    const isFav = favorites.some(f => (f.name || f.activity || f.title) === itemId);
+    
+    let newFavorites;
+    if (isFav) {
+      newFavorites = favorites.filter(f => (f.name || f.activity || f.title) !== itemId);
+      showToast(`Removed "${itemId}" from favorites`);
+    } else {
+      newFavorites = [...favorites, item];
+      showToast(`Saved "${itemId}" to favorites`);
+    }
+    
+    setFavorites(newFavorites);
+    localStorage.setItem(`favorites-${cityName}`, JSON.stringify(newFavorites));
+  };
+  
+  const isFavorite = (item) => {
+    const itemId = item.name || item.activity || item.title;
+    return favorites.some(f => (f.name || f.activity || f.title) === itemId);
+  };
+  
+  // Toast notification
+  const showToast = (message) => {
+    setToastMessage(message);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   const rankingLenses = useMemo(() => ([
     {
@@ -132,11 +198,18 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
 
   useEffect(() => {
     let cancelled = false;
+    setIsLoading(true);
     async function load() {
-      if (!experiencesUrl) return;
+      if (!experiencesUrl) {
+        setIsLoading(false);
+        return;
+      }
       try {
         const res = await fetch(experiencesUrl, { cache: 'no-store' });
-        if (!res.ok) return;
+        if (!res.ok) {
+          setIsLoading(false);
+          return;
+        }
         const json = await res.json();
         const cats = json?.categories || {};
         const out = [];
@@ -173,9 +246,12 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         });
         out.sort((a, b) => (b.compositeScore || 0) - (a.compositeScore || 0));
         const top = out.slice(0, limit);
-        if (!cancelled) setExperiences(top);
+        if (!cancelled) {
+          setExperiences(top);
+          setIsLoading(false);
+        }
       } catch (_) {
-        // ignore fetch errors for now
+        if (!cancelled) setIsLoading(false);
       }
     }
     load();
@@ -729,14 +805,14 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     if (!attraction) return null;
     const attractionId = attraction.id || `highlight-${index}`;
     const isExpanded = expandedAttractions[attractionId] || false;
-    const showSeasonal = dateFilterType !== 'none' && typeof attraction.seasonalScore === 'number';
 
     return (
       <div
         key={`highlight-${attractionId}`}
-        className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white/95 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg"
+        className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
       >
-        <div className="relative h-32 w-full overflow-hidden bg-slate-100">
+        {/* Image Section */}
+        <div className="relative h-40 w-full overflow-hidden bg-gray-100">
           {attraction.image ? (
             <Image
               src={attraction.image}
@@ -746,102 +822,74 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-3xl text-slate-400">
+            <div className="flex h-full w-full items-center justify-center text-4xl text-gray-300">
               {getTypeIcon(attraction.type)}
             </div>
           )}
-          <div className="absolute left-3 top-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-white">
-            Top pick #{index + 1}
+          
+          {/* Top Badge */}
+          <div className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-2.5 py-1 text-xs font-bold text-white shadow-sm">
+            #{index + 1} Top Pick
+          </div>
+          
+          {/* Quick Actions - appear on hover */}
+          <div className="absolute bottom-2 right-2 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <button 
+              onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
+              className={`h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
+                isFavorite(attraction) 
+                  ? 'bg-blue-500 border-blue-600 text-white' 
+                  : 'bg-white/95 border-gray-200 hover:bg-blue-50 hover:border-blue-300'
+              }`}
+              aria-label={isFavorite(attraction) ? "Remove from favorites" : "Save to favorites"}
+            >
+              <Bookmark className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white text-white' : 'text-gray-600'}`} />
+            </button>
+            <button 
+              onClick={(e) => { e.stopPropagation(); openQuickView(attraction); }}
+              className="h-8 w-8 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-violet-50 hover:border-violet-300 transition-colors"
+              aria-label="Quick view"
+            >
+              <Eye className="h-4 w-4 text-gray-600" />
+            </button>
           </div>
         </div>
-        <div className="space-y-3 p-4">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <h3 className="text-base font-semibold text-slate-900 line-clamp-2">{attraction.name}</h3>
-              <div className="mt-1 flex flex-wrap gap-1 text-[11px] uppercase tracking-wide text-slate-500">
-                {attraction.category && (
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">
-                    {attraction.category}
-                  </span>
-                )}
-                {attraction.type && (
-                  <span className="rounded-full bg-slate-50 px-2 py-0.5">
-                    {attraction.type}
-                  </span>
-                )}
-              </div>
-            </div>
-            <div className="flex flex-col items-end gap-1">
-              {typeof attraction.lensScore === 'number' && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-semibold text-blue-700">
-                  {activeLens.label} {attraction.lensScore.toFixed(1)}
-                </span>
-              )}
-              {showSeasonal && (
-                <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
-                  {typeof attraction.seasonalScore === 'number' ? attraction.seasonalScore.toFixed(1) : attraction.seasonalScore}★ seasonal
-                </span>
-              )}
-            </div>
-          </div>
-
-          {attraction.description && (
-            <p className={`text-sm text-slate-600 ${isExpanded ? '' : 'line-clamp-3'}`}>
-              {attraction.description}
-            </p>
-          )}
-
-          <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-              {attraction.indoor === true ? '🛋️ Indoor friendly' : attraction.indoor === false ? '🌤️ Outdoor' : '🌆 Mixed setting'}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-              ⏱ {formatDuration(attraction?.ratings?.suggested_duration_hours)}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-              💶 {formatCost(attraction)}
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between border-t border-slate-100 pt-3">
-            <button
-              type="button"
-              onClick={() => toggleExpanded(attractionId)}
-              className="text-sm font-semibold text-blue-600 transition hover:text-blue-700"
-            >
-              {isExpanded ? 'Hide details' : 'Quick details'}
-            </button>
-            {attraction.website && (
-              <a
-                href={attraction.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold text-blue-600 transition hover:text-blue-700"
-              >
-                Visit site →
-              </a>
+        
+        {/* Content Section */}
+        <div className="p-4 space-y-3">
+          <div>
+            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 leading-snug">{attraction.name}</h3>
+            {attraction.category && (
+              <p className="text-xs text-gray-500 mt-1">{attraction.category}</p>
             )}
           </div>
 
-          {isExpanded && (
-            <div className="space-y-2 rounded-xl bg-slate-50 px-3 py-3 text-sm text-slate-600">
-              {attraction.best_time && (
-                <p>
-                  <span className="font-semibold text-slate-700">Best time:</span> {attraction.best_time}
-                </p>
-              )}
-              {attraction.seasonal_notes && (
-                <p>
-                  <span className="font-semibold text-slate-700">Seasonal note:</span> {attraction.seasonal_notes}
-                </p>
-              )}
-              {attraction.booking_tips && (
-                <p>
-                  <span className="font-semibold text-slate-700">Booking tip:</span> {attraction.booking_tips}
-                </p>
-              )}
-            </div>
+          {attraction.description && (
+            <p className="text-sm text-gray-600 line-clamp-2">{attraction.description}</p>
           )}
+
+          {/* Info Row - matches Overview cards */}
+          <div className="flex items-center gap-3 text-xs text-gray-500">
+            <span className="inline-flex items-center gap-1">
+              <Clock className="h-3.5 w-3.5 text-gray-400" />
+              {formatDuration(attraction?.ratings?.suggested_duration_hours)}
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="h-3.5 w-3.5 text-gray-400" />
+              {attraction.neighborhood || attraction.category || 'Paris'}
+            </span>
+          </div>
+          
+          {/* Cost Badge */}
+          <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+            <span className="text-sm font-medium text-gray-900">{formatCost(attraction)}</span>
+            <button
+              onClick={() => openQuickView(attraction)}
+              className="text-sm font-medium text-blue-600 hover:text-blue-700"
+            >
+              View details →
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -850,16 +898,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const renderExperienceCard = (attraction, index, offset = 0) => {
     if (!attraction) return null;
     const attractionId = attraction.id || `experience-${offset + index}`;
-    const isExpanded = expandedAttractions[attractionId] || false;
-    const showSeasonal = dateFilterType !== 'none' && typeof attraction.seasonalScore === 'number';
 
     return (
       <div
         key={attractionId}
-        className="group rounded-2xl border border-slate-200 bg-white/95 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:border-slate-300 hover:shadow-lg"
+        className="group rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md"
       >
-        <div className="flex flex-col gap-4 p-5 md:flex-row">
-          <div className="relative h-36 w-full overflow-hidden rounded-xl bg-slate-100 md:w-44">
+        <div className="flex flex-col gap-4 p-4 sm:flex-row">
+          {/* Image */}
+          <div className="relative h-32 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-36 sm:w-40 shrink-0">
             {attraction.image ? (
               <Image
                 src={attraction.image}
@@ -869,396 +916,411 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-3xl text-slate-400">
+              <div className="flex h-full w-full items-center justify-center text-3xl text-gray-300">
                 {getTypeIcon(attraction.type)}
               </div>
             )}
-            {typeof attraction.lensScore === 'number' && (
-              <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-white/85 px-2 py-0.5 text-[11px] font-semibold text-blue-700">
-                {activeLens.label}
-                <span>{attraction.lensScore.toFixed(1)}</span>
-              </div>
-            )}
+            
+            {/* Quick Actions on image */}
+            <div className="absolute bottom-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              <button 
+                onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
+                className={`h-7 w-7 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
+                  isFavorite(attraction) 
+                    ? 'bg-blue-500 border-blue-600 text-white' 
+                    : 'bg-white/95 border-gray-200 hover:bg-blue-50'
+                }`}
+              >
+                <Bookmark className={`h-3.5 w-3.5 ${isFavorite(attraction) ? 'fill-white' : 'text-gray-600'}`} />
+              </button>
+              <button 
+                onClick={(e) => { e.stopPropagation(); openQuickView(attraction); }}
+                className="h-7 w-7 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-violet-50 transition-colors"
+              >
+                <Eye className="h-3.5 w-3.5 text-gray-600" />
+              </button>
+            </div>
           </div>
 
-          <div className="flex-1 space-y-3">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-              <div className="min-w-0 space-y-1">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  {attraction.category && (
-                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">
-                      {attraction.category}
-                    </span>
-                  )}
-                  {attraction.type && (
-                    <span className="rounded-full bg-slate-50 px-2 py-0.5">{attraction.type}</span>
-                  )}
-                  {attraction.neighborhood && (
-                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-700">
-                      {attraction.neighborhood}
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 leading-tight">{attraction.name}</h3>
+          {/* Content */}
+          <div className="flex-1 min-w-0 space-y-2">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold text-gray-900 leading-snug line-clamp-2">{attraction.name}</h3>
+                <p className="text-xs text-gray-500 mt-0.5">{attraction.category}</p>
               </div>
-
-              <div className="flex flex-col items-end gap-2 text-sm">
-                {attraction.ratings?.cultural_significance && (
-                  <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${getSignificanceColor(attraction.ratings.cultural_significance)}`}>
-                    Culture {attraction.ratings.cultural_significance.toFixed(1)}
-                  </span>
-                )}
-                {showSeasonal && (
-                  <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${getSeasonalScoreColor(attraction.seasonalScore)}`}>
-                    Seasonal {typeof attraction.seasonalScore === 'number' ? attraction.seasonalScore.toFixed(1) : attraction.seasonalScore}★
-                  </span>
-                )}
-                {typeof attraction.compositeScore === 'number' && (
-                  <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${overallScoreClass(attraction.compositeScore)}`}>
-                    Composite {attraction.compositeScore.toFixed(1)}
-                  </span>
-                )}
-              </div>
+              <span className="shrink-0 text-sm font-medium text-gray-900">{formatCost(attraction)}</span>
             </div>
 
             {attraction.description && (
-              <p className={`text-sm text-slate-600 ${isExpanded ? '' : 'line-clamp-3'}`}>
-                {attraction.description}
-              </p>
+              <p className="text-sm text-gray-600 line-clamp-2">{attraction.description}</p>
             )}
 
-            <div className="flex flex-wrap gap-2 text-xs text-slate-600">
-              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-                {attraction.indoor === true ? '🛋️ Indoor friendly' : attraction.indoor === false ? '🌤️ Outdoor' : '🌆 Mixed setting'}
+            {/* Info Row - unified with Overview */}
+            <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
+              <span className="inline-flex items-center gap-1">
+                <Clock className="h-3.5 w-3.5 text-gray-400" />
+                {formatDuration(attraction?.ratings?.suggested_duration_hours)}
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-                ⏱ {formatDuration(attraction?.ratings?.suggested_duration_hours)}
+              <span className="inline-flex items-center gap-1">
+                <MapPin className="h-3.5 w-3.5 text-gray-400" />
+                {attraction.neighborhood || attraction.arrondissement || 'Paris'}
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-                💶 {formatCost(attraction)}
-              </span>
-              {attraction.arrondissement && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1">
-                  📍 {attraction.arrondissement}
+              {typeof attraction.compositeScore === 'number' && (
+                <span className="inline-flex items-center gap-1">
+                  <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400" />
+                  {attraction.compositeScore.toFixed(1)}
                 </span>
               )}
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
+            {/* Actions */}
+            <div className="flex items-center gap-2 pt-2">
               <button
-                type="button"
-                onClick={() => toggleExpanded(attractionId)}
-                className="text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+                onClick={() => openQuickView(attraction)}
+                className="text-sm font-medium text-blue-600 hover:text-blue-700"
               >
-                {isExpanded ? 'Hide details' : 'More about this spot'}
+                View details
               </button>
-
-              <div className="flex flex-wrap items-center gap-2">
-                {attraction.latitude && attraction.longitude && (
-                  <button
-                    type="button"
-                    onClick={() => console.log('map', attraction.latitude, attraction.longitude)}
-                    className="rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50"
-                  >
-                    Show on map
-                  </button>
-                )}
-                {attraction.website && (
+              {attraction.website && (
+                <>
+                  <span className="text-gray-300">•</span>
                   <a
                     href={attraction.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-blue-600 px-4 py-1 text-sm font-semibold text-white transition hover:bg-blue-700"
+                    className="text-sm font-medium text-gray-600 hover:text-gray-800"
                   >
-                    Visit site
+                    Visit site →
                   </a>
-                )}
-              </div>
+                </>
+              )}
             </div>
           </div>
         </div>
+      </div>
+    );
+  };
 
-        {isExpanded && (
-          <div className="border-t border-slate-100 bg-slate-50/80 px-5 py-4 text-sm text-slate-600">
-            <div className="grid gap-3 md:grid-cols-3">
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Best Time</h4>
-                <p className="mt-1 text-slate-700">{attraction.best_time || 'Flexible'}</p>
-              </div>
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Seasonal Notes</h4>
-                <p className="mt-1 text-slate-700">{attraction.seasonal_notes || 'No major callouts'}</p>
-              </div>
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Booking Tips</h4>
-                <p className="mt-1 text-slate-700">{attraction.booking_tips || 'Walk-up friendly'}</p>
+  // Loading skeleton component
+  const LoadingSkeleton = () => (
+    <div className="space-y-6 animate-pulse">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="rounded-2xl border border-gray-200 bg-white overflow-hidden">
+            <div className="h-32 bg-gray-200" />
+            <div className="p-4 space-y-3">
+              <div className="h-4 bg-gray-200 rounded w-3/4" />
+              <div className="h-3 bg-gray-100 rounded w-1/2" />
+              <div className="h-3 bg-gray-100 rounded w-full" />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="space-y-4">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i} className="rounded-2xl border border-gray-200 bg-white p-5 flex gap-4">
+            <div className="h-36 w-44 bg-gray-200 rounded-xl shrink-0" />
+            <div className="flex-1 space-y-3">
+              <div className="h-5 bg-gray-200 rounded w-1/3" />
+              <div className="h-4 bg-gray-100 rounded w-1/4" />
+              <div className="h-3 bg-gray-100 rounded w-full" />
+              <div className="h-3 bg-gray-100 rounded w-2/3" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="p-4 sm:p-6 space-y-6">
+      {/* Simplified Header */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            Discover {displayCityName}
+          </h1>
+          <p className="text-sm text-gray-600 mt-1">
+            {filteredAttractions.length} experiences to explore
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          {hasActiveQuickFilters && (
+            <button
+              type="button"
+              onClick={() => {
+                setSearchTerm('');
+                setQuickFilters({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
+                setDateFilterType('none');
+                setSelectedMonth('all');
+                setActiveCategories([]);
+              }}
+              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Unified Search & Filter Bar */}
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        {/* Search Row */}
+        <div className="p-4 flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+              </svg>
+            </span>
+            <input
+              type="search"
+              className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+              placeholder={`Search in ${displayCityName}...`}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          
+          {/* Filter Toggle Button - Mobile */}
+          <button
+            type="button"
+            onClick={() => setShowFilters(!showFilters)}
+            className="sm:hidden flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 bg-gray-50 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          >
+            <Filter className="h-4 w-4" />
+            Filters
+            {hasActiveQuickFilters && <span className="h-2 w-2 rounded-full bg-blue-500" />}
+          </button>
+          
+          {/* Quick Filters - Desktop (always visible) */}
+          <div className="hidden sm:flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setQuickFilters((f) => ({ ...f, freeOnly: !f.freeOnly }))}
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
+                quickFilters.freeOnly ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              Free
+            </button>
+            <button
+              type="button"
+              onClick={() => setQuickFilters((f) => ({ ...f, indoorOnly: !f.indoorOnly, outdoorOnly: false }))}
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
+                quickFilters.indoorOnly ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              Indoor
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+              className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                showAdvancedFilters ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              <SlidersHorizontal className="h-4 w-4" />
+              More
+              <ChevronDown className={`h-3 w-3 transition-transform ${showAdvancedFilters ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Filter Panel */}
+        {showFilters && (
+          <div className="sm:hidden border-t border-gray-100 p-4 space-y-4 bg-gray-50">
+            <div className="space-y-2">
+              <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Quick Filters</label>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => setQuickFilters((f) => ({ ...f, freeOnly: !f.freeOnly }))}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                    quickFilters.freeOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  🆓 Free
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setQuickFilters((f) => ({ ...f, indoorOnly: !f.indoorOnly, outdoorOnly: false }))}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                    quickFilters.indoorOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  🏛️ Indoor
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setQuickFilters((f) => ({ ...f, outdoorOnly: !f.outdoorOnly, indoorOnly: false }))}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                    quickFilters.outdoorOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  🌤️ Outdoor
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setQuickFilters((f) => ({ ...f, shortVisitsOnly: !f.shortVisitsOnly }))}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                    quickFilters.shortVisitsOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  ⏱️ Quick visit
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setQuickFilters((f) => ({ ...f, budgetOnly: !f.budgetOnly }))}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                    quickFilters.budgetOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  💰 Budget
+                </button>
               </div>
             </div>
-
-            {(attraction.aggregates || attraction.factorScores) && (
-              <div className="mt-4 grid gap-2 md:grid-cols-3">
-                <div className="rounded-xl bg-white/90 p-3 text-center">
-                  <div className="text-sm font-semibold text-slate-900">
-                    {attraction.aggregates?.culturalValue
-                      ? attraction.aggregates.culturalValue.toFixed(2)
-                      : attraction.factorScores?.cultural_historical_significance ?? '—'}
-                  </div>
-                  <div className="text-xs uppercase tracking-wide text-slate-500">Cultural Impact</div>
+            
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Season</label>
+                <select
+                  value={selectedMonth}
+                  onChange={(e) => {
+                    setSelectedMonth(e.target.value);
+                    setDateFilterType(e.target.value === 'all' ? 'none' : 'month');
+                  }}
+                  className="mt-1 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
+                >
+                  {months.map((month) => (
+                    <option key={month.value} value={month.value}>{month.icon} {month.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Sort</label>
+                <select
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
+                >
+                  {SORT_OPTIONS.map((opt) => (
+                    <option key={opt.id} value={opt.id}>{opt.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Desktop Advanced Filters Panel */}
+        {showAdvancedFilters && (
+          <div className="hidden sm:block border-t border-gray-100 p-4 bg-gray-50">
+            <div className="grid gap-4 md:grid-cols-4">
+              <div className="space-y-3">
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">More Filters</label>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setQuickFilters((f) => ({ ...f, outdoorOnly: !f.outdoorOnly, indoorOnly: false }))}
+                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                      quickFilters.outdoorOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                    }`}
+                  >
+                    Outdoor
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setQuickFilters((f) => ({ ...f, shortVisitsOnly: !f.shortVisitsOnly }))}
+                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                      quickFilters.shortVisitsOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                    }`}
+                  >
+                    ≤ 90 min
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setQuickFilters((f) => ({ ...f, budgetOnly: !f.budgetOnly }))}
+                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                      quickFilters.budgetOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                    }`}
+                  >
+                    Budget-friendly
+                  </button>
                 </div>
-                <div className="rounded-xl bg-white/90 p-3 text-center">
-                  <div className="text-sm font-semibold text-slate-900">
-                    {attraction.aggregates?.experienceQuality
-                      ? attraction.aggregates.experienceQuality.toFixed(2)
-                      : attraction.factorScores?.visitor_experience_quality ?? '—'}
-                  </div>
-                  <div className="text-xs uppercase tracking-wide text-slate-500">Visit Quality</div>
-                </div>
-                <div className="rounded-xl bg-white/90 p-3 text-center">
-                  <div className="text-sm font-semibold text-slate-900">
-                    {attraction.aggregates?.practicalEase
-                      ? attraction.aggregates.practicalEase.toFixed(2)
-                      : attraction.factorScores?.accessibility ?? '—'}
-                  </div>
-                  <div className="text-xs uppercase tracking-wide text-slate-500">Practical Ease</div>
+              </div>
+              
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Season Focus</label>
+                <select
+                  value={selectedMonth}
+                  onChange={(e) => {
+                    setSelectedMonth(e.target.value);
+                    setDateFilterType(e.target.value === 'all' ? 'none' : 'month');
+                  }}
+                  className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
+                >
+                  {months.map((month) => (
+                    <option key={month.value} value={month.value}>{month.icon} {month.label}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Sort By</label>
+                <select
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
+                >
+                  {SORT_OPTIONS.map((opt) => (
+                    <option key={opt.id} value={opt.id}>{opt.label}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Ranking Style</label>
+                <select
+                  value={rankingLens}
+                  onChange={(e) => setRankingLens(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
+                >
+                  {rankingLenses.map((lens) => (
+                    <option key={lens.id} value={lens.id}>{lens.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            
+            {categoryFilters.length > 0 && (
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Categories</label>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {categoryFilters.map((category) => (
+                    <button
+                      key={category.id}
+                      type="button"
+                      onClick={() => handleCategoryToggle(category.id)}
+                      className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                        activeCategorySet.has(category.id) ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
+                      }`}
+                    >
+                      {category.label}
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
           </div>
         )}
       </div>
-    );
-  };
 
-  return (
-    <div className="p-6 space-y-8">
-      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-slate-900">
-            {cityName} Experiences & Attractions
-          </h1>
-          <p className="text-sm text-slate-600 md:text-base">
-            Crafted for curious travelers with a{' '}
-            <span className="font-semibold text-slate-800">{activeLens.label.toLowerCase()}</span>{' '}
-            lens.
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-2 text-xs text-slate-500 md:text-sm">
-          <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
-            {filteredAttractions.length} matches
-          </span>
-          {dateFilterType !== 'none' && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">
-              {getDateFilterDisplay()}
-            </span>
-          )}
-        </div>
-      </div>
-
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white/95 shadow-sm">
-        <div className="grid gap-4 p-5 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
-          <div className="space-y-4">
-            <div className="relative">
-              <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
-                <svg className="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-              </span>
-              <input
-                type="search"
-                className="w-full rounded-2xl border border-slate-200 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 md:text-base"
-                placeholder={`Search experiences in ${cityName}...`}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => setQuickFilters((f) => ({ ...f, indoorOnly: !f.indoorOnly, outdoorOnly: false }))}
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  quickFilters.indoorOnly
-                    ? 'bg-emerald-600 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                Indoor friendly
-              </button>
-              <button
-                type="button"
-                onClick={() => setQuickFilters((f) => ({ ...f, outdoorOnly: !f.outdoorOnly, indoorOnly: false }))}
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  quickFilters.outdoorOnly
-                    ? 'bg-sky-600 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                Outdoor highlights
-              </button>
-              <button
-                type="button"
-                onClick={() => setQuickFilters((f) => ({ ...f, shortVisitsOnly: !f.shortVisitsOnly }))}
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  quickFilters.shortVisitsOnly
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                ≤ 90 min
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  setQuickFilters((f) => ({
-                    ...f,
-                    freeOnly: !f.freeOnly,
-                    budgetOnly: f.freeOnly ? f.budgetOnly : false
-                  }))
-                }
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  quickFilters.freeOnly
-                    ? 'bg-amber-500 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                Free
-              </button>
-              <button
-                type="button"
-                onClick={() => setQuickFilters((f) => ({ ...f, budgetOnly: !f.budgetOnly, freeOnly: false }))}
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                  quickFilters.budgetOnly
-                    ? 'bg-amber-500 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                Budget-friendly
-              </button>
-            </div>
-
-            {categoryFilters.length > 0 && (
-              <div className="space-y-2">
-                <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Focus categories
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {categoryFilters.map((category) => {
-                    const isActive = activeCategorySet.has(category.id);
-                    return (
-                      <button
-                        key={category.id}
-                        type="button"
-                        onClick={() => handleCategoryToggle(category.id)}
-                        className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                          isActive ? 'bg-slate-900 text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        {category.label}
-                      </button>
-                    );
-                  })}
-                </div>
-                {activeCategories.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={clearCategoryFilters}
-                    className="text-xs font-semibold text-slate-500 underline hover:text-slate-700"
-                  >
-                    Clear categories
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-3">
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Season focus
-              </label>
-              <select
-                value={selectedMonth}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setSelectedMonth(value);
-                  setDateFilterType(value === 'all' ? 'none' : 'month');
-                }}
-                className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-              >
-                {months.map((month) => (
-                  <option key={month.value} value={month.value}>
-                    {month.icon} {month.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Sort results
-              </label>
-              <select
-                value={sortOption}
-                onChange={(e) => setSortOption(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-              >
-                {SORT_OPTIONS.map((option) => (
-                  <option key={option.id} value={option.id}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {hasActiveQuickFilters && (
-              <div className="flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSearchTerm('');
-                    setQuickFilters({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
-                    setDateFilterType('none');
-                    setSelectedMonth('all');
-                    setSelectedDate('');
-                    setStartDate('');
-                    setEndDate('');
-                    setActiveCategories([]);
-                    setSortOption('score-desc');
-                  }}
-                  className="text-xs font-semibold text-slate-500 underline hover:text-slate-700"
-                >
-                  Reset filters
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="space-y-3 border-t border-slate-100 px-5 py-4">
-          <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Ranking lens
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {rankingLenses.map((lens) => (
-              <button
-                key={lens.id}
-                type="button"
-                onClick={() => setRankingLens(lens.id)}
-                className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-                  rankingLens === lens.id
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                {lens.label}
-              </button>
-            ))}
-          </div>
-          <p className="text-xs text-slate-500 md:text-sm">{activeLens.description}.</p>
-        </div>
-      </div>
-
-      {highlightAttractions.length > 0 && (
+      {/* Loading State */}
+      {isLoading ? (
+        <LoadingSkeleton />
+      ) : highlightAttractions.length > 0 && (
         <section className="space-y-4">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <h2 className="text-xl font-semibold text-slate-900">Spotlight picks</h2>
@@ -1303,19 +1365,186 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 renderExperienceCard(attraction, index, highlightAttractions.length)
               )}
               {visibleCount < remainingAttractions.length && (
-                <div className="text-center text-sm text-slate-500">
+                <div className="text-center text-sm text-gray-500">
                   Scrolling reveals more ideas automatically
                 </div>
               )}
             </div>
           ) : (
             highlightAttractions.length > 0 && (
-              <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 px-6 py-6 text-sm text-slate-600">
+              <div className="rounded-xl border border-dashed border-gray-200 bg-gray-50 px-6 py-6 text-sm text-gray-600">
                 You&apos;ve already seen every standout for this lens in the spotlight section above.
               </div>
             )
           )}
         </section>
+      )}
+
+      {/* Quick View Modal */}
+      {quickViewItem && (
+        <div 
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
+          onClick={() => setQuickViewItem(null)}
+        >
+          <div 
+            className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[85vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header with image */}
+            <div className="relative h-48 sm:h-56 bg-gray-100">
+              {quickViewItem.image ? (
+                <Image
+                  src={quickViewItem.image}
+                  alt={quickViewItem.name || quickViewItem.activity}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                  <MapPin className="h-12 w-12" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              
+              {/* Close button */}
+              <button 
+                onClick={() => setQuickViewItem(null)}
+                className="absolute top-3 right-3 h-8 w-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              
+              {/* Title overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg">
+                  {quickViewItem.name || quickViewItem.activity}
+                </h2>
+                {quickViewItem.category && (
+                  <span className="inline-block mt-2 px-2 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white">
+                    {quickViewItem.category}
+                  </span>
+                )}
+              </div>
+            </div>
+            
+            {/* Content */}
+            <div className="p-5 space-y-4 overflow-y-auto max-h-[calc(85vh-14rem)]">
+              {/* Rating and cost */}
+              <div className="flex items-center justify-between">
+                {typeof quickViewItem.compositeScore === 'number' && (
+                  <button 
+                    onClick={() => setShowScoreBreakdown(!showScoreBreakdown)}
+                    className="flex items-center gap-1 hover:bg-gray-50 rounded-lg px-2 py-1 -ml-2 transition-colors"
+                    title="Click to see score breakdown"
+                  >
+                    <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                    <span className="font-semibold text-gray-900">{quickViewItem.compositeScore.toFixed(1)}</span>
+                    <span className="text-gray-500 text-sm">score</span>
+                    <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform ${showScoreBreakdown ? 'rotate-180' : ''}`} />
+                  </button>
+                )}
+                <span className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
+                  {formatCost(quickViewItem)}
+                </span>
+              </div>
+              
+              {/* Score breakdown - expandable */}
+              {showScoreBreakdown && quickViewItem.factorScores && (
+                <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-sm font-semibold text-gray-700">How we score experiences</h4>
+                    <span className="text-xs text-gray-500">10 factors weighted by importance</span>
+                  </div>
+                  
+                  {/* Score visualization */}
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      { key: 'uniqueness_to_paris', label: 'Uniqueness to Paris', weight: 15, icon: '✨' },
+                      { key: 'visitor_experience_quality', label: 'Experience Quality', weight: 15, icon: '⭐' },
+                      { key: 'cultural_historical_significance', label: 'Cultural Significance', weight: 12, icon: '🏛️' },
+                      { key: 'value_for_money', label: 'Value for Money', weight: 12, icon: '💰' },
+                      { key: 'photo_instagram_appeal', label: 'Photo Appeal', weight: 10, icon: '📸' },
+                      { key: 'accessibility', label: 'Accessibility', weight: 10, icon: '♿' },
+                      { key: 'crowd_management', label: 'Crowd Levels', weight: 8, icon: '👥' },
+                      { key: 'weather_independence', label: 'Weather Proof', weight: 8, icon: '🌧️' },
+                      { key: 'family_friendliness', label: 'Family Friendly', weight: 5, icon: '👨‍👩‍👧' },
+                      { key: 'educational_value', label: 'Educational Value', weight: 5, icon: '📚' },
+                    ].map(({ key, label, weight, icon }) => {
+                      const value = quickViewItem.factorScores?.[key] ?? 0;
+                      return (
+                        <div key={key} className="flex items-center gap-2">
+                          <span className="text-sm w-5">{icon}</span>
+                          <span className="text-xs text-gray-600 w-28 truncate">{label}</span>
+                          <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all"
+                              style={{ width: `${(value / 10) * 100}%` }}
+                            />
+                          </div>
+                          <span className="text-xs font-medium text-gray-700 w-6 text-right">{value}</span>
+                          <span className="text-xs text-gray-400 w-8">({weight}%)</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  <p className="text-xs text-gray-500 pt-2 border-t border-gray-200">
+                    Final score: weighted average of all factors. Higher weight = more impact on overall score.
+                  </p>
+                </div>
+              )}
+              
+              {/* Description */}
+              {quickViewItem.description && (
+                <p className="text-gray-700 leading-relaxed">{quickViewItem.description}</p>
+              )}
+              
+              {/* Details grid */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
+                  <Clock className="h-4 w-4 text-gray-400" />
+                  <span>{formatDuration(quickViewItem?.ratings?.suggested_duration_hours)}</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
+                  <MapPin className="h-4 w-4 text-gray-400" />
+                  <span>{quickViewItem.neighborhood || quickViewItem.arrondissement || 'Paris'}</span>
+                </div>
+              </div>
+              
+              {/* Action buttons */}
+              <div className="flex gap-3 pt-2">
+                <button
+                  onClick={() => { toggleFavorite(quickViewItem); }}
+                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-medium transition-colors ${
+                    isFavorite(quickViewItem)
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  <Bookmark className={`h-4 w-4 ${isFavorite(quickViewItem) ? 'fill-white' : ''}`} />
+                  {isFavorite(quickViewItem) ? 'Saved' : 'Save'}
+                </button>
+                <button
+                  onClick={() => setQuickViewItem(null)}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+                >
+                  <Check className="h-4 w-4" />
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+          <div className="bg-gray-900 text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-3">
+            <Check className="h-5 w-5 text-emerald-400" />
+            <span className="text-sm font-medium">{toastMessage}</span>
+          </div>
+        </div>
       )}
     </div>
   );

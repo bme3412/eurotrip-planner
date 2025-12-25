@@ -35,10 +35,14 @@ export function getCityHeaderInfo(cityData) {
     avgVisit = overview.meta.avg_visit_duration;
   }
   
+  // Extract subtitle from overview
+  const subtitle = overview?.subtitle || null;
+  
   return {
     bestTime,
     avgVisit,
-    currency
+    currency,
+    subtitle
   };
 }
 

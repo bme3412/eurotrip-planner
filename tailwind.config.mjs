@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import lineClamp from '@tailwindcss/line-clamp';
 const config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,6 +7,9 @@ const config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -16,6 +18,7 @@ const config = {
       animation: {
         'fade-in': 'fadeIn 1.5s ease-out',
         'slide-up': 'slideUp 1s ease-out forwards',
+        'shimmer': 'shimmer 2s ease-in-out infinite',
       },
       scale: {
         '102': '1.02',
@@ -29,6 +32,10 @@ const config = {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
@@ -39,7 +46,7 @@ const config = {
       },
     },
   },
-  plugins: [lineClamp],
+  plugins: [],
 }
 
 export default config

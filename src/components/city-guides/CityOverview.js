@@ -4,7 +4,7 @@ import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils
 import { Chip } from '@/components/common/Primitives';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2 } from 'lucide-react';
+import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2, Bookmark, Plus, Eye, Sunrise, Sunset, X, Check, ExternalLink } from 'lucide-react';
 
 const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntroHero = false }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -14,6 +14,54 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
   const [overviewParagraph, setOverviewParagraph] = useState(null);
+  
+  // Quick View Modal state
+  const [quickViewItem, setQuickViewItem] = useState(null);
+  
+  // Favorites state
+  const [favorites, setFavorites] = useState([]);
+  const [toastMessage, setToastMessage] = useState(null);
+  
+  // Load favorites from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(`favorites-${cityName}`);
+    if (stored) {
+      try {
+        setFavorites(JSON.parse(stored));
+      } catch (e) {
+        console.error('Failed to parse favorites', e);
+      }
+    }
+  }, [cityName]);
+  
+  // Save favorites to localStorage
+  const toggleFavorite = (item) => {
+    const itemId = item.activity || item.title || item.name;
+    const isFavorite = favorites.some(f => (f.activity || f.title || f.name) === itemId);
+    
+    let newFavorites;
+    if (isFavorite) {
+      newFavorites = favorites.filter(f => (f.activity || f.title || f.name) !== itemId);
+      showToast(`Removed "${itemId}" from favorites`);
+    } else {
+      newFavorites = [...favorites, item];
+      showToast(`Saved "${itemId}" to favorites`);
+    }
+    
+    setFavorites(newFavorites);
+    localStorage.setItem(`favorites-${cityName}`, JSON.stringify(newFavorites));
+  };
+  
+  const isFavorite = (item) => {
+    const itemId = item.activity || item.title || item.name;
+    return favorites.some(f => (f.activity || f.title || f.name) === itemId);
+  };
+  
+  // Toast notification
+  const showToast = (message) => {
+    setToastMessage(message);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   // Add click outside handler to close tooltip
   useEffect(() => {
@@ -334,262 +382,259 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
 
       {/* Best Time to Visit / Overview paragraph */}
       {overviewParagraph && (
-        <div className="relative overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
+        <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-500"></div>
-          <div className="p-5 md:p-6 space-y-2 md:space-y-3">
+          <div className="p-5 md:p-6 space-y-4">
             <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Best Time to Visit</h2>
+            
+            {/* Main summary */}
             <p className="text-[15px] md:text-[16px] leading-7 text-slate-700 [text-wrap:pretty] md:max-w-none">
-              Spring (Apr–Jun) and early fall (Sep–Oct) are the sweet spot: café terraces hum, gardens bloom or turn gold, and walking weather is ideal.
-              July brings long evenings and blockbuster events—but also peak crowds and higher prices; in August some boutiques and smaller restaurants close.
-              Winter (Nov–Feb) is quieter and cozy—think museum days, patisserie stops, and twinkling holiday lights—while March begins to warm with the odd shower.
+              Paris shines brightest in <strong>spring (April–June)</strong> and <strong>early fall (September–October)</strong>, when the city strikes its perfect balance. 
+              Cherry blossoms frame the Eiffel Tower, sidewalk cafés buzz with locals enjoying the sunshine, and 15–20°C (60–68°F) temperatures make exploring on foot pure joy. 
+              Early fall brings the added magic of golden foliage in Luxembourg Gardens and Bois de Boulogne, plus the cultural season roars back with new museum exhibitions and theater premieres.
             </p>
 
-            <div className="mt-1 md:mt-2 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs md:text-sm">
-                🌸/🍂 Spring & Early Fall <span className="hidden sm:inline">· best mix of weather + crowds</span>
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 px-3 py-1 text-xs md:text-sm">
-                ☀️ Jul–Aug <span className="hidden sm:inline">· long days & events; peak demand</span>
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-sky-50 text-sky-700 px-3 py-1 text-xs md:text-sm">
-                ❄️ Nov–Feb <span className="hidden sm:inline">· cozy, quieter, good hotel value</span>
-              </span>
+            {/* 12-Month Calendar - Integrated */}
+            <div className="mt-4">
+              {/* Color Legend */}
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-3 p-2 bg-gray-50 rounded-lg">
+                <div className="flex items-center">
+                  <div className="w-5 h-2.5 rounded mr-1.5" style={{backgroundColor: '#10b981'}}></div>
+                  <span className="text-[11px] text-gray-600 font-medium">Perfect</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-5 h-2.5 rounded mr-1.5" style={{backgroundColor: '#34d399'}}></div>
+                  <span className="text-[11px] text-gray-600 font-medium">Great</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-5 h-2.5 rounded mr-1.5" style={{backgroundColor: '#fbbf24'}}></div>
+                  <span className="text-[11px] text-gray-600 font-medium">Decent</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-5 h-2.5 rounded mr-1.5" style={{backgroundColor: '#fb923c'}}></div>
+                  <span className="text-[11px] text-gray-600 font-medium">Consider</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-5 h-2.5 rounded mr-1.5" style={{backgroundColor: '#ef4444'}}></div>
+                  <span className="text-[11px] text-gray-600 font-medium">Avoid</span>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
+                {Array.from({ length: 12 }, (_, monthIndex) => {
+                  const months = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                  ];
+                  const currentYear = new Date().getFullYear();
+                  const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
+                  const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
+                  const days = [];
+                  
+                  const RATING_COLORS = {
+                    5: '#10b981',
+                    4: '#34d399',
+                    3: '#fbbf24',
+                    2: '#fb923c',
+                    1: '#ef4444'
+                  };
+                  
+                  const getMonthData = (monthName) => {
+                    if (!visitCalendar || !visitCalendar.months) return null;
+                    return visitCalendar.months[monthName.toLowerCase()];
+                  };
+                  
+                  const getDayDetails = (day, monthData) => {
+                    if (!monthData || !monthData.ranges) return null;
+                    const range = monthData.ranges.find(r => r.days.includes(day));
+                    if (!range) return null;
+                    
+                    let weather = null;
+                    if (monthData.weatherHighC && monthData.weatherLowC) {
+                      weather = `${monthData.weatherLowC}-${monthData.weatherHighC}°C`;
+                    } else {
+                      const weatherMatch = range.notes.match(/\((\d+-\d+°C)\)/);
+                      weather = weatherMatch ? weatherMatch[1] : null;
+                    }
+                    
+                    const crowdPatterns = [
+                      /(crowded|busy|fewer crowds|manageable crowds|peak tourism|high tourism|reduced crowds)/i,
+                      /(low crowds|moderate crowds|high crowds)/i
+                    ];
+                    let crowdLevel = null;
+                    for (const pattern of crowdPatterns) {
+                      const match = range.notes.match(pattern);
+                      if (match) {
+                        crowdLevel = match[1];
+                        break;
+                      }
+                    }
+                    
+                    const pricePatterns = [
+                      /(free|paid|lower prices|higher prices|sales)/i,
+                      /(expensive|cheap|affordable)/i
+                    ];
+                    let price = null;
+                    for (const pattern of pricePatterns) {
+                      const match = range.notes.match(pattern);
+                      if (match) {
+                        price = match[1];
+                        break;
+                      }
+                    }
+                    
+                    return {
+                      score: range.score,
+                      special: range.special || false,
+                      event: range.special ? range.event : null,
+                      notes: range.notes || '',
+                      weather: weather,
+                      crowdLevel: crowdLevel,
+                      price: price
+                    };
+                  };
+                  
+                  for (let i = 0; i < firstDayOfMonth; i++) {
+                    days.push({ type: 'empty' });
+                  }
+                  
+                  for (let i = 1; i <= daysInMonth; i++) {
+                    const monthData = getMonthData(months[monthIndex]);
+                    let dayDetails = monthData ? getDayDetails(i, monthData) : null;
+                    const hasDetails = Boolean(dayDetails);
+                    const rating = hasDetails ? dayDetails.score : 3;
+                    days.push({
+                      type: 'day',
+                      dayOfMonth: i,
+                      rating,
+                      color: RATING_COLORS[rating],
+                      special: dayDetails && dayDetails.special,
+                      event: dayDetails && dayDetails.event,
+                      notes: dayDetails && dayDetails.notes,
+                      weather: dayDetails && dayDetails.weather,
+                      crowdLevel: dayDetails && dayDetails.crowdLevel,
+                      price: dayDetails && dayDetails.price,
+                      isPlaceholder: !hasDetails
+                    });
+                  }
+                  
+                  return (
+                    <div key={monthIndex} className={`border rounded-lg ${!getMonthData(months[monthIndex]) ? 'opacity-90' : ''}`}>
+                      <div className="bg-gray-50 p-2 text-center border-b flex items-center justify-center gap-2">
+                        <div className="text-xs font-medium text-gray-700">
+                          {months[monthIndex].substring(0, 3)}
+                        </div>
+                        {!getMonthData(months[monthIndex]) && (
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-200">general</span>
+                        )}
+                      </div>
+                      
+                      <div className="grid grid-cols-7 text-center text-[11px] font-medium text-gray-500 bg-gray-50">
+                        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
+                          <div key={i} className="p-1">{day}</div>
+                        ))}
+                      </div>
+                      
+                      <div className="grid grid-cols-7 gap-px overflow-visible">
+                        {days.map((day, dayIndex) => (
+                          day.type === 'empty' ? (
+                            <div key={`empty-${dayIndex}`} className="aspect-square" />
+                          ) : (
+                            <div
+                              key={`day-${day.dayOfMonth}`}
+                              className={`day-cell aspect-square flex items-center justify-center text-[11px] relative cursor-pointer hover:scale-[1.03] transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
+                              style={{ backgroundColor: day.color }}
+                              onClick={() => toggleTooltip(day, monthIndex, day.dayOfMonth)}
+                              onMouseEnter={() => setActiveTooltip(buildTooltipData(day, monthIndex, day.dayOfMonth))}
+                              onMouseLeave={() => setActiveTooltip(null)}
+                              aria-label={`Day ${day.dayOfMonth}${day.event ? `: ${day.event}` : ''}`}
+                            >
+                              <span className="text-white font-medium">{day.dayOfMonth}</span>
+                              {day.special && (
+                                <span className="absolute top-0.5 right-0.5 w-1 h-1 bg-red-500 rounded-full"></span>
+                              )}
+
+                              {activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === day.dayOfMonth && (
+                                <div className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-full z-40 w-52">
+                                  <div className="rounded-md shadow-lg bg-white ring-1 ring-black/5 p-2">
+                                    {activeTooltip.event && (
+                                      <div className="text-xs font-semibold text-gray-900 mb-0.5 truncate" title={activeTooltip.event}>{activeTooltip.event}</div>
+                                    )}
+                                    {activeTooltip.notes && (
+                                      <div className="text-[11px] text-gray-600 mb-1 line-clamp-2" title={activeTooltip.notes}>{activeTooltip.notes}</div>
+                                    )}
+                                    {!day.event && !day.notes && day.isPlaceholder && (
+                                      <div className="text-[11px] text-gray-600">General guidance only — detailed day data coming soon.</div>
+                                    )}
+                                    <div className="flex flex-wrap gap-x-2 gap-y-0.5">
+                                      {activeTooltip.weather && (
+                                        <div className="flex items-center text-[10px] text-gray-700">
+                                          <span className="mr-1">🌡️</span>{activeTooltip.weather}
+                                        </div>
+                                      )}
+                                      {activeTooltip.crowdLevel && (
+                                        <div className="flex items-center text-[10px] text-gray-700">
+                                          <span className="mr-1">👥</span>{activeTooltip.crowdLevel}
+                                        </div>
+                                      )}
+                                      {activeTooltip.price && (
+                                        <div className="flex items-center text-[10px] text-gray-700">
+                                          <span className="mr-1">💰</span>{activeTooltip.price}
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="mx-auto h-2 w-2 rotate-45 bg-white shadow translate-y-[-5px]"></div>
+                                </div>
+                              )}
+                            </div>
+                          )
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Seasonal Details - Professional Prose */}
+            <div className="space-y-4 text-[15px] md:text-[16px] leading-7 text-slate-700">
+              <p>
+                <strong className="text-gray-900">Spring & Early Fall (April–June, September–October)</strong> offer the best overall experience. 
+                Café terraces hum with conversation, gardens burst into bloom or turn golden, and comfortable temperatures of 15–20°C (60–68°F) 
+                make walking the city a pleasure. Crowds remain manageable, and Paris looks its most photogenic under soft seasonal light. 
+                May and September consistently rank as the sweet spot for first-time visitors.
+              </p>
+
+              <p>
+                <strong className="text-gray-900">Summer (July–August)</strong> brings long golden evenings that stretch past 10pm, 
+                Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema in Parc de la Villette. 
+                The tradeoff is significant: expect peak crowds at major attractions, the highest hotel rates of the year, 
+                and some beloved local shops and restaurants closing for the traditional August holiday. Book popular sites weeks in advance.
+              </p>
+
+              <p>
+                <strong className="text-gray-900">Winter (November–February)</strong> reveals Paris at its most intimate. 
+                Twinkling holiday lights transform the Champs-Élysées, Christmas markets pop up across the city, and you can linger over 
+                legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. 
+                Temperatures hover between 3–8°C (37–46°F)—cold but manageable with proper layers—and hotel rates drop significantly, 
+                making this the best season for budget-conscious travelers.
+              </p>
+
+              <p>
+                <strong className="text-gray-900">March</strong> marks the city's gentle awakening. Temperatures climb toward 12°C (54°F), 
+                the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening their doors. 
+                Pack layers and an umbrella—spring showers are part of the charm. This shoulder season offers excellent value 
+                before the crowds arrive in earnest.
+              </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* 12-Month Calendar Container */}
-      <div className="bg-white rounded-xl p-5 md:p-6 shadow-sm border border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Year at a Glance</h2>
-        <p className="text-[15px] md:text-[16px] leading-7 text-gray-700 mb-2 md:max-w-none [text-wrap:pretty]">
-          Spring and early fall bring the best mix of weather and atmosphere. July delivers late sunsets and festivals (with lines and higher rates),
-          while August can see some independent shops and restaurants on holiday. Winter is calm and charming; March gradually warms with occasional showers.
-        </p>
-
-        {/* Data completeness notice (if some months are missing fine-grained data) */}
-        {visitCalendar?.months && Object.keys(visitCalendar.months).length < 12 && (
-          <div className="mb-3 rounded-md border border-amber-200 bg-amber-50 text-amber-800 px-3 py-2 text-xs md:text-sm">
-            This calendar currently has detailed day-by-day data for {Object.keys(visitCalendar.months).length} month(s). Other months use general guidance and will be updated soon.
-          </div>
-        )}
-        
-        {/* Color Legend */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-4 p-3 bg-gray-50 rounded-lg">
-          <div className="flex items-center">
-            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#10b981'}}></div>
-            <span className="text-xs text-gray-700 font-medium">Perfect Time</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#34d399'}}></div>
-            <span className="text-xs text-gray-700 font-medium">Great Weather</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#fbbf24'}}></div>
-            <span className="text-xs text-gray-700 font-medium">Decent Visit</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#fb923c'}}></div>
-            <span className="text-xs text-gray-700 font-medium">Consider Carefully</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-6 h-3 rounded mr-2" style={{backgroundColor: '#ef4444'}}></div>
-            <span className="text-xs text-gray-700 font-medium">Avoid if Possible</span>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
-          {Array.from({ length: 12 }, (_, monthIndex) => {
-            const months = [
-              'January', 'February', 'March', 'April', 'May', 'June',
-              'July', 'August', 'September', 'October', 'November', 'December'
-            ];
-            const currentYear = new Date().getFullYear();
-            const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
-            const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
-            const days = [];
-            
-            // Rating colors to match the main calendar
-            const RATING_COLORS = {
-              5: '#10b981', // Excellent - Soft green
-              4: '#34d399', // Good - Light green
-              3: '#fbbf24', // Average - Soft amber
-              2: '#fb923c', // Below Average - Soft orange
-              1: '#ef4444'  // Poor - Soft red
-            };
-            
-            // Get month data from visit calendar
-            const getMonthData = (monthName) => {
-              if (!visitCalendar || !visitCalendar.months) return null;
-              return visitCalendar.months[monthName.toLowerCase()];
-            };
-            
-            // Get day details from the calendar data
-            const getDayDetails = (day, monthData) => {
-              if (!monthData || !monthData.ranges) return null;
-              const range = monthData.ranges.find(r => r.days.includes(day));
-              if (!range) return null;
-              
-              // Get weather from monthly data if available
-              let weather = null;
-              if (monthData.weatherHighC && monthData.weatherLowC) {
-                weather = `${monthData.weatherLowC}-${monthData.weatherHighC}°C`;
-              } else {
-                // Try to extract from notes
-                const weatherMatch = range.notes.match(/\((\d+-\d+°C)\)/);
-                weather = weatherMatch ? weatherMatch[1] : null;
-              }
-              
-              // Extract crowd info from notes with better patterns
-              const crowdPatterns = [
-                /(crowded|busy|fewer crowds|manageable crowds|peak tourism|high tourism|reduced crowds)/i,
-                /(low crowds|moderate crowds|high crowds)/i
-              ];
-              let crowdLevel = null;
-              for (const pattern of crowdPatterns) {
-                const match = range.notes.match(pattern);
-                if (match) {
-                  crowdLevel = match[1];
-                  break;
-                }
-              }
-              
-              // Extract price info from notes with better patterns
-              const pricePatterns = [
-                /(free|paid|lower prices|higher prices|sales)/i,
-                /(expensive|cheap|affordable)/i
-              ];
-              let price = null;
-              for (const pattern of pricePatterns) {
-                const match = range.notes.match(pattern);
-                if (match) {
-                  price = match[1];
-                  break;
-                }
-              }
-              
-              return {
-                score: range.score,
-                special: range.special || false,
-                event: range.special ? range.event : null,
-                notes: range.notes || '',
-                weather: weather,
-                crowdLevel: crowdLevel,
-                price: price
-              };
-            };
-            
-            // Add empty days for padding
-            for (let i = 0; i < firstDayOfMonth; i++) {
-              days.push({ type: 'empty' });
-            }
-            
-            // Add actual days with data from visit calendar
-            for (let i = 1; i <= daysInMonth; i++) {
-              const monthData = getMonthData(months[monthIndex]);
-              let dayDetails = monthData ? getDayDetails(i, monthData) : null;
-              const hasDetails = Boolean(dayDetails);
-              const rating = hasDetails ? dayDetails.score : 3;
-              days.push({
-                type: 'day',
-                dayOfMonth: i,
-                rating,
-                color: RATING_COLORS[rating],
-                special: dayDetails && dayDetails.special,
-                event: dayDetails && dayDetails.event,
-                notes: dayDetails && dayDetails.notes,
-                weather: dayDetails && dayDetails.weather,
-                crowdLevel: dayDetails && dayDetails.crowdLevel,
-                price: dayDetails && dayDetails.price,
-                isPlaceholder: !hasDetails
-              });
-            }
-            
-            return (
-              <div key={monthIndex} className={`border rounded-lg ${!getMonthData(months[monthIndex]) ? 'opacity-90' : ''}`}>
-                {/* Month Header */}
-                <div className="bg-gray-50 p-2 text-center border-b flex items-center justify-center gap-2">
-                  <div className="text-xs font-medium text-gray-700">
-                    {months[monthIndex].substring(0, 3)}
-                  </div>
-                  {!getMonthData(months[monthIndex]) && (
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-200">general</span>
-                  )}
-                </div>
-                
-                {/* Days of Week */}
-                <div className="grid grid-cols-7 text-center text-[11px] font-medium text-gray-500 bg-gray-50">
-                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                    <div key={i} className="p-1">{day}</div>
-                  ))}
-                </div>
-                
-                {/* Calendar Days */}
-                <div className="grid grid-cols-7 gap-px overflow-visible">
-                  {days.map((day, dayIndex) => (
-                    day.type === 'empty' ? (
-                      <div key={`empty-${dayIndex}`} className="aspect-square" />
-                    ) : (
-                      <div
-                        key={`day-${day.dayOfMonth}`}
-                        className={`day-cell aspect-square flex items-center justify-center text-[11px] relative cursor-pointer hover:scale-[1.03] transition-transform ${day.special ? 'hover:ring-2 hover:ring-red-400' : ''}`}
-                        style={{ backgroundColor: day.color }}
-                        onClick={() => toggleTooltip(day, monthIndex, day.dayOfMonth)}
-                        onMouseEnter={() => setActiveTooltip(buildTooltipData(day, monthIndex, day.dayOfMonth))}
-                        onMouseLeave={() => setActiveTooltip(null)}
-                        aria-label={`Day ${day.dayOfMonth}${day.event ? `: ${day.event}` : ''}`}
-                      >
-                        <span className="text-white font-medium">{day.dayOfMonth}</span>
-                        {day.special && (
-                          <span className="absolute top-0.5 right-0.5 w-1 h-1 bg-red-500 rounded-full"></span>
-                        )}
-
-                        {/* Inline hover tooltip (desktop) */}
-                        {activeTooltip && activeTooltip.monthIndex === monthIndex && activeTooltip.dayOfMonth === day.dayOfMonth && (
-                          <div className="pointer-events-none absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-full z-40 w-52">
-                            <div className="rounded-md shadow-lg bg-white ring-1 ring-black/5 p-2">
-                              {activeTooltip.event && (
-                                <div className="text-xs font-semibold text-gray-900 mb-0.5 truncate" title={activeTooltip.event}>{activeTooltip.event}</div>
-                              )}
-                              {activeTooltip.notes && (
-                                <div className="text-[11px] text-gray-600 mb-1 line-clamp-2" title={activeTooltip.notes}>{activeTooltip.notes}</div>
-                              )}
-                              {!day.event && !day.notes && day.isPlaceholder && (
-                                <div className="text-[11px] text-gray-600">General guidance only — detailed day data coming soon.</div>
-                              )}
-                              <div className="flex flex-wrap gap-x-2 gap-y-0.5">
-                                {activeTooltip.weather && (
-                                  <div className="flex items-center text-[10px] text-gray-700">
-                                    <span className="mr-1">🌡️</span>{activeTooltip.weather}
-                                  </div>
-                                )}
-                                {activeTooltip.crowdLevel && (
-                                  <div className="flex items-center text-[10px] text-gray-700">
-                                    <span className="mr-1">👥</span>{activeTooltip.crowdLevel}
-                                  </div>
-                                )}
-                                {activeTooltip.price && (
-                                  <div className="flex items-center text-[10px] text-gray-700">
-                                    <span className="mr-1">💰</span>{activeTooltip.price}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                            <div className="mx-auto h-2 w-2 rotate-45 bg-white shadow translate-y-[-5px]"></div>
-                          </div>
-                        )}
-                      </div>
-                    )
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
 
       {/* Things to Do (reimagined with tier chips and cards) */}
-      <div className="bg-white rounded-2xl p-6 shadow ring-1 ring-gray-100">
+      <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
         <div className="mb-4">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Things to Do</h2>
         </div>
@@ -672,9 +717,20 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                   {selectedItems.map((item, idx) => {
                     const tone = toneForTier(item.__tier);
                     const ST = TONE_STYLES[tone];
+                    
+                    // Determine best time of day from optimal_time or tags
+                    const getBestTimeIcon = () => {
+                      const timeStr = (item.optimal_time || '').toLowerCase() + ' ' + (item.tags || []).join(' ').toLowerCase();
+                      if (/(morning|sunrise|early|breakfast)/.test(timeStr)) return { icon: Sunrise, label: 'Morning', color: 'text-amber-500' };
+                      if (/(evening|sunset|night|dinner|twilight)/.test(timeStr)) return { icon: Sunset, label: 'Evening', color: 'text-orange-500' };
+                      if (/(afternoon|lunch|midday)/.test(timeStr)) return { icon: Sun, label: 'Afternoon', color: 'text-yellow-500' };
+                      return null;
+                    };
+                    const bestTime = getBestTimeIcon();
+                    
                 return (
-                      <div key={idx} className={`group overflow-hidden rounded-2xl border bg-white shadow-sm hover:shadow-md transition-all ring-1 ${ST.ring}`}>
-                        {/* Media area: show image when available; otherwise neutral placeholder */}
+                      <div key={idx} className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-200">
+                        {/* Media area */}
                         <div className="relative w-full aspect-[16/9] bg-gray-100">
                           {item.image ? (
                             <Image
@@ -682,80 +738,121 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                               alt={item.activity}
                               fill
                               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                              className="object-cover"
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
                               style={{ objectPosition: item.imagePosition || 'center' }}
                             />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-xs">Image coming soon</div>
                           )}
-                          <div className={`absolute top-2 left-2 inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-md border ${ST.chipSoft}`}>
+                          {/* Gradient overlay for better text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                          
+                          {/* Cost badge */}
+                          <div className={`absolute top-2 left-2 inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-md bg-white/95 backdrop-blur-sm border ${ST.chipSoft}`}>
                             {item.cost || '—'}
                           </div>
-                          <div className="absolute top-2 right-2 opacity-95">
-                            {(() => {
-                              const tone = toneForTier(item.__tier);
-                              const style = BUTTON_STYLES[tone] || BUTTON_STYLES.gray;
-                              return (
-                                <button className={`h-8 w-8 rounded-full bg-white/90 border ${style.inactive} shadow-sm flex items-center justify-center hover:bg-white`}
-                                  aria-label={item.__tier}>
-                                  {iconForTier(item.__tier)}
-                                </button>
-                              );
-                            })()}
+                          
+                          {/* Tier icon */}
+                          <div className="absolute top-2 right-2">
+                            <button className="h-8 w-8 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-white transition-colors"
+                              aria-label={item.__tier}>
+                              {iconForTier(item.__tier)}
+                            </button>
+                          </div>
+                          
+                          {/* Quick actions - appear on hover */}
+                          <div className="absolute bottom-2 right-2 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); toggleFavorite(item); }}
+                              className={`h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
+                                isFavorite(item) 
+                                  ? 'bg-blue-500 border-blue-600 text-white' 
+                                  : 'bg-white/95 border-gray-200 hover:bg-blue-50 hover:border-blue-300'
+                              }`}
+                              aria-label={isFavorite(item) ? "Remove from favorites" : "Save to favorites"}
+                              title={isFavorite(item) ? "Saved" : "Save"}
+                            >
+                              <Bookmark className={`h-4 w-4 ${isFavorite(item) ? 'fill-white text-white' : 'text-gray-600'}`} />
+                            </button>
+                            <button 
+                              className="h-8 w-8 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-emerald-50 hover:border-emerald-300 transition-colors"
+                              aria-label="Add to itinerary"
+                              title="Add to itinerary"
+                            >
+                              <Plus className="h-4 w-4 text-gray-600" />
+                            </button>
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); setQuickViewItem(item); }}
+                              className="h-8 w-8 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-violet-50 hover:border-violet-300 transition-colors"
+                              aria-label="Quick view"
+                              title="Quick view"
+                            >
+                              <Eye className="h-4 w-4 text-gray-600" />
+                            </button>
                           </div>
                         </div>
-                        <div className="p-5 space-y-3">
-                          <div className="flex items-start justify-between gap-3">
-                            <h3 className="text-base font-bold text-gray-900 line-clamp-2 pr-2">{item.activity}</h3>
+                        
+                        <div className="p-4 space-y-2.5">
+                          {/* Title and rating */}
+                          <div className="flex items-start justify-between gap-2">
+                            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 leading-snug">{item.activity}</h3>
                             {typeof item.rating === 'number' && (
-                              <div className="flex items-center gap-1 text-amber-500 text-xs font-semibold">
-                                <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
-                                <span className="text-gray-800">{item.rating.toFixed(1)}</span>
+                              <div className="flex items-center gap-0.5 shrink-0">
+                                <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                                <span className="text-sm font-medium text-gray-700">{item.rating.toFixed(1)}</span>
                               </div>
                             )}
                           </div>
+                          
+                          {/* Description */}
                           {item.description && (
-                            <p className="text-sm text-gray-700 line-clamp-2">{item.description}</p>
+                            <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{item.description}</p>
                           )}
-                          {item.optimal_time && (
-                            <p className="text-xs text-gray-500">{item.optimal_time}</p>
-                          )}
-                          <div className="flex items-center gap-4 text-xs text-gray-600">
+                          
+                          {/* Meta info row: duration, neighborhood, best time */}
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500">
                             {item.duration && (
-                              <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-gray-400" />{item.duration}</span>
+                              <span className="inline-flex items-center gap-1">
+                                <Clock className="h-3.5 w-3.5 text-gray-400" />
+                                {item.duration}
+                              </span>
                             )}
                             {item.neighborhood && (
-                              <span className="inline-flex items-center gap-1"><MapPin className="h-3.5 w-3.5 text-gray-400" />{item.neighborhood}</span>
+                              <span className="inline-flex items-center gap-1">
+                                <MapPin className="h-3.5 w-3.5 text-gray-400" />
+                                {item.neighborhood}
+                              </span>
+                            )}
+                            {bestTime && (
+                              <span className="inline-flex items-center gap-1">
+                                <bestTime.icon className={`h-3.5 w-3.5 ${bestTime.color}`} />
+                                {bestTime.label}
+                              </span>
                             )}
                           </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex flex-wrap gap-1.5">
-                              {item.neighborhood && (
-                                <></>
-                              )}
-                              {(() => {
-                                // Color-coded tag pills: map known keywords to tier tones
-                                const keywordTone = (t) => {
-                                  const low = String(t).toLowerCase();
-                                  if (/(summer|sun|outdoor|picnic|evening)/.test(low)) return 'amber';
-                                  if (/(winter|cold|indoor|cozy)/.test(low)) return 'sky';
-                                  if (/(rain|rainy|umbrella|museum|indoor)/.test(low)) return 'indigo';
-                                  if (/(local|market|neighborhood|wine)/.test(low)) return 'rose';
-                                  if (/(must|iconic|highlight)/.test(low)) return 'emerald';
-                                  return 'gray';
-                                };
-                                const makePill = (label, tone) => (
-                                  <span key={label} className={`text-[11px] px-2 py-0.5 rounded-full border ${BUTTON_STYLES[tone].inactive}`}>{label}</span>
-                                );
-                                const pills = [];
-                                if (Array.isArray(item.tags)) {
-                                  item.tags.slice(0, 3).forEach(tag => pills.push(makePill(tag, keywordTone(tag))));
-                                }
-                                // Add the tier as a pill as well
-                                if (item.__tier) pills.unshift(makePill(item.__tier, TIER_META[item.__tier]?.tone || 'gray'));
-                                return pills;
-                              })()}
-                            </div>
+                          
+                          {/* Tags */}
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {(() => {
+                              const keywordTone = (t) => {
+                                const low = String(t).toLowerCase();
+                                if (/(summer|sun|outdoor|picnic|evening)/.test(low)) return 'amber';
+                                if (/(winter|cold|indoor|cozy)/.test(low)) return 'sky';
+                                if (/(rain|rainy|umbrella|museum|indoor)/.test(low)) return 'indigo';
+                                if (/(local|market|neighborhood|wine)/.test(low)) return 'rose';
+                                if (/(must|iconic|highlight)/.test(low)) return 'emerald';
+                                return 'gray';
+                              };
+                              const makePill = (label, pillTone) => (
+                                <span key={label} className={`text-[11px] px-2 py-0.5 rounded-full border ${BUTTON_STYLES[pillTone].inactive}`}>{label}</span>
+                              );
+                              const pills = [];
+                              if (item.__tier) pills.push(makePill(item.__tier, TIER_META[item.__tier]?.tone || 'gray'));
+                              if (Array.isArray(item.tags)) {
+                                item.tags.slice(0, 2).forEach(tag => pills.push(makePill(tag, keywordTone(tag))));
+                              }
+                              return pills;
+                            })()}
                           </div>
                         </div>
                       </div>
@@ -872,46 +969,6 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
         )}
       </div>
 
-      {/* Itineraries by Age + AI Upsell (below Things to Do, above footer) */}
-      <div className="mt-6 bg-white rounded-2xl p-6 shadow ring-1 ring-gray-100">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Itineraries</h2>
-          <span className="text-xs text-gray-500">Quick-start plans for different travelers</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="rounded-xl border border-gray-200 p-4">
-            <div className="flex items-center gap-2 mb-1 text-gray-900 font-semibold">
-              <CalendarDays className="h-4 w-4 text-gray-600" /> Family with Kids
-            </div>
-            <p className="text-sm text-gray-700">Parks, easy museums, and treats. Balanced days with breaks.</p>
-            <button className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-700">View sample day</button>
-          </div>
-          <div className="rounded-xl border border-gray-200 p-4">
-            <div className="flex items-center gap-2 mb-1 text-gray-900 font-semibold">
-              <CalendarDays className="h-4 w-4 text-gray-600" /> 48 Hours in Paris
-            </div>
-            <p className="text-sm text-gray-700">Iconic highlights, Seine strolls, and a memorable evening.</p>
-            <button className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-700">View outline</button>
-          </div>
-          <div className="rounded-xl border border-gray-200 p-4">
-            <div className="flex items-center gap-2 mb-1 text-gray-900 font-semibold">
-              <CalendarDays className="h-4 w-4 text-gray-600" /> 5‑Day Itinerary
-            </div>
-            <p className="text-sm text-gray-700">Balanced neighborhoods, day trips, and leisurely museum time.</p>
-            <button className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-700">View outline</button>
-          </div>
-        </div>
-
-        <div className="mt-5 flex items-center justify-between rounded-xl bg-indigo-50 border border-indigo-100 p-4">
-          <div>
-            <div className="text-gray-900 font-semibold flex items-center gap-2"><Wand2 className="h-4 w-4 text-indigo-600" /> Create your own itinerary</div>
-            <p className="text-sm text-gray-700">Tell us your dates and interests. Your first AI plan is free; Pro unlocks unlimited generates and exports.</p>
-          </div>
-          <Link href="/" className="shrink-0 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700">
-            Start with AI
-          </Link>
-        </div>
-      </div>
 
       {/* Mobile-friendly Event Modal (only renders on small screens via CSS) */}
       {activeTooltip && (
@@ -962,6 +1019,154 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Quick View Modal */}
+      {quickViewItem && (
+        <div 
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
+          onClick={() => setQuickViewItem(null)}
+        >
+          <div 
+            className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[85vh] overflow-hidden animate-in slide-in-from-bottom duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header with image */}
+            <div className="relative h-48 sm:h-56 bg-gray-100">
+              {quickViewItem.image ? (
+                <Image
+                  src={quickViewItem.image}
+                  alt={quickViewItem.activity || quickViewItem.title}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: quickViewItem.imagePosition || 'center' }}
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                  <MapPin className="h-12 w-12" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              
+              {/* Close button */}
+              <button 
+                onClick={() => setQuickViewItem(null)}
+                className="absolute top-3 right-3 h-8 w-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              
+              {/* Title overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg">
+                  {quickViewItem.activity || quickViewItem.title}
+                </h2>
+                {quickViewItem.__tier && (
+                  <span className="inline-block mt-2 px-2 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white">
+                    {quickViewItem.__tier}
+                  </span>
+                )}
+              </div>
+            </div>
+            
+            {/* Content */}
+            <div className="p-5 space-y-4 overflow-y-auto max-h-[calc(85vh-14rem)]">
+              {/* Rating and cost */}
+              <div className="flex items-center justify-between">
+                {typeof quickViewItem.rating === 'number' && (
+                  <div className="flex items-center gap-1">
+                    <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                    <span className="font-semibold text-gray-900">{quickViewItem.rating.toFixed(1)}</span>
+                    <span className="text-gray-500 text-sm">rating</span>
+                  </div>
+                )}
+                {quickViewItem.cost && (
+                  <span className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
+                    {quickViewItem.cost}
+                  </span>
+                )}
+              </div>
+              
+              {/* Description */}
+              {quickViewItem.description && (
+                <p className="text-gray-700 leading-relaxed">{quickViewItem.description}</p>
+              )}
+              
+              {/* Details grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {quickViewItem.duration && (
+                  <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
+                    <Clock className="h-4 w-4 text-gray-400" />
+                    <span>{quickViewItem.duration}</span>
+                  </div>
+                )}
+                {quickViewItem.neighborhood && (
+                  <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
+                    <MapPin className="h-4 w-4 text-gray-400" />
+                    <span>{quickViewItem.neighborhood}</span>
+                  </div>
+                )}
+                {quickViewItem.optimal_time && (
+                  <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3 col-span-2">
+                    <CalendarDays className="h-4 w-4 text-gray-400" />
+                    <span>{quickViewItem.optimal_time}</span>
+                  </div>
+                )}
+              </div>
+              
+              {/* Tips */}
+              {quickViewItem.tips && (
+                <div className="bg-amber-50 border border-amber-100 rounded-lg p-4">
+                  <h4 className="font-medium text-amber-800 mb-1">💡 Tips</h4>
+                  <p className="text-sm text-amber-700">{quickViewItem.tips}</p>
+                </div>
+              )}
+              
+              {/* Tags */}
+              {quickViewItem.tags && quickViewItem.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {quickViewItem.tags.map((tag, i) => (
+                    <span key={i} className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              
+              {/* Action buttons */}
+              <div className="flex gap-3 pt-2">
+                <button
+                  onClick={() => { toggleFavorite(quickViewItem); }}
+                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-medium transition-colors ${
+                    isFavorite(quickViewItem)
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  <Bookmark className={`h-4 w-4 ${isFavorite(quickViewItem) ? 'fill-white' : ''}`} />
+                  {isFavorite(quickViewItem) ? 'Saved' : 'Save'}
+                </button>
+                <button
+                  onClick={() => setQuickViewItem(null)}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+                >
+                  <Check className="h-4 w-4" />
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-in slide-in-from-bottom fade-in duration-300">
+          <div className="bg-gray-900 text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-3">
+            <Check className="h-5 w-5 text-emerald-400" />
+            <span className="text-sm font-medium">{toastMessage}</span>
           </div>
         </div>
       )}
