@@ -622,7 +622,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
               </p>
 
               <p>
-                <strong className="text-gray-900">March</strong> marks the city's gentle awakening. Temperatures climb toward 12°C (54°F), 
+                <strong className="text-gray-900">March</strong> marks the city&apos;s gentle awakening. Temperatures climb toward 12°C (54°F), 
                 the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening their doors. 
                 Pack layers and an umbrella—spring showers are part of the charm. This shoulder season offers excellent value 
                 before the crowds arrive in earnest.
