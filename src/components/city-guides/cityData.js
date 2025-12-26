@@ -1969,6 +1969,100 @@ export const getCitiesData = () => {
       ],
       linguisticCategories: ["Germanic"],
     },
+    // ALBANIA
+    {
+      id: "tirana",
+      name: "Tirana",
+      country: "Albania",
+      region: "Mediterranean",
+      description:
+        "Albania's vibrant capital blends Ottoman heritage with colorful communist-era buildings and buzzing café culture at the foot of Mount Dajti.",
+      landmarks: ["Skanderbeg Square", "Et'hem Bej Mosque", "Bunk'Art Museums"],
+      latitude: 41.3275,
+      longitude: 19.8187,
+      tourismCategories: ["Cultural Tourism Hubs", "Historical Landmarks", "Off The Beaten Path"],
+      linguisticCategories: ["Albanian"],
+    },
+    {
+      id: "durres",
+      name: "Durres",
+      country: "Albania",
+      region: "Mediterranean",
+      description:
+        "Ancient port city on the Adriatic coast, home to a stunning Roman amphitheater and beautiful beaches backed by a rich trading history.",
+      landmarks: ["Roman Amphitheater", "Venetian Tower", "Archaeological Museum"],
+      latitude: 41.3246,
+      longitude: 19.4565,
+      tourismCategories: ["Beach & Coastal", "Historical Landmarks", "Off The Beaten Path"],
+      linguisticCategories: ["Albanian"],
+    },
+    // BOSNIA AND HERZEGOVINA
+    {
+      id: "sarajevo",
+      name: "Sarajevo",
+      country: "Bosnia-and-Herzegovina",
+      region: "Mediterranean",
+      description:
+        "A crossroads of civilizations where Ottoman bazaars, Austro-Hungarian architecture, and poignant war history create a deeply moving destination.",
+      landmarks: ["Baščaršija", "Latin Bridge", "Gazi Husrev-beg Mosque"],
+      latitude: 43.8563,
+      longitude: 18.4131,
+      tourismCategories: ["Cultural Tourism Hubs", "Historical Landmarks", "Gastronomic Destinations"],
+      linguisticCategories: ["Slavic"],
+    },
+    {
+      id: "mostar",
+      name: "Mostar",
+      country: "Bosnia-and-Herzegovina",
+      region: "Mediterranean",
+      description:
+        "Famous for its iconic Ottoman bridge, Stari Most, arching over the emerald Neretva River amid a charming old town of cobblestone streets.",
+      landmarks: ["Stari Most", "Old Bazaar", "Koski Mehmed Pasha Mosque"],
+      latitude: 43.3438,
+      longitude: 17.8078,
+      tourismCategories: ["Historical Landmarks", "Cultural Tourism Hubs", "Off The Beaten Path"],
+      linguisticCategories: ["Slavic"],
+    },
+    // BULGARIA
+    {
+      id: "sofia",
+      name: "Sofia",
+      country: "Bulgaria",
+      region: "Central Europe",
+      description:
+        "Bulgaria's capital offers an eclectic mix of Byzantine churches, Soviet monuments, and Ottoman mosques set against the backdrop of Mount Vitosha.",
+      landmarks: ["Alexander Nevsky Cathedral", "Boyana Church", "National Palace of Culture"],
+      latitude: 42.6977,
+      longitude: 23.3219,
+      tourismCategories: ["Cultural Tourism Hubs", "Historical Landmarks", "Budget-Friendly"],
+      linguisticCategories: ["Slavic"],
+    },
+    {
+      id: "plovdiv",
+      name: "Plovdiv",
+      country: "Bulgaria",
+      region: "Central Europe",
+      description:
+        "One of Europe's oldest continuously inhabited cities, featuring a stunning Roman theater, colorful Revival-era houses, and a thriving arts scene.",
+      landmarks: ["Roman Theatre", "Old Town", "Kapana Creative District"],
+      latitude: 42.1354,
+      longitude: 24.7453,
+      tourismCategories: ["Historical Landmarks", "Cultural Tourism Hubs", "Artistic & Creative Hubs"],
+      linguisticCategories: ["Slavic"],
+    },
+    {
+      id: "varna",
+      name: "Varna",
+      country: "Bulgaria",
+      region: "Central Europe",
+      description:
+        "Bulgaria's seaside gem on the Black Sea coast, known for its golden beaches, ancient Thracian gold treasures, and lively summer atmosphere.",
+      landmarks: ["Sea Garden", "Archaeological Museum", "Roman Baths"],
+      latitude: 43.2141,
+      longitude: 27.9147,
+      tourismCategories: ["Beach & Coastal", "Historical Landmarks", "Summer Destinations"],
+      linguisticCategories: ["Slavic"],
+    },
   ];
 };
 

@@ -41,41 +41,58 @@ const CityCard = ({ city, priority = false }) => {
   
   const getFlagEmoji = (country) => getFlagForCountry(country);
 
+  // Map country names to folder names (some folders use different naming)
+  const getCountryFolder = (country) => {
+    const folderMap = {
+      'United Kingdom': 'UK',
+      'Czech Republic': 'Czechia',
+    };
+    return folderMap[country] || country;
+  };
+
   // Build a prioritized list of possible image sources
   const fallbacks = useMemo(() => {
     const id = city.id;
     const sources = [];
+    const countryFolder = city.country ? getCountryFolder(city.country) : null;
     
     // 1. Custom thumbnail if specified
     if (city.thumbnail) sources.push(city.thumbnail);
     
     // 2. Local country-specific thumbnail (highest priority for local files)
-    if (city.country) {
+    if (countryFolder) {
+      sources.push(`/images/city-thumbnail/${countryFolder}/${id}-thumbnail.jpeg`);
+      sources.push(`/images/city-thumbnail/${countryFolder}/${id}-thumbnail.jpg`);
+    }
+    
+    // 3. Also try with original country name
+    if (city.country && city.country !== countryFolder) {
       sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpeg`);
+      sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpg`);
     }
     
-    // 3. Local city page hero images (country-specific)
-    if (city.country) {
-      sources.push(`/images/city-page/${city.country}/${id}-hero.jpeg`);
+    // 4. Local city page hero images (country-specific)
+    if (countryFolder) {
+      sources.push(`/images/city-page/${countryFolder}/${id}-hero.jpeg`);
     }
     
-    // 4. Local city page images (root directory)
+    // 5. Local city page images (root directory)
     sources.push(`/images/city-page/${id}.jpeg`);
     
-    // 5. Local optimized JPEG
+    // 6. Local optimized JPEG
     sources.push(`/images/optimized/${id}.jpeg`);
     
-    // 6. Legacy local thumbnail naming
+    // 7. Legacy local thumbnail naming
     sources.push(`/images/${id}-thumbnail.jpeg`);
     
-    // 7. Generic city thumbnail directory
+    // 8. Generic city thumbnail directory
     sources.push(`/images/city-thumbnail/${id}-thumbnail.jpeg`);
     
-    // 8. CDN mapped city thumbnail (only if CDN is working)
+    // 9. CDN mapped city thumbnail (only if CDN is working)
     const cdnSource = getImageUrl(`/images/${id}.jpeg`);
     if (isCDNEnabled() && cdnSource) sources.push(cdnSource);
     
-    // 9. Final placeholder
+    // 10. Final placeholder
     sources.push('/images/city-placeholder.svg');
     
     return sources;

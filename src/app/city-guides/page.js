@@ -9,6 +9,7 @@ import React, {
   useRef,
 } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import InlineDateControl from '@/components/InlineDateControl';
 import { parseDatesFromParams } from '@/hooks/useTripDates';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
@@ -325,12 +326,12 @@ function CityGuidesContent() {
       <div className="px-6 pt-4">
         <div className="mx-auto max-w-6xl">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <a href="/" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+            <Link href="/" className="hover:text-blue-600 transition-colors flex items-center gap-1">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
               Home
-            </a>
+            </Link>
             <span className="text-gray-300">/</span>
             <span className="text-gray-700 font-medium">City Guides</span>
           </nav>
@@ -369,7 +370,6 @@ function CityGuidesContent() {
             <div className="flex items-center gap-2 mb-4">
               <span className="text-xl">🌟</span>
               <h2 className="text-lg font-semibold text-gray-900">Popular Cities</h2>
-              <span className="text-xs text-gray-400">Top destinations</span>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {POPULAR_CITIES.map((popularCity, index) => {
@@ -455,7 +455,6 @@ function CityGuidesContent() {
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-200">
                       <span className="text-xl">{getFlagForCountry(country)}</span>
                       <h3 className="text-base font-medium text-gray-900">{country}</h3>
-                      <span className="text-xs text-gray-400">({countryCities.length})</span>
                     </div>
                     
                     {/* Cities Grid */}
@@ -502,9 +501,6 @@ function CityGuidesContent() {
                   <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-200">
                     <span className="text-2xl">{getFlagForCountry(country)}</span>
                     <h3 className="text-lg font-semibold text-gray-900">{country}</h3>
-                    <span className="text-xs text-gray-400">
-                      ({countryCities.length})
-                    </span>
                   </div>
                   
                   {/* Cities Grid */}
