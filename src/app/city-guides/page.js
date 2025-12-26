@@ -16,9 +16,33 @@ import CityCard from '@/components/city-guides/CityCard';
 import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
 import { getCitiesData as getStaticCityData } from '@/components/city-guides/cityData';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
+import { getFlagForCountry } from '@/utils/countryFlags';
+
+// Build a map of city descriptions from static data for fallback
+const staticCityDescriptions = (() => {
+  const map = {};
+  getStaticCityData().forEach(city => {
+    if (city.description) {
+      map[city.id] = city.description;
+    }
+  });
+  return map;
+})();
 
 const INITIAL_LOAD = 24;
 const LOAD_INCREMENT = 24;
+
+// 8 most popular European cities for the featured section
+const POPULAR_CITIES = [
+  { id: 'paris', name: 'Paris', country: 'France', description: 'The City of Light, famous for the Eiffel Tower, world-class museums, and romantic boulevards.' },
+  { id: 'london', name: 'London', country: 'United Kingdom', description: 'Historic capital blending royal heritage with cutting-edge culture, from Big Ben to Borough Market.' },
+  { id: 'barcelona', name: 'Barcelona', country: 'Spain', description: 'Gaudí\'s masterpieces, Mediterranean beaches, and legendary tapas in Catalonia\'s vibrant capital.' },
+  { id: 'rome', name: 'Rome', country: 'Italy', description: 'The Eternal City where ancient ruins, Renaissance art, and Italian dolce vita converge.' },
+  { id: 'amsterdam', name: 'Amsterdam', country: 'Netherlands', description: 'Picturesque canals, world-renowned museums, and a famously free-spirited atmosphere.' },
+  { id: 'prague', name: 'Prague', country: 'Czech Republic', description: 'Fairytale spires, medieval charm, and one of Europe\'s best-preserved historic centers.' },
+  { id: 'lisbon', name: 'Lisbon', country: 'Portugal', description: 'Sun-drenched hills, historic trams, and a thriving food scene on the Atlantic coast.' },
+  { id: 'vienna', name: 'Vienna', country: 'Austria', description: 'Imperial palaces, legendary coffee houses, and the birthplace of classical music.' },
+];
 
 // Normalize countries from manifest to UI labels used across components
 const COUNTRY_NORMALIZATION = {
@@ -251,12 +275,17 @@ function CityGuidesContent() {
   };
 
   /* ───────── dynamic heading ───────── */
+  const hasActiveFilters = useMemo(() => {
+    return (selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') || 
+           selectedCountries.length > 0 || 
+           searchTerm;
+  }, [selectedRegion, selectedCountries, searchTerm]);
+
   const getResultsHeading = () => {
     const count = sorted.length;
-    const hasFilters = selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences' || selectedCountries.length > 0 || searchTerm;
     
-    if (!hasFilters) {
-      return 'Your curated picks';
+    if (!hasActiveFilters) {
+      return 'All Destinations';
     }
     
     // Build a descriptive heading based on active filters
@@ -292,27 +321,40 @@ function CityGuidesContent() {
   /* ───────── render ───────── */
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <div className="px-6 pt-12 pb-6 text-center">
+      {/* Breadcrumbs */}
+      <div className="px-6 pt-4">
         <div className="mx-auto max-w-6xl">
-          <span className="badge bg-white/80">City Guides</span>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900">Explore Europe, city by city</h1>
-          <p className="mt-3 text-base md:text-lg text-zinc-700 max-w-3xl mx-auto">Filter by region, experience, or country to find the perfect match for your dates.</p>
-          <div className="mt-2 text-xs text-zinc-500">
-            {sorted.length > 0 ? `${sorted.length} cities available` : (loading ? 'Loading cities…' : 'No cities found')}
-          </div>
+          <nav className="flex items-center gap-2 text-sm text-gray-500">
+            <a href="/" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              Home
+            </a>
+            <span className="text-gray-300">/</span>
+            <span className="text-gray-700 font-medium">City Guides</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Compact Hero */}
+      <div className="px-6 pt-3 pb-4 text-center">
+        <div className="mx-auto max-w-6xl">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900">City Guides</h1>
+          <p className="text-sm text-zinc-400 mt-1">{sorted.length} destinations across Europe</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="mx-auto max-w-6xl px-6 py-6">
-        <div className="mb-4">
+      <div className="mx-auto max-w-6xl px-6 pb-6">
+        <div className="mb-5">
           <UnifiedFilter
             selectedRegion={selectedRegion}
             selectedCountries={selectedCountries}
             handleRegionChange={handleRegionChange}
             handleCountryChange={handleCountryChange}
             countries={allCountries}
+            cities={cities}
             searchTerm={searchTerm}
             onSearchChange={handleSearchChange}
             onClearFilters={clearFilters}
@@ -321,25 +363,197 @@ function CityGuidesContent() {
           />
         </div>
 
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <h2 className="text-xl font-semibold">{getResultsHeading()}</h2>
-        </div>
-
-        {/* Single unified grid */}
-        {displayed.length > 0 && !error && (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {displayed.map((city, index) => (
-              <CityCard 
-                key={city.id} 
-                city={city}
-                priority={index < 4} // Priority load first 4 images
-              />
-            ))}
+        {/* Popular Cities Section - Only shown when no filters active */}
+        {!hasActiveFilters && !loading && cities.length > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xl">🌟</span>
+              <h2 className="text-lg font-semibold text-gray-900">Popular Cities</h2>
+              <span className="text-xs text-gray-400">Top destinations</span>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {POPULAR_CITIES.map((popularCity, index) => {
+                // Merge loaded city data with our curated description
+                const loadedCity = cities.find(c => c.id === popularCity.id);
+                const mergedCity = loadedCity 
+                  ? { ...loadedCity, description: popularCity.description }
+                  : popularCity;
+                return (
+                  <div 
+                    key={popularCity.id}
+                    className="animate-in fade-in slide-in-from-bottom-4 duration-500"
+                    style={{ animationDelay: `${index * 75}ms`, animationFillMode: 'both' }}
+                  >
+                    <CityCard 
+                      city={mergedCity}
+                      priority={index < 4}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
 
-        {/* Pagination */}
-        {sorted.length > INITIAL_LOAD && (
+        {/* Browse by Country Section with TOC */}
+        {!hasActiveFilters && !loading && cities.length > 0 && (
+          <div className="mt-10" id="browse-by-country">
+            {/* Subtle divider with label */}
+            <div className="relative mb-6 scroll-mt-4">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-gray-50 px-4 text-sm text-gray-500 font-medium">Browse by Country</span>
+              </div>
+            </div>
+
+            {/* Country Quick Nav */}
+            <div className="text-sm text-gray-600 mb-6 leading-7">
+              {allCountries.map((country, index) => {
+                const countryCount = sorted.filter(c => c.country === country).length;
+                if (countryCount === 0) return null;
+                const isLast = index === allCountries.length - 1;
+                const displayName = country;
+                return (
+                  <span key={country}>
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById(`country-${country.replace(/\s+/g, '-').toLowerCase()}`);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="hover:text-blue-600 hover:underline underline-offset-2 transition-colors"
+                    >
+                      {displayName}
+                    </button>
+                    {!isLast && <span className="text-gray-400 mx-1">•</span>}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* When filters active, show filtered results grouped by country */}
+        {hasActiveFilters && !loading && sorted.length > 0 && (
+          <>
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h2 className="text-lg font-semibold text-gray-900">{getResultsHeading()}</h2>
+            </div>
+
+            {/* Filtered cities grouped by country */}
+            <div className="space-y-8">
+              {allCountries.map((country) => {
+                const countryCities = sorted.filter(c => c.country === country);
+                if (countryCities.length === 0) return null;
+                
+                return (
+                  <div key={country}>
+                    {/* Country Header */}
+                    <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-200">
+                      <span className="text-xl">{getFlagForCountry(country)}</span>
+                      <h3 className="text-base font-medium text-gray-900">{country}</h3>
+                      <span className="text-xs text-gray-400">({countryCities.length})</span>
+                    </div>
+                    
+                    {/* Cities Grid */}
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      {countryCities.map((city, cityIndex) => {
+                        const cityWithDescription = city.description 
+                          ? city 
+                          : { ...city, description: staticCityDescriptions[city.id] };
+                        return (
+                          <div 
+                            key={city.id}
+                            className="animate-in fade-in duration-300"
+                            style={{ animationDelay: `${cityIndex * 40}ms`, animationFillMode: 'both' }}
+                          >
+                            <CityCard 
+                              city={cityWithDescription}
+                              priority={cityIndex < 4}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        {/* When no filters, show cities grouped by country */}
+        {!hasActiveFilters && !loading && cities.length > 0 && (
+          <div className="space-y-10">
+            {allCountries.map((country, countryIndex) => {
+              const countryCities = sorted.filter(c => c.country === country);
+              if (countryCities.length === 0) return null;
+              
+              return (
+                <div 
+                  key={country}
+                  id={`country-${country.replace(/\s+/g, '-').toLowerCase()}`}
+                  className="scroll-mt-6"
+                >
+                  {/* Country Header */}
+                  <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-200">
+                    <span className="text-2xl">{getFlagForCountry(country)}</span>
+                    <h3 className="text-lg font-semibold text-gray-900">{country}</h3>
+                    <span className="text-xs text-gray-400">
+                      ({countryCities.length})
+                    </span>
+                  </div>
+                  
+                  {/* Cities Grid */}
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {countryCities.map((city, cityIndex) => {
+                      // Ensure city has description from static data if not from API
+                      const cityWithDescription = city.description 
+                        ? city 
+                        : { ...city, description: staticCityDescriptions[city.id] };
+                      return (
+                        <div 
+                          key={city.id}
+                          className="animate-in fade-in duration-300"
+                          style={{ animationDelay: `${cityIndex * 50}ms`, animationFillMode: 'both' }}
+                        >
+                          <CityCard 
+                            city={cityWithDescription}
+                            priority={countryIndex < 2 && cityIndex < 4}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  {/* Back to Index Link */}
+                  <div className="mt-5 flex justify-end">
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('browse-by-country');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 font-medium"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                      </svg>
+                      Back to Index
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Pagination - only show when filters are active */}
+        {hasActiveFilters && sorted.length > INITIAL_LOAD && (
           <div className="mt-8 flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
               <button
@@ -403,11 +617,60 @@ function CityGuidesContent() {
           </div>
         )}
 
-        {/* Initial Loading with Skeletons */}
+        {/* Initial Loading with Skeletons - Staggered Animation */}
         {loading && !error && (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <CityCardSkeleton key={i} />
+          <div className="space-y-8">
+            {/* Popular Cities Skeleton */}
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-7 w-7 bg-gray-200 rounded-lg animate-pulse"></div>
+                <div>
+                  <div className="h-6 w-40 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 w-56 bg-gray-100 rounded animate-pulse mt-2"></div>
+                </div>
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <div 
+                    key={`pop-${i}`}
+                    className="animate-in fade-in duration-500"
+                    style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
+                  >
+                    <CityCardSkeleton />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Divider Skeleton */}
+            <div className="relative my-10">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-gray-50 px-4 text-sm text-gray-400 font-medium">Browse by Country</span>
+              </div>
+            </div>
+            
+            {/* Country Sections Skeleton */}
+            {['Austria', 'Belgium', 'Czech Republic'].map((country, countryIdx) => (
+              <div key={country} className="animate-in fade-in duration-500" style={{ animationDelay: `${600 + countryIdx * 200}ms`, animationFillMode: 'both' }}>
+                <div className="flex items-center gap-3 mb-4 pb-2 border-b border-gray-200">
+                  <div className="h-6 w-24 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-5 w-16 bg-gray-100 rounded-full animate-pulse"></div>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <div 
+                      key={`${country}-${i}`}
+                      className="animate-in fade-in duration-400"
+                      style={{ animationDelay: `${i * 75}ms`, animationFillMode: 'both' }}
+                    >
+                      <CityCardSkeleton />
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         )}
@@ -425,9 +688,57 @@ function CityGuidesContent() {
   );
 }
 
+// Elegant loading spinner component
+function LoadingSpinner() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero skeleton */}
+      <div className="px-6 pt-12 pb-6 text-center">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-block h-6 w-24 bg-gray-200 rounded-full animate-pulse mb-3"></div>
+          <div className="h-12 w-96 max-w-full bg-gray-200 rounded-lg animate-pulse mx-auto mb-3"></div>
+          <div className="h-5 w-80 max-w-full bg-gray-100 rounded animate-pulse mx-auto"></div>
+        </div>
+      </div>
+      
+      {/* Content skeleton */}
+      <div className="mx-auto max-w-6xl px-6 py-6">
+        {/* Filter skeleton */}
+        <div className="mb-6 p-4 bg-white rounded-xl border border-gray-100">
+          <div className="flex flex-wrap gap-2">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="h-9 w-24 bg-gray-100 rounded-lg animate-pulse"></div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Cards skeleton */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div 
+              key={i}
+              className="animate-in fade-in duration-700"
+              style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
+            >
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse"></div>
+                <div className="p-5 space-y-3">
+                  <div className="h-5 w-3/4 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 w-full bg-gray-100 rounded animate-pulse"></div>
+                  <div className="h-4 w-2/3 bg-gray-100 rounded animate-pulse"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function CityGuidesPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-sm text-zinc-600">Loading city guides…</div>}>
+    <Suspense fallback={<LoadingSpinner />}>
       <CityGuidesContent />
     </Suspense>
   );

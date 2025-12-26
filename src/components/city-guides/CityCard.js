@@ -125,7 +125,7 @@ const CityCard = ({ city, priority = false }) => {
           
           <div className="p-5">
             <p className="text-zinc-600 text-sm leading-relaxed line-clamp-2 mb-3">
-              {city.description || "Explore this charming European destination with our comprehensive guide."}
+              {city.description || `Discover ${city.name}, ${city.country} — a must-visit destination with unique culture and attractions.`}
             </p>
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2 text-indigo-600 text-sm font-medium">

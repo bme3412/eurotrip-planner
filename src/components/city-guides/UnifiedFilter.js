@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import Link from 'next/link';
 import { regionThemes, tourismRegions } from './regionData';
+import { getFlagForCountry } from '@/utils/countryFlags';
 
 const UnifiedFilter = ({
   selectedRegion,
@@ -9,37 +11,95 @@ const UnifiedFilter = ({
   handleRegionChange,
   handleCountryChange,
   countries = [],
+  cities = [],
   searchTerm,
   onSearchChange,
   onClearFilters,
   activeFilterType,
   onFilterTypeChange,
+  onCitySelect,
   rightExtras,
 }) => {
   // Use the prop directly - no internal state needed
   const currentFilterType = activeFilterType || 'euro-region';
-  const setCurrentFilterType = onFilterTypeChange;
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
   const countryDropdownRef = useRef(null);
+  const searchRef = useRef(null);
+  const suggestionsRef = useRef(null);
 
-  // Close country dropdown when clicking outside
+  // Search suggestions based on input - prioritize city name matches
+  const searchSuggestions = useMemo(() => {
+    if (!searchTerm || searchTerm.length < 1) return [];
+    const term = searchTerm.toLowerCase();
+    
+    // First, find cities where name STARTS with the term (highest priority)
+    const startsWithName = cities.filter(city => 
+      city.name.toLowerCase().startsWith(term)
+    );
+    
+    // Then, find cities where name CONTAINS the term (but doesn't start with)
+    const containsInName = cities.filter(city => 
+      !city.name.toLowerCase().startsWith(term) &&
+      city.name.toLowerCase().includes(term)
+    );
+    
+    // Finally, find cities where country starts with the term
+    const startsWithCountry = cities.filter(city => 
+      !city.name.toLowerCase().includes(term) &&
+      city.country && city.country.toLowerCase().startsWith(term)
+    );
+    
+    // Combine results in priority order
+    return [...startsWithName, ...containsInName, ...startsWithCountry].slice(0, 8);
+  }, [searchTerm, cities]);
+
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target)) {
         setIsCountryDropdownOpen(false);
       }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsSearchFocused(false);
+      }
     };
 
-    if (isCountryDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Handle keyboard navigation for search suggestions
+  const handleSearchKeyDown = (e) => {
+    if (!searchSuggestions.length) return;
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedSuggestionIndex(prev => 
+        prev < searchSuggestions.length - 1 ? prev + 1 : prev
+      );
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedSuggestionIndex(prev => prev > 0 ? prev - 1 : -1);
+    } else if (e.key === 'Enter' && selectedSuggestionIndex >= 0) {
+      e.preventDefault();
+      const selectedCity = searchSuggestions[selectedSuggestionIndex];
+      if (selectedCity && onCitySelect) {
+        onCitySelect(selectedCity);
+      }
+    } else if (e.key === 'Escape') {
+      setIsSearchFocused(false);
+      setSelectedSuggestionIndex(-1);
     }
+  };
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isCountryDropdownOpen]);
+  // Reset suggestion index when search term changes
+  useEffect(() => {
+    setSelectedSuggestionIndex(-1);
+  }, [searchTerm]);
 
-  // Consolidated Euro-region filter options - refined to eliminate overlap
+  // Consolidated Euro-region filter options
   const getEuroRegionOptions = () => {
     return [
       'All Regions',
@@ -53,34 +113,6 @@ const UnifiedFilter = ({
     ];
   };
 
-  // Travel experience options - updated to match actual tourismCategories in city data
-  const getTravelStyleOptions = () => {
-    return [
-      'All Experiences',
-      'Cultural',
-      'Historical Landmarks',
-      'Food & Wine',
-      'Wine Regions',
-      'Urban Exploration',
-      'Nightlife',
-      'Shopping',
-      'Family',
-      'Romance',
-      'Adventure',
-      'Relaxation',
-      'Beach Destinations',
-      'Gastronomic Destinations',
-      'Cultural Tourism Hubs',
-      'Natural Landscapes',
-      'Adventure Travel'
-    ];
-  };
-
-  const handleFilterTypeChange = (filterType) => {
-    setCurrentFilterType(filterType);
-    handleRegionChange(filterType === 'euro-region' ? 'All Regions' : 'All Experiences', filterType);
-  };
-
   const getCountryButtonLabel = () => {
     if (!selectedCountries || selectedCountries.length === 0) {
       return 'All Countries';
@@ -91,37 +123,21 @@ const UnifiedFilter = ({
     return `${selectedCountries.length} Countries`;
   };
 
-  const hasActiveFilters = (selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') || selectedCountries.length > 0 || searchTerm;
+  const hasActiveFilters = (selectedRegion !== 'All' && selectedRegion !== 'All Regions') || selectedCountries.length > 0 || searchTerm;
 
-  // Get filter options based on active filter type
   const getFilterOptions = () => {
-    switch (currentFilterType) {
-      case 'euro-region':
-        return getEuroRegionOptions();
-      case 'travel-experience':
-        return getTravelStyleOptions();
-      default:
-        return getEuroRegionOptions();
-    }
+    return getEuroRegionOptions();
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-5 transition-all duration-300">
-      {/* Top row: search + tabs + countries */}
-      <div className="flex flex-wrap items-center gap-3">
-        {/* Search Bar - responsive width */}
-        <div className="w-full sm:w-64">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 transition-all duration-300">
+      {/* Search and Country Row */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-4">
+        {/* Search Bar with Autocomplete */}
+        <div className="flex-1 relative" ref={searchRef}>
           <div className="relative">
-            <input
-              type="text"
-              placeholder="Search cities..."
-              value={searchTerm}
-              onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-7 pr-3 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
-              aria-label="Search cities by name, country, or description"
-            />
             <svg
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -133,55 +149,91 @@ const UnifiedFilter = ({
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
+            <input
+              type="text"
+              placeholder="Search cities..."
+              value={searchTerm}
+              onChange={(e) => onSearchChange(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
+              onKeyDown={handleSearchKeyDown}
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all duration-200 text-sm placeholder:text-gray-400"
+              aria-label="Search cities by name, country, or description"
+              autoComplete="off"
+            />
+            {searchTerm && (
+              <button
+                onClick={() => onSearchChange('')}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
           </div>
+          
+          {/* Search Suggestions Dropdown */}
+          {isSearchFocused && searchSuggestions.length > 0 && (
+            <div 
+              ref={suggestionsRef}
+              className="absolute z-50 left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200"
+            >
+              <div className="px-4 py-2 bg-gray-50 border-b border-gray-100">
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Suggestions</span>
+              </div>
+              <div className="max-h-72 overflow-y-auto">
+                {searchSuggestions.map((city, index) => (
+                  <Link
+                    key={city.id}
+                    href={`/city-guides/${city.id}`}
+                    onClick={() => {
+                      setIsSearchFocused(false);
+                      onSearchChange('');
+                    }}
+                    className={`
+                      flex items-center gap-3 px-4 py-2.5 transition-colors
+                      ${index === selectedSuggestionIndex 
+                        ? 'bg-blue-50' 
+                        : 'hover:bg-gray-50'
+                      }
+                    `}
+                  >
+                    <span className="text-xl">{getFlagForCountry(city.country)}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-gray-900 truncate">{city.name}</div>
+                      <div className="text-xs text-gray-500">{city.country}</div>
+                    </div>
+                    <svg className="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                ))}
+              </div>
+              <div className="px-4 py-2 bg-gray-50 border-t border-gray-100">
+                <span className="text-xs text-gray-400">Press ↑↓ to navigate, Enter to select, Esc to close</span>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Filter Type Tabs */}
-        <div className="bg-gray-100 p-1.5 rounded-lg w-full sm:w-auto">
-          <div className="flex space-x-1.5">
-            <button
-              onClick={() => handleFilterTypeChange('euro-region')}
-              className={`
-                flex-1 sm:flex-none px-4 sm:px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ease-in-out
-                ${currentFilterType === 'euro-region'
-                  ? 'bg-white text-blue-600 shadow-md'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
-                }
-              `}
-              aria-label="Filter by European regions"
-              aria-pressed={currentFilterType === 'euro-region'}
-            >
-              🗺️ Regions
-            </button>
-            <button
-              onClick={() => handleFilterTypeChange('travel-experience')}
-              className={`
-                flex-1 sm:flex-none px-4 sm:px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ease-in-out
-                ${currentFilterType === 'travel-experience'
-                  ? 'bg-white text-blue-600 shadow-md'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
-                }
-              `}
-              aria-label="Filter by travel experiences"
-              aria-pressed={currentFilterType === 'travel-experience'}
-            >
-              ✈️ Experiences
-            </button>
-          </div>
-        </div>
-
-        {/* Country Filter — sits immediately after the tabs */}
-        <div className="relative w-full sm:w-auto" ref={countryDropdownRef}>
+        {/* Country Filter */}
+        <div className="relative sm:w-44" ref={countryDropdownRef}>
           <button
             onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-            className="w-full sm:w-auto px-4 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm flex items-center justify-between space-x-2 font-medium"
+            className={`
+              w-full px-3 py-2.5 rounded-lg text-sm flex items-center justify-between gap-2 font-medium transition-all duration-200
+              ${selectedCountries.length > 0 
+                ? 'bg-emerald-50 border border-emerald-200 text-emerald-700' 
+                : 'bg-gray-50 border border-gray-200 text-gray-600 hover:bg-gray-100'
+              }
+            `}
             aria-label="Filter by country"
             aria-expanded={isCountryDropdownOpen}
             aria-haspopup="true"
           >
-            <span className="text-gray-900">{getCountryButtonLabel()}</span>
+            <span className="truncate">{getCountryButtonLabel()}</span>
             <svg
-              className={`h-4 w-4 text-gray-400 transition-transform ${
+              className={`h-4 w-4 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
                 isCountryDropdownOpen ? 'rotate-180' : ''
               }`}
               fill="none"
@@ -194,56 +246,84 @@ const UnifiedFilter = ({
           </button>
 
           {isCountryDropdownOpen && (
-            <div className="absolute z-50 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-64 overflow-y-auto min-w-48 md:min-w-56">
-              <div className="py-2">
+            <div className="absolute z-50 left-0 sm:right-0 sm:left-auto mt-2 bg-white border border-gray-200 rounded-xl shadow-xl max-h-80 overflow-hidden min-w-64 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Header */}
+              <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-gray-800">Select Countries</span>
+                  {selectedCountries.length > 0 && (
+                    <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium">
+                      {selectedCountries.length} selected
+                    </span>
+                  )}
+                </div>
+              </div>
+              
+              <div className="overflow-y-auto max-h-64">
                 {/* All Countries option */}
                 <button
-                  onClick={() => {
-                    // Clear all country selections
-                    handleCountryChange('clear-all');
-                  }}
-                  className="w-full flex items-center justify-between px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm border-b border-gray-100"
+                  onClick={() => handleCountryChange('clear-all')}
+                  className={`
+                    w-full flex items-center justify-between px-4 py-3 text-left transition-all duration-150 text-sm
+                    ${selectedCountries.length === 0 
+                      ? 'bg-blue-50 border-l-3 border-l-blue-500' 
+                      : 'hover:bg-gray-50 border-l-3 border-l-transparent'
+                    }
+                  `}
                 >
-                  <span className="text-gray-900 font-medium">All Countries</span>
-                  <div className="flex items-center">
-                    {selectedCountries.length === 0 && (
-                      <svg className="h-4 w-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                    {selectedCountries.length > 0 && (
-                      <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    )}
+                  <div className="flex items-center gap-3">
+                    <div className={`
+                      w-5 h-5 rounded-full flex items-center justify-center text-xs
+                      ${selectedCountries.length === 0 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-500'}
+                    `}>
+                      ✓
+                    </div>
+                    <span className={`font-medium ${selectedCountries.length === 0 ? 'text-blue-700' : 'text-gray-700'}`}>
+                      All Countries
+                    </span>
                   </div>
+                  <span className="text-xs text-gray-400">{countries.length} total</span>
                 </button>
                 
-                {/* Individual countries with checkboxes */}
-                {countries.map((country) => {
-                  const isSelected = selectedCountries.includes(country);
-                  return (
-                    <button
-                      key={country}
-                      onClick={() => {
-                        handleCountryChange(country);
-                        // Keep dropdown open for multi-select
-                      }}
-                      className="w-full flex items-center justify-between px-4 py-2 text-left hover:bg-gray-50 transition-colors text-sm"
-                    >
-                      <span className="text-gray-900">{country}</span>
-                      <div className="flex items-center">
-                        {isSelected ? (
-                          <svg className="h-4 w-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        ) : (
-                          <div className="h-4 w-4 border-2 border-gray-300 rounded"></div>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
+                {/* Divider */}
+                <div className="border-t border-gray-100 mx-3"></div>
+                
+                {/* Individual countries */}
+                <div className="py-1">
+                  {countries.map((country) => {
+                    const isSelected = selectedCountries.includes(country);
+                    return (
+                      <button
+                        key={country}
+                        onClick={() => handleCountryChange(country)}
+                        className={`
+                          w-full flex items-center gap-3 px-4 py-2.5 text-left transition-all duration-150 text-sm
+                          ${isSelected 
+                            ? 'bg-emerald-50 border-l-3 border-l-emerald-500' 
+                            : 'hover:bg-gray-50 border-l-3 border-l-transparent'
+                          }
+                        `}
+                      >
+                        <div className={`
+                          w-5 h-5 rounded flex items-center justify-center border-2 transition-all duration-150
+                          ${isSelected 
+                            ? 'bg-emerald-500 border-emerald-500 text-white' 
+                            : 'border-gray-300 bg-white'
+                          }
+                        `}>
+                          {isSelected && (
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          )}
+                        </div>
+                        <span className={isSelected ? 'text-emerald-800 font-medium' : 'text-gray-700'}>
+                          {country}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           )}
@@ -253,47 +333,36 @@ const UnifiedFilter = ({
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}
-            className="ml-auto px-4 py-2.5 text-sm text-blue-600 hover:text-blue-800 font-semibold hover:bg-blue-50 rounded-lg transition-colors"
+            className="px-4 py-3 text-sm text-red-600 hover:text-red-700 font-semibold hover:bg-red-50 rounded-xl transition-colors flex items-center gap-2"
           >
-            Clear Filters
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Clear All
           </button>
         )}
       </div>
 
-      {/* Second row: filter option chips */}
-      <div className="mt-5 transition-all duration-300 ease-in-out">
-        <div
-          className="flex flex-wrap gap-2.5 transition-all duration-300 ease-in-out"
-          key={currentFilterType} // Force re-render for smooth transition
-        >
+      {/* Region Filter Chips */}
+      <div className="pt-3 border-t border-gray-100">
+        <div className="flex flex-wrap gap-1.5">
           {getFilterOptions().map((option) => {
-            const isSelected = 
-              currentFilterType === 'euro-region' 
-                ? selectedRegion === option 
-                : selectedRegion === option;
+            const isSelected = selectedRegion === option;
             
             return (
               <button
                 key={option}
-                onClick={() => {
-                  handleRegionChange(option, currentFilterType);
-                }}
+                onClick={() => handleRegionChange(option, 'euro-region')}
                 className={`
-                  relative px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out
+                  px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200
                   ${isSelected
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-200 transform scale-105 ring-2 ring-blue-300 ring-offset-1'
-                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:border-gray-300 hover:shadow-md hover:scale-102'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }
                 `}
                 aria-pressed={isSelected}
                 aria-label={`Filter by ${option}`}
               >
-                {isSelected && (
-                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                  </span>
-                )}
                 {option}
               </button>
             );
@@ -305,11 +374,11 @@ const UnifiedFilter = ({
       {hasActiveFilters && (
         <div className="mt-4 pt-3 border-t border-gray-100">
           <div className="flex flex-wrap gap-2">
-            {selectedRegion !== 'All' && selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences' && (
+            {selectedRegion !== 'All' && selectedRegion !== 'All Regions' && (
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-blue-100 text-blue-800">
-                {currentFilterType === 'euro-region' ? 'Region' : 'Experience'}: {selectedRegion}
+                Region: {selectedRegion}
                 <button
-                  onClick={() => handleRegionChange(currentFilterType === 'euro-region' ? 'All Regions' : 'All Experiences', currentFilterType)}
+                  onClick={() => handleRegionChange('All Regions', 'euro-region')}
                   className="ml-2 hover:text-blue-600"
                 >
                   ×
@@ -327,17 +396,6 @@ const UnifiedFilter = ({
                 </button>
               </span>
             ))}
-            {searchTerm && (
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-purple-100 text-purple-800">
-                &ldquo;{searchTerm}&rdquo;
-                <button
-                  onClick={() => onSearchChange('')}
-                  className="ml-2 hover:text-purple-600"
-                >
-                  ×
-                </button>
-              </span>
-            )}
           </div>
         </div>
       )}
