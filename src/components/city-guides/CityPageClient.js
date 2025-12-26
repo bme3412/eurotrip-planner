@@ -134,7 +134,7 @@ function CityPageClient({ cityData, cityName }) {
     ? CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default
     : DEFAULT_COORDINATES.default;
 
-  const tabs = [
+  const tabs = useMemo(() => [
     { id: 'starthere', label: 'Start Here', icon: '🚀' },
     { id: 'overview', label: 'Best Time to Go', icon: '📆' },
     { id: 'map', label: 'Interactive Map', icon: '🗺️' },
@@ -143,7 +143,7 @@ function CityPageClient({ cityData, cityName }) {
     { id: 'food', label: 'Food + Drink', icon: '🍽️' },
     { id: 'photos', label: 'Photo Spots', icon: '📸' },
     { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' }
-  ];
+  ], [monthlyDataLoading, monthlyDataError]);
 
   useEffect(() => {
     setComponentLoaded(true);

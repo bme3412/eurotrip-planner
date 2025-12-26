@@ -888,14 +888,14 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1.5">Spring & Early Fall</h4>
                     <p className="text-[17px] leading-relaxed text-gray-700">
-                      <strong className="text-gray-900">April through June</strong> and <strong className="text-gray-900">September through October</strong> deliver the quintessential Paris experience. Temperatures settle into a comfortable 15–20°C, café terraces fill with conversation, and the city's gardens reach peak beauty—cherry blossoms in spring, golden leaves in autumn. Crowds exist but remain manageable. Light lingers late into evening. If you're planning your first visit, aim for <strong className="text-gray-900">May or September</strong>—they consistently offer the best balance of weather, crowds, and atmosphere.
+                      <strong className="text-gray-900">April through June</strong> and <strong className="text-gray-900">September through October</strong> deliver the quintessential Paris experience. Temperatures settle into a comfortable 15–20°C, café terraces fill with conversation, and the city&apos;s gardens reach peak beauty—cherry blossoms in spring, golden leaves in autumn. Crowds exist but remain manageable. Light lingers late into evening. If you&apos;re planning your first visit, aim for <strong className="text-gray-900">May or September</strong>—they consistently offer the best balance of weather, crowds, and atmosphere.
                     </p>
                   </div>
                   
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1.5">Summer</h4>
                     <p className="text-[17px] leading-relaxed text-gray-700">
-                      <strong className="text-gray-900">July and August</strong> bring the longest days—golden evenings stretching past 10pm, Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema under the stars. The trade-off? Peak crowds at every major attraction, the year's highest hotel rates, and many beloved neighborhood restaurants closing for the traditional August holiday. Book popular museums weeks ahead and expect to share the city with the world.
+                      <strong className="text-gray-900">July and August</strong> bring the longest days—golden evenings stretching past 10pm, Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema under the stars. The trade-off? Peak crowds at every major attraction, the year&apos;s highest hotel rates, and many beloved neighborhood restaurants closing for the traditional August holiday. Book popular museums weeks ahead and expect to share the city with the world.
                     </p>
                   </div>
                 </div>
@@ -904,14 +904,14 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1.5">Winter</h4>
                     <p className="text-[17px] leading-relaxed text-gray-700">
-                      <strong className="text-gray-900">November through February</strong> reveals Paris at its most intimate. Twinkling lights transform the Champs-Élysées, Christmas markets appear across the city, and you can linger over legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. Temperatures hover between 3–8°C—cold but manageable with layers. Hotel rates drop significantly. If you don't mind bundling up, this is the <strong className="text-gray-900">best season for budget-conscious travelers</strong> and those who prefer a quieter, more local experience.
+                      <strong className="text-gray-900">November through February</strong> reveals Paris at its most intimate. Twinkling lights transform the Champs-Élysées, Christmas markets appear across the city, and you can linger over legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. Temperatures hover between 3–8°C—cold but manageable with layers. Hotel rates drop significantly. If you don&apos;t mind bundling up, this is the <strong className="text-gray-900">best season for budget-conscious travelers</strong> and those who prefer a quieter, more local experience.
                     </p>
                   </div>
                   
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1.5">March</h4>
                     <p className="text-[17px] leading-relaxed text-gray-700">
-                      The city's gentle awakening. Temperatures climb toward 12°C, the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening. Pack layers and an umbrella—spring showers are part of the charm. This <strong className="text-gray-900">shoulder season offers excellent value</strong> before crowds arrive in earnest. A perfect time for travelers who want the romance of Paris without fighting for space.
+                      The city&apos;s gentle awakening. Temperatures climb toward 12°C, the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening. Pack layers and an umbrella—spring showers are part of the charm. This <strong className="text-gray-900">shoulder season offers excellent value</strong> before crowds arrive in earnest. A perfect time for travelers who want the romance of Paris without fighting for space.
                     </p>
                   </div>
                 </div>
