@@ -46,7 +46,7 @@ export default function Hero({
   const safeTitle = title || 'City';
   const safeSubtitle = subtitle || 'A City to Explore';
   const safeDescription = description || 'Discover the magic of this amazing city.';
-  const safeChipText = chipText || 'Discover the Magic';
+  const safeChipText = chipText; // No fallback - only show if explicitly provided
 
   const Button = ({ cta, tone = 'light' }) => {
     if (!cta) return null;
@@ -95,7 +95,7 @@ export default function Hero({
         </>
       )}
       
-      <div className="relative z-10 h-full">
+      <div className="relative z-10 h-full pt-14">
         <div className="mx-auto max-w-6xl h-full flex items-center px-6">
           <div className={`${hasValidImage ? 'text-white' : 'text-zinc-900'} max-w-3xl`}>
             {safeChipText && (

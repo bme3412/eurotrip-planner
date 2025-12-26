@@ -7,10 +7,7 @@ import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescript
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
 import Hero from '@/components/common/Hero';
-import CurrencySelector from '@/components/common/CurrencySelector';
-import ShareButtons from '@/components/common/ShareButtons';
 import SaveToTrips from '@/components/common/SaveToTrips';
-import ExportPDF from '@/components/common/ExportPDF';
 import { 
   SkeletonOverview, 
   SkeletonMapLoader, 
@@ -23,7 +20,6 @@ import {
   LazyAttractionsList,
   LazyNeighborhoodsList,
   LazyCulinaryGuide,
-  LazyTransportConnections,
   LazySeasonalActivities,
   LazyMonthlyGuideSection,
   LazyMapSection,
@@ -136,8 +132,7 @@ function CityPageClient({ cityData, cityName }) {
     { id: 'map', label: 'Interactive Map', icon: '🗺️' },
     { id: 'monthly', label: monthlyDataLoading ? 'Monthly Guide...' : 'Monthly Guide', icon: monthlyDataLoading ? '⏳' : monthlyDataError ? '⚠️' : '📅' },
     { id: 'attractions', label: 'Experiences', icon: '🎯' },
-    { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' },
-    { id: 'transport', label: 'Getting Around', icon: '🚇' }
+    { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' }
   ];
 
   useEffect(() => {
@@ -196,9 +191,6 @@ function CityPageClient({ cityData, cityName }) {
         break;
       case 'neighborhoods':
         import('@/components/city-guides/NeighborhoodsList');
-        break;
-      case 'transport':
-        import('@/components/city-guides/TransportConnections');
         break;
       default:
         break;
@@ -295,12 +287,6 @@ function CityPageClient({ cityData, cityName }) {
             <LazyNeighborhoodsList neighborhoods={memoizedData.safeNeighborhoods} cityName={cityName} />
           </Suspense>
         );
-      case 'transport':
-        return (
-          <Suspense fallback={<SkeletonTabContent />}>
-            <LazyTransportConnections connections={connections} cityName={cityName} />
-          </Suspense>
-        );
       default:
         return (
           <Suspense fallback={<SkeletonOverview />}>
@@ -326,17 +312,16 @@ function CityPageClient({ cityData, cityName }) {
     <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
       {/* Top bar - fixed, transparent over hero with breadcrumb (shows/hides on scroll) */}
       <div className={`fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${showBreadcrumb ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-2">
-          <nav className="text-sm flex items-center gap-2 text-white drop-shadow-md">
-            <Link href="/" className="inline-flex items-center gap-1 hover:opacity-90">
-              <span aria-hidden>←</span>
-              <span>Home</span>
-            </Link>
-            <span className="opacity-80">/</span>
-            <Link href="/city-guides" className="hover:opacity-90">City Guides</Link>
-            <span className="opacity-80">/</span>
-            <span className="font-medium">{displayName}</span>
-          </nav>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3">
+          <Link 
+            href="/city-guides" 
+            className="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white transition-colors drop-shadow-md"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>All City Guides</span>
+          </Link>
         </div>
       </div>
 
@@ -345,7 +330,6 @@ function CityPageClient({ cityData, cityName }) {
         cityName={cityName && typeof cityName === 'string' ? cityName.toLowerCase() : undefined}
         country={cityData?.country}
         backgroundAlt={`${cityData?.displayName || cityName || 'City'} cityscape`}
-        chipText={getCityNickname(cityData) || "Discover the Magic"}
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
         subtitle={getCityHeaderInfo(cityData)?.subtitle || "A City to Explore"}
         description={description}
@@ -380,14 +364,7 @@ function CityPageClient({ cityData, cityName }) {
             <div className="flex items-center gap-1 flex-shrink-0 border-l border-gray-200 pl-2 ml-1">
               {/* Desktop: show all buttons */}
               <div className="hidden sm:flex items-center gap-1">
-                <CurrencySelector compact />
                 <SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} />
-                <ShareButtons 
-                  cityName={displayName} 
-                  title={`${displayName} Travel Guide`}
-                  description={description}
-                />
-                <ExportPDF cityName={displayName} cityData={cityData} />
               </div>
               
               {/* Mobile: overflow menu */}
@@ -411,21 +388,8 @@ function CityPageClient({ cityData, cityName }) {
                     />
                     {/* Dropdown */}
                     <div className="absolute right-0 top-full mt-1 z-50 bg-white rounded-xl shadow-lg border border-gray-200 py-2 min-w-[180px]">
-                      <div className="px-3 py-2 border-b border-gray-100">
-                        <CurrencySelector compact />
-                      </div>
-                      <div className="px-3 py-2 border-b border-gray-100">
-                        <SaveToTrips cityName={cityName} cityData={cityData} showLabel={true} />
-                      </div>
-                      <div className="px-3 py-2 border-b border-gray-100">
-                        <ShareButtons 
-                          cityName={displayName} 
-                          title={`${displayName} Travel Guide`}
-                          description={description}
-                        />
-                      </div>
                       <div className="px-3 py-2">
-                        <ExportPDF cityName={displayName} cityData={cityData} />
+                        <SaveToTrips cityName={cityName} cityData={cityData} showLabel={true} />
                       </div>
                     </div>
                   </>

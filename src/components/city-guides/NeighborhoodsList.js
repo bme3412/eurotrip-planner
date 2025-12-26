@@ -1,584 +1,841 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import { MapPin, Clock, Train, X, Check, ChevronDown, Users, Utensils, ShoppingBag, Moon, Palette, Camera, Book, Heart, Sparkles, Scale } from 'lucide-react';
 
-const NeighborhoodsList = ({ neighborhoods, cityName }) => {
-  // Ensure we're working with the correct data structure
-  const neighborhoodsList = Array.isArray(neighborhoods) ? neighborhoods : (neighborhoods?.neighborhoods || []);
+// Persona definitions with matching criteria
+const PERSONAS = [
+  { id: 'first-timer', label: 'First-timers', icon: Camera, keywords: ['first-time visitors', 'tourists', 'photographers'], color: 'blue' },
+  { id: 'art-lover', label: 'Art Lovers', icon: Palette, keywords: ['art lovers', 'art enthusiasts', 'artists', 'art aficionados'], color: 'purple' },
+  { id: 'foodie', label: 'Foodies', icon: Utensils, keywords: ['foodies', 'café enthusiasts', 'wine enthusiasts'], color: 'orange' },
+  { id: 'history-buff', label: 'History Buffs', icon: Book, keywords: ['history buffs', 'history enthusiasts', 'history lovers'], color: 'amber' },
+  { id: 'night-owl', label: 'Night Owls', icon: Moon, keywords: ['night owls', 'nightlife enthusiasts', 'young travelers'], color: 'indigo' },
+  { id: 'shopper', label: 'Shoppers', icon: ShoppingBag, keywords: ['shoppers', 'shopaholics', 'fashionistas', 'fashion enthusiasts'], color: 'pink' },
+  { id: 'romantic', label: 'Romantics', icon: Heart, keywords: ['romantics', 'couples'], color: 'rose' },
+];
+
+// Editor's picks for spotlight section
+const EDITORS_PICKS = [
+  { name: 'Le Marais', reason: 'Best all-rounder for first-time visitors' },
+  { name: 'Montmartre', reason: 'Most romantic with stunning views' },
+  { name: 'Saint-Germain-des-Prés', reason: 'Quintessential Parisian café culture' },
+];
+
+// Neighborhood connection data (walking times in minutes)
+const NEIGHBORHOOD_CONNECTIONS = {
+  'Le Marais': [
+    { to: 'Bastille', walkTime: 10, metro: 'Line 1' },
+    { to: 'Île de la Cité', walkTime: 12, metro: 'Line 1, 4' },
+    { to: 'Latin Quarter', walkTime: 18, metro: 'Line 7' },
+  ],
+  'Saint-Germain-des-Prés': [
+    { to: 'Latin Quarter', walkTime: 8, metro: 'Line 4' },
+    { to: 'Île de la Cité', walkTime: 15, metro: 'Line 4' },
+    { to: 'Montparnasse', walkTime: 15, metro: 'Line 4, 12' },
+  ],
+  'Montmartre': [
+    { to: 'Pigalle', walkTime: 5, metro: 'Line 2, 12' },
+    { to: 'Canal Saint-Martin', walkTime: 25, metro: 'Line 2 → 5' },
+    { to: 'Le Marais', walkTime: 35, metro: 'Line 12 → 1' },
+  ],
+  'Latin Quarter': [
+    { to: 'Saint-Germain-des-Prés', walkTime: 8, metro: 'Line 4' },
+    { to: 'Île de la Cité', walkTime: 10, metro: 'Line 4' },
+    { to: 'Le Marais', walkTime: 18, metro: 'Line 7' },
+  ],
+  'Champs-Élysées': [
+    { to: 'Le Marais', walkTime: 35, metro: 'Line 1' },
+    { to: 'Montmartre', walkTime: 30, metro: 'Line 2' },
+    { to: 'La Défense', walkTime: 45, metro: 'Line 1' },
+  ],
+  'Montparnasse': [
+    { to: 'Saint-Germain-des-Prés', walkTime: 15, metro: 'Line 4, 12' },
+    { to: 'Latin Quarter', walkTime: 20, metro: 'Line 4' },
+    { to: 'Bastille', walkTime: 30, metro: 'Line 6' },
+  ],
+  'La Défense': [
+    { to: 'Champs-Élysées', walkTime: 45, metro: 'Line 1' },
+    { to: 'Le Marais', walkTime: 50, metro: 'Line 1' },
+  ],
+  'Bastille': [
+    { to: 'Le Marais', walkTime: 10, metro: 'Line 1, 8' },
+    { to: 'Canal Saint-Martin', walkTime: 15, metro: 'Line 5' },
+    { to: 'Belleville', walkTime: 20, metro: 'Line 11' },
+  ],
+  'Belleville': [
+    { to: 'Canal Saint-Martin', walkTime: 12, metro: 'Line 2, 11' },
+    { to: 'Bastille', walkTime: 20, metro: 'Line 11' },
+    { to: 'Le Marais', walkTime: 25, metro: 'Line 11 → 1' },
+  ],
+  'Canal Saint-Martin': [
+    { to: 'Belleville', walkTime: 12, metro: 'Line 2, 11' },
+    { to: 'Bastille', walkTime: 15, metro: 'Line 5' },
+    { to: 'Le Marais', walkTime: 20, metro: 'Line 5 → 1' },
+  ],
+  'Île de la Cité': [
+    { to: 'Le Marais', walkTime: 12, metro: 'Line 1, 4' },
+    { to: 'Latin Quarter', walkTime: 10, metro: 'Line 4' },
+    { to: 'Saint-Germain-des-Prés', walkTime: 15, metro: 'Line 4' },
+  ],
+};
+
+// Get insider tips based on neighborhood data
+const getInsiderTips = (neighborhood) => {
+  const tips = [];
   
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterCategory, setFilterCategory] = useState('all');
-  const [sortBy, setSortBy] = useState('name');
-  const [expandedNeighborhoods, setExpandedNeighborhoods] = useState({});
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+  // Use stored insider tips
+  if (neighborhood.insider_tips && neighborhood.insider_tips.length > 0) {
+    tips.push(...neighborhood.insider_tips);
+  }
   
-  // Add unique IDs to neighborhoods if they don't have them already
-  const neighborhoodsWithIds = neighborhoodsList.map((neighborhood, index) => ({
-    ...neighborhood,
-    id: neighborhood.id || `neighborhood-${index}`
-  }));
+  // Add practical tips based on data
+  if (neighborhood.practical_info?.best_time_to_visit) {
+    tips.push(`Best time: ${neighborhood.practical_info.best_time_to_visit}`);
+  }
   
-  // Toggle expanded state for a neighborhood
-  const toggleExpanded = (neighborhoodId) => {
-    setExpandedNeighborhoods(prev => ({
-      ...prev,
-      [neighborhoodId]: !prev[neighborhoodId]
-    }));
+  if (neighborhood.practical_info?.safety && neighborhood.practical_info.safety.toLowerCase().includes('pickpocket')) {
+    tips.push('Keep valuables secure - popular area for pickpockets');
+  }
+  
+  return tips.slice(0, 3);
+};
+
+// Tips overlay component
+const TipsOverlay = ({ tips }) => {
+  if (!tips || tips.length === 0) return null;
+  return (
+    <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+      <div className="w-full">
+        <div className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+          <Sparkles className="w-3 h-3" />
+          Insider Tips
+        </div>
+        <ul className="space-y-1.5">
+          {tips.map((tip, i) => (
+            <li key={i} className="text-sm text-white leading-relaxed flex items-start gap-2">
+              <span className="text-amber-400 mt-0.5 shrink-0">💡</span>
+              <span className="line-clamp-2">{tip}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+// Comparison modal component
+const ComparisonModal = ({ neighborhoods, onClose }) => {
+  if (!neighborhoods || neighborhoods.length < 2) return null;
+  
+  const categories = ['dining', 'shopping', 'nightlife', 'cultural', 'historic', 'green_spaces'];
+  const categoryLabels = {
+    dining: { label: 'Dining', icon: '🍽️' },
+    shopping: { label: 'Shopping', icon: '🛍️' },
+    nightlife: { label: 'Nightlife', icon: '🌃' },
+    cultural: { label: 'Cultural', icon: '🎭' },
+    historic: { label: 'Historic', icon: '🏛️' },
+    green_spaces: { label: 'Green Spaces', icon: '🌳' },
   };
   
-  // Extract unique categories for filtering based on what's in the 'known_for' property
-  const allCategories = neighborhoodsWithIds
-    .reduce((acc, neighborhood) => {
-      const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
-      if (Array.isArray(knownFor)) {
-        knownFor.forEach(category => {
-          if (!acc.includes(category)) acc.push(category);
-        });
-      } else if (knownFor && !acc.includes(knownFor)) {
-        acc.push(knownFor);
-      }
-      return acc;
-    }, [])
-    .sort();
-  
-  // Create options for atmosphere filtering
-  const allAtmospheres = neighborhoodsWithIds
-    .reduce((acc, neighborhood) => {
-      const atmospheres = neighborhood.appeal?.atmosphere || neighborhood.atmosphere || [];
-      if (Array.isArray(atmospheres)) {
-        atmospheres.forEach(atmosphere => {
-          if (!acc.includes(atmosphere)) acc.push(atmosphere);
-        });
-      } else if (atmospheres && !acc.includes(atmospheres)) {
-        acc.push(atmospheres);
-      }
-      return acc;
-    }, [])
-    .sort();
-
-  // Filter neighborhoods based on search and category filter
-  const filteredNeighborhoods = neighborhoodsWithIds.filter(neighborhood => {
-    // Search term filter
-    const nameMatch = neighborhood.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const descriptionMatch = (neighborhood.character || neighborhood.description || '')
-      .toLowerCase().includes(searchTerm.toLowerCase());
-    const alternateNamesMatch = (neighborhood.alternate_names || []).some(
-      name => name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    
-    // Category filter
-    const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
-    const categoryMatch = filterCategory === 'all' || 
-      (Array.isArray(knownFor) 
-        ? knownFor.some(cat => cat.toLowerCase().includes(filterCategory.toLowerCase()))
-        : knownFor.toLowerCase().includes(filterCategory.toLowerCase()));
-    
-    return (nameMatch || descriptionMatch || alternateNamesMatch) && categoryMatch;
-  }).sort((a, b) => {
-    if (sortBy === 'name') {
-      return a.name.localeCompare(b.name);
-    } else if (sortBy === 'touristy') {
-      return (b.categories?.touristy || 0) - (a.categories?.touristy || 0);
-    } else if (sortBy === 'shopping') {
-      return (b.categories?.shopping || 0) - (a.categories?.shopping || 0);
-    } else if (sortBy === 'nightlife') {
-      return (b.categories?.nightlife || 0) - (a.categories?.nightlife || 0);
-    } else if (sortBy === 'dining') {
-      return (b.categories?.dining || 0) - (a.categories?.dining || 0);
-    }
-    return 0;
-  });
-  
-  // Get appropriate icon for the vibe/atmosphere
-  const getAtmosphereIcon = (atmosphere) => {
-    if (!atmosphere) return '';
-    
-    const text = atmosphere.toLowerCase();
-    if (text.includes('historic') || text.includes('traditional')) return '🏛️';
-    if (text.includes('trendy') || text.includes('hip')) return '🔥';
-    if (text.includes('bohemian') || text.includes('artistic')) return '🎨';
-    if (text.includes('quiet') || text.includes('peaceful')) return '🧘';
-    if (text.includes('upscale') || text.includes('luxury')) return '💎';
-    if (text.includes('lively') || text.includes('bustling')) return '🎭';
-    if (text.includes('charming')) return '✨';
-    if (text.includes('sophisticated')) return '🥂';
-    if (text.includes('romantic')) return '💕';
-    if (text.includes('intellectual')) return '📚';
-    if (text.includes('picturesque')) return '🖼️';
-    if (text.includes('touristy')) return '📸';
-    if (text.includes('elegant')) return '👑';
-    if (text.includes('eclectic')) return '🔮';
-    if (text.includes('sleek') || text.includes('modern')) return '🏢';
-    if (text.includes('energetic')) return '⚡';
-    if (text.includes('cultural')) return '🌍';
-    if (text.includes('relaxed')) return '☕';
-    return '🏙️';
-  };
-  
-  // Get score badge color based on rating 1-5
-  const getScoreBadgeColor = (score) => {
-    if (!score && score !== 0) return 'bg-gray-100 text-gray-500';
-    if (score >= 5) return 'bg-green-100 text-green-800';
-    if (score >= 4) return 'bg-blue-100 text-blue-800';
-    if (score >= 3) return 'bg-yellow-100 text-yellow-800';
-    if (score >= 2) return 'bg-orange-100 text-orange-800';
-    return 'bg-red-100 text-red-800';
-  };
-
-  // Get neighborhood icon based on name
-  const getNeighborhoodIcon = (name) => {
-    const nameLower = name.toLowerCase();
-    if (nameLower.includes('marais')) return '🏛️';
-    if (nameLower.includes('montmartre')) return '⛪';
-    if (nameLower.includes('latin')) return '📚';
-    if (nameLower.includes('champs')) return '🛍️';
-    if (nameLower.includes('eiffel')) return '🗼';
-    if (nameLower.includes('louvre')) return '🏛️';
-    if (nameLower.includes('seine')) return '🌊';
-    if (nameLower.includes('opera')) return '🎭';
-    if (nameLower.includes('bastille')) return '🏰';
-    if (nameLower.includes('republic')) return '🏛️';
-    return '🏘️';
+  const getScoreColor = (score, maxScore) => {
+    if (score === maxScore && maxScore > 0) return 'bg-emerald-500';
+    if (score >= 4) return 'bg-blue-500';
+    if (score >= 3) return 'bg-amber-500';
+    return 'bg-gray-400';
   };
   
   return (
-    <div className="p-6">
-      {/* Enhanced Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          {cityName} Neighborhoods
-        </h1>
-                  <p className="text-gray-600">
-            Discover the unique character and charm of {cityName}&apos;s most vibrant districts
-          </p>
-      </div>
-
-      {/* Enhanced Filters section */}
-      <div className="mb-8 bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl shadow-sm border border-purple-100">
-        <div className="flex flex-col space-y-4">
-          {/* Search bar */}
-          <div className="w-full">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                </svg>
-              </div>
-              <input 
-                type="search" 
-                className="block w-full p-4 pl-12 text-gray-900 border border-gray-300 rounded-xl bg-white focus:ring-purple-500 focus:border-purple-500 shadow-sm" 
-                placeholder="Search neighborhoods in Paris..." 
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-auto" onClick={e => e.stopPropagation()}>
+        <div className="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Scale className="w-5 h-5 text-purple-600" />
+            <h2 className="text-xl font-bold text-gray-900">Compare Neighborhoods</h2>
           </div>
+          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+            <X className="w-5 h-5 text-gray-500" />
+          </button>
+        </div>
         
-          {/* Filters row */}
-          <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 lg:space-x-4">
-            <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Filter by Feature</label>
-              <select 
-                className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                value={filterCategory}
-                onChange={(e) => setFilterCategory(e.target.value)}
-              >
-                <option value="all">All Features</option>
-                {allCategories.map(category => (
-                  <option key={category} value={category.toLowerCase()}>{category}</option>
-                ))}
-              </select>
-            </div>
-            
-            <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Sort by</label>
-              <select
-                className="p-3 border rounded-xl w-full bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                <option value="name">Name (A-Z)</option>
-                <option value="touristy">Most Popular</option>
-                <option value="dining">Best Dining</option>
-                <option value="shopping">Best Shopping</option>
-                <option value="nightlife">Best Nightlife</option>
-              </select>
-            </div>
-
-            <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700 mb-2">View Mode</label>
-              <div className="flex border rounded-xl overflow-hidden">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`flex-1 p-3 text-sm font-medium transition-colors ${
-                    viewMode === 'grid' 
-                      ? 'bg-purple-600 text-white' 
-                      : 'bg-white text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  Grid
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`flex-1 p-3 text-sm font-medium transition-colors ${
-                    viewMode === 'list' 
-                      ? 'bg-purple-600 text-white' 
-                      : 'bg-white text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  List
-                </button>
+        <div className="p-6">
+          {/* Header Row */}
+          <div className="grid gap-4" style={{ gridTemplateColumns: `200px repeat(${neighborhoods.length}, 1fr)` }}>
+            <div></div>
+            {neighborhoods.map((n, i) => (
+              <div key={i} className="text-center">
+                <div className="text-2xl mb-2">{getNeighborhoodIcon(n.name)}</div>
+                <h3 className="font-bold text-gray-900">{n.name}</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">{n.character}</p>
               </div>
+            ))}
+          </div>
+          
+          {/* Category Rows */}
+          <div className="mt-6 space-y-3">
+            {categories.map(cat => {
+              const scores = neighborhoods.map(n => n.categories?.[cat] || 0);
+              const maxScore = Math.max(...scores);
+              
+              return (
+                <div key={cat} className="grid gap-4 items-center py-3 border-b border-gray-100" style={{ gridTemplateColumns: `200px repeat(${neighborhoods.length}, 1fr)` }}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">{categoryLabels[cat]?.icon}</span>
+                    <span className="text-sm font-medium text-gray-700">{categoryLabels[cat]?.label}</span>
+                  </div>
+                  {neighborhoods.map((n, i) => {
+                    const score = n.categories?.[cat] || 0;
+                    return (
+                      <div key={i} className="flex items-center justify-center gap-2">
+                        <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden max-w-[100px]">
+                          <div 
+                            className={`h-full ${getScoreColor(score, maxScore)} transition-all`}
+                            style={{ width: `${(score / 5) * 100}%` }}
+                          />
+                        </div>
+                        <span className={`text-sm font-bold ${score === maxScore && maxScore > 0 ? 'text-emerald-600' : 'text-gray-600'}`}>
+                          {score}/5
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Best For Row */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-gray-900 mb-3">Best For</h4>
+            <div className="grid gap-4" style={{ gridTemplateColumns: `200px repeat(${neighborhoods.length}, 1fr)` }}>
+              <div></div>
+              {neighborhoods.map((n, i) => (
+                <div key={i} className="flex flex-wrap gap-1">
+                  {(n.appeal?.best_for || []).slice(0, 3).map((item, j) => (
+                    <span key={j} className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
+          
+          {/* Atmosphere Row */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-gray-900 mb-3">Atmosphere</h4>
+            <div className="grid gap-4" style={{ gridTemplateColumns: `200px repeat(${neighborhoods.length}, 1fr)` }}>
+              <div></div>
+              {neighborhoods.map((n, i) => (
+                <div key={i} className="flex flex-wrap gap-1">
+                  {(n.appeal?.atmosphere || []).slice(0, 3).map((item, j) => (
+                    <span key={j} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Transit Row */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-gray-900 mb-3">Metro Stations</h4>
+            <div className="grid gap-4" style={{ gridTemplateColumns: `200px repeat(${neighborhoods.length}, 1fr)` }}>
+              <div></div>
+              {neighborhoods.map((n, i) => (
+                <div key={i} className="text-sm text-gray-600">
+                  {(n.practical_info?.transit || []).slice(0, 2).join(', ')}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-          {/* Atmosphere tags */}
-          {allAtmospheres.length > 0 && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Popular Atmospheres</label>
-              <div className="flex flex-wrap gap-2">
-                {allAtmospheres.slice(0, 12).map(atmosphere => (
-                  <button
-                    key={atmosphere}
-                    onClick={() => setSearchTerm(atmosphere)}
-                    className="px-3 py-1 rounded-full text-sm flex items-center bg-white border border-purple-200 text-gray-800 hover:bg-purple-50 transition-colors"
-                  >
-                    <span className="mr-1">{getAtmosphereIcon(atmosphere)}</span>
-                    {atmosphere}
-                  </button>
+// Get neighborhood icon based on name
+const getNeighborhoodIcon = (name) => {
+  const nameLower = name?.toLowerCase() || '';
+  if (nameLower.includes('marais')) return '🏛️';
+  if (nameLower.includes('montmartre')) return '⛪';
+  if (nameLower.includes('latin')) return '📚';
+  if (nameLower.includes('champs')) return '🛍️';
+  if (nameLower.includes('eiffel')) return '🗼';
+  if (nameLower.includes('louvre')) return '🖼️';
+  if (nameLower.includes('seine')) return '🌊';
+  if (nameLower.includes('opera') || nameLower.includes('opéra')) return '🎭';
+  if (nameLower.includes('bastille')) return '🏰';
+  if (nameLower.includes('republic') || nameLower.includes('république')) return '🏛️';
+  if (nameLower.includes('germain')) return '☕';
+  if (nameLower.includes('belleville')) return '🎨';
+  if (nameLower.includes('canal')) return '🚣';
+  if (nameLower.includes('île') || nameLower.includes('ile') || nameLower.includes('cité')) return '🏝️';
+  if (nameLower.includes('défense') || nameLower.includes('defense')) return '🏢';
+  if (nameLower.includes('montparnasse')) return '🗼';
+  return '🏘️';
+};
+
+// Neighborhood card with tabbed content
+const NeighborhoodCard = ({ neighborhood, isSelected, onToggleSelect, isCompareMode, connections }) => {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const tips = getInsiderTips(neighborhood);
+  const atmospheres = neighborhood.appeal?.atmosphere || [];
+  const knownFor = neighborhood.appeal?.known_for || [];
+  const bestFor = neighborhood.appeal?.best_for || [];
+  
+  const tabs = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'eat', label: 'Eat & Drink' },
+    { id: 'see', label: 'See & Do' },
+    { id: 'tips', label: 'Tips' },
+  ];
+  
+  return (
+    <div 
+      className={`group bg-white rounded-2xl shadow-sm border-2 transition-all duration-200 overflow-hidden ${
+        isSelected ? 'border-purple-500 ring-2 ring-purple-200' : 'border-gray-200 hover:shadow-md hover:border-gray-300'
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Header with image placeholder and tips overlay */}
+      <div className="relative h-40 bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100 overflow-hidden">
+        {/* Pattern overlay for visual interest */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
+        }} />
+        
+        {/* Large icon */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-6xl opacity-60">{getNeighborhoodIcon(neighborhood.name)}</span>
+        </div>
+        
+        {/* Compare checkbox */}
+        {isCompareMode && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onToggleSelect(); }}
+            className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
+              isSelected 
+                ? 'bg-purple-600 border-purple-600 text-white' 
+                : 'bg-white/90 border-gray-300 hover:border-purple-400'
+            }`}
+          >
+            {isSelected && <Check className="w-4 h-4" />}
+          </button>
+        )}
+        
+        {/* Central badge */}
+        {neighborhood.location?.central && (
+          <div className="absolute top-3 left-3 px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700 flex items-center gap-1">
+            <MapPin className="w-3 h-3" />
+            Central
+          </div>
+        )}
+        
+        {/* Tips overlay on hover */}
+        <TipsOverlay tips={tips} />
+      </div>
+      
+      {/* Content */}
+      <div className="p-4">
+        {/* Title and character */}
+        <div className="mb-3">
+          <h3 className="font-bold text-gray-900 text-lg">{neighborhood.name}</h3>
+          {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
+            <p className="text-xs text-gray-500">{neighborhood.alternate_names[0]}</p>
+          )}
+          <p className="text-sm text-gray-600 mt-1 line-clamp-2">{neighborhood.character}</p>
+        </div>
+        
+        {/* Atmosphere tags */}
+        {atmospheres.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-3">
+            {atmospheres.slice(0, 3).map((atm, i) => (
+              <span key={i} className="px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full">
+                {atm}
+              </span>
+            ))}
+          </div>
+        )}
+        
+        {/* Tabs */}
+        <div className="border-b border-gray-200 mb-3">
+          <div className="flex gap-1 -mb-px overflow-x-auto">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3 py-2 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-purple-600 text-purple-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        {/* Tab content */}
+        <div className="min-h-[140px]">
+          {activeTab === 'overview' && (
+            <div className="space-y-3">
+              {/* Category ratings */}
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { key: 'dining', icon: '🍽️', label: 'Dining' },
+                  { key: 'shopping', icon: '🛍️', label: 'Shopping' },
+                  { key: 'nightlife', icon: '🌃', label: 'Nightlife' },
+                  { key: 'cultural', icon: '🎭', label: 'Cultural' },
+                ].map(cat => (
+                  <div key={cat.key} className="flex items-center gap-2">
+                    <span className="text-sm">{cat.icon}</span>
+                    <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-purple-500 rounded-full"
+                        style={{ width: `${((neighborhood.categories?.[cat.key] || 0) / 5) * 100}%` }}
+                      />
+                    </div>
+                    <span className="text-xs text-gray-500 w-6">{neighborhood.categories?.[cat.key] || 0}/5</span>
+                  </div>
                 ))}
               </div>
+              
+              {/* Best for */}
+              {bestFor.length > 0 && (
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-1">Best for</div>
+                  <div className="flex flex-wrap gap-1">
+                    {bestFor.slice(0, 3).map((item, i) => (
+                      <span key={i} className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
+          )}
+          
+          {activeTab === 'eat' && (
+            <div className="space-y-2">
+              {(neighborhood.highlights?.dining || []).slice(0, 3).map((place, i) => (
+                <div key={i} className="p-2 bg-gray-50 rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-sm text-gray-900">{place.name}</span>
+                    <span className="text-xs text-gray-500">{place.price_range}</span>
+                  </div>
+                  <p className="text-xs text-gray-600">{place.cuisine} • {place.known_for}</p>
+                </div>
+              ))}
+              {(!neighborhood.highlights?.dining || neighborhood.highlights.dining.length === 0) && (
+                <p className="text-sm text-gray-500 italic">No dining info available</p>
+              )}
+            </div>
+          )}
+          
+          {activeTab === 'see' && (
+            <div className="space-y-2">
+              {(neighborhood.highlights?.attractions || []).slice(0, 3).map((place, i) => (
+                <div key={i} className="p-2 bg-gray-50 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">{getNeighborhoodIcon(place.type)}</span>
+                    <span className="font-medium text-sm text-gray-900">{place.name}</span>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-0.5 line-clamp-2">{place.appeal}</p>
+                </div>
+              ))}
+              {(!neighborhood.highlights?.attractions || neighborhood.highlights.attractions.length === 0) && (
+                <p className="text-sm text-gray-500 italic">No attractions info available</p>
+              )}
+            </div>
+          )}
+          
+          {activeTab === 'tips' && (
+            <div className="space-y-3">
+              {/* Stay here if / Avoid if */}
+              {neighborhood.stay_here_if && neighborhood.stay_here_if.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-1 text-xs font-medium text-emerald-600 mb-1">
+                    <Check className="w-3 h-3" />
+                    Stay here if
+                  </div>
+                  <ul className="space-y-0.5">
+                    {neighborhood.stay_here_if.slice(0, 2).map((item, i) => (
+                      <li key={i} className="text-xs text-gray-600">• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {neighborhood.avoid_if && neighborhood.avoid_if.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-1 text-xs font-medium text-red-600 mb-1">
+                    <X className="w-3 h-3" />
+                    Skip if
+                  </div>
+                  <ul className="space-y-0.5">
+                    {neighborhood.avoid_if.slice(0, 2).map((item, i) => (
+                      <li key={i} className="text-xs text-gray-600">• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {/* Transit */}
+              {neighborhood.practical_info?.transit && (
+                <div>
+                  <div className="flex items-center gap-1 text-xs font-medium text-gray-700 mb-1">
+                    <Train className="w-3 h-3" />
+                    Metro Stations
+                  </div>
+                  <p className="text-xs text-gray-600">
+                    {neighborhood.practical_info.transit.slice(0, 3).join(', ')}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+        
+        {/* Connections */}
+        {connections && connections.length > 0 && (
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <div className="flex items-center gap-1 text-xs font-medium text-gray-500 mb-2">
+              <MapPin className="w-3 h-3" />
+              Nearby Neighborhoods
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {connections.slice(0, 2).map((conn, i) => (
+                <div key={i} className="flex items-center gap-1 px-2 py-1 bg-gray-50 rounded-full text-xs text-gray-600">
+                  <Clock className="w-3 h-3" />
+                  <span>{conn.walkTime} min to {conn.to}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// Spotlight card for editor's picks
+const SpotlightCard = ({ neighborhood, reason, onClick }) => {
+  const tips = getInsiderTips(neighborhood);
+  
+  return (
+    <div 
+      className="group relative bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl p-6 text-white overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform"
+      onClick={onClick}
+    >
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="1" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E")'
+      }} />
+      
+      {/* Badge */}
+      <div className="absolute top-4 right-4 px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold flex items-center gap-1">
+        <Sparkles className="w-3 h-3" />
+        Editor&apos;s Pick
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <span className="text-4xl mb-3 block">{getNeighborhoodIcon(neighborhood.name)}</span>
+        <h3 className="text-xl font-bold mb-1">{neighborhood.name}</h3>
+        <p className="text-purple-200 text-sm mb-3">{reason}</p>
+        <p className="text-white/80 text-sm line-clamp-2">{neighborhood.character}</p>
+        
+        {/* Quick stats */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {(neighborhood.appeal?.atmosphere || []).slice(0, 2).map((atm, i) => (
+            <span key={i} className="px-2 py-1 bg-white/20 rounded-full text-xs">
+              {atm}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      {/* Hover arrow */}
+      <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+        <ChevronDown className="w-5 h-5 rotate-[-90deg]" />
+      </div>
+    </div>
+  );
+};
+
+const NeighborhoodsList = ({ neighborhoods, cityName }) => {
+  const neighborhoodsList = Array.isArray(neighborhoods) ? neighborhoods : (neighborhoods?.neighborhoods || []);
+  
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedPersona, setSelectedPersona] = useState(null);
+  const [isCompareMode, setIsCompareMode] = useState(false);
+  const [selectedForCompare, setSelectedForCompare] = useState([]);
+  const [showComparison, setShowComparison] = useState(false);
+  
+  // Add unique IDs
+  const neighborhoodsWithIds = useMemo(() => 
+    neighborhoodsList.map((neighborhood, index) => ({
+      ...neighborhood,
+      id: neighborhood.id || `neighborhood-${index}`
+    })),
+    [neighborhoodsList]
+  );
+  
+  // Get unique neighborhoods (some might be duplicated in the data)
+  const uniqueNeighborhoods = useMemo(() => {
+    const seen = new Set();
+    return neighborhoodsWithIds.filter(n => {
+      if (seen.has(n.name)) return false;
+      seen.add(n.name);
+      return true;
+    });
+  }, [neighborhoodsWithIds]);
+  
+  // Check if neighborhood matches persona
+  const matchesPersona = useCallback((neighborhood, persona) => {
+    if (!persona) return true;
+    const bestFor = (neighborhood.appeal?.best_for || []).map(s => s.toLowerCase());
+    return persona.keywords.some(keyword => 
+      bestFor.some(bf => bf.includes(keyword.toLowerCase()))
+    );
+  }, []);
+  
+  // Filter neighborhoods
+  const filteredNeighborhoods = useMemo(() => {
+    return uniqueNeighborhoods.filter(neighborhood => {
+      // Search filter
+      if (searchTerm) {
+        const nameMatch = neighborhood.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const characterMatch = (neighborhood.character || '').toLowerCase().includes(searchTerm.toLowerCase());
+        if (!nameMatch && !characterMatch) return false;
+      }
+      
+      // Persona filter
+      if (selectedPersona && !matchesPersona(neighborhood, selectedPersona)) {
+        return false;
+      }
+      
+      return true;
+    });
+  }, [uniqueNeighborhoods, searchTerm, selectedPersona, matchesPersona]);
+  
+  // Get editor's picks neighborhoods
+  const editorsPicks = useMemo(() => {
+    return EDITORS_PICKS.map(pick => ({
+      ...pick,
+      neighborhood: uniqueNeighborhoods.find(n => n.name === pick.name)
+    })).filter(pick => pick.neighborhood);
+  }, [uniqueNeighborhoods]);
+  
+  // Toggle comparison selection
+  const toggleCompareSelect = useCallback((neighborhood) => {
+    setSelectedForCompare(prev => {
+      const isSelected = prev.some(n => n.name === neighborhood.name);
+      if (isSelected) {
+        return prev.filter(n => n.name !== neighborhood.name);
+      }
+      if (prev.length >= 3) {
+        return [...prev.slice(1), neighborhood];
+      }
+      return [...prev, neighborhood];
+    });
+  }, []);
+  
+  // Get connections for a neighborhood
+  const getConnections = useCallback((neighborhoodName) => {
+    return NEIGHBORHOOD_CONNECTIONS[neighborhoodName] || [];
+  }, []);
+  
+  // Clear all filters
+  const clearFilters = useCallback(() => {
+    setSearchTerm('');
+    setSelectedPersona(null);
+  }, []);
+  
+  return (
+    <div className="p-4 sm:p-6 space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            Explore {cityName} Neighborhoods
+          </h1>
+          <p className="text-sm text-gray-600 mt-1">
+            {filteredNeighborhoods.length} neighborhoods to discover
+          </p>
+        </div>
+        
+        {/* Compare mode toggle */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => {
+              setIsCompareMode(!isCompareMode);
+              if (isCompareMode) {
+                setSelectedForCompare([]);
+              }
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              isCompareMode
+                ? 'bg-purple-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            <Scale className="w-4 h-4" />
+            {isCompareMode ? 'Exit Compare' : 'Compare'}
+          </button>
+          
+          {isCompareMode && selectedForCompare.length >= 2 && (
+            <button
+              onClick={() => setShowComparison(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-medium hover:bg-emerald-700 transition-colors"
+            >
+              Compare {selectedForCompare.length}
+            </button>
           )}
         </div>
       </div>
       
-      {/* Results count */}
-      <div className="mb-6 flex items-center justify-between">
-        <div className="text-sm text-gray-600">
-          Showing {filteredNeighborhoods.length} of {neighborhoodsList.length} neighborhoods
+      {/* Compare mode hint */}
+      {isCompareMode && (
+        <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 flex items-center gap-3">
+          <Scale className="w-5 h-5 text-purple-600 shrink-0" />
+          <p className="text-sm text-purple-800">
+            Select 2-3 neighborhoods to compare side-by-side. 
+            <span className="font-medium"> {selectedForCompare.length}/3 selected</span>
+          </p>
         </div>
-        <div className="text-sm text-gray-500">
-          {filteredNeighborhoods.length > 0 && (
-            <span className="inline-flex items-center">
-              <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-              {filteredNeighborhoods.length} results found
+      )}
+      
+      {/* Persona quick filters */}
+      <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-4 border border-purple-100">
+        <div className="flex items-center gap-2 mb-3">
+          <Users className="w-4 h-4 text-purple-600" />
+          <span className="text-sm font-semibold text-gray-800">I&apos;m a...</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {PERSONAS.map(persona => {
+            const Icon = persona.icon;
+            const isActive = selectedPersona?.id === persona.id;
+            return (
+              <button
+                key={persona.id}
+                onClick={() => setSelectedPersona(isActive ? null : persona)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                  isActive
+                    ? 'bg-purple-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-purple-100 border border-gray-200'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                {persona.label}
+              </button>
+            );
+          })}
+          
+          {(selectedPersona || searchTerm) && (
+            <button
+              onClick={clearFilters}
+              className="flex items-center gap-1 px-3 py-2 text-sm text-gray-500 hover:text-gray-700"
+            >
+              <X className="w-4 h-4" />
+              Clear
+            </button>
+          )}
+        </div>
+        
+        {/* Search */}
+        <div className="mt-3">
+          <input
+            type="search"
+            placeholder="Search neighborhoods..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
+          />
+        </div>
+      </div>
+      
+      {/* Editor's Picks Spotlight */}
+      {!searchTerm && !selectedPersona && editorsPicks.length > 0 && (
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-amber-500" />
+            <h2 className="text-xl font-bold text-gray-900">Editor&apos;s Picks</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {editorsPicks.map((pick, i) => (
+              <SpotlightCard
+                key={i}
+                neighborhood={pick.neighborhood}
+                reason={pick.reason}
+                onClick={() => {
+                  const element = document.getElementById(`neighborhood-${pick.neighborhood.name.replace(/\s+/g, '-').toLowerCase()}`);
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+      
+      {/* Results count and active filter */}
+      {(selectedPersona || searchTerm) && (
+        <div className="flex items-center gap-2 text-sm text-gray-600">
+          <span className="font-medium">{filteredNeighborhoods.length} neighborhoods</span>
+          {selectedPersona && (
+            <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+              for {selectedPersona.label}
             </span>
           )}
         </div>
+      )}
+      
+      {/* Neighborhoods grid */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {filteredNeighborhoods.map((neighborhood) => (
+          <div 
+            key={neighborhood.id}
+            id={`neighborhood-${neighborhood.name.replace(/\s+/g, '-').toLowerCase()}`}
+          >
+            <NeighborhoodCard
+              neighborhood={neighborhood}
+              isSelected={selectedForCompare.some(n => n.name === neighborhood.name)}
+              onToggleSelect={() => toggleCompareSelect(neighborhood)}
+              isCompareMode={isCompareMode}
+              connections={getConnections(neighborhood.name)}
+            />
+          </div>
+        ))}
       </div>
       
-      {/* Grid View */}
-      {viewMode === 'grid' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredNeighborhoods.map((neighborhood, idx) => {
-            const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
-            const atmospheres = neighborhood.appeal?.atmosphere || neighborhood.atmosphere || [];
-            const isExpanded = expandedNeighborhoods[neighborhood.id] || false;
-            
-            return (
-              <div key={neighborhood.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                {/* Card Header */}
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center">
-                      <span className="text-2xl mr-3">{getNeighborhoodIcon(neighborhood.name)}</span>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 text-lg">{neighborhood.name}</h3>
-                        {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
-                          <p className="text-sm text-gray-500">{neighborhood.alternate_names[0]}</p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end space-y-1">
-                      {neighborhood.categories && (
-                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${getScoreBadgeColor(neighborhood.categories.touristy)}`}>
-                          {neighborhood.categories.touristy}/5
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Quick Info */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="text-center p-2 bg-gray-50 rounded-lg">
-                      <div className="text-sm font-medium text-gray-900">
-                        {neighborhood.categories?.dining || 'N/A'}
-                      </div>
-                      <div className="text-xs text-gray-500">Dining</div>
-                    </div>
-                    <div className="text-center p-2 bg-gray-50 rounded-lg">
-                      <div className="text-sm font-medium text-gray-900">
-                        {neighborhood.categories?.shopping || 'N/A'}
-                      </div>
-                      <div className="text-xs text-gray-500">Shopping</div>
-                    </div>
-                  </div>
-                  
-                  {/* Description Preview */}
-                  <p className="text-gray-700 text-sm line-clamp-3 mb-4">
-                    {neighborhood.character}
-                  </p>
-                  
-                  {/* Atmosphere Tags */}
-                  {Array.isArray(atmospheres) && atmospheres.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {atmospheres.slice(0, 2).map((atmosphere, i) => (
-                        <span key={i} className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-purple-100 text-purple-800">
-                          {getAtmosphereIcon(atmosphere)} {atmosphere}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  
-                  {/* Action Buttons */}
-                  <div className="flex space-x-2">
-                    <button 
-                      className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
-                        isExpanded 
-                          ? 'bg-purple-100 text-purple-800' 
-                          : 'bg-purple-600 text-white hover:bg-purple-700'
-                      }`}
-                      onClick={() => toggleExpanded(neighborhood.id)}
-                    >
-                      {isExpanded ? 'Hide Details' : 'View Details'}
-                    </button>
-                  </div>
-                </div>
-                
-                {/* Expanded Details */}
-                {isExpanded && (
-                  <div className="border-t border-gray-100 bg-gray-50 p-6">
-                    <div className="space-y-4">
-                      {/* Categories ratings */}
-                      {neighborhood.categories && (
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.dining)}`}>
-                              <span className="text-sm">🍽️</span>
-                            </div>
-                            <div className="mt-1 text-xs font-medium">Dining</div>
-                            <div className="font-bold text-sm">{neighborhood.categories.dining}/5</div>
-                          </div>
-                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.shopping)}`}>
-                              <span className="text-sm">🛍️</span>
-                            </div>
-                            <div className="mt-1 text-xs font-medium">Shopping</div>
-                            <div className="font-bold text-sm">{neighborhood.categories.shopping}/5</div>
-                          </div>
-                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.nightlife)}`}>
-                              <span className="text-sm">🌃</span>
-                            </div>
-                            <div className="mt-1 text-xs font-medium">Nightlife</div>
-                            <div className="font-bold text-sm">{neighborhood.categories.nightlife}/5</div>
-                          </div>
-                          <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                            <div className={`mx-auto w-8 h-8 flex items-center justify-center rounded-full ${getScoreBadgeColor(neighborhood.categories.cultural)}`}>
-                              <span className="text-sm">🎭</span>
-                            </div>
-                            <div className="mt-1 text-xs font-medium">Cultural</div>
-                            <div className="font-bold text-sm">{neighborhood.categories.cultural}/5</div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Known For Section */}
-                      {Array.isArray(knownFor) && knownFor.length > 0 && (
-                        <div>
-                          <h4 className="font-medium text-gray-900 mb-2">Known For</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {knownFor.map((item, index) => (
-                              <span 
-                                key={index}
-                                className="bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm"
-                              >
-                                {item}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Stay/Avoid Recommendations */}
-                      {(neighborhood.stay_here_if || neighborhood.avoid_if) && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {neighborhood.stay_here_if && neighborhood.stay_here_if.length > 0 && (
-                            <div className="bg-green-50 p-3 rounded-md">
-                              <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                <span className="text-green-500 mr-2">✓</span>
-                                Stay Here If
-                              </h4>
-                              <ul className="space-y-1">
-                                {neighborhood.stay_here_if.map((item, index) => (
-                                  <li key={index} className="text-sm text-gray-700">• {item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          
-                          {neighborhood.avoid_if && neighborhood.avoid_if.length > 0 && (
-                            <div className="bg-red-50 p-3 rounded-md">
-                              <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                                <span className="text-red-500 mr-2">✕</span>
-                                Avoid If
-                              </h4>
-                              <ul className="space-y-1">
-                                {neighborhood.avoid_if.map((item, index) => (
-                                  <li key={index} className="text-sm text-gray-700">• {item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Insider Tips */}
-                      {neighborhood.insider_tips && neighborhood.insider_tips.length > 0 && (
-                        <div className="bg-blue-50 p-3 rounded-md">
-                          <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                            <span className="text-blue-500 mr-2">💡</span>
-                            Insider Tips
-                          </h4>
-                          <ul className="space-y-1">
-                            {neighborhood.insider_tips.map((tip, index) => (
-                              <li key={index} className="text-sm text-gray-700">• {tip}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
-      
-      {/* List View */}
-      {viewMode === 'list' && (
-        <div className="space-y-4">
-          {filteredNeighborhoods.map((neighborhood, idx) => {
-            const knownFor = neighborhood.appeal?.known_for || neighborhood.known_for || [];
-            const atmospheres = neighborhood.appeal?.atmosphere || neighborhood.atmosphere || [];
-            const isExpanded = expandedNeighborhoods[neighborhood.id] || false;
-            
-            return (
-              <div key={neighborhood.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <div className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <span className="text-2xl">{getNeighborhoodIcon(neighborhood.name)}</span>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 text-lg">{neighborhood.name}</h3>
-                        {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
-                          <p className="text-sm text-gray-500">{neighborhood.alternate_names.join(', ')}</p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="text-center">
-                        <div className="text-sm font-medium text-gray-900">
-                          {neighborhood.categories?.dining || 'N/A'}
-                        </div>
-                        <div className="text-xs text-gray-500">Dining</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-sm font-medium text-gray-900">
-                          {neighborhood.categories?.shopping || 'N/A'}
-                        </div>
-                        <div className="text-xs text-gray-500">Shopping</div>
-                      </div>
-                      {neighborhood.categories && (
-                        <div className="text-center">
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getScoreBadgeColor(neighborhood.categories.touristy)}`}>
-                            {neighborhood.categories.touristy}/5
-                          </span>
-                          <div className="text-xs text-gray-500 mt-1">Rating</div>
-                        </div>
-                      )}
-                      <button 
-                        className={`py-2 px-4 rounded-lg text-sm font-medium transition-colors ${
-                          isExpanded 
-                            ? 'bg-purple-100 text-purple-800' 
-                            : 'bg-purple-600 text-white hover:bg-purple-700'
-                        }`}
-                        onClick={() => toggleExpanded(neighborhood.id)}
-                      >
-                        {isExpanded ? 'Hide' : 'Details'}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  {/* Description Preview */}
-                  <p className="text-gray-700 text-sm mt-3 line-clamp-2">
-                    {neighborhood.character}
-                  </p>
-                </div>
-                
-                {/* Expanded Details */}
-                {isExpanded && (
-                  <div className="border-t border-gray-100 bg-gray-50 p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Known For</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {Array.isArray(knownFor) ? knownFor.map((item, index) => (
-                            <span key={index} className="bg-blue-100 text-blue-800 rounded-full px-2 py-1 text-xs">
-                              {item}
-                            </span>
-                          )) : knownFor}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Atmosphere</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {Array.isArray(atmospheres) ? atmospheres.map((atmosphere, i) => (
-                            <span key={i} className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800">
-                              {getAtmosphereIcon(atmosphere)} {atmosphere}
-                            </span>
-                          )) : atmospheres}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Location</h4>
-                        <p className="text-sm text-gray-700">{neighborhood.location?.description || 'Location information not available'}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
-      
-      {/* Empty State */}
+      {/* Empty state */}
       {filteredNeighborhoods.length === 0 && (
-        <div className="text-center py-12 bg-gray-50 rounded-xl">
-          <svg className="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <h3 className="mt-4 text-lg font-medium text-gray-900">No neighborhoods found</h3>
-          <p className="mt-2 text-gray-600">Try adjusting your search or filter criteria.</p>
-          <div className="mt-6">
-            <button
-              type="button"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-              onClick={() => {
-                setSearchTerm('');
-                setFilterCategory('all');
-              }}
-            >
-              Reset filters
-            </button>
-          </div>
+        <div className="text-center py-12 bg-gray-50 rounded-2xl">
+          <div className="text-4xl mb-4">🏘️</div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">No neighborhoods found</h3>
+          <p className="text-gray-600 mb-4">Try adjusting your filters or search</p>
+          <button
+            onClick={clearFilters}
+            className="px-4 py-2 bg-purple-600 text-white rounded-xl text-sm font-medium hover:bg-purple-700 transition-colors"
+          >
+            Clear filters
+          </button>
         </div>
+      )}
+      
+      {/* Comparison Modal */}
+      {showComparison && (
+        <ComparisonModal
+          neighborhoods={selectedForCompare}
+          onClose={() => setShowComparison(false)}
+        />
       )}
     </div>
   );

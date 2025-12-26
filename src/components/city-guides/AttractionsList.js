@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
-import { Bookmark, Check, Clock, MapPin, ChevronDown, Filter, Star, SlidersHorizontal } from 'lucide-react';
+import { Bookmark, Check, Clock, MapPin, Star } from 'lucide-react';
 
 const MAX_SEASONAL_SCORE = 8;
 
@@ -63,6 +63,17 @@ const SORT_OPTIONS = [
   { id: 'category-desc', label: 'Category Z → A' }
 ];
 
+// Curated filter definitions
+const CURATED_FILTERS = [
+  { id: 'all', label: 'All', icon: '✨', description: 'Show all experiences' },
+  { id: 'must-do', label: 'Must Do', icon: '⭐', description: 'Essential Paris experiences' },
+  { id: 'free', label: 'Free', icon: '🆓', description: 'No cost to enjoy' },
+  { id: 'summer', label: 'Best in Summer', icon: '☀️', description: 'Perfect for warm weather' },
+  { id: 'winter', label: 'Best in Winter', icon: '❄️', description: 'Cozy indoor activities' },
+  { id: 'rainy', label: 'Rainy Day', icon: '🌧️', description: 'Weather-proof options' },
+  { id: 'family', label: 'Family Friendly', icon: '👨‍👩‍👧', description: 'Great for kids' },
+];
+
 // Helper to capitalize city name
 const capitalizeCity = (name) => {
   if (!name) return '';
@@ -80,6 +91,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [quickFilters, setQuickFilters] = useState({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
   const [sortOption, setSortOption] = useState('score-desc');
   const [activeCategories, setActiveCategories] = useState([]);
+  const [curatedFilter, setCuratedFilter] = useState('all');
   
   // New state for UI improvements
   const [showFilters, setShowFilters] = useState(false);
@@ -665,10 +677,74 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     }
   };
 
+  // Curated filter matching function
+  const matchesCuratedFilter = useCallback((attraction, filter) => {
+    if (filter === 'all') return true;
+    
+    const scores = attraction.factorScores || attraction.scores || {};
+    const name = (attraction.name || '').toLowerCase();
+    const totalScore = attraction.compositeScore || scores.total_score || 0;
+    const weatherIndependence = scores.weather_independence ?? 5;
+    const familyFriendliness = scores.family_friendliness ?? 5;
+    
+    switch (filter) {
+      case 'must-do':
+        // High score (≥8) OR iconic landmark
+        const isIconic = ICONIC_KEYWORDS.some(keyword => name.includes(keyword));
+        return totalScore >= 8 || isIconic;
+      
+      case 'free':
+        // Free experiences
+        const isFreeExperience = attraction.estimated_cost_eur === 0 || 
+          attraction.pricing_tier === 'free' ||
+          String(attraction.price_range || '').toLowerCase().includes('free');
+        return isFreeExperience;
+        
+      case 'summer':
+        // Outdoor activities, lower weather independence (outdoor), good for warm weather
+        // Also include parks, views, outdoor themes
+        const isSummerTheme = (attraction.themes || []).some(t => 
+          ['views', 'parks', 'neighborhoods', 'gardens'].includes(t?.toLowerCase())
+        );
+        const isOutdoor = weatherIndependence <= 6;
+        const summerCategory = ['morning', 'afternoon', 'parkgardens'].includes(
+          (attraction.category || '').toLowerCase()
+        );
+        return isOutdoor || isSummerTheme || summerCategory;
+        
+      case 'winter':
+        // Indoor activities, high weather independence, or cozy indoor experiences
+        const isIndoor = weatherIndependence >= 7;
+        const winterTheme = (attraction.themes || []).some(t => 
+          ['art', 'history', 'food', 'museums'].includes(t?.toLowerCase())
+        );
+        const winterCategory = ['afternoon', 'evening', 'latenight', 'fooddrink'].includes(
+          (attraction.category || '').toLowerCase()
+        );
+        return isIndoor || winterTheme || winterCategory;
+        
+      case 'rainy':
+        // Weather-independent activities (score >= 7)
+        return weatherIndependence >= 7;
+        
+      case 'family':
+        // Family-friendly activities (score >= 7)
+        return familyFriendliness >= 7;
+        
+      default:
+        return true;
+    }
+  }, []);
+
   const filteredAttractions = useMemo(() => {
     const effectiveMonth = getEffectiveMonth();
     return dataSource
       .filter((attraction) => {
+        // Curated filter check
+        if (curatedFilter !== 'all' && !matchesCuratedFilter(attraction, curatedFilter)) {
+          return false;
+        }
+        
         const normalizedCategory = typeof attraction.category === 'string' ? attraction.category.trim().toLowerCase() : '';
         if (activeCategorySet.size > 0 && !activeCategorySet.has(normalizedCategory)) {
           return false;
@@ -755,14 +831,14 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             return culturalDiffDesc;
         }
       });
-  }, [dataSource, searchTerm, quickFilters, dateFilterType, selectedDate, startDate, endDate, selectedMonth, getEffectiveMonth, getSeasonalScore, getLensScore, getMonthFromDate, activeCategorySet, sortOption]);
+  }, [dataSource, searchTerm, quickFilters, dateFilterType, selectedDate, startDate, endDate, selectedMonth, getEffectiveMonth, getSeasonalScore, getLensScore, getMonthFromDate, activeCategorySet, sortOption, curatedFilter, matchesCuratedFilter]);
 
   const highlightAttractions = useMemo(() => filteredAttractions.slice(0, 4), [filteredAttractions]);
   const remainingAttractions = useMemo(() => filteredAttractions.slice(4), [filteredAttractions]);
   const activeLens = useMemo(() => rankingLenses.find((lens) => lens.id === rankingLens) || rankingLenses[0], [rankingLens, rankingLenses]);
   const hasActiveQuickFilters = useMemo(
-    () => Object.values(quickFilters).some(Boolean) || searchTerm.trim() !== '' || dateFilterType !== 'none' || activeCategories.length > 0,
-    [quickFilters, searchTerm, dateFilterType, activeCategories]
+    () => Object.values(quickFilters).some(Boolean) || searchTerm.trim() !== '' || dateFilterType !== 'none' || activeCategories.length > 0 || curatedFilter !== 'all',
+    [quickFilters, searchTerm, dateFilterType, activeCategories, curatedFilter]
   );
 
   const [visibleCount, setVisibleCount] = useState(100);
@@ -1221,6 +1297,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 setDateFilterType('none');
                 setSelectedMonth('all');
                 setActiveCategories([]);
+                setCuratedFilter('all');
               }}
               className="text-sm text-blue-600 hover:text-blue-700 font-medium"
             >
@@ -1230,242 +1307,54 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         </div>
       </div>
 
-      {/* Filter Bar */}
-      <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-        {/* Filter Row */}
-        <div className="p-4 flex flex-col sm:flex-row gap-3">
-          {/* Filter Toggle Button - Mobile */}
-          <button
-            type="button"
-            onClick={() => setShowFilters(!showFilters)}
-            className="sm:hidden flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 bg-gray-50 text-sm font-medium text-gray-700 hover:bg-gray-100"
-          >
-            <Filter className="h-4 w-4" />
-            Filters
-            {hasActiveQuickFilters && <span className="h-2 w-2 rounded-full bg-blue-500" />}
-          </button>
-          
-          {/* Quick Filters - Desktop (always visible) */}
-          <div className="hidden sm:flex items-center gap-2">
+      {/* Curated Collection Filters */}
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+        {/* Filter Pills */}
+        <div className="flex flex-wrap gap-2">
+          {CURATED_FILTERS.map(filter => (
             <button
-              type="button"
-              onClick={() => setQuickFilters((f) => ({ ...f, freeOnly: !f.freeOnly }))}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
-                quickFilters.freeOnly ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              key={filter.id}
+              onClick={() => setCuratedFilter(filter.id)}
+              className={`group flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                curatedFilter === filter.id
+                  ? 'bg-gray-900 text-white shadow-sm'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
+              title={filter.description}
             >
-              Free
+              <span className={`text-base transition-transform duration-200 ${curatedFilter === filter.id ? 'scale-110' : 'group-hover:scale-110'}`}>
+                {filter.icon}
+              </span>
+              <span>{filter.label}</span>
             </button>
-            <button
-              type="button"
-              onClick={() => setQuickFilters((f) => ({ ...f, indoorOnly: !f.indoorOnly, outdoorOnly: false }))}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
-                quickFilters.indoorOnly ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              Indoor
-            </button>
-            <button
-              type="button"
-              onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-              className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition ${
-                showAdvancedFilters ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              <SlidersHorizontal className="h-4 w-4" />
-              More
-              <ChevronDown className={`h-3 w-3 transition-transform ${showAdvancedFilters ? 'rotate-180' : ''}`} />
-            </button>
-          </div>
+          ))}
         </div>
         
-        {/* Mobile Filter Panel */}
-        {showFilters && (
-          <div className="sm:hidden border-t border-gray-100 p-4 space-y-4 bg-gray-50">
-            <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Quick Filters</label>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => setQuickFilters((f) => ({ ...f, freeOnly: !f.freeOnly }))}
-                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                    quickFilters.freeOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                  }`}
-                >
-                  🆓 Free
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setQuickFilters((f) => ({ ...f, indoorOnly: !f.indoorOnly, outdoorOnly: false }))}
-                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                    quickFilters.indoorOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                  }`}
-                >
-                  🏛️ Indoor
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setQuickFilters((f) => ({ ...f, outdoorOnly: !f.outdoorOnly, indoorOnly: false }))}
-                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                    quickFilters.outdoorOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                  }`}
-                >
-                  🌤️ Outdoor
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setQuickFilters((f) => ({ ...f, shortVisitsOnly: !f.shortVisitsOnly }))}
-                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                    quickFilters.shortVisitsOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                  }`}
-                >
-                  ⏱️ Quick visit
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setQuickFilters((f) => ({ ...f, budgetOnly: !f.budgetOnly }))}
-                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                    quickFilters.budgetOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                  }`}
-                >
-                  💰 Budget
-                </button>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Season</label>
-                <select
-                  value={selectedMonth}
-                  onChange={(e) => {
-                    setSelectedMonth(e.target.value);
-                    setDateFilterType(e.target.value === 'all' ? 'none' : 'month');
-                  }}
-                  className="mt-1 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
-                >
-                  {months.map((month) => (
-                    <option key={month.value} value={month.value}>{month.icon} {month.label}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Sort</label>
-                <select
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="mt-1 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
-                >
-                  {SORT_OPTIONS.map((opt) => (
-                    <option key={opt.id} value={opt.id}>{opt.label}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
+        {/* Active filter info + Sort */}
+        <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            {curatedFilter !== 'all' ? (
+              <>
+                <span className="text-lg">{CURATED_FILTERS.find(f => f.id === curatedFilter)?.icon}</span>
+                <span>{CURATED_FILTERS.find(f => f.id === curatedFilter)?.description}</span>
+                <span className="text-gray-300">•</span>
+              </>
+            ) : null}
+            <span className="font-medium text-gray-900">{filteredAttractions.length} experiences</span>
           </div>
-        )}
-        
-        {/* Desktop Advanced Filters Panel */}
-        {showAdvancedFilters && (
-          <div className="hidden sm:block border-t border-gray-100 p-4 bg-gray-50">
-            <div className="grid gap-4 md:grid-cols-4">
-              <div className="space-y-3">
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">More Filters</label>
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setQuickFilters((f) => ({ ...f, outdoorOnly: !f.outdoorOnly, indoorOnly: false }))}
-                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                      quickFilters.outdoorOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                    }`}
-                  >
-                    Outdoor
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setQuickFilters((f) => ({ ...f, shortVisitsOnly: !f.shortVisitsOnly }))}
-                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                      quickFilters.shortVisitsOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                    }`}
-                  >
-                    ≤ 90 min
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setQuickFilters((f) => ({ ...f, budgetOnly: !f.budgetOnly }))}
-                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                      quickFilters.budgetOnly ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
-                    }`}
-                  >
-                    Budget-friendly
-                  </button>
-                </div>
-              </div>
-              
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Season Focus</label>
-                <select
-                  value={selectedMonth}
-                  onChange={(e) => {
-                    setSelectedMonth(e.target.value);
-                    setDateFilterType(e.target.value === 'all' ? 'none' : 'month');
-                  }}
-                  className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
-                >
-                  {months.map((month) => (
-                    <option key={month.value} value={month.value}>{month.icon} {month.label}</option>
-                  ))}
-                </select>
-              </div>
-              
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Sort By</label>
-                <select
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
-                >
-                  {SORT_OPTIONS.map((opt) => (
-                    <option key={opt.id} value={opt.id}>{opt.label}</option>
-                  ))}
-                </select>
-              </div>
-              
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Ranking Style</label>
-                <select
-                  value={rankingLens}
-                  onChange={(e) => setRankingLens(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm"
-                >
-                  {rankingLenses.map((lens) => (
-                    <option key={lens.id} value={lens.id}>{lens.label}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            
-            {categoryFilters.length > 0 && (
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">Categories</label>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {categoryFilters.map((category) => (
-                    <button
-                      key={category.id}
-                      type="button"
-                      onClick={() => handleCategoryToggle(category.id)}
-                      className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                        activeCategorySet.has(category.id) ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
-                      }`}
-                    >
-                      {category.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+          
+          <div className="flex items-center gap-3">
+            <select
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+              className="rounded-lg border border-gray-200 bg-white pl-3 pr-8 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
+            >
+              {SORT_OPTIONS.map((opt) => (
+                <option key={opt.id} value={opt.id}>{opt.label}</option>
+              ))}
+            </select>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Loading State */}

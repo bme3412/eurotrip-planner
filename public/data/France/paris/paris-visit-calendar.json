@@ -105,12 +105,20 @@
           "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
           "score": 2, 
           "special": true,
-          "event": "Chinese New Year Period",
-          "notes": "Asian quarter celebrations, gradual warming (2-7°C), excellent museum conditions", 
+          "event": "Chinese New Year Preparations",
+          "notes": "Asian quarter celebrations begin, gradual warming (2-7°C), excellent museum conditions", 
           "location": "13th arrondissement, Belleville, cultural venues", 
           "time": "All day", 
           "price": "Lower prices continue", 
           "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
           "culturalEvents": ["Dragon parades", "Asian food festivals", "Traditional performances"],
           "considerations": ["Book Asian restaurants in advance", "Warm clothing still essential", "Great cultural photography", "Days beginning to lengthen"]
         }
@@ -133,6 +141,8 @@
       "tourismLevel": 3,
       "priceLevel": "Low",
       "crowdLevel": "Low",
+      "bestFor": ["budget", "solo", "museum lovers"],
+      "avoid": ["outdoor activities", "beach trips"],
       "schoolHolidays": {
         "christmas": {"dates": [1, 2], "impact": "Moderate"},
         "winter": {"starts": "mid-February", "impact": "None in January"}
@@ -156,7 +166,8 @@
             "business": 3,
             "budget": 4,
             "luxury": 3
-          }
+          },
+          "considerations": ["Explore covered passages (Galerie Vivienne)", "Hot chocolate at Angelina", "Perfect for Louvre deep-dive"]
         },
         {
           "days": [6, 7, 8, 9, 10, 11, 12, 13], 
@@ -166,6 +177,14 @@
           "time": "All day", 
           "price": "End of sales", 
           "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          },
           "schoolHolidays": {
             "winter": {"active": true, "impact": "Moderate", "dates": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
             "description": "Zone B school holidays - increased family tourism"
@@ -195,20 +214,28 @@
             "activities": ["Seine dinner cruise", "Eiffel Tower champagne", "Montmartre sunset"],
             "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 40-60% markup"]
           },
-          "considerations": ["Reserve restaurants by late January", "Avoid tourist traps in Montmartre", "Seine cruises book fast"]
+          "considerations": ["Reserve restaurants by late January", "Avoid tourist traps in Montmartre", "Seine cruises book fast", "Consider lunch for value"]
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], 
           "score": 3, 
           "notes": "Post-Valentine's, school holidays continue, gradually warming (4-9°C), spring hints", 
           "location": "Citywide", 
           "time": "All day", 
           "price": "Standard", 
           "crowdLevel": "Low-Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          },
           "schoolHolidays": {
             "winter": {"active": true, "impact": "Moderate"}
           },
-          "considerations": ["Days noticeably longer", "Early spring flowers in parks", "Good time for family activities"]
+          "considerations": ["Days noticeably longer", "Early spring flowers in parks", "Good time for family activities", "Some outdoor cafés reopen on sunny days"]
         }
       ],
       "weatherDetails": {
@@ -228,7 +255,9 @@
       },
       "tourismLevel": 4,
       "priceLevel": "Low-Medium",
-      "crowdLevel": "Low-Medium"
+      "crowdLevel": "Low-Medium",
+      "bestFor": ["couples", "budget", "museum lovers"],
+      "avoid": ["outdoor dining", "garden visits"]
     },
     "march": {
       "name": "March",
@@ -260,6 +289,14 @@
           "time": "Full day exploration", 
           "price": "Standard", 
           "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
           "springActivities": ["Garden visits", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
           "considerations": ["Weather can change quickly", "Perfect time for Seine walks", "Outdoor dining returns"]
         },
@@ -273,13 +310,6 @@
           "time": "Optimal 10am-6pm", 
           "price": "Free for parks", 
           "crowdLevel": "Moderate-High",
-          "cherryBlossomLocations": {
-            "parcDeSceaux": "First to bloom, 25 min from center",
-            "jardinDesPlantes": "Central location, multiple varieties",
-            "parcDeBagatelle": "Less crowded, beautiful setting",
-            "cerisiersdu Trocadéro": "Eiffel Tower backdrop",
-            "squareJeanXXIII": "Behind Notre-Dame"
-          },
           "travelerTypes": {
             "families": 4,
             "couples": 5,
@@ -287,6 +317,13 @@
             "business": 3,
             "budget": 4,
             "luxury": 4
+          },
+          "cherryBlossomLocations": {
+            "parcDeSceaux": "First to bloom, 25 min from center",
+            "jardinDesPlantes": "Central location, multiple varieties",
+            "parcDeBagatelle": "Less crowded, beautiful setting",
+            "trocadero": "Eiffel Tower backdrop",
+            "squareJeanXXIII": "Behind Notre-Dame"
           },
           "considerations": ["Peak bloom varies by weather", "Weekend crowds for cherry blossoms", "Perfect for photography", "Outdoor dining fully returns"]
         }
@@ -309,6 +346,7 @@
       "tourismLevel": 5,
       "priceLevel": "Medium",
       "crowdLevel": "Medium",
+      "bestFor": ["couples", "photographers", "walkers"],
       "schoolHolidays": {
         "spring": {"dates": [25, 26, 27, 28, 29, 30, 31], "impact": "Moderate-High", "zones": "All zones"}
       }
@@ -318,7 +356,7 @@
       "ranges": [
         {
           "days": [1], 
-          "score": 3, 
+          "score": 4, 
           "special": true, 
           "event": "April Fool's Day (Poisson d'Avril)", 
           "notes": "Fun cultural atmosphere, cherry blossoms peak, perfect spring weather", 
@@ -326,6 +364,14 @@
           "time": "All day", 
           "price": "Free cultural fun", 
           "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
           "culturalTradition": "Paper fish pranks, playful atmosphere throughout the city"
         },
         {
@@ -356,7 +402,7 @@
         },
         {
           "days": [14], 
-          "score": 4, 
+          "score": 3, 
           "special": true, 
           "event": "Paris Marathon", 
           "notes": "Major sporting event, road closures, festive atmosphere, cherry blossoms as backdrop", 
@@ -364,6 +410,14 @@
           "time": "7am-2pm", 
           "price": "Free to watch", 
           "crowdLevel": "Very High along route",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
           "roadClosures": {
             "major": ["Champs-Élysées", "Rue de Rivoli", "Boulevard Saint-Germain"],
             "duration": "6am-3pm",
@@ -374,12 +428,20 @@
         },
         {
           "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
-          "score": 4, 
-          "notes": "Perfect spring conditions (12-18°C), comfortable temperatures, ideal sightseeing", 
+          "score": 5, 
+          "notes": "Perfect spring conditions (12-18°C), comfortable temperatures, ideal sightseeing, one of the best periods to visit", 
           "location": "Citywide", 
           "time": "Extended daylight 6:30am-8pm", 
           "price": "Standard", 
           "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
           "schoolHolidays": {
             "spring": {"active": true, "impact": "High", "dates": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]},
             "easter": {"dates": "Variable - typically mid-April", "impact": "Very High"}
@@ -395,6 +457,7 @@
         "realFeelC": 13,
         "rainfallMm": 50,
         "rainDays": 10,
+        "snowDays": 0,
         "sunshineHours": 6.5,
         "daylightHours": 13.5,
         "sunrise": "07:00",
@@ -406,6 +469,7 @@
       "tourismLevel": 7,
       "priceLevel": "Medium",
       "crowdLevel": "Medium-High",
+      "bestFor": ["everyone", "photographers", "romantics", "families"],
       "specialConsiderations": {
         "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
         "schoolHolidays": "Two weeks of increased family tourism from all regions",
@@ -415,135 +479,1038 @@
     "may": {
       "name": "May",
       "ranges": [
-        {"days": [1], "score": 3, "special": true, "event": "Labor Day (Fête du Travail)", "notes": "Many closures but special events, lily of the valley sales", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
-        {"days": [2, 3, 4, 5, 6, 7], "score": 4, "notes": "Spring flowers, pleasant temperatures (11-18°C), outdoor dining", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
-        {"days": [8], "score": 3, "special": true, "event": "Victory in Europe Day", "notes": "Some closures, commemorations, historical significance", "location": "Arc de Triomphe, military sites", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
-        {"days": [9, 10, 11, 12, 13, 14, 15, 16, 17], "score": 4, "notes": "Excellent weather, not peak tourism yet, perfect for sightseeing", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
-        {"days": [18], "score": 5, "special": true, "event": "Nuit des Musées", "notes": "Museums Night, special cultural events, free museum access", "location": "Museums citywide", "time": "Evening", "price": "Free", "crowdLevel": "High"},
-        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Warm weather (13-20°C), outdoor café culture thriving, long days", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+        {
+          "days": [1], 
+          "score": 2, 
+          "special": true, 
+          "event": "Labor Day (Fête du Travail)", 
+          "notes": "National holiday - many closures, lily of the valley sales, quiet streets", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          },
+          "considerations": ["Most shops and museums closed", "Buy lily of the valley (muguet)", "Parks and gardens open", "Restaurants may close"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7], 
+          "score": 5, 
+          "notes": "Excellent spring weather (11-18°C), perfect outdoor conditions, manageable crowds", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          },
+          "considerations": ["Ideal weather for everything", "Book ahead for popular restaurants", "Gardens at their best"]
+        },
+        {
+          "days": [8], 
+          "score": 3, 
+          "special": true, 
+          "event": "Victory in Europe Day", 
+          "notes": "Public holiday, some closures, commemorations at Arc de Triomphe", 
+          "location": "Arc de Triomphe, military sites", 
+          "time": "Morning ceremonies", 
+          "price": "Free", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 1,
+            "budget": 4,
+            "luxury": 3
+          },
+          "considerations": ["Some museums closed", "Ceremony at Tomb of Unknown Soldier", "Good day for neighborhood walks"]
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17], 
+          "score": 5, 
+          "notes": "Perfect conditions (12-20°C), pre-peak tourism, ideal weather, locals enjoy café terraces", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          },
+          "considerations": ["One of the best periods to visit", "Gardens in full bloom", "Perfect for outdoor activities"]
+        },
+        {
+          "days": [18], 
+          "score": 5, 
+          "special": true, 
+          "event": "Nuit des Musées (European Night of Museums)", 
+          "notes": "Museums open late with free entry, special events, unique nighttime cultural experience", 
+          "location": "Museums citywide", 
+          "time": "Evening 7pm-1am", 
+          "price": "Free", 
+          "crowdLevel": "High at major museums",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "highlightMuseums": ["Louvre", "Musée d'Orsay", "Centre Pompidou", "Musée de l'Orangerie"],
+          "considerations": ["Arrive early at popular museums", "Lesser-known museums less crowded", "Magical atmosphere", "Perfect for budget travelers"]
+        },
+        {
+          "days": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "notes": "Late spring warmth (13-22°C), Roland Garros period, tourism increasing", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard-High", 
+          "crowdLevel": "Moderate-High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          },
+          "specialEvents": {
+            "rolandGarros": {
+              "dates": "Late May - early June",
+              "location": "Stade Roland Garros, 16th arrondissement",
+              "impact": "Hotels near venue premium priced",
+              "tips": "Book accommodation early if attending"
+            }
+          },
+          "considerations": ["Roland Garros crowds in western Paris", "Prices begin to rise", "Long warm evenings perfect for dining"]
+        }
       ],
-      "weatherHighC": 20,
-      "weatherLowC": 11,
-      "weatherAvgC": 15.5,
-      "rainfallMm": 75,
-      "sunshineHours": 7.5,
+      "weatherDetails": {
+        "highC": 20,
+        "lowC": 11,
+        "avgC": 15.5,
+        "realFeelC": 16,
+        "rainfallMm": 75,
+        "rainDays": 11,
+        "snowDays": 0,
+        "sunshineHours": 7.5,
+        "daylightHours": 15,
+        "sunrise": "06:00",
+        "sunset": "21:30",
+        "humidity": 70,
+        "windKmh": 11,
+        "uvIndex": 6
+      },
       "tourismLevel": 8,
       "priceLevel": "Medium-High",
-      "crowdLevel": "Medium-High"
+      "crowdLevel": "Medium-High",
+      "bestFor": ["everyone", "outdoor lovers", "culture seekers", "tennis fans"]
     },
     "june": {
       "name": "June",
       "ranges": [
-        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent weather (14-23°C), long daylight, pre-peak season", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
-        {"days": [15, 16, 17, 18, 19, 20], "score": 4, "notes": "Warming up, tourism increasing, still manageable crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
-        {"days": [21], "score": 5, "special": true, "event": "Fête de la Musique", "notes": "Music festival, summer solstice, free concerts everywhere", "location": "Streets and venues citywide", "time": "Evening", "price": "Free", "crowdLevel": "Very High"},
-        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Summer begins, increasing tourism, warm weather (16-24°C)", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "High"}
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 5, 
+          "notes": "Excellent weather (14-23°C), long daylight hours, pre-peak season, ideal conditions", 
+          "location": "Citywide", 
+          "time": "Daylight until 10pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          },
+          "specialEvents": {
+            "rolandGarros": {
+              "dates": "Through first week of June",
+              "location": "Stade Roland Garros",
+              "tip": "Finals weekend very busy in western Paris"
+            }
+          },
+          "considerations": ["One of the best times to visit", "Long twilight evenings", "Perfect for river cruises", "Gardens at peak beauty"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Pre-summer solstice, warming up (16-24°C), tourism increasing but manageable", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard-High", 
+          "crowdLevel": "Moderate-High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          },
+          "considerations": ["Book restaurants ahead", "Evening Seine walks magical", "Consider early morning sightseeing"]
+        },
+        {
+          "days": [21], 
+          "score": 5, 
+          "special": true, 
+          "event": "Fête de la Musique (Summer Solstice)", 
+          "notes": "Free live music everywhere, summer solstice celebration, magical evening, longest day of the year", 
+          "location": "Streets and venues citywide", 
+          "time": "Evening until late night", 
+          "price": "Free", 
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 5,
+            "luxury": 4
+          },
+          "bestNeighborhoods": ["Le Marais", "Latin Quarter", "Bastille", "Montmartre"],
+          "musicGenres": ["Classical in churches", "Jazz in parks", "Rock in streets", "World music everywhere"],
+          "considerations": ["Metro runs all night", "Incredibly festive atmosphere", "Plan dinner reservations early", "One of Paris's best events"]
+        },
+        {
+          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "notes": "Early summer (16-25°C), tourism increasing, long warm evenings", 
+          "location": "Citywide", 
+          "time": "All day, sunset around 10pm", 
+          "price": "High", 
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          },
+          "considerations": ["Book attractions in advance", "Early morning best for photos", "Evening dining on terraces", "Consider early July if flexible"]
+        }
       ],
-      "weatherHighC": 23,
-      "weatherLowC": 14,
-      "weatherAvgC": 18.5,
-      "rainfallMm": 65,
-      "sunshineHours": 8.5,
+      "weatherDetails": {
+        "highC": 23,
+        "lowC": 14,
+        "avgC": 18.5,
+        "realFeelC": 20,
+        "rainfallMm": 65,
+        "rainDays": 10,
+        "snowDays": 0,
+        "sunshineHours": 8.5,
+        "daylightHours": 16,
+        "sunrise": "05:45",
+        "sunset": "21:55",
+        "humidity": 65,
+        "windKmh": 10,
+        "uvIndex": 7
+      },
       "tourismLevel": 9,
       "priceLevel": "High",
-      "crowdLevel": "High"
+      "crowdLevel": "High",
+      "bestFor": ["everyone", "music lovers", "romantics", "outdoor dining"]
     },
     "july": {
       "name": "July",
       "ranges": [
-        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 3, "notes": "Peak tourism season, warm weather (16-25°C), crowded attractions", "location": "Citywide", "time": "All day", "price": "Expensive", "crowdLevel": "Very High"},
-        {"days": [14], "score": 4, "special": true, "event": "Bastille Day", "notes": "National holiday, fireworks at Eiffel Tower, military parade, celebrations", "location": "Champs-Élysées, Eiffel Tower", "time": "All day", "price": "Free", "crowdLevel": "Very High"},
-        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Paris Plages", "notes": "Urban beaches along Seine, hot weather (17-26°C), peak tourism, crowded", "location": "Seine riverbanks", "time": "All day", "price": "Free", "crowdLevel": "Very High"}
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 4, 
+          "notes": "Peak summer (17-26°C), crowded but excellent weather, long days, book everything in advance", 
+          "location": "Citywide", 
+          "time": "All day, sunset around 10pm", 
+          "price": "High", 
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 2,
+            "luxury": 4
+          },
+          "considerations": ["Book skip-the-line tickets", "Early morning sightseeing essential", "Evening entertainment excellent", "Stay hydrated in heat"],
+          "summerTips": ["Bring sunscreen", "Seek shade in parks", "Many locals leaving for vacation"]
+        },
+        {
+          "days": [14], 
+          "score": 5, 
+          "special": true, 
+          "event": "Bastille Day (Fête Nationale)", 
+          "notes": "National holiday, military parade on Champs-Élysées, spectacular fireworks at Eiffel Tower", 
+          "location": "Champs-Élysées, Eiffel Tower, Champ de Mars", 
+          "time": "Parade 10am, Fireworks 11pm", 
+          "price": "Free", 
+          "crowdLevel": "Extremely High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 1,
+            "budget": 5,
+            "luxury": 4
+          },
+          "events": {
+            "parade": {
+              "location": "Champs-Élysées",
+              "time": "10am",
+              "tip": "Arrive by 8am for good viewing spot"
+            },
+            "fireworks": {
+              "location": "Eiffel Tower/Champ de Mars",
+              "time": "11pm",
+              "tip": "Arrive by 8pm, bring picnic blanket"
+            },
+            "firemensball": {
+              "location": "Fire stations citywide",
+              "dates": "July 13-14 evening",
+              "tip": "Traditional dance parties at casernes"
+            }
+          },
+          "considerations": ["Extremely crowded", "Metro packed but runs late", "Magical atmosphere", "One of the best Paris experiences", "Book dinner early or picnic"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 3, 
+          "special": true, 
+          "event": "Paris Plages (Urban Beaches)", 
+          "notes": "Urban beaches along Seine, very hot weather possible (18-28°C), some locals away on vacation", 
+          "location": "Seine riverbanks, Canal Saint-Martin", 
+          "time": "8am-midnight", 
+          "price": "Free", 
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 2
+          },
+          "parisPlagesActivities": ["Beach volleyball", "Deck chairs", "Misting stations", "Drinks & snacks", "Tai chi classes", "Dance nights"],
+          "heatAdvice": {
+            "dangerDays": "Possible heatwave 35°C+",
+            "tips": ["Stay in shade noon-4pm", "Visit museums in afternoon", "Evening activities best", "Drink lots of water"]
+          },
+          "considerations": ["Many restaurants close for vacation", "Some shops closed", "Excellent for outdoor activities", "Consider escaping to air-conditioned museums"]
+        }
       ],
-      "weatherHighC": 25,
-      "weatherLowC": 16,
-      "weatherAvgC": 20.5,
-      "rainfallMm": 60,
-      "sunshineHours": 9,
+      "weatherDetails": {
+        "highC": 25,
+        "lowC": 16,
+        "avgC": 20.5,
+        "realFeelC": 24,
+        "rainfallMm": 60,
+        "rainDays": 8,
+        "snowDays": 0,
+        "sunshineHours": 9,
+        "daylightHours": 15.5,
+        "sunrise": "06:00",
+        "sunset": "21:45",
+        "humidity": 60,
+        "windKmh": 9,
+        "uvIndex": 8
+      },
       "tourismLevel": 10,
       "priceLevel": "High",
-      "crowdLevel": "Very High"
+      "crowdLevel": "Very High",
+      "bestFor": ["families (school vacation)", "Bastille Day enthusiasts", "summer lovers"],
+      "warnings": ["Possible heatwaves", "Many local shops closed", "Book everything in advance"]
     },
     "august": {
       "name": "August",
       "ranges": [
-        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 2, "special": true, "event": "Paris Plages & Assumption Day", "notes": "Hot weather (17-26°C), urban beaches, many locals on vacation, some closures", "location": "Seine riverbanks", "time": "All day", "price": "Free", "crowdLevel": "High"},
-        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Still warm, crowds decreasing as European vacations end, more manageable", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 2, 
+          "special": true, 
+          "event": "Paris Plages & Assumption Day (Aug 15)", 
+          "notes": "Hot weather (17-27°C), urban beaches continue, many Parisians on vacation, some closures", 
+          "location": "Seine riverbanks", 
+          "time": "All day", 
+          "price": "Free activities, reduced options", 
+          "crowdLevel": "High (tourists), Low (locals)",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 2,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          },
+          "closureWarnings": {
+            "restaurants": "30-50% of neighborhood restaurants closed",
+            "shops": "Many boutiques closed for vacation",
+            "bakeries": "Some local boulangeries take summer break",
+            "tip": "Check if favorite spots are open before going"
+          },
+          "considerations": ["Authentic Paris feel diminished", "Tourist-heavy areas still active", "Good deals on accommodation possible", "Heat can be oppressive"]
+        },
+        {
+          "days": [15], 
+          "score": 2, 
+          "special": true, 
+          "event": "Assumption Day", 
+          "notes": "Public holiday, religious celebrations, many closures", 
+          "location": "Notre-Dame area, churches citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          },
+          "considerations": ["Public holiday closures", "Religious processions", "Good day for park visits"]
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24], 
+          "score": 3, 
+          "special": true,
+          "event": "Rock en Seine Festival (late August)",
+          "notes": "Crowds decreasing, weather still warm (16-25°C), city slowly returning to normal", 
+          "location": "Citywide, Domaine de Saint-Cloud (festival)", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          },
+          "rockEnSeine": {
+            "location": "Domaine de Saint-Cloud",
+            "style": "Major rock festival",
+            "tip": "Book accommodation early if attending"
+          },
+          "considerations": ["Shops and restaurants reopening", "Still warm but less oppressive", "Good time as city awakens"]
+        },
+        {
+          "days": [25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "notes": "Late summer magic (15-24°C), Parisians returning, cultural season beginning, rentree atmosphere", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "rentree": {
+            "meaning": "Back-to-school/return period",
+            "atmosphere": "Energetic, fresh start feeling",
+            "cultural": "New exhibitions, shows announced"
+          },
+          "considerations": ["Excellent time to visit", "City regaining its rhythm", "Better restaurant selection", "School supply shopping fun to observe"]
+        }
       ],
-      "weatherHighC": 25,
-      "weatherLowC": 16,
-      "weatherAvgC": 20.5,
-      "rainfallMm": 55,
-      "sunshineHours": 8.5,
+      "weatherDetails": {
+        "highC": 25,
+        "lowC": 16,
+        "avgC": 20.5,
+        "realFeelC": 23,
+        "rainfallMm": 55,
+        "rainDays": 7,
+        "snowDays": 0,
+        "sunshineHours": 8.5,
+        "daylightHours": 14,
+        "sunrise": "06:40",
+        "sunset": "21:00",
+        "humidity": 62,
+        "windKmh": 9,
+        "uvIndex": 7
+      },
       "tourismLevel": 9,
       "priceLevel": "High",
-      "crowdLevel": "High"
+      "crowdLevel": "High",
+      "bestFor": ["Paris Plages lovers", "late-month visitors", "rock music fans"],
+      "warnings": ["Early August many closures", "Heat can be extreme", "Book restaurants ahead"]
     },
     "september": {
       "name": "September",
       "ranges": [
-        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent post-peak season, warm weather continues (13-21°C), fewer crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
-        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Paris Fashion Week", "notes": "Pleasant temperatures, reduced crowds, cultural events, fashion shows", "location": "Various venues citywide", "time": "All day", "price": "Invitation only", "crowdLevel": "Moderate"}
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 5, 
+          "notes": "Arguably the best time to visit (13-21°C), perfect weather, locals back, cultural season starts", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 5,
+            "budget": 5,
+            "luxury": 5
+          },
+          "culturalHighlights": ["New museum exhibitions opening", "Theater season begins", "Gallery openings", "Restaurant new menus"],
+          "considerations": ["Book popular restaurants", "Perfect for everything", "Locals energized post-vacation", "Photography light is golden"]
+        },
+        {
+          "days": [15, 16], 
+          "score": 5, 
+          "special": true, 
+          "event": "Journées du Patrimoine (Heritage Days)", 
+          "notes": "Historic buildings open free, normally closed sites accessible, fantastic cultural weekend", 
+          "location": "Historic buildings citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "High at special sites",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "uniqueAccess": ["Élysée Palace (limited)", "Hôtel de Ville (rarely open)", "Private mansions", "Government buildings"],
+          "considerations": ["Queue early for popular sites", "Lesser-known spots less crowded", "Exceptional opportunity", "Download official app"]
+        },
+        {
+          "days": [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 5, 
+          "special": true, 
+          "event": "Paris Fashion Week (late Sept)", 
+          "notes": "Excellent conditions continue (12-19°C), Fashion Week buzz, cultural events peak, early autumn colors", 
+          "location": "Various venues citywide", 
+          "time": "All day", 
+          "price": "Standard (shows invite-only)", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          },
+          "fashionWeek": {
+            "dates": "Late September (varies)",
+            "hotels": "Premium prices in Fashion Triangle (8th)",
+            "atmosphere": "Chic, stylish crowds",
+            "tip": "Great for people-watching near Tuileries"
+          },
+          "autumnBeginning": {
+            "colors": "Early golden leaves in parks",
+            "light": "Beautiful golden hour photography",
+            "temperature": "Perfect for walking"
+          },
+          "considerations": ["Book hotels early if during Fashion Week", "Perfect weather continues", "Cultural calendar packed", "Slight price increase"]
+        }
       ],
-      "weatherHighC": 21,
-      "weatherLowC": 13,
-      "weatherAvgC": 17,
-      "rainfallMm": 55,
-      "sunshineHours": 7,
+      "weatherDetails": {
+        "highC": 21,
+        "lowC": 13,
+        "avgC": 17,
+        "realFeelC": 17,
+        "rainfallMm": 55,
+        "rainDays": 9,
+        "snowDays": 0,
+        "sunshineHours": 7,
+        "daylightHours": 12.5,
+        "sunrise": "07:15",
+        "sunset": "19:45",
+        "humidity": 68,
+        "windKmh": 10,
+        "uvIndex": 5
+      },
       "tourismLevel": 7,
       "priceLevel": "Medium-High",
-      "crowdLevel": "Medium"
+      "crowdLevel": "Medium",
+      "bestFor": ["everyone", "culture lovers", "photographers", "fashion enthusiasts"]
     },
     "october": {
       "name": "October",
       "ranges": [
-        {"days": [5], "score": 4, "special": true, "event": "Nuit Blanche", "notes": "All-night arts festival, fall colors beginning, cultural events", "location": "Various venues citywide", "time": "All night", "price": "Free", "crowdLevel": "High"},
-        {"days": [6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Comfortable temperatures (10-16°C), beautiful autumn atmosphere, golden light", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
-        {"days": [19, 20], "score": 4, "special": true, "event": "Montmartre Grape Harvest Festival", "notes": "Fall colors, harvest activities, wine tasting, autumn charm", "location": "Montmartre", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"}
+        {
+          "days": [1, 2, 3, 4], 
+          "score": 4, 
+          "notes": "Beautiful autumn weather (10-17°C), fall foliage beginning, comfortable temperatures", 
+          "location": "Parks and gardens", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "autumnColors": ["Luxembourg Gardens", "Tuileries", "Bois de Boulogne", "Parc Monceau"],
+          "considerations": ["Perfect for photography", "Comfortable walking weather", "Cultural season in full swing"]
+        },
+        {
+          "days": [5], 
+          "score": 5, 
+          "special": true, 
+          "event": "Nuit Blanche (first Saturday of October)", 
+          "notes": "All-night contemporary art festival, free installations citywide, magical atmosphere", 
+          "location": "Various venues citywide", 
+          "time": "7pm - 7am", 
+          "price": "Free", 
+          "crowdLevel": "High at installations",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 5,
+            "luxury": 4
+          },
+          "featuredAreas": ["Different neighborhood each year", "Check official program", "Public transport free all night"],
+          "considerations": ["Dress warmly for night walking", "Unique Paris experience", "Can be exhausting but magical", "Metro runs all night"]
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 
+          "score": 4, 
+          "notes": "Peak autumn colors (9-16°C), golden light, comfortable temperatures, moderate tourism", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "peakFoliage": {
+            "locations": ["Jardin du Luxembourg", "Père Lachaise", "Bois de Vincennes"],
+            "tip": "Golden hour around 6pm spectacular"
+          },
+          "schoolHolidays": {
+            "toussaint": {"dates": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "impact": "Moderate increase in families"}
+          },
+          "considerations": ["Perfect for long walks", "Cozy café culture", "Bring layers for temperature swings"]
+        },
+        {
+          "days": [19, 20], 
+          "score": 4, 
+          "special": true, 
+          "event": "Fête des Vendanges de Montmartre (Grape Harvest)", 
+          "notes": "Traditional grape harvest festival in Montmartre, wine tasting, parades, festive atmosphere", 
+          "location": "Montmartre", 
+          "time": "All day", 
+          "price": "Some events free, wine tasting varies", 
+          "crowdLevel": "High in Montmartre",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          },
+          "festivities": ["Wine tasting", "Street parade", "Local food", "Traditional music", "Art exhibitions"],
+          "considerations": ["Montmartre very crowded", "Book local restaurants early", "Unique cultural experience", "Fun even for non-wine-drinkers"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 3, 
+          "notes": "Late autumn (7-14°C), cooling temperatures, Halloween period, school holidays (Toussaint)", 
+          "location": "Citywide", 
+          "time": "Daytime 8am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate (families on holiday)",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          },
+          "halloween": {
+            "adoption": "Growing popularity in Paris",
+            "events": "Some bars and venues celebrate",
+            "tip": "American-style Halloween less common"
+          },
+          "considerations": ["Pack warmer clothes", "Rain more likely", "Good for museums", "School holiday crowds at family attractions"]
+        }
       ],
-      "weatherHighC": 16,
-      "weatherLowC": 10,
-      "weatherAvgC": 13,
-      "rainfallMm": 65,
-      "sunshineHours": 5.5,
+      "weatherDetails": {
+        "highC": 16,
+        "lowC": 10,
+        "avgC": 13,
+        "realFeelC": 12,
+        "rainfallMm": 65,
+        "rainDays": 10,
+        "snowDays": 0,
+        "sunshineHours": 5.5,
+        "daylightHours": 10.5,
+        "sunrise": "08:00",
+        "sunset": "18:30",
+        "humidity": 78,
+        "windKmh": 12,
+        "uvIndex": 3
+      },
       "tourismLevel": 6,
       "priceLevel": "Medium",
-      "crowdLevel": "Medium"
+      "crowdLevel": "Medium",
+      "bestFor": ["photographers", "art lovers", "wine enthusiasts", "autumn fans"]
     },
     "november": {
       "name": "November",
       "ranges": [
-        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Holiday, some closures but special cemetery visits, chrysanthemums", "location": "Cemeteries citywide", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"},
-        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Fall colors continue, cooling temperatures (6-12°C), indoor activities", "location": "Museums and galleries", "time": "Daytime", "price": "Standard", "crowdLevel": "Low"},
-        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures, historical significance", "location": "Arc de Triomphe", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
-        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 3, "special": true, "event": "Christmas Markets Begin", "notes": "Festive atmosphere begins, cooler weather, holiday preparations", "location": "Various locations", "time": "All day", "price": "Free", "crowdLevel": "Moderate"}
+        {
+          "days": [1], 
+          "score": 3, 
+          "special": true, 
+          "event": "Toussaint (All Saints' Day)", 
+          "notes": "Public holiday, cemetery visits traditional, chrysanthemums everywhere, reflective atmosphere", 
+          "location": "Cemeteries citywide (Père Lachaise, Montparnasse)", 
+          "time": "Daytime", 
+          "price": "Free", 
+          "crowdLevel": "Moderate at cemeteries",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 1,
+            "budget": 4,
+            "luxury": 3
+          },
+          "tradition": "Families visit graves, bring chrysanthemums",
+          "considerations": ["Museums may be closed", "Unique cultural observation", "Good day for Père Lachaise visit"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Early November chill (5-12°C), late autumn colors, indoor activities ideal", 
+          "location": "Museums, covered passages, cafés", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "indoorActivities": ["Museum deep-dives", "Covered passages (Vivienne, Jouffroy)", "Cooking classes", "Wine tastings"],
+          "considerations": ["Pack warm layers and umbrella", "Cozy café culture perfect", "Fewer tourists", "Good value"]
+        },
+        {
+          "days": [11], 
+          "score": 3, 
+          "special": true, 
+          "event": "Armistice Day", 
+          "notes": "Public holiday, WWI commemorations at Arc de Triomphe, some closures", 
+          "location": "Arc de Triomphe, Tomb of Unknown Soldier", 
+          "time": "Morning ceremony 11am", 
+          "price": "Free", 
+          "crowdLevel": "Moderate at memorial sites",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 1,
+            "budget": 4,
+            "luxury": 3
+          },
+          "ceremony": {
+            "location": "Arc de Triomphe",
+            "time": "11am",
+            "participants": "President, veterans"
+          },
+          "considerations": ["Solemn atmosphere", "Some museums closed", "Meaningful historical observation"]
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 3, 
+          "special": true,
+          "event": "Beaujolais Nouveau (3rd Thursday)",
+          "notes": "Mid-November quiet period, Beaujolais Nouveau celebration, Christmas prep begins", 
+          "location": "Wine bars, restaurants citywide", 
+          "time": "All day (Beaujolais at midnight Thursday)", 
+          "price": "Standard", 
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          },
+          "beaujolaisNouveau": {
+            "date": "Third Thursday of November",
+            "tradition": "New wine released at midnight",
+            "bestBars": ["Wine bars in Le Marais", "Saint-Germain caves à vin"],
+            "tip": "Join the celebration for authentic experience"
+          },
+          "considerations": ["Excellent for wine lovers", "City feels authentic", "Christmas decorations appearing"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 3, 
+          "special": true, 
+          "event": "Christmas Markets Begin", 
+          "notes": "Festive atmosphere building, Christmas markets open, illuminations start, cozy season", 
+          "location": "Champs-Élysées, Tuileries, La Défense", 
+          "time": "Markets 10am-10pm", 
+          "price": "Free entry, shopping varies", 
+          "crowdLevel": "Moderate-High at markets",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          },
+          "christmasMarkets": {
+            "champsElysees": "Classic, touristy but magical",
+            "tuileries": "Ferris wheel, festive atmosphere",
+            "laDefense": "Large, modern setting",
+            "saintGermain": "More local, artisanal"
+          },
+          "illuminations": {
+            "start": "Late November",
+            "highlights": ["Champs-Élysées lights", "Galeries Lafayette", "Printemps windows"]
+          },
+          "considerations": ["Dress warmly", "Hot wine (vin chaud) essential", "Magical atmosphere", "Book dinner at heated terraces"]
+        }
       ],
-      "weatherHighC": 11,
-      "weatherLowC": 6,
-      "weatherAvgC": 8.5,
-      "rainfallMm": 60,
-      "sunshineHours": 3.5,
+      "weatherDetails": {
+        "highC": 11,
+        "lowC": 6,
+        "avgC": 8.5,
+        "realFeelC": 5,
+        "rainfallMm": 60,
+        "rainDays": 11,
+        "snowDays": 1,
+        "sunshineHours": 3.5,
+        "daylightHours": 9,
+        "sunrise": "07:45",
+        "sunset": "17:00",
+        "humidity": 82,
+        "windKmh": 13,
+        "uvIndex": 2
+      },
       "tourismLevel": 4,
       "priceLevel": "Medium",
-      "crowdLevel": "Low-Medium"
+      "crowdLevel": "Low-Medium",
+      "bestFor": ["wine lovers", "cozy seekers", "pre-Christmas shoppers", "budget travelers"]
     },
     "december": {
       "name": "December",
       "ranges": [
-        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "special": true, "event": "Christmas Markets", "notes": "Festive atmosphere, holiday decorations, mulled wine, seasonal treats", "location": "Various locations", "time": "All day", "price": "Free", "crowdLevel": "High"},
-        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 3, "notes": "Holiday events, Christmas shopping crowds, festive lights", "location": "Shopping districts", "time": "All day", "price": "Standard", "crowdLevel": "High"},
-        {"days": [24, 25], "score": 2, "special": true, "event": "Christmas", "notes": "Many closures but special atmosphere, family celebrations", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Low"},
-        {"days": [26, 27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - busy tourist period, sales begin", "location": "Shopping districts", "time": "All day", "price": "Sales", "crowdLevel": "High"},
-        {"days": [31], "score": 3, "special": true, "event": "New Year's Eve", "notes": "Special events but very crowded, champagne celebrations", "location": "Eiffel Tower, Champs-Élysées", "time": "Evening", "price": "Expensive", "crowdLevel": "Very High"}
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 4, 
+          "special": true, 
+          "event": "Christmas Markets Season", 
+          "notes": "Magical festive atmosphere (3-8°C), Christmas markets peak, stunning illuminations", 
+          "location": "Christmas markets and shopping districts", 
+          "time": "Markets 10am-10pm", 
+          "price": "Free entry, shopping varies", 
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 3,
+            "business": 2,
+            "budget": 2,
+            "luxury": 5
+          },
+          "mustSee": {
+            "galeriesLafayette": "Legendary Christmas tree and windows",
+            "printemps": "Animated window displays",
+            "champElysees": "Mile-long light tunnel",
+            "vendome": "Luxury jeweler displays"
+          },
+          "winterWarming": ["Vin chaud (mulled wine)", "Marrons chauds (roasted chestnuts)", "Hot chocolate at Angelina"],
+          "considerations": ["Book restaurants ahead", "Layer up warmly", "Evening illuminations stunning", "Weekend crowds intense"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23], 
+          "score": 3, 
+          "notes": "Pre-Christmas rush (2-7°C), holiday shopping crowds, festive but busy", 
+          "location": "Shopping districts citywide", 
+          "time": "Extended hours at major stores", 
+          "price": "Premium", 
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 4
+          },
+          "shoppingDistricts": ["Haussmann (Galeries Lafayette/Printemps)", "Le Marais boutiques", "Saint-Germain-des-Prés", "Champs-Élysées"],
+          "considerations": ["Very crowded shopping areas", "Book everything well ahead", "Consider weekday visits", "Evening less busy than afternoon"]
+        },
+        {
+          "days": [24], 
+          "score": 2, 
+          "special": true, 
+          "event": "Christmas Eve (Réveillon)", 
+          "notes": "Family evening, early closures, midnight mass at churches, intimate atmosphere", 
+          "location": "Churches, restaurants (with reservations)", 
+          "time": "Afternoon closures, evening dining", 
+          "price": "Premium set menus (80-200€)", 
+          "crowdLevel": "Low (streets), Full (restaurants)",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 2,
+            "business": 1,
+            "budget": 1,
+            "luxury": 5
+          },
+          "traditions": {
+            "reveillon": "Special multi-course dinner",
+            "midnightMass": "Notre-Dame (limited), Sacré-Cœur, Saint-Sulpice",
+            "restaurants": "Book weeks in advance"
+          },
+          "considerations": ["Most shops close early", "Limited restaurant options (book early)", "Magical quiet streets", "Churches beautiful"]
+        },
+        {
+          "days": [25], 
+          "score": 2, 
+          "special": true, 
+          "event": "Christmas Day", 
+          "notes": "Major holiday, most closures, family day, quiet streets", 
+          "location": "Limited options", 
+          "time": "All day", 
+          "price": "Premium where available", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 1,
+            "business": 1,
+            "budget": 1,
+            "luxury": 3
+          },
+          "openAttractions": ["Some hotel restaurants", "Eiffel Tower (check hours)", "Walking/photography"],
+          "considerations": ["Plan meals in advance", "Hotel dining often only option", "Streets quiet and peaceful", "Good for reflective walks"]
+        },
+        {
+          "days": [26, 27, 28, 29, 30], 
+          "score": 3, 
+          "notes": "Between holidays (2-7°C), winter sales beginning, festive atmosphere continues", 
+          "location": "Shopping districts, attractions", 
+          "time": "All day", 
+          "price": "Sales beginning", 
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 3
+          },
+          "winterSales": {
+            "start": "Day after Christmas",
+            "discounts": "20-50% initially",
+            "bestAreas": ["Haussmann", "Le Marais", "Saint-Germain"]
+          },
+          "considerations": ["Good time for shopping deals", "Tourist crowds return", "Book New Year's early", "Festive atmosphere continues"]
+        },
+        {
+          "days": [31], 
+          "score": 4, 
+          "special": true, 
+          "event": "New Year's Eve (Saint-Sylvestre)", 
+          "notes": "Major celebration, fireworks expectations, champagne celebrations, festive finale", 
+          "location": "Champs-Élysées, Eiffel Tower, Montmartre", 
+          "time": "Evening until after midnight", 
+          "price": "Very Premium", 
+          "crowdLevel": "Extremely High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 3,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "celebrations": {
+            "champsElysees": {
+              "access": "Open to public",
+              "tip": "Arrive early, very crowded",
+              "atmosphere": "Street party, countdown"
+            },
+            "eiffelTower": {
+              "fireworks": "Light show (not traditional fireworks)",
+              "viewing": "Trocadéro, Champ de Mars",
+              "tip": "Arrive by 9pm for good spot"
+            },
+            "restaurants": {
+              "price": "150-500€ set menus",
+              "booking": "Required months ahead",
+              "tip": "Hotel restaurants often available later"
+            }
+          },
+          "considerations": ["Book restaurant in October", "Metro runs all night (free after 10pm)", "Dress very warmly", "Magical but crowded", "Champagne everywhere"]
+        }
       ],
-      "weatherHighC": 8,
-      "weatherLowC": 3,
-      "weatherAvgC": 5.5,
-      "rainfallMm": 65,
-      "sunshineHours": 2,
+      "weatherDetails": {
+        "highC": 8,
+        "lowC": 3,
+        "avgC": 5.5,
+        "realFeelC": 1,
+        "rainfallMm": 65,
+        "rainDays": 11,
+        "snowDays": 2,
+        "sunshineHours": 2,
+        "daylightHours": 8,
+        "sunrise": "08:40",
+        "sunset": "16:55",
+        "humidity": 85,
+        "windKmh": 14,
+        "uvIndex": 1
+      },
       "tourismLevel": 7,
       "priceLevel": "High",
-      "crowdLevel": "High"
+      "crowdLevel": "High",
+      "bestFor": ["Christmas lovers", "couples", "festive seekers", "shoppers"]
     }
   },
   "activityTypes": {
@@ -606,43 +1573,55 @@
   "travelerTypes": {
     "families": {
       "bestMonths": ["April", "May", "September", "December"],
-      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "peakScore": 5,
+      "considerations": ["School holidays impact crowds", "Weather suitability for kids", "Kid-friendly activity availability", "Stroller accessibility"],
+      "topExperiences": ["Luxembourg Gardens", "Jardin d'Acclimatation", "Natural History Museum", "Seine cruise", "Eiffel Tower"],
       "challenges": {
-        "summer": "Very crowded, expensive, hot",
-        "winter": "Cold weather, shorter days"
+        "summer": "Very crowded, expensive, hot for kids",
+        "winter": "Cold weather, shorter days, indoor focus"
       }
     },
     "couples": {
       "bestMonths": ["May", "June", "September", "October"],
+      "peakScore": 5,
       "romantic": ["February 14th", "June 21st", "December Christmas markets"],
-      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+      "topExperiences": ["Seine dinner cruise", "Montmartre sunset", "Picnic at Luxembourg", "Le Marais stroll", "Hidden wine bars"],
+      "considerations": ["Weather for outdoor dining", "Crowd levels", "Romantic restaurant availability"]
     },
     "solo": {
       "bestMonths": ["September", "October", "November", "January"],
-      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
-      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+      "peakScore": 5,
+      "advantages": ["Cultural immersion", "Flexible schedule", "Museum deep-dives", "Café culture", "Photography focus"],
+      "topExperiences": ["Covered passages", "Neighborhood walks", "Museum mornings", "Café writing sessions", "Street photography"],
+      "considerations": ["Safety (very safe)", "Solo dining comfort (very easy)", "Language (English common)", "Social opportunities"]
     },
     "business": {
       "bestMonths": ["March", "April", "May", "September", "October", "November"],
-      "avoid": ["August", "December", "July"],
-      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+      "peakScore": 5,
+      "avoid": ["August (closures)", "December holidays", "July (vacation season)"],
+      "considerations": ["Conference seasons", "Hotel availability", "Restaurant bookings for clients", "Transport reliability"]
     },
     "budget": {
       "bestMonths": ["January", "February", "March", "November"],
-      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
-      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+      "peakScore": 5,
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes", "Picnic lunches"],
+      "freeActivities": ["Parks", "Walking neighborhoods", "Church visits", "Window shopping", "Street entertainment"],
+      "considerations": ["Lower accommodation prices", "Restaurant lunch menus", "Free museum days", "No-reservation sights"]
     },
     "luxury": {
       "bestMonths": ["May", "June", "September", "October", "December"],
-      "experiences": ["Michelin dining", "Fashion shows", "Private tours", "Luxury shopping"],
-      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+      "peakScore": 5,
+      "experiences": ["Michelin dining", "Fashion shows", "Private tours", "Luxury shopping", "Palace hotels", "Champagne tours"],
+      "topHotels": ["Ritz Paris", "Le Bristol", "Plaza Athénée", "Four Seasons George V"],
+      "considerations": ["Advance bookings essential", "Seasonal menus at restaurants", "Exclusive events calendar", "Private experiences availability"]
     }
   },
   "activityCategories": {
     "outdoor": {
       "optimal": ["April", "May", "June", "September", "October"],
       "activities": ["Walking tours", "Seine cruises", "Garden visits", "Cycling", "Outdoor dining", "Photography"],
-      "weatherDependent": true
+      "weatherDependent": true,
+      "bestTimeOfDay": "Morning and golden hour"
     },
     "cultural": {
       "yearRound": true,
@@ -656,122 +1635,131 @@
     },
     "shopping": {
       "sales": {
-        "winter": "January-February",
-        "summer": "July-August"
+        "winter": "January-February (Soldes d'hiver)",
+        "summer": "July-August (Soldes d'été)"
       },
-      "luxury": "Year-round but avoid August",
+      "luxury": "Year-round but avoid August closures",
       "markets": {
-        "christmas": "December",
-        "flea": "Year-round weekends"
+        "christmas": "November-December",
+        "flea": "Year-round weekends at Saint-Ouen, Vanves, Montreuil"
       }
     },
     "dining": {
       "outdoor": ["April", "May", "June", "July", "August", "September", "October"],
       "seasonal": {
-        "spring": "Asparagus, strawberries",
-        "summer": "Tomatoes, stone fruits",
-        "autumn": "Mushrooms, game, wine harvest",
-        "winter": "Oysters, comfort food, holiday specialties"
+        "spring": "Asparagus, strawberries, spring lamb",
+        "summer": "Tomatoes, stone fruits, fresh fish",
+        "autumn": "Mushrooms, game, wine harvest, oysters begin",
+        "winter": "Oysters, comfort food, holiday specialties, truffles"
+      },
+      "reservations": {
+        "essential": ["Valentine's Day", "Bastille Day", "Christmas Eve", "New Year's Eve"],
+        "recommended": "Always for dinner at popular spots"
       }
     },
     "festivals": {
       "music": {
         "feteMusique": "June 21st",
-        "classicalSeason": "September-May"
+        "classicalSeason": "September-May",
+        "jazzFestival": "July at Parc Floral"
       },
       "cultural": {
-        "nuitBlanche": "October",
-        "nuitMusees": "May",
-        "patrimoineWeekend": "September"
+        "nuitBlanche": "First Saturday of October",
+        "nuitMusees": "Third Saturday of May",
+        "patrimoineWeekend": "Third weekend of September"
       },
       "seasonal": {
-        "fashionWeek": "March, September",
-        "wineHarvest": "October"
+        "fashionWeek": "March, June, September (ready-to-wear)",
+        "wineHarvest": "October in Montmartre",
+        "beaujolaisNouveau": "Third Thursday of November"
       }
     }
   },
   "practicalConsiderations": {
     "daylight": {
-      "longest": "June 21st - 17 hours",
+      "longest": "June 21st - 16+ hours",
       "shortest": "December 21st - 8 hours",
-      "optimal": "May-August for extended sightseeing"
+      "optimal": "May-August for extended sightseeing",
+      "tip": "Adjust schedule to daylight - Paris is magical at golden hour"
     },
     "transportation": {
       "metro": {
-        "airConditioning": "Limited - challenging in summer",
-        "crowds": "Peak July-August",
-        "strikes": "Possible any time, more common autumn/winter"
+        "airConditioning": "Some lines, not all - challenging in summer",
+        "crowds": "Peak July-August at tourist stations",
+        "strikes": "Possible any time, more common autumn/winter",
+        "allNight": "Fête de la Musique, New Year's Eve"
       },
       "walking": {
         "best": "April-June, September-October",
         "challenging": "December-February (cold), July-August (heat)"
       },
       "cycling": {
-        "vélib": "Available year-round",
+        "vélib": "Available year-round, 24/7",
         "optimal": "April-October",
-        "winter": "Possible but cold and slippery"
+        "winter": "Possible but cold and potentially slippery"
       }
     },
     "accommodation": {
       "peakPricing": {
         "months": ["June", "July", "August", "December"],
-        "events": ["Fashion Week", "Major holidays", "Bastille Day", "New Year's"]
+        "events": ["Fashion Week", "Roland Garros", "Bastille Day", "New Year's"]
       },
       "valuePricing": {
         "months": ["January", "February", "March", "November"],
         "strategy": "Book 2-3 months ahead for best rates"
       },
-      "airConditioning": "Essential July-August, many historic hotels lack AC"
+      "airConditioning": "Essential July-August, many boutique hotels lack AC"
     },
     "dining": {
       "reservations": {
         "essential": ["February 14th", "July 14th", "December 24th", "December 31st"],
-        "recommended": "High season (June-August)",
-        "timeline": "2-4 weeks ahead for popular restaurants"
+        "recommended": "Always for dinner, especially weekends",
+        "timeline": "1-4 weeks ahead for popular restaurants, months for Michelin"
       },
       "closures": {
-        "august": "Many local restaurants close for owner vacations",
-        "holidays": "Christmas Day, New Year's Day, May 1st",
-        "sunday": "Many traditional bistros closed Sunday evening"
+        "august": "30-50% of neighborhood restaurants close",
+        "holidays": "Christmas Day, New Year's Day, May 1st limited",
+        "sunday": "Many traditional bistros closed Sunday evening, some all day",
+        "monday": "Many restaurants closed Monday"
       }
     }
   },
   "monthlyHighlights": {
-    "january": "Winter sales, cozy museums, authentic local experience",
-    "february": "Valentine's romance, fewer crowds, cultural immersion",
-    "march": "Spring awakening, cherry blossoms begin, perfect temperatures",
-    "april": "Cherry blossom peak, ideal weather, Paris Marathon",
-    "may": "Perfect conditions, Museums Night, optimal sightseeing",
-    "june": "Longest days, Fête de la Musique, pre-peak crowds",
-    "july": "Peak summer, Bastille Day, Paris Plages",
-    "august": "Hot weather, Paris Plages, many locals away",
-    "september": "Post-peak perfection, Fashion Week, ideal conditions",
-    "october": "Autumn beauty, Nuit Blanche, comfortable temperatures",
-    "november": "Cozy atmosphere, Beaujolais Nouveau, cultural season",
-    "december": "Christmas magic, holiday markets, festive atmosphere"
+    "january": "Winter sales, cozy museums, authentic local experience, galette des rois",
+    "february": "Valentine's romance, fewer crowds, winter sales end, cultural immersion",
+    "march": "Spring awakening, cherry blossoms begin, perfect walking temperatures",
+    "april": "Cherry blossom peak, ideal weather, Paris Marathon, Easter festivities",
+    "may": "Perfect conditions, Nuit des Musées, Roland Garros, outdoor dining",
+    "june": "Longest days, Fête de la Musique, pre-peak crowds, magical evenings",
+    "july": "Bastille Day, Paris Plages, peak summer, vibrant energy",
+    "august": "Urban beaches, locals away, late-month renaissance (rentrée)",
+    "september": "Post-peak perfection, Fashion Week, Heritage Days, ideal conditions",
+    "october": "Autumn beauty, Nuit Blanche, Montmartre harvest, comfortable temperatures",
+    "november": "Cozy atmosphere, Beaujolais Nouveau, Christmas markets begin",
+    "december": "Christmas magic, holiday markets, spectacular illuminations, festive atmosphere"
   },
-  "additionalInfo": {
-    "peakSeasons": {
-      "high": ["June", "July", "August"],
-      "medium": ["April", "May", "September", "October", "December"],
-      "low": ["January", "February", "March", "November"]
+  "bestTimeRecommendations": {
+    "overall": {
+      "best": ["Late April - early June", "September - mid-October"],
+      "why": "Perfect weather, moderate crowds, cultural events, outdoor dining"
     },
-    "weatherNotes": {
-      "spring": "Variable weather, layers recommended, occasional rain",
-      "summer": "Warm to hot, occasional heatwaves, evening thunderstorms possible",
-      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
-      "winter": "Cold but rarely extreme, occasional snow, indoor activities recommended"
+    "budget": {
+      "best": ["January", "February", "November (early)"],
+      "why": "Lowest prices, fewest crowds, great for museums"
     },
-    "transportation": {
-      "metro": "Efficient year-round, air-conditioned in summer",
-      "walking": "Best in spring and autumn, challenging in extreme weather",
-      "cycling": "Excellent in spring and autumn, bike lanes available",
-      "boats": "Scenic year-round, heated in winter"
+    "romance": {
+      "best": ["May", "June", "September"],
+      "why": "Beautiful weather, long evenings, outdoor dining",
+      "special": "December for Christmas magic"
     },
-    "accommodation": {
-      "peakPricing": ["June", "July", "August", "December"],
-      "valuePricing": ["January", "February", "March", "November"],
-      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    "families": {
+      "best": ["April", "May (non-holiday)", "September"],
+      "why": "Good weather, manageable crowds, school-break alignment",
+      "avoid": "August (heat, closures)"
+    },
+    "photography": {
+      "best": ["Early April (cherry blossoms)", "Late September - October (autumn)", "December (Christmas lights)"],
+      "goldenhour": "Best light May-September"
     }
   }
 }
