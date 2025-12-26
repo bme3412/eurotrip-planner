@@ -68,23 +68,17 @@ export default function Page() {
 
           {/* Navigation */}
           <nav className="flex items-center gap-6">
-            <button 
-              onClick={submit} 
+            <Link 
+              href="/paris-trip"
               className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg text-sm"
             >
-              {loading ? "Generating…" : "Get Itinerary"}
-            </button>
+              Get Itinerary
+            </Link>
             <Link 
               href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} 
               className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors"
             >
               City Guides
-            </Link>
-            <Link
-              href="/paris-trip"
-              className="px-4 py-2 rounded-full border-2 border-blue-300 bg-white text-blue-600 text-sm font-medium hover:bg-blue-50 transition-colors"
-            >
-              Paris
             </Link>
             <Link 
               href="/explore" 
@@ -99,15 +93,6 @@ export default function Page() {
             >
               Countries
             </button>
-            <Link 
-              href="/saved-trips" 
-              className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors flex items-center gap-1"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
-              Saved
-            </Link>
             <AuthButton />
           </nav>
         </div>
@@ -137,29 +122,17 @@ export default function Page() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-6">
-              <button
-                onClick={submit}
+              <Link
+                href="/paris-trip"
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-base font-bold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0"
               >
                 <span className="flex items-center gap-2">
-                  {loading ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Generating…
-                    </>
-                  ) : (
-                    <>
-                      Get My Itinerary
-                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                    </>
-                  )}
+                  Get My Itinerary
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </span>
-              </button>
+              </Link>
               <Link
                 href="/city-guides"
                 className="px-8 py-4 bg-white text-blue-600 text-base font-bold rounded-full border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 shadow-md hover:shadow-lg"

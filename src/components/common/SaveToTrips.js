@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { BookmarkIcon as BookmarkOutline } from '@heroicons/react/24/outline';
-import { BookmarkIcon as BookmarkSolid } from '@heroicons/react/24/solid';
+import { HeartIcon as HeartOutline } from '@heroicons/react/24/outline';
+import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 
@@ -10,7 +10,8 @@ export default function SaveToTrips({
   cityName, 
   cityData,
   className = '',
-  showLabel = true 
+  showLabel = true,
+  variant = 'default' // 'default' | 'hero'
 }) {
   const { user, isSupabaseConfigured } = useAuth();
   const [isSaved, setIsSaved] = useState(false);
@@ -81,7 +82,7 @@ export default function SaveToTrips({
           console.error('Supabase delete error:', error);
         } else {
           setIsSaved(false);
-          showNotificationMessage('Removed from your trips');
+          showNotificationMessage('Removed from wishlists');
         }
       } else {
         // Add to Supabase
@@ -93,7 +94,6 @@ export default function SaveToTrips({
           image: cityData?.heroImage || null,
           description: cityData?.overview?.introduction || null,
         };
-        console.log('Attempting to save:', insertData);
         
         const { error } = await supabase
           .from('saved_trips')
@@ -101,10 +101,10 @@ export default function SaveToTrips({
 
         if (error) {
           console.error('Supabase save error:', error);
-          showNotificationMessage('Error saving trip');
+          showNotificationMessage('Error saving');
         } else {
           setIsSaved(true);
-          showNotificationMessage('Saved to your trips!');
+          showNotificationMessage('Added to wishlists!');
         }
       }
     } else {
@@ -115,7 +115,7 @@ export default function SaveToTrips({
         const updatedTrips = savedTrips.filter(trip => trip.cityName !== cityName);
         localStorage.setItem('savedTrips', JSON.stringify(updatedTrips));
         setIsSaved(false);
-        showNotificationMessage('Removed from your trips');
+        showNotificationMessage('Removed from wishlists');
       } else {
         const tripData = {
           cityName,
@@ -129,7 +129,7 @@ export default function SaveToTrips({
         savedTrips.push(tripData);
         localStorage.setItem('savedTrips', JSON.stringify(savedTrips));
         setIsSaved(true);
-        showNotificationMessage('Saved to your trips!');
+        showNotificationMessage('Added to wishlists!');
       }
     }
 
@@ -141,34 +141,44 @@ export default function SaveToTrips({
     setTimeout(() => setShowNotification(false), 3000);
   };
 
+  // Style variants
+  const getButtonStyles = () => {
+    if (variant === 'hero') {
+      return isSaved
+        ? 'bg-rose-500 text-white hover:bg-rose-600 shadow-lg'
+        : 'bg-white/20 backdrop-blur-sm text-white border border-white/40 hover:bg-white/30 hover:border-white/60';
+    }
+    return isSaved
+      ? 'bg-rose-500 text-white hover:bg-rose-600 shadow-sm'
+      : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-rose-300';
+  };
+
+  const iconSize = variant === 'hero' ? 'w-6 h-6' : 'w-5 h-5';
+
   return (
     <>
       <button
         onClick={handleSaveToggle}
         disabled={loading}
-        className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${
-          isSaved
-            ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-sm'
-            : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
-        } ${loading ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
+        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all ${getButtonStyles()} ${loading ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
       >
         {isSaved ? (
-          <BookmarkSolid className="w-5 h-5" />
+          <HeartSolid className={iconSize} />
         ) : (
-          <BookmarkOutline className="w-5 h-5" />
+          <HeartOutline className={iconSize} />
         )}
         {showLabel && (
-          <span>{isSaved ? 'Saved' : 'Save to Trips'}</span>
+          <span>{isSaved ? 'Saved' : 'Save'}</span>
         )}
       </button>
 
       {showNotification && (
-        <div className="fixed bottom-4 right-4 z-50 bg-gray-900 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in">
-          <div className="flex items-center gap-2">
+        <div className="fixed bottom-4 right-4 z-50 bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg animate-fade-in">
+          <div className="flex items-center gap-3">
             {isSaved ? (
-              <BookmarkSolid className="w-5 h-5 text-blue-400" />
+              <HeartSolid className="w-5 h-5 text-rose-400" />
             ) : (
-              <BookmarkOutline className="w-5 h-5 text-gray-400" />
+              <HeartOutline className="w-5 h-5 text-gray-400" />
             )}
             <span>{showNotification}</span>
           </div>
@@ -251,7 +261,7 @@ export function SavedTripsList() {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[1, 2, 3].map(i => (
-          <div key={i} className="animate-pulse bg-gray-200 rounded-lg h-64" />
+          <div key={i} className="animate-pulse bg-gray-200 rounded-xl h-64" />
         ))}
       </div>
     );
@@ -260,12 +270,12 @@ export function SavedTripsList() {
   if (savedTrips.length === 0) {
     return (
       <div className="text-center py-12">
-        <BookmarkOutline className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-        <h3 className="text-lg font-medium text-gray-900 mb-2">No saved trips yet</h3>
+        <HeartOutline className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+        <h3 className="text-lg font-medium text-gray-900 mb-2">No saved cities yet</h3>
         <p className="text-gray-600">
           {user 
             ? 'Start exploring cities and save them to plan your trip!'
-            : 'Sign in to sync your saved trips across devices, or browse as a guest!'}
+            : 'Sign in to sync your wishlists across devices, or browse as a guest!'}
         </p>
       </div>
     );
@@ -274,14 +284,23 @@ export function SavedTripsList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {savedTrips.map((trip) => (
-        <div key={trip.cityName} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-          {trip.image && (
-            <img 
-              src={trip.image} 
-              alt={trip.displayName}
-              className="w-full h-48 object-cover"
-            />
-          )}
+        <div key={trip.cityName} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow group">
+          <div className="relative">
+            {trip.image && (
+              <img 
+                src={trip.image} 
+                alt={trip.displayName}
+                className="w-full h-48 object-cover"
+              />
+            )}
+            <button
+              onClick={() => removeTrip(trip)}
+              className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:bg-white transition-colors"
+              title="Remove from wishlists"
+            >
+              <HeartSolid className="w-5 h-5 text-rose-500" />
+            </button>
+          </div>
           <div className="p-4">
             <h3 className="font-semibold text-lg text-gray-900 mb-1">{trip.displayName}</h3>
             <p className="text-sm text-gray-600 mb-3">{trip.country}</p>
@@ -291,18 +310,12 @@ export function SavedTripsList() {
             <div className="flex gap-2">
               <a
                 href={`/city-guides/${trip.cityName.toLowerCase()}`}
-                className="flex-1 text-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+                className="flex-1 text-center px-4 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
               >
                 View Guide
               </a>
-              <button
-                onClick={() => removeTrip(trip)}
-                className="px-3 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
-              >
-                <BookmarkSolid className="w-5 h-5" />
-              </button>
             </div>
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-gray-500 mt-3">
               Saved {new Date(trip.savedAt).toLocaleDateString()}
             </p>
           </div>

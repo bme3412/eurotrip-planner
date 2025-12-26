@@ -15,15 +15,16 @@ export default function Hero({
   backgroundAlt = '',
   cityName,
   country,
-  gradientOverlay = 'from-fuchsia-600/40 via-pink-600/40 to-rose-600/40',
-  darkOverlayOpacity = 'bg-black/30',
+  gradientOverlay = null, // Set to null to disable colored overlay
+  darkOverlayOpacity = 'bg-black/40',
   heightClass = 'h-[62vh] min-h-[460px]',
   chipText,
   title,
   subtitle,
   description,
   primaryCta, // { label, href?, onClick?, disabled?, variant?: 'solid' | 'outline' }
-  secondaryCta // { label, href?, onClick?, variant?: 'outline' }
+  secondaryCta, // { label, href?, onClick?, variant?: 'outline' }
+  actionElement // Optional React element to render next to title (e.g., save button)
 }) {
   // Always call the hook, but handle conditional logic inside
   const heroImageData = useHeroImage(cityName, country);
@@ -90,27 +91,36 @@ export default function Hero({
       {/* Overlays */}
       {hasValidImage && (
         <>
-          <div className={`absolute inset-0 bg-gradient-to-br ${gradientOverlay}`} />
+          {gradientOverlay && (
+            <div className={`absolute inset-0 bg-gradient-to-br ${gradientOverlay}`} />
+          )}
           <div className={`absolute inset-0 ${darkOverlayOpacity}`} />
+          {/* Top gradient for header blend */}
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
         </>
       )}
       
       <div className="relative z-10 h-full pt-14">
-        <div className="mx-auto max-w-6xl h-full flex items-center px-6">
-          <div className={`${hasValidImage ? 'text-white' : 'text-zinc-900'} max-w-3xl`}>
+        <div className="mx-auto max-w-7xl h-full flex items-center px-4 sm:px-6">
+          <div className={`${hasValidImage ? 'text-white' : 'text-zinc-900'} max-w-4xl`}>
             {safeChipText && (
               <span className={`inline-block rounded-full ${hasValidImage ? 'bg-white/20 text-white' : 'bg-zinc-900/5 text-zinc-700'} px-4 py-2 text-sm font-medium backdrop-blur-sm`}>
                 {safeChipText}
               </span>
             )}
             {safeTitle && (
-              <h1 className={`mt-4 font-extrabold tracking-tight ${hasValidImage ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl'}`}>{safeTitle}</h1>
+              <div className="mt-4 flex items-center gap-4">
+                <h1 className={`font-extrabold tracking-tight ${hasValidImage ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl'}`}>{safeTitle}</h1>
+                {actionElement && (
+                  <div className="shrink-0">{actionElement}</div>
+                )}
+              </div>
             )}
             {safeSubtitle && (
               <p className={`mt-2 ${hasValidImage ? 'text-2xl md:text-3xl text-white/90' : 'text-xl md:text-2xl text-zinc-700'}`}>{safeSubtitle}</p>
             )}
             {safeDescription && (
-              <p className={`mt-6 ${hasValidImage ? 'text-white/90' : 'text-zinc-700'} text-base md:text-lg`}>{safeDescription}</p>
+              <p className={`mt-6 ${hasValidImage ? 'text-white' : 'text-zinc-700'} text-lg md:text-xl leading-relaxed font-medium`}>{safeDescription}</p>
             )}
             {(primaryCta || secondaryCta) && (
               <div className="mt-8 flex flex-wrap gap-3">

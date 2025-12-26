@@ -666,16 +666,72 @@ body {
 
 /* Print styles */
 @media print {
-  .no-print {
+  .no-print,
+  .print\\:hidden,
+  [class*="print:hidden"] {
     display: none !important;
+  }
+  
+  /* Hide UI elements when printing */
+  nav,
+  .tab-navigation,
+  button:not(.print-include),
+  .sticky,
+  .fixed,
+  .mapboxgl-map,
+  footer nav,
+  .backdrop-blur-md {
+    display: none !important;
+  }
+  
+  /* Show all content */
+  .overflow-hidden {
+    overflow: visible !important;
+  }
+  
+  /* Reset backgrounds for printing */
+  body,
+  .bg-gradient-to-b,
+  .from-\\[\\#f3f7ff\\],
+  [class*="bg-"] {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Improve typography for print */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: black !important;
+  }
+  
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* Show full content */
+  .line-clamp-2,
+  .line-clamp-3 {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
   }
   
   a[href]:after {
     content: none !important;
   }
   
+  /* Force page breaks appropriately */
+  section {
+    page-break-inside: avoid;
+  }
+  
   @page {
-    margin: 2cm;
+    margin: 1.5cm;
+    size: A4;
+  }
+  
+  @page :first {
+    margin-top: 1cm;
   }
 }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
@@ -18,12 +18,15 @@ import {
 // Lazy imports for better code splitting
 import {
   LazyCityOverview,
+  LazyStartHere,
   LazyAttractionsList,
   LazyNeighborhoodsList,
   LazyCulinaryGuide,
   LazySeasonalActivities,
   LazyMonthlyGuideSection,
   LazyMapSection,
+  LazyFoodDrinkGuide,
+  LazyPhotoSpots,
   TabSuspenseWrapper,
   MapSuspenseWrapper,
   TabLoader,
@@ -70,13 +73,16 @@ const CITY_COORDINATES = {
 };
 
 function CityPageClient({ cityData, cityName }) {
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('starthere');
   const [isTabTransitioning, setIsTabTransitioning] = useState(false);
   const [componentLoaded, setComponentLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [showMobileActions, setShowMobileActions] = useState(false);
   const [showBreadcrumb, setShowBreadcrumb] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isTabBarSticky, setIsTabBarSticky] = useState(false);
+  const [slideDirection, setSlideDirection] = useState('right');
+  const tabBarRef = useRef(null);
+  const tabBarOriginalTop = useRef(null);
   
   const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError, refetch: loadAllMonthly } = useMonthlyData(
     cityData?.country || 'Unknown',
@@ -129,10 +135,13 @@ function CityPageClient({ cityData, cityName }) {
     : DEFAULT_COORDINATES.default;
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: '🏛️' },
+    { id: 'starthere', label: 'Start Here', icon: '🚀' },
+    { id: 'overview', label: 'Best Time to Go', icon: '📆' },
     { id: 'map', label: 'Interactive Map', icon: '🗺️' },
     { id: 'monthly', label: monthlyDataLoading ? 'Monthly Guide...' : 'Monthly Guide', icon: monthlyDataLoading ? '⏳' : monthlyDataError ? '⚠️' : '📅' },
     { id: 'attractions', label: 'Experiences', icon: '🎯' },
+    { id: 'food', label: 'Food + Drink', icon: '🍽️' },
+    { id: 'photos', label: 'Photo Spots', icon: '📸' },
     { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' }
   ];
 
@@ -140,21 +149,30 @@ function CityPageClient({ cityData, cityName }) {
     setComponentLoaded(true);
   }, []);
 
-  // Breadcrumb scroll behavior - show on scroll up, hide on scroll down
+  // Breadcrumb & sticky tab bar scroll behavior
   useEffect(() => {
+    // Capture the original position of the tab bar on mount
+    if (tabBarRef.current && tabBarOriginalTop.current === null) {
+      tabBarOriginalTop.current = tabBarRef.current.getBoundingClientRect().top + window.scrollY;
+    }
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const heroHeight = 400; // Approximate hero height
       
+      // Breadcrumb visibility
       if (currentScrollY < heroHeight) {
-        // Always show breadcrumb when in hero area
         setShowBreadcrumb(true);
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show breadcrumb
         setShowBreadcrumb(true);
       } else if (currentScrollY > lastScrollY && currentScrollY > heroHeight) {
-        // Scrolling down past hero - hide breadcrumb
         setShowBreadcrumb(false);
+      }
+      
+      // Sticky tab bar - stick when scrolled past original position
+      if (tabBarOriginalTop.current !== null) {
+        const shouldBeSticky = currentScrollY > tabBarOriginalTop.current - 60; // 60px offset for header
+        setIsTabBarSticky(shouldBeSticky);
       }
       
       setLastScrollY(currentScrollY);
@@ -164,18 +182,33 @@ function CityPageClient({ cityData, cityName }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const handleTabSwitch = (tabId) => {
+  const handleTabSwitch = useCallback((tabId) => {
     if (tabId === activeTab) return;
+    
+    // Determine slide direction based on tab order
+    const currentIndex = tabs.findIndex(t => t.id === activeTab);
+    const newIndex = tabs.findIndex(t => t.id === tabId);
+    setSlideDirection(newIndex > currentIndex ? 'left' : 'right');
+    
     setIsTabTransitioning(true);
-    // Brief delay to show loading state
+    // Brief delay for exit animation
     setTimeout(() => {
       setActiveTab(tabId);
-      setIsTabTransitioning(false);
+      // Small delay for enter animation
+      setTimeout(() => setIsTabTransitioning(false), 50);
     }, 150);
-  };
+  }, [activeTab, tabs]);
+
+  // Print/PDF handler
+  const handlePrint = useCallback(() => {
+    window.print();
+  }, []);
 
   const preloadTab = (tabId) => {
     switch (tabId) {
+      case 'starthere':
+        import('@/components/city-guides/StartHere');
+        break;
       case 'overview':
         import('@/components/city-guides/CityOverview');
         break;
@@ -189,6 +222,12 @@ function CityPageClient({ cityData, cityName }) {
         break;
       case 'attractions':
         import('@/components/city-guides/AttractionsList');
+        break;
+      case 'food':
+        import('@/components/city-guides/FoodDrinkGuide');
+        break;
+      case 'photos':
+        import('@/components/city-guides/PhotoSpots');
         break;
       case 'neighborhoods':
         import('@/components/city-guides/NeighborhoodsList');
@@ -227,6 +266,12 @@ function CityPageClient({ cityData, cityName }) {
 
   const renderTabContent = () => {
     switch (activeTab) {
+      case 'starthere':
+        return (
+          <Suspense fallback={<SkeletonOverview />}>
+            <LazyStartHere cityName={cityName} cityData={cityData} />
+          </Suspense>
+        );
       case 'overview':
         return (
           <Suspense fallback={<SkeletonOverview />}>
@@ -282,6 +327,18 @@ function CityPageClient({ cityData, cityName }) {
             />
           </Suspense>
         );
+      case 'food':
+        return (
+          <Suspense fallback={<SkeletonTabContent />}>
+            <LazyFoodDrinkGuide cityName={cityName} cityData={cityData} />
+          </Suspense>
+        );
+      case 'photos':
+        return (
+          <Suspense fallback={<SkeletonTabContent />}>
+            <LazyPhotoSpots cityName={cityName} cityData={cityData} />
+          </Suspense>
+        );
       case 'neighborhoods':
         return (
           <Suspense fallback={<SkeletonTabContent />}>
@@ -311,32 +368,41 @@ function CityPageClient({ cityData, cityName }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
-      {/* Top bar - fixed, transparent over hero with breadcrumb (shows/hides on scroll) */}
-      <div className={`fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${showBreadcrumb ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
-          <Link 
-            href="/city-guides" 
-            className="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white transition-colors drop-shadow-md"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-            <span>All City Guides</span>
-          </Link>
-          <div className="flex items-center gap-3">
+      {/* Header - fixed, with gradient backdrop for seamless hero blend */}
+      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${showBreadcrumb ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        {/* Gradient backdrop that blends into the hero */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-transparent pointer-events-none" />
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-4 flex items-center justify-between">
+          {/* Left: Breadcrumb navigation */}
+          <nav className="flex items-center gap-2 text-sm" aria-label="Breadcrumb">
             <Link 
-              href="/saved-trips" 
-              className="inline-flex items-center gap-1.5 text-sm text-white/90 hover:text-white transition-colors drop-shadow-md"
+              href="/" 
+              className="text-white/70 hover:text-white transition-colors font-medium"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
-              <span>Saved</span>
+              Home
             </Link>
+            <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            <Link 
+              href="/city-guides" 
+              className="text-white/70 hover:text-white transition-colors font-medium"
+            >
+              City Guides
+            </Link>
+            <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-white font-semibold">{displayName}</span>
+          </nav>
+          
+          {/* Right: Auth button */}
+          <div className="flex items-center">
             <AuthButton />
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Hero */}
       <Hero
@@ -346,14 +412,22 @@ function CityPageClient({ cityData, cityName }) {
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
         subtitle={getCityHeaderInfo(cityData)?.subtitle || "A City to Explore"}
         description={description}
+        actionElement={<SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} variant="hero" />}
       />
 
-      {/* Tabs + Actions */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 mt-6">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
+      {/* Tabs + Actions - Sticky when scrolled */}
+      <div 
+        ref={tabBarRef}
+        className={`mx-auto max-w-7xl px-3 sm:px-4 mt-8 sm:mt-10 transition-all duration-300 ${
+          isTabBarSticky 
+            ? 'fixed top-0 left-0 right-0 z-30 mt-0 pt-3 pb-2 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100' 
+            : ''
+        }`}
+      >
+        <div className={`bg-white rounded-xl shadow-sm border border-gray-100 ${isTabBarSticky ? 'max-w-7xl mx-auto' : ''}`}>
           <div className="flex items-center justify-between gap-2 p-2">
             {/* Tab buttons */}
-            <div className="flex overflow-x-auto gap-1 scrollbar-hide tab-navigation snap-x">
+            <div className="flex overflow-x-auto gap-1 scrollbar-hide tab-navigation snap-x flex-1">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -373,49 +447,34 @@ function CityPageClient({ cityData, cityName }) {
               ))}
             </div>
             
-            {/* Action buttons - desktop: show all, mobile: overflow menu */}
-            <div className="flex items-center gap-1 flex-shrink-0 border-l border-gray-200 pl-2 ml-1">
-              {/* Desktop: show all buttons */}
-              <div className="hidden sm:flex items-center gap-1">
-                <SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} />
-              </div>
-              
-              {/* Mobile: overflow menu */}
-              <div className="sm:hidden relative">
-                <button
-                  onClick={() => setShowMobileActions(!showMobileActions)}
-                  className="p-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600"
-                  aria-label="More actions"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                  </svg>
-                </button>
-                
-                {showMobileActions && (
-                  <>
-                    {/* Backdrop */}
-                    <div 
-                      className="fixed inset-0 z-40" 
-                      onClick={() => setShowMobileActions(false)}
-                    />
-                    {/* Dropdown */}
-                    <div className="absolute right-0 top-full mt-1 z-50 bg-white rounded-xl shadow-lg border border-gray-200 py-2 min-w-[180px]">
-                      <div className="px-3 py-2">
-                        <SaveToTrips cityName={cityName} cityData={cityData} showLabel={true} />
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
+            {/* Print button */}
+            <button
+              onClick={handlePrint}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors print:hidden"
+              aria-label="Print this guide"
+              title="Print this guide"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              <span className="hidden md:inline">Print</span>
+            </button>
           </div>
         </div>
       </div>
+      
+      {/* Spacer when tab bar is sticky */}
+      {isTabBarSticky && <div className="h-20" />}
 
       {/* Content */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4 sm:py-6">
-        <div className={`transition-opacity duration-150 ${isTabTransitioning ? 'opacity-50' : 'opacity-100'}`}>
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 overflow-hidden">
+        <div 
+          className={`transition-all duration-200 ease-out ${
+            isTabTransitioning 
+              ? `opacity-0 ${slideDirection === 'left' ? '-translate-x-4' : 'translate-x-4'}` 
+              : 'opacity-100 translate-x-0'
+          }`}
+        >
           {isTabTransitioning ? (
             <div className="animate-pulse space-y-6">
               <div className="h-8 bg-gray-200 rounded w-48"></div>

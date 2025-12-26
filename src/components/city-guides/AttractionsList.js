@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
-import { Bookmark, Check, Clock, MapPin, Star } from 'lucide-react';
+import { Heart, Check, Clock, MapPin, Star } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 
@@ -1168,12 +1168,12 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
             className={`absolute top-3 right-3 z-10 h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
               isFavorite(attraction) 
-                ? 'bg-blue-500 border-blue-600 text-white' 
-                : 'bg-white/95 border-gray-200 hover:bg-blue-50 hover:border-blue-300'
+                ? 'bg-rose-500 border-rose-600 text-white' 
+                : 'bg-white/95 border-gray-200 hover:bg-rose-50 hover:border-rose-300'
             }`}
             aria-label={isFavorite(attraction) ? "Remove from favorites" : "Save to favorites"}
           >
-            <Bookmark className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white text-white' : 'text-gray-600'}`} />
+            <Heart className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white text-white' : 'text-gray-600'}`} />
           </button>
           
           {/* Tips Overlay on hover */}
@@ -1263,11 +1263,11 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
               className={`absolute top-3 right-3 z-10 h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
                 isFavorite(attraction) 
-                  ? 'bg-blue-500 border-blue-600 text-white' 
-                  : 'bg-white/95 border-gray-200 hover:bg-blue-50'
+                  ? 'bg-rose-500 border-rose-600 text-white' 
+                  : 'bg-white/95 border-gray-200 hover:bg-rose-50'
               }`}
             >
-              <Bookmark className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white' : 'text-gray-600'}`} />
+              <Heart className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white' : 'text-gray-600'}`} />
             </button>
             
             {/* Tips Overlay on hover */}

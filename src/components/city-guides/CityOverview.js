@@ -387,26 +387,26 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       {(overviewParagraph || visitCalendar) && (
         <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-500"></div>
-          <div className="p-5 md:p-6 space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Best Time to Visit</h2>
+          <div className="p-4 md:p-5 space-y-3">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">When to Visit</h2>
               {visitCalendar?.bestTimeRecommendations?.overall && (
-                <span className="text-xs px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full font-medium hidden sm:inline-flex items-center gap-1">
-                  <span>✨</span> Best: {visitCalendar.bestTimeRecommendations.overall.best?.[0] || 'April-June'}
+                <span className="text-sm px-3 py-1.5 bg-emerald-100 text-emerald-700 rounded-full font-medium hidden sm:inline-flex items-center gap-1.5">
+                  <span>✨</span> Peak season: {visitCalendar.bestTimeRecommendations.overall.best?.[0] || 'April-June'}
                 </span>
               )}
             </div>
             
-            {/* Main summary */}
+            {/* Main summary - matching Start Here prose style */}
             {overviewParagraph && (
-              <p className="text-[15px] md:text-[16px] leading-7 text-slate-700 [text-wrap:pretty] md:max-w-none">
+              <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium max-w-4xl">
                 {overviewParagraph}
               </p>
             )}
 
             {/* Traveler Type Filter - "Best for" */}
             {visitCalendar?.travelerTypes && (
-              <div className="flex flex-wrap items-center gap-2 py-2">
+              <div className="flex flex-wrap items-center gap-2 py-1.5">
                 <span className="text-xs font-medium text-gray-500">Best time for:</span>
                 {['all', 'families', 'couples', 'solo', 'budget', 'luxury'].map((type) => (
                   <button
@@ -429,9 +429,9 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
             )}
 
             {/* 12-Month Calendar - Enhanced */}
-            <div className="mt-4">
+            <div className="mt-3">
               {/* Color Legend */}
-              <div className="flex flex-wrap items-center justify-center gap-3 mb-3 p-2 bg-gray-50 rounded-lg">
+              <div className="flex flex-wrap items-center justify-center gap-2.5 mb-2.5 p-1.5 bg-gray-50 rounded-lg">
                 <div className="flex items-center">
                   <div className="w-5 h-2.5 rounded mr-1.5" style={{backgroundColor: '#10b981'}}></div>
                   <span className="text-[11px] text-gray-600 font-medium">Excellent (5)</span>
@@ -880,36 +880,42 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
               </div>
             )}
 
-            {/* Seasonal Details - Professional Prose */}
-            <div className="space-y-4 text-[15px] md:text-[16px] leading-7 text-slate-700">
-              <p>
-                <strong className="text-gray-900">Spring & Early Fall (April–June, September–October)</strong> offer the best overall experience. 
-                Café terraces hum with conversation, gardens burst into bloom or turn golden, and comfortable temperatures of 15–20°C (60–68°F) 
-                make walking the city a pleasure. Crowds remain manageable, and Paris looks its most photogenic under soft seasonal light. 
-                May and September consistently rank as the sweet spot for first-time visitors.
-              </p>
-
-              <p>
-                <strong className="text-gray-900">Summer (July–August)</strong> brings long golden evenings that stretch past 10pm, 
-                Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema in Parc de la Villette. 
-                The tradeoff is significant: expect peak crowds at major attractions, the highest hotel rates of the year, 
-                and some beloved local shops and restaurants closing for the traditional August holiday. Book popular sites weeks in advance.
-              </p>
-
-              <p>
-                <strong className="text-gray-900">Winter (November–February)</strong> reveals Paris at its most intimate. 
-                Twinkling holiday lights transform the Champs-Élysées, Christmas markets pop up across the city, and you can linger over 
-                legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. 
-                Temperatures hover between 3–8°C (37–46°F)—cold but manageable with proper layers—and hotel rates drop significantly, 
-                making this the best season for budget-conscious travelers.
-              </p>
-
-              <p>
-                <strong className="text-gray-900">March</strong> marks the city&apos;s gentle awakening. Temperatures climb toward 12°C (54°F), 
-                the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening their doors. 
-                Pack layers and an umbrella—spring showers are part of the charm. This shoulder season offers excellent value 
-                before the crowds arrive in earnest.
-              </p>
+            {/* Seasonal Details - Narrative Prose matching Start Here style */}
+            <div className="mt-6 pt-6 border-t border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Season by Season</h3>
+              <div className="grid lg:grid-cols-2 gap-x-10 gap-y-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1.5">Spring & Early Fall</h4>
+                    <p className="text-[17px] leading-relaxed text-gray-700">
+                      <strong className="text-gray-900">April through June</strong> and <strong className="text-gray-900">September through October</strong> deliver the quintessential Paris experience. Temperatures settle into a comfortable 15–20°C, café terraces fill with conversation, and the city's gardens reach peak beauty—cherry blossoms in spring, golden leaves in autumn. Crowds exist but remain manageable. Light lingers late into evening. If you're planning your first visit, aim for <strong className="text-gray-900">May or September</strong>—they consistently offer the best balance of weather, crowds, and atmosphere.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1.5">Summer</h4>
+                    <p className="text-[17px] leading-relaxed text-gray-700">
+                      <strong className="text-gray-900">July and August</strong> bring the longest days—golden evenings stretching past 10pm, Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema under the stars. The trade-off? Peak crowds at every major attraction, the year's highest hotel rates, and many beloved neighborhood restaurants closing for the traditional August holiday. Book popular museums weeks ahead and expect to share the city with the world.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1.5">Winter</h4>
+                    <p className="text-[17px] leading-relaxed text-gray-700">
+                      <strong className="text-gray-900">November through February</strong> reveals Paris at its most intimate. Twinkling lights transform the Champs-Élysées, Christmas markets appear across the city, and you can linger over legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. Temperatures hover between 3–8°C—cold but manageable with layers. Hotel rates drop significantly. If you don't mind bundling up, this is the <strong className="text-gray-900">best season for budget-conscious travelers</strong> and those who prefer a quieter, more local experience.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1.5">March</h4>
+                    <p className="text-[17px] leading-relaxed text-gray-700">
+                      The city's gentle awakening. Temperatures climb toward 12°C, the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening. Pack layers and an umbrella—spring showers are part of the charm. This <strong className="text-gray-900">shoulder season offers excellent value</strong> before crowds arrive in earnest. A perfect time for travelers who want the romance of Paris without fighting for space.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

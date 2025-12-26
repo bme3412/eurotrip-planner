@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import AuthButton from '@/components/auth/AuthButton';
-import { BookmarkIcon } from '@heroicons/react/24/outline';
-import { BookmarkIcon as BookmarkSolid } from '@heroicons/react/24/solid';
+import { HeartIcon } from '@heroicons/react/24/outline';
+import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
 
 export default function SavedTripsPage() {
   const { user, loading: authLoading } = useAuth();
@@ -113,10 +113,10 @@ export default function SavedTripsPage() {
                 </svg>
               </Link>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">My Saved Items</h1>
-                {!loading && (
-                  <p className="text-sm text-gray-500">{totalSaved} saved</p>
-                )}
+                <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <HeartSolid className="w-5 h-5 text-rose-500" />
+                  Wishlists
+                </h1>
               </div>
             </div>
             <AuthButton />
@@ -128,7 +128,7 @@ export default function SavedTripsPage() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
         {/* Account Status Banner - Compact */}
         {!authLoading && (
-          <div className={`mb-6 px-4 py-3 rounded-lg flex items-center justify-between ${
+          <div className={`mb-6 px-4 py-3 rounded-xl flex items-center justify-between ${
             user 
               ? 'bg-green-50 border border-green-200' 
               : 'bg-amber-50 border border-amber-200'
@@ -146,10 +146,10 @@ export default function SavedTripsPage() {
         )}
 
         {/* Tabs */}
-        <div className="flex gap-1 mb-6 bg-gray-100 p-1 rounded-lg w-fit">
+        <div className="flex gap-1 mb-6 bg-gray-100 p-1 rounded-xl w-fit">
           <button
             onClick={() => setActiveTab('cities')}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               activeTab === 'cities'
                 ? 'bg-white text-gray-900 shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'
@@ -159,7 +159,7 @@ export default function SavedTripsPage() {
           </button>
           <button
             onClick={() => setActiveTab('experiences')}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               activeTab === 'experiences'
                 ? 'bg-white text-gray-900 shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'
@@ -171,9 +171,9 @@ export default function SavedTripsPage() {
 
         {/* Loading State */}
         {loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[1, 2, 3].map(i => (
-              <div key={i} className="animate-pulse bg-gray-200 rounded-xl h-48" />
+              <div key={i} className="animate-pulse bg-gray-200 rounded-2xl h-56" />
             ))}
           </div>
         )}
@@ -183,24 +183,24 @@ export default function SavedTripsPage() {
           <>
             {savedCities.length === 0 ? (
               <div className="text-center py-16">
-                <BookmarkIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <HeartIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No saved cities yet</h3>
                 <p className="text-gray-600 mb-6">Explore city guides and save your favorites!</p>
                 <Link
                   href="/city-guides"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-rose-500 text-white font-medium rounded-full hover:bg-rose-600 transition-colors shadow-sm"
                 >
                   Browse City Guides
                 </Link>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {savedCities.map((city) => (
                   <div 
                     key={city.id || city.city_name} 
-                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow group"
+                    className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow group"
                   >
-                    <div className="relative h-36 bg-gradient-to-br from-blue-100 to-indigo-100">
+                    <div className="relative h-40 bg-gradient-to-br from-rose-100 to-pink-100">
                       {city.image && (
                         <Image
                           src={city.image}
@@ -211,14 +211,14 @@ export default function SavedTripsPage() {
                       )}
                       <button
                         onClick={() => removeSavedCity(city)}
-                        className="absolute top-3 right-3 p-2 bg-white/90 rounded-full shadow-sm hover:bg-red-50 transition-colors"
-                        title="Remove from saved"
+                        className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-sm hover:bg-white transition-colors"
+                        title="Remove from wishlist"
                       >
-                        <BookmarkSolid className="w-4 h-4 text-blue-600" />
+                        <HeartSolid className="w-5 h-5 text-rose-500" />
                       </button>
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-gray-900">{city.display_name || city.city_name}</h3>
+                      <h3 className="font-semibold text-gray-900 text-lg">{city.display_name || city.city_name}</h3>
                       <p className="text-sm text-gray-500 mb-3">{city.country}</p>
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-gray-400">
@@ -226,7 +226,7 @@ export default function SavedTripsPage() {
                         </span>
                         <Link
                           href={`/city-guides/${(city.city_name || city.cityName || '').toLowerCase()}`}
-                          className="text-sm font-medium text-blue-600 hover:text-blue-700"
+                          className="text-sm font-medium text-rose-600 hover:text-rose-700"
                         >
                           View Guide →
                         </Link>
@@ -247,11 +247,11 @@ export default function SavedTripsPage() {
                 <span className="text-5xl mb-4 block">⭐</span>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No saved experiences yet</h3>
                 <p className="text-gray-600 mb-6">
-                  Visit a city guide and bookmark attractions you want to visit!
+                  Visit a city guide and save attractions you want to visit!
                 </p>
                 <Link
                   href="/city-guides"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-rose-500 text-white font-medium rounded-full hover:bg-rose-600 transition-colors shadow-sm"
                 >
                   Browse City Guides
                 </Link>
@@ -283,10 +283,10 @@ export default function SavedTripsPage() {
                             </div>
                             <button
                               onClick={() => removeSavedExperience(exp)}
-                              className="p-1.5 hover:bg-red-50 rounded-full transition-colors flex-shrink-0"
-                              title="Remove from saved"
+                              className="p-1.5 hover:bg-rose-50 rounded-full transition-colors flex-shrink-0"
+                              title="Remove from wishlist"
                             >
-                              <BookmarkSolid className="w-4 h-4 text-blue-600" />
+                              <HeartSolid className="w-5 h-5 text-rose-500" />
                             </button>
                           </div>
                           {exp.description && (
@@ -298,7 +298,7 @@ export default function SavedTripsPage() {
                             <span>Saved {new Date(exp.created_at).toLocaleDateString()}</span>
                             <Link
                               href={`/city-guides/${cityName.toLowerCase()}`}
-                              className="text-blue-600 hover:text-blue-700 font-medium"
+                              className="text-rose-600 hover:text-rose-700 font-medium"
                             >
                               View in guide →
                             </Link>
@@ -319,7 +319,7 @@ export default function SavedTripsPage() {
             <p className="text-gray-500 mb-4">Discover more destinations</p>
             <Link
               href="/city-guides"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-colors"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
