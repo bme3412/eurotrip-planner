@@ -150,7 +150,7 @@ export default function FoodDrinkGuide({ cityName, cityData }) {
       {/* Highlights */}
       {foodData.highlights && foodData.highlights.length > 0 && (
         <section className="border-t border-gray-200 pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">Don't Miss</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">Don&apos;t Miss</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {foodData.highlights.map((item, i) => (
               <div key={i} className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-4 hover:shadow-md transition-shadow">

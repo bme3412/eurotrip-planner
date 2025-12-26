@@ -571,22 +571,20 @@ const SpotlightCard = ({ neighborhood, reason, onClick }) => {
 };
 
 const NeighborhoodsList = ({ neighborhoods, cityName }) => {
-  const neighborhoodsList = Array.isArray(neighborhoods) ? neighborhoods : (neighborhoods?.neighborhoods || []);
-  
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPersona, setSelectedPersona] = useState(null);
   const [isCompareMode, setIsCompareMode] = useState(false);
   const [selectedForCompare, setSelectedForCompare] = useState([]);
   const [showComparison, setShowComparison] = useState(false);
   
-  // Add unique IDs
-  const neighborhoodsWithIds = useMemo(() => 
-    neighborhoodsList.map((neighborhood, index) => ({
+  // Add unique IDs - compute neighborhoodsList inside useMemo to fix dependency warning
+  const neighborhoodsWithIds = useMemo(() => {
+    const neighborhoodsList = Array.isArray(neighborhoods) ? neighborhoods : (neighborhoods?.neighborhoods || []);
+    return neighborhoodsList.map((neighborhood, index) => ({
       ...neighborhood,
       id: neighborhood.id || `neighborhood-${index}`
-    })),
-    [neighborhoodsList]
-  );
+    }));
+  }, [neighborhoods]);
   
   // Get unique neighborhoods (some might be duplicated in the data)
   const uniqueNeighborhoods = useMemo(() => {

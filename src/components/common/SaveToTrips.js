@@ -194,12 +194,7 @@ export function SavedTripsList() {
   const [savedTrips, setSavedTrips] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (authLoading) return;
-    loadSavedTrips();
-  }, [user, isSupabaseConfigured, authLoading]);
-
-  const loadSavedTrips = async () => {
+  const loadSavedTrips = useCallback(async () => {
     setLoading(true);
 
     if (user && isSupabaseConfigured) {
@@ -238,7 +233,12 @@ export function SavedTripsList() {
     }
 
     setLoading(false);
-  };
+  }, [user, isSupabaseConfigured]);
+
+  useEffect(() => {
+    if (authLoading) return;
+    loadSavedTrips();
+  }, [authLoading, loadSavedTrips]);
 
   const removeTrip = async (trip) => {
     if (user && isSupabaseConfigured) {
