@@ -18,6 +18,7 @@ import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
 import { getCitiesData as getStaticCityData } from '@/components/city-guides/cityData';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 import { getFlagForCountry } from '@/utils/countryFlags';
+import AuthButton from '@/components/auth/AuthButton';
 
 // Build a map of city descriptions from static data for fallback
 const staticCityDescriptions = (() => {
@@ -322,9 +323,9 @@ function CityGuidesContent() {
   /* ───────── render ───────── */
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Breadcrumbs */}
+      {/* Header with Breadcrumbs and Auth */}
       <div className="px-6 pt-4">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl flex items-center justify-between">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
             <Link href="/" className="hover:text-blue-600 transition-colors flex items-center gap-1">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -335,6 +336,18 @@ function CityGuidesContent() {
             <span className="text-gray-300">/</span>
             <span className="text-gray-700 font-medium">City Guides</span>
           </nav>
+          <div className="flex items-center gap-3">
+            <Link 
+              href="/saved-trips" 
+              className="text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 text-sm font-medium"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+              Saved
+            </Link>
+            <AuthButton />
+          </div>
         </div>
       </div>
 

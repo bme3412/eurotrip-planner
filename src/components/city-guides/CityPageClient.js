@@ -8,6 +8,7 @@ import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
 import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
+import AuthButton from '@/components/auth/AuthButton';
 import { 
   SkeletonOverview, 
   SkeletonMapLoader, 
@@ -312,7 +313,7 @@ function CityPageClient({ cityData, cityName }) {
     <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
       {/* Top bar - fixed, transparent over hero with breadcrumb (shows/hides on scroll) */}
       <div className={`fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${showBreadcrumb ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
           <Link 
             href="/city-guides" 
             className="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white transition-colors drop-shadow-md"
@@ -322,6 +323,18 @@ function CityPageClient({ cityData, cityName }) {
             </svg>
             <span>All City Guides</span>
           </Link>
+          <div className="flex items-center gap-3">
+            <Link 
+              href="/saved-trips" 
+              className="inline-flex items-center gap-1.5 text-sm text-white/90 hover:text-white transition-colors drop-shadow-md"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+              <span>Saved</span>
+            </Link>
+            <AuthButton />
+          </div>
         </div>
       </div>
 

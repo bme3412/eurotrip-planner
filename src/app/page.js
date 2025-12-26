@@ -7,6 +7,7 @@ import ResultsGrid from "../components/ResultsGrid";
 import { useTripDates } from "../hooks/useTripDates";
 import CityCard from "../components/city-guides/CityCard";
 import { getCitiesData } from "../components/city-guides/cityData";
+import AuthButton from "../components/auth/AuthButton";
 
 export default function Page() {
   const { dates, setDates, toQuery } = useTripDates(null);
@@ -98,6 +99,16 @@ export default function Page() {
             >
               Countries
             </button>
+            <Link 
+              href="/saved-trips" 
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors flex items-center gap-1"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+              Saved
+            </Link>
+            <AuthButton />
           </nav>
         </div>
       </header>
