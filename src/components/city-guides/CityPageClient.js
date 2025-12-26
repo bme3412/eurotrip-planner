@@ -284,7 +284,7 @@ function CityPageClient({ cityData, cityName }) {
               cityName={cityName}
               monthlyData={memoizedData.safeMonthlyEvents}
               experiencesUrl={`/data/France/${cityName && typeof cityName === 'string' ? cityName.toLowerCase() : 'unknown'}/${cityName && typeof cityName === 'string' ? cityName.toLowerCase() : 'unknown'}-experiences.json`}
-              limit={50}
+              limit={Infinity}
               forceList
             />
           </Suspense>

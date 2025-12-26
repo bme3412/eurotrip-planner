@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
-import { Bookmark, Eye, Plus, X, Check, Clock, MapPin, ChevronDown, ChevronUp, Filter, Star, SlidersHorizontal } from 'lucide-react';
+import { Bookmark, Check, Clock, MapPin, ChevronDown, Filter, Star, SlidersHorizontal } from 'lucide-react';
 
 const MAX_SEASONAL_SCORE = 8;
 
@@ -69,9 +69,8 @@ const capitalizeCity = (name) => {
   return name.charAt(0).toUpperCase() + name.slice(1);
 };
 
-const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = 50 }) => {
+const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = Infinity }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [expandedAttractions, setExpandedAttractions] = useState({});
   const [dateFilterType, setDateFilterType] = useState('none');
   const [selectedDate, setSelectedDate] = useState('');
   const [startDate, setStartDate] = useState('');
@@ -86,16 +85,8 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [showFilters, setShowFilters] = useState(false);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [quickViewItem, setQuickViewItem] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [toastMessage, setToastMessage] = useState(null);
-  const [showScoreBreakdown, setShowScoreBreakdown] = useState(false);
-  
-  // Helper to open quick view with fresh state
-  const openQuickView = (item) => {
-    setShowScoreBreakdown(false);
-    setQuickViewItem(item);
-  };
   
   // Properly capitalize city name
   const displayCityName = capitalizeCity(cityName);
@@ -381,13 +372,6 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     return 'all';
   }, [dateFilterType, selectedDate, startDate, endDate, selectedMonth, getMonthFromDate]);
 
-  const toggleExpanded = (attractionId) => {
-    setExpandedAttractions((prev) => ({
-      ...prev,
-      [attractionId]: !prev[attractionId]
-    }));
-  };
-
   const getPriceIcon = (priceRange) => {
     if (!priceRange) return '€€';
     const value = String(priceRange).toLowerCase();
@@ -472,12 +456,24 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   };
 
   const formatCost = (attraction) => {
+    // Check for free experiences first
+    if (attraction?.estimated_cost_eur === 0 || attraction?.pricing_tier === 'free') {
+      return 'Free';
+    }
+    // Check estimated cost from data
+    if (attraction?.estimated_cost_eur && attraction.estimated_cost_eur > 0) {
+      return `~€${Math.round(attraction.estimated_cost_eur)}`;
+    }
     const estimate = Number(attraction?.ratings?.cost_estimate);
-    if (Number.isFinite(estimate) && estimate >= 0) {
+    if (Number.isFinite(estimate) && estimate > 0) {
       return `~€${Math.round(estimate)}`;
+    }
+    if (Number.isFinite(estimate) && estimate === 0) {
+      return 'Free';
     }
     if (attraction?.price_range) {
       const label = String(attraction.price_range);
+      if (label.toLowerCase().includes('free')) return 'Free';
       if (label.length > 28) {
         return `${label.slice(0, 25).trimEnd()}…`;
       }
@@ -769,7 +765,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     [quickFilters, searchTerm, dateFilterType, activeCategories]
   );
 
-  const [visibleCount, setVisibleCount] = useState(24);
+  const [visibleCount, setVisibleCount] = useState(100);
   const containerRef = useRef(null);
 
   const handleCategoryToggle = useCallback((categoryId) => {
@@ -798,28 +794,203 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   }, [remainingAttractions.length]);
 
   useEffect(() => {
-    setVisibleCount(24);
+    setVisibleCount(100);
   }, [remainingAttractions.length]);
+
+  // Score factors for display
+  const scoreFactors = [
+    { key: 'uniqueness_to_paris', label: 'Uniqueness to Paris', weight: 15, icon: '✨' },
+    { key: 'visitor_experience_quality', label: 'Experience Quality', weight: 15, icon: '⭐' },
+    { key: 'cultural_historical_significance', label: 'Cultural Significance', weight: 12, icon: '🏛️' },
+    { key: 'value_for_money', label: 'Value for Money', weight: 12, icon: '💰' },
+    { key: 'photo_instagram_appeal', label: 'Photo Appeal', weight: 10, icon: '📸' },
+    { key: 'accessibility', label: 'Accessibility', weight: 10, icon: '♿' },
+    { key: 'crowd_management', label: 'Crowd Levels', weight: 8, icon: '👥' },
+    { key: 'weather_independence', label: 'Weather Proof', weight: 8, icon: '🌧️' },
+    { key: 'family_friendliness', label: 'Family Friendly', weight: 5, icon: '👨‍👩‍👧' },
+    { key: 'educational_value', label: 'Educational Value', weight: 5, icon: '📚' },
+  ];
+
+  // Score display component - simple grid, larger text
+  const ScoreDisplay = ({ factorScores }) => (
+    <div className="pt-4 border-t border-gray-100">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-2.5">
+        {scoreFactors.slice(0, 6).map(({ key, label, icon }) => {
+          const value = factorScores?.[key] ?? 0;
+          return (
+            <div key={key} className="flex items-center gap-2">
+              <span className="text-lg shrink-0">{icon}</span>
+              <span className="text-sm text-gray-700 flex-1">{label}</span>
+              <span className="text-sm font-bold text-gray-900">{value}/10</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+  
+  // Tips overlay component - shows on photo hover
+  const TipsOverlay = ({ tips }) => {
+    if (!tips || tips.length === 0) return null;
+    return (
+      <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-xl border border-gray-100 w-full">
+          <ul className="space-y-1.5">
+            {tips.map((tip, i) => (
+              <li key={i} className="text-sm text-gray-700 leading-relaxed flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">💡</span>
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  };
+  
+  // Generate practical tips based on experience data - detailed and actionable
+  const generateTips = (attraction) => {
+    const tips = [];
+    
+    // Get scores from either factorScores or scores object
+    const scores = attraction.factorScores || attraction.scores || {};
+    const weatherScore = scores.weatherIndependence || scores.weather_independence;
+    const accessScore = scores.accessibility;
+    const crowdScore = scores.crowdManagement || scores.crowd_management;
+    const name = attraction.name?.toLowerCase() || '';
+    
+    // Specific tips for known attractions
+    if (name.includes('place du tertre') || name.includes('street performers')) {
+      tips.push('The square gets packed midday—visit after 6pm when day-trippers leave and the evening performers arrive.');
+      tips.push('Café prices are steep here; grab a cheaper drink on nearby Rue Lepic and return to watch the show.');
+    } else if (name.includes('sacré') || name.includes('montmartre')) {
+      if (accessScore && accessScore <= 7) {
+        tips.push('The 270 steps can be tiring—take the Montmartre funicular (€2.15, included with metro pass) if you prefer.');
+      }
+      tips.push('Arrive before 9am to catch the basilica in peaceful morning light, before tour groups arrive.');
+    } else if (name.includes('eiffel')) {
+      tips.push('Book summit tickets 2–3 months ahead online (€29.40) to skip the 2+ hour queues.');
+      tips.push('The hourly sparkle show runs for 5 minutes after sunset—best viewed from Trocadéro.');
+    } else if (name.includes('louvre')) {
+      tips.push('Skip the pyramid queue—enter via the underground Carrousel du Louvre mall or the less-crowded Porte des Lions.');
+      tips.push('Free for under-26 EU residents and everyone on the first Saturday evening of each month (6–9:45pm).');
+      tips.push('Download the free Louvre app for self-guided routes; the "Masterpieces" trail takes about 90 minutes.');
+    } else if (name.includes('orsay')) {
+      tips.push('Head straight to the 5th floor when doors open at 9:30am—the clock views are magical in morning light.');
+      tips.push('Free for under-26 EU residents; Thursdays stay open until 9:45pm with smaller evening crowds.');
+    } else if (name.includes('pantheon') || name.includes('panthéon')) {
+      tips.push('Dome access runs April–October only and requires 206 steps—arrive early as slots fill up fast.');
+      tips.push('Free on the first Sunday of each month (Nov–March) and for under-26 EU residents year-round.');
+    } else if (name.includes('moonlit montmartre') || (name.includes('montmartre') && name.includes('walk') && (name.includes('night') || name.includes('moon')))) {
+      tips.push('Start around 10pm when restaurants empty and streets quiet down—the atmosphere peaks between 11pm and midnight.');
+      tips.push('Wear sturdy shoes for uneven cobblestones and steep hills; the Rue Foyatier staircase can be slippery when wet.');
+      tips.push('For a perfect finale, reserve €35 tickets to Au Lapin Agile—the intimate 90-minute cabaret is a time capsule.');
+    } else if (name.includes('caves du louvre') || (name.includes('wine tasting') && name.includes('louvre'))) {
+      tips.push('Book the "French Wine Exploration" (€39) for the best intro, or splurge on "Create Your Own Wine" (€65) to take home a personalized bottle.');
+      tips.push('Sessions fill up fast—reserve 3–5 days ahead online, especially for weekend afternoons.');
+      tips.push('Eat a light lunch beforehand; the cheese pairings are generous but won\'t fully line your stomach for five wines.');
+    } else if (name.includes('seine') && name.includes('cruise')) {
+      tips.push('Evening cruises offer the best views as monuments light up—book Bateaux Mouches or Vedettes du Pont Neuf.');
+    } else if (name.includes('canal saint-martin') && name.includes('morning')) {
+      tips.push('Start at Place de la République and walk north—the light is best on the Quai de Valmy side before noon.');
+      tips.push('Ten Belles (10 Rue de la Grange aux Belles) serves some of Paris\'s best coffee—get there before 9am.');
+      tips.push('Watch for the swing bridges opening—boats pass through the locks roughly every 20 minutes in summer.');
+    } else if (name.includes('canal saint-martin') || (name.includes('apéro') && name.includes('canal'))) {
+      tips.push('Grab wine at Le Verre Volé (67 Rue de Lancry) and cheese at Fromagerie Tentation—both a short walk from the canal.');
+      tips.push('Best spots: the steps near Hôtel du Nord or the Passerelle Alibert footbridge for sunset views.');
+      tips.push('Bring a corkscrew and napkins—and take your empties; locals respect the quays.');
+    } else if (name.includes('pont des arts')) {
+      tips.push('Arrive 30 minutes before sunset to claim a prime spot—the bridge gets crowded at golden hour.');
+      tips.push('Street vendors on the Left Bank sell wine by the glass; bring your own picnic for better value.');
+      tips.push('Stay after sunset to watch the Eiffel Tower sparkle at the top of each hour.');
+    } else if (name.includes('pompidou')) {
+      tips.push('Free for under-26 EU residents; free for everyone on the first Sunday of each month.');
+      tips.push('The rooftop restaurant has the same views as the 6th floor—grab a drink even without museum entry.');
+      tips.push('Skip the ground floor queue by booking timed tickets online; Thursday evenings (until 9pm) are quieter.');
+    } else if (name.includes('sainte-chapelle') || name.includes('stained glass')) {
+      tips.push('Book the 9am slot online—morning sun through east-facing windows creates the most magical light.');
+      tips.push('Combo ticket with Conciergerie (€18.50) saves money and skips both queues.');
+      tips.push('Sunny days are essential; overcast skies mute the colors dramatically. Check the forecast.');
+    } else if (name.includes('arts et métiers') || name.includes('arts et metiers')) {
+      tips.push('Free for under-26 EU residents and everyone on the first Sunday of each month.');
+      tips.push('Don\'t miss the chapel nave—Foucault\'s pendulum and Blériot\'s plane are the showstoppers.');
+      tips.push('The Arts et Métiers metro station is themed to the museum—worth a look even if you\'re not riding.');
+    } else if (name.includes('saint-ouen') || name.includes('flea market')) {
+      tips.push('Arrive by 9am Saturday for first pick—dealers set up early and the best pieces go fast.');
+      tips.push('Take Metro Line 4 to Porte de Clignancourt; the market is a 5-minute walk north.');
+      tips.push('Haggle respectfully—start at 30% below asking price and meet in the middle. Cash is king.');
+    } else if (name.includes('île saint-louis') || name.includes('ile saint-louis')) {
+      tips.push('Walk the lower quays (stairs near Pont Marie) for the most romantic Seine views and fewer crowds.');
+      tips.push('Berthillon closes Mon–Tue, but nearby shops on the same street sell the same ice cream.');
+      tips.push('The western tip at sunset offers a perfect view of Notre-Dame silhouetted against the sky.');
+    } else if (name.includes('hôtel de ville') || name.includes('hotel de ville')) {
+      tips.push('Check paris.fr for current exhibitions—shows change every few months and are always free.');
+      tips.push('Enter via the main facade on Place de l\'Hôtel de Ville; bring ID as security checks bags.');
+      tips.push('The esplanade hosts a free ice rink (Dec–Mar) and beach volleyball (Jul–Aug)—combine with your visit.');
+    } else if (name.includes('zadkine')) {
+      tips.push('Combine with Luxembourg Gardens (2-minute walk)—the perfect pairing for a Left Bank afternoon.');
+      tips.push('The garden is best in late spring when wisteria blooms frame the sculptures.');
+      tips.push('Closed Mondays; free entry but temporary exhibitions may have a small fee.');
+    } else if (name.includes('saint-germain') && name.includes('boulevard')) {
+      tips.push('Start at Saint-Germain-des-Prés metro—the church and famous cafés are right at the exit.');
+      tips.push('Café de Flore and Les Deux Magots are pricey (€8 espresso)—worth one visit for the history.');
+      tips.push('Duck into Rue de Buci for cheaper lunch spots and a lively street market (mornings).');
+    } else {
+      // Generic but helpful tips based on data
+      
+      // Weather/timing tips
+      if (attraction.best_time === 'morning') {
+        tips.push('Morning visits offer the best experience—softer light and smaller crowds before 10am.');
+      } else if (attraction.best_time === 'evening' || attraction.best_time === 'sunset') {
+        tips.push('Plan to arrive 30–45 minutes before sunset for the magical golden hour atmosphere.');
+      }
+      
+      // Weather independence
+      if (weatherScore && weatherScore <= 5) {
+        tips.push('This is an outdoor experience—check the forecast and have a covered backup nearby.');
+      } else if (weatherScore && weatherScore >= 8) {
+        tips.push('Mostly indoors, making it a reliable option for rainy days.');
+      }
+      
+      // Accessibility with practical alternatives
+      if (accessScore && accessScore <= 5) {
+        tips.push('Involves significant stairs or walking—check if elevator access is available before visiting.');
+      }
+      
+      // Cost tips with context
+      if (attraction.estimated_cost_eur === 0 || attraction.pricing_tier === 'free') {
+        tips.push('Free to visit—bring a blanket or snacks to make the most of your time here.');
+      } else if (attraction.estimated_cost_eur && attraction.estimated_cost_eur > 15) {
+        tips.push(`Entry is around €${attraction.estimated_cost_eur}—book online to save time and sometimes get a discount.`);
+      }
+      
+      // Crowd management
+      if (crowdScore && crowdScore <= 5) {
+        tips.push('Can get very crowded—weekday mornings or the last hour before closing are typically quieter.');
+      }
+    }
+    
+    return tips.slice(0, 2); // Return max 2 tips
+  };
 
   const renderHighlightCard = (attraction, index) => {
     if (!attraction) return null;
     const attractionId = attraction.id || `highlight-${index}`;
-    const isExpanded = expandedAttractions[attractionId] || false;
 
     return (
       <div
         key={`highlight-${attractionId}`}
         className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
       >
-        {/* Image Section */}
-        <div className="relative h-40 w-full overflow-hidden bg-gray-100">
+        {/* Image Section - Tall format for maximum photo visibility */}
+        <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
           {attraction.image ? (
             <Image
               src={attraction.image}
               alt={attraction.name}
               fill
-              sizes="(min-width: 1280px) 360px, (min-width: 768px) 40vw, 90vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-4xl text-gray-300">
@@ -828,67 +999,72 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
           )}
           
           {/* Top Badge */}
-          <div className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-2.5 py-1 text-xs font-bold text-white shadow-sm">
+          <div className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-2.5 py-1 text-xs font-bold text-white shadow-sm z-10">
             #{index + 1} Top Pick
           </div>
           
-          {/* Quick Actions - appear on hover */}
-          <div className="absolute bottom-2 right-2 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <button 
-              onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
-              className={`h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
-                isFavorite(attraction) 
-                  ? 'bg-blue-500 border-blue-600 text-white' 
-                  : 'bg-white/95 border-gray-200 hover:bg-blue-50 hover:border-blue-300'
-              }`}
-              aria-label={isFavorite(attraction) ? "Remove from favorites" : "Save to favorites"}
-            >
-              <Bookmark className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white text-white' : 'text-gray-600'}`} />
-            </button>
-            <button 
-              onClick={(e) => { e.stopPropagation(); openQuickView(attraction); }}
-              className="h-8 w-8 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-violet-50 hover:border-violet-300 transition-colors"
-              aria-label="Quick view"
-            >
-              <Eye className="h-4 w-4 text-gray-600" />
-            </button>
-          </div>
+          {/* Favorite button - always visible */}
+          <button 
+            onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
+            className={`absolute top-3 right-3 z-10 h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
+              isFavorite(attraction) 
+                ? 'bg-blue-500 border-blue-600 text-white' 
+                : 'bg-white/95 border-gray-200 hover:bg-blue-50 hover:border-blue-300'
+            }`}
+            aria-label={isFavorite(attraction) ? "Remove from favorites" : "Save to favorites"}
+          >
+            <Bookmark className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white text-white' : 'text-gray-600'}`} />
+          </button>
+          
+          {/* Tips Overlay on hover */}
+          <TipsOverlay tips={generateTips(attraction)} />
         </div>
         
         {/* Content Section */}
         <div className="p-4 space-y-3">
           <div>
-            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 leading-snug">{attraction.name}</h3>
+            <h3 className="text-base font-semibold text-gray-900 leading-snug">{attraction.name}</h3>
             {attraction.category && (
               <p className="text-xs text-gray-500 mt-1">{attraction.category}</p>
             )}
           </div>
 
           {attraction.description && (
-            <p className="text-sm text-gray-600 line-clamp-2">{attraction.description}</p>
+            <p className="text-sm text-gray-600">{attraction.description}</p>
           )}
 
-          {/* Info Row - matches Overview cards */}
-          <div className="flex items-center gap-3 text-xs text-gray-500">
+          {/* Info Row - without redundant location */}
+          <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
             <span className="inline-flex items-center gap-1">
               <Clock className="h-3.5 w-3.5 text-gray-400" />
-              {formatDuration(attraction?.ratings?.suggested_duration_hours)}
+              {formatDuration(attraction?.ratings?.suggested_duration_hours || attraction?.duration_minutes / 60)}
             </span>
-            <span className="inline-flex items-center gap-1">
-              <MapPin className="h-3.5 w-3.5 text-gray-400" />
-              {attraction.neighborhood || attraction.category || 'Paris'}
-            </span>
+            {attraction.arrondissement && (
+              <span className="inline-flex items-center gap-1">
+                <MapPin className="h-3.5 w-3.5 text-gray-400" />
+                {attraction.arrondissement} arr.
+              </span>
+            )}
           </div>
           
-          {/* Cost Badge */}
+          {/* Scores inline */}
+          {(attraction.factorScores || attraction.scores) && (
+            <ScoreDisplay factorScores={attraction.factorScores || attraction.scores} />
+          )}
+          
+          {/* Cost & Website */}
           <div className="flex items-center justify-between pt-2 border-t border-gray-100">
             <span className="text-sm font-medium text-gray-900">{formatCost(attraction)}</span>
-            <button
-              onClick={() => openQuickView(attraction)}
-              className="text-sm font-medium text-blue-600 hover:text-blue-700"
-            >
-              View details →
-            </button>
+            {attraction.website && (
+              <a
+                href={attraction.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-blue-600 hover:text-blue-700"
+              >
+                Book / Visit →
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -898,104 +1074,94 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const renderExperienceCard = (attraction, index, offset = 0) => {
     if (!attraction) return null;
     const attractionId = attraction.id || `experience-${offset + index}`;
+    const tips = generateTips(attraction);
 
     return (
       <div
         key={attractionId}
-        className="group rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md"
+        className="group rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md overflow-hidden"
       >
-        <div className="flex flex-col gap-4 p-4 sm:flex-row">
-          {/* Image */}
-          <div className="relative h-32 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-36 sm:w-40 shrink-0">
+        <div className="flex flex-col sm:flex-row">
+          {/* Image - Large tall format for maximum photo visibility */}
+          <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 sm:w-80 shrink-0">
             {attraction.image ? (
               <Image
                 src={attraction.image}
                 alt={attraction.name}
                 fill
-                sizes="(min-width: 1280px) 256px, (min-width: 768px) 200px, 90vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-3xl text-gray-300">
+              <div className="flex h-full w-full items-center justify-center text-4xl text-gray-300">
                 {getTypeIcon(attraction.type)}
               </div>
             )}
             
-            {/* Quick Actions on image */}
-            <div className="absolute bottom-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-              <button 
-                onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
-                className={`h-7 w-7 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
-                  isFavorite(attraction) 
-                    ? 'bg-blue-500 border-blue-600 text-white' 
-                    : 'bg-white/95 border-gray-200 hover:bg-blue-50'
-                }`}
-              >
-                <Bookmark className={`h-3.5 w-3.5 ${isFavorite(attraction) ? 'fill-white' : 'text-gray-600'}`} />
-              </button>
-              <button 
-                onClick={(e) => { e.stopPropagation(); openQuickView(attraction); }}
-                className="h-7 w-7 rounded-full bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm flex items-center justify-center hover:bg-violet-50 transition-colors"
-              >
-                <Eye className="h-3.5 w-3.5 text-gray-600" />
-              </button>
-            </div>
+            {/* Favorite button - always visible */}
+            <button 
+              onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
+              className={`absolute top-3 right-3 z-10 h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
+                isFavorite(attraction) 
+                  ? 'bg-blue-500 border-blue-600 text-white' 
+                  : 'bg-white/95 border-gray-200 hover:bg-blue-50'
+              }`}
+            >
+              <Bookmark className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white' : 'text-gray-600'}`} />
+            </button>
+            
+            {/* Tips Overlay on hover */}
+            <TipsOverlay tips={tips} />
           </div>
 
           {/* Content */}
-          <div className="flex-1 min-w-0 space-y-2">
-            <div className="flex items-start justify-between gap-2">
+          <div className="flex-1 min-w-0 p-5 space-y-3">
+            <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <h3 className="text-base font-semibold text-gray-900 leading-snug line-clamp-2">{attraction.name}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{attraction.category}</p>
+                <h3 className="text-lg font-semibold text-gray-900 leading-snug">{attraction.name}</h3>
+                <p className="text-sm text-gray-500 mt-0.5">{attraction.category}</p>
               </div>
-              <span className="shrink-0 text-sm font-medium text-gray-900">{formatCost(attraction)}</span>
+              <div className="shrink-0 text-right">
+                <span className="text-base font-semibold text-gray-900">{formatCost(attraction)}</span>
+              </div>
             </div>
 
             {attraction.description && (
-              <p className="text-sm text-gray-600 line-clamp-2">{attraction.description}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">{attraction.description}</p>
             )}
 
-            {/* Info Row - unified with Overview */}
-            <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
-              <span className="inline-flex items-center gap-1">
-                <Clock className="h-3.5 w-3.5 text-gray-400" />
-                {formatDuration(attraction?.ratings?.suggested_duration_hours)}
+            {/* Info Row - without redundant location */}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-4 w-4 text-gray-400" />
+                {formatDuration(attraction?.ratings?.suggested_duration_hours || attraction?.duration_minutes / 60)}
               </span>
-              <span className="inline-flex items-center gap-1">
-                <MapPin className="h-3.5 w-3.5 text-gray-400" />
-                {attraction.neighborhood || attraction.arrondissement || 'Paris'}
-              </span>
-              {typeof attraction.compositeScore === 'number' && (
-                <span className="inline-flex items-center gap-1">
-                  <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400" />
-                  {attraction.compositeScore.toFixed(1)}
+              {attraction.arrondissement && (
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4 text-gray-400" />
+                  {attraction.arrondissement} arr.
                 </span>
               )}
             </div>
+            
+            {/* Scores inline */}
+            {(attraction.factorScores || attraction.scores) && (
+              <ScoreDisplay factorScores={attraction.factorScores || attraction.scores} />
+            )}
 
-            {/* Actions */}
-            <div className="flex items-center gap-2 pt-2">
-              <button
-                onClick={() => openQuickView(attraction)}
-                className="text-sm font-medium text-blue-600 hover:text-blue-700"
-              >
-                View details
-              </button>
-              {attraction.website && (
-                <>
-                  <span className="text-gray-300">•</span>
-                  <a
-                    href={attraction.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-600 hover:text-gray-800"
-                  >
-                    Visit site →
-                  </a>
-                </>
-              )}
-            </div>
+            {/* Website link if available */}
+            {attraction.website && (
+              <div className="pt-2">
+                <a
+                  href={attraction.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700"
+                >
+                  Book / Visit site →
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -1064,25 +1230,10 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         </div>
       </div>
 
-      {/* Unified Search & Filter Bar */}
+      {/* Filter Bar */}
       <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-        {/* Search Row */}
+        {/* Filter Row */}
         <div className="p-4 flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-              </svg>
-            </span>
-            <input
-              type="search"
-              className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
-              placeholder={`Search in ${displayCityName}...`}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          
           {/* Filter Toggle Button - Mobile */}
           <button
             type="button"
@@ -1322,15 +1473,9 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         <LoadingSkeleton />
       ) : highlightAttractions.length > 0 && (
         <section className="space-y-4">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <h2 className="text-xl font-semibold text-slate-900">Spotlight picks</h2>
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {activeLens.label} lens
-              <span aria-hidden="true">•</span> Top {highlightAttractions.length}
-            </span>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {highlightAttractions.map((attraction, index) => renderHighlightCard(attraction, index))}
+          <h2 className="text-xl font-semibold text-slate-900">Spotlight picks</h2>
+          <div className="space-y-4">
+            {highlightAttractions.map((attraction, index) => renderExperienceCard(attraction, index, 0))}
           </div>
         </section>
       )}
@@ -1364,11 +1509,6 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               {remainingAttractions.slice(0, visibleCount).map((attraction, index) =>
                 renderExperienceCard(attraction, index, highlightAttractions.length)
               )}
-              {visibleCount < remainingAttractions.length && (
-                <div className="text-center text-sm text-gray-500">
-                  Scrolling reveals more ideas automatically
-                </div>
-              )}
             </div>
           ) : (
             highlightAttractions.length > 0 && (
@@ -1378,163 +1518,6 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             )
           )}
         </section>
-      )}
-
-      {/* Quick View Modal */}
-      {quickViewItem && (
-        <div 
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
-          onClick={() => setQuickViewItem(null)}
-        >
-          <div 
-            className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[85vh] overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header with image */}
-            <div className="relative h-48 sm:h-56 bg-gray-100">
-              {quickViewItem.image ? (
-                <Image
-                  src={quickViewItem.image}
-                  alt={quickViewItem.name || quickViewItem.activity}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  <MapPin className="h-12 w-12" />
-                </div>
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              
-              {/* Close button */}
-              <button 
-                onClick={() => setQuickViewItem(null)}
-                className="absolute top-3 right-3 h-8 w-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors"
-              >
-                <X className="h-5 w-5" />
-              </button>
-              
-              {/* Title overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg">
-                  {quickViewItem.name || quickViewItem.activity}
-                </h2>
-                {quickViewItem.category && (
-                  <span className="inline-block mt-2 px-2 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white">
-                    {quickViewItem.category}
-                  </span>
-                )}
-              </div>
-            </div>
-            
-            {/* Content */}
-            <div className="p-5 space-y-4 overflow-y-auto max-h-[calc(85vh-14rem)]">
-              {/* Rating and cost */}
-              <div className="flex items-center justify-between">
-                {typeof quickViewItem.compositeScore === 'number' && (
-                  <button 
-                    onClick={() => setShowScoreBreakdown(!showScoreBreakdown)}
-                    className="flex items-center gap-1 hover:bg-gray-50 rounded-lg px-2 py-1 -ml-2 transition-colors"
-                    title="Click to see score breakdown"
-                  >
-                    <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
-                    <span className="font-semibold text-gray-900">{quickViewItem.compositeScore.toFixed(1)}</span>
-                    <span className="text-gray-500 text-sm">score</span>
-                    <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform ${showScoreBreakdown ? 'rotate-180' : ''}`} />
-                  </button>
-                )}
-                <span className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
-                  {formatCost(quickViewItem)}
-                </span>
-              </div>
-              
-              {/* Score breakdown - expandable */}
-              {showScoreBreakdown && quickViewItem.factorScores && (
-                <div className="bg-gray-50 rounded-xl p-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-semibold text-gray-700">How we score experiences</h4>
-                    <span className="text-xs text-gray-500">10 factors weighted by importance</span>
-                  </div>
-                  
-                  {/* Score visualization */}
-                  <div className="grid grid-cols-1 gap-2">
-                    {[
-                      { key: 'uniqueness_to_paris', label: 'Uniqueness to Paris', weight: 15, icon: '✨' },
-                      { key: 'visitor_experience_quality', label: 'Experience Quality', weight: 15, icon: '⭐' },
-                      { key: 'cultural_historical_significance', label: 'Cultural Significance', weight: 12, icon: '🏛️' },
-                      { key: 'value_for_money', label: 'Value for Money', weight: 12, icon: '💰' },
-                      { key: 'photo_instagram_appeal', label: 'Photo Appeal', weight: 10, icon: '📸' },
-                      { key: 'accessibility', label: 'Accessibility', weight: 10, icon: '♿' },
-                      { key: 'crowd_management', label: 'Crowd Levels', weight: 8, icon: '👥' },
-                      { key: 'weather_independence', label: 'Weather Proof', weight: 8, icon: '🌧️' },
-                      { key: 'family_friendliness', label: 'Family Friendly', weight: 5, icon: '👨‍👩‍👧' },
-                      { key: 'educational_value', label: 'Educational Value', weight: 5, icon: '📚' },
-                    ].map(({ key, label, weight, icon }) => {
-                      const value = quickViewItem.factorScores?.[key] ?? 0;
-                      return (
-                        <div key={key} className="flex items-center gap-2">
-                          <span className="text-sm w-5">{icon}</span>
-                          <span className="text-xs text-gray-600 w-28 truncate">{label}</span>
-                          <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                            <div 
-                              className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all"
-                              style={{ width: `${(value / 10) * 100}%` }}
-                            />
-                          </div>
-                          <span className="text-xs font-medium text-gray-700 w-6 text-right">{value}</span>
-                          <span className="text-xs text-gray-400 w-8">({weight}%)</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  
-                  <p className="text-xs text-gray-500 pt-2 border-t border-gray-200">
-                    Final score: weighted average of all factors. Higher weight = more impact on overall score.
-                  </p>
-                </div>
-              )}
-              
-              {/* Description */}
-              {quickViewItem.description && (
-                <p className="text-gray-700 leading-relaxed">{quickViewItem.description}</p>
-              )}
-              
-              {/* Details grid */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                  <Clock className="h-4 w-4 text-gray-400" />
-                  <span>{formatDuration(quickViewItem?.ratings?.suggested_duration_hours)}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                  <MapPin className="h-4 w-4 text-gray-400" />
-                  <span>{quickViewItem.neighborhood || quickViewItem.arrondissement || 'Paris'}</span>
-                </div>
-              </div>
-              
-              {/* Action buttons */}
-              <div className="flex gap-3 pt-2">
-                <button
-                  onClick={() => { toggleFavorite(quickViewItem); }}
-                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-medium transition-colors ${
-                    isFavorite(quickViewItem)
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  <Bookmark className={`h-4 w-4 ${isFavorite(quickViewItem) ? 'fill-white' : ''}`} />
-                  {isFavorite(quickViewItem) ? 'Saved' : 'Save'}
-                </button>
-                <button
-                  onClick={() => setQuickViewItem(null)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors"
-                >
-                  <Check className="h-4 w-4" />
-                  Done
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       )}
 
       {/* Toast Notification */}
