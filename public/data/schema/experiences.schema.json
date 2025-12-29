@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Experiences",
+  "type": "object",
+  "required": ["city", "categories"],
+  "properties": {
+    "city": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "items_total": { "type": ["integer", "number"] },
+    "categories": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "description"],
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" },
+            "address": { "type": "string" },
+            "best_time": { "type": "string" },
+            "seasonality": { "type": "string" },
+            "duration_minutes": { "type": ["integer", "number"] },
+            "arrondissement": { "type": "string" },
+            "lat": { "type": "number" },
+            "lon": { "type": "number" },
+            "themes": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "estimated_cost_eur": { "type": ["integer", "number"] },
+            "pricing_tier": { "type": "string" },
+            "booking_url": { "type": ["string", "null"] },
+            "scores": {
+              "type": "object",
+              "additionalProperties": { "type": ["integer", "number"] }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
+

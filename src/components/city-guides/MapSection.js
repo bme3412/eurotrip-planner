@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import LazyMapWithMapbox from './LazyMapWithMapbox';
 
@@ -17,37 +17,94 @@ export default function MapSection({
 }) {
   const [isClient, setIsClient] = useState(false);
   const [selectedAttraction, setSelectedAttraction] = useState(null);
-  // Define clusters once so we can use them for defaults and filtering
-  const CATEGORY_CLUSTERS = {
-    'Landmarks': ['Monument', 'Cathedral', 'Basilica', 'Chapel', 'Church', 'Palace'],
-    'Museums & Arts': ['Museum', 'Contemporary Art Center', 'Art Center', 'Digital Art Center'],
-    'Parks & Nature': ['Park', 'Garden', 'Waterway', 'Bridge'],
-    'Districts & Streets': ['District', 'Street', 'Square'],
-    'Entertainment': ['Opera House', 'Activity', 'River Cruise'],
-    'Shopping & Markets': ['Department Store', 'Market', 'Market Street'],
-    'Historical Sites': ['Historical Site', 'Cemetery'],
-    'Other': ['Exhibition Hall', 'Skyscraper', 'Library']
-  };
-  const ALL_CLUSTERS = Object.keys(CATEGORY_CLUSTERS);
-  // Default to All selected
-  const [activeFilters, setActiveFilters] = useState(ALL_CLUSTERS);
-  // Pagination state for the attractions list
+  const [search, setSearch] = useState('');
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [hovered, setHovered] = useState(null);
   const [page, setPage] = useState(1);
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = 12;
+  
+  // Ref for scrolling to map
+  const mapContainerRef = useRef(null);
+  
+  // Handle card click - select and scroll to map
+  const handleCardClick = useCallback((attraction) => {
+    setSelectedAttraction(attraction);
+    // Smooth scroll to map container
+    if (mapContainerRef.current) {
+      const headerOffset = 80; // Account for sticky header
+      const elementPosition = mapContainerRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
   
   // Effect to ensure the component only renders on client
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Reset page when filters change
-  useEffect(() => {
-    setPage(1);
-  }, [activeFilters, cityName]);
-
   // Process default values for title and subtitle
   const mapTitle = title || `${cityName} at a Glance`;
   const mapSubtitle = subtitle || `Interactive map of key attractions and landmarks`;
+
+  const filteredAttractions = useMemo(() => {
+    let result = Array.isArray(attractions) ? attractions : [];
+    if (activeCategory !== 'all') {
+      result = result.filter((a) => (a.category || '').toLowerCase() === activeCategory);
+    }
+    if (search.trim()) {
+      const q = search.trim().toLowerCase();
+      result = result.filter((a) => (a.name || '').toLowerCase().includes(q));
+    }
+    return result;
+  }, [attractions, activeCategory, search]);
+
+  // Always show all filtered attractions on map; selection highlighting is handled by the map component
+  const mapAttractions = filteredAttractions;
+
+  // Pagination helpers
+  useEffect(() => {
+    setPage(1);
+  }, [search, activeCategory]);
+
+  useEffect(() => {
+    if (!selectedAttraction || filteredAttractions.length === 0) return;
+    const idx = filteredAttractions.findIndex((a) => a.name === selectedAttraction.name);
+    if (idx >= 0) {
+      const targetPage = Math.floor(idx / PAGE_SIZE) + 1;
+      setPage(targetPage);
+    }
+  }, [selectedAttraction, filteredAttractions]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredAttractions.length / PAGE_SIZE));
+  const currentPage = Math.min(Math.max(page, 1), totalPages);
+  const startIdx = (currentPage - 1) * PAGE_SIZE;
+  const currentItems = filteredAttractions.slice(startIdx, startIdx + PAGE_SIZE);
+
+  const cleanText = (text) => (text || '').replace(/\*\*/g, '');
+  
+  // Build a lookup of attraction name -> global index (1-based) for consistent numbering
+  const attractionIndexMap = useMemo(() => {
+    const map = new Map();
+    filteredAttractions.forEach((a, idx) => {
+      map.set(a.name, idx + 1);
+    });
+    return map;
+  }, [filteredAttractions]);
+
+  // Get price color
+  const getPriceColor = (priceRange) => {
+    if (!priceRange) return 'text-gray-500';
+    const p = priceRange.toLowerCase();
+    if (p === 'free') return 'text-green-600';
+    if (p === 'moderate') return 'text-amber-600';
+    if (p === 'expensive') return 'text-red-600';
+    return 'text-gray-500';
+  };
 
   return (
     <div className="overflow-hidden">
@@ -58,221 +115,165 @@ export default function MapSection({
         </div>
       )}
       
-      <div style={{ height: `${height}px` }}>
+      <div ref={mapContainerRef} style={{ height: `${height}px` }}>
         {isClient && (
           <LazyMapWithMapbox 
-            attractions={attractions} 
+            attractions={mapAttractions} 
             categories={categories}
             cityName={cityName}
             center={center}
             zoom={zoom}
             selectedAttraction={selectedAttraction}
+            onHover={setHovered}
+            onSelect={setSelectedAttraction}
           />
         )}
       </div>
       
-      {/* Filter Section Below Map */}
-      {attractions && attractions.length > 0 && (
-        <div className="bg-white border-t border-gray-200 p-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-gray-800 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clipRule="evenodd" />
-                </svg>
-                Filter Attractions
-              </h3>
-              <div className="flex space-x-2">
-                <button 
-                  onClick={() => {
-                    setActiveFilters(ALL_CLUSTERS);
-                  }}
-                  className={`text-xs px-3 py-1 rounded transition-colors ${
-                    activeFilters.length === ALL_CLUSTERS.length 
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                      : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
-                  }`}
-                >
-                  All
-                </button>
-                <button 
-                  onClick={() => {
-                    setActiveFilters([]);
-                  }}
-                  className={`text-xs px-3 py-1 rounded transition-colors ${
-                    activeFilters.length === 0 
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                      : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
-                  }`}
-                >
-                  None
-                </button>
-              </div>
-            </div>
-            
-            <div className="flex gap-2 overflow-x-auto pb-2">
-              {(() => {
-                // Calculate counts for each cluster
-                const clusterCounts = {};
-                Object.keys(CATEGORY_CLUSTERS).forEach(cluster => {
-                  clusterCounts[cluster] = attractions.filter(attr => {
-                    const attrCategory = attr.type || attr.category || 'Other';
-                    return CATEGORY_CLUSTERS[cluster].includes(attrCategory);
-                  }).length;
-                });
-                
-                // Only show clusters that have attractions
-                return Object.keys(CATEGORY_CLUSTERS)
-                  .filter(cluster => clusterCounts[cluster] > 0)
-                  .map((cluster) => {
-                    const isActive = activeFilters.includes(cluster);
-                    return (
-                      <button
-                        key={cluster}
-                        onClick={() => {
-                          if (isActive) {
-                            setActiveFilters(activeFilters.filter(f => f !== cluster));
-                          } else {
-                            setActiveFilters([...activeFilters, cluster]);
-                          }
-                        }}
-                        className={`px-3 py-1 rounded-full text-xs font-medium border transition-all duration-200 whitespace-nowrap ${
-                          isActive 
-                            ? 'border-blue-500 text-white bg-blue-600 shadow-sm' 
-                            : 'border-gray-300 text-gray-700 bg-gray-100 hover:bg-gray-200'
-                        }`}
-                      >
-                        {cluster} ({clusterCounts[cluster]})
-                      </button>
-                    );
-                  });
-              })()}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Filters removed per request */}
       
-      {/* Attractions List Below Filter */}
-      {attractions && attractions.length > 0 && (
-        <div className="p-6 bg-white border-t border-gray-200">
-          {(() => {
-            // Filter attractions based on active filters
-            const filteredAttractions = activeFilters.length > 0 
-              ? attractions.filter(attraction => {
-                  const attrCategory = attraction.type || attraction.category || 'Other';
-                  return activeFilters.some(filter => CATEGORY_CLUSTERS[filter]?.includes(attrCategory));
-                })
-              : attractions;
-
-            // Pagination calculations
-            const total = filteredAttractions.length;
-            const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-            const safePage = Math.min(Math.max(1, page), totalPages);
-            const startIndex = (safePage - 1) * PAGE_SIZE;
-            const currentItems = filteredAttractions.slice(startIndex, startIndex + PAGE_SIZE);
-            
-            return (
-              <>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {activeFilters.length > 0 ? `Filtered Attractions (${filteredAttractions.length})` : `All Attractions (${attractions.length})`}
-                  </h3>
-                  <div className="text-sm text-gray-600">
-                    Showing {total === 0 ? 0 : startIndex + 1}–{Math.min(startIndex + PAGE_SIZE, total)} of {total}
+      {/* Compact list of filtered items */}
+      {filteredAttractions && filteredAttractions.length > 0 && (
+        <div className="p-6 bg-gradient-to-b from-gray-50 to-white border-t border-gray-200">
+          <div className="max-w-5xl mx-auto space-y-4">
+            {/* List header */}
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Places to Explore
+                <span className="ml-2 text-sm font-normal text-gray-500">
+                  ({filteredAttractions.length} locations)
+                </span>
+              </h3>
+              {selectedAttraction && (
+                <button
+                  onClick={() => setSelectedAttraction(null)}
+                  className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  ← Show all on map
+                </button>
+              )}
+            </div>
+            {hovered && !selectedAttraction && (
+              <div className="rounded-xl border border-blue-200 bg-blue-50/50 shadow-sm p-4 animate-in fade-in duration-200">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm font-bold">
+                    {attractionIndexMap.get(hovered.name) || '?'}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="font-semibold text-gray-900">{hovered.name}</p>
+                        {(hovered.type || hovered.category) && (
+                          <p className="text-xs text-gray-500 mt-0.5">{hovered.type || hovered.category}</p>
+                        )}
+                      </div>
+                      <button 
+                        onClick={() => handleCardClick(hovered)} 
+                        className="flex-shrink-0 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-full hover:bg-blue-700 transition-colors"
+                      >
+                        View →
+                      </button>
+                    </div>
+                    {hovered.description && (
+                      <p className="mt-2 text-sm text-gray-600 line-clamp-2">{cleanText(hovered.description)}</p>
+                    )}
                   </div>
                 </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {currentItems.map((attraction, index) => (
-                    <div 
-                      key={`${attraction.name}-${startIndex + index}`} 
-                      className={`border-b border-gray-200 pb-4 last:border-b-0 transition-colors cursor-pointer ${
-                        selectedAttraction?.name === attraction.name ? 'bg-blue-100 border-l-4 border-l-blue-500' : 'hover:bg-gray-50'
-                      }`}
-                      onClick={() => setSelectedAttraction(selectedAttraction?.name === attraction.name ? null : attraction)}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center mb-2">
-                            <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-3 transition-all duration-300 ${
-                              selectedAttraction?.name === attraction.name 
-                                ? 'bg-blue-600 text-white scale-110 shadow-lg' 
-                                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                            }`}>
-                              {startIndex + index + 1}
-                            </span>
-                            <h4 className={`font-semibold transition-colors duration-300 ${
-                              selectedAttraction?.name === attraction.name ? 'text-blue-700' : 'text-gray-900'
-                            }`}>
-                              {attraction.name}
-                            </h4>
-                          </div>
-                          <p className="text-sm text-gray-600 mb-2 ml-9">{attraction.type || attraction.category}</p>
-                          {attraction.description && (
-                            <p className="text-sm text-gray-700 leading-relaxed ml-9">{attraction.description}</p>
-                          )}
-                        </div>
-                        <div className="ml-4 text-sm text-gray-500 flex flex-col items-end">
-                          {attraction.price_range && (
-                            <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full mb-1 text-xs">
-                              {attraction.price_range}
-                            </span>
-                          )}
-                          {attraction.best_time && (
-                            <div className="text-xs text-gray-500 mb-1">
-                              Best: {attraction.best_time}
-                            </div>
-                          )}
-                          {attraction.ratings && (
-                            <div className="text-xs text-gray-500">
-                              {attraction.ratings.suggested_duration_hours}h • €{attraction.ratings.cost_estimate}
-                            </div>
-                          )}
-                        </div>
+              </div>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {currentItems.map((attraction) => {
+                const globalIndex = attractionIndexMap.get(attraction.name) || 0;
+                const isSelected = selectedAttraction?.name === attraction.name;
+                const dur = attraction.ratings?.suggested_duration_hours || attraction.duration || attraction.duration_minutes;
+                const hours = typeof dur === 'number' ? dur : Number(dur) || null;
+                const durationText = hours ? `${hours.toFixed(1).replace(/\.0$/, '')}h` : null;
+                
+                return (
+                  <button
+                    key={`${attraction.name}-${globalIndex}`}
+                    onClick={() => handleCardClick(attraction)}
+                    className={`group text-left rounded-xl border transition-all duration-200 ${
+                      isSelected 
+                        ? 'ring-2 ring-blue-400 border-blue-200 bg-blue-50 shadow-md' 
+                        : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                    }`}
+                  >
+                    {/* Header with number badge */}
+                    <div className="flex items-start gap-3 p-4 pb-2">
+                      <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                        isSelected ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 group-hover:bg-gray-200'
+                      }`}>
+                        {globalIndex}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-900 leading-tight">{attraction.name}</h4>
+                        <p className="text-xs text-gray-500 mt-0.5">{attraction.type || attraction.category}</p>
                       </div>
                     </div>
-                  ))}
+                    
+                    {/* Description */}
+                    {attraction.description && (
+                      <div className="px-4 pb-2">
+                        <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
+                          {cleanText(attraction.description)}
+                        </p>
+                      </div>
+                    )}
+                    
+                    {/* Meta footer */}
+                    <div className="px-4 pb-3 pt-1 flex flex-wrap items-center gap-2 text-xs">
+                      {attraction.best_time && (
+                        <span className="inline-flex items-center gap-1 text-gray-500">
+                          <span className="opacity-70">🕒</span>
+                          {cleanText(attraction.best_time)}
+                        </span>
+                      )}
+                      {attraction.price_range && (
+                        <span className={`inline-flex items-center gap-1 font-medium ${getPriceColor(attraction.price_range)}`}>
+                          <span className="opacity-70">💰</span>
+                          {attraction.price_range}
+                        </span>
+                      )}
+                      {durationText && (
+                        <span className="inline-flex items-center gap-1 text-gray-500">
+                          <span className="opacity-70">⏱</span>
+                          {durationText}
+                        </span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            {totalPages > 1 && (
+              <div className="flex items-center justify-between pt-2 text-sm text-gray-600">
+                <div>
+                  Showing {filteredAttractions.length === 0 ? 0 : startIdx + 1}–
+                  {Math.min(startIdx + PAGE_SIZE, filteredAttractions.length)} of {filteredAttractions.length}
                 </div>
-
-                {/* Pagination controls */}
-                {totalPages > 1 && (
-                  <div className="mt-6 flex items-center justify-center gap-2">
-                    <button
-                      onClick={() => setPage((p) => Math.max(1, p - 1))}
-                      className="px-3 py-1.5 rounded border border-gray-300 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
-                      disabled={safePage === 1}
-                    >
-                      Prev
-                    </button>
-                    {Array.from({ length: totalPages }, (_, i) => i + 1)
-                      .filter(n => n === 1 || n === totalPages || Math.abs(n - safePage) <= 1)
-                      .map((n, idx, arr) => (
-                        <React.Fragment key={n}>
-                          {idx > 0 && arr[idx - 1] !== n - 1 && (
-                            <span className="px-1 text-gray-400">…</span>
-                          )}
-                          <button
-                            onClick={() => setPage(n)}
-                            className={`px-3 py-1.5 rounded border text-sm ${
-                              n === safePage ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300 text-gray-700 hover:bg-gray-50'
-                            }`}
-                          >
-                            {n}
-                          </button>
-                        </React.Fragment>
-                      ))}
-                    <button
-                      onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                      className="px-3 py-1.5 rounded border border-gray-300 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
-                      disabled={safePage === totalPages}
-                    >
-                      Next
-                    </button>
-                  </div>
-                )}
-              </>
-            );
-          })()}
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="px-3 py-1.5 rounded border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50"
+                  >
+                    Prev
+                  </button>
+                  <span className="text-xs text-gray-500">
+                    Page {currentPage} / {totalPages}
+                  </span>
+                  <button
+                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="px-3 py-1.5 rounded border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

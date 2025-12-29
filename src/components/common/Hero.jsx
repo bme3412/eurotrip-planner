@@ -16,8 +16,8 @@ export default function Hero({
   cityName,
   country,
   gradientOverlay = null, // Set to null to disable colored overlay
-  darkOverlayOpacity = 'bg-black/40',
-  heightClass = 'h-[62vh] min-h-[460px]',
+  darkOverlayOpacity = 'bg-black/55',
+  heightClass = 'min-h-[400px] lg:min-h-[480px]',
   chipText,
   title,
   subtitle,
@@ -96,34 +96,38 @@ export default function Hero({
           )}
           <div className={`absolute inset-0 ${darkOverlayOpacity}`} />
           {/* Top gradient for header blend */}
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/60 via-black/35 to-transparent pointer-events-none" />
+          {/* Left gradient for text readability while keeping image visible */}
+          <div className="absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-black/45 via-black/25 to-transparent pointer-events-none" />
         </>
       )}
       
-      <div className="relative z-10 h-full pt-14">
-        <div className="mx-auto max-w-7xl h-full flex items-center px-4 sm:px-6">
-          <div className={`${hasValidImage ? 'text-white' : 'text-zinc-900'} max-w-4xl`}>
+      <div className="relative z-10 h-full pt-10 sm:pt-14 md:pt-16 pb-6">
+        <div className="mx-auto max-w-7xl h-full flex items-start px-4 sm:px-6">
+          <div className={`${hasValidImage ? 'text-white drop-shadow-lg' : 'text-zinc-900'} max-w-3xl`}>
             {safeChipText && (
               <span className={`inline-block rounded-full ${hasValidImage ? 'bg-white/20 text-white' : 'bg-zinc-900/5 text-zinc-700'} px-4 py-2 text-sm font-medium backdrop-blur-sm`}>
                 {safeChipText}
               </span>
             )}
             {safeTitle && (
-              <div className="mt-4 flex items-center gap-4">
-                <h1 className={`font-extrabold tracking-tight ${hasValidImage ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl'}`}>{safeTitle}</h1>
+              <div className="mt-6 flex items-center gap-4">
+                <h1 className={`font-extrabold tracking-tight drop-shadow-sm ${hasValidImage ? 'text-4xl sm:text-5xl md:text-6xl' : 'text-4xl md:text-5xl'}`}>{safeTitle}</h1>
                 {actionElement && (
                   <div className="shrink-0">{actionElement}</div>
                 )}
               </div>
             )}
             {safeSubtitle && (
-              <p className={`mt-2 ${hasValidImage ? 'text-2xl md:text-3xl text-white/90' : 'text-xl md:text-2xl text-zinc-700'}`}>{safeSubtitle}</p>
+              <p className={`mt-2 leading-snug ${hasValidImage ? 'text-2xl md:text-3xl text-white/90 drop-shadow-sm' : 'text-xl md:text-2xl text-zinc-700'}`}>{safeSubtitle}</p>
             )}
             {safeDescription && (
-              <p className={`mt-6 ${hasValidImage ? 'text-white' : 'text-zinc-700'} text-lg md:text-xl leading-relaxed font-medium`}>{safeDescription}</p>
+              <p className={`mt-5 ${hasValidImage ? 'text-white/95 drop-shadow-sm' : 'text-zinc-700'} text-[17px] md:text-lg leading-8 md:leading-9 font-medium max-w-3xl`}>
+                {safeDescription}
+              </p>
             )}
             {(primaryCta || secondaryCta) && (
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <Button cta={primaryCta} tone={hasValidImage ? 'light' : 'dark'} />
                 <Button cta={secondaryCta} tone={hasValidImage ? 'light' : 'dark'} />
               </div>

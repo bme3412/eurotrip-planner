@@ -1,10 +1,11 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
 import { Chip } from '@/components/common/Primitives';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2, Bookmark, Plus, Eye, Sunrise, Sunset, X, Check, ExternalLink } from 'lucide-react';
+import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
 
 const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntroHero = false }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -17,6 +18,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   const [selectedCalendarMonth, setSelectedCalendarMonth] = useState(null);
   const [travelerTypeFilter, setTravelerTypeFilter] = useState('all');
   const [hoveredModalDay, setHoveredModalDay] = useState(null);
+  const cityPaths = useMemo(() => getCityPaths(overview?.country, cityName), [overview?.country, cityName]);
   
   // Quick View Modal state
   const [quickViewItem, setQuickViewItem] = useState(null);
@@ -105,12 +107,8 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   useEffect(() => {
     const loadThingsToDo = async () => {
       try {
-        const country = (overview?.country || '').trim() || 'France';
-        const citySlug = (cityName || '').toLowerCase();
-        const url = `/data/${country}/${citySlug}/monthly/things-to-do.json`;
-        const res = await fetch(url, { cache: 'no-store' });
-        if (!res.ok) return; // fall back silently
-        const json = await res.json();
+        const url = cityPaths.monthlyThingsToDo;
+        const json = await fetchCityDataUrl(url, { cache: 'force-cache' });
         if (json && Array.isArray(json.categories)) {
           setThingsToDo(json);
         }
@@ -119,25 +117,21 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       }
     };
     loadThingsToDo();
-  }, [cityName, overview?.country]);
+  }, [cityPaths.monthlyThingsToDo]);
 
   // Load monthly overview paragraph (author-provided) if available
   useEffect(() => {
     const loadOverviewParagraph = async () => {
       try {
-        const country = (overview?.country || '').trim() || 'France';
-        const citySlug = (cityName || '').toLowerCase();
-        const url = `/data/${country}/${citySlug}/monthly/monthly-taglines.json`;
-        const res = await fetch(url, { cache: 'no-store' });
-        if (!res.ok) return;
-        const json = await res.json();
+        const url = cityPaths.monthlyTaglines;
+        const json = await fetchCityDataUrl(url, { cache: 'force-cache' });
         if (json && typeof json.overview_paragraph === 'string') {
           setOverviewParagraph(json.overview_paragraph);
         }
       } catch (_) {}
     };
     loadOverviewParagraph();
-  }, [cityName, overview?.country]);
+  }, [cityPaths.monthlyTaglines]);
 
   // Reset pagination when filters change
   useEffect(() => {
@@ -349,6 +343,8 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   const sections = overview?.sections || [];
   const whyVisit = overview?.why_visit;
   const seasonalNotes = overview?.seasonal_notes;
+  const bestMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.best || [];
+  const avoidMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.avoid || [];
   
   // Enhanced description with more engaging content
   const enhancedDescription = overview?.brief_description 
@@ -396,6 +392,21 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                 </span>
               )}
             </div>
+
+            {(bestMonthsOverall.length > 0 || avoidMonthsOverall.length > 0) && (
+              <div className="flex flex-wrap gap-2 text-sm">
+                {bestMonthsOverall.slice(0, 3).map((m) => (
+                  <span key={`best-${m}`} className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
+                    🌿 Best: {m}
+                  </span>
+                ))}
+                {avoidMonthsOverall.slice(0, 2).map((m) => (
+                  <span key={`avoid-${m}`} className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-100">
+                    ⚠️ Skip: {m}
+                  </span>
+                ))}
+              </div>
+            )}
             
             {/* Main summary - matching Start Here prose style */}
             {overviewParagraph && (
@@ -1455,6 +1466,21 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
           </div>
         </div>
       )}
+
+      {/* Footer - aligned with Start Here styling */}
+      <footer className="mt-12 border-t border-gray-200 pt-6 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
+          <span className="text-gray-700 font-semibold">Plan smarter. Travel better.</span>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/city-guides" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Browse all cities
+            </Link>
+            <Link href="mailto:hello@eurotrip.guide" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Get support
+            </Link>
+          </div>
+        </div>
+      </footer>
 
     </div>
   );

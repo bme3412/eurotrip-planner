@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Heart, Check, Clock, MapPin, Star } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
+import { fetchCityDataUrl } from '@/lib/city-data';
 
 const MAX_SEASONAL_SCORE = 8;
 
@@ -91,7 +92,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [selectedMonth, setSelectedMonth] = useState('all');
   const [experiences, setExperiences] = useState(null);
   const [quickFilters, setQuickFilters] = useState({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
-  const [sortOption, setSortOption] = useState('score-desc');
+  const [sortOption] = useState('score-desc');
   const [activeCategories, setActiveCategories] = useState([]);
   const [curatedFilter, setCuratedFilter] = useState('all');
   
@@ -292,12 +293,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         return;
       }
       try {
-        const res = await fetch(experiencesUrl, { cache: 'no-store' });
-        if (!res.ok) {
-          setIsLoading(false);
-          return;
-        }
-        const json = await res.json();
+        const json = await fetchCityDataUrl(experiencesUrl, { cache: 'force-cache' });
         const cats = json?.categories || {};
         const out = [];
         const slugify = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -1239,7 +1235,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     return (
       <div
         key={attractionId}
-        className="group rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md overflow-hidden"
+        className="group rounded-2xl border border-gray-100 bg-white/95 shadow-md transition-all duration-300 hover:shadow-lg overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row">
           {/* Image - Large tall format for maximum photo visibility */}
@@ -1250,7 +1246,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 alt={attraction.name}
                 fill
                 sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-4xl text-gray-300">
@@ -1287,7 +1283,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             </div>
 
             {attraction.description && (
-              <p className="text-sm text-gray-600 leading-relaxed">{attraction.description}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">{attraction.description}</p>
             )}
 
             {/* Info Row - without redundant location */}
@@ -1414,31 +1410,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
           ))}
         </div>
         
-        {/* Active filter info + Sort */}
-        <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            {curatedFilter !== 'all' ? (
-              <>
-                <span className="text-lg">{CURATED_FILTERS.find(f => f.id === curatedFilter)?.icon}</span>
-                <span>{CURATED_FILTERS.find(f => f.id === curatedFilter)?.description}</span>
-                <span className="text-gray-300">•</span>
-              </>
-            ) : null}
-            <span className="font-medium text-gray-900">{filteredAttractions.length} experiences</span>
+        {/* Active filter info */}
+        {curatedFilter !== 'all' && (
+          <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <span className="text-lg">{CURATED_FILTERS.find(f => f.id === curatedFilter)?.icon}</span>
+              <span>{CURATED_FILTERS.find(f => f.id === curatedFilter)?.description}</span>
+            </div>
           </div>
-          
-          <div className="flex items-center gap-3">
-            <select
-              value={sortOption}
-              onChange={(e) => setSortOption(e.target.value)}
-              className="rounded-lg border border-gray-200 bg-white pl-3 pr-8 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
-            >
-              {SORT_OPTIONS.map((opt) => (
-                <option key={opt.id} value={opt.id}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+        )}
       </div>
 
       {/* Loading State */}

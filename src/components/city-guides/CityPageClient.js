@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
+import { getCityPaths } from '@/lib/city-data';
 import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
 import AuthButton from '@/components/auth/AuthButton';
@@ -251,6 +252,8 @@ function CityPageClient({ cityData, cityName }) {
     safeMonthlyEvents
   }), [safeAttractions, safeCategories, safeNeighborhoods, safeMonthlyEvents]);
 
+  const cityPaths = useMemo(() => getCityPaths(cityData?.country, cityName), [cityData?.country, cityName]);
+
   // Safety check - ensure cityName is a string
   if (!cityName || typeof cityName !== 'string') {
     console.warn('CityPageClient: cityName is not a valid string:', cityName);
@@ -321,7 +324,7 @@ function CityPageClient({ cityData, cityName }) {
               categories={memoizedData.safeCategories}
               cityName={cityName}
               monthlyData={memoizedData.safeMonthlyEvents}
-              experiencesUrl={`/data/France/${cityName && typeof cityName === 'string' ? cityName.toLowerCase() : 'unknown'}/${cityName && typeof cityName === 'string' ? cityName.toLowerCase() : 'unknown'}-experiences.json`}
+              experiencesUrl={cityPaths.experiences}
               limit={Infinity}
               forceList
             />
@@ -371,7 +374,7 @@ function CityPageClient({ cityData, cityName }) {
       {/* Header - fixed, with gradient backdrop for seamless hero blend */}
       <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${showBreadcrumb ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         {/* Gradient backdrop that blends into the hero */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-transparent backdrop-blur-sm pointer-events-none border-b border-white/10" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-4 flex items-center justify-between">
           {/* Left: Breadcrumb navigation */}
@@ -418,16 +421,16 @@ function CityPageClient({ cityData, cityName }) {
       {/* Tabs + Actions - Sticky when scrolled */}
       <div 
         ref={tabBarRef}
-        className={`mx-auto max-w-7xl px-3 sm:px-4 mt-8 sm:mt-10 transition-all duration-300 ${
+        className={`mx-auto max-w-7xl px-3 sm:px-4 mt-2 sm:mt-4 transition-all duration-300 ${
           isTabBarSticky 
-            ? 'fixed top-0 left-0 right-0 z-30 mt-0 pt-3 pb-2 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100' 
+            ? 'fixed top-0 left-0 right-0 z-30 mt-0 pt-3 pb-2 bg-white/90 backdrop-blur-lg shadow-lg border-b border-gray-200' 
             : ''
         }`}
       >
-        <div className={`bg-white rounded-xl shadow-sm border border-gray-100 ${isTabBarSticky ? 'max-w-7xl mx-auto' : ''}`}>
-          <div className="flex items-center justify-between gap-2 p-2">
+        <div className={`bg-white/95 rounded-2xl shadow-sm border border-gray-100 ${isTabBarSticky ? 'max-w-7xl mx-auto' : ''}`}>
+          <div className="flex items-center justify-between gap-3 p-3">
             {/* Tab buttons */}
-            <div className="flex overflow-x-auto gap-1 scrollbar-hide tab-navigation snap-x flex-1">
+            <div className="flex overflow-x-auto gap-2 scrollbar-hide tab-navigation snap-x flex-1">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -435,36 +438,23 @@ function CityPageClient({ cityData, cityName }) {
                   onMouseEnter={() => preloadTab(tab.id)}
                   aria-label={`Switch to ${tab.label} tab`}
                   aria-current={activeTab === tab.id ? 'page' : undefined}
-                  className={`snap-start px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-1 ${
+                  className={`snap-start px-3.5 sm:px-4.5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
                     activeTab === tab.id
-                      ? 'bg-blue-600 text-white shadow-sm'
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-100'
                       : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 active:bg-gray-100'
                   }`}
                 >
-                  <span className="text-base sm:text-lg">{tab.icon}</span>
+                  <span className="text-base sm:text-lg opacity-90">{tab.icon}</span>
                   <span className="hidden xs:inline sm:inline">{tab.label}</span>
                 </button>
               ))}
             </div>
-            
-            {/* Print button */}
-            <button
-              onClick={handlePrint}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors print:hidden"
-              aria-label="Print this guide"
-              title="Print this guide"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-              </svg>
-              <span className="hidden md:inline">Print</span>
-            </button>
           </div>
         </div>
       </div>
       
       {/* Spacer when tab bar is sticky */}
-      {isTabBarSticky && <div className="h-20" />}
+      {isTabBarSticky && <div className="h-24" />}
 
       {/* Content */}
       <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 overflow-hidden">

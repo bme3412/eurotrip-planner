@@ -68,64 +68,62 @@ const DEFAULT_FAQS = [
 // City-specific essential info data in narrative form
 const CITY_NARRATIVES = {
   paris: {
-    intro: `Your plane touches down at Charles de Gaulle, and Paris is waiting. Here's how to hit the ground running—no confusion, no tourist traps, just the essentials that'll make you feel like you've done this before.`,
+    intro: `You’ve landed at Charles de Gaulle. Here’s the fast start—no scams, no confusion, just the moves that make you feel like you’ve been here before.`,
     
     arrival: {
       title: "From the Airport",
-      content: `**Charles de Gaulle (CDG)** sits about 25km northeast of the city. The smartest move? The **RER B train**—€11.80 gets you to Gare du Nord or Châtelet-Les Halles in 35-50 minutes, with trains departing every 10-15 minutes. Follow signs to the train station (it's a bit of a walk through the terminal), validate your ticket at the yellow machines before boarding, and you're set.
+      content: `**CDG → city:** Take the **RER B**. €11.80 to Gare du Nord/Châtelet in 35–50 min, every 10–15 min. Follow the signs, validate the ticket at yellow machines, and board.
 
-If you're traveling heavy or arriving late, taxis run a flat €55 to the Right Bank (Louvre, Marais, Opéra) or €62 to the Left Bank (Saint-Germain, Latin Quarter). Use only official cabs from the designated stands—never accept rides from anyone approaching you inside the terminal. Uber and Bolt work too, typically €50-80 depending on demand, with pickup from signed rideshare zones.
+**Taxis:** Flat fare—€55 Right Bank (Louvre/Marais/Opéra), €62 Left Bank (Saint-Germain/Latin Quarter). Only use official stands; ignore anyone who approaches you inside. Uber/Bolt run €50–80 depending on demand.
 
-**Flying into Orly?** It's closer to the city center. The Orlybus (€11.50, 30-40 min) drops you at Denfert-Rochereau, where you can hop on the Metro. The Orlyval automatic train connects to the RER B at Antony for €14.10.`
+**Orly:** Closer in. Orlybus (€11.50, 30–40 min) to Denfert-Rochereau, or Orlyval + RER B (€14.10) via Antony.`
     },
 
     gettingAround: {
       title: "Getting Around",
-      content: `The **Paris Metro** is your best friend—fast, frequent, and covers virtually everywhere you'll want to go. Pick up a **Navigo Easy card** at any station, load it with single tickets (€2.15 each) or a day pass, and tap in. One crucial detail: always **validate your ticket** before boarding trains and RER lines. Inspectors patrol regularly, and the fine for riding without a valid ticket is €50 on the spot.
+      content: `**Metro first.** It’s fast, frequent, and goes almost everywhere. Grab a **Navigo Easy** at any station and load singles (€2.15) or a day pass. Always **validate**—inspector fines are €50 on the spot.
 
-Metro lines run from roughly 5:30am until 12:40am on weekdays, extending to 1:40am on Fridays and Saturdays. After that, the Noctilien night bus network takes over, though taxis or rideshares are usually more practical late at night.
+Hours: ~5:30am–12:40am (to 1:40am Fri/Sat). After that, Noctilien night buses run, but taxis/rideshares are simpler late.
 
-**Uber, Bolt, and FREE NOW** all operate here. Taxis can be hailed on the street (look for the illuminated roof light) or found at marked stands near major landmarks, train stations, and hotels. Tipping drivers isn't expected, though rounding up a euro or two is a nice gesture.`
+**Uber/Bolt/FREE NOW** work. Taxis: hail the lit roof light or use marked stands. Rounding up a euro or two is nice but not required.`
     },
 
     money: {
       title: "Money & Payments",
-      content: `Paris runs on plastic. **Visa and Mastercard** are accepted virtually everywhere—restaurants, museums, Metro stations, even most market stalls. Contactless payments are the norm, so Apple Pay and Google Pay work seamlessly. American Express is spottier; some smaller establishments won't take it.
+      content: `**Cards everywhere.** Visa/Mastercard work almost universally; Amex is spottier. Tap-to-pay is standard.
 
-You can easily spend a week here without touching cash, though having €20-50 tucked away is handy for the occasional cash-only bakery, flea market find, or tips at a fancy restaurant (which, to be clear, are never expected—service is included in all prices by law).
+Carry **€20–50** for the rare cash-only bakery or market. Service is included by law—tip only for standout service.
 
-ATMs are everywhere and dispense euros without issue. Your bank may charge foreign transaction fees, so check before you go.`
+ATMs are plentiful. Check your bank’s FX fees.`
     },
 
     connectivity: {
       title: "Staying Connected",
-      content: `**WiFi** blankets the city—cafés, hotels, museums, and even many public parks offer free access. The Metro has it at stations (though not on trains yet). You'll rarely struggle to get online.
+      content: `**WiFi is easy**—cafés, hotels, museums, parks, and Metro stations (not trains). EU SIMs roam fine. For the best rates, buy a local SIM from **Orange/SFR/Bouygues**; ~€20–30 for solid data.
 
-If you need mobile data, **EU SIM cards** work perfectly here under roaming agreements. For longer stays or better rates, pick up a local prepaid SIM from **Orange, SFR, or Bouygues**—you'll find shops in any neighborhood, and at both airports. Expect to pay around €20-30 for a decent data package.
-
-French outlets use **Type C/E plugs** (the two-pin European standard) at **230V**. Bring an adapter if needed. Most modern phone and laptop chargers are dual-voltage, but check appliances like hair dryers before plugging in.`
+Outlets: **Type C/E, 230V**. Most chargers are dual-voltage; check hair dryers.`
     },
 
     timing: {
       title: "Local Rhythms",
-      content: `Paris moves to its own clock. **Shops** typically open around 10am and close by 7pm, with many still observing the traditional lunch break between 1-2pm. Sundays remain sacred—most stores close entirely, though you'll find bakeries, some supermarkets, and tourist-area shops open.
+      content: `**Shops:** ~10am–7pm. Many pause 1–2pm. Sundays are sleepy—bakeries/some markets stay open.
 
-**Restaurants** serve lunch from noon to 2pm, then close until dinner service begins around 7:30pm. Kitchens often stop taking orders by 10pm, even on weekends. If you're hungry at 3pm, you're looking at bakeries, cafés serving light bites, or chain spots. Plan meals accordingly.
+**Restaurants:** Lunch noon–2pm. Dinner from ~7:30pm; kitchens often close by 10pm. Hungry at 3pm? Think bakeries/cafés.
 
-**Museums** often close on Tuesdays (major exception: the Musée d'Orsay closes Mondays instead). Most stay open late one evening per week—the Louvre until 9:45pm on Fridays, for instance. Check schedules before you go.
+**Museums:** Many close Tuesdays (Orsay closes Monday). Late nights once a week (Louvre Friday to 9:45pm). Check before you go.
 
-One more thing: **August** is vacation month. Many beloved neighborhood restaurants, boutiques, and shops close for 2-4 weeks while their owners escape to the coast. It's charming in its own way, but don't expect your Pinterest-saved bistro to be open.`
+**August:** Vacation month—great spots can close for weeks. Have backups.`
     },
 
     quickWins: {
       title: "Insider Moves",
-      content: `**Water is free.** At any restaurant, simply ask for "une carafe d'eau, s'il vous plaît" and you'll receive complimentary tap water. No need to pay €6 for a small bottle of Evian unless you want to.
+      content: `**Water is free.** Ask for “une carafe d’eau, s’il vous plaît.”
 
-**Tipping is included.** That 15% service charge is already baked into menu prices by law. You can leave a few euros for exceptional service, but large tips aren't expected and may earn you puzzled looks.
+**Service is included.** Tip small only for standout service.
 
-**Say bonjour.** When entering any shop, café, or bakery, greet the staff. A simple "Bonjour" (or "Bonsoir" after 6pm) goes a long way. It's not just polite—it's how things work here. Skip it and you'll get chillier service.
+**Always say bonjour/bonsoir.** It’s expected.
 
-**Keep your voice down.** Parisians value discretion. On the Metro, in restaurants, on the street—speak at a conversational volume. Being loud in public is considered rude here.`
+**Indoor voice.** Paris is discreet—keep volumes low on Metro and in cafés.`
     }
   }
 };
@@ -276,37 +274,19 @@ export default function StartHere({ cityName }) {
         </div>
       </section>
 
-      {/* Footer with breadcrumbs and links */}
-      <footer className="border-t border-gray-200 pt-8 pb-4">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center text-sm text-gray-500" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-gray-700 transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
-            <Link href="/city-guides" className="hover:text-gray-700 transition-colors">City Guides</Link>
-            <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
-            <span className="text-gray-900 font-medium">{displayName}</span>
-          </nav>
-          
-          {/* Quick links */}
-          <div className="flex flex-wrap items-center gap-4 text-sm">
+      {/* Footer - simplified */}
+      <footer className="border-t border-gray-200 pt-6 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
+          <span className="text-gray-700 font-semibold">Plan smarter. Travel better.</span>
+          <div className="flex flex-wrap items-center gap-4">
             <Link href="/city-guides" className="text-gray-600 hover:text-gray-900 transition-colors">
-              All Cities
+              Browse all cities
             </Link>
-            <span className="text-gray-300">|</span>
-            <Link href="/saved-trips" className="text-gray-600 hover:text-gray-900 transition-colors">
-              My Wishlists
-            </Link>
-            <span className="text-gray-300">|</span>
-            <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Trip Planner
+            <Link href="mailto:hello@eurotrip.guide" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Get support
             </Link>
           </div>
         </div>
-        
-        <p className="mt-6 text-xs text-gray-400">
-          Information is provided as a general guide and may change. Always verify current prices, hours, and policies before your trip.
-        </p>
       </footer>
     </div>
   );
