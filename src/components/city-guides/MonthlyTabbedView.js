@@ -45,12 +45,130 @@ function buildEventMapForMonth(monthIndex, monthJson) {
     return Number.isFinite(num) && num >= 1 && num <= 31 ? num : null;
   };
   const normalize = (s) => (s || '').toString().trim();
+  
+  // Month name to index mapping
+  const monthNameToIndex = {
+    'jan': 0, 'january': 0,
+    'feb': 1, 'february': 1,
+    'mar': 2, 'march': 2,
+    'apr': 3, 'april': 3,
+    'may': 4,
+    'jun': 5, 'june': 5,
+    'jul': 6, 'july': 6,
+    'aug': 7, 'august': 7,
+    'sep': 8, 'sept': 8, 'september': 8,
+    'oct': 9, 'october': 9,
+    'nov': 10, 'november': 10,
+    'dec': 11, 'december': 11
+  };
+  
+  const daysInMonth = new Date(new Date().getFullYear(), monthIndex + 1, 0).getDate();
 
   for (const ev of all) {
     const dateStr = normalize(ev?.date);
     if (!dateStr) continue;
-    const unified = dateStr.replace(/[–—−]/g, '-');
-    // Range like 7-16 or 07-16
+    const unified = dateStr.replace(/[–—−]/g, '-').toLowerCase();
+    
+    // Handle "Throughout month" or "All month" etc.
+    if (/throughout|all\s*month|entire\s*month/i.test(dateStr)) {
+      for (let d = 1; d <= daysInMonth; d++) {
+        eventMap[d] = eventMap[d] || [];
+        eventMap[d].push(ev);
+      }
+      continue;
+    }
+    
+    // Handle vague cross-month dates like "Late May to early June"
+    const vagueMonthMatch = unified.match(/(late|early|mid)?\s*([a-z]+)\s*(to|-)\s*(late|early|mid)?\s*([a-z]+)/);
+    if (vagueMonthMatch) {
+      const startQualifier = vagueMonthMatch[1] || '';
+      const startMonthName = vagueMonthMatch[2];
+      const endQualifier = vagueMonthMatch[4] || '';
+      const endMonthName = vagueMonthMatch[5];
+      const startMonthIdx = monthNameToIndex[startMonthName];
+      const endMonthIdx = monthNameToIndex[endMonthName];
+      
+      if (startMonthIdx !== undefined && endMonthIdx !== undefined) {
+        if (monthIndex === startMonthIdx) {
+          // Current month is the start month
+          const startDay = startQualifier === 'late' ? 20 : startQualifier === 'mid' ? 10 : 1;
+          for (let d = startDay; d <= daysInMonth; d++) {
+            eventMap[d] = eventMap[d] || [];
+            eventMap[d].push(ev);
+          }
+          continue;
+        } else if (monthIndex === endMonthIdx) {
+          // Current month is the end month
+          const endDay = endQualifier === 'early' ? 10 : endQualifier === 'mid' ? 20 : daysInMonth;
+          for (let d = 1; d <= endDay; d++) {
+            eventMap[d] = eventMap[d] || [];
+            eventMap[d].push(ev);
+          }
+          continue;
+        } else if (monthIndex > startMonthIdx && monthIndex < endMonthIdx) {
+          // Current month is in between - mark all days
+          for (let d = 1; d <= daysInMonth; d++) {
+            eventMap[d] = eventMap[d] || [];
+            eventMap[d].push(ev);
+          }
+          continue;
+        }
+        // Event doesn't apply to this month
+        continue;
+      }
+    }
+    
+    // Handle cross-month ranges like "May 26 - June 8" or "May 26-June 8"
+    // Pattern: MonthName Day - MonthName Day
+    const crossMonthMatch = unified.match(/([a-z]+)\s*(\d{1,2})\s*-\s*([a-z]+)\s*(\d{1,2})/);
+    if (crossMonthMatch) {
+      const startMonthName = crossMonthMatch[1];
+      const startDay = coerceInt(crossMonthMatch[2]);
+      const endMonthName = crossMonthMatch[3];
+      const endDay = coerceInt(crossMonthMatch[4]);
+      const startMonthIdx = monthNameToIndex[startMonthName];
+      const endMonthIdx = monthNameToIndex[endMonthName];
+      
+      if (startMonthIdx !== undefined && endMonthIdx !== undefined && startDay && endDay) {
+        // Determine which days apply to the current month
+        if (monthIndex === startMonthIdx) {
+          // Current month is the start month - mark from startDay to end of month
+          for (let d = startDay; d <= daysInMonth; d++) {
+            eventMap[d] = eventMap[d] || [];
+            eventMap[d].push(ev);
+          }
+          continue;
+        } else if (monthIndex === endMonthIdx) {
+          // Current month is the end month - mark from 1 to endDay
+          for (let d = 1; d <= endDay; d++) {
+            eventMap[d] = eventMap[d] || [];
+            eventMap[d].push(ev);
+          }
+          continue;
+        } else if (monthIndex > startMonthIdx && monthIndex < endMonthIdx) {
+          // Current month is in between - mark all days
+          for (let d = 1; d <= daysInMonth; d++) {
+            eventMap[d] = eventMap[d] || [];
+            eventMap[d].push(ev);
+          }
+          continue;
+        }
+        // Event doesn't apply to this month
+        continue;
+      }
+    }
+    
+    // Handle single-month date with month name: "June 21" or "July 14, 2025"
+    const singleDateWithMonth = unified.match(/([a-z]+)\s*(\d{1,2})/);
+    if (singleDateWithMonth) {
+      const eventMonthIdx = monthNameToIndex[singleDateWithMonth[1]];
+      if (eventMonthIdx !== undefined && eventMonthIdx !== monthIndex) {
+        // This event is for a different month, skip
+        continue;
+      }
+    }
+    
+    // Range like 7-16 or 07-16 (same month)
     let matched = unified.match(/\b(\d{1,2})\s*-\s*(\d{1,2})\b/);
     if (matched) {
       const start = coerceInt(matched[1]);
@@ -79,9 +197,6 @@ function buildEventMapForMonth(monthIndex, monthJson) {
 export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName, countryName }) {
   const nowIdx = new Date().getMonth();
   const [selectedIdx, setSelectedIdx] = useState(nowIdx);
-  const [expandedVisit, setExpandedVisit] = useState(false);
-  const [expandedConsider, setExpandedConsider] = useState(false);
-  const [expandedEvents, setExpandedEvents] = useState(false);
   const [taglines, setTaglines] = useState(null);
   const [extraMonths, setExtraMonths] = useState({});
   const fetchedMonthsRef = useRef(new Set());
@@ -150,8 +265,13 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   }, [extraMonths, monthlyData, monthName]);
   const monthJson = useMemo(() => {
     if (!monthContainer || !monthName) return {};
+    // If monthContainer is an array (taglines from index.json), return empty object - we need the full month data
+    if (Array.isArray(monthContainer)) return {};
     const lowered = monthName.toLowerCase();
-    return monthContainer?.[monthName] || monthContainer?.[lowered] || monthContainer || {};
+    const candidate = monthContainer?.[monthName] || monthContainer?.[lowered] || monthContainer || {};
+    // If candidate is an array, return empty object
+    if (Array.isArray(candidate)) return {};
+    return candidate;
   }, [monthContainer, monthName]);
   const visitList = Array.isArray(monthJson?.reasons_to_visit) ? monthJson.reasons_to_visit : [];
   const considerList = Array.isArray(monthJson?.reasons_to_reconsider) ? monthJson.reasons_to_reconsider : [];
@@ -184,9 +304,6 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   const tipString = (p) => p?.weather?.general_tips || null;
   const truncate = (s, n = 80) => (s && s.length > n ? `${s.slice(0, n)}…` : s);
 
-  const showMoreVisitCount = Math.max(visitList.length - 3, 0);
-  const showMoreConsiderCount = Math.max(considerList.length - 3, 0);
-  const showMoreEventsCount = Math.max(events.length - 3, 0);
 
   // Rebuild the selected month's days to include event markers
   const eventMap = useMemo(() => buildEventMapForMonth(m.idx, monthJson), [m.idx, monthJson]);
@@ -250,7 +367,11 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
       }
     })();
 
-    return () => { cancelled = true; };
+    return () => { 
+      cancelled = true; 
+      // Allow re-fetch if effect re-runs before async completes
+      inflightMonthsRef.current.delete(cacheKey);
+    };
   }, [m?.name, cityName, countryName, monthlyData, extraMonths]);
 
   // Generate a brief, positive tagline for the month header
@@ -307,203 +428,257 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
   })();
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Guide</h3>
-
-      {/* Month tabs */}
-      <div className="mb-4 overflow-x-auto">
-        <nav className="flex gap-2 min-w-max">
-          {months.map((mm) => (
-            <button
-              key={mm.idx}
-              onClick={() => { setSelectedIdx(mm.idx); setExpandedVisit(false); setExpandedConsider(false); setExpandedEvents(false); }}
-              className={`px-3 py-1.5 rounded-full text-sm ring-1 transition ${
-                selectedIdx === mm.idx ? 'bg-zinc-900 text-white ring-zinc-900' : 'bg-white text-gray-700 ring-gray-200 hover:bg-gray-50'
-              }`}
-            >
-              {mm.name.slice(0,3)}
-            </button>
-          ))}
-        </nav>
+    <div className="space-y-10">
+      {/* Month selector row */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Monthly Guide</h3>
+          {seasonInfo && (
+            <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${seasonInfo.cls}`}>
+              {seasonInfo.label}
+            </span>
+          )}
+        </div>
+        
+        {/* Month tabs - clean pill style */}
+        <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+          <nav className="flex gap-1 min-w-max">
+            {months.map((mm) => {
+              const isSelected = selectedIdx === mm.idx;
+              const isCurrentMonth = mm.idx === nowIdx;
+              return (
+                <button
+                  key={mm.idx}
+                  onClick={() => setSelectedIdx(mm.idx)}
+                  className={`relative px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                    isSelected 
+                      ? 'bg-gray-900 text-white' 
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  }`}
+                >
+                  {mm.name.slice(0, 3)}
+                  {isCurrentMonth && !isSelected && (
+                    <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+        </div>
       </div>
 
-      {/* Selected month content */}
-      <section className="rounded-lg ring-1 ring-gray-100 overflow-visible bg-white">
-        {/* Compact month header (single visible tagline) */}
-        <header className="px-4 py-3 bg-gray-50/60 border-b border-gray-100">
-          <div className="flex items-center gap-2">
-            <div className="text-lg md:text-xl font-semibold text-gray-900">{m.name}</div>
-            {seasonInfo && (
-              <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-medium ${seasonInfo.cls}`}>{seasonInfo.label}</span>
-            )}
-          </div>
-          <div className="mt-1 text-base md:text-lg text-gray-800 leading-snug">{monthTagline}</div>
-        </header>
+      {/* Month header with tagline */}
+      <header>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">
+          {m.name} in {cityName ? cityName.charAt(0).toUpperCase() + cityName.slice(1) : 'the City'}
+        </h2>
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl">{monthTagline}</p>
+      </header>
 
-        <div className="px-4 py-4 grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 items-start">
-          {/* Left: Calendar card with header + legend like the screenshot */}
-          <div className="w-full md:w-[280px] shrink-0">
-            <div className="flex items-center justify-between mb-1">
-              <div className="text-[13px] font-semibold text-gray-900">{m.name}</div>
-              {m.data && (
-                <div className="text-[10px] text-gray-600 flex items-center gap-2">
-                  {typeof m.data.tourismLevel === 'number' && (<span>{m.data.tourismLevel}/10</span>)}
-                  {typeof m.data.weatherLowC === 'number' && typeof m.data.weatherHighC === 'number' && (<span>{m.data.weatherLowC}°–{m.data.weatherHighC}°C</span>)}
-                </div>
+      {/* Two-column layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
+        
+        {/* Left column: Calendar + Events */}
+        <div className="space-y-8">
+          {/* Calendar */}
+          <div className="bg-gray-50 rounded-xl p-5">
+            {/* Calendar header */}
+            <div className="flex items-center justify-between mb-4">
+              <h4 className="text-lg font-bold text-gray-900">{m.name}</h4>
+              {typeof m.data?.tourismLevel === 'number' && (
+                <span className="text-sm text-gray-500">
+                  Crowds {m.data.tourismLevel}/10
+                </span>
               )}
             </div>
-            <div className="grid grid-cols-7 text-center text-[10px] font-medium text-gray-500">
-              {['S','M','T','W','T','F','S'].map((d, i) => <div key={`${d}-${i}`} className="py-1">{d}</div>)}
-            </div>
-            <div className="grid grid-cols-7 gap-px bg-white">
-              {selectedMonthDays.map((day, i) => day.type === 'empty' ? (
-                <div key={`e-${i}`} className="aspect-square" />
-              ) : (
-                <div
-                  key={`d-${m.idx}-${day.d}`}
-                  className="group aspect-square flex items-center justify-center rounded relative"
-                  style={{ backgroundColor: day.color }}
-                >
-                  <span className="text-white text-[9px] font-semibold drop-shadow">{day.d}</span>
-                  {day.hasEvent && (
-                    <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-red-500 ring-1 ring-white"></span>
-                  )}
-                  {day.hasEvent && (
-                    <>
-                      {(() => { const pos = getTooltipPositionClasses(i % 7); return (
-                        <div className={`pointer-events-none absolute bottom-full ${pos.box} mb-2 w-64 rounded-lg bg-white text-gray-900 text-[12px] leading-snug px-3 py-2.5 shadow-xl ring-1 ring-gray-200 opacity-0 group-hover:opacity-100 transition-opacity z-50 whitespace-normal break-words border-l-4`}
-                          style={{ borderLeftColor: day.color }}>
-                          <div className="font-semibold mb-1.5 text-[12.5px]">{m.name} {day.d}</div>
-                        <ul className="space-y-1.5">
-                          {day.events.slice(0,3).map((ev, j) => (
-                              <li key={`evtip-${m.idx}-${day.d}-${j}`} className="flex items-start gap-2">
-                                <span className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: day.color }}></span>
-                                <div className="flex-1">
-                                  <div className="font-medium text-[12px] leading-tight">{ev.name || ev.event || 'Event'}</div>
-                                  <div className="text-[11px] text-gray-500">{ev.date || ''}</div>
-                                </div>
-                            </li>
-                          ))}
-                        </ul>
-                        {day.events.length > 3 && (
-                            <div className="text-[11px] text-gray-500 mt-1">+{day.events.length - 3} more</div>
-                        )}
-                        </div>
-                      ); })()}
-                      {(() => { const pos = getTooltipPositionClasses(i % 7); return (
-                        <span className={`pointer-events-none absolute -bottom-1 ${pos.arrow} w-2 h-2 bg-white rotate-45 opacity-0 group-hover:opacity-100 z-50 ring-1 ring-gray-200`}></span>
-                      ); })()}
-                    </>
-                  )}
-                </div>
+            
+            {/* Weather */}
+            {(typeof m.data?.weatherLowC === 'number' || typeof m.data?.weatherHighC === 'number') && (
+              <p className="text-sm text-gray-600 mb-4">
+                🌡️ {m.data.weatherLowC !== undefined && `${m.data.weatherLowC}°`}
+                {m.data.weatherLowC !== undefined && m.data.weatherHighC !== undefined && ' – '}
+                {m.data.weatherHighC !== undefined && `${m.data.weatherHighC}°C`}
+              </p>
+            )}
+            
+            {/* Day headers */}
+            <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500 mb-1">
+              {['S','M','T','W','T','F','S'].map((d, i) => (
+                <div key={`${d}-${i}`} className="py-1">{d}</div>
               ))}
             </div>
-            {/* Legend bullets beneath the calendar */}
-            <div className="mt-3 space-y-1 text-[12px]">
-              {tempString(firstHalf) && (
-                <div className="flex items-center text-gray-700">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
-                  <span>Early: {tempString(firstHalf)}</span>
-                </div>
-              )}
-              {tempString(secondHalf) && (
-                <div className="flex items-center text-gray-700">
-                  <span className="w-2 h-2 rounded-full bg-orange-500 mr-2"></span>
-                  <span>Late: {tempString(secondHalf)}</span>
-                </div>
-              )}
-              {(precString(firstHalf) || tipString(firstHalf)) && (
-                <div className="flex items-start text-gray-600">
-                  <span className="w-2 h-2 rounded-full bg-gray-700 mr-2 mt-1"></span>
-                  <span className="leading-snug">{truncate(precString(firstHalf) || tipString(firstHalf), 88)}</span>
-                </div>
-              )}
+            
+            {/* Calendar grid */}
+            <div className="grid grid-cols-7 gap-0.5">
+              {selectedMonthDays.map((day, i) => {
+                // Determine tooltip position based on column to prevent edge clipping
+                const col = i % 7;
+                const tooltipAlign = col <= 1 ? 'left-0' : col >= 5 ? 'right-0' : 'left-1/2 -translate-x-1/2';
+                
+                return day.type === 'empty' ? (
+                  <div key={`e-${i}`} className="aspect-square" />
+                ) : (
+                  <div
+                    key={`d-${m.idx}-${day.d}`}
+                    className="group aspect-square flex items-center justify-center rounded relative cursor-default transition-transform hover:scale-110 hover:z-10"
+                    style={{ backgroundColor: day.color }}
+                  >
+                    <span className="text-white text-xs font-semibold drop-shadow-sm">{day.d}</span>
+                    {day.hasEvent && (
+                      <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-white shadow-sm flex items-center justify-center">
+                        <span className="w-1 h-1 rounded-full bg-red-500"></span>
+                      </span>
+                    )}
+                    {/* Enhanced popup with full event details - matching Best Time to Go style */}
+                    {day.hasEvent && (
+                      <div className={`pointer-events-none absolute bottom-full ${tooltipAlign} mb-2 w-72 rounded-xl bg-white text-gray-900 shadow-xl ring-1 ring-gray-200 opacity-0 group-hover:opacity-100 transition-opacity z-50 overflow-hidden`}>
+                        {/* Events list */}
+                        <div className="px-4 py-3 space-y-4 max-h-56 overflow-y-auto">
+                          {day.events.slice(0, 3).map((ev, j) => (
+                            <div key={`evtip-${j}`}>
+                              <div className="flex items-start gap-2 mb-1">
+                                <span className="text-sm">🎉</span>
+                                <div className="font-semibold text-gray-900 text-[13px] leading-tight">{ev.name || ev.event || 'Event'}</div>
+                              </div>
+                              {ev.date && (
+                                <div className="text-xs text-gray-500 ml-6 mb-1">{ev.date}</div>
+                              )}
+                              {ev.description && (
+                                <p className="text-xs text-gray-600 ml-6 leading-relaxed line-clamp-3">{ev.description}</p>
+                              )}
+                              {/* Event meta chips - matching Best Time to Go */}
+                              {(ev.location || ev.crowdLevel || ev.price || ev.time) && (
+                                <div className="flex flex-wrap gap-1.5 mt-2 ml-6">
+                                  {ev.time && (
+                                    <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded">
+                                      🕐 {ev.time}
+                                    </span>
+                                  )}
+                                  {ev.location && (
+                                    <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-green-50 text-green-700 rounded">
+                                      📍 {ev.location}
+                                    </span>
+                                  )}
+                                  {ev.crowdLevel && (
+                                    <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-amber-50 text-amber-700 rounded">
+                                      👥 {ev.crowdLevel}
+                                    </span>
+                                  )}
+                                  {ev.price && (
+                                    <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-purple-50 text-purple-700 rounded">
+                                      💰 {ev.price}
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                        {day.events.length > 3 && (
+                          <div className="px-4 py-2 bg-gray-50 border-t border-gray-100 text-xs text-gray-500 text-center">
+                            +{day.events.length - 3} more event{day.events.length - 3 > 1 ? 's' : ''}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Legend */}
+            <div className="mt-4 pt-3 border-t border-gray-200 flex flex-wrap gap-3 text-xs text-gray-500">
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-emerald-500"></span>Great</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-amber-400"></span>Good</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-orange-500"></span>Fair</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-red-500"></span>Busy</span>
             </div>
           </div>
 
-          {/* Right: Reasons columns and events below */}
-          <div className="text-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Reasons to Visit */}
-              {visitList.length > 0 && (
-                <div className="rounded-lg bg-white border border-gray-100 p-4">
-                  <h4 className="text-green-800 font-semibold mb-2 flex items-center">
-                    <span className="mr-2">✅</span>
-                    Reasons to Visit
-                  </h4>
-                  <ul className="space-y-2">
-                    {(expandedVisit ? visitList : visitList.slice(0,3)).map((r, i) => (
-                      <li key={`rv-${m.idx}-${i}`} className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">•</span>
-                        <div>
-                          <div className="font-medium text-gray-900 text-[13px]">{r.reason}</div>
-                          {r.details && <p className="text-gray-700 text-[12px] leading-snug">{r.details}</p>}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  {showMoreVisitCount > 0 && (
-                    <button className="mt-2 text-indigo-600 hover:text-indigo-700 text-xs font-medium" onClick={() => setExpandedVisit(v => !v)}>
-                      {expandedVisit ? 'Show less' : `Show more (${showMoreVisitCount})`}
-                    </button>
-                  )}
-                </div>
-              )}
+          {/* Events & Holidays - below calendar */}
+          {events.length > 0 && (
+            <section>
+              <h4 className="text-lg font-bold text-gray-900 mb-4 tracking-tight">Events & Holidays</h4>
+              <div className="space-y-4">
+                {events.map((ev, idx) => (
+                  <div key={`event-${idx}`} className="border-l-2 border-gray-300 pl-4">
+                    <h5 className="font-semibold text-gray-900 text-[15px]">{ev.name || ev.event || 'Event'}</h5>
+                    {ev.date && <p className="text-sm text-gray-500">{ev.date}</p>}
+                    {ev.description && <p className="text-sm text-gray-700 mt-1 leading-relaxed">{ev.description}</p>}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
 
-              {/* Things to Consider */}
-              {considerList.length > 0 && (
-                <div className="rounded-lg bg-white border border-gray-100 p-4">
-                  <h4 className="text-amber-800 font-semibold mb-2 flex items-center">
-                    <span className="mr-2">⚠️</span>
-                    Things to Consider
-                  </h4>
-                  <ul className="space-y-2">
-                    {(expandedConsider ? considerList : considerList.slice(0,3)).map((r, i) => (
-                      <li key={`rc-${m.idx}-${i}`} className="flex items-start gap-2">
-                        <span className="text-amber-600 mt-0.5">•</span>
-                        <div>
-                          <div className="font-medium text-gray-900 text-[13px]">{r.reason}</div>
-                          {r.details && <p className="text-gray-700 text-[12px] leading-snug">{r.details}</p>}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  {showMoreConsiderCount > 0 && (
-                    <button className="mt-2 text-indigo-600 hover:text-indigo-700 text-xs font-medium" onClick={() => setExpandedConsider(v => !v)}>
-                      {expandedConsider ? 'Show less' : `Show more (${showMoreConsiderCount})`}
-                    </button>
-                  )}
-                </div>
-              )}
+        {/* Right column: Content sections (StartHere style) */}
+        <div className="space-y-8">
+          
+          {/* Why Visit This Month */}
+          {visitList.length > 0 ? (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Why Visit in {m.name}</h3>
+              <div className="prose prose-lg max-w-none">
+                {visitList.map((item, idx) => (
+                  <p key={`visit-${idx}`} className="text-gray-700 leading-relaxed mb-4 last:mb-0 text-[17px]">
+                    <strong className="text-gray-900">{item?.reason}</strong>
+                    {item?.details && ` — ${item.details}`}
+                  </p>
+                ))}
+              </div>
+            </section>
+          ) : (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Why Visit in {m.name}</h3>
+              <div className="animate-pulse space-y-3">
+                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                <div className="h-4 bg-gray-200 rounded w-full"></div>
+                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+              </div>
+            </section>
+          )}
 
-              {/* Events & Holidays */}
-              {events.length > 0 && (
-                <div className="md:col-span-2 rounded-lg bg-white border border-gray-100 p-4">
-                  <h4 className="text-gray-900 font-semibold mb-2">Events & Holidays</h4>
-                  <ul className="space-y-3">
-                    {(expandedEvents ? events : events.slice(0,3)).map((ev, i) => {
-                      const accents = ['border-blue-500','border-green-500','border-purple-500'];
-                      const accent = accents[i % accents.length];
-                      return (
-                        <li key={`ev-${m.idx}-${i}`} className={`pl-4 border-l-4 ${accent}`}>
-                          <div className="text-[13px] font-semibold text-gray-900">{ev.name}</div>
-                          {ev.date && <div className="text-[12px] text-gray-600">{ev.date}</div>}
-                          {ev.description && <div className="text-[12px] text-gray-700">{ev.description}</div>}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  {showMoreEventsCount > 0 && (
-                    <button className="mt-2 text-indigo-600 hover:text-indigo-700 text-xs font-medium" onClick={() => setExpandedEvents(v => !v)}>
-                      {expandedEvents ? 'Show less' : `Show more (${showMoreEventsCount})`}
-                    </button>
-                  )}
-                </div>
-              )}
-            </div>
+          {/* Things to Keep in Mind */}
+          {considerList.length > 0 ? (
+            <section className="border-t border-gray-200 pt-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Things to Keep in Mind</h3>
+              <div className="prose prose-lg max-w-none">
+                {considerList.map((item, idx) => (
+                  <p key={`consider-${idx}`} className="text-gray-700 leading-relaxed mb-4 last:mb-0 text-[17px]">
+                    <strong className="text-gray-900">{item?.reason}</strong>
+                    {item?.details && ` — ${item.details}`}
+                  </p>
+                ))}
+              </div>
+            </section>
+          ) : (
+            <section className="border-t border-gray-200 pt-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Things to Keep in Mind</h3>
+              <div className="animate-pulse space-y-3">
+                <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                <div className="h-4 bg-gray-200 rounded w-full"></div>
+              </div>
+            </section>
+          )}
+
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 mt-12 pt-8 pb-6">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-medium text-gray-900">Plan smarter. Travel better.</p>
+          <div className="flex items-center gap-6 text-sm">
+            <a href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Browse all cities
+            </a>
+            <a href="mailto:support@eurotripplanner.com" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Get support
+            </a>
           </div>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }

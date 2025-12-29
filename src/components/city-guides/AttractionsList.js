@@ -293,7 +293,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         return;
       }
       try {
-        const json = await fetchCityDataUrl(experiencesUrl, { cache: 'force-cache' });
+        const json = await fetchCityDataUrl(experiencesUrl, { cache: 'no-store' }); // Changed from force-cache to no-store to pick up JSON changes
         const cats = json?.categories || {};
         const out = [];
         const slugify = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -316,6 +316,12 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               longitude: item?.lon,
               website: item?.booking_url || null,
               price_range: item?.pricing_tier || null,
+              tips: item?.tips || null,
+              best_time: item?.best_time || null,
+              estimated_cost_eur: item?.estimated_cost_eur || null,
+              pricing_tier: item?.pricing_tier || null,
+              arrondissement: item?.arrondissement || null,
+              duration_minutes: item?.duration_minutes || null,
               ratings: {
                 cultural_significance: item?.scores?.cultural_historical_significance || null,
                 suggested_duration_hours: item?.duration_minutes ? item.duration_minutes / 60 : null,
@@ -323,6 +329,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               },
               compositeScore: typeof total === 'number' ? Number(total) : 0,
               factorScores,
+              scores: item?.scores || null,
               aggregates: computeAggregateFactors(factorScores)
             });
           });
@@ -1004,126 +1011,56 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     );
   };
   
-  // Generate practical tips based on experience data - detailed and actionable
+  // Generate practical tips - reads from JSON data first, falls back to generic tips
   const generateTips = (attraction) => {
-    const tips = [];
+    // DEBUG: Log to see what tips are being passed
+    if (attraction.tips) {
+      console.log(`[Tips Debug] ${attraction.name}: has tips array:`, attraction.tips);
+    } else {
+      console.log(`[Tips Debug] ${attraction.name}: NO tips array, using fallback`);
+    }
     
-    // Get scores from either factorScores or scores object
+    // First, check if tips are provided in the JSON data
+    if (attraction.tips && Array.isArray(attraction.tips) && attraction.tips.length > 0) {
+      return attraction.tips.slice(0, 2); // Return max 2 tips from data
+    }
+    
+    // Fallback: generate generic tips based on scores
+    const tips = [];
     const scores = attraction.factorScores || attraction.scores || {};
     const weatherScore = scores.weatherIndependence || scores.weather_independence;
     const accessScore = scores.accessibility;
     const crowdScore = scores.crowdManagement || scores.crowd_management;
-    const name = attraction.name?.toLowerCase() || '';
     
-    // Specific tips for known attractions
-    if (name.includes('place du tertre') || name.includes('street performers')) {
-      tips.push('The square gets packed midday—visit after 6pm when day-trippers leave and the evening performers arrive.');
-      tips.push('Café prices are steep here; grab a cheaper drink on nearby Rue Lepic and return to watch the show.');
-    } else if (name.includes('sacré') || name.includes('montmartre')) {
-      if (accessScore && accessScore <= 7) {
-        tips.push('The 270 steps can be tiring—take the Montmartre funicular (€2.15, included with metro pass) if you prefer.');
-      }
-      tips.push('Arrive before 9am to catch the basilica in peaceful morning light, before tour groups arrive.');
-    } else if (name.includes('eiffel')) {
-      tips.push('Book summit tickets 2–3 months ahead online (€29.40) to skip the 2+ hour queues.');
-      tips.push('The hourly sparkle show runs for 5 minutes after sunset—best viewed from Trocadéro.');
-    } else if (name.includes('louvre')) {
-      tips.push('Skip the pyramid queue—enter via the underground Carrousel du Louvre mall or the less-crowded Porte des Lions.');
-      tips.push('Free for under-26 EU residents and everyone on the first Saturday evening of each month (6–9:45pm).');
-      tips.push('Download the free Louvre app for self-guided routes; the "Masterpieces" trail takes about 90 minutes.');
-    } else if (name.includes('orsay')) {
-      tips.push('Head straight to the 5th floor when doors open at 9:30am—the clock views are magical in morning light.');
-      tips.push('Free for under-26 EU residents; Thursdays stay open until 9:45pm with smaller evening crowds.');
-    } else if (name.includes('pantheon') || name.includes('panthéon')) {
-      tips.push('Dome access runs April–October only and requires 206 steps—arrive early as slots fill up fast.');
-      tips.push('Free on the first Sunday of each month (Nov–March) and for under-26 EU residents year-round.');
-    } else if (name.includes('moonlit montmartre') || (name.includes('montmartre') && name.includes('walk') && (name.includes('night') || name.includes('moon')))) {
-      tips.push('Start around 10pm when restaurants empty and streets quiet down—the atmosphere peaks between 11pm and midnight.');
-      tips.push('Wear sturdy shoes for uneven cobblestones and steep hills; the Rue Foyatier staircase can be slippery when wet.');
-      tips.push('For a perfect finale, reserve €35 tickets to Au Lapin Agile—the intimate 90-minute cabaret is a time capsule.');
-    } else if (name.includes('caves du louvre') || (name.includes('wine tasting') && name.includes('louvre'))) {
-      tips.push('Book the "French Wine Exploration" (€39) for the best intro, or splurge on "Create Your Own Wine" (€65) to take home a personalized bottle.');
-      tips.push('Sessions fill up fast—reserve 3–5 days ahead online, especially for weekend afternoons.');
-      tips.push('Eat a light lunch beforehand; the cheese pairings are generous but won\'t fully line your stomach for five wines.');
-    } else if (name.includes('seine') && name.includes('cruise')) {
-      tips.push('Evening cruises offer the best views as monuments light up—book Bateaux Mouches or Vedettes du Pont Neuf.');
-    } else if (name.includes('canal saint-martin') && name.includes('morning')) {
-      tips.push('Start at Place de la République and walk north—the light is best on the Quai de Valmy side before noon.');
-      tips.push('Ten Belles (10 Rue de la Grange aux Belles) serves some of Paris\'s best coffee—get there before 9am.');
-      tips.push('Watch for the swing bridges opening—boats pass through the locks roughly every 20 minutes in summer.');
-    } else if (name.includes('canal saint-martin') || (name.includes('apéro') && name.includes('canal'))) {
-      tips.push('Grab wine at Le Verre Volé (67 Rue de Lancry) and cheese at Fromagerie Tentation—both a short walk from the canal.');
-      tips.push('Best spots: the steps near Hôtel du Nord or the Passerelle Alibert footbridge for sunset views.');
-      tips.push('Bring a corkscrew and napkins—and take your empties; locals respect the quays.');
-    } else if (name.includes('pont des arts')) {
-      tips.push('Arrive 30 minutes before sunset to claim a prime spot—the bridge gets crowded at golden hour.');
-      tips.push('Street vendors on the Left Bank sell wine by the glass; bring your own picnic for better value.');
-      tips.push('Stay after sunset to watch the Eiffel Tower sparkle at the top of each hour.');
-    } else if (name.includes('pompidou')) {
-      tips.push('Free for under-26 EU residents; free for everyone on the first Sunday of each month.');
-      tips.push('The rooftop restaurant has the same views as the 6th floor—grab a drink even without museum entry.');
-      tips.push('Skip the ground floor queue by booking timed tickets online; Thursday evenings (until 9pm) are quieter.');
-    } else if (name.includes('sainte-chapelle') || name.includes('stained glass')) {
-      tips.push('Book the 9am slot online—morning sun through east-facing windows creates the most magical light.');
-      tips.push('Combo ticket with Conciergerie (€18.50) saves money and skips both queues.');
-      tips.push('Sunny days are essential; overcast skies mute the colors dramatically. Check the forecast.');
-    } else if (name.includes('arts et métiers') || name.includes('arts et metiers')) {
-      tips.push('Free for under-26 EU residents and everyone on the first Sunday of each month.');
-      tips.push('Don\'t miss the chapel nave—Foucault\'s pendulum and Blériot\'s plane are the showstoppers.');
-      tips.push('The Arts et Métiers metro station is themed to the museum—worth a look even if you\'re not riding.');
-    } else if (name.includes('saint-ouen') || name.includes('flea market')) {
-      tips.push('Arrive by 9am Saturday for first pick—dealers set up early and the best pieces go fast.');
-      tips.push('Take Metro Line 4 to Porte de Clignancourt; the market is a 5-minute walk north.');
-      tips.push('Haggle respectfully—start at 30% below asking price and meet in the middle. Cash is king.');
-    } else if (name.includes('île saint-louis') || name.includes('ile saint-louis')) {
-      tips.push('Walk the lower quays (stairs near Pont Marie) for the most romantic Seine views and fewer crowds.');
-      tips.push('Berthillon closes Mon–Tue, but nearby shops on the same street sell the same ice cream.');
-      tips.push('The western tip at sunset offers a perfect view of Notre-Dame silhouetted against the sky.');
-    } else if (name.includes('hôtel de ville') || name.includes('hotel de ville')) {
-      tips.push('Check paris.fr for current exhibitions—shows change every few months and are always free.');
-      tips.push('Enter via the main facade on Place de l\'Hôtel de Ville; bring ID as security checks bags.');
-      tips.push('The esplanade hosts a free ice rink (Dec–Mar) and beach volleyball (Jul–Aug)—combine with your visit.');
-    } else if (name.includes('zadkine')) {
-      tips.push('Combine with Luxembourg Gardens (2-minute walk)—the perfect pairing for a Left Bank afternoon.');
-      tips.push('The garden is best in late spring when wisteria blooms frame the sculptures.');
-      tips.push('Closed Mondays; free entry but temporary exhibitions may have a small fee.');
-    } else if (name.includes('saint-germain') && name.includes('boulevard')) {
-      tips.push('Start at Saint-Germain-des-Prés metro—the church and famous cafés are right at the exit.');
-      tips.push('Café de Flore and Les Deux Magots are pricey (€8 espresso)—worth one visit for the history.');
-      tips.push('Duck into Rue de Buci for cheaper lunch spots and a lively street market (mornings).');
-    } else {
-      // Generic but helpful tips based on data
-      
-      // Weather/timing tips
-      if (attraction.best_time === 'morning') {
-        tips.push('Morning visits offer the best experience—softer light and smaller crowds before 10am.');
-      } else if (attraction.best_time === 'evening' || attraction.best_time === 'sunset') {
-        tips.push('Plan to arrive 30–45 minutes before sunset for the magical golden hour atmosphere.');
-      }
-      
-      // Weather independence
-      if (weatherScore && weatherScore <= 5) {
-        tips.push('This is an outdoor experience—check the forecast and have a covered backup nearby.');
-      } else if (weatherScore && weatherScore >= 8) {
-        tips.push('Mostly indoors, making it a reliable option for rainy days.');
-      }
-      
-      // Accessibility with practical alternatives
-      if (accessScore && accessScore <= 5) {
-        tips.push('Involves significant stairs or walking—check if elevator access is available before visiting.');
-      }
-      
-      // Cost tips with context
-      if (attraction.estimated_cost_eur === 0 || attraction.pricing_tier === 'free') {
-        tips.push('Free to visit—bring a blanket or snacks to make the most of your time here.');
-      } else if (attraction.estimated_cost_eur && attraction.estimated_cost_eur > 15) {
-        tips.push(`Entry is around €${attraction.estimated_cost_eur}—book online to save time and sometimes get a discount.`);
-      }
-      
-      // Crowd management
-      if (crowdScore && crowdScore <= 5) {
-        tips.push('Can get very crowded—weekday mornings or the last hour before closing are typically quieter.');
-      }
+    // Weather/timing tips
+    if (attraction.best_time === 'morning') {
+      tips.push('Morning visits offer the best experience—softer light and smaller crowds before 10am.');
+    } else if (attraction.best_time === 'evening' || attraction.best_time === 'sunset') {
+      tips.push('Plan to arrive 30–45 minutes before sunset for the magical golden hour atmosphere.');
+    }
+    
+    // Weather independence
+    if (weatherScore && weatherScore <= 5) {
+      tips.push('This is an outdoor experience—check the forecast and have a covered backup nearby.');
+    } else if (weatherScore && weatherScore >= 8) {
+      tips.push('Mostly indoors, making it a reliable option for rainy days.');
+    }
+    
+    // Accessibility with practical alternatives
+    if (accessScore && accessScore <= 5) {
+      tips.push('Involves significant stairs or walking—check if elevator access is available before visiting.');
+    }
+    
+    // Cost tips with context
+    if (attraction.estimated_cost_eur === 0 || attraction.pricing_tier === 'free') {
+      tips.push('Free to visit—bring a blanket or snacks to make the most of your time here.');
+    } else if (attraction.estimated_cost_eur && attraction.estimated_cost_eur > 15) {
+      tips.push(`Entry is around €${attraction.estimated_cost_eur}—book online to save time and sometimes get a discount.`);
+    }
+    
+    // Crowd management
+    if (crowdScore && crowdScore <= 5) {
+      tips.push('Can get very crowded—weekday mornings or the last hour before closing are typically quieter.');
     }
     
     return tips.slice(0, 2); // Return max 2 tips

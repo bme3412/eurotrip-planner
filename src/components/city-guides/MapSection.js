@@ -276,6 +276,21 @@ export default function MapSection({
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 mt-8 pt-8 pb-6 px-6 bg-white">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <p className="text-sm font-medium text-gray-900">Plan smarter. Travel better.</p>
+          <div className="flex items-center gap-6 text-sm">
+            <a href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Browse all cities
+            </a>
+            <a href="mailto:support@eurotripplanner.com" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Get support
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
