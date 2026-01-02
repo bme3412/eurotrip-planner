@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { HeartIcon as HeartOutline } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
 import { useAuth } from '@/contexts/AuthContext';
@@ -287,9 +288,11 @@ export function SavedTripsList() {
         <div key={trip.cityName} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow group">
           <div className="relative">
             {trip.image && (
-              <img 
+              <Image 
                 src={trip.image} 
                 alt={trip.displayName}
+                width={400}
+                height={192}
                 className="w-full h-48 object-cover"
               />
             )}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState, useRef } from 'react';
+import Link from 'next/link';
 
 // Original calendar palette
 const RATING_COLORS = { 5: '#10b981', 4: '#34d399', 3: '#fbbf24', 2: '#fb923c', 1: '#ef4444' };
@@ -370,7 +371,9 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
     return () => { 
       cancelled = true; 
       // Allow re-fetch if effect re-runs before async completes
-      inflightMonthsRef.current.delete(cacheKey);
+      // Capture ref value to avoid stale closure warning
+      const currentInflight = inflightMonthsRef.current;
+      currentInflight.delete(cacheKey);
     };
   }, [m?.name, cityName, countryName, monthlyData, extraMonths]);
 
@@ -670,9 +673,9 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
         <div className="flex items-center justify-between">
           <p className="text-sm font-medium text-gray-900">Plan smarter. Travel better.</p>
           <div className="flex items-center gap-6 text-sm">
-            <a href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
+            <Link href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
               Browse all cities
-            </a>
+            </Link>
             <a href="mailto:support@eurotripplanner.com" className="text-gray-500 hover:text-gray-900 transition-colors">
               Get support
             </a>

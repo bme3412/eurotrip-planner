@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import LazyMapWithMapbox from './LazyMapWithMapbox';
 
@@ -282,9 +283,9 @@ export default function MapSection({
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <p className="text-sm font-medium text-gray-900">Plan smarter. Travel better.</p>
           <div className="flex items-center gap-6 text-sm">
-            <a href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
+            <Link href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
               Browse all cities
-            </a>
+            </Link>
             <a href="mailto:support@eurotripplanner.com" className="text-gray-500 hover:text-gray-900 transition-colors">
               Get support
             </a>
