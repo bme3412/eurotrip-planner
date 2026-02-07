@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getCityData } from '../../../../lib/data-utils.js';
 
+export const runtime = 'nodejs';
+
 export async function GET(request, { params }) {
   try {
     const { city } = await params;

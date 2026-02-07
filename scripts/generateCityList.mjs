@@ -101,9 +101,20 @@ for (const [slug, entry] of Object.entries(citiesMap)) {
   const region = bridge.region || COUNTRY_TO_REGION[country] || 'Other';
 
   // ── Thumbnail ──
-  // Convention: /images/city-thumbnail/{Country}/{slug}-thumbnail.jpeg
-  const thumbConvention = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`;
-  const thumbnail = bridge.thumbnail || thumbConvention;
+  // Convention: /images/city-thumbnail/{Country}/{slug}-thumbnail.jpeg (or .jpg)
+  // Check which extension actually exists on disk
+  let thumbnail = bridge.thumbnail || '';
+  if (!thumbnail) {
+    const jpegPath = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpeg`);
+    const jpgPath = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpg`);
+    if (fs.existsSync(jpegPath)) {
+      thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`;
+    } else if (fs.existsSync(jpgPath)) {
+      thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpg`;
+    } else {
+      thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`;
+    }
+  }
 
   // ── Categories ──
   const tourismCategories = bridge.tourismCategories || [];

@@ -82,9 +82,16 @@ export async function POST(request) {
     return NextResponse.json(data, { status: 201 });
   } catch (error) {
     console.error("Failed to create trip", error);
+
+    // Provide a clearer message when Supabase isn't configured
+    const isConfigError = error?.message?.includes('Missing') && error?.message?.includes('environment variable');
+    const userMessage = isConfigError
+      ? "Trip storage requires Supabase configuration. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local to enable trip saving."
+      : "Failed to create trip preferences. Please try again later.";
+
     return NextResponse.json(
-      { error: "Failed to create trip preferences. Please try again later." },
-      { status: 500 }
+      { error: userMessage },
+      { status: isConfigError ? 503 : 500 }
     );
   }
 }

@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,7 +12,8 @@ const scoreColor = (score) => {
 
 export default function ResultCard({ item, index }) {
   const href = item.cityId ? `/city-guides/${item.cityId}` : '#';
-  const imageSrc = item.image || '/images/city-placeholder.svg';
+  const [imgError, setImgError] = useState(false);
+  const imageSrc = imgError || !item.image ? '/images/city-placeholder.svg' : item.image;
 
   return (
     <Link href={href} className="block group">
@@ -22,15 +26,18 @@ export default function ResultCard({ item, index }) {
             style={{ objectFit: 'cover' }}
             className="transition-transform duration-300 group-hover:scale-[1.03]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            onError={(e) => { e.currentTarget.src = '/images/city-placeholder.svg'; }}
+            onError={() => setImgError(true)}
+            unoptimized={imageSrc.endsWith('.svg')}
           />
           <div className="absolute left-3 top-3 flex items-center gap-2">
             <span className="badge bg-white/90 backdrop-blur font-semibold">
               #{index + 1}
             </span>
-            <span className={`badge ${scoreColor(item.score)} font-semibold`}>
-              {item.score.toFixed(1)}/5
-            </span>
+            {typeof item.score === 'number' && (
+              <span className={`badge ${scoreColor(item.score)} font-semibold`}>
+                {item.score.toFixed(1)}/5
+              </span>
+            )}
           </div>
           {item.crowdLevel && (
             <div className="absolute right-3 top-3">
@@ -60,4 +67,3 @@ export default function ResultCard({ item, index }) {
     </Link>
   );
 }
-
