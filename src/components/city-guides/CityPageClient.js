@@ -22,7 +22,6 @@ import {
   LazyStartHere,
   LazyAttractionsList,
   LazyNeighborhoodsList,
-  LazyCulinaryGuide,
   LazySeasonalActivities,
   LazyMonthlyGuideSection,
   LazyMapSection,

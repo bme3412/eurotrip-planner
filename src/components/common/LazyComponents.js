@@ -12,7 +12,6 @@ export const LazyMapComponent = lazy(() => import('../map/MapComponent'));
 // Large data components
 export const LazyAttractionsList = lazy(() => import('../city-guides/AttractionsList'));
 export const LazyNeighborhoodsList = lazy(() => import('../city-guides/NeighborhoodsList'));
-export const LazyCulinaryGuide = lazy(() => import('../city-guides/CulinaryGuide'));
 export const LazyMonthlyGuideSection = lazy(() => import('../city-guides/MonthlyGuideSection'));
 
 // =================
