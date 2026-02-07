@@ -10,6 +10,7 @@ import { getCityPaths } from '@/lib/city-data';
 import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
 import AuthButton from '@/components/auth/AuthButton';
+import BookActivities from '@/components/city-guides/BookActivities';
 import { 
   SkeletonOverview, 
   SkeletonMapLoader, 
@@ -352,17 +353,22 @@ function CityPageClient({ cityData, cityName }) {
         );
       case 'attractions':
         return (
-          <Suspense fallback={<SkeletonTabContent />}>
-            <LazyAttractionsList
-              attractions={memoizedData.safeAttractions}
-              categories={memoizedData.safeCategories}
-              cityName={cityName}
-              monthlyData={memoizedData.safeMonthlyEvents}
-              experiencesUrl={cityPaths.experiences}
-              limit={Infinity}
-              forceList
-            />
-          </Suspense>
+          <>
+            <Suspense fallback={<SkeletonTabContent />}>
+              <LazyAttractionsList
+                attractions={memoizedData.safeAttractions}
+                categories={memoizedData.safeCategories}
+                cityName={cityName}
+                monthlyData={memoizedData.safeMonthlyEvents}
+                experiencesUrl={cityPaths.experiences}
+                limit={Infinity}
+                forceList
+              />
+            </Suspense>
+            <div className="mt-8">
+              <BookActivities cityName={displayName} country={country} />
+            </div>
+          </>
         );
       case 'food':
         return (
