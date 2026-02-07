@@ -9,13 +9,13 @@ import CityCard from "../components/city-guides/CityCard";
 import { getCitiesData } from "../components/city-guides/cityData";
 import AuthButton from "../components/auth/AuthButton";
 
+const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+
 export default function Page() {
   const { dates, setDates, toQuery } = useTripDates(null);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [sortBy, setSortBy] = useState("score");
-  const SampleItineraryPreview = useMemo(() => dynamic(() => import("../components/SampleItineraryPreview"), { ssr: false }), []);
-  const [showPreview, setShowPreview] = useState(false);
   // New: simple interest and weight inputs (optional payload for API)
   const interestOptions = ["Beaches", "Food", "Nightlife", "Museums", "Nature", "Architecture"];
   const [interests, setInterests] = useState([]);
@@ -86,13 +86,12 @@ export default function Page() {
             >
               Explore
             </Link>
-            <button 
-              type="button" 
-              onClick={() => setShowPreview(true)} 
+            <Link 
+              href="/saved-trips"
               className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors"
             >
-              Countries
-            </button>
+              My Trips
+            </Link>
             <AuthButton />
           </nav>
         </div>
@@ -189,8 +188,8 @@ export default function Page() {
                     <span className="w-8 h-px bg-blue-600"></span>
                     Seasonal Highlights
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Best Experiences in September</h2>
-                  <p className="text-gray-500 text-lg max-w-2xl font-medium">Perfect timing for festivals, harvest season, and comfortable weather across the continent.</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Best Experiences in {currentMonth}</h2>
+                  <p className="text-gray-500 text-lg max-w-2xl font-medium">Top-rated cities and events happening right now across Europe.</p>
                 </div>
                 <Link href="/city-guides" className="hidden sm:flex items-center gap-2 px-6 py-3 bg-gray-50 text-blue-600 hover:bg-blue-50 rounded-full font-bold text-sm transition-all group">
                   View all cities
@@ -355,21 +354,21 @@ export default function Page() {
             <div className="space-y-3">
               <h4 className="font-medium text-zinc-900">Coverage</h4>
               <ul className="space-y-2 text-sm text-zinc-600">
-                <li>125+ European Cities</li>
-                <li>30+ Countries</li>
+                <li>220+ European Cities</li>
+                <li>39 Countries</li>
                 <li>Monthly Activity Guides</li>
                 <li>Transport Connections</li>
               </ul>
             </div>
 
-            {/* Support */}
+            {/* Explore */}
             <div className="space-y-3">
-              <h4 className="font-medium text-zinc-900">Support</h4>
+              <h4 className="font-medium text-zinc-900">Explore</h4>
               <ul className="space-y-2 text-sm text-zinc-600">
-                <li><a href="#" className="hover:text-indigo-600 transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-indigo-600 transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-indigo-600 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-indigo-600 transition-colors">Terms of Service</a></li>
+                <li><Link href="/city-guides" className="hover:text-indigo-600 transition-colors">City Guides</Link></li>
+                <li><Link href="/explore" className="hover:text-indigo-600 transition-colors">Interactive Map</Link></li>
+                <li><Link href="/paris-trip" className="hover:text-indigo-600 transition-colors">Paris Itinerary</Link></li>
+                <li><Link href="/start-planning" className="hover:text-indigo-600 transition-colors">Start Planning</Link></li>
               </ul>
             </div>
           </div>
@@ -384,11 +383,6 @@ export default function Page() {
         </div>
       </footer>
 
-
-      {/* Sample Preview Modal */}
-      {showPreview && (
-        <SampleItineraryPreview isOpen={showPreview} onClose={() => setShowPreview(false)} />
-      )}
     </div>
   );
 }
