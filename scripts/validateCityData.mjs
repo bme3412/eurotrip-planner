@@ -1,236 +1,330 @@
 #!/usr/bin/env node
 /**
- * Validates city data integrity:
- * 1. Every city directory has files named after the city (not another city)
- * 2. Every city has at minimum some overview data (standalone file or in index.json)
- * 3. No cross-contamination between cities
- * 4. File naming matches directory naming
+ * City Data Validation & Normalization Script
  *
- * Run: node scripts/validateCityData.mjs
- * Exit code 1 if any critical issues found.
+ * Validates all city data against the schema, reports quality scores,
+ * and optionally normalizes inconsistencies.
+ *
+ * Usage:
+ *   node scripts/validateCityData.mjs                  # Full validation report
+ *   node scripts/validateCityData.mjs --city paris     # Validate one city
+ *   node scripts/validateCityData.mjs --normalize      # Fix normalizable issues
+ *   node scripts/validateCityData.mjs --json           # Output as JSON
  */
 
 import fs from 'fs';
 import path from 'path';
 
-const DATA_DIR = path.join(process.cwd(), 'public', 'data');
+const ROOT = process.cwd();
+const DATA_DIR = path.join(ROOT, 'public', 'data');
+const MANIFEST_PATH = path.join(DATA_DIR, 'manifest.json');
 
-// Top-level entries that are not country directories
-const SKIP_ENTRIES = new Set([
-  'schema', 'sample-itineraries', 'manifest.json', 'cities.json',
-  'sharedData.js', 'tripConstants.js',
-]);
+const args = process.argv.slice(2);
+const getFlag = (name) => args.includes(`--${name}`);
+const getArg = (name) => {
+  const idx = args.indexOf(`--${name}`);
+  return idx >= 0 && idx + 1 < args.length ? args[idx + 1] : null;
+};
 
-// Normalize accented characters to ASCII for comparison
-function toAscii(str) {
-  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ø/g, 'o').replace(/æ/g, 'ae').replace(/ð/g, 'd');
+const NORMALIZE = getFlag('normalize');
+const JSON_OUTPUT = getFlag('json');
+const TARGET_CITY = getArg('city');
+
+function readJson(fp) {
+  try { return JSON.parse(fs.readFileSync(fp, 'utf-8')); } catch { return null; }
 }
 
-// Files that aren't prefixed with a city name
-const GENERIC_FILES = new Set([
-  'index.json', 'city.json', 'overview.json', 'food.json',
-  'neighborhoods.json', 'generation_summary.json', 'summary.json',
-]);
-
-// Known suffixes that come after the city name in data files
-const KNOWN_SUFFIXES = [
-  '-overview.json', '_overview.json', '-visit-calendar.json',
-  '_attractions.json', '-attractions.json',
-  '_culinary_guide.json', '_connections.json',
-  '_neighborhoods.json', '_seasonal_activities.json',
-  '-experiences.json', '-photo-spots.json',
-];
-
-let totalCities = 0;
-let validCities = 0;
-const criticalIssues = [];
-const warnings = [];
-
-function addCritical(city, country, message) {
-  criticalIssues.push({ city, country, message });
+function writeJson(fp, data) {
+  fs.writeFileSync(fp, JSON.stringify(data, null, 2), 'utf-8');
 }
 
-function addWarning(city, country, message) {
-  warnings.push({ city, country, message });
+// ── Price normalization map ──
+const PRICE_MAP = {
+  'free': 'Free', 'Free': 'Free', 'FREE': 'Free',
+  'budget': 'Budget', 'Budget': 'Budget', 'cheap': 'Budget', 'inexpensive': 'Budget', '€': 'Budget',
+  'moderate': 'Moderate', 'Moderate': 'Moderate', 'mid-range': 'Moderate', 'mid range': 'Moderate', '€€': 'Moderate',
+  'premium': 'Premium', 'Premium': 'Premium', 'expensive': 'Premium', 'high': 'Premium', '€€€': 'Premium',
+  'luxury': 'Luxury', 'Luxury': 'Luxury', '€€€€': 'Luxury',
+};
+
+function normalizePrice(raw) {
+  if (!raw) return null;
+  const lower = raw.toLowerCase().trim();
+  // Direct match
+  if (PRICE_MAP[raw]) return PRICE_MAP[raw];
+  if (PRICE_MAP[lower]) return PRICE_MAP[lower];
+  // Partial match
+  if (lower.includes('free')) return 'Free';
+  if (lower.includes('budget') || lower.includes('cheap')) return 'Budget';
+  if (lower.includes('moderate') || lower.includes('mid')) return 'Moderate';
+  if (lower.includes('premium') || lower.includes('expensive') || lower.includes('high')) return 'Premium';
+  if (lower.includes('luxury')) return 'Luxury';
+  // Euro ranges
+  if (/€{3,}/.test(raw)) return 'Premium';
+  if (/€€/.test(raw)) return 'Moderate';
+  if (/€/.test(raw)) return 'Budget';
+  return raw; // Keep original if can't normalize
 }
 
-// Get all country directories
-const countryEntries = fs.readdirSync(DATA_DIR, { withFileTypes: true })
-  .filter(d => d.isDirectory() && !SKIP_ENTRIES.has(d.name));
+// ── Europe bounding box ──
+const EUROPE_BOUNDS = { minLat: 34, maxLat: 72, minLon: -25, maxLon: 45 };
 
-for (const countryEntry of countryEntries) {
-  const country = countryEntry.name;
-  const countryPath = path.join(DATA_DIR, country);
+function isInEurope(lat, lon) {
+  return lat >= EUROPE_BOUNDS.minLat && lat <= EUROPE_BOUNDS.maxLat &&
+         lon >= EUROPE_BOUNDS.minLon && lon <= EUROPE_BOUNDS.maxLon;
+}
 
-  let cityDirs;
-  try {
-    cityDirs = fs.readdirSync(countryPath, { withFileTypes: true })
-      .filter(d => d.isDirectory())
-      .map(d => d.name);
-  } catch {
-    continue;
-  }
+// ── Validate a single city ──
+function validateCity(slug, entry) {
+  const cityDir = path.join(DATA_DIR, entry.country, entry.directoryName);
+  const idx = readJson(path.join(cityDir, 'index.json'));
+  if (!idx) return { slug, grade: 'F', score: 0, issues: ['No index.json found'], sections: {} };
 
-  for (const cityDir of cityDirs) {
-    totalCities++;
-    const cityPath = path.join(countryPath, cityDir);
-    const citySlug = cityDir.toLowerCase();
-    let hasCriticalIssue = false;
+  const issues = [];
+  const warnings = [];
+  const sections = {};
+  let totalPoints = 0;
+  let maxPoints = 0;
 
-    // List all JSON files (not in monthly/)
-    let files;
-    try {
-      files = fs.readdirSync(cityPath, { withFileTypes: true })
-        .filter(f => f.isFile() && f.name.endsWith('.json'))
-        .map(f => f.name);
-    } catch {
-      addCritical(cityDir, country, 'Cannot read city directory');
-      continue;
-    }
-
-    // 1. Check for cross-contamination: files named after a DIFFERENT city
-    for (const file of files) {
-      if (GENERIC_FILES.has(file)) continue;
-      const fileLower = file.toLowerCase();
-
-      // Try to extract the city prefix by stripping known suffixes
-      let filePrefix = null;
-      for (const suffix of KNOWN_SUFFIXES) {
-        if (fileLower.endsWith(suffix)) {
-          filePrefix = fileLower.slice(0, -suffix.length);
-          break;
-        }
-      }
-
-      if (filePrefix) {
-        const slugVariants = [citySlug, citySlug.replace(/-/g, ''), toAscii(citySlug), toAscii(citySlug).replace(/-/g, '')];
-        const prefixVariants = [filePrefix, filePrefix.replace(/-/g, ''), toAscii(filePrefix), toAscii(filePrefix).replace(/-/g, '')];
-        const matches = slugVariants.some(s => prefixVariants.includes(s));
-        if (!matches) {
-          addCritical(cityDir, country, `Cross-contamination: "${file}" belongs to "${filePrefix}", not "${cityDir}"`);
-          hasCriticalIssue = true;
-        }
-      }
-    }
-
-    // 2. Check for overview data from ANY source
-    let hasOverview = false;
-
-    // Check standalone overview files
-    const hasOverviewFile = files.some(f => {
-      const fl = f.toLowerCase();
-      return fl.includes('overview');
-    });
-    if (hasOverviewFile) hasOverview = true;
-
-    // Check index.json for overview data
-    if (!hasOverview) {
-      const indexPath = path.join(cityPath, 'index.json');
-      if (fs.existsSync(indexPath)) {
-        try {
-          const idx = JSON.parse(fs.readFileSync(indexPath, 'utf-8'));
-          if (idx.overview && typeof idx.overview === 'object') {
-            // Has an overview object with actual content
-            if (idx.overview.city_name || idx.overview.brief_description || idx.overview.sections) {
-              hasOverview = true;
-            }
-          }
-          // Also check if index.json has substantial data even without a formal overview
-          if (!hasOverview && idx.attractions && idx.neighborhoods) {
-            hasOverview = true; // City has data, just no explicit overview
-          }
-        } catch {
-          // Parse error already handled below
-        }
-      }
-    }
-
-    if (!hasOverview) {
-      // Check if city at least has other city-specific data files
-      const hasCityFiles = files.some(f => {
-        if (GENERIC_FILES.has(f)) return false;
-        const fl = f.toLowerCase();
-        return fl.startsWith(citySlug + '-') || fl.startsWith(citySlug + '_')
-          || fl.startsWith(citySlug.replace(/-/g, '') + '-') || fl.startsWith(citySlug.replace(/-/g, '') + '_');
-      });
-      if (hasCityFiles) {
-        addWarning(cityDir, country, 'Has city-specific data files but no overview');
+  // ── Overview (15 points) ──
+  maxPoints += 15;
+  const ov = idx.overview;
+  if (ov?.city_name && ov?.brief_description) {
+    totalPoints += 5;
+    if (ov.coordinates?.latitude && ov.coordinates?.longitude) {
+      if (isInEurope(ov.coordinates.latitude, ov.coordinates.longitude)) {
+        totalPoints += 5;
       } else {
-        addWarning(cityDir, country, 'No overview data and no city-specific files (guide will show "Coming Soon")');
-        hasCriticalIssue = true;
+        issues.push(`Overview coordinates out of Europe bounds: ${ov.coordinates.latitude}, ${ov.coordinates.longitude}`);
+        totalPoints += 2;
       }
-    }
-
-    // 3. Check monthly directory
-    const monthlyPath = path.join(cityPath, 'monthly');
-    if (!fs.existsSync(monthlyPath)) {
-      addWarning(cityDir, country, 'Missing monthly/ directory');
     } else {
-      const monthlyFiles = fs.readdirSync(monthlyPath).filter(f => f.endsWith('.json') && f !== 'index.json');
-      if (monthlyFiles.length === 0) {
-        addWarning(cityDir, country, 'monthly/ directory has no data files');
-      } else if (monthlyFiles.length < 12) {
-        addWarning(cityDir, country, `monthly/ has only ${monthlyFiles.length}/12 month files`);
+      warnings.push('Overview missing coordinates');
+    }
+    if (ov.brief_description.length >= 50) totalPoints += 3;
+    else warnings.push(`Brief description too short (${ov.brief_description.length} chars)`);
+    if (ov.practical_info) totalPoints += 2;
+    sections.overview = true;
+  } else {
+    sections.overview = false;
+    issues.push('Missing overview');
+  }
+
+  // ── Attractions (25 points) ──
+  maxPoints += 25;
+  const sites = idx.attractions?.sites || [];
+  if (sites.length > 0) {
+    totalPoints += Math.min(10, sites.length); // Up to 10 points for count
+    sections.attractions = true;
+
+    let withCoords = 0, withDesc = 0, withHours = 0, withTransit = 0;
+    const priceIssues = [];
+
+    for (const site of sites) {
+      if (site.latitude && site.longitude) {
+        withCoords++;
+        if (!isInEurope(site.latitude, site.longitude)) {
+          issues.push(`Attraction "${site.name}" coordinates out of Europe: ${site.latitude}, ${site.longitude}`);
+        }
+      }
+      if (site.description?.length >= 50) withDesc++;
+      if (site.opening_hours) withHours++;
+      if (site.transit) withTransit++;
+      if (site.price_range) {
+        const normalized = normalizePrice(site.price_range);
+        if (normalized !== site.price_range && NORMALIZE) {
+          site.price_range = normalized;
+        }
+        if (!['Free', 'Budget', 'Moderate', 'Premium', 'Luxury'].includes(normalizePrice(site.price_range))) {
+          priceIssues.push(`"${site.name}": "${site.price_range}"`);
+        }
       }
     }
 
-    if (!hasCriticalIssue) {
-      validCities++;
+    const coordPct = sites.length > 0 ? withCoords / sites.length : 0;
+    totalPoints += Math.round(coordPct * 5); // Up to 5 points for coordinate coverage
+    totalPoints += Math.round((withDesc / Math.max(1, sites.length)) * 5); // Up to 5 for descriptions
+    totalPoints += Math.min(3, Math.round((withHours / Math.max(1, sites.length)) * 3)); // Up to 3 for hours
+    totalPoints += Math.min(2, Math.round((withTransit / Math.max(1, sites.length)) * 2)); // Up to 2 for transit
+
+    if (withCoords < sites.length) warnings.push(`${sites.length - withCoords}/${sites.length} attractions missing coordinates`);
+    if (priceIssues.length > 0) warnings.push(`Non-standard price ranges: ${priceIssues.slice(0, 3).join('; ')}`);
+  } else {
+    sections.attractions = false;
+    issues.push('No attractions data');
+  }
+
+  // ── Neighborhoods (15 points) ──
+  maxPoints += 15;
+  const hoods = idx.neighborhoods?.neighborhoods || [];
+  if (hoods.length > 0) {
+    totalPoints += Math.min(5, hoods.length);
+    totalPoints += hoods.filter(h => h.character?.length > 20).length > 0 ? 5 : 0;
+    totalPoints += hoods.filter(h => h.practical_info).length > 0 ? 3 : 0;
+    totalPoints += hoods.filter(h => h.highlights?.attractions?.length > 0).length > 0 ? 2 : 0;
+    sections.neighborhoods = true;
+  } else {
+    sections.neighborhoods = false;
+    issues.push('No neighborhoods data');
+  }
+
+  // ── Culinary (15 points) ──
+  maxPoints += 15;
+  const cul = idx.culinaryGuide;
+  if (cul?.restaurants || cul?.food_experiences) {
+    totalPoints += 5;
+    const restCount = (cul.restaurants?.fine_dining?.length || 0) + (cul.restaurants?.casual_dining?.length || 0) + (cul.restaurants?.street_food?.length || 0);
+    totalPoints += Math.min(5, restCount);
+    if (cul.bars_and_cafes) totalPoints += 3;
+    if (cul.food_experiences?.length > 0) totalPoints += 2;
+    sections.culinary = true;
+  } else {
+    sections.culinary = false;
+    issues.push('No culinary data');
+  }
+
+  // ── Visit Calendar (15 points) ──
+  maxPoints += 15;
+  const cal = idx.visitCalendar?.months;
+  if (cal && Object.keys(cal).length > 0) {
+    const monthCount = Object.keys(cal).length;
+    totalPoints += Math.min(6, Math.round(monthCount / 2));
+    let hasScores = 0, hasCrowds = 0, hasTypes = 0;
+    for (const month of Object.values(cal)) {
+      for (const range of (month.ranges || [])) {
+        if (range.score) hasScores++;
+        if (range.crowdLevel) hasCrowds++;
+        if (range.travelerTypes) hasTypes++;
+      }
+    }
+    totalPoints += hasScores > 0 ? 3 : 0;
+    totalPoints += hasCrowds > 0 ? 3 : 0;
+    totalPoints += hasTypes > 0 ? 3 : 0;
+    sections.calendar = true;
+  } else {
+    sections.calendar = false;
+    issues.push('No visit calendar');
+  }
+
+  // ── Seasonal Activities (8 points) ──
+  maxPoints += 8;
+  const seasonal = idx.seasonalActivities;
+  if (seasonal?.Spring || seasonal?.Summer || seasonal?.Autumn || seasonal?.Winter) {
+    const seasonCount = ['Spring', 'Summer', 'Autumn', 'Winter'].filter(s => seasonal[s]?.length > 0).length;
+    totalPoints += seasonCount * 2;
+    sections.seasonal = true;
+  } else {
+    sections.seasonal = false;
+    issues.push('No seasonal activities');
+  }
+
+  // ── Connections (7 points) ──
+  maxPoints += 7;
+  const conn = idx.connections?.destinations;
+  if (conn?.length > 0) {
+    totalPoints += Math.min(4, conn.length);
+    totalPoints += conn.some(d => d.transport_types?.length > 1) ? 3 : 0;
+    sections.connections = true;
+  } else {
+    sections.connections = false;
+    issues.push('No connections data');
+  }
+
+  // ── Write normalized data ──
+  if (NORMALIZE && sites.length > 0) {
+    const indexPath = path.join(cityDir, 'index.json');
+    writeJson(indexPath, idx);
+  }
+
+  // ── Score & grade ──
+  const score = Math.round((totalPoints / maxPoints) * 100);
+  let grade;
+  if (score >= 90) grade = 'A';
+  else if (score >= 80) grade = 'B';
+  else if (score >= 65) grade = 'C';
+  else if (score >= 40) grade = 'D';
+  else grade = 'F';
+
+  return { slug, grade, score, totalPoints, maxPoints, issues, warnings, sections };
+}
+
+// ── Main ──
+function main() {
+  const manifest = readJson(MANIFEST_PATH);
+  if (!manifest?.cities) {
+    console.error('Cannot read manifest.json');
+    process.exit(1);
+  }
+
+  let targets;
+  if (TARGET_CITY) {
+    const entry = manifest.cities[TARGET_CITY];
+    if (!entry) { console.error(`City "${TARGET_CITY}" not found`); process.exit(1); }
+    targets = [[TARGET_CITY, entry]];
+  } else {
+    targets = Object.entries(manifest.cities);
+  }
+
+  const results = targets.map(([slug, entry]) => validateCity(slug, entry));
+
+  if (JSON_OUTPUT) {
+    console.log(JSON.stringify(results, null, 2));
+    return;
+  }
+
+  // ── Summary report ──
+  const grades = { A: 0, B: 0, C: 0, D: 0, F: 0 };
+  for (const r of results) grades[r.grade]++;
+
+  const avgScore = Math.round(results.reduce((s, r) => s + r.score, 0) / results.length);
+  const sectionCounts = {};
+  for (const r of results) {
+    for (const [section, present] of Object.entries(r.sections)) {
+      if (!sectionCounts[section]) sectionCounts[section] = 0;
+      if (present) sectionCounts[section]++;
     }
   }
-}
 
-// Print summary
-console.log('\n========================================');
-console.log('  City Data Validation Report');
-console.log('========================================\n');
-console.log(`Total cities scanned:   ${totalCities}`);
-console.log(`Valid cities:           ${validCities}`);
-console.log(`Cities with issues:     ${totalCities - validCities}`);
-console.log(`Critical issues:        ${criticalIssues.length}`);
-console.log(`Warnings:               ${warnings.length}`);
-
-if (criticalIssues.length > 0) {
-  console.log('\n--- Critical Issues (must fix) ---\n');
-  const byCity = {};
-  for (const issue of criticalIssues) {
-    const key = `${issue.country}/${issue.city}`;
-    if (!byCity[key]) byCity[key] = [];
-    byCity[key].push(issue.message);
+  console.log('=== CITY DATA QUALITY REPORT ===\n');
+  console.log(`Cities analyzed: ${results.length}`);
+  console.log(`Average quality score: ${avgScore}/100`);
+  console.log(`\nGrade distribution:`);
+  console.log(`  A (90-100): ${grades.A} cities`);
+  console.log(`  B (80-89):  ${grades.B} cities`);
+  console.log(`  C (65-79):  ${grades.C} cities`);
+  console.log(`  D (40-64):  ${grades.D} cities`);
+  console.log(`  F (0-39):   ${grades.F} cities`);
+  console.log(`\nSection coverage:`);
+  for (const [section, count] of Object.entries(sectionCounts)) {
+    console.log(`  ${section}: ${count}/${results.length} (${Math.round(count / results.length * 100)}%)`);
   }
-  for (const [key, msgs] of Object.entries(byCity).sort()) {
-    console.log(`  ${key}:`);
-    for (const msg of msgs) {
-      console.log(`    ❌ ${msg}`);
+
+  // ── Top issues ──
+  const allIssues = results.flatMap(r => r.issues.map(i => `${r.slug}: ${i}`));
+  if (allIssues.length > 0) {
+    console.log(`\nTop issues (${Math.min(20, allIssues.length)}/${allIssues.length}):`);
+    for (const issue of allIssues.slice(0, 20)) {
+      console.log(`  - ${issue}`);
     }
   }
-}
 
-if (warnings.length > 0) {
-  console.log('\n--- Warnings ---\n');
-  const byCity = {};
-  for (const w of warnings) {
-    const key = `${w.country}/${w.city}`;
-    if (!byCity[key]) byCity[key] = [];
-    byCity[key].push(w.message);
+  // ── Lowest scoring cities ──
+  const worst = results.sort((a, b) => a.score - b.score).slice(0, 10);
+  console.log(`\nLowest scoring cities:`);
+  for (const r of worst) {
+    console.log(`  ${r.slug}: ${r.grade} (${r.score}/100) — ${r.issues.slice(0, 2).join('; ')}`);
   }
-  for (const [key, msgs] of Object.entries(byCity).sort()) {
-    console.log(`  ${key}:`);
-    for (const msg of msgs) {
-      console.log(`    ⚠  ${msg}`);
-    }
+
+  // ── Highest scoring cities ──
+  const best = results.sort((a, b) => b.score - a.score).slice(0, 10);
+  console.log(`\nHighest scoring cities:`);
+  for (const r of best) {
+    console.log(`  ${r.slug}: ${r.grade} (${r.score}/100)`);
+  }
+
+  if (NORMALIZE) {
+    console.log(`\n✅ Normalization applied (price ranges standardized)`);
   }
 }
 
-console.log('\n========================================\n');
-
-if (criticalIssues.length > 0) {
-  console.log(`❌ ${criticalIssues.length} critical issue(s) found. Exiting with code 1.\n`);
-  process.exit(1);
-} else if (warnings.length > 0) {
-  console.log(`⚠  No critical issues, but ${warnings.length} warning(s). Exiting with code 0.\n`);
-  process.exit(0);
-} else {
-  console.log('✅ All city data is valid.\n');
-  process.exit(0);
-}
+main();
