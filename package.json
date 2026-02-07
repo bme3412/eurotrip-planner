@@ -14,7 +14,8 @@
     "compress-images-simple": "node scripts/compressImagesSimple.mjs",
     "convert-png-to-jpeg": "node scripts/convertPngToJpeg.mjs",
     "move-thumbnails": "node scripts/moveThumbnails.mjs",
-    "replace-thumbnails": "node scripts/replaceThumbnails.mjs"
+    "replace-thumbnails": "node scripts/replaceThumbnails.mjs",
+    "validate-data": "node scripts/validateCityData.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

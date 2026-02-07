@@ -267,6 +267,37 @@ function CityPageClient({ cityData, cityName }) {
     );
   }
 
+  // Check for cities with incomplete data (e.g., data contamination was removed)
+  const hasMinimalData = overview?.city_name || overview?.brief_description || safeAttractions.length > 0;
+  if (!hasMinimalData) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">
+        <header className="mx-auto max-w-7xl px-4 sm:px-6 py-4">
+          <nav className="flex items-center gap-2 text-sm" aria-label="Breadcrumb">
+            <Link href="/" className="text-gray-500 hover:text-blue-600 font-medium">Home</Link>
+            <svg className="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            <Link href="/city-guides" className="text-gray-500 hover:text-blue-600 font-medium">City Guides</Link>
+            <svg className="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            <span className="text-gray-900 font-semibold">{displayName}</span>
+          </nav>
+        </header>
+        <div className="flex flex-col items-center justify-center px-6 py-24 text-center">
+          <div className="text-6xl mb-6">🏗️</div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">{displayName} Guide Coming Soon</h1>
+          <p className="text-gray-600 text-lg max-w-md mb-8">
+            We&apos;re working on a comprehensive travel guide for {displayName}{country !== 'Unknown' ? `, ${country}` : ''}. Check back soon for detailed recommendations, seasonal advice, and more.
+          </p>
+          <Link
+            href="/city-guides"
+            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors"
+          >
+            Browse Available Guides
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'starthere':
