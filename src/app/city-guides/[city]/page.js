@@ -57,6 +57,48 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { city } = await params;
+  const decodedCity = decodeURIComponent(city);
+  const cityData = await getCityData(decodedCity);
+
+  if (!cityData || !cityData.cityName) {
+    return {
+      title: 'City Guide',
+      description: 'Explore European cities with personalized travel guides.',
+    };
+  }
+
+  const cityName = cityData.cityName;
+  const country = cityData.country || '';
+  const rawDescription = cityData.overview?.brief_description
+    || `Complete travel guide for ${cityName}, ${country}. Best time to visit, things to do, food & drink, neighborhoods, and insider tips.`;
+
+  // Truncate description to ~155 chars for Google
+  const metaDescription = rawDescription.length > 155
+    ? rawDescription.substring(0, 152) + '...'
+    : rawDescription;
+
+  return {
+    title: `${cityName}, ${country} — Travel Guide & Best Time to Visit`,  // template appends " | EuroTrip Planner"
+    description: metaDescription,
+    openGraph: {
+      title: `${cityName} Travel Guide — Things to Do & When to Visit`,
+      description: metaDescription,
+      type: 'article',
+      url: `https://eurotrip-planner.vercel.app/city-guides/${city}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${cityName}, ${country} — Travel Guide`,
+      description: metaDescription,
+    },
+    alternates: {
+      canonical: `https://eurotrip-planner.vercel.app/city-guides/${city}`,
+    },
+  };
+}
+
 async function readJsonFile(filePath) {
   try {
     const fileContent = await fsPromises.readFile(filePath, "utf8");
@@ -189,6 +231,37 @@ async function getCityData(cityName) {
   }
 }
 
+function CityJsonLd({ cityData, citySlug }) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristDestination',
+    name: cityData.cityName,
+    description: cityData.overview?.brief_description || `Travel guide for ${cityData.cityName}`,
+    url: `https://eurotrip-planner.vercel.app/city-guides/${citySlug}`,
+    touristType: ['Adventure', 'Cultural', 'Luxury', 'Budget'],
+    containedInPlace: {
+      '@type': 'Country',
+      name: cityData.country,
+    },
+  };
+
+  // Add geo coordinates if available in the overview
+  if (cityData.overview?.coordinates) {
+    structuredData.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: cityData.overview.coordinates.latitude || cityData.overview.coordinates[1],
+      longitude: cityData.overview.coordinates.longitude || cityData.overview.coordinates[0],
+    };
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+  );
+}
+
 export default async function CityPage({ params }) {
   const { city } = await params;
   const cityName = decodeURIComponent(city);
@@ -200,5 +273,10 @@ export default async function CityPage({ params }) {
     notFound();
   }
 
-  return <CityPageClient cityData={cityData} cityName={cityName} />;
+  return (
+    <>
+      <CityJsonLd cityData={cityData} citySlug={city} />
+      <CityPageClient cityData={cityData} cityName={cityName} />
+    </>
+  );
 }
