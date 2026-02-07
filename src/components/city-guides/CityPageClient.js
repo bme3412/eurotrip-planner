@@ -452,6 +452,19 @@ function CityPageClient({ cityData, cityName }) {
         actionElement={<SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} variant="hero" />}
       />
 
+      {/* Plan Trip CTA */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 -mt-6 mb-4 relative z-20">
+        <Link
+          href={`/plan/${cityName?.toLowerCase()}`}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-full hover:from-indigo-700 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl text-sm"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          Plan Your Trip to {displayName}
+        </Link>
+      </div>
+
       {/* Tabs + Actions - Sticky when scrolled */}
       <div 
         ref={tabBarRef}

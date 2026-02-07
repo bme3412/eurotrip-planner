@@ -2,7 +2,16 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 
 /** @type {import('next').NextConfig} */
 const baseConfig = {
-  output: 'standalone',                         // keeps serverless functions small
+  output: 'standalone',
+  async redirects() {
+    return [
+      {
+        source: '/paris-trip',
+        destination: '/plan/paris',
+        permanent: true,
+      },
+    ];
+  },
   serverExternalPackages: ['mapbox-gl', 'react-map-gl', 'sharp'],
   outputFileTracingExcludes: {
     '/': [

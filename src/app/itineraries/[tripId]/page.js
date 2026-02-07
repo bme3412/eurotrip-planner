@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
 import { getCityData } from "@/lib/data-utils";
 import { buildParisRecommendations } from "@/lib/planning/buildParisRecommendations";
+import { buildItinerary } from "@/lib/planning/buildItinerary";
 
 function parseDate(value) {
   if (!value) return null;
@@ -104,8 +105,46 @@ function renderRichText(text) {
   );
 }
 
+function GenericTimeBlock({ block }) {
+  const act = block.activity;
+  if (!act) return null;
+  return (
+    <div className="rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-4">
+      <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-600">
+        <span className="text-lg leading-none">{block.time === 'lunch' ? '🍽' : '📍'}</span> {block.time} · {block.startTime}–{block.endTime}
+      </p>
+      <p className="mt-2 text-sm font-semibold text-slate-900">{act.name}</p>
+      {act.type && act.type !== 'food_recommendation' && act.type !== 'neighborhood' && (
+        <p className="text-xs font-medium text-indigo-500">{act.type}</p>
+      )}
+      {act.description && (
+        <p className="mt-2 text-sm text-slate-700">{act.description}</p>
+      )}
+      <div className="mt-3 flex flex-wrap gap-2 text-sm text-slate-600">
+        {act.duration && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">⏳ {act.duration}</span>
+        )}
+        {act.price && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">💶 {act.price}</span>
+        )}
+        {act.neighborhood && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">📍 {act.neighborhood}</span>
+        )}
+      </div>
+      {act.bookingUrl && (
+        <a href={act.bookingUrl} target="_blank" rel="noreferrer"
+          className="mt-3 inline-flex w-max items-center gap-2 rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-500">
+          Book / Visit site <span aria-hidden="true">&nearr;</span>
+        </a>
+      )}
+    </div>
+  );
+}
+
 function DayCard({ day }) {
   const zoneSummary = day.zones?.length ? [...new Set(day.zones)].join(' → ') : null;
+  const hasGenericBlocks = day.timeBlocks && !day.blocks;
+
   return (
     <article className="rounded-3xl border border-slate-300 bg-white px-6 py-7 shadow-lg shadow-slate-200/60 transition-transform hover:-translate-y-0.5">
       <header className="flex flex-col gap-3 pb-6">
@@ -120,6 +159,18 @@ function DayCard({ day }) {
           </div>
         )}
       </header>
+
+      {/* Generic format (from buildItinerary) */}
+      {hasGenericBlocks && (
+        <div className="space-y-4">
+          {day.timeBlocks.map((block, index) => (
+            <GenericTimeBlock key={`${block.time}-${index}`} block={block} />
+          ))}
+        </div>
+      )}
+
+      {/* Paris format (from buildParisRecommendations) */}
+      {day.blocks && (<>
       <div className="space-y-6">
         {day.blocks.map(({ slot, slotType, item, transferMinutes, longTransfer, transferFrom, transferDistanceKm }, index) => (
             <div key={`${slot}-${index}`} className="relative">
@@ -211,6 +262,7 @@ function DayCard({ day }) {
           ))}
         </div>
       ) : null}
+      </>)}
     </article>
   );
 }
@@ -230,10 +282,10 @@ export default async function ItineraryPage({ params }) {
               Something went wrong while connecting to Supabase. Double-check that your environment variables are set and try again.
             </p>
             <Link
-              href="/paris-trip"
+              href="/city-guides"
               className="mt-4 inline-flex w-max items-center justify-center rounded-full border border-red-200 bg-white px-4 py-2 text-sm font-semibold text-red-700 transition hover:border-red-300 hover:text-red-800"
             >
-              ← Back to trip preferences
+              &larr; Back to city guides
             </Link>
           </div>
         </div>
@@ -245,11 +297,20 @@ export default async function ItineraryPage({ params }) {
     notFound();
   }
 
-  const cityData = await getCityData('paris');
-  const plan = buildParisRecommendations(trip, cityData);
+  const citySlug = trip.city || 'paris';
+  const isParisTrip = citySlug.toLowerCase() === 'paris';
+  const cityData = await getCityData(citySlug);
 
+  let plan;
+  if (isParisTrip) {
+    plan = buildParisRecommendations(trip, cityData);
+  } else {
+    plan = buildItinerary(trip, cityData);
+  }
+
+  const cityDisplay = cityData?.cityName || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
   const dateRangeLabel = formatDateRange(trip.start_date, trip.end_date);
-  const interestsList = trip.interests?.length ? trip.interests.join(' · ') : 'Paris essentials';
+  const interestsList = trip.interests?.length ? trip.interests.join(' · ') : `${cityDisplay} essentials`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 py-12">
@@ -257,15 +318,15 @@ export default async function ItineraryPage({ params }) {
         <header className="rounded-3xl border border-white/60 bg-white/95 p-6 shadow-xl backdrop-blur md:p-8">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-500">Paris MVP preview</p>
-              <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Your Paris itinerary draft</h1>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-500">{cityDisplay} itinerary</p>
+              <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Your {cityDisplay} itinerary draft</h1>
               <p className="mt-2 max-w-2xl text-sm text-slate-600 md:text-base">{plan.summary}</p>
             </div>
             <Link
-              href="/paris-trip"
+              href={`/plan/${citySlug}`}
               className="inline-flex items-center justify-center rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-semibold text-indigo-600 transition hover:border-indigo-300 hover:text-indigo-700"
             >
-              ← Update preferences
+              &larr; Update preferences
             </Link>
           </div>
           <dl className="mt-6 grid gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-4 text-sm text-slate-600 sm:grid-cols-3">
