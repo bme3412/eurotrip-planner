@@ -1,6 +1,7 @@
 import './globals.css';
 import { Analytics } from "@vercel/analytics/next"
 import Providers from './Providers';
+import Navbar from '@/components/common/Navbar';
 import { dmSans, ebGaramond } from './fonts';
 
 export const metadata = {
@@ -33,7 +34,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased bg-white text-gray-900">
         <Providers>
-          {children}
+          <Navbar />
+          <main>{children}</main>
         </Providers>
         <Analytics />
       </body>

@@ -18,7 +18,7 @@ import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
 import { getCitiesData as getStaticCityData } from '@/generated/cityIndex';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 import { getFlagForCountry } from '@/utils/countryFlags';
-import AuthButton from '@/components/auth/AuthButton';
+// AuthButton removed — now in global Navbar
 
 // Build a map of city descriptions from static data for fallback
 const staticCityDescriptions = (() => {
@@ -336,7 +336,6 @@ function CityGuidesContent() {
             <span className="text-gray-300">/</span>
             <span className="text-gray-700 font-medium">City Guides</span>
           </nav>
-          <AuthButton />
         </div>
       </div>
 

@@ -7,7 +7,6 @@ import ResultsGrid from "../components/ResultsGrid";
 import { useTripDates } from "../hooks/useTripDates";
 import CityCard from "../components/city-guides/CityCard";
 import { getCitiesData } from "@/generated/cityIndex";
-import AuthButton from "../components/auth/AuthButton";
 
 const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
 
@@ -56,47 +55,6 @@ export default function Page() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
-      {/* Header */}
-      <header className="px-6 md:px-10 py-3 bg-white/90 backdrop-blur-md border-b border-blue-200/30 shadow-sm z-50">
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between gap-4 md:gap-8">
-          {/* Logo */}
-          <div className="flex items-center">
-            <span className="font-display text-2xl tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-bold">
-              Euro<span className="text-blue-500">Trip</span>
-            </span>
-          </div>
-
-          {/* Navigation */}
-          <nav className="flex items-center gap-6">
-            <Link 
-              href="/paris-trip"
-              className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg text-sm"
-            >
-              Get Itinerary
-            </Link>
-            <Link 
-              href={{ pathname: "/city-guides", query: dates ? Object.fromEntries(new URLSearchParams(toQuery())) : undefined }} 
-              className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors"
-            >
-              City Guides
-            </Link>
-            <Link 
-              href="/explore" 
-              className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors"
-            >
-              Explore
-            </Link>
-            <Link 
-              href="/saved-trips"
-              className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-colors"
-            >
-              My Trips
-            </Link>
-            <AuthButton />
-          </nav>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="relative px-6 pt-4 md:pt-6 lg:pt-8 pb-24 md:pb-32 lg:pb-40 overflow-hidden">
         {/* Decorative elements */}
