@@ -6,7 +6,7 @@ import DateSelector from "../components/DateSelector";
 import ResultsGrid from "../components/ResultsGrid";
 import { useTripDates } from "../hooks/useTripDates";
 import CityCard from "../components/city-guides/CityCard";
-import { getCitiesData } from "../components/city-guides/cityData";
+import { getCitiesData } from "@/generated/cityIndex";
 import AuthButton from "../components/auth/AuthButton";
 
 const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });

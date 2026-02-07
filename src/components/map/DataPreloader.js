@@ -7,7 +7,7 @@ import {
   getCityRatingForMonthsCached, 
   getCityCalendarInfoCached 
 } from './mapUtils';
-import { getCitiesData } from '@/components/city-guides/cityData';
+import { getCitiesData } from '@/generated/cityIndex';
 
 /**
  * Data Preloader Component

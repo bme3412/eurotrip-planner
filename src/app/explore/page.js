@@ -5,8 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-// Import city data from cityData.js
-import { getCitiesData } from '@/components/city-guides/cityData';
+import { getCitiesData } from '@/generated/cityIndex';
 
 // Import the lazy map component with proper Suspense boundaries using Next.js dynamic
 const LazyMapComponentWrapper = dynamic(

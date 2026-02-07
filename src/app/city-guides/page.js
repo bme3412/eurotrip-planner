@@ -15,7 +15,7 @@ import { parseDatesFromParams } from '@/hooks/useTripDates';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
 import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
-import { getCitiesData as getStaticCityData } from '@/components/city-guides/cityData';
+import { getCitiesData as getStaticCityData } from '@/generated/cityIndex';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 import { getFlagForCountry } from '@/utils/countryFlags';
 import AuthButton from '@/components/auth/AuthButton';

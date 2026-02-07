@@ -41,6 +41,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated files (rebuilt during build)
+src/generated/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
