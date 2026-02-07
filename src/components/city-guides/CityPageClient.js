@@ -33,44 +33,47 @@ import {
   MapLoader
 } from '@/components/common/LazyComponents';
 
-// Default coordinates for various European regions
-const DEFAULT_COORDINATES = {
-  France: [2.3522, 48.8566],
-  Nice: [7.262, 43.7102],
-  Italy: [12.4964, 41.9028],
-  Germany: [13.405, 52.52],
-  Spain: [-3.7038, 40.4168],
-  Netherlands: [4.9041, 52.3676],
-  Belgium: [4.3517, 50.8503],
-  Austria: [16.3738, 48.2082],
-  Denmark: [12.5683, 55.6761],
-  Ireland: [-6.2603, 53.3498],
-  default: [9.19, 48.66],
-};
+// Central Europe fallback for cities with no coordinates
+const DEFAULT_CENTER = [9.19, 48.66];
 
-// Add city-specific coordinates using lowercase keys
-const CITY_COORDINATES = {
-  paris: [2.3522, 48.8566],
-  nice: [7.262, 43.7102],
-  rome: [12.4964, 41.9028],
-  berlin: [13.405, 52.52],
-  madrid: [-3.7038, 40.4168],
-  amsterdam: [4.9041, 52.3676],
-  brussels: [4.3517, 50.8503],
-  vienna: [16.3738, 48.2082],
-  copenhagen: [12.5683, 55.6761],
-  dublin: [-6.2603, 53.3498],
-  barcelona: [2.1734, 41.3851],
-  munich: [11.582, 48.1351],
-  prague: [14.4378, 50.0755],
-  brno: [16.6068, 49.1951],
-  milan: [9.19, 45.4642],
-  florence: [11.2558, 43.7696],
-  salzburg: [13.055, 47.8095],
-  innsbruck: [11.4041, 47.2692],
-  antwerp: [4.4024, 51.2194],
-  seville: [-5.9845, 37.3891],
-};
+/**
+ * Extract map center coordinates from city data.
+ * Priority: overview.coordinates > average of attraction coords > fallback.
+ */
+function getCityCenter(cityData, cityName) {
+  // 1. Try overview coordinates
+  const ov = cityData?.overview;
+  if (ov?.coordinates) {
+    if (Array.isArray(ov.coordinates) && ov.coordinates.length >= 2) {
+      return ov.coordinates; // [lon, lat]
+    }
+    if (ov.coordinates.latitude && ov.coordinates.longitude) {
+      return [ov.coordinates.longitude, ov.coordinates.latitude];
+    }
+  }
+
+  // 2. Try averaging attraction coordinates
+  const sites = cityData?.attractions?.sites;
+  if (sites && Array.isArray(sites)) {
+    const withCoords = sites.filter(s => s.latitude && s.longitude);
+    if (withCoords.length > 0) {
+      const avgLon = withCoords.reduce((sum, s) => sum + s.longitude, 0) / withCoords.length;
+      const avgLat = withCoords.reduce((sum, s) => sum + s.latitude, 0) / withCoords.length;
+      return [avgLon, avgLat];
+    }
+  }
+
+  // 3. Try generated city list data
+  try {
+    const { cityById } = require('@/generated/cityIndex');
+    const match = cityById[cityName?.toLowerCase()];
+    if (match?.longitude && match?.latitude) {
+      return [match.longitude, match.latitude];
+    }
+  } catch { /* generated data not available yet */ }
+
+  return DEFAULT_CENTER;
+}
 
 function CityPageClient({ cityData, cityName }) {
   const [activeTab, setActiveTab] = useState('starthere');
@@ -130,9 +133,10 @@ function CityPageClient({ cityData, cityName }) {
     [monthlyData]
   );
 
-  const center = cityName && typeof cityName === 'string' 
-    ? CITY_COORDINATES[cityName.toLowerCase()] || DEFAULT_COORDINATES.default
-    : DEFAULT_COORDINATES.default;
+  const center = useMemo(
+    () => getCityCenter(cityData, cityName),
+    [cityData, cityName]
+  );
 
   const tabs = useMemo(() => [
     { id: 'starthere', label: 'Start Here', icon: '🚀' },

@@ -79,6 +79,20 @@ export async function generateMetadata({ params }) {
     ? rawDescription.substring(0, 152) + '...'
     : rawDescription;
 
+  // Try to find an OG image for this city
+  const ogImageCandidates = [
+    `/images/city-page/${country}/${city}-hero.jpeg`,
+    `/images/city-thumbnail/${country}/${city}-thumbnail.jpeg`,
+  ];
+  let ogImage = null;
+  for (const candidate of ogImageCandidates) {
+    const fullPath = path.join(process.cwd(), 'public', candidate);
+    if (await pathExists(fullPath)) {
+      ogImage = `https://eurotrip-planner.vercel.app${candidate}`;
+      break;
+    }
+  }
+
   return {
     title: `${cityName}, ${country} — Travel Guide & Best Time to Visit`,  // template appends " | EuroTrip Planner"
     description: metaDescription,
@@ -87,11 +101,13 @@ export async function generateMetadata({ params }) {
       description: metaDescription,
       type: 'article',
       url: `https://eurotrip-planner.vercel.app/city-guides/${city}`,
+      ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630, alt: `${cityName}, ${country}` }] }),
     },
     twitter: {
       card: 'summary_large_image',
       title: `${cityName}, ${country} — Travel Guide`,
       description: metaDescription,
+      ...(ogImage && { images: [ogImage] }),
     },
     alternates: {
       canonical: `https://eurotrip-planner.vercel.app/city-guides/${city}`,
