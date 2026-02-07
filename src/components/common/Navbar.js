@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { Disclosure } from '@headlessui/react';
+import SearchBar from './SearchBar';
 
 const NAV_LINKS = [
   { label: 'City Guides', href: '/city-guides' },
@@ -69,8 +70,9 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Desktop auth + mobile hamburger */}
+              {/* Search + auth + mobile hamburger */}
               <div className="flex items-center gap-3">
+                <SearchBar />
                 {/* Auth button (always visible) */}
                 <div className="hidden md:block">
                   {user ? (
