@@ -4,16 +4,67 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "score": 3,
           "special": true,
           "event": "Three Kings' Day",
-          "notes": "Spanish Christmas season continues through Three Kings (January 6), festive atmosphere with parades and celebrations"
+          "notes": "Spanish Christmas season continues through Three Kings (January 6), festive atmosphere with parades and celebrations",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
-          "notes": "Low season with fewer tourists, shorter lines at major attractions, winter sales (rebajas) begin"
+          "notes": "Low season with fewer tourists, shorter lines at major attractions, winter sales (rebajas) begin",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 13,
@@ -24,16 +75,64 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
           "score": 4,
-          "notes": "Mild winter weather, fewer crowds at major attractions, excellent museum opportunities"
+          "notes": "Mild winter weather, fewer crowds at major attractions, excellent museum opportunities",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
         },
         {
-          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 4,
           "special": true,
           "event": "Barcelona Carnival",
-          "notes": "Colorful parades, costumes, and festivities throughout the city, increased local celebrations"
+          "notes": "Colorful parades, costumes, and festivities throughout the city, increased local celebrations",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 14,
@@ -44,21 +143,82 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 4,
-          "notes": "Early spring temperatures, blooming trees in parks, pleasant conditions for city exploration"
+          "notes": "Early spring temperatures, blooming trees in parks, pleasant conditions for city exploration",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
           "score": 5,
           "special": true,
           "event": "Saint Joseph's Day",
-          "notes": "Las Fallas celebrations nearby, cultural events and traditional pastries"
+          "notes": "Las Fallas celebrations nearby, cultural events and traditional pastries",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
-          "notes": "Spring begins, café terraces fill up, excellent weather for walking and outdoor activities"
+          "notes": "Spring begins, café terraces fill up, excellent weather for walking and outdoor activities",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 16,
@@ -69,28 +229,98 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
           "score": 5,
           "special": true,
           "event": "Easter Week (Semana Santa)",
-          "notes": "Religious processions, special events, increased domestic tourism, some business closures"
+          "notes": "Religious processions, special events, increased domestic tourism, some business closures",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+          "days": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
           "score": 5,
-          "notes": "Beautiful spring weather, flowers blooming in parks, ideal conditions for sightseeing"
+          "notes": "Beautiful spring weather, flowers blooming in parks, ideal conditions for sightseeing",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [23],
+          "days": [
+            23
+          ],
           "score": 5,
           "special": true,
           "event": "Sant Jordi Day",
-          "notes": "Catalan celebration of books and roses, streets filled with book stalls and flower vendors"
+          "notes": "Catalan celebration of books and roses, streets filled with book stalls and flower vendors",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Pleasant temperatures, perfect for beach walks and outdoor dining"
+          "notes": "Pleasant temperatures, perfect for beach walks and outdoor dining",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 18,
@@ -101,23 +331,84 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 4,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday, many businesses closed but festive gatherings in public spaces"
+          "notes": "Public holiday, many businesses closed but festive gatherings in public spaces",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 2,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
-          "notes": "Perfect spring weather, ideal for exploring neighborhoods and parks"
+          "notes": "Perfect spring weather, ideal for exploring neighborhoods and parks",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Primavera Sound Festival",
-          "notes": "Major international music festival with performances across the city"
+          "notes": "Major international music festival with performances across the city",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 22,
@@ -128,21 +419,81 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
           "score": 5,
-          "notes": "Early summer conditions, beach season begins, outdoor dining in full swing"
+          "notes": "Early summer conditions, beach season begins, outdoor dining in full swing",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [23, 24],
+          "days": [
+            23,
+            24
+          ],
           "score": 5,
           "special": true,
           "event": "Sant Joan Festival",
-          "notes": "Summer solstice celebration with bonfires, fireworks and all-night beach parties"
+          "notes": "Summer solstice celebration with bonfires, fireworks and all-night beach parties",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [25, 26, 27, 28, 29, 30],
+          "days": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Summer tourism increases, beaches become more crowded, vibrant city atmosphere"
+          "notes": "Summer tourism increases, beaches become more crowded, vibrant city atmosphere",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 25,
@@ -153,16 +504,67 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
           "score": 4,
-          "notes": "Peak summer heat, crowded attractions, beaches at capacity, vibrant nightlife"
+          "notes": "Peak summer heat, crowded attractions, beaches at capacity, vibrant nightlife",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Festa Major de Gràcia Preparation",
-          "notes": "Neighborhoods preparing for upcoming festivals, streets beginning to be decorated"
+          "notes": "Neighborhoods preparing for upcoming festivals, streets beginning to be decorated",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 28,
@@ -173,28 +575,99 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 3,
-          "notes": "Hottest month, many locals leave for vacation, some small businesses closed"
+          "notes": "Hottest month, many locals leave for vacation, some small businesses closed",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Assumption Day",
-          "notes": "Public holiday, significant business closures throughout the city"
+          "notes": "Public holiday, significant business closures throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 2
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
           "score": 4,
           "special": true,
           "event": "Festa Major de Gràcia",
-          "notes": "Neighborhood festival with decorated streets, live music, and cultural activities"
+          "notes": "Neighborhood festival with decorated streets, live music, and cultural activities",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 1,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
-          "notes": "High tourist season continues, crowded attractions, lively beach scene"
+          "notes": "High tourist season continues, crowded attractions, lively beach scene",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 29,
@@ -205,28 +678,98 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 4,
-          "notes": "Warm temperatures continue, slightly fewer tourists than August"
+          "notes": "Warm temperatures continue, slightly fewer tourists than August",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [11],
+          "days": [
+            11
+          ],
           "score": 5,
           "special": true,
           "event": "La Diada (Catalonia National Day)",
-          "notes": "Political demonstrations, cultural events, public holiday in Catalonia"
+          "notes": "Political demonstrations, cultural events, public holiday in Catalonia",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 2,
+            "luxury": 2
+          }
         },
         {
-          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 5,
           "special": true,
           "event": "La Mercè Festival",
-          "notes": "Barcelona's main annual festival with human towers, giants, fire runs, and concerts"
+          "notes": "Barcelona's main annual festival with human towers, giants, fire runs, and concerts",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Perfect late summer weather, locals return, city atmosphere normalizes"
+          "notes": "Perfect late summer weather, locals return, city atmosphere normalizes",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 26,
@@ -237,23 +780,84 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
           "score": 5,
-          "notes": "Mild autumn weather, ideal conditions for sightseeing and outdoor activities"
+          "notes": "Mild autumn weather, ideal conditions for sightseeing and outdoor activities",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [12],
+          "days": [
+            12
+          ],
           "score": 4,
           "special": true,
           "event": "Spanish National Day",
-          "notes": "Public holiday, military parade, some business closures"
+          "notes": "Public holiday, military parade, some business closures",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 2,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Barcelona Jazz Festival",
-          "notes": "International jazz performances at venues throughout the city"
+          "notes": "International jazz performances at venues throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 22,
@@ -264,16 +868,66 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day",
-          "notes": "Public holiday, many businesses closed, cemetery visits traditional"
+          "notes": "Public holiday, many businesses closed, cemetery visits traditional",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 2,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Low season begins, fewer crowds at major attractions, mild autumn weather"
+          "notes": "Low season begins, fewer crowds at major attractions, mild autumn weather",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 17,
@@ -284,37 +938,118 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
           "score": 4,
           "special": true,
           "event": "Constitution Day and Immaculate Conception",
-          "notes": "Public holidays on 6th and 8th creating a long weekend, festive atmosphere begins"
+          "notes": "Public holidays on 6th and 8th creating a long weekend, festive atmosphere begins",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets",
-          "notes": "Fira de Santa Llúcia and other Christmas markets, holiday decorations throughout the city"
+          "notes": "Fira de Santa Llúcia and other Christmas markets, holiday decorations throughout the city",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [24, 25, 26],
+          "days": [
+            24,
+            25,
+            26
+          ],
           "score": 3,
           "special": true,
           "event": "Christmas and Sant Esteve",
-          "notes": "Family celebrations, limited business hours, traditional meals of escudella i carn d'olla and canelons"
+          "notes": "Family celebrations, limited business hours, traditional meals of escudella i carn d'olla and canelons",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 3,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [27, 28, 29, 30],
+          "days": [
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Holiday week between Christmas and New Year's, increased tourism"
+          "notes": "Holiday week between Christmas and New Year's, increased tourism",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "New Year's Eve",
-          "notes": "Celebrations in Plaça Catalunya and throughout the city, tradition of eating 12 grapes at midnight"
+          "notes": "Celebrations in Plaça Catalunya and throughout the city, tradition of eating 12 grapes at midnight",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 14,
@@ -362,10 +1097,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
 }

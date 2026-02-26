@@ -1,1 +1,3396 @@
-{"city":"trieste","country":"Italy","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "trieste",
+  "country": "Italy",
+  "overview": {
+    "city_name": "Trieste",
+    "country": "Italy",
+    "brief_description": "Trieste is a captivating port city perched on the northeastern edge of Italy, where the Adriatic Sea meets a rich blend of Italian, Slavic, and Austro-Hungarian cultures. Known for its elegant architecture, vibrant café culture, and scenic waterfront, Trieste offers a unique mix of history and natural beauty.",
+    "nickname": "The City of Coffee",
+    "region": "Friuli Venezia Giulia",
+    "population": "approximately 204,000",
+    "why_visit": [
+      "Explore the stunning Miramare Castle overlooking the Adriatic Sea",
+      "Experience the historic cafés that inspired writers like James Joyce",
+      "Discover unique Austro-Hungarian architecture blended with Mediterranean charm",
+      "Enjoy panoramic views from the Carso plateau and the bustling Piazza Unità d’Italia"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and ideal for seaside activities and outdoor exploration",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming flowers make it perfect for walking tours and visiting gardens.",
+      "summer": "Warm, sunny days ideal for beach outings and waterfront dining, though it can be busy with tourists.",
+      "autumn": "Pleasant weather with fewer crowds; a great time for cultural festivals and wine tasting in the surrounding hills.",
+      "winter": "Cooler and quieter, with a chance to enjoy cozy cafés and local cuisine without the tourist rush."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Italian (primary), with widespread knowledge of Slovene and English",
+      "visit_duration": "2-3 days to fully appreciate the main sights and local atmosphere",
+      "getting_around": "Efficient bus network, walking for city center exploration, and taxis available; car rental recommended for exploring surrounding regions",
+      "safety": "Generally very safe with low crime, though usual precautions apply in crowded tourist areas"
+    },
+    "coordinates": {
+      "latitude": 45.6495,
+      "longitude": 13.7768
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Miramare Castle and its botanical gardens",
+        "Stroll along the Piazza Unità d’Italia, Europe’s largest sea-facing square",
+        "Explore the historic cafés such as Caffè San Marco and Caffè Tommaseo",
+        "Discover the Roman Theatre and other archaeological sites",
+        "Walk the scenic waterfront promenade and enjoy seafood at local restaurants"
+      ],
+      "worth_doing": [
+        "Tour the Museo Revoltella for modern art",
+        "Hike in the Carso Triestino plateau for unique limestone landscapes",
+        "Visit the Jewish Museum of Trieste",
+        "Explore the old port area and its maritime museums",
+        "Attend a performance at the Teatro Romano or Teatro Verdi"
+      ],
+      "hidden_gems": [
+        "Discover the quaint village of Muggia, just a short drive from Trieste",
+        "Visit Grotta Gigante, one of the world’s largest show caves nearby",
+        "Explore the old Austro-Hungarian military bunkers on the Karst plateau",
+        "Check out the local markets for fresh produce and artisan goods",
+        "Relax at the Barcola seaside promenade favored by locals"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Piazza Unità d'Italia",
+        "type": "Historic Site",
+        "description": "Piazza Unità d'Italia is the largest sea-facing square in Europe, surrounded by grand palaces and offering stunning views of the Adriatic Sea. It has been the heart of Trieste's social and political life since the 19th century, hosting events and festivals throughout the year.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful all year, especially vibrant during summer festivals",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 45.6494,
+        "longitude": 13.7768,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8",
+            "30",
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Enjoy nearby indoor cafes or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Castello di Miramare",
+        "type": "Palace",
+        "description": "Built in the 19th century for Archduke Ferdinand Maximilian of Habsburg, Miramare Castle stands on a rocky promontory overlooking the Gulf of Trieste. The castle features beautifully preserved interiors with original furnishings and expansive romantic gardens with exotic plants.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Gardens stunning in spring and summer; castle open year-round with some holiday closures",
+        "booking_tips": "Advance tickets recommended during peak season to avoid queues",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6767,
+        "longitude": 13.6797,
+        "neighborhood": "Miramare",
+        "opening_hours": {
+          "weekday": "9:00–19:00",
+          "weekend": "9:00–19:00",
+          "notes": "Last admission one hour before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Castle interior visit if weather is poor"
+        },
+        "official_url": "https://www.miramare.beniculturali.it",
+        "website": "https://www.miramare.beniculturali.it"
+      },
+      {
+        "name": "Teatro Romano",
+        "type": "Historic Site",
+        "description": "This ancient Roman theater dates back to the 1st century AD and is located at the foot of San Giusto hill. Partially excavated and restored, it offers a fascinating glimpse into Trieste’s Roman heritage and occasionally hosts cultural events in summer.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; best visited in dry weather",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6468,
+        "longitude": 13.7713,
+        "neighborhood": "San Giusto",
+        "opening_hours": {
+          "weekday": "9:00–18:00",
+          "weekend": "9:00–18:00",
+          "notes": "Seasonal variations possible"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby Museo Archeologico"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo Revoltella",
+        "type": "Museum",
+        "description": "Museo Revoltella is Trieste’s modern art museum, showcasing 19th and 20th-century Italian and European artworks. Housed in a historic palazzo, it includes paintings, sculptures, and an impressive collection of works by Triestine artists.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be purchased onsite; guided tours available on request",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6499,
+        "longitude": 13.7761,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "10:00–18:00",
+          "weekend": "10:00–18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum, ideal for rainy days"
+        },
+        "official_url": "https://www.museorevoltella.it",
+        "website": "https://www.museorevoltella.it"
+      },
+      {
+        "name": "San Giusto Cathedral",
+        "type": "Church",
+        "description": "San Giusto Cathedral is a historic religious complex atop San Giusto hill, featuring a mix of Romanesque and Gothic architecture. The cathedral is renowned for its beautiful mosaics, frescoes, and panoramic views over the city and sea.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; special religious services during holidays",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 45.6462,
+        "longitude": 13.7734,
+        "neighborhood": "San Giusto",
+        "opening_hours": {
+          "weekday": "9:00–12:00, 15:00–18:00",
+          "weekend": "9:00–12:00, 15:00–18:00",
+          "notes": "Hours may vary during religious events"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor church visit"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Civico Museo di Storia ed Arte",
+        "type": "Museum",
+        "description": "This city museum offers a comprehensive overview of Trieste’s history, from prehistoric times to the modern era, with archaeological finds, historical artifacts, and art pieces. It's located in a historic building near the city center.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Entry tickets available onsite; check for guided tours",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6487,
+        "longitude": 13.7763,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "10:00–18:00",
+          "weekend": "10:00–18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Perfect indoor option"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Grotta Gigante",
+        "type": "Natural Site",
+        "description": "Grotta Gigante is one of the world’s largest tourist caves, located just outside Trieste. Visitors can explore vast chambers adorned with impressive stalactites and stalagmites, guided tours reveal fascinating geological history.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round; cave temperature steady around 11°C",
+        "booking_tips": "Advance booking recommended for groups and weekends",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6968,
+        "longitude": 13.6603,
+        "neighborhood": "Dolina",
+        "opening_hours": {
+          "weekday": "9:00–17:00",
+          "weekend": "9:00–17:00",
+          "notes": "Last admission 45 minutes before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Not recommended for poor mobility"
+        },
+        "official_url": "https://www.grottagigante.it",
+        "website": "https://www.grottagigante.it"
+      },
+      {
+        "name": "Canal Grande",
+        "type": "Historic Site",
+        "description": "The Canal Grande is a picturesque waterway in Trieste’s city center, lined by elegant buildings, cafes, and the famous Church of Sant'Antonio Nuovo. It is a lively spot ideal for strolling and people-watching with charming reflections of the city’s Austro-Hungarian past.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant all year; outdoor cafes busiest in warmer months",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6478,
+        "longitude": 13.7741,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor galleries or cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Civico Museo Teatrale Carlo Schmidl",
+        "type": "Museum",
+        "description": "Dedicated to the theatrical arts, this museum preserves costumes, set designs, and memorabilia from Trieste’s rich opera and theater history. Located near the Teatro Verdi, it offers an insightful journey into local performing arts traditions.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available on-site; check for special exhibitions",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.648,
+        "longitude": 13.7749,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "10:00–17:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays and Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Barcola Promenade",
+        "type": "Park",
+        "description": "A beloved waterfront promenade stretching along the Gulf of Trieste, Barcola is perfect for walking, cycling, and sunbathing in the warmer months. The area is dotted with small beaches, cafes, and offers panoramic sea views with a lively local atmosphere.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best from late spring to early autumn; swimming season in summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 45.6605,
+        "longitude": 13.784,
+        "neighborhood": "Barcola",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Choose nearby indoor cafes or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Cattedrale di San Spiridione",
+        "type": "Church",
+        "description": "This Serbian Orthodox cathedral stands out with its distinctive Byzantine architecture and rich iconography. Built in the 19th century, it reflects the multicultural heritage of Trieste’s port city past.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; occasional religious services",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6461,
+        "longitude": 13.7767,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "9:00–12:00, 15:00–18:00",
+          "weekend": "9:00–12:00, 15:00–18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor church visit"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Faro della Vittoria",
+        "type": "Monument",
+        "description": "The Victory Lighthouse is a monumental lighthouse built after World War I to honor the fallen soldiers. It stands tall with striking architecture and offers scenic views of the city and sea from its base.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in clear weather for panoramic views",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 45.6523,
+        "longitude": 13.7637,
+        "neighborhood": "Gretta",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby Museo del Mare indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo del Mare (Maritime Museum)",
+        "type": "Museum",
+        "description": "Located in the Old Port, this maritime museum explores Trieste’s rich seafaring history with exhibits including ship models, nautical instruments, and historic documents. It offers an intimate look at the city’s relationship with the Adriatic Sea.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available onsite; check opening hours in winter",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.6469,
+        "longitude": 13.7738,
+        "neighborhood": "Porto Vecchio",
+        "opening_hours": {
+          "weekday": "10:00–17:00",
+          "weekend": "10:00–17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum suitable for rainy days"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Mercato Coperto di Trieste (Covered Market)",
+        "type": "Market",
+        "description": "This lively covered market is the best place to sample local food specialties, fresh produce, and regional products. It’s a vibrant hub for locals and visitors alike, showcasing Trieste’s culinary diversity and Mediterranean influences.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Fresh seasonal produce available throughout the year",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.649,
+        "longitude": 13.7781,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "7:00–14:00",
+          "weekend": "7:00–14:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market perfect for any weather"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Parco di Villa Revoltella",
+        "type": "Park",
+        "description": "Surrounding Museo Revoltella, this elegant 19th-century park features landscaped gardens, statues, and shaded paths, ideal for a leisurely stroll or picnic. It also offers views over the city and a peaceful escape from urban bustle.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and summer when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.6498,
+        "longitude": 13.7769,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit museum inside if rainy"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Punta Sdobba (Viewpoint)",
+        "type": "Viewpoint",
+        "description": "Punta Sdobba is a scenic cliffside spot offering breathtaking views of the Adriatic Sea, the Gulf of Trieste, and nearby Slovenia. It’s a quieter alternative to more touristy lookouts and perfect for sunset watchers and nature lovers.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Best in clear weather; accessible year-round",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 2
+        },
+        "latitude": 45.6665,
+        "longitude": 13.704,
+        "neighborhood": "Barcola",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Choose indoor dining nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Teatro Verdi",
+        "type": "Theater",
+        "description": "Teatro Verdi is Trieste’s historic opera house, opened in 1801 and named after composer Giuseppe Verdi. The theater hosts operas, ballets, and concerts, featuring a richly decorated interior and excellent acoustics.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Premium",
+        "seasonal_notes": "Seasonal programming from autumn to spring",
+        "booking_tips": "Book tickets in advance, especially for popular performances",
+        "ratings": {
+          "cost_estimate": 30,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 5
+        },
+        "latitude": 45.6492,
+        "longitude": 13.7763,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Varies with performances",
+          "weekend": "Varies with performances",
+          "notes": "Box office hours typically 10:00–18:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "8",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor theater"
+        },
+        "official_url": "https://www.teatroverdi-trieste.it",
+        "website": "https://www.teatroverdi-trieste.it"
+      },
+      {
+        "name": "Civico Museo Sartorio",
+        "type": "Museum",
+        "description": "This small but elegant historic house museum displays a rich collection of art, antiques, and decorative objects collected by the Sartorio family, offering insight into Trieste’s bourgeois life in the late 19th and early 20th centuries.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Limited opening hours; check ahead before visit",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.6497,
+        "longitude": 13.7747,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "10:00–14:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays and weekends"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Piazza Unità d'Italia",
+        "alternate_names": [
+          "City Center",
+          "Main Square"
+        ],
+        "character": "This grand square is the beating heart of Trieste, pulsating with historic grandeur and lively urban energy. It offers stunning sea views and is the perfect spot to feel the city's vibrant pulse.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of Trieste, directly facing the Adriatic Sea.",
+          "borders": [
+            "Borgo Teresiano",
+            "San Vito",
+            "Barcola"
+          ],
+          "landmarks": [
+            "Piazza Unità d'Italia",
+            "Palazzo del Municipio",
+            "Palazzo del Governo"
+          ]
+        },
+        "history": {
+          "overview": "Developed during the Austro-Hungarian Empire era, this square has been a civic and cultural hub since the 19th century.",
+          "significance": "It represents Trieste’s historical role as a major port city and cultural crossroads of Europe.",
+          "notable_events": [
+            "Inauguration of Piazza Unità in 1861",
+            "World War I and II military parades",
+            "Annual Trieste International Film Festival events"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Piazza Unità bus stops",
+            "Trieste Centrale station (walking distance)"
+          ],
+          "safety": "High safety with regular patrols and busy crowds",
+          "best_time_to_visit": "Spring through early autumn for outdoor cafes and events",
+          "walkability": "Extremely walkable with wide pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Seaside views",
+            "Historic architecture",
+            "Open-air cafes",
+            "Public events",
+            "Cultural festivals"
+          ],
+          "atmosphere": [
+            "Elegant",
+            "Bustling",
+            "Picturesque"
+          ],
+          "best_for": [
+            "Sightseers",
+            "Photographers",
+            "Couples",
+            "Cultural travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Piazza Unità d'Italia",
+              "type": "Public Square",
+              "description": "Europe’s largest sea-facing piazza, surrounded by ornate civic buildings.",
+              "appeal": "Iconic spot for architecture and waterfront ambiance."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Caffè degli Specchi",
+              "cuisine": "Italian, Coffeehouse",
+              "price_range": "€€",
+              "known_for": "Historic café culture and pastries",
+              "atmosphere": "Elegant, traditional, lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the piazza before it fills with tourists.",
+          "Sit at a café terrace to watch the sunset over the Adriatic.",
+          "Check the events calendar for open-air concerts and festivals."
+        ]
+      },
+      {
+        "name": "Borgo Teresiano",
+        "alternate_names": [
+          "Teresian Quarter"
+        ],
+        "character": "A harmonious blend of neoclassical architecture and modern boutiques, Borgo Teresiano buzzes with intellectual and artistic energy. It’s a hotspot for locals and visitors seeking stylish cafes, artisan shops, and cultural landmarks.",
+        "location": {
+          "central": true,
+          "description": "Just east of Piazza Unità, stretching inland from the waterfront.",
+          "borders": [
+            "Piazza Unità d'Italia",
+            "San Giusto",
+            "San Vito"
+          ],
+          "landmarks": [
+            "Canal Grande",
+            "Synagogue of Trieste",
+            "Teatro Verdi"
+          ]
+        },
+        "history": {
+          "overview": "Built in the 18th century during Maria Theresa’s reign as a planned expansion of the city.",
+          "significance": "Represents Trieste’s Austro-Hungarian architectural heritage and urban development.",
+          "notable_events": [
+            "Construction during late 1700s",
+            "Jewish community establishment",
+            "Cultural renaissance in 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Piazza Goldoni bus stops",
+            "Canal Grande tram stops"
+          ],
+          "safety": "Very safe with a strong community presence",
+          "best_time_to_visit": "Year-round, especially spring and autumn",
+          "walkability": "Highly walkable with pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic canals",
+            "Synagogue",
+            "Theatre performances",
+            "Boutique shopping",
+            "Cafés"
+          ],
+          "atmosphere": [
+            "Charming",
+            "Sophisticated",
+            "Creative"
+          ],
+          "best_for": [
+            "Art lovers",
+            "Shoppers",
+            "History enthusiasts",
+            "Couples"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Canal Grande",
+              "type": "Waterfront Canal",
+              "description": "A picturesque canal lined with cafes and historic buildings.",
+              "appeal": "Ideal for scenic strolls and photos."
+            },
+            {
+              "name": "Synagogue of Trieste",
+              "type": "Religious Site",
+              "description": "One of Europe’s largest and most beautiful synagogues.",
+              "appeal": "Architectural grandeur and cultural insight."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Buffet da Pepi",
+              "cuisine": "Traditional Triestine",
+              "price_range": "€€",
+              "known_for": "Local meats and hearty fare",
+              "atmosphere": "Rustic, authentic, convivial"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Try an aperitivo along the Canal Grande in early evening.",
+          "Visit Teatro Verdi for a classical music or opera performance.",
+          "Explore small artisan shops hidden on side streets."
+        ]
+      },
+      {
+        "name": "Civico Museo del Mare / San Giusto",
+        "alternate_names": [
+          "San Giusto Hill Area"
+        ],
+        "character": "Steeped in history and quiet charm, this neighborhood embraces its medieval roots with the imposing San Giusto Castle and Cathedral. It’s a contemplative area where history buffs and peaceful walkers come to explore Trieste’s origins.",
+        "location": {
+          "central": true,
+          "description": "Southwest of the city center, atop San Giusto Hill.",
+          "borders": [
+            "Borgo Teresiano",
+            "San Vito",
+            "Barriera Vecchia"
+          ],
+          "landmarks": [
+            "San Giusto Cathedral",
+            "San Giusto Castle",
+            "Archaeological Museum"
+          ]
+        },
+        "history": {
+          "overview": "A historic core dating back to Roman and medieval times, preserving Trieste’s ancient past.",
+          "significance": "The birthplace of the city’s religious and military heritage.",
+          "notable_events": [
+            "Roman settlement",
+            "Medieval castle construction",
+            "World War II observations"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "San Giusto bus stops"
+          ],
+          "safety": "Very safe, mostly quiet residential and tourist area",
+          "best_time_to_visit": "Spring and autumn for pleasant climbing weather",
+          "walkability": "Moderate; some steep inclines and stairs"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic castle",
+            "Cathedral",
+            "Panoramic views",
+            "Archaeological sites"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Tranquil",
+            "Scenic"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Families",
+            "Photographers",
+            "Hikers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "San Giusto Castle",
+              "type": "Historic Fortification",
+              "description": "A medieval fortress offering spectacular views over Trieste and the sea.",
+              "appeal": "Explore the fortress museum and battlements."
+            },
+            {
+              "name": "San Giusto Cathedral",
+              "type": "Religious Site",
+              "description": "An ancient cathedral with mosaics and Romanesque architecture.",
+              "appeal": "A serene place rich in religious art and history."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Antico Caffè San Marco",
+              "cuisine": "Italian, Central European",
+              "price_range": "€€",
+              "known_for": "Historic café ambiance and literary heritage",
+              "atmosphere": "Cozy, intellectual, vintage"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Wear comfortable shoes for the uphill walk to the castle.",
+          "Visit the archaeological museum for Roman-era artifacts.",
+          "Enjoy sunset views from the castle walls."
+        ]
+      },
+      {
+        "name": "Barcola",
+        "alternate_names": [
+          "Seaside Promenade Area"
+        ],
+        "character": "A sun-drenched, relaxed neighborhood famous for its seaside promenade and outdoor lifestyle. Barcola is where locals come to swim, jog, and enjoy the Adriatic breeze amid lush greenery.",
+        "location": {
+          "central": false,
+          "description": "A coastal stretch northwest along the sea, about 3 km from city center.",
+          "borders": [
+            "Piazza Unità d'Italia",
+            "Roiano",
+            "Gretta"
+          ],
+          "landmarks": [
+            "Barcola promenade",
+            "Trieste Lighthouse",
+            "Natural cliffs and beaches"
+          ]
+        },
+        "history": {
+          "overview": "Historically a fishing and leisure area, Barcola evolved into a favorite local retreat.",
+          "significance": "Reflects Trieste’s connection to the sea and outdoor culture.",
+          "notable_events": [
+            "Development of seaside resorts in early 20th century",
+            "Annual swimming competitions"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Barcola bus stops"
+          ],
+          "safety": "Very safe, family-friendly",
+          "best_time_to_visit": "Summer months for beach activities",
+          "walkability": "Highly walkable along the promenade"
+        },
+        "appeal": {
+          "known_for": [
+            "Seaside promenade",
+            "Sunbathing spots",
+            "Outdoor sports",
+            "Seafood dining",
+            "Sunsets"
+          ],
+          "atmosphere": [
+            "Relaxed",
+            "Inviting",
+            "Scenic"
+          ],
+          "best_for": [
+            "Families",
+            "Outdoor enthusiasts",
+            "Beach lovers",
+            "Casual travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Barcola Promenade",
+              "type": "Seaside Walkway",
+              "description": "A scenic coastal path popular for walking, running, and swimming access.",
+              "appeal": "Perfect for leisurely seaside strolls and local atmosphere."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ristorante Al Bagatto",
+              "cuisine": "Seafood, Italian",
+              "price_range": "€€€",
+              "known_for": "Fresh Adriatic seafood and waterfront views",
+              "atmosphere": "Casual, bright, family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Bring swimwear year-round; locals swim even in cooler months.",
+          "Try the gelato from kiosks along the promenade.",
+          "Visit early morning for a peaceful sunrise by the sea."
+        ]
+      },
+      {
+        "name": "Città Vecchia (Old Town)",
+        "alternate_names": [
+          "Historic Center"
+        ],
+        "character": "Cobblestone streets wind through a maze of medieval buildings, hidden piazzas, and centuries-old churches. The Old Town exudes an atmospheric historic charm where every corner tells a story.",
+        "location": {
+          "central": true,
+          "description": "Southwest of Piazza Unità, nestled beneath San Giusto Hill.",
+          "borders": [
+            "San Giusto",
+            "Borgo Teresiano"
+          ],
+          "landmarks": [
+            "Roman Theatre",
+            "Piazza della Borsa",
+            "Church of Sant'Antonio Nuovo"
+          ]
+        },
+        "history": {
+          "overview": "The original heart of ancient Trieste with roots going back to Roman and medieval times.",
+          "significance": "Preserves the city’s oldest streetscapes and cultural heritage.",
+          "notable_events": [
+            "Roman Empire settlement",
+            "Medieval trade hub",
+            "Renaissance architectural developments"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Porto Vecchio bus stops"
+          ],
+          "safety": "Generally safe, some narrow alleys require attention at night",
+          "best_time_to_visit": "Spring and early fall to avoid tourist peak",
+          "walkability": "Highly walkable but some uneven cobblestones"
+        },
+        "appeal": {
+          "known_for": [
+            "Roman ruins",
+            "Medieval architecture",
+            "Quaint piazzas",
+            "Boutique shops",
+            "Authentic eateries"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Quaint",
+            "Intimate"
+          ],
+          "best_for": [
+            "History lovers",
+            "Couples",
+            "Photographers",
+            "Cultural travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Roman Theatre of Trieste",
+              "type": "Archaeological Site",
+              "description": "Ruins of a 1st-century Roman theatre nestled in a hillside park.",
+              "appeal": "A rare glimpse into the city’s ancient Roman past."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria Nerodiseppia",
+              "cuisine": "Seafood, Italian",
+              "price_range": "€€",
+              "known_for": "Traditional fish dishes with a modern twist",
+              "atmosphere": "Cozy, rustic, authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy quiet streets and local bakery scents.",
+          "Look for small artisan shops selling handmade souvenirs.",
+          "Combine a visit here with San Giusto Hill for full historic immersion."
+        ]
+      },
+      {
+        "name": "Roiano",
+        "alternate_names": [
+          "Roiano Residential Area"
+        ],
+        "character": "Predominantly residential, Roiano offers a peaceful, local atmosphere with charming homes and small parks. It’s ideal for travelers wanting to experience authentic daily life away from busy tourist zones.",
+        "location": {
+          "central": false,
+          "description": "West of Barcola and northwest of the city center.",
+          "borders": [
+            "Barcola",
+            "Gretta",
+            "San Luigi"
+          ],
+          "landmarks": [
+            "Parco di Roiano",
+            "Local churches",
+            "Community markets"
+          ]
+        },
+        "history": {
+          "overview": "Primarily developed in the 20th century as a suburban residential district.",
+          "significance": "Represents modern Trieste’s growth and local lifestyle.",
+          "notable_events": [
+            "Post-WWII urban expansion",
+            "Community cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Roiano bus stops"
+          ],
+          "safety": "Very safe, family-friendly neighborhood",
+          "best_time_to_visit": "Year-round for authentic local experience",
+          "walkability": "Moderate walkability with some residential streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Quiet streets",
+            "Local markets",
+            "Parks",
+            "Community vibe"
+          ],
+          "atmosphere": [
+            "Calm",
+            "Residential",
+            "Unpretentious"
+          ],
+          "best_for": [
+            "Families",
+            "Long-stay visitors",
+            "Travelers seeking local life"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Parco di Roiano",
+              "type": "Public Park",
+              "description": "A local green space popular for relaxing walks and picnics.",
+              "appeal": "Ideal for quiet nature breaks within the city."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria da Giovanni",
+              "cuisine": "Italian, Home-cooked style",
+              "price_range": "€",
+              "known_for": "Authentic local dishes in a casual setting",
+              "atmosphere": "Friendly, family-run, cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the weekly local market for fresh produce and regional products.",
+          "Use Roiano as a base for exploring nearby Barcola and the city center.",
+          "Try the homemade desserts at family-run trattorias."
+        ]
+      },
+      {
+        "name": "San Giacomo",
+        "alternate_names": [
+          "Food District"
+        ],
+        "character": "A lively neighborhood renowned for its diverse culinary offerings, from traditional Triestine bakeries to international street food. San Giacomo is the go-to area for food lovers seeking authentic flavors and casual dining experiences.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, near the train station.",
+          "borders": [
+            "Borgo Teresiano",
+            "Roiano",
+            "San Luigi"
+          ],
+          "landmarks": [
+            "Mercato Coperto (Covered Market)",
+            "Piazza Foraggi",
+            "Local food stalls"
+          ]
+        },
+        "history": {
+          "overview": "Developed as a working-class neighborhood with strong market traditions.",
+          "significance": "Hosts the city’s main food markets and culinary hubs.",
+          "notable_events": [
+            "Establishment of Mercato Coperto in early 1900s",
+            "Annual food festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Trieste Centrale station",
+            "San Giacomo bus stops"
+          ],
+          "safety": "Generally safe though busy around market hours",
+          "best_time_to_visit": "Morning to early afternoon for market activity",
+          "walkability": "Highly walkable with dense street grid"
+        },
+        "appeal": {
+          "known_for": [
+            "Fresh markets",
+            "Street food",
+            "Bakeries",
+            "Casual eateries",
+            "Local specialties"
+          ],
+          "atmosphere": [
+            "Bustling",
+            "Authentic",
+            "Energetic"
+          ],
+          "best_for": [
+            "Foodies",
+            "Budget travelers",
+            "Locals",
+            "Casual day visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Mercato Coperto",
+              "type": "Indoor Market",
+              "description": "A vibrant covered market offering fresh produce, fish, and local delicacies.",
+              "appeal": "A must-visit spot for authentic Triestine food experiences."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Pasticceria Pirona",
+              "cuisine": "Bakery, Italian Pastries",
+              "price_range": "€",
+              "known_for": "Traditional Triestine sweets like presnitz and putizza",
+              "atmosphere": "Welcoming, historic, artisanal"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Arrive early to get the freshest market picks and avoid crowds.",
+          "Sample local specialties like jota soup and sardoni in saor.",
+          "Explore side streets for hidden food gems away from the main market."
+        ]
+      },
+      {
+        "name": "Ponterosso",
+        "alternate_names": [
+          "Trendy District"
+        ],
+        "character": "An up-and-coming trendy neighborhood, Ponterosso is filled with hip cafes, contemporary art galleries, and creative spaces. It attracts a young, dynamic crowd looking for cutting-edge culture and nightlife.",
+        "location": {
+          "central": true,
+          "description": "Just north of Piazza Unità, along the waterfront and near the port area.",
+          "borders": [
+            "Piazza Unità d'Italia",
+            "Barriera Vecchia",
+            "Borgo Teresiano"
+          ],
+          "landmarks": [
+            "Ponterosso Park",
+            "Contemporary art galleries",
+            "Design shops"
+          ]
+        },
+        "history": {
+          "overview": "Once industrial and port-related warehouses, Ponterosso has transformed into a creative hub since the early 2000s.",
+          "significance": "Symbolizes Trieste’s modern cultural renaissance and youth culture.",
+          "notable_events": [
+            "Conversion of warehouses into galleries",
+            "Annual street art festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Ponterosso bus stops"
+          ],
+          "safety": "Safe with lively evening scenes",
+          "best_time_to_visit": "Evenings and weekends for nightlife and events",
+          "walkability": "Very walkable with flat streets and promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Contemporary art",
+            "Trendy bars",
+            "Live music",
+            "Street art",
+            "Boutique shops"
+          ],
+          "atmosphere": [
+            "Hip",
+            "Creative",
+            "Energetic"
+          ],
+          "best_for": [
+            "Young travelers",
+            "Artists",
+            "Nightlife seekers",
+            "Culture vultures"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Ponterosso Park",
+              "type": "Urban Park",
+              "description": "A green oasis amidst the city’s contemporary art scene.",
+              "appeal": "Great spot to relax between gallery visits."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Barcola Social Club",
+              "cuisine": "International, Cocktails",
+              "price_range": "€€",
+              "known_for": "Creative cocktails and DJ nights",
+              "atmosphere": "Trendy, lively, youthful"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check local listings for pop-up art events and live music nights.",
+          "Visit on a weekend to experience the vibrant café culture.",
+          "Explore side streets for unique design shops and street murals."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Antica Trattoria Suban",
+          "cuisine_type": "Traditional Triestine & Istrian",
+          "description": "Historic restaurant offering refined versions of local dishes like jota and brodetto, emphasizing fresh regional ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant, cozy with old-world charm",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "food connoisseurs"
+          ],
+          "latitude": 45.6495,
+          "longitude": 13.7763,
+          "reservation_needed": true,
+          "local_tips": "Try the homemade gnocchi with wild boar ragù, a local specialty."
+        },
+        {
+          "name": "Al Bagatto",
+          "cuisine_type": "Modern Italian with Triestine influence",
+          "description": "Contemporary dining experience blending traditional Trieste flavors with creative presentations.",
+          "price_range": "€€€",
+          "atmosphere": "Modern, intimate",
+          "neighborhood": "Via San Lazzaro",
+          "best_for": [
+            "date night",
+            "culinary exploration"
+          ],
+          "latitude": 45.6528,
+          "longitude": 13.7802,
+          "reservation_needed": true,
+          "local_tips": "Book in advance and ask for wine pairings featuring local Friuli vineyards."
+        },
+        {
+          "name": "Trattoria Nerodiseppia",
+          "cuisine_type": "Seafood, Mediterranean",
+          "description": "Chic seafood restaurant emphasizing fresh Adriatic catches and classic Triestine fish stews.",
+          "price_range": "€€€",
+          "atmosphere": "Stylish, relaxed",
+          "neighborhood": "Piazza Sant'Antonio Nuovo",
+          "best_for": [
+            "seafood lovers",
+            "small groups",
+            "romantic dinners"
+          ],
+          "latitude": 45.6491,
+          "longitude": 13.7728,
+          "reservation_needed": true,
+          "local_tips": "Try the black cuttlefish risotto, a signature dish."
+        },
+        {
+          "name": "Ristorante Al Bagatto",
+          "cuisine_type": "Italian, Triestine",
+          "description": "Elegant spot known for seasonal menus highlighting local ingredients and traditional recipes with a twist.",
+          "price_range": "€€€",
+          "atmosphere": "Refined, tranquil",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "business dinners",
+            "celebrations"
+          ],
+          "latitude": 45.6467,
+          "longitude": 13.776,
+          "reservation_needed": true,
+          "local_tips": "Their seasonal tasting menu offers a great overview of Trieste’s culinary heritage."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Buffet da Pepi",
+          "cuisine_type": "Traditional Triestine, meat-focused",
+          "description": "Iconic spot famous for its pork-based dishes and hearty local specialties like goulash and cotechino.",
+          "price_range": "€€",
+          "atmosphere": "Rustic, lively",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "groups",
+            "casual lunch",
+            "local experience"
+          ],
+          "latitude": 45.6489,
+          "longitude": 13.7741,
+          "reservation_needed": false,
+          "local_tips": "Arrive early to avoid queues; don’t miss the pork sausages and a glass of local wine."
+        },
+        {
+          "name": "Trattoria Da Giovanni",
+          "cuisine_type": "Traditional Italian, Triestine",
+          "description": "Family-run trattoria offering classic dishes like jota, gnocchi, and fresh seafood at approachable prices.",
+          "price_range": "€€",
+          "atmosphere": "Warm, welcoming",
+          "neighborhood": "Ponterosso",
+          "best_for": [
+            "families",
+            "casual dining",
+            "comfort food"
+          ],
+          "latitude": 45.646,
+          "longitude": 13.779,
+          "reservation_needed": false,
+          "local_tips": "Try the local polenta with stewed meats."
+        },
+        {
+          "name": "Caffè San Marco",
+          "cuisine_type": "Cafe, light meals",
+          "description": "Historic café and bistro serving pastries, sandwiches, and light Triestine dishes in an elegant setting.",
+          "price_range": "€€",
+          "atmosphere": "Literary, cultured",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "breakfast",
+            "coffee breaks",
+            "people watching"
+          ],
+          "latitude": 45.6486,
+          "longitude": 13.7764,
+          "reservation_needed": false,
+          "local_tips": "Try the local 'Presnitz' pastry with a coffee."
+        },
+        {
+          "name": "Trattoria Da Pepi",
+          "cuisine_type": "Traditional meat dishes",
+          "description": "Famous for its pork specialties and authentic atmosphere, a true Triestine institution.",
+          "price_range": "€€",
+          "atmosphere": "Casual, bustling",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "groups",
+            "meat lovers"
+          ],
+          "latitude": 45.649,
+          "longitude": 13.774,
+          "reservation_needed": false,
+          "local_tips": "Pair your meal with a glass of locally produced Terrano wine."
+        },
+        {
+          "name": "Osteria Ai Maestri",
+          "cuisine_type": "Seafood, Italian",
+          "description": "Cozy osteria specializing in fresh seafood and traditional Triestine recipes at moderate prices.",
+          "price_range": "€€",
+          "atmosphere": "Informal, friendly",
+          "neighborhood": "Ponterosso",
+          "best_for": [
+            "casual dinners",
+            "seafood lovers"
+          ],
+          "latitude": 45.6465,
+          "longitude": 13.7782,
+          "reservation_needed": false,
+          "local_tips": "Try the squid ink pasta, a local favorite."
+        },
+        {
+          "name": "Pizzeria da Nando",
+          "cuisine_type": "Pizza, Italian",
+          "description": "Popular local pizzeria offering thin-crust pizzas and casual Italian fare.",
+          "price_range": "€",
+          "atmosphere": "Casual, family-friendly",
+          "neighborhood": "Roiano",
+          "best_for": [
+            "families",
+            "groups",
+            "quick meals"
+          ],
+          "latitude": 45.6543,
+          "longitude": 13.7807,
+          "reservation_needed": false,
+          "local_tips": "Try the 'Margherita' with fresh buffalo mozzarella."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercato Coperto di Trieste",
+          "cuisine_type": "Local produce & street snacks",
+          "description": "Covered market offering fresh local produce, cheeses, cured meats, and ready-to-eat Triestine street food.",
+          "price_range": "€",
+          "atmosphere": "Bustling, authentic",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "quick bites",
+            "sampling local flavors"
+          ],
+          "latitude": 45.6479,
+          "longitude": 13.7745,
+          "reservation_needed": false,
+          "local_tips": "Try a 'frico' (cheese and potato pancake) from one of the market stalls."
+        },
+        {
+          "name": "Panificio Pasticceria Zidarich",
+          "cuisine_type": "Bakery, street snacks",
+          "description": "Famous bakery known for traditional Triestine pastries and savory snacks like 'Strucolo de pomi'.",
+          "price_range": "€",
+          "atmosphere": "Casual, takeaway",
+          "neighborhood": "Roiano",
+          "best_for": [
+            "breakfast",
+            "snacking"
+          ],
+          "latitude": 45.6541,
+          "longitude": 13.781,
+          "reservation_needed": false,
+          "local_tips": "Try the apple strudel and 'Presnitz' for authentic local baked goods."
+        },
+        {
+          "name": "Illy Caffè Kiosk - Piazza Unità d'Italia",
+          "cuisine_type": "Coffee and snacks",
+          "description": "Open-air kiosk serving premium Italian coffee and light snacks in the city’s main square.",
+          "price_range": "€",
+          "atmosphere": "Vibrant, social",
+          "neighborhood": "Piazza Unità d'Italia",
+          "best_for": [
+            "coffee breaks",
+            "people watching"
+          ],
+          "latitude": 45.6496,
+          "longitude": 13.7766,
+          "reservation_needed": false,
+          "local_tips": "Enjoy an espresso al banco (at the counter) for the authentic experience."
+        },
+        {
+          "name": "Gelateria Zampolli",
+          "cuisine_type": "Gelato",
+          "description": "Popular local gelateria offering traditional Italian gelato with seasonal fruit flavors.",
+          "price_range": "€",
+          "atmosphere": "Casual, family-friendly",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "dessert",
+            "families"
+          ],
+          "latitude": 45.6487,
+          "longitude": 13.777,
+          "reservation_needed": false,
+          "local_tips": "Try the pear and walnut gelato, a regional favorite."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Barcola",
+          "cuisine_type": "Cocktails, Wine bar",
+          "description": "Trendy bar known for creative cocktails and an extensive selection of local wines.",
+          "price_range": "€€",
+          "atmosphere": "Hip, lively",
+          "neighborhood": "Barcola",
+          "best_for": [
+            "evening drinks",
+            "socializing"
+          ],
+          "latitude": 45.6642,
+          "longitude": 13.797,
+          "reservation_needed": false,
+          "local_tips": "Try a cocktail featuring the local grappa for a unique twist."
+        },
+        {
+          "name": "Caffè degli Specchi",
+          "cuisine_type": "Historic café and bar",
+          "description": "Elegant historic café offering coffee by day and classic cocktails by night in Piazza Unità d’Italia.",
+          "price_range": "€€",
+          "atmosphere": "Sophisticated, historic",
+          "neighborhood": "Piazza Unità d'Italia",
+          "best_for": [
+            "date night",
+            "cultural experience"
+          ],
+          "latitude": 45.6495,
+          "longitude": 13.7765,
+          "reservation_needed": false,
+          "local_tips": "Sit outside during summer evenings to enjoy the square’s atmosphere."
+        },
+        {
+          "name": "La Bottiglia",
+          "cuisine_type": "Wine bar",
+          "description": "Cozy wine bar specializing in Friulian and Slovenian wines with small snacks and cheeses.",
+          "price_range": "€€",
+          "atmosphere": "Intimate, relaxed",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "wine lovers",
+            "quiet evenings"
+          ],
+          "latitude": 45.6468,
+          "longitude": 13.7773,
+          "reservation_needed": false,
+          "local_tips": "Ask for guided tastings of local wines."
+        },
+        {
+          "name": "Terapia Cocktail Bar",
+          "cuisine_type": "Cocktails",
+          "description": "Modern cocktail bar known for innovative drinks and a dynamic atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Trendy, upbeat",
+          "neighborhood": "Ponterosso",
+          "best_for": [
+            "nightlife",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 45.6471,
+          "longitude": 13.7786,
+          "reservation_needed": true,
+          "local_tips": "Try their signature seasonal cocktails made with local ingredients."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Caffè San Marco",
+          "cuisine_type": "Cafe, traditional pastries",
+          "description": "Historic café and literary hub offering classic Triestine coffee and pastries.",
+          "price_range": "€",
+          "atmosphere": "Cultural, relaxed",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "breakfast",
+            "coffee lovers"
+          ],
+          "latitude": 45.6486,
+          "longitude": 13.7764,
+          "reservation_needed": false,
+          "local_tips": "Try the 'bomba' pastry with your cappuccino."
+        },
+        {
+          "name": "Illy Caffè Piazza Unità",
+          "cuisine_type": "Coffee, light snacks",
+          "description": "Open-air café serving world-renowned Illy coffee blends in the iconic main square.",
+          "price_range": "€",
+          "atmosphere": "Vibrant, social",
+          "neighborhood": "Piazza Unità d'Italia",
+          "best_for": [
+            "coffee breaks",
+            "people watching"
+          ],
+          "latitude": 45.6496,
+          "longitude": 13.7766,
+          "reservation_needed": false,
+          "local_tips": "Order an espresso ‘al banco’ for the authentic local experience."
+        },
+        {
+          "name": "Caffè Tommaseo",
+          "cuisine_type": "Cafe, pastries",
+          "description": "Historic café featuring elegant interiors and a wide selection of pastries and coffees.",
+          "price_range": "€",
+          "atmosphere": "Classic, refined",
+          "neighborhood": "Piazza Tommaseo",
+          "best_for": [
+            "afternoon coffee",
+            "historic ambiance"
+          ],
+          "latitude": 45.6474,
+          "longitude": 13.7768,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal fruit tart with your coffee."
+        },
+        {
+          "name": "Pasticceria La Bomboniera",
+          "cuisine_type": "Bakery, pastries",
+          "description": "Well-known pastry shop offering traditional Triestine sweets and coffee.",
+          "price_range": "€",
+          "atmosphere": "Casual, local favorite",
+          "neighborhood": "Roiano",
+          "best_for": [
+            "sweet tooth",
+            "takeaway"
+          ],
+          "latitude": 45.6538,
+          "longitude": 13.7804,
+          "reservation_needed": false,
+          "local_tips": "The 'Putizza' is a must-try traditional roll."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Trieste Food Walking Tour",
+        "description": "Guided walking tour exploring Trieste’s culinary heritage, local markets, and traditional eateries.",
+        "price_range": "€€",
+        "atmosphere": "Educational, fun",
+        "neighborhood": "Centro Storico",
+        "best_for": [
+          "foodies",
+          "first-time visitors"
+        ],
+        "latitude": 45.649,
+        "longitude": 13.776,
+        "reservation_needed": true,
+        "local_tips": "Book early; includes tastings of jota, local wines, and pastries."
+      },
+      {
+        "name": "Traditional Triestine Cooking Class",
+        "description": "Hands-on class teaching how to make iconic dishes like jota and strudel with local chefs.",
+        "price_range": "€€€",
+        "atmosphere": "Interactive, immersive",
+        "neighborhood": "Centro Storico",
+        "best_for": [
+          "cooking enthusiasts",
+          "small groups"
+        ],
+        "latitude": 45.6485,
+        "longitude": 13.7765,
+        "reservation_needed": true,
+        "local_tips": "Ideal to book in advance; classes often include market visits."
+      },
+      {
+        "name": "Visit to Mercato Coperto di Trieste",
+        "description": "Self-guided or guided visit to the covered market to discover local ingredients and street food stalls.",
+        "price_range": "€",
+        "atmosphere": "Authentic, lively",
+        "neighborhood": "Centro Storico",
+        "best_for": [
+          "food explorers",
+          "photographers"
+        ],
+        "latitude": 45.6479,
+        "longitude": 13.7745,
+        "reservation_needed": false,
+        "local_tips": "Go early in the morning for the freshest produce and less crowd."
+      },
+      {
+        "name": "Wine and Food Pairing Experience",
+        "description": "Tasting event focusing on pairing local Friulian wines with traditional Triestine dishes.",
+        "price_range": "€€",
+        "atmosphere": "Sophisticated, educational",
+        "neighborhood": "Centro Storico",
+        "best_for": [
+          "wine lovers",
+          "foodies"
+        ],
+        "latitude": 45.6475,
+        "longitude": 13.778,
+        "reservation_needed": true,
+        "local_tips": "Check seasonal availability; often hosted in wine bars or historic venues."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Asparagus risotto with local herbs",
+        "Fresh artichokes prepared alla triestina",
+        "Strudel with fresh spring fruits"
+      ],
+      "summer": [
+        "Grilled Adriatic seafood platters",
+        "Cold jota (bean and sauerkraut soup) served chilled",
+        "Fresh fig and ricotta desserts"
+      ],
+      "autumn": [
+        "Wild mushroom gnocchi",
+        "Venison stew with polenta",
+        "Chestnut-based sweets and desserts"
+      ],
+      "winter": [
+        "Jota (hearty sauerkraut and bean soup)",
+        "Goulash made with local beef",
+        "Presnitz (traditional nut and raisin strudel)"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€15-€30",
+            "operator": "Trenitalia",
+            "notes": "Direct regional trains from Trieste Centrale to Venezia Santa Lucia."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 45m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "FlixBus",
+            "notes": "Comfortable buses with free Wi-Fi, multiple departures daily."
+          }
+        ]
+      },
+      {
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€8-€15",
+            "operator": "Nomago",
+            "notes": "Frequent direct buses, convenient for cross-border travel."
+          },
+          {
+            "type": "train",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Slovenske železnice",
+            "notes": "Limited direct trains; some require transfer in Sežana."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "ÖBB / Trenitalia",
+            "notes": "Combination of EuroCity trains, with transfers in Villach."
+          },
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses available, comfortable and budget-friendly."
+          }
+        ]
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 15m",
+            "frequency": "daily",
+            "price_range": "€15-€25",
+            "operator": "Arriva / FlixBus",
+            "notes": "Multiple daily departures, direct service."
+          },
+          {
+            "type": "train",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€18-€35",
+            "operator": "HŽPP / Trenitalia",
+            "notes": "Direct trains available but less frequent than buses."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€40-€100",
+            "operator": "ITA Airways, Ryanair",
+            "notes": "Flights from Trieste Airport (TRS) to Rome Fiumicino (FCO)."
+          },
+          {
+            "type": "train",
+            "duration": "8h",
+            "frequency": "daily",
+            "price_range": "€50-€90",
+            "operator": "Trenitalia",
+            "notes": "High-speed trains with at least one transfer, usually in Venice or Bologna."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "DB / ÖBB",
+            "notes": "Connections with transfers in Villach or Salzburg."
+          },
+          {
+            "type": "bus",
+            "duration": "7h",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Direct bus routes with comfortable seating."
+          }
+        ]
+      },
+      {
+        "city": "Rijeka",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€12-€20",
+            "operator": "Arriva",
+            "notes": "Direct buses crossing the border, convenient for coastal access."
+          }
+        ]
+      },
+      {
+        "city": "Pula",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 15m",
+            "frequency": "daily",
+            "price_range": "€15-€25",
+            "operator": "FlixBus",
+            "notes": "Direct bus service with scenic routes along the coast."
+          }
+        ]
+      },
+      {
+        "city": "Split",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "Arriva / FlixBus",
+            "notes": "Long-distance buses connecting the Adriatic coast, multiple departures."
+          }
+        ]
+      },
+      {
+        "city": "Corfu",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "ferry",
+            "duration": "8h",
+            "frequency": "weekly",
+            "price_range": "€40-€70",
+            "operator": "ANEK Lines",
+            "notes": "Seasonal ferry from Trieste port to Corfu via Ancona and Igoumenitsa."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Barcolana Regatta",
+        "type": "sport",
+        "description": "Participate in or watch one of the world's largest sailing regattas held in the Gulf of Trieste, attracting thousands of sailors and spectators.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Gulf of Trieste",
+        "price": "Free"
+      },
+      {
+        "name": "Trieste Coffee Festival",
+        "type": "festival",
+        "description": "Celebrate Trieste's rich coffee culture with tastings, workshops, and exhibitions dedicated to the city's historic coffee heritage.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Centro città, various cafes",
+        "price": "Budget"
+      },
+      {
+        "name": "Explore Miramare Castle Gardens",
+        "type": "outdoor",
+        "description": "Enjoy the blooming gardens and stunning sea views at Miramare Castle, a 19th-century castle set on the coast.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Miramare Castle",
+        "price": "Moderate"
+      },
+      {
+        "name": "Wine tasting in Carso Hills",
+        "type": "food",
+        "description": "Visit local wineries in the nearby Carso region to sample unique wines like Vitovska and Terrano amidst spring blossoms.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Carso Hills, near Trieste",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Trieste Film Festival",
+        "type": "cultural",
+        "description": "Attend screenings of international and regional films at this prestigious festival focusing on Central and Eastern European cinema.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Various cinemas and open-air venues in Trieste",
+        "price": "Budget"
+      },
+      {
+        "name": "Swim at Barcola Beach",
+        "type": "outdoor",
+        "description": "Relax or swim at the popular waterfront area of Barcola, a favorite spot for locals during the hot summer months.",
+        "best_months": [
+          "June",
+          "July",
+          "August",
+          "September"
+        ],
+        "location": "Barcola Beach",
+        "price": "Free"
+      },
+      {
+        "name": "Jazz & Wine Festival",
+        "type": "festival",
+        "description": "Enjoy live jazz performances paired with local wines in scenic outdoor settings throughout Trieste.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Various outdoor venues in Trieste",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking in the Karst Plateau",
+        "type": "outdoor",
+        "description": "Explore the unique limestone landscapes and caves of the Karst Plateau, ideal for hiking and nature walks in summer.",
+        "best_months": [
+          "June",
+          "July",
+          "August",
+          "September"
+        ],
+        "location": "Karst Plateau near Trieste",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Barcolana Regatta",
+        "type": "sport",
+        "description": "Witness the spectacular annual sailing regatta attracting thousands of participants and visitors along the coast.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Gulf of Trieste",
+        "price": "Free"
+      },
+      {
+        "name": "Mushroom and Truffle Hunting Tours",
+        "type": "outdoor",
+        "description": "Join guided tours in the nearby forests and hills to discover and forage seasonal mushrooms and truffles.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Carso Hills and surrounding forests",
+        "price": "Moderate"
+      },
+      {
+        "name": "Taste Autumn Local Cuisine",
+        "type": "food",
+        "description": "Enjoy seasonal dishes featuring chestnuts, game meats, and polenta paired with robust local wines in Trieste’s restaurants.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Restaurants throughout Trieste",
+        "price": "Moderate"
+      },
+      {
+        "name": "Civico Museo Revoltella Visit",
+        "type": "cultural",
+        "description": "Explore modern art collections in this museum housed in a neoclassical palace, ideal for cooler autumn days.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Via Armando Diaz 27, Trieste",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market in Piazza Unità d'Italia",
+        "type": "festival",
+        "description": "Experience festive stalls offering crafts, seasonal foods, and mulled wine in one of Europe's largest seaside squares.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Piazza Unità d'Italia",
+        "price": "Free"
+      },
+      {
+        "name": "Visit the Teatro Romano",
+        "type": "cultural",
+        "description": "Explore the ancient Roman theater ruins, a peaceful outdoor site that looks magical in winter’s soft light.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Via XXX Ottobre, Trieste",
+        "price": "Free"
+      },
+      {
+        "name": "Try Jota Soup",
+        "type": "food",
+        "description": "Warm up with this traditional Triestine winter soup made with sauerkraut, beans, potatoes, and smoked pork.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local trattorias and restaurants",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit Museo del Mare (Maritime Museum)",
+        "type": "cultural",
+        "description": "Explore Trieste’s maritime history in this engaging museum, perfect for indoor activities during colder months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Riva Nazario Sauro 4, Trieste",
+        "price": "Budget"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Epiphany (Befana)",
+            "notes": "Cool winter weather with occasional fog; Epiphany is a local festivity with traditional events, but overall tourist activity is low. Good for quiet sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and damp weather; fewer tourists and many attractions have shorter opening hours; not ideal for outdoor activities but good for budget travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather remains cold but stable; indoor cultural venues open and quiet; reasonable prices and low crowds suitable for cultural travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late January can be foggy but also peaceful; good for travelers seeking solitude and off-season prices, limited outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold, with occasional rain and fog; quiet period with low prices; good for budget travelers and cultural visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Trieste Carnival",
+            "notes": "Local Carnival festivities bring colorful events and parades; weather is still cold but livelier atmosphere; good for cultural travelers and families.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival calm with continuing chilly weather; low tourist numbers and affordable rates; suitable for introspective cultural visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with unpredictable weather; increasing sunshine but still cool; low crowds and moderate prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-March sees milder weather and longer days; good for outdoor walks and exploring the miramare castle; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Saint Joseph's Day (March 19)",
+            "notes": "Spring is evident with blooming flowers; Saint Joseph's Day brings local celebrations; pleasant climate encourages outdoor activities and sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Springtime with mild temperatures and blooming nature; ideal for outdoor exploring and walking tours; moderate crowd levels.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter Weekend and Local Religious Celebrations",
+            "notes": "Easter is a major holiday with special masses and processions; weather is pleasant; cultural interest peaks and the city is lively yet not overcrowded.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late April offers excellent weather with warm days and cool nights; perfect for sightseeing, outdoor dining, and visiting piazzas; tourist season beginning to ramp up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day (Labor Day) and Festa dei Fiori (Flower Festival)",
+            "notes": "Pleasant spring weather with celebrations and flower displays; outdoor cafes and events flourish; popular time for visitors but not overcrowded.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Stable warm weather, ideal for outdoor activities such as hiking near the Karst or along the coast; moderate crowds and vibrant local life.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May brings longer daylight and warm temperatures; excellent for beach visits, boating and exploring historic sites; generally very enjoyable weather.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm weather and low rainfall; ideal for beach and city exploration; beginning of peak season but still manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Trieste Summer Jazz Festival (mid-June)",
+            "notes": "Warm weather combined with lively music events; attracts culture lovers; crowds start to grow but still enjoyable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm, sunny days perfect for seaside activities and cultural visits; peak tourism season begins with lively atmosphere and full service availability.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer weather with temperatures often above 28°C; ideal for beach and outdoor festivals; high tourist activity and vibrant nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Barcolana Regatta (second Sunday of October but preparation events start in summer)",
+            "notes": "While the main event is in October, summer features related sailing and cultural activities; warm weather and lively atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer season with hot temperatures, crowded beaches and city; vibrant cultural events and nightlife; best for those who love lively atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Ferragosto (August 15)",
+            "notes": "Very hot weather and peak tourist season; Ferragosto is an important Italian holiday with many locals on vacation; some businesses close, but many festivals occur.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot and humid; some locals leave the city for holidays reducing some activity; tourist crowds remain high; good for beachgoers.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August remains warm and lively but some crowds start to thin as summer winds down; good for late summer travelers seeking a mix of events and relaxation.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Trieste Film Festival (early September)",
+            "notes": "Mild and pleasant weather with reduced humidity; cultural events such as the film festival enrich the visit; crowds decrease after summer peak.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Continued pleasant temperatures and sunny days; excellent for outdoor activities and city tours; lower crowd levels than summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late September has cooler evenings but still warm days; ideal for hiking on nearby Karst plateau and wine tasting in surrounding areas; moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early October still pleasant with mild weather; some rain possible; good for cultural visits and outdoor walks.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Barcolana Regatta (second Sunday of October)",
+            "notes": "One of the world's largest sailing races with festive atmosphere; attracts many visitors; weather can be variable but usually mild.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Barcolana period is quieter; autumn colors begin to show; good for hiking and cultural exploration; cooler temperatures and occasional rain.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "All Saints’ Day (Nov 1)",
+            "notes": "Cool and often rainy; All Saints’ Day is observed with quiet local traditions; fewer tourists and lower prices but weather limits outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Wet and chilly weather with fog; low tourist activity; some attractions have reduced hours; best for budget travelers or those seeking solitude.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late November remains cool and damp; some cultural events start for the Christmas season; quiet city with good hotel deals.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold with increasing festive decorations; some Christmas markets open; moderate tourist interest with low crowds early month.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Advent Festivities",
+            "notes": "Festive atmosphere with markets and events; cold weather but city is lively and beautifully decorated; great for cultural and family travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Holiday season with special services, festive dinners, and events; cold weather but warm spirit; some businesses close on holidays, but celebrations are vibrant.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

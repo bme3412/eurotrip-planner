@@ -1,1 +1,3136 @@
-{"city":"valletta","country":"Malta","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "valletta",
+  "country": "Malta",
+  "overview": {
+    "city_name": "Valletta",
+    "country": "Malta",
+    "brief_description": "Valletta, the fortified capital of Malta, is a vibrant city where history and modern culture blend seamlessly. Renowned for its baroque architecture, stunning harbor views, and rich heritage, it is a UNESCO World Heritage site that captivates visitors with its charm and Mediterranean ambiance.",
+    "nickname": "The Fortress City",
+    "region": "Southern Europe, Mediterranean",
+    "population": "approximately 6,000",
+    "why_visit": [
+      "Explore the rich history and baroque architecture of a UNESCO World Heritage city",
+      "Discover world-class museums and cultural landmarks like St. John's Co-Cathedral",
+      "Enjoy picturesque views of the Grand Harbour and Mediterranean Sea",
+      "Experience vibrant local festivals and Mediterranean cuisine"
+    ],
+    "best_time_to_visit": "April to June and September to October, when the weather is pleasantly warm and the city is less crowded",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming gardens make this an ideal time for sightseeing and outdoor events.",
+      "summer": "Hot and sunny with bustling festivals and lively waterfront activities, though it can be crowded.",
+      "autumn": "Comfortable temperatures return with fewer tourists, perfect for walking tours and cultural experiences.",
+      "winter": "Mild and quieter with occasional rain, offering a peaceful atmosphere and lower accommodation prices."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Maltese and English",
+      "visit_duration": "2 to 3 days",
+      "getting_around": "Walkable city center with buses connecting to other parts of Malta; ferries available for harbor tours",
+      "safety": "Generally very safe with low crime rates; standard precautions are recommended especially at night"
+    },
+    "coordinates": {
+      "latitude": 35.8997,
+      "longitude": 14.5146
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Tour St. John’s Co-Cathedral to admire its extraordinary baroque interior and Caravaggio paintings",
+        "Walk along the historic city walls and enjoy panoramic views of the Grand Harbour",
+        "Visit the National Museum of Archaeology to learn about Malta’s ancient history",
+        "Relax in the Upper Barrakka Gardens overlooking the Three Cities",
+        "Explore the Grandmaster’s Palace and its armory"
+      ],
+      "worth_doing": [
+        "Discover the Lascaris War Rooms, a WWII underground complex",
+        "Take a harbor cruise to see Valletta from the water",
+        "Attend a performance at the Manoel Theatre, one of Europe’s oldest working theaters",
+        "Explore the vibrant Strait Street nightlife",
+        "Visit Fort St. Elmo and the National War Museum"
+      ],
+      "hidden_gems": [
+        "Wander through the quiet streets of the lower city to find local artisan shops",
+        "Discover the Malta Stock Exchange building, an architectural gem with a rich history",
+        "Explore the lesser-known Valletta Waterfront for dining and events away from the crowds",
+        "Visit the historic Casa Rocca Piccola, a private palace with guided tours",
+        "Check out the street art tucked away in narrow alleys for a modern cultural twist"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "St. John's Co-Cathedral",
+        "type": "Church",
+        "description": "A stunning Baroque cathedral built in the 1570s by the Knights of St. John, famous for its richly decorated interior and Caravaggio's masterpiece 'The Beheading of Saint John the Baptist.' The cathedral also houses an impressive collection of art and ornate chapels.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round, but less crowded in winter months",
+        "booking_tips": "Buy tickets online to avoid queues, guided tours recommended",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 35.8991,
+        "longitude": 14.5144,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:30-17:00",
+          "weekend": "09:30-17:00",
+          "notes": "May close for religious services on some days"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Ideal for any weather as it is indoor"
+        },
+        "official_url": "https://www.stjohnscocathedral.com",
+        "website": "https://www.stjohnscocathedral.com"
+      },
+      {
+        "name": "Upper Barrakka Gardens",
+        "type": "Park",
+        "description": "These beautiful terraced gardens offer panoramic views over the Grand Harbour and the Three Cities. Originally built in the 1660s for the Knights of St. John, the gardens feature war memorials, elegant fountains, and regular cannon firings at noon.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring and autumn for pleasant weather",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.9,
+        "longitude": 14.5149,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "07:00-22:00",
+          "weekend": "07:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Lascaris War Rooms as indoor alternative"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Grandmaster's Palace",
+        "type": "Palace",
+        "description": "Once the residence of the Grand Masters of the Knights of St. John, this impressive Renaissance palace now houses the Office of the President of Malta and the Palace Armoury Museum, showcasing an extensive collection of medieval and early modern weaponry.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Closed on public holidays and some government event days",
+        "booking_tips": "Online booking recommended to avoid lines",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 35.8993,
+        "longitude": 14.5146,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:30-16:30",
+          "weekend": "09:30-16:30",
+          "notes": "Last admission 30 minutes before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "14",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor site, suitable any weather"
+        },
+        "official_url": "https://heritagemalta.mt/visit/grandmasters-palace",
+        "website": "https://heritagemalta.mt/visit/grandmasters-palace"
+      },
+      {
+        "name": "National Museum of Archaeology",
+        "type": "Museum",
+        "description": "Located in the Auberge de Provence, this museum houses Malta's finest prehistoric artifacts, including the famous 'Sleeping Lady' figurine and objects dating back to the Neolithic period, shedding light on Malta’s ancient civilizations.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round except public holidays",
+        "booking_tips": "Tickets can be purchased onsite; less crowded early mornings",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8997,
+        "longitude": 14.5128,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on Christmas and New Year's Day"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://heritagemalta.mt/visit/national-museum-of-archaeology",
+        "website": "https://heritagemalta.mt/visit/national-museum-of-archaeology"
+      },
+      {
+        "name": "Lascaris War Rooms",
+        "type": "Historic Site",
+        "description": "A network of underground tunnels and chambers used as the British Mediterranean headquarters during World War II. The site offers a fascinating glimpse into wartime strategy and features restored communications equipment and maps.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Cool underground temperature makes it ideal in summer",
+        "booking_tips": "Book tickets online during peak tourist seasons",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.899,
+        "longitude": 14.514,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor attraction"
+        },
+        "official_url": "https://heritagemalta.mt/visit/lascaris-war-rooms",
+        "website": "https://heritagemalta.mt/visit/lascaris-war-rooms"
+      },
+      {
+        "name": "Manoel Theatre",
+        "type": "Historic Site|Theatre",
+        "description": "One of the oldest working theatres in Europe, built in 1731 and named after Grand Master Manoel de Vilhena. The theatre hosts operas, plays, and concerts in a beautifully restored Baroque interior with stunning frescoes and an intimate atmosphere.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Performance schedule varies seasonally, check in advance",
+        "booking_tips": "Book tickets well in advance for popular shows",
+        "ratings": {
+          "cost_estimate": 25,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8979,
+        "longitude": 14.5133,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Varies by show",
+          "weekend": "Varies by show",
+          "notes": "Box office open weekdays 09:00-17:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "62"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue"
+        },
+        "official_url": "https://manoeltheatre.com.mt",
+        "website": "https://manoeltheatre.com.mt"
+      },
+      {
+        "name": "Fort St. Elmo and National War Museum",
+        "type": "Historic Site|Museum",
+        "description": "This star-shaped fort guards the entrance to the Grand Harbour and houses the National War Museum, featuring Malta's military history from the Bronze Age through World War II including the Siege of Malta exhibits.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round; outdoor areas can be hot in summer",
+        "booking_tips": "Buy combined tickets for fort and museum online",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 35.8998,
+        "longitude": 14.5184,
+        "neighborhood": "Fortifications",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on Christmas Day"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "81"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum exhibits"
+        },
+        "official_url": "https://heritagemalta.mt/visit/fort-st-elmo-national-war-museum",
+        "website": "https://heritagemalta.mt/visit/fort-st-elmo-national-war-museum"
+      },
+      {
+        "name": "Malta Experience",
+        "type": "Museum|Cinema",
+        "description": "A multimedia show that narrates Malta’s rich 7,000-year history, highlighting key events such as the Knights of St. John, WWII, and Malta’s cultural heritage. The presentation includes a 45-minute cinematic experience with visuals and sound effects.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round, with shows every 45 minutes",
+        "booking_tips": "Buy tickets online to reserve preferred showtime",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8975,
+        "longitude": 14.514,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Shows every 45 minutes"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Indoor experience"
+        },
+        "official_url": "https://maltaexperience.com",
+        "website": "https://maltaexperience.com"
+      },
+      {
+        "name": "Republic Square (Pjazza Reġina)",
+        "type": "Historic Site|Square",
+        "description": "Valletta’s main public square, surrounded by important buildings such as the Grandmaster’s Palace and cafes. Known for its lively atmosphere, outdoor seating, and occasional open-air events, it is a perfect spot to soak up local life.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Bustling year-round, more crowded in summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 35.8984,
+        "longitude": 14.5149,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Public space"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Valletta Waterfront",
+        "type": "Market|Dining|Historic Site",
+        "description": "A lively promenade along the Grand Harbour lined with restored 18th-century warehouses converted into restaurants, shops, and cafes. It’s a great place to enjoy Mediterranean cuisine with beautiful sea views and frequent cultural events.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget to Premium",
+        "seasonal_notes": "Outdoor seating best in spring to autumn",
+        "booking_tips": "Reserve tables in peak evenings, especially weekends",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 35.8955,
+        "longitude": 14.5121,
+        "neighborhood": "Waterfront",
+        "opening_hours": {
+          "weekday": "10:00-23:00",
+          "weekend": "10:00-23:00",
+          "notes": "Individual shops and restaurants have varying hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "81"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor dining options available"
+        },
+        "official_url": "https://www.vallettawaterfront.com",
+        "website": "https://www.vallettawaterfront.com"
+      },
+      {
+        "name": "Casa Rocca Piccola",
+        "type": "Historic Site|Museum",
+        "description": "A 16th-century noble townhouse still inhabited by the descendants of the original owners. Visitors can explore its richly furnished rooms, antique collections, and underground wartime shelters, gaining insight into Maltese aristocratic life.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Closed on public holidays and some weekdays",
+        "booking_tips": "Advance booking recommended for guided tours",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8976,
+        "longitude": 14.5147,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:30-17:00",
+          "weekend": "09:30-17:00",
+          "notes": "Last entry 16:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor tour"
+        },
+        "official_url": "https://www.casaroccapiccola.com",
+        "website": "https://www.casaroccapiccola.com"
+      },
+      {
+        "name": "National Museum of Fine Arts",
+        "type": "Museum|Gallery",
+        "description": "Housed in a historic building, this museum showcases Maltese and European paintings from the Renaissance to the 20th century, including works by Caravaggio’s followers and other local artists, offering a deep dive into Malta’s artistic heritage.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Closed Mondays and public holidays",
+        "booking_tips": "Purchase tickets onsite; group tours available on request",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8992,
+        "longitude": 14.5145,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://heritagemalta.mt/visit/national-museum-of-fine-arts",
+        "website": "https://heritagemalta.mt/visit/national-museum-of-fine-arts"
+      },
+      {
+        "name": "Lower Barrakka Gardens",
+        "type": "Park|Viewpoint",
+        "description": "A peaceful and lesser-visited garden offering beautiful views over the Grand Harbour and the breakwater. It features statues, a small chapel, and a quaint Mediterranean garden atmosphere perfect for a quiet stroll or picnic.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best in spring and autumn; shaded areas offer summer respite",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 35.8973,
+        "longitude": 14.5139,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "07:00-20:00",
+          "weekend": "07:00-20:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor museums as alternative"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Valletta Market (Is-Suq tal-Belt)",
+        "type": "Market",
+        "description": "A vibrant indoor market featuring fresh local produce, artisanal foods, crafts, and a growing number of trendy cafes and eateries. The market is housed in a historic building and has become a social hub for locals and tourists alike.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Open year-round; busiest weekends",
+        "booking_tips": "No booking required; best to visit early for fresh produce",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 35.899,
+        "longitude": 14.5143,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "07:00-18:00",
+          "weekend": "07:00-18:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Church of Our Lady of Mount Carmel",
+        "type": "Church",
+        "description": "An iconic church distinguished by its large, striking red dome visible throughout Valletta. Built in the 16th century, it features a beautifully decorated interior with Baroque artworks and serves as an important religious site for locals.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; services held regularly",
+        "booking_tips": "No admission fee; donations appreciated",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8973,
+        "longitude": 14.5171,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-19:00",
+          "notes": "Open for mass at scheduled times"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor visit"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Library of Malta",
+        "type": "Historic Site|Library",
+        "description": "Founded in 1776, this grand historic library houses a vast collection of manuscripts, rare books, and archival material crucial to Maltese history and culture. Its elegant reading rooms and period architecture make it a must-see for culture enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open weekdays only; closed on public holidays",
+        "booking_tips": "Access may require prior arrangement for some collections",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.8982,
+        "longitude": 14.5142,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed on weekends and public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor site"
+        },
+        "official_url": "https://www.nationalarchives.gov.mt",
+        "website": "https://www.nationalarchives.gov.mt"
+      },
+      {
+        "name": "Ta' Kola Windmill",
+        "type": "Historic Site|Museum",
+        "description": "Though located just outside Valletta in nearby Gozo, this fully restored 18th-century windmill offers insight into traditional Maltese rural life and milling. Visitors can see original machinery and enjoy panoramic views from the site.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; best to combine with a Gozo day trip",
+        "booking_tips": "Visit as part of guided tour or self-drive itinerary",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 36.0449,
+        "longitude": 14.2511,
+        "neighborhood": "Victoria, Gozo",
+        "opening_hours": {
+          "weekday": "09:00-16:00",
+          "weekend": "09:00-16:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://heritagemalta.mt/visit/ta-kola-windmill",
+        "website": "https://heritagemalta.mt/visit/ta-kola-windmill"
+      },
+      {
+        "name": "Fortifications Interpretation Centre",
+        "type": "Museum|Historic Site",
+        "description": "This modern museum explains the history and architecture of Valletta’s extensive fortifications through interactive exhibits and models. It provides context to the city’s defensive walls and bastions built by the Knights of St. John.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round except public holidays",
+        "booking_tips": "Tickets available onsite; guided tours can be arranged",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.9003,
+        "longitude": 14.5151,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Last entry 16:30"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://heritagemalta.mt/visit/fortifications-interpretation-centre",
+        "website": "https://heritagemalta.mt/visit/fortifications-interpretation-centre"
+      },
+      {
+        "name": "Pjazza Teatru Rjal",
+        "type": "Square|Cultural Venue",
+        "description": "A lively square named after the historic Royal Theatre, now a popular spot featuring cafes, restaurants, and street performances. It is a social hub in Valletta’s nightlife and often hosts cultural events and festivals.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Buzzing especially in summer evenings",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 35.8977,
+        "longitude": 14.5152,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Public space"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "13",
+            "16",
+            "61",
+            "62"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "City Gate Area",
+        "alternate_names": [
+          "Valletta Main Entrance"
+        ],
+        "character": "Bustling and grand, this area serves as the main gateway into Valletta, welcoming visitors with its impressive architecture and lively atmosphere. The blend of historic fortifications and modern design creates a vibrant first impression.",
+        "location": {
+          "central": true,
+          "description": "Situated at the southern entrance of Valletta, directly at the City Gate",
+          "borders": [
+            "Republic Street",
+            "Merchant Street"
+          ],
+          "landmarks": [
+            "City Gate",
+            "Parliament House",
+            "The Opera House"
+          ]
+        },
+        "history": {
+          "overview": "The City Gate has been the main entrance to Valletta since its founding in the 16th century, evolving through several reconstructions.",
+          "significance": "It symbolizes the city's resilience and serves as the key access point connecting Valletta to the rest of Malta.",
+          "notable_events": [
+            "Original gate built in 1569",
+            "Rebuilt by Renzo Piano in 2014"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "City Gate Bus Stops"
+          ],
+          "safety": "Very safe with heavy pedestrian traffic",
+          "best_time_to_visit": "Morning and late afternoon for best light and fewer crowds",
+          "walkability": "Extremely walkable with pedestrian-only zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Architectural landmarks",
+            "Cultural events",
+            "Central access point"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Historic",
+            "Welcoming"
+          ],
+          "best_for": [
+            "First-time visitors",
+            "Culture seekers",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 1,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "City Gate",
+              "type": "Historic Landmark",
+              "description": "The main entrance to Valletta featuring modern design elements alongside historic walls.",
+              "appeal": "Iconic meeting point and architectural contrast."
+            },
+            {
+              "name": "Parliament House",
+              "type": "Government Building",
+              "description": "A contemporary building designed by Renzo Piano blending modernity with Valletta’s classic stone.",
+              "appeal": "Striking architecture and political significance."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Caffe Cordina",
+              "cuisine": "Maltese and European",
+              "price_range": "€€",
+              "known_for": "Traditional Maltese pastries and coffee",
+              "atmosphere": "Elegant, historic café setting"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to avoid crowds and enjoy peaceful light on the ancient walls.",
+          "Explore the Opera House ruins adjacent to the gate for a unique photo opportunity.",
+          "Stop at Caffe Cordina for a quintessential Maltese coffee and pastizzi experience."
+        ]
+      },
+      {
+        "name": "Republic Street",
+        "alternate_names": [
+          "Triq ir-Repubblika"
+        ],
+        "character": "The pulsating heart of Valletta, Republic Street is a bustling thoroughfare lined with shops, cafes, and historic buildings. It blends the city’s rich heritage with a commercial buzz, offering something for every traveler.",
+        "location": {
+          "central": true,
+          "description": "Runs east-west through the center of Valletta, connecting City Gate to Fort Saint Elmo",
+          "borders": [
+            "City Gate Area",
+            "Merchant Street"
+          ],
+          "landmarks": [
+            "St John's Co-Cathedral",
+            "National Museum of Archaeology",
+            "Upper Barrakka Gardens"
+          ]
+        },
+        "history": {
+          "overview": "Republic Street has been the main commercial axis of Valletta since its founding in the 1500s.",
+          "significance": "It represents Valletta’s evolution from a fortified city to a lively urban center.",
+          "notable_events": [
+            "Historic parades and processions",
+            "Renovations to preserve baroque facades"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Republic Street Bus Stops"
+          ],
+          "safety": "Very safe with constant pedestrian presence",
+          "best_time_to_visit": "Late morning to early evening for shopping and sightseeing",
+          "walkability": "Highly walkable, pedestrian-friendly"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Historic architecture",
+            "Museums"
+          ],
+          "atmosphere": [
+            "Vibrant",
+            "Historic",
+            "Energetic"
+          ],
+          "best_for": [
+            "Shoppers",
+            "History buffs",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "St John's Co-Cathedral",
+              "type": "Religious / Historic",
+              "description": "A baroque masterpiece with stunning interior frescoes and Caravaggio paintings.",
+              "appeal": "One of the most important churches in Malta and a cultural treasure."
+            },
+            {
+              "name": "Upper Barrakka Gardens",
+              "type": "Park / Viewpoint",
+              "description": "Terraced gardens offering panoramic views over the Grand Harbour.",
+              "appeal": "Perfect spot for relaxation and photography."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Noni",
+              "cuisine": "Modern Mediterranean",
+              "price_range": "€€€",
+              "known_for": "Innovative dishes using local ingredients",
+              "atmosphere": "Chic, intimate fine dining"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore side streets branching off Republic Street for hidden artisan shops.",
+          "Visit Upper Barrakka Gardens at noon to see the daily cannon firing ceremony.",
+          "Book a table at Noni well in advance for a special dining experience."
+        ]
+      },
+      {
+        "name": "Strait Street",
+        "alternate_names": [
+          "The Gut"
+        ],
+        "character": "Once Valletta’s notorious red-light and nightlife district, Strait Street has been reborn as a vibrant nightlife hub with stylish bars and live music venues. It’s a narrow, atmospheric street that blends history with modern entertainment.",
+        "location": {
+          "central": true,
+          "description": "Runs from Merchants Street down towards the Marina, slightly southwest of the city center",
+          "borders": [
+            "Merchant Street",
+            "Great Siege Road"
+          ],
+          "landmarks": [
+            "Old jazz clubs",
+            "Street art murals"
+          ]
+        },
+        "history": {
+          "overview": "Known as 'The Gut' during the early 20th century, it was famous for sailors, nightlife, and occasional illicit activities.",
+          "significance": "It reflects Valletta’s social history and recent cultural revival.",
+          "notable_events": [
+            "Mid-1900s nightlife boom",
+            "Recent regeneration and restoration"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Strait Street Bus Stops"
+          ],
+          "safety": "Safe but lively at night, best visited with company",
+          "best_time_to_visit": "Evenings and weekends",
+          "walkability": "Highly walkable and pedestrian-friendly"
+        },
+        "appeal": {
+          "known_for": [
+            "Nightlife",
+            "Live music",
+            "Historic pubs"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Eclectic",
+            "Historic"
+          ],
+          "best_for": [
+            "Night owls",
+            "Music lovers",
+            "Young travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 1,
+          "green_spaces": 1,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Bridge Bar",
+              "type": "Music Venue",
+              "description": "Iconic jazz and blues bar with nightly live performances.",
+              "appeal": "Authentic atmosphere with local and international acts."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trabuxu Bistro",
+              "cuisine": "Mediterranean",
+              "price_range": "€€",
+              "known_for": "Casual dining with local wines",
+              "atmosphere": "Relaxed, intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Start your evening early to grab a seat at popular bars.",
+          "Look out for street art and historic plaques detailing the street’s colorful past.",
+          "Combine your visit with dinner at one of the cozy bistros here."
+        ]
+      },
+      {
+        "name": "Marsa",
+        "alternate_names": [],
+        "character": "A primarily residential and industrial neighborhood just outside Valletta’s walls, Marsa offers an authentic local experience far from the tourist crowds. It’s a working-class area with a gritty charm and some green pockets.",
+        "location": {
+          "central": false,
+          "description": "Southwest of Valletta, just beyond the Grand Harbour area",
+          "borders": [
+            "Floriana",
+            "Paola"
+          ],
+          "landmarks": [
+            "Marsa Race Track",
+            "Marsa Power Station"
+          ]
+        },
+        "history": {
+          "overview": "A traditional working-class district, Marsa developed around Malta’s maritime and industrial activities.",
+          "significance": "It represents the backbone of Malta’s labor and industrial history.",
+          "notable_events": [
+            "Industrial expansion in 19th and 20th centuries"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Marsa Bus Terminal"
+          ],
+          "safety": "Generally safe but less tourist-focused",
+          "best_time_to_visit": "Daytime for local markets and street life",
+          "walkability": "Moderately walkable with some industrial areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Industrial heritage",
+            "Affordable dining"
+          ],
+          "atmosphere": [
+            "Authentic",
+            "Gritty",
+            "Unpolished"
+          ],
+          "best_for": [
+            "Cultural explorers",
+            "Budget travelers",
+            "Urban adventurers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 2,
+          "shopping": 1,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Marsa Race Track",
+              "type": "Sporting Venue",
+              "description": "Malta's only race track for horse racing and motorsports.",
+              "appeal": "Unique local sporting experience."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Local Marsa Eatery",
+              "cuisine": "Traditional Maltese",
+              "price_range": "€",
+              "known_for": "Hearty local dishes at affordable prices",
+              "atmosphere": "Casual, family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the weekly local market days for authentic food and crafts.",
+          "Wear comfortable shoes as some streets are uneven.",
+          "Try street food stalls for budget-friendly Maltese specialties."
+        ]
+      },
+      {
+        "name": "Castille Area",
+        "alternate_names": [],
+        "character": "The historic political and administrative district, Castille Area is marked by grand government buildings and elegant squares. It exudes a dignified and formal charm, perfect for those interested in Malta’s governance and historic architecture.",
+        "location": {
+          "central": true,
+          "description": "Just north of Republic Street, near the City Gate",
+          "borders": [
+            "City Gate Area",
+            "Republic Street"
+          ],
+          "landmarks": [
+            "Castille Palace",
+            "Office of the Prime Minister"
+          ]
+        },
+        "history": {
+          "overview": "Home to the Castille Palace, this area has been Malta’s political center since the 18th century.",
+          "significance": "It anchors the island’s governance and showcases baroque architectural splendor.",
+          "notable_events": [
+            "Construction of Castille Palace in 1744",
+            "Key political events and decisions"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Castille Bus Stop"
+          ],
+          "safety": "Very safe with official presence",
+          "best_time_to_visit": "Weekdays to observe government activity, or weekends for quieter exploration",
+          "walkability": "Highly walkable"
+        },
+        "appeal": {
+          "known_for": [
+            "Government buildings",
+            "Baroque architecture",
+            "Quiet elegance"
+          ],
+          "atmosphere": [
+            "Formal",
+            "Historic",
+            "Serene"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Architecture lovers",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Castille Palace",
+              "type": "Historic Government Building",
+              "description": "Baroque palace housing Malta’s Office of the Prime Minister.",
+              "appeal": "Architectural grandeur and political significance."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Caffe Jubilee",
+              "cuisine": "Maltese",
+              "price_range": "€€",
+              "known_for": "Traditional Maltese dishes like rabbit stew",
+              "atmosphere": "Cozy and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to see the palace without crowds.",
+          "Combine with a walk to nearby Upper Barrakka Gardens for views.",
+          "Try traditional Maltese coffee at nearby cafes."
+        ]
+      },
+      {
+        "name": "Marina District",
+        "alternate_names": [
+          "Valletta Waterfront"
+        ],
+        "character": "A lively and scenic waterfront area featuring restored historic warehouses, trendy restaurants, and vibrant nightlife. It offers a picturesque harbor view with a relaxed yet upscale vibe.",
+        "location": {
+          "central": true,
+          "description": "Along the Grand Harbour, south-east edge of Valletta",
+          "borders": [
+            "Strait Street",
+            "City Gate Area"
+          ],
+          "landmarks": [
+            "Valletta Waterfront",
+            "Fort Saint Elmo"
+          ]
+        },
+        "history": {
+          "overview": "Once a bustling commercial dock area, the waterfront was renovated into a leisure and dining precinct in the 21st century.",
+          "significance": "It blends Valletta’s maritime heritage with modern tourism and entertainment.",
+          "notable_events": [
+            "Waterfront redevelopment completed 2010",
+            "Annual cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Waterfront Bus Stops"
+          ],
+          "safety": "Very safe, family-friendly",
+          "best_time_to_visit": "Evenings and weekends for dining and events",
+          "walkability": "Highly walkable with flat promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Harbor views",
+            "Seafood dining",
+            "Festivals"
+          ],
+          "atmosphere": [
+            "Charming",
+            "Lively",
+            "Scenic"
+          ],
+          "best_for": [
+            "Couples",
+            "Families",
+            "Foodies"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 1,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Valletta Waterfront",
+              "type": "Leisure/Dining Complex",
+              "description": "Restored 18th-century warehouses turned into restaurants, bars, and shops.",
+              "appeal": "Perfect for waterfront dining and evening strolls."
+            }
+          ],
+          "dining": [
+            {
+              "name": "De Mondion",
+              "cuisine": "Gourmet Mediterranean",
+              "price_range": "€€€€",
+              "known_for": "Fine dining with panoramic harbor views",
+              "atmosphere": "Elegant and romantic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the annual Valletta Waterfront Festival for live music and food stalls.",
+          "Early evening is best to watch the sunset over the harbor.",
+          "Book tables in advance at popular waterfront restaurants on weekends."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Noni",
+          "cuisine_type": "Modern Mediterranean",
+          "description": "Noni offers an exquisite tasting menu blending Maltese flavors with contemporary techniques, located in a charming Valletta townhouse.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and intimate with refined decor",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "food enthusiasts"
+          ],
+          "latitude": 35.8992,
+          "longitude": 14.5146,
+          "reservation_needed": true,
+          "local_tips": "Try their signature rabbit dish, a Maltese classic elevated with modern flair."
+        },
+        {
+          "name": "Rampila",
+          "cuisine_type": "Mediterranean",
+          "description": "Set within historic fortifications, Rampila serves fresh Mediterranean dishes featuring local produce and seafood.",
+          "price_range": "€€€",
+          "atmosphere": "Historic and romantic with outdoor seating overlooking the city walls",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "romantic dinners",
+            "groups",
+            "history lovers"
+          ],
+          "latitude": 35.8999,
+          "longitude": 14.5138,
+          "reservation_needed": true,
+          "local_tips": "Dine outside on the terrace during spring or summer for the best views."
+        },
+        {
+          "name": "Guze Bistro",
+          "cuisine_type": "Mediterranean Contemporary",
+          "description": "A bistro offering a refined menu inspired by Maltese and Mediterranean cuisine in a cozy, vaulted cellar setting.",
+          "price_range": "€€€",
+          "atmosphere": "Warm, intimate, and rustic",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "date night",
+            "small groups",
+            "foodies"
+          ],
+          "latitude": 35.9001,
+          "longitude": 14.5134,
+          "reservation_needed": true,
+          "local_tips": "Their slow-cooked lamb shank is a must-try Maltese specialty."
+        },
+        {
+          "name": "The Harbour Club",
+          "cuisine_type": "Seafood / Mediterranean",
+          "description": "Upscale dining with panoramic views of the Grand Harbour, specializing in fresh seafood and Mediterranean dishes.",
+          "price_range": "€€€€",
+          "atmosphere": "Sophisticated with stunning waterfront views",
+          "neighborhood": "Valletta Waterfront",
+          "best_for": [
+            "special occasions",
+            "seafood lovers",
+            "groups"
+          ],
+          "latitude": 35.8995,
+          "longitude": 14.5126,
+          "reservation_needed": true,
+          "local_tips": "Book a table by the window at sunset for an unforgettable experience."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Rubino",
+          "cuisine_type": "Traditional Maltese",
+          "description": "A family-run restaurant serving authentic Maltese home-cooked dishes like bragioli and fenek (rabbit).",
+          "price_range": "€€",
+          "atmosphere": "Cozy and traditional",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "local cuisine lovers",
+            "families",
+            "casual dining"
+          ],
+          "latitude": 35.8994,
+          "longitude": 14.5139,
+          "reservation_needed": true,
+          "local_tips": "Try their homemade ftira bread with local cheese and sun-dried tomatoes."
+        },
+        {
+          "name": "Legligin Wine Bar & Bistro",
+          "cuisine_type": "Mediterranean Tapas",
+          "description": "A lively spot offering small plates paired with a curated selection of Maltese and international wines.",
+          "price_range": "€€",
+          "atmosphere": "Lively, casual, and social",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "groups",
+            "wine lovers",
+            "casual nights out"
+          ],
+          "latitude": 35.8997,
+          "longitude": 14.5142,
+          "reservation_needed": true,
+          "local_tips": "Perfect for sharing multiple small plates with friends."
+        },
+        {
+          "name": "Trabuxu Bistro",
+          "cuisine_type": "Mediterranean / Maltese",
+          "description": "Offers a variety of Maltese and Mediterranean dishes with an emphasis on fresh, local ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Warm and inviting",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "casual dining",
+            "local food",
+            "date night"
+          ],
+          "latitude": 35.8991,
+          "longitude": 14.5129,
+          "reservation_needed": true,
+          "local_tips": "Their rabbit stew is a local favorite."
+        },
+        {
+          "name": "The Grassy Hopper",
+          "cuisine_type": "Vegetarian / Vegan",
+          "description": "A casual eatery focusing on healthy, plant-based Maltese and Mediterranean-inspired dishes.",
+          "price_range": "€€",
+          "atmosphere": "Bright, casual, and friendly",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "vegetarians",
+            "health-conscious diners",
+            "casual lunch"
+          ],
+          "latitude": 35.8993,
+          "longitude": 14.514,
+          "reservation_needed": false,
+          "local_tips": "Try the falafel wrap for a quick, tasty meal."
+        },
+        {
+          "name": "Caffe Cordina",
+          "cuisine_type": "Maltese / Café",
+          "description": "An iconic café and casual dining spot known for traditional Maltese pastries and light meals.",
+          "price_range": "€€",
+          "atmosphere": "Classic and bustling",
+          "neighborhood": "Republic Street, Valletta",
+          "best_for": [
+            "breakfast",
+            "pastries",
+            "people watching"
+          ],
+          "latitude": 35.8999,
+          "longitude": 14.5147,
+          "reservation_needed": false,
+          "local_tips": "Try the pastizzi, a flaky pastry filled with ricotta or peas."
+        },
+        {
+          "name": "Gugar Hangout & Kitchen",
+          "cuisine_type": "Maltese / Mediterranean",
+          "description": "A casual spot with a varied menu featuring Maltese and Mediterranean dishes, perfect for a relaxed meal.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and informal",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "groups",
+            "casual dining",
+            "families"
+          ],
+          "latitude": 35.899,
+          "longitude": 14.5137,
+          "reservation_needed": false,
+          "local_tips": "Check their daily specials for seasonal local produce."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Is-Suq Tal-Belt Market",
+          "cuisine_type": "Various street foods & local specialties",
+          "description": "Indoor market featuring stalls offering Maltese street food, fresh produce, and artisanal products.",
+          "price_range": "€",
+          "atmosphere": "Vibrant and bustling",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "quick bites",
+            "local flavors",
+            "casual dining"
+          ],
+          "latitude": 35.9003,
+          "longitude": 14.5143,
+          "reservation_needed": false,
+          "local_tips": "Try the ftira sandwiches with local fillings from various vendors."
+        },
+        {
+          "name": "Pastizzi Stand near St. George’s Square",
+          "cuisine_type": "Maltese street food",
+          "description": "Popular street vendor known for freshly made pastizzi, a beloved Maltese savory pastry.",
+          "price_range": "€",
+          "atmosphere": "Casual and quick service",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "snacks",
+            "on-the-go",
+            "local treat"
+          ],
+          "latitude": 35.8998,
+          "longitude": 14.5135,
+          "reservation_needed": false,
+          "local_tips": "Get the ricotta-filled pastizzi warm and fresh out of the oven."
+        },
+        {
+          "name": "Valletta Waterfront Food Trucks",
+          "cuisine_type": "Mixed street food",
+          "description": "Seasonal food trucks offering a variety of street eats including Maltese and Mediterranean options.",
+          "price_range": "€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "Valletta Waterfront",
+          "best_for": [
+            "casual eats",
+            "groups",
+            "outdoor dining"
+          ],
+          "latitude": 35.8996,
+          "longitude": 14.5127,
+          "reservation_needed": false,
+          "local_tips": "Try the local rabbit stew wraps if available."
+        },
+        {
+          "name": "Pjazza Teatru Rjal Food Stalls",
+          "cuisine_type": "Local snacks and small bites",
+          "description": "Occasional street food stalls near the open-air theatre offering local snacks and seasonal specialties.",
+          "price_range": "€",
+          "atmosphere": "Festive and casual",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "events",
+            "snacking",
+            "local flavors"
+          ],
+          "latitude": 35.9,
+          "longitude": 14.5148,
+          "reservation_needed": false,
+          "local_tips": "Check event schedules for food stalls and try Maltese sausage rolls."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Bridge Bar",
+          "cuisine_type": "Bar / Cocktails",
+          "description": "A cozy and atmospheric bar known for live jazz music and a wide selection of cocktails.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, intimate, and artsy",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "live music lovers",
+            "cocktail enthusiasts",
+            "date night"
+          ],
+          "latitude": 35.8995,
+          "longitude": 14.514,
+          "reservation_needed": false,
+          "local_tips": "Arrive early on jazz nights to get a good seat."
+        },
+        {
+          "name": "The Pub",
+          "cuisine_type": "Bar / Maltese beers",
+          "description": "One of Valletta’s oldest bars, offering a great selection of local beers and friendly vibes.",
+          "price_range": "€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "groups",
+            "casual drinks",
+            "locals"
+          ],
+          "latitude": 35.8992,
+          "longitude": 14.5133,
+          "reservation_needed": false,
+          "local_tips": "Try the local Cisk lager on tap."
+        },
+        {
+          "name": "Strait Street Bars Cluster",
+          "cuisine_type": "Various bars and pubs",
+          "description": "Historic street filled with multiple bars offering cocktails, craft beers, and vibrant nightlife.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and social",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "nightlife",
+            "groups",
+            "bar hopping"
+          ],
+          "latitude": 35.8997,
+          "longitude": 14.5145,
+          "reservation_needed": false,
+          "local_tips": "Perfect for bar hopping; start early to catch happy hours."
+        },
+        {
+          "name": "Legligin Wine Bar",
+          "cuisine_type": "Wine bar",
+          "description": "Intimate wine bar offering a curated selection of Maltese and Mediterranean wines paired with tapas.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and relaxed",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "wine lovers",
+            "date night",
+            "small groups"
+          ],
+          "latitude": 35.8997,
+          "longitude": 14.5142,
+          "reservation_needed": true,
+          "local_tips": "Ask for the wine pairing suggestions with their small plates."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Caffe Cordina",
+          "cuisine_type": "Maltese Café",
+          "description": "A historic café famous for its elegant setting and traditional Maltese pastries and coffee.",
+          "price_range": "€€",
+          "atmosphere": "Classic and bustling",
+          "neighborhood": "Republic Street, Valletta",
+          "best_for": [
+            "breakfast",
+            "pastries",
+            "people watching"
+          ],
+          "latitude": 35.8999,
+          "longitude": 14.5147,
+          "reservation_needed": false,
+          "local_tips": "Try the traditional Maltese qagħaq tal-għasel (honey rings)."
+        },
+        {
+          "name": "Mint Café",
+          "cuisine_type": "International / Café",
+          "description": "Bright café offering great coffee, juices, and light bites with a relaxed atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Modern and airy",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "coffee lovers",
+            "brunch",
+            "casual meetings"
+          ],
+          "latitude": 35.8993,
+          "longitude": 14.5141,
+          "reservation_needed": false,
+          "local_tips": "Try their freshly squeezed juices and healthy breakfast bowls."
+        },
+        {
+          "name": "Busy Bee",
+          "cuisine_type": "Traditional Maltese",
+          "description": "A charming café known for hearty Maltese breakfasts and homemade cakes.",
+          "price_range": "€",
+          "atmosphere": "Cozy and local",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "breakfast",
+            "locals",
+            "casual dining"
+          ],
+          "latitude": 35.8996,
+          "longitude": 14.5136,
+          "reservation_needed": false,
+          "local_tips": "Order the Maltese ftira sandwich for a filling snack."
+        },
+        {
+          "name": "Scoglitti",
+          "cuisine_type": "Italian Café / Gelato",
+          "description": "Popular spot for authentic Italian coffee, gelato, and light café fare.",
+          "price_range": "€€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Valletta",
+          "best_for": [
+            "coffee breaks",
+            "dessert",
+            "families"
+          ],
+          "latitude": 35.8998,
+          "longitude": 14.5144,
+          "reservation_needed": false,
+          "local_tips": "Try the gelato paired with a cappuccino for an afternoon treat."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Valletta Food Market Tour",
+        "description": "Guided walking tour exploring local markets, traditional Maltese street food, and sampling iconic dishes.",
+        "price_range": "€€",
+        "atmosphere": "Educational and immersive",
+        "neighborhood": "Valletta",
+        "best_for": [
+          "food lovers",
+          "first-time visitors",
+          "small groups"
+        ],
+        "latitude": 35.9003,
+        "longitude": 14.5143,
+        "reservation_needed": true,
+        "local_tips": "Book early and wear comfortable shoes for walking."
+      },
+      {
+        "name": "Maltese Cooking Class",
+        "description": "Hands-on experience learning to prepare traditional Maltese dishes like rabbit stew and pastizzi.",
+        "price_range": "€€€",
+        "atmosphere": "Interactive and fun",
+        "neighborhood": "Valletta",
+        "best_for": [
+          "cooking enthusiasts",
+          "couples",
+          "small groups"
+        ],
+        "latitude": 35.8995,
+        "longitude": 14.514,
+        "reservation_needed": true,
+        "local_tips": "Inform the instructor of any dietary restrictions in advance."
+      },
+      {
+        "name": "Wine Tasting at Meridiana Wine Estate",
+        "description": "Day trip including a visit to a local vineyard near Valletta with wine tasting and food pairings.",
+        "price_range": "€€€",
+        "atmosphere": "Relaxed and scenic",
+        "neighborhood": "Outside Valletta (nearby region)",
+        "best_for": [
+          "wine lovers",
+          "day trips",
+          "small groups"
+        ],
+        "latitude": 35.932,
+        "longitude": 14.4682,
+        "reservation_needed": true,
+        "local_tips": "Combine with a visit to nearby Mdina for a full day experience."
+      },
+      {
+        "name": "Valletta Street Food Evening Tour",
+        "description": "Evening guided tour sampling Maltese street food specialties like pastizzi, rabbit sandwiches, and local sweets.",
+        "price_range": "€€",
+        "atmosphere": "Casual and lively",
+        "neighborhood": "Valletta",
+        "best_for": [
+          "foodies",
+          "groups",
+          "evening activity"
+        ],
+        "latitude": 35.8998,
+        "longitude": 14.5135,
+        "reservation_needed": true,
+        "local_tips": "Come hungry and bring a camera for vibrant street scenes."
+      },
+      {
+        "name": "Olive Oil and Honey Tasting Experience",
+        "description": "Taste premium Maltese olive oils and honey paired with local bread and cheeses.",
+        "price_range": "€€",
+        "atmosphere": "Tasting and educational",
+        "neighborhood": "Valletta",
+        "best_for": [
+          "gourmets",
+          "small groups",
+          "food education"
+        ],
+        "latitude": 35.8994,
+        "longitude": 14.5147,
+        "reservation_needed": true,
+        "local_tips": "Perfect for pairing with local wines."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Stuffat tal-Fenek (Maltese rabbit stew) with fresh herbs",
+        "Fresh broad beans and peas in local salads",
+        "Aljotta (Maltese fish soup) with seasonal fish",
+        "Qarabaghli mimli (stuffed zucchini flowers)"
+      ],
+      "summer": [
+        "Lampuki pie (fish pie made with seasonal lampuki fish)",
+        "Ftira sandwiches with fresh tomatoes and gbejna (goat cheese)",
+        "Kapunata (Maltese ratatouille)",
+        "Cool Maltese lemon desserts like kannoli"
+      ],
+      "autumn": [
+        "Rabbit dishes with seasonal mushrooms",
+        "Seasonal figs and grapes desserts",
+        "Bragioli (beef olives) with autumn vegetables",
+        "Chestnut-based sweets and pastries"
+      ],
+      "winter": [
+        "Soppa tal-Armla (widow’s soup – winter vegetable soup)",
+        "Roast meats with hearty root vegetables",
+        "Maltese nougat and honey cakes",
+        "Seasonal stews with preserved lemon"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Air Malta, Ryanair",
+            "notes": "Direct flights from Malta International Airport to Rome Fiumicino and Ciampino airports."
+          }
+        ]
+      },
+      {
+        "city": "Catania",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 5m",
+            "frequency": "daily",
+            "price_range": "€30-€100",
+            "operator": "Air Malta, Ryanair",
+            "notes": "Direct flights to Catania–Fontanarossa Airport; popular for Sicily access."
+          }
+        ]
+      },
+      {
+        "city": "Naples",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€45-€110",
+            "operator": "Air Malta",
+            "notes": "Direct flights; ideal for connecting to southern Italy."
+          }
+        ]
+      },
+      {
+        "city": "Palermo",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "several times weekly",
+            "price_range": "€40-€90",
+            "operator": "Air Malta",
+            "notes": "Flights several times per week; connects to Sicily's capital."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Vueling, Ryanair",
+            "notes": "Direct flights to Barcelona–El Prat Airport; popular tourist destination."
+          }
+        ]
+      },
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€50-€130",
+            "operator": "Aegean Airlines, Ryanair",
+            "notes": "Direct flights to Athens International Airport."
+          }
+        ]
+      },
+      {
+        "city": "Valencia",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "several times weekly",
+            "price_range": "€55-€140",
+            "operator": "Ryanair",
+            "notes": "Flights several times per week; hub of Spain’s eastern coast."
+          }
+        ]
+      },
+      {
+        "city": "Tunis",
+        "country": "Tunisia",
+        "transport_types": [
+          {
+            "type": "ferry",
+            "duration": "8h 30m",
+            "frequency": "weekly",
+            "price_range": "€40-€80",
+            "operator": "Grandi Navi Veloci",
+            "notes": "Ferry from Valletta port to Tunis; weekly service, check seasonal schedules."
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€50-€140",
+            "operator": "Air Malta, Ryanair",
+            "notes": "Direct flights to Milan Malpensa and Linate Airports."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "3h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€180",
+            "operator": "British Airways, Ryanair",
+            "notes": "Direct flights to London Heathrow, Gatwick, and Stansted airports."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "SWISS, Air Malta",
+            "notes": "Direct flights to Zurich Airport; good for connecting to Swiss rail network."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Valletta Green Festival",
+        "type": "festival",
+        "description": "A lively festival celebrating Maltese and Mediterranean nature with workshops, live music, and eco-friendly activities in the city center.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Valletta Waterfront and City Center",
+        "price": "Free"
+      },
+      {
+        "name": "St. Publius Feast",
+        "type": "cultural",
+        "description": "Traditional religious celebrations with processions, fireworks, and local food honoring St. Publius, the patron saint of Malta.",
+        "best_months": [
+          "February",
+          "March"
+        ],
+        "location": "Valletta and surrounding areas",
+        "price": "Free"
+      },
+      {
+        "name": "Seaside Walks and Gardens Tour",
+        "type": "outdoor",
+        "description": "Enjoy the mild spring weather exploring Upper Barrakka Gardens and scenic coastal promenades with blossoming flowers.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Upper Barrakka Gardens and Valletta Waterfront",
+        "price": "Free"
+      },
+      {
+        "name": "Fresh Spring Seafood Tasting",
+        "type": "food",
+        "description": "Sample seasonal fresh fish and shellfish dishes in local restaurants as spring brings a bounty of Mediterranean seafood.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Various restaurants across Valletta",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Malta International Arts Festival",
+        "type": "festival",
+        "description": "A prestigious arts festival featuring theatre, dance, music, and opera performances in historic venues throughout Valletta.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Teatru Manoel, St. James Cavalier, and open-air venues",
+        "price": "Premium"
+      },
+      {
+        "name": "Harbor Sunset Boat Tours",
+        "type": "outdoor",
+        "description": "Experience stunning sunsets over the Grand Harbour aboard traditional Maltese luzzu boats or modern yachts.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Grand Harbour, Valletta Waterfront",
+        "price": "Moderate"
+      },
+      {
+        "name": "Valletta Food Market",
+        "type": "food",
+        "description": "Open-air market offering fresh local produce, street food, and traditional Maltese delicacies during the warm summer months.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Valletta Central Market",
+        "price": "Budget"
+      },
+      {
+        "name": "Open-Air Cinema Nights",
+        "type": "cultural",
+        "description": "Enjoy classic and contemporary films under the stars in historic squares like St. George's Square during summer evenings.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "St. George's Square and other open-air venues",
+        "price": "Budget"
+      },
+      {
+        "name": "Water Sports and Swimming",
+        "type": "sport",
+        "description": "Take advantage of warm sea temperatures with swimming, snorkeling, and paddleboarding in nearby beaches and harbors.",
+        "best_months": [
+          "June",
+          "July",
+          "August",
+          "September"
+        ],
+        "location": "Sliema and Valletta waterfront",
+        "price": "Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Malta Jazz Festival",
+        "type": "festival",
+        "description": "International and local jazz artists perform in various venues, blending modern and traditional jazz styles.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Valletta open-air stages and theatres",
+        "price": "Moderate"
+      },
+      {
+        "name": "Historic Walking Tours",
+        "type": "cultural",
+        "description": "Cooler temperatures are ideal for guided explorations of Valletta’s fortifications, museums, and Baroque architecture.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Throughout Valletta",
+        "price": "Budget"
+      },
+      {
+        "name": "Autumn Wine and Olive Oil Tasting",
+        "type": "food",
+        "description": "Celebrate the harvest season with tastings of local Maltese wines and freshly pressed olive oils at specialty venues.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Valletta wine bars and boutique shops",
+        "price": "Moderate"
+      },
+      {
+        "name": "Fort St. Elmo and Maritime Museum Visits",
+        "type": "cultural",
+        "description": "Explore Malta’s rich military history with indoor exhibits and guided tours perfect for mild autumn weather.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Fort St. Elmo, Valletta",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Village and Markets",
+        "type": "festival",
+        "description": "Festive markets offering crafts, seasonal foods, and holiday entertainment in the heart of Valletta’s historic center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Republic Street and City Gate area",
+        "price": "Free"
+      },
+      {
+        "name": "Valletta International Baroque Festival",
+        "type": "cultural",
+        "description": "Celebrate Baroque music and culture with concerts and events held in grand historic churches and halls.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "St. John's Co-Cathedral and other venues",
+        "price": "Moderate"
+      },
+      {
+        "name": "Cozy Maltese Dining Experience",
+        "type": "food",
+        "description": "Warm up with traditional Maltese stews, soups, and hearty pastries served in intimate Valletta restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local Valletta eateries",
+        "price": "Moderate"
+      },
+      {
+        "name": "Indoor Art Exhibitions and Galleries",
+        "type": "cultural",
+        "description": "Visit Valletta’s contemporary art galleries and museums showcasing Maltese and Mediterranean artists in comfortable indoor settings.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "MUZA National Museum of Art and private galleries",
+        "price": "Budget"
+      },
+      {
+        "name": "New Year’s Eve Celebrations",
+        "type": "festival",
+        "description": "Join lively street parties, fireworks, and live music performances welcoming the new year in Valletta’s open squares.",
+        "best_months": [
+          "December"
+        ],
+        "location": "St. George’s Square and Republic Street",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "New Year's Day & Epiphany",
+            "notes": "Cool, mild weather around 15°C; low tourist crowds; some local celebrations for New Year's and Epiphany on January 6; good for quiet sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool and sometimes rainy weather; low crowds but many indoor attractions might be closed or limited; off-season for tourists.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather remains mild with occasional rain; low crowds; good for budget travelers and those seeking quiet cultural experiences.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool weather with some rainfall; low tourist numbers; good for off-season rates and quiet visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Valletta Carnival",
+            "notes": "Mild temperatures around 15°C; Valletta Carnival brings vibrant parades, music, and festivities; moderate crowds increase due to event popularity.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival calm with mild cool weather; low crowds; good for cultural sightseeing and walking tours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Beginning of spring; temperatures rise to around 16-17°C; occasional rain; low crowds; good for outdoor sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Feast of St. Joseph (March 19)",
+            "notes": "Pleasant spring weather; local religious and cultural festivities draw moderate crowds; good time for cultural immersion.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer and sunnier days with less rain; good for walking, visiting historical sites; crowds gradually increasing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full swing; temperatures around 18-20°C; low rain; ideal for outdoor activities and sightseeing; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Good Friday & Easter Celebrations",
+            "notes": "Major religious events with processions and local festivities; warm spring weather; higher crowds especially around Easter weekend.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter calm with pleasant warm weather; good for beach walks and sightseeing; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Malta International Fireworks Festival (early May)",
+            "notes": "Warm, sunny weather averaging 22°C; major fireworks festival draws visitors; lively atmosphere; increasing crowds but still manageable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and dry weather, ideal for sightseeing and beach activities; moderate to high crowds as tourism season ramps up.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer; temperatures range 25-28°C; perfect beach weather; high tourist volumes but plenty of events and nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Malta International Arts Festival (June start)",
+            "notes": "Perfect summer weather with many cultural events; busy tourist season with lively city atmosphere; excellent for cultural and beach activities.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat (28-32°C); ideal for beach lovers; very high crowd levels; vibrant nightlife and many festivals.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Malta Jazz Festival (mid-July)",
+            "notes": "Hot weather with lively cultural scene; Malta Jazz Festival draws music lovers; crowded but exciting atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Victory Day (August 15)",
+            "notes": "Very hot (30-33°C); peak tourist season with crowded beaches and city landmarks; Victory Day celebrations bring parades and fireworks; lively atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat and crowds continue; excellent beach weather; nightlife and festivals keep city vibrant.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August remains hot but crowds start to slightly lessen; good for beach activities and evening walks; some local holiday closures.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Notte Bianca (early September)",
+            "notes": "Warm (26-29°C) and pleasant; Notte Bianca cultural festival with museums open late and street performances; crowds moderate to high.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "End of summer warmth with less humidity and fewer crowds; ideal for outdoor activities, water sports, and sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild autumn weather (22-25°C); pleasant for sightseeing; crowds start to decrease; occasional rain.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather cools to 20-22°C with increased rain; fewer tourists; some attractions may reduce hours; good for budget travelers seeking quiet.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cooler and wetter weather (16-18°C); low daylight; low tourist season; many attractions closed or limited hours.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cool, rainy conditions; low crowds; some local festivals but mostly off-season; best for budget travelers or those avoiding crowds.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool weather (15-17°C); start of festive season; low to moderate crowds; good for cultural experiences and holiday markets.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Immaculate Conception (December 8)",
+            "notes": "Festive local religious celebrations; mild cool weather; increasing visitors; good for cultural and holiday atmosphere.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Christmas & New Year's Eve",
+            "notes": "Mild winter weather; festive decorations, Christmas markets, and events; moderate to high crowds especially around Christmas and New Year's; romantic and family-friendly atmosphere.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

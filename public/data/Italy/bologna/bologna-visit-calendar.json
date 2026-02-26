@@ -4,32 +4,103 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 2,
           "special": true,
           "event": "New Year's Day",
-          "notes": "Holiday atmosphere, many businesses closed, special celebrations in Piazza Maggiore"
+          "notes": "Holiday atmosphere, many businesses closed, special celebrations in Piazza Maggiore",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5],
+          "days": [
+            2,
+            3,
+            4,
+            5
+          ],
           "score": 3,
           "special": true,
           "event": "Post-holiday period",
-          "notes": "Gradually reopening businesses, Christmas decorations still visible in historic center"
+          "notes": "Gradually reopening businesses, Christmas decorations still visible in historic center",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [6],
+          "days": [
+            6
+          ],
           "score": 3,
           "special": true,
           "event": "Epiphany (La Befana)",
-          "notes": "Holiday celebrating the 'good witch' who brings gifts to children, special events in Piazza Maggiore"
+          "notes": "Holiday celebrating the 'good witch' who brings gifts to children, special events in Piazza Maggiore",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
           "special": true,
           "event": "Winter Sales (Saldi)",
-          "notes": "Major shopping discounts throughout the city, especially in the historic center"
+          "notes": "Major shopping discounts throughout the city, especially in the historic center",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 6,
@@ -40,23 +111,81 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 3,
-          "notes": "Quiet winter period, fewer tourists, excellent time for museum visits without crowds"
+          "notes": "Quiet winter period, fewer tourists, excellent time for museum visits without crowds",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 3,
           "special": true,
           "event": "Valentine's Day",
-          "notes": "Romantic atmosphere in the city, special menus at restaurants, couples strolling under historic porticoes"
+          "notes": "Romantic atmosphere in the city, special menus at restaurants, couples strolling under historic porticoes",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 4,
           "special": true,
           "event": "Carnival (Carnevale)",
-          "notes": "Period before Lent with street celebrations, masquerade events, and traditional pastries"
+          "notes": "Period before Lent with street celebrations, masquerade events, and traditional pastries",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 8,
@@ -67,21 +196,82 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
           "score": 4,
-          "notes": "Early spring weather, moderate crowds before Holy Week, ideal for exploring historic center"
+          "notes": "Early spring weather, moderate crowds before Holy Week, ideal for exploring historic center",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [17, 18, 19],
+          "days": [
+            17,
+            18,
+            19
+          ],
           "score": 4,
           "special": true,
           "event": "Feast of San Giuseppe",
-          "notes": "Traditional zeppole di San Giuseppe (cream-filled pastries) in bakeries"
+          "notes": "Traditional zeppole di San Giuseppe (cream-filled pastries) in bakeries",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
-          "notes": "Spring begins, increasing daylight hours, excellent time for exploring porticoes and historic sites"
+          "notes": "Spring begins, increasing daylight hours, excellent time for exploring porticoes and historic sites",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 14,
@@ -92,33 +282,113 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
           "score": 5,
           "special": true,
           "event": "Holy Week & Easter",
-          "notes": "Significant religious processions throughout the historic center, particularly atmospheric in historic churches"
+          "notes": "Significant religious processions throughout the historic center, particularly atmospheric in historic churches",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 5,
-          "notes": "Perfect spring weather, blooming flowers in Giardini Margherita, excellent conditions for outdoor activities"
+          "notes": "Perfect spring weather, blooming flowers in Giardini Margherita, excellent conditions for outdoor activities",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22, 23, 24],
+          "days": [
+            21,
+            22,
+            23,
+            24
+          ],
           "score": 5,
-          "notes": "Ideal spring weather, perfect for exploring the historic center and surrounding hills"
+          "notes": "Ideal spring weather, perfect for exploring the historic center and surrounding hills",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [25],
+          "days": [
+            25
+          ],
           "score": 5,
           "special": true,
           "event": "Liberation Day",
-          "notes": "National holiday with parades, ceremonies, and some business closures"
+          "notes": "National holiday with parades, ceremonies, and some business closures",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Ideal spring weather, perfect for outdoor exploration and dining under porticoes"
+          "notes": "Ideal spring weather, perfect for outdoor exploration and dining under porticoes",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 18,
@@ -129,30 +399,101 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 4,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday, many businesses closed but outdoor celebrations in Piazza Maggiore"
+          "notes": "Public holiday, many businesses closed but outdoor celebrations in Piazza Maggiore",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
-          "notes": "Perfect spring weather, ideal for exploring historic sites and surrounding countryside"
+          "notes": "Perfect spring weather, ideal for exploring historic sites and surrounding countryside",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Portico Festival",
-          "notes": "Month-long cultural festival celebrating Bologna's UNESCO World Heritage porticoes"
+          "notes": "Month-long cultural festival celebrating Bologna's UNESCO World Heritage porticoes",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Cantine Aperte",
-          "notes": "Wineries in Colli Bolognesi open for tastings, excellent for day trips"
+          "notes": "Wineries in Colli Bolognesi open for tastings, excellent for day trips",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 23,
@@ -163,28 +504,98 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 5,
-          "notes": "Early summer weather, excellent for exploring outdoor sites and historic center"
+          "notes": "Early summer weather, excellent for exploring outdoor sites and historic center",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [2],
+          "days": [
+            2
+          ],
           "score": 4,
           "special": true,
           "event": "Festa della Repubblica",
-          "notes": "National holiday with celebrations in Piazza Maggiore and some business closures"
+          "notes": "National holiday with celebrations in Piazza Maggiore and some business closures",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 5,
-          "notes": "Long daylight hours, perfect for evening strolls under porticoes and outdoor dining"
+          "notes": "Long daylight hours, perfect for evening strolls under porticoes and outdoor dining",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Bologna Estate Festival",
-          "notes": "Summer cultural festival with events in historic venues throughout the city"
+          "notes": "Summer cultural festival with events in historic venues throughout the city",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 27,
@@ -195,16 +606,67 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 4,
           "special": true,
           "event": "Bologna Estate Festival",
-          "notes": "Outdoor performances in historic venues, concerts in piazzas, cultural events"
+          "notes": "Outdoor performances in historic venues, concerts in piazzas, cultural events",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
-          "notes": "Peak summer heat, many locals head to hills or coast, good time for early morning or evening activities"
+          "notes": "Peak summer heat, many locals head to hills or coast, good time for early morning or evening activities",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 30,
@@ -215,26 +677,97 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 2,
-          "notes": "Peak summer heat, many locals away, some restaurant and shop closures"
+          "notes": "Peak summer heat, many locals away, some restaurant and shop closures",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 2
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Ferragosto (Assumption Day)",
-          "notes": "National holiday with widespread closures but special events in historic center"
+          "notes": "National holiday with widespread closures but special events in historic center",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 2,
-          "notes": "Continued heat and business closures; major tourist attractions remain open"
+          "notes": "Continued heat and business closures; major tourist attractions remain open",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 2
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 3,
-          "notes": "Businesses begin to reopen as locals return from vacation"
+          "notes": "Businesses begin to reopen as locals return from vacation",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 31,
@@ -245,21 +778,81 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
           "score": 5,
-          "notes": "Perfect late summer weather, locals return, cultural activities resume"
+          "notes": "Perfect late summer weather, locals return, cultural activities resume",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [19, 20, 21, 22, 23, 24, 25, 26, 27],
+          "days": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27
+          ],
           "score": 5,
-          "notes": "Ideal weather continues, perfect for exploring historic sites and taking day trips"
+          "notes": "Ideal weather continues, perfect for exploring historic sites and taking day trips",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [28, 29, 30],
+          "days": [
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "European Heritage Days",
-          "notes": "Special access to historical sites and buildings normally closed to the public"
+          "notes": "Special access to historical sites and buildings normally closed to the public",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 25,
@@ -270,23 +863,84 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 5,
-          "notes": "Beautiful autumn weather, pleasant temperatures, ideal for sightseeing"
+          "notes": "Beautiful autumn weather, pleasant temperatures, ideal for sightseeing",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Autumn food festivals",
-          "notes": "Seasonal truffle, chestnut and mushroom events, wine harvest events in Colli Bolognesi"
+          "notes": "Seasonal truffle, chestnut and mushroom events, wine harvest events in Colli Bolognesi",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Halloween",
-          "notes": "Not traditionally celebrated but increasing popularity with events at clubs and restaurants"
+          "notes": "Not traditionally celebrated but increasing popularity with events at clubs and restaurants",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 20,
@@ -297,28 +951,98 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day",
-          "notes": "Public holiday, many businesses closed, special masses at major churches"
+          "notes": "Public holiday, many businesses closed, special masses at major churches",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2],
+          "days": [
+            2
+          ],
           "score": 3,
           "special": true,
           "event": "All Souls' Day",
-          "notes": "Traditional visits to cemeteries, special masses for the deceased"
+          "notes": "Traditional visits to cemeteries, special masses for the deceased",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
           "score": 4,
-          "notes": "Autumn atmosphere, fewer tourists, excellent museum and indoor site visiting weather"
+          "notes": "Autumn atmosphere, fewer tourists, excellent museum and indoor site visiting weather",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [30],
+          "days": [
+            30
+          ],
           "score": 4,
-          "notes": "Begin of the Christmas season preparation, festive decorations appearing"
+          "notes": "Begin of the Christmas season preparation, festive decorations appearing",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 15,
@@ -329,49 +1053,150 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
           "score": 4,
-          "notes": "Pre-Christmas atmosphere, holiday decorations appearing throughout the city"
+          "notes": "Pre-Christmas atmosphere, holiday decorations appearing throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [8],
+          "days": [
+            8
+          ],
           "score": 4,
           "special": true,
           "event": "Immaculate Conception",
-          "notes": "Public holiday, start of Christmas season, lighting of city Christmas decorations"
+          "notes": "Public holiday, start of Christmas season, lighting of city Christmas decorations",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets",
-          "notes": "Holiday markets throughout the city, especially in historic center"
+          "notes": "Holiday markets throughout the city, especially in historic center",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Eve and Day",
-          "notes": "Midnight Mass at historic churches, limited dining options but major hotels offer special meals"
+          "notes": "Midnight Mass at historic churches, limited dining options but major hotels offer special meals",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [26],
+          "days": [
+            26
+          ],
           "score": 3,
           "special": true,
           "event": "Santo Stefano",
-          "notes": "National holiday, continued celebrations, some businesses remain closed"
+          "notes": "National holiday, continued celebrations, some businesses remain closed",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [27, 28, 29, 30],
+          "days": [
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Between Christmas and New Year's, festive atmosphere continues"
+          "notes": "Between Christmas and New Year's, festive atmosphere continues",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "New Year's Eve",
-          "notes": "Massive celebrations in Piazza Maggiore, fireworks, concerts and outdoor parties"
+          "notes": "Massive celebrations in Piazza Maggiore, fireworks, concerts and outdoor parties",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 8,
@@ -422,10 +1247,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very low/high tourism (business closures)",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
-} 
+}

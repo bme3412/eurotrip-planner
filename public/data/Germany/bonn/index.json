@@ -1,1 +1,3567 @@
-{"city":"bonn","country":"Germany","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "bonn",
+  "country": "Germany",
+  "overview": {
+    "city_name": "Bonn",
+    "country": "Germany",
+    "brief_description": "Bonn, a charming city on the Rhine River, is rich in history as the former capital of West Germany and the birthplace of Beethoven. It offers a unique blend of cultural heritage, vibrant university life, and scenic riverbank views.",
+    "nickname": "The Beethoven City",
+    "region": "North Rhine-Westphalia",
+    "population": "approx. 330,000",
+    "why_visit": [
+      "Explore the Beethoven-Haus, dedicated to the life of the legendary composer",
+      "Stroll along the picturesque Rhine promenade",
+      "Discover the historic old town with its baroque architecture",
+      "Visit world-class museums and botanical gardens"
+    ],
+    "best_time_to_visit": "May to September, when the weather is mild and outdoor festivals enliven the city",
+    "seasonal_notes": {
+      "spring": "Blooming flowers and mild temperatures make it ideal for river walks and visiting parks.",
+      "summer": "Warm weather perfect for enjoying open-air concerts and Rhine cruises.",
+      "autumn": "Colorful foliage and harvest festivals create a cozy atmosphere.",
+      "winter": "Chilly but festive, with Christmas markets offering seasonal treats and crafts."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "German",
+      "visit_duration": "2-3 days recommended to cover main attractions",
+      "getting_around": "Efficient public transport includes trams, buses, and regional trains; walking and cycling are also popular.",
+      "safety": "Generally very safe with standard European city precautions advised."
+    },
+    "coordinates": {
+      "latitude": 50.7374,
+      "longitude": 7.0982
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Beethoven-Haus museum and birthplace",
+        "Walk along the Rhine promenade to enjoy river views",
+        "Tour the historic Bonn Minster (Bonner Münster)",
+        "Explore the Museum Mile including Kunstmuseum Bonn",
+        "Relax in the Botanical Gardens of the University of Bonn"
+      ],
+      "worth_doing": [
+        "Climb to the top of the Poppelsdorf Palace gardens",
+        "Visit the Haus der Geschichte for German contemporary history",
+        "Take a boat cruise on the Rhine River",
+        "Enjoy local cuisine in the old town’s traditional restaurants",
+        "Attend a concert or event at the Bonn Opera House"
+      ],
+      "hidden_gems": [
+        "Discover the Rheinaue Park with its lakes and open-air activities",
+        "Explore the lesser-known historic district of Südstadt",
+        "Visit the Arithmeum, a museum dedicated to the history of calculating machines",
+        "Browse the local markets, especially the weekly farmers market at Münsterplatz",
+        "Check out contemporary art at the Akademie der Künste der Welt"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Beethoven-Haus",
+        "type": "Museum",
+        "description": "The Beethoven-Haus is the birthplace of Ludwig van Beethoven, now a museum dedicated to the composer’s life and works. It houses original manuscripts, letters, and personal items, offering an immersive experience into the world of classical music.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended during summer and weekends.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 50.7363,
+        "longitude": 7.1004,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "null"
+        },
+        "official_url": "https://www.beethoven-haus-bonn.de/en",
+        "website": "https://www.beethoven-haus-bonn.de/en"
+      },
+      {
+        "name": "Poppelsdorf Palace and Botanical Garden",
+        "type": "Palace|Park",
+        "description": "Poppelsdorf Palace, an impressive Baroque building, is set beside the University of Bonn’s extensive Botanical Garden. The garden features thousands of plant species from around the world, perfect for nature lovers and history enthusiasts alike.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and summer offer the best floral displays.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7297,
+        "longitude": 7.0891,
+        "neighborhood": "Poppelsdorf",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "Botanical garden open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Poppelsdorf",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "611",
+            "603"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Bonn Museum of Modern Art if raining"
+        },
+        "official_url": "https://www.botgart.uni-bonn.de/en",
+        "website": "https://www.botgart.uni-bonn.de/en"
+      },
+      {
+        "name": "Museum Koenig",
+        "type": "Museum",
+        "description": "Museum Koenig is a renowned natural history museum, famous for its extensive zoological collections and interactive exhibits. It provides fascinating insights into biodiversity and evolution, making it a hit with families and science enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be bought on-site; guided tours available by appointment.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7356,
+        "longitude": 7.0893,
+        "neighborhood": "Zentrum",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Museum Koenig",
+              "walk_minutes": 2
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum, perfect for rainy days"
+        },
+        "official_url": "https://museumkoenig.de/en",
+        "website": "https://museumkoenig.de/en"
+      },
+      {
+        "name": "Rheinaue Park",
+        "type": "Park",
+        "description": "Rheinaue is Bonn’s largest park, offering over 160 hectares of green spaces, lakes, and recreational facilities. It’s perfect for cycling, picnicking, and enjoying open-air concerts during summer festivals.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Popular in spring and summer for flower blooms and outdoor events.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7108,
+        "longitude": 7.1192,
+        "neighborhood": "Rheinaue",
+        "opening_hours": {
+          "weekday": "05:00-23:00",
+          "weekend": "05:00-23:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Rheinaue",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "610"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Bonn's Old Town museums if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Altes Rathaus (Old Town Hall)",
+        "type": "Historic Site|Monument",
+        "description": "This rococo-style town hall, painted a striking yellow, is one of Bonn’s iconic landmarks. Built in the 18th century, it overlooks the central Market Square and often hosts official city events and weddings.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Access inside only during special events; exterior viewing available anytime.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7359,
+        "longitude": 7.0953,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "Closed",
+          "notes": "Limited interior access"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611",
+            "604"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit adjacent museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Haus der Geschichte",
+        "type": "Museum",
+        "description": "The House of History presents Germany’s contemporary history since 1945 through compelling exhibits and multimedia. It is a must-visit for those interested in political history, culture, and the Cold War era.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Entry is free but consider arriving early to avoid crowds.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 50.7361,
+        "longitude": 7.0997,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum, great during bad weather"
+        },
+        "official_url": "https://www.hdg.de/en/haus-der-geschichte.html",
+        "website": "https://www.hdg.de/en/haus-der-geschichte.html"
+      },
+      {
+        "name": "St. Remigius Church",
+        "type": "Church",
+        "description": "Located in the heart of Bonn, St. Remigius is a beautiful Gothic church dating back to the 13th century. Its impressive stained glass windows and historic organ attract visitors interested in architecture and sacred art.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.735,
+        "longitude": 7.0975,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Service times may restrict visitor access"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor religious site"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Bonn Minster (Bonner Münster)",
+        "type": "Church",
+        "description": "One of the oldest churches in Germany, Bonn Minster features Romanesque and Gothic architectural styles. It is renowned for its vaulted ceilings, historic tombs, and vibrant community events.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 50.7352,
+        "longitude": 7.0938,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Closed during some religious services"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby museums indoors"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Alter Zoll",
+        "type": "Historic Site|Viewpoint|Park",
+        "description": "Alter Zoll is a historic riverside customs tower site offering panoramic views of the Rhine River and the Siebengebirge hills. The surrounding park is a popular spot for locals to relax and enjoy sunsets, especially in warmer months.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Great for spring and summer evenings.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7367,
+        "longitude": 7.0885,
+        "neighborhood": "Zentrum",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Poppelsdorf",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "603",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby indoor cafes or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Markt (Market Square)",
+        "type": "Market",
+        "description": "The vibrant Market Square is the heart of Bonn’s Altstadt where locals and tourists gather for fresh produce, flowers, and seasonal markets. In winter, it hosts a charming Christmas market filled with festive stalls and events.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free entry, market purchases vary",
+        "seasonal_notes": "Christmas market active late November to December.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7358,
+        "longitude": 7.0951,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "07:00-18:00",
+          "weekend": "07:00-14:00",
+          "notes": "Hours vary by vendor"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611",
+            "604"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor markets or shopping centers nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Kunstmuseum Bonn",
+        "type": "Museum|Gallery",
+        "description": "Kunstmuseum Bonn showcases modern and contemporary art, with a special focus on Rhenish Expressionism. Its striking architecture and rotating exhibitions make it a cultural highlight for art lovers.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Book tickets online during major exhibitions.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7351,
+        "longitude": 7.102,
+        "neighborhood": "Zentrum",
+        "opening_hours": {
+          "weekday": "11:00-18:00",
+          "weekend": "11:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 4
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Perfect indoor option any weather"
+        },
+        "official_url": "https://www.kunstmuseum-bonn.de/en/",
+        "website": "https://www.kunstmuseum-bonn.de/en/"
+      },
+      {
+        "name": "Haus Müllestumpe",
+        "type": "Museum|Historic Site",
+        "description": "An elegant Rococo mansion that now serves as a museum showcasing art and cultural history of the region. Its lavish interiors and beautiful furniture offer a glimpse into Bonn’s aristocratic past.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Limited guided tours, book in advance.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7338,
+        "longitude": 7.0999,
+        "neighborhood": "Zentrum",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays and public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Arithmeum",
+        "type": "Museum",
+        "description": "The Arithmeum is a unique museum dedicated to the history of calculation and computers. It features historic calculating machines, early computers, and educational exhibits about mathematics and technology.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Group tours require booking in advance.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7321,
+        "longitude": 7.083,
+        "neighborhood": "Poppelsdorf",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Poppelsdorf",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "603",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.arithmeum.uni-bonn.de/en",
+        "website": "https://www.arithmeum.uni-bonn.de/en"
+      },
+      {
+        "name": "Godesburg Ruins",
+        "type": "Historic Site|Viewpoint",
+        "description": "The medieval Godesburg castle ruins overlook the Rhine valley, offering spectacular views and a glimpse into Bonn’s medieval past. The site includes a restaurant inside the restored tower, combining history with modern hospitality.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free to explore, dining extra",
+        "seasonal_notes": "Best visited in spring to autumn for clear views.",
+        "booking_tips": "Reservations recommended for the restaurant.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7161,
+        "longitude": 7.1743,
+        "neighborhood": "Bad Godesberg",
+        "opening_hours": {
+          "weekday": "Open 24 hours (ruins), restaurant varies",
+          "weekend": "Open 24 hours (ruins), restaurant varies",
+          "notes": "Restaurant hours depend on season"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "S12",
+              "station": "Bad Godesberg",
+              "walk_minutes": 25
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "606"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Bad Godesberg indoor museums"
+        },
+        "official_url": "https://www.bad-godesberg.de/godesburg-ruine",
+        "website": "https://www.bad-godesberg.de/godesburg-ruine"
+      },
+      {
+        "name": "Rheinisches Landesmuseum Bonn",
+        "type": "Museum",
+        "description": "This museum specializes in archaeology and art history of the Rhineland region, featuring artifacts from prehistoric times through the Roman era to modern periods. It offers rich insights into regional cultural development.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Check for special exhibits and book ahead if available.",
+        "ratings": {
+          "cost_estimate": 9,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 50.7314,
+        "longitude": 7.0912,
+        "neighborhood": "Poppelsdorf",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Poppelsdorf",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "603",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.landesmuseum-bonn.lvr.de/en/startseite.html",
+        "website": "https://www.landesmuseum-bonn.lvr.de/en/startseite.html"
+      },
+      {
+        "name": "Bonner Münsterplatz",
+        "type": "Viewpoint|Historic Site",
+        "description": "A historic plaza adjacent to the Bonn Minster church, this vibrant square features cafes, fountains, and seasonal events. It’s a great place to soak in local life and admire nearby heritage buildings.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Hosts markets and festivals in warmer months.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7353,
+        "longitude": 7.094,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": "Year-round access"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U7",
+              "station": "Bertha-von-Suttner-Platz",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "610",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Nearby indoor cafes or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Alter Zoll Biergarten",
+        "type": "Outdoor Dining|Historic Site",
+        "description": "Located near the historic Alter Zoll site, this lively beer garden offers local brews and traditional German snacks in a scenic riverside setting. It’s popular in summer evenings for socializing with locals.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Open seasonally from spring to early autumn.",
+        "booking_tips": "No reservations typically needed but weekends can be busy.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7365,
+        "longitude": 7.0882,
+        "neighborhood": "Zentrum",
+        "opening_hours": {
+          "weekday": "16:00-22:00",
+          "weekend": "12:00-22:00",
+          "notes": "Seasonal operation"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Poppelsdorf",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "603",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor pubs or cafes in Altstadt"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "August Macke Haus",
+        "type": "Museum|Historic Site",
+        "description": "This museum is dedicated to August Macke, a leading Expressionist painter. Located in his former home, it exhibits original works, letters, and offers insights into early 20th-century German art movements.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small museum; tickets can be purchased on site.",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7263,
+        "longitude": 7.087,
+        "neighborhood": "Poppelsdorf",
+        "opening_hours": {
+          "weekday": "11:00-17:00",
+          "weekend": "11:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "U16",
+              "station": "Poppelsdorf",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "603",
+            "611"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://august-macke-haus.de/",
+        "website": "https://august-macke-haus.de/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Altstadt",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Altstadt is Bonn’s historic heart, where cobblestone streets and baroque buildings create a charming, timeless atmosphere. It buzzes with tourists and locals alike, enjoying cultural landmarks and quaint cafes.",
+        "location": {
+          "central": true,
+          "description": "Located directly on the west bank of the Rhine River, it is the city center.",
+          "borders": [
+            "Südstadt",
+            "Hochkreuz",
+            "Poppelsdorf"
+          ],
+          "landmarks": [
+            "Bonn Minster",
+            "Altes Rathaus",
+            "Beethoven House"
+          ]
+        },
+        "history": {
+          "overview": "Altstadt dates back to medieval times and has been the city’s core for centuries.",
+          "significance": "It hosts Bonn’s most important historic and cultural sites, representing the city’s origins and heritage.",
+          "notable_events": [
+            "Beethoven’s birthplace",
+            "Post-WWII restoration",
+            "Former capital city center"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bonn Hauptbahnhof",
+            "Bertha-von-Suttner-Platz tram stop"
+          ],
+          "safety": "Very safe, well-patrolled",
+          "best_time_to_visit": "Spring to early autumn for outdoor cafes and festivals",
+          "walkability": "Highly walkable with pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Beethoven House",
+            "Rhine riverfront",
+            "Museums",
+            "Outdoor markets"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Lively",
+            "Picturesque"
+          ],
+          "best_for": [
+            "History buffs",
+            "First-time visitors",
+            "Cultural tourists"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Beethoven House",
+              "type": "Museum",
+              "description": "Birthplace and museum dedicated to Ludwig van Beethoven.",
+              "appeal": "Essential for classical music lovers and cultural history enthusiasts."
+            },
+            {
+              "name": "Bonn Minster",
+              "type": "Cathedral",
+              "description": "One of Germany’s oldest churches with stunning Romanesque architecture.",
+              "appeal": "A spiritual and architectural landmark in the city."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Wirtshaus Godesberg",
+              "cuisine": "German",
+              "price_range": "€€",
+              "known_for": "Traditional Rhineland dishes",
+              "atmosphere": "Cozy, authentic, historic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy quiet streets before the crowds arrive.",
+          "Check the schedule for classical concerts held in historic venues.",
+          "Explore the small alleys behind the main streets for hidden galleries and cafes."
+        ]
+      },
+      {
+        "name": "Südstadt",
+        "alternate_names": [
+          "South City"
+        ],
+        "character": "Südstadt is a trendy and vibrant neighborhood with a youthful energy, packed with boutique shops, art galleries, and hip cafes. The area blends historic charm with a modern lifestyle, popular among students and young professionals.",
+        "location": {
+          "central": true,
+          "description": "Just south of the Altstadt, adjacent to the city center.",
+          "borders": [
+            "Altstadt",
+            "Duisdorf",
+            "Kessenich"
+          ],
+          "landmarks": [
+            "Stadthalle Bonn",
+            "Museumsmeile (Museum Mile)"
+          ]
+        },
+        "history": {
+          "overview": "Developed extensively in the late 19th and early 20th centuries, Südstadt became a cultural hub.",
+          "significance": "Known for its artistic community and as a center for contemporary culture in Bonn.",
+          "notable_events": [
+            "Growth of Museumsmeile",
+            "Post-war urban renewal"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bertha-von-Suttner-Platz",
+            "Heussallee/Museumsmeile"
+          ],
+          "safety": "Safe and lively",
+          "best_time_to_visit": "Year-round, especially during art festivals",
+          "walkability": "Very walkable with many pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Art galleries",
+            "Boutique shopping",
+            "Museum Mile",
+            "Cafes",
+            "Cultural events"
+          ],
+          "atmosphere": [
+            "Trendy",
+            "Creative",
+            "Energetic"
+          ],
+          "best_for": [
+            "Young travelers",
+            "Art lovers",
+            "Nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Museum Mile",
+              "type": "Cultural district",
+              "description": "Cluster of major museums including Bundeskunsthalle and Kunstmuseum Bonn.",
+              "appeal": "A must-see for modern art and history enthusiasts."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Blau",
+              "cuisine": "International",
+              "price_range": "€€",
+              "known_for": "Creative brunch and specialty coffees",
+              "atmosphere": "Relaxed, artistic, welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Attend the Museumsmeile late-night openings for a unique cultural experience.",
+          "Try the local craft beers served in many hip bars here.",
+          "Explore side streets for street art and independent shops."
+        ]
+      },
+      {
+        "name": "Bonn-Beuel",
+        "alternate_names": [
+          "Beuel"
+        ],
+        "character": "Bonn-Beuel offers a lively riverside neighborhood feel with a mix of traditional and modern influences. It hosts local markets, a vibrant food scene, and a relaxed atmosphere away from the city’s main tourist flow.",
+        "location": {
+          "central": false,
+          "description": "Located east of the Rhine River, opposite the Altstadt.",
+          "borders": [
+            "Altstadt",
+            "Beuel-Nord",
+            "Beuel-Süd"
+          ],
+          "landmarks": [
+            "Beuel Market",
+            "Rheinaue Park (partial)"
+          ]
+        },
+        "history": {
+          "overview": "Historically a separate town, Beuel was incorporated into Bonn and developed as a working-class and commercial district.",
+          "significance": "Known for its traditional festivals and as a gateway to the Rhine’s eastern bank.",
+          "notable_events": [
+            "Annual Beuel Carnival",
+            "Industrial growth in early 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Beuel Bahnhof",
+            "Beuel Mitte bus stops"
+          ],
+          "safety": "Safe with a friendly local vibe",
+          "best_time_to_visit": "Summer for riverfront activities and markets",
+          "walkability": "Moderately walkable with some public transit"
+        },
+        "appeal": {
+          "known_for": [
+            "Riverside walks",
+            "Local markets",
+            "Traditional festivals",
+            "Casual dining",
+            "Community events"
+          ],
+          "atmosphere": [
+            "Laid-back",
+            "Authentic",
+            "Community-oriented"
+          ],
+          "best_for": [
+            "Families",
+            "Foodies",
+            "Local culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Beuel Market",
+              "type": "Market",
+              "description": "Weekly market offering fresh local produce and crafts.",
+              "appeal": "Ideal for tasting local flavors and mingling with residents."
+            },
+            {
+              "name": "Rheinaue Park",
+              "type": "Park",
+              "description": "Expansive park that partially extends into Beuel with gardens and event spaces.",
+              "appeal": "Perfect for outdoor activities and relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Gasthaus Rüdesheimer",
+              "cuisine": "German",
+              "price_range": "€€",
+              "known_for": "Traditional Rhineland cuisine",
+              "atmosphere": "Warm, rustic, family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the Beuel Carnival for authentic local celebrations.",
+          "Walk along the Rhine promenade at sunset for beautiful views of Bonn.",
+          "Try the seasonal specialties at the Beuel Market stalls."
+        ]
+      },
+      {
+        "name": "Poppelsdorf",
+        "alternate_names": [],
+        "character": "Poppelsdorf is a leafy, upscale residential neighborhood with a scholarly ambiance due to its proximity to the University of Bonn. It balances quiet streets lined with elegant villas and lively university life.",
+        "location": {
+          "central": false,
+          "description": "West of the Altstadt, just outside the city center.",
+          "borders": [
+            "Altstadt",
+            "Dottendorf",
+            "Graurheindorf"
+          ],
+          "landmarks": [
+            "Poppelsdorf Palace",
+            "Botanical Gardens"
+          ]
+        },
+        "history": {
+          "overview": "Poppelsdorf developed as a noble residential area around the baroque Poppelsdorf Palace in the 18th century.",
+          "significance": "It remains an important cultural and academic hub with historical gardens and palatial architecture.",
+          "notable_events": [
+            "Construction of Poppelsdorf Palace",
+            "University expansions"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Poppelsdorf Bahnhof",
+            "Universität tram stops"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Spring for botanical garden blooms",
+          "walkability": "Highly walkable and green"
+        },
+        "appeal": {
+          "known_for": [
+            "University campus",
+            "Botanical Gardens",
+            "Elegant architecture",
+            "Quiet parks"
+          ],
+          "atmosphere": [
+            "Serene",
+            "Academic",
+            "Refined"
+          ],
+          "best_for": [
+            "Students",
+            "Nature lovers",
+            "Quiet travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Poppelsdorf Palace",
+              "type": "Historic Palace",
+              "description": "Baroque palace housing parts of the University of Bonn’s mineral collection.",
+              "appeal": "Architectural beauty with academic significance."
+            },
+            {
+              "name": "Botanical Gardens",
+              "type": "Garden",
+              "description": "Expansive gardens featuring diverse plant species and seasonal flower displays.",
+              "appeal": "A tranquil retreat and educational resource."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Poppelsdorf",
+              "cuisine": "Cafe",
+              "price_range": "€",
+              "known_for": "Light lunches and organic coffee",
+              "atmosphere": "Casual, cozy, student-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Botanical Gardens early in the morning for peaceful walks.",
+          "Check out university events that are often open to the public.",
+          "Explore the side streets for hidden local eateries."
+        ]
+      },
+      {
+        "name": "Kessenich",
+        "alternate_names": [],
+        "character": "Kessenich is a vibrant, diverse residential district known for its lively street life and a broad mix of eateries and shops. It’s a popular area for families and young professionals who appreciate its community feel and good amenities.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the Altstadt, near the city outskirts.",
+          "borders": [
+            "Südstadt",
+            "Plittersdorf",
+            "Graurheindorf"
+          ],
+          "landmarks": [
+            "Kessenicher Street Shopping",
+            "Kessenich Church"
+          ]
+        },
+        "history": {
+          "overview": "Once a separate village, Kessenich was incorporated into Bonn and expanded as a working-class and middle-class neighborhood.",
+          "significance": "It represents Bonn’s growth beyond the historic core and hosts a diverse population.",
+          "notable_events": [
+            "Post-WWII housing development",
+            "Cultural integration initiatives"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Kessenich tram stops",
+            "Bus line access"
+          ],
+          "safety": "Generally safe with active community policing",
+          "best_time_to_visit": "Spring and summer for street festivals",
+          "walkability": "Moderately walkable with good public transit access"
+        },
+        "appeal": {
+          "known_for": [
+            "Diverse dining",
+            "Community events",
+            "Local shops",
+            "Family-friendly parks"
+          ],
+          "atmosphere": [
+            "Welcoming",
+            "Lively",
+            "Multicultural"
+          ],
+          "best_for": [
+            "Families",
+            "Food explorers",
+            "Long-term visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Kessenich Church",
+              "type": "Religious site",
+              "description": "Historic parish church with community activities.",
+              "appeal": "A focal point for local cultural and social life."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Pizzeria Kessenich",
+              "cuisine": "Italian",
+              "price_range": "€€",
+              "known_for": "Authentic wood-fired pizzas",
+              "atmosphere": "Casual, family-friendly"
+            },
+            {
+              "name": "Taj Mahal",
+              "cuisine": "Indian",
+              "price_range": "€€",
+              "known_for": "Spicy curries and tandoori specialties",
+              "atmosphere": "Cozy, colorful, vibrant"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Try the multicultural food offerings especially on weekends.",
+          "Visit during local festivals for street food and music.",
+          "Use tram lines for easy connections to the city center."
+        ]
+      },
+      {
+        "name": "Duisdorf",
+        "alternate_names": [],
+        "character": "Duisdorf is a peaceful suburban neighborhood favored by families and those seeking green spaces. It offers a quiet residential vibe with parks and local shops, making it a comfortable retreat from Bonn’s busier areas.",
+        "location": {
+          "central": false,
+          "description": "Northwest of the city center, near the city limits.",
+          "borders": [
+            "Endenich",
+            "Beuel-Nord",
+            "Bonn"
+          ],
+          "landmarks": [
+            "Wildpark Venusberg",
+            "Duisdorf Market"
+          ]
+        },
+        "history": {
+          "overview": "A former village incorporated into Bonn, Duisdorf has maintained much of its village charm despite urban growth.",
+          "significance": "It provides an example of Bonn’s suburban development with emphasis on green living.",
+          "notable_events": [
+            "Incorporation into Bonn",
+            "Development of local nature preserves"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Duisdorf Bahnhof",
+            "Bus lines"
+          ],
+          "safety": "Very safe, family-oriented",
+          "best_time_to_visit": "Spring and summer for parks and outdoor markets",
+          "walkability": "Walkable with some bike paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Wildpark Venusberg",
+            "Local markets",
+            "Quiet residential streets"
+          ],
+          "atmosphere": [
+            "Calm",
+            "Family-friendly",
+            "Nature-oriented"
+          ],
+          "best_for": [
+            "Families",
+            "Nature lovers",
+            "Long stays"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Wildpark Venusberg",
+              "type": "Nature park",
+              "description": "A wildlife park with native animals and walking trails.",
+              "appeal": "Great for families and nature walks."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Zum Wildpark",
+              "cuisine": "German",
+              "price_range": "€€",
+              "known_for": "Seasonal game dishes",
+              "atmosphere": "Rustic, cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Bring comfortable shoes for exploring the Wildpark trails.",
+          "Visit the weekend market for local fresh produce.",
+          "Check out community events at the local cultural center."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Le Moissonnier",
+          "cuisine_type": "French, European",
+          "description": "A Michelin-starred restaurant offering refined French cuisine with seasonal, locally sourced ingredients.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and intimate with classic French decor",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 50.7321,
+          "longitude": 7.1015,
+          "reservation_needed": true,
+          "local_tips": "Try their seasonal tasting menu paired with French wines for the full experience."
+        },
+        {
+          "name": "Em Höttche",
+          "cuisine_type": "German, Rhineland",
+          "description": "Historic restaurant serving traditional Rhineland dishes in a cozy, rustic setting dating back to 1640.",
+          "price_range": "€€€",
+          "atmosphere": "Warm, traditional, and inviting",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "authentic local cuisine",
+            "groups"
+          ],
+          "latitude": 50.7378,
+          "longitude": 7.0969,
+          "reservation_needed": true,
+          "local_tips": "Order the 'Himmel un Ääd', a regional specialty of mashed potatoes with apple sauce and blood sausage."
+        },
+        {
+          "name": "Taku",
+          "cuisine_type": "Asian Fusion, Japanese",
+          "description": "Modern Asian fusion restaurant with emphasis on Japanese flavors and innovative presentation.",
+          "price_range": "€€€",
+          "atmosphere": "Chic, minimalist, and contemporary",
+          "neighborhood": "Beuel",
+          "best_for": [
+            "food enthusiasts",
+            "date night"
+          ],
+          "latitude": 50.7267,
+          "longitude": 7.1134,
+          "reservation_needed": true,
+          "local_tips": "Their sushi and wok dishes are standout, and the sake selection is excellent."
+        },
+        {
+          "name": "Stiefel",
+          "cuisine_type": "German, Contemporary",
+          "description": "A refined dining experience focusing on modern German cuisine with a creative twist.",
+          "price_range": "€€€",
+          "atmosphere": "Stylish yet comfortable, perfect for relaxed fine dining",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "business dinners",
+            "date night"
+          ],
+          "latitude": 50.7359,
+          "longitude": 7.0992,
+          "reservation_needed": true,
+          "local_tips": "Try the seasonal game dishes in autumn and the chef’s tasting menu."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Brauerei zur Malzmühle",
+          "cuisine_type": "German, Brewery",
+          "description": "Traditional brewery with hearty German fare and house-brewed beers.",
+          "price_range": "€€",
+          "atmosphere": "Lively and rustic, great for groups",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "groups",
+            "casual meals"
+          ],
+          "latitude": 50.7365,
+          "longitude": 7.0974,
+          "reservation_needed": false,
+          "local_tips": "Try the 'Rheinischer Sauerbraten' paired with their Malzmühle Pils."
+        },
+        {
+          "name": "Café Blau",
+          "cuisine_type": "International, Café",
+          "description": "Casual café with a mix of breakfast, salads, and sandwiches, popular among locals for relaxed dining.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, artsy, and laid-back",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "brunch",
+            "friends"
+          ],
+          "latitude": 50.7254,
+          "longitude": 7.0968,
+          "reservation_needed": false,
+          "local_tips": "Their homemade cakes and good coffee make it a perfect afternoon stop."
+        },
+        {
+          "name": "Weinhaus Vogel",
+          "cuisine_type": "German, Wine Tavern",
+          "description": "A traditional Weinhaus offering local wines and simple German dishes in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual, welcoming, and authentic",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "wine lovers",
+            "casual dining"
+          ],
+          "latitude": 50.736,
+          "longitude": 7.0981,
+          "reservation_needed": false,
+          "local_tips": "Try the 'Flönz' (blood sausage) with a glass of Riesling."
+        },
+        {
+          "name": "Bonner Wirtshaus",
+          "cuisine_type": "German, Rhineland",
+          "description": "Popular spot for traditional Rhineland cuisine with a modern touch, known for its friendly service.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "families",
+            "groups"
+          ],
+          "latitude": 50.7348,
+          "longitude": 7.1023,
+          "reservation_needed": false,
+          "local_tips": "The 'Sauerbraten' and local beers are must-tries."
+        },
+        {
+          "name": "La Boca",
+          "cuisine_type": "Argentinian, Steakhouse",
+          "description": "Casual Argentinian steakhouse offering grilled meats and a warm atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and informal",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "meat lovers",
+            "groups"
+          ],
+          "latitude": 50.7249,
+          "longitude": 7.0962,
+          "reservation_needed": false,
+          "local_tips": "Order the mixed grill platter to sample a range of cuts."
+        },
+        {
+          "name": "Café Blau",
+          "cuisine_type": "International, Cafe",
+          "description": "Casual, artsy café with excellent coffee and light meals, perfect for a relaxed atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and artistic",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "coffee lovers",
+            "brunch"
+          ],
+          "latitude": 50.7254,
+          "longitude": 7.0968,
+          "reservation_needed": false,
+          "local_tips": "Try their vegan and vegetarian options."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Markthalle Bonn",
+          "cuisine_type": "Various, Market",
+          "description": "Indoor market with diverse stalls offering fresh produce, local specialties, and international street food.",
+          "price_range": "€",
+          "atmosphere": "Bustling, lively, and authentic market vibe",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "quick bites",
+            "food exploration"
+          ],
+          "latitude": 50.7372,
+          "longitude": 7.1001,
+          "reservation_needed": false,
+          "local_tips": "Visit on Saturdays for the farmers market with local seasonal produce."
+        },
+        {
+          "name": "Bonn Street Food Market (seasonal)",
+          "cuisine_type": "Various, Street Food",
+          "description": "Popular monthly street food market featuring food trucks and stalls with international and local flavors.",
+          "price_range": "€",
+          "atmosphere": "Casual, festive, and social",
+          "neighborhood": "Rheinauen Park",
+          "best_for": [
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 50.729,
+          "longitude": 7.106,
+          "reservation_needed": false,
+          "local_tips": "Try the local bratwurst and seasonal specialties."
+        },
+        {
+          "name": "Rheinpromenade Food Stalls",
+          "cuisine_type": "German, Fast Food",
+          "description": "Various food stalls along the Rhine river promenade offering quick local snacks like Currywurst and Reibekuchen.",
+          "price_range": "€",
+          "atmosphere": "Casual, outdoor, scenic",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "snacks",
+            "walk and eat"
+          ],
+          "latitude": 50.737,
+          "longitude": 7.098,
+          "reservation_needed": false,
+          "local_tips": "Grab a Reibekuchen (potato pancake) with applesauce for a true Rhineland treat."
+        },
+        {
+          "name": "Südstadt Wochenmarkt",
+          "cuisine_type": "Local, Market",
+          "description": "Weekly open-air market offering fresh fruits, vegetables, cheeses, and street snacks.",
+          "price_range": "€",
+          "atmosphere": "Community-focused and vibrant",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "fresh produce",
+            "local specialties"
+          ],
+          "latitude": 50.724,
+          "longitude": 7.097,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal asparagus in spring, often sold fresh here."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Alter Zoll",
+          "cuisine_type": "Bar, Cocktails",
+          "description": "Popular riverside bar with a great selection of beers and cocktails, boasting a scenic view of the Rhine.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, social, with outdoor seating",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "evenings",
+            "groups"
+          ],
+          "latitude": 50.7362,
+          "longitude": 7.0957,
+          "reservation_needed": false,
+          "local_tips": "Visit during sunset for picturesque river views."
+        },
+        {
+          "name": "Café des Arts",
+          "cuisine_type": "Bar, Wine Bar",
+          "description": "Intimate wine bar known for its curated selection of German and international wines.",
+          "price_range": "€€€",
+          "atmosphere": "Cozy and artistic",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "date night",
+            "wine enthusiasts"
+          ],
+          "latitude": 50.735,
+          "longitude": 7.099,
+          "reservation_needed": true,
+          "local_tips": "Ask for wine tasting flights to sample regional varieties."
+        },
+        {
+          "name": "Die Halle",
+          "cuisine_type": "Bar, Live Music",
+          "description": "Trendy bar and live music venue with creative cocktails and a vibrant crowd.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and youthful",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "live music",
+            "nightlife"
+          ],
+          "latitude": 50.7245,
+          "longitude": 7.095,
+          "reservation_needed": false,
+          "local_tips": "Check the event calendar for live jazz and indie performances."
+        },
+        {
+          "name": "Bar Zwei",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Sleek cocktail bar with expertly crafted drinks and a stylish interior.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated and modern",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "cocktail lovers",
+            "date night"
+          ],
+          "latitude": 50.736,
+          "longitude": 7.0985,
+          "reservation_needed": true,
+          "local_tips": "Try their signature gin-based cocktails."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Blau",
+          "cuisine_type": "Cafe, International",
+          "description": "Artistic café serving high-quality coffee, breakfast, and light meals with vegetarian options.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, artsy, and welcoming",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "brunch",
+            "coffee breaks"
+          ],
+          "latitude": 50.7254,
+          "longitude": 7.0968,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade carrot cake."
+        },
+        {
+          "name": "Café Fassbender",
+          "cuisine_type": "Cafe, Traditional",
+          "description": "Historic café in the city center known for its classic German coffeehouse atmosphere and pastries.",
+          "price_range": "€€",
+          "atmosphere": "Traditional and elegant",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "afternoon coffee",
+            "people watching"
+          ],
+          "latitude": 50.7375,
+          "longitude": 7.0999,
+          "reservation_needed": false,
+          "local_tips": "Try the Apfelstrudel with vanilla sauce."
+        },
+        {
+          "name": "Café Hellers",
+          "cuisine_type": "Cafe, International",
+          "description": "Popular café offering excellent coffee, cakes, and a relaxed atmosphere with outdoor seating.",
+          "price_range": "€€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Südstadt",
+          "best_for": [
+            "coffee lovers",
+            "relaxing stops"
+          ],
+          "latitude": 50.7248,
+          "longitude": 7.0958,
+          "reservation_needed": false,
+          "local_tips": "Their cheesecake is a local favorite."
+        },
+        {
+          "name": "Café Einstein",
+          "cuisine_type": "Cafe, International",
+          "description": "Charming café with a variety of coffee blends and light bites in a quiet setting.",
+          "price_range": "€€",
+          "atmosphere": "Quiet and cozy",
+          "neighborhood": "Zentrum",
+          "best_for": [
+            "working",
+            "coffee and reading"
+          ],
+          "latitude": 50.7355,
+          "longitude": 7.1005,
+          "reservation_needed": false,
+          "local_tips": "Great spot for a peaceful morning coffee away from busy streets."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Bonn Food Tour",
+        "description": "Guided walking tour sampling traditional Rhineland dishes and local specialties across Bonn’s Old Town.",
+        "price_range": "€€",
+        "duration": "3 hours",
+        "best_for": [
+          "food lovers",
+          "first-time visitors"
+        ],
+        "local_tips": "Book in advance, and come hungry to try the full variety of 'Himmel un Ääd' and local sausages."
+      },
+      {
+        "name": "Cooking Class: Rhineland Cuisine",
+        "description": "Hands-on cooking class focusing on classic German dishes like Sauerbraten and Reibekuchen taught by local chefs.",
+        "price_range": "€€€",
+        "duration": "4 hours",
+        "best_for": [
+          "cooking enthusiasts",
+          "small groups"
+        ],
+        "local_tips": "Classes often include a market visit to pick fresh ingredients."
+      },
+      {
+        "name": "Visit to Markthalle Bonn",
+        "description": "Explore Bonn’s central market hall with vendors selling regional produce, cheeses, meats, and baked goods.",
+        "price_range": "Free to browse, purchases vary",
+        "duration": "1-2 hours",
+        "best_for": [
+          "food explorers",
+          "photographers"
+        ],
+        "local_tips": "Visit early on Saturdays for the farmers market and sample fresh white asparagus in spring."
+      },
+      {
+        "name": "Rhein River Picnic with Local Specialties",
+        "description": "Organized picnic experience by the Rhine featuring a basket of local cheeses, breads, sausages, and wines.",
+        "price_range": "€€",
+        "duration": "2-3 hours",
+        "best_for": [
+          "romantic outings",
+          "groups"
+        ],
+        "local_tips": "Perfect during summer evenings; pair with a local Kölsch or Riesling."
+      },
+      {
+        "name": "Bonn Beer Tasting Tour",
+        "description": "Tour of local breweries and beer halls featuring tastings of Bonn’s regional brews and beer styles.",
+        "price_range": "€€",
+        "duration": "3 hours",
+        "best_for": [
+          "beer enthusiasts",
+          "groups"
+        ],
+        "local_tips": "Try the Malzmühle Pilsner and seasonal brews."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Spargel (white asparagus) served with hollandaise sauce or ham",
+        "Rheinischer Sauerbraten made with fresh spring vegetables",
+        "Fresh strawberry desserts and cakes"
+      ],
+      "summer": [
+        "Light salads with fresh herbs from local markets",
+        "Cold potato salad served with bratwurst",
+        "Rhine river picnic with local cheeses, breads, and wines"
+      ],
+      "autumn": [
+        "Game dishes such as venison and wild boar",
+        "Pumpkin soups and hearty stews",
+        "Mushroom specialties from nearby forests"
+      ],
+      "winter": [
+        "Hearty Reibekuchen (potato pancakes) with applesauce",
+        "Mulled wine (Glühwein) at Christmas markets",
+        "Gänsebraten (roast goose) with red cabbage and dumplings"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "hourly",
+            "price_range": "€40-€120",
+            "operator": "Deutsche Bahn",
+            "notes": "High-speed ICE trains connect Bonn and Berlin directly."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Lufthansa, Eurowings",
+            "notes": "Flights depart from Cologne Bonn Airport (CGN) to Berlin Brandenburg Airport (BER)."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; economical but longer travel time."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 40m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Thalys, Deutsche Bahn",
+            "notes": "High-speed Thalys trains connect Cologne (near Bonn) to Paris Gare du Nord."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Direct overnight and daytime buses available."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€60-€130",
+            "operator": "Lufthansa, Air France",
+            "notes": "Flights from Cologne Bonn Airport (CGN) to Paris Charles de Gaulle (CDG)."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 40m",
+            "frequency": "hourly",
+            "price_range": "€30-€90",
+            "operator": "NS International, Deutsche Bahn",
+            "notes": "Direct Intercity and ICE trains run daily."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Direct bus service between Bonn and Amsterdam."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 20m",
+            "frequency": "hourly",
+            "price_range": "€35-€100",
+            "operator": "Thalys, Deutsche Bahn",
+            "notes": "High-speed connections via Cologne."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€40",
+            "operator": "FlixBus",
+            "notes": "Frequent bus connections."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€180",
+            "operator": "Eurostar, Deutsche Bahn",
+            "notes": "Train route via Cologne and Brussels to London St Pancras."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€50-€140",
+            "operator": "British Airways, Eurowings",
+            "notes": "Flights from Cologne Bonn Airport (CGN) to London Heathrow (LHR) and London City (LCY)."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses available, including Eurotunnel crossing."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "hourly",
+            "price_range": "€40-€110",
+            "operator": "Deutsche Bahn",
+            "notes": "Direct ICE trains connect Bonn and Munich."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€60-€140",
+            "operator": "Lufthansa, Eurowings",
+            "notes": "Flights available from Cologne Bonn Airport (CGN)."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€130",
+            "operator": "Deutsche Bahn, SBB",
+            "notes": "One or two changes, commonly via Basel."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "Swiss International Air Lines, Eurowings",
+            "notes": "Flights from Cologne Bonn Airport to Zurich Airport."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Deutsche Bahn, Czech Railways",
+            "notes": "Connections via Dresden or Berlin."
+          },
+          {
+            "type": "bus",
+            "duration": "6h 45m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct and connecting buses available."
+          }
+        ]
+      },
+      {
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "SAS, Eurowings",
+            "notes": "Flights from Cologne Bonn Airport to Copenhagen Airport."
+          },
+          {
+            "type": "train",
+            "duration": "9h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€140",
+            "operator": "Deutsche Bahn, DSB",
+            "notes": "Multiple changes, route via Hamburg and Odense."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "Lufthansa, Eurowings",
+            "notes": "Flights from Cologne Bonn Airport to Venice Marco Polo Airport."
+          },
+          {
+            "type": "train",
+            "duration": "10h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€180",
+            "operator": "Deutsche Bahn, Trenitalia",
+            "notes": "Multiple changes including Munich and Verona."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Cherry Blossom Festival at Heerstraße",
+        "type": "outdoor",
+        "description": "Enjoy the stunning pink cherry blossoms along Heerstraße, a local favorite for springtime strolls and photography.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Heerstraße, Bonn",
+        "price": "Free"
+      },
+      {
+        "name": "Rheinkirmes (Rhine Funfair)",
+        "type": "festival",
+        "description": "One of Germany’s largest funfairs with rides, games, and food stalls held along the Rhine riverbank in early May.",
+        "best_months": [
+          "May"
+        ],
+        "location": "Rheinaue Park and Rhine Promenade, Bonn",
+        "price": "Budget"
+      },
+      {
+        "name": "Botanical Gardens Visit",
+        "type": "outdoor",
+        "description": "Explore Bonn’s Botanical Gardens where spring flowers bloom in full splendor, perfect for a peaceful nature walk.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Botanical Gardens, University of Bonn",
+        "price": "Free"
+      },
+      {
+        "name": "Asparagus Season Tasting",
+        "type": "food",
+        "description": "Sample fresh white asparagus dishes, a spring delicacy in the region, available in local restaurants and markets.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Various restaurants in Bonn",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Bonn Beethovenfest",
+        "type": "cultural",
+        "description": "Annual classical music festival celebrating Beethoven’s legacy with concerts across the city.",
+        "best_months": [
+          "August",
+          "September"
+        ],
+        "location": "Various venues including Beethoven-Haus",
+        "price": "Moderate"
+      },
+      {
+        "name": "Rhine River Cruise",
+        "type": "outdoor",
+        "description": "Take a scenic boat cruise on the Rhine to enjoy views of Bonn and surrounding landscapes under warm summer skies.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Rhine River, Bonn",
+        "price": "Moderate"
+      },
+      {
+        "name": "Open-Air Cinema in Rheinaue Park",
+        "type": "cultural",
+        "description": "Watch popular films under the stars in Bonn’s largest park, a relaxing summer evening activity.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Rheinaue Park",
+        "price": "Budget"
+      },
+      {
+        "name": "Bonn Street Food Festival",
+        "type": "food",
+        "description": "Sample diverse international street foods from trucks and stalls gathered in central Bonn.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Central Bonn",
+        "price": "Budget"
+      },
+      {
+        "name": "Cycling Along the Rhine",
+        "type": "sport",
+        "description": "Explore well-maintained cycling paths along the Rhine River, ideal for warm summer days.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Rhine River bike paths, Bonn",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Bonn Autumn Festival",
+        "type": "festival",
+        "description": "Traditional fall fair with rides, craft stalls, and seasonal foods celebrating the harvest.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Rheinaue Park",
+        "price": "Budget"
+      },
+      {
+        "name": "Wine Tasting in the Ahr Valley",
+        "type": "food",
+        "description": "Visit nearby Ahr Valley vineyards to taste local red wines during harvest season.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Ahr Valley, near Bonn",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking in the Siebengebirge",
+        "type": "outdoor",
+        "description": "Enjoy crisp autumn air and colorful foliage while hiking the scenic trails of this nearby hill range.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Siebengebirge Nature Park",
+        "price": "Free"
+      },
+      {
+        "name": "Pumpkin Markets and Seasonal Food",
+        "type": "food",
+        "description": "Explore local markets offering pumpkins and other autumn harvest foods, perfect for seasonal recipes.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Central Bonn markets",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Bonn Christmas Market",
+        "type": "festival",
+        "description": "Traditional German Christmas market featuring festive stalls, mulled wine, and handcrafted gifts in the historic center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Markt and Münsterplatz, Bonn",
+        "price": "Free entry, food and goods vary"
+      },
+      {
+        "name": "Ice Skating at the Münsterplatz",
+        "type": "sport",
+        "description": "Seasonal open-air ice rink in the city center perfect for family fun and winter exercise.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Münsterplatz, Bonn",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit the Beethoven-Haus Museum",
+        "type": "cultural",
+        "description": "Explore the birthplace and museum of Beethoven, offering cozy indoor cultural enrichment during cold months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Beethoven-Haus, Bonn",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Walks in Rheinaue Park",
+        "type": "outdoor",
+        "description": "Brisk winter walks through Rheinaue Park offer peaceful nature scenes and fresh air even in cold weather.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Rheinaue Park, Bonn",
+        "price": "Free"
+      },
+      {
+        "name": "Seasonal German Comfort Food",
+        "type": "food",
+        "description": "Warm up with traditional winter dishes like Gulaschsuppe and bratwurst at local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Various restaurants in Bonn",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "Epiphany (Heilige Drei Könige)",
+            "notes": "Cold and often damp weather; low tourist crowds; Epiphany is a minor holiday with some local traditions but limited events.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold, grey winter weather with possible frost and rain; very low tourist activity; many attractions have reduced hours.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold but dry days begin to increase; quiet time ideal for low-cost travel and avoiding crowds; limited outdoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Winter persists with chilly conditions; good for indoor cultural activities; off-peak pricing for accommodations.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold but gradually lengthening days; limited events; good deals on hotels; outdoor sightseeing is still chilly.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Carnival (Karneval/Fasching)",
+            "notes": "One of Bonn’s liveliest times with colorful parades and street parties; weather still cold but atmosphere is festive; crowds increase significantly.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 1,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival calm with still cool weather; quieter streets but fewer tourist amenities; good for cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of winter with signs of early spring; mild temperatures begin; good time to explore museums and parks before peak season.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Spring begins; weather improves with occasional rain; increasing daylight; moderate tourist activity; good for sightseeing and city walks.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "International Women's Day (March 8th)",
+            "notes": "Mild weather with some events celebrating women’s day; still low to moderate crowds; good time for cultural experiences.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring is well underway with blooming parks and moderate temperatures; ideal for outdoor activities and sightseeing; crowds slowly build.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer and longer days; outdoor terraces and river walks become enjoyable; good time for visiting museums before high tourist season.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Holidays (variable dates)",
+            "notes": "Easter brings festive events and increased visitors; spring weather with occasional showers; good for cultural and outdoor activities.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter calm with pleasant temperatures; good for visiting parks, museums, and river cruises; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild weather with longer days; ideal for outdoor sightseeing and river activities; increasing tourism but not peak yet.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Bonn Rhein in Flammen (End of April)",
+            "notes": "Major firework event along the Rhine attracts many visitors; festive atmosphere and warmer weather; expect high crowds and lively nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labor Day (May 1st)",
+            "notes": "Excellent weather with warm temperatures and blooming gardens; May Day celebrations bring local events; ideal for outdoor activities and sightseeing.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and pleasant spring weather; ideal for river cruises, park visits, and cultural sightseeing; crowds moderate but growing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm weather; many outdoor festivals and events begin; perfect for exploring historical sites and the Rhine promenade.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Bonn Jazz Festival (Late May)",
+            "notes": "Warm and sunny weather with lively jazz concerts and cultural events; excellent time for music lovers; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm, sunny weather; ideal for outdoor activities, river cruises, and visiting parks; tourist season ramps up.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Rhein in Flammen (June edition)",
+            "notes": "Major fireworks festival on the Rhine with vibrant atmosphere; warm weather; expect very high crowds and lively events.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and typically dry weather; excellent for hiking nearby Siebengebirge and outdoor festivals; peak tourist season.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Beginning of summer heat with occasional thunderstorms; outdoor attractions popular; crowds remain high but start to plateau.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High summer with warm to hot weather; occasional rain; high tourist crowds; good for outdoor festivals and river activities.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm and often sunny; peak travel season; busy attractions and higher prices; good for nightlife and festivals.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot weather with some humid days; outdoor pools and river beaches popular; expect crowded public transport and tourist sites.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late July remains warm; peak summer tourism continues; good for outdoor dining and festivals; prices remain high.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Summer continues with warm to hot weather; many locals on vacation; busy tourist spots; good for festivals and river recreation.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-August can be hot with occasional thunderstorms; some attractions close for local holidays; slightly reduced crowds mid-month.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late summer with warm days and cooler nights; some smaller crowds as locals return; good for budget travelers seeking off-peak deals.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of August sees gradual cooling; fewer tourists; ideal for cultural visits; occasional rain showers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Bonn Beethovenfest (starts in September)",
+            "notes": "Early autumn with pleasant mild weather; Beethovenfest classical music festival begins attracting cultural tourists; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Comfortable temperatures with decreasing humidity; ideal for walking tours and outdoor dining; tourist numbers taper off.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild weather with colorful early autumn foliage; good for nature walks in Siebengebirge; moderate crowds and pleasant conditions.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures begin with more frequent rain; fewer tourists; museums and indoor attractions are good options; quiet atmosphere.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "German Unity Day (October 3rd)",
+            "notes": "Cooler autumn weather with some rain; national holiday with parades and cultural events; moderate crowds; good for cultural exploration.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors peak; cooler temperatures and occasional rain; fewer tourists; good for photography and quiet sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Chilly weather begins; indoor cultural venues and museums recommended; low tourist volume; good off-season pricing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late October is colder and wetter; many outdoor attractions close early; low tourist numbers; suitable for budget travelers and indoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, damp and increasingly dark; many attractions have reduced hours; low visitor numbers; quiet but some cultural events indoors.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and wet conditions persist; low tourism; good deals on accommodations; indoor cultural events dominate.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chilly and often foggy weather; low visitor numbers; good for solo travelers and budget visitors seeking quiet atmosphere.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Start of Christmas Markets (Late November)",
+            "notes": "Cold but festive atmosphere with Christmas markets opening; moderate crowds; a highlight of the season for many visitors.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets",
+            "notes": "Festive decorations and markets in full swing; cold weather with possible snow; lively atmosphere; popular but manageable crowds early in the month.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets",
+            "notes": "Festive peak with vibrant markets and local events; cold but charming; crowds increase as Christmas approaches.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets",
+            "notes": "Busy festive period with high visitor numbers; cold and often snowy; ideal for holiday travelers seeking traditional German Christmas experience.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas and New Year’s Eve",
+            "notes": "Christmas Day and New Year’s celebrations bring special events; cold weather; very high crowds around holidays; some closures on Christmas Day.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 3,
+              "business": 1,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

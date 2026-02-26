@@ -78,6 +78,17 @@ body {
   }
 }
 
+/* Opacity-only fade — safe for containers with position:fixed children
+   (transform-based animations create a new stacking context, breaking fixed positioning) */
+@keyframes fade-in-opacity {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in-safe {
+  animation: fade-in-opacity 0.5s ease-out 0.2s both;
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;

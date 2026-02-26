@@ -1,1 +1,3132 @@
-{"city":"aachen","country":"Germany","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "aachen",
+  "country": "Germany",
+  "overview": {
+    "city_name": "Aachen",
+    "country": "Germany",
+    "brief_description": "Nestled at the borders of Germany, Belgium, and the Netherlands, Aachen is a historic city famous for its stunning cathedral and vibrant university atmosphere. Known for its rich cultural heritage and charming old town, it offers visitors a unique blend of medieval history and modern innovation.",
+    "nickname": "The Imperial City",
+    "region": "North Rhine-Westphalia",
+    "population": "approximately 250,000",
+    "why_visit": [
+      "Explore the UNESCO World Heritage Aachen Cathedral, a masterpiece of Carolingian architecture",
+      "Relax in the historic thermal baths fed by natural hot springs",
+      "Discover the lively university town atmosphere with cafes, shops, and cultural events",
+      "Enjoy proximity to the tri-border region, ideal for day trips to Belgium and the Netherlands"
+    ],
+    "best_time_to_visit": "May to September, when the weather is pleasant for exploring the city and outdoor activities",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming gardens create perfect conditions for sightseeing and walking tours.",
+      "summer": "Warm and lively, with numerous festivals and outdoor cafes bustling with activity.",
+      "autumn": "Cooler weather and beautiful fall foliage offer a cozy atmosphere along with local harvest events.",
+      "winter": "Charming Christmas markets light up the historic center, and thermal spas provide warm retreats."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "German",
+      "visit_duration": "2-3 days recommended to cover major sights and nearby excursions",
+      "getting_around": "Efficient public buses, walking within the compact city center, and regional trains for nearby travel",
+      "safety": "Generally very safe with low crime rates; usual urban precautions advised"
+    },
+    "coordinates": {
+      "latitude": 50.7753,
+      "longitude": 6.0839
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Aachen Cathedral and Treasury Museum",
+        "Relax at the Carolus Thermen spa",
+        "Stroll through the historic old town and Market Square",
+        "Tour the Ludwig Forum for International Art",
+        "Climb the Rathaus (City Hall) tower for panoramic views"
+      ],
+      "worth_doing": [
+        "Explore the Centre Charlemagne museum",
+        "Enjoy local specialties like Printen gingerbread",
+        "Walk along the Dreiländereck, the tri-border point",
+        "Visit the Elisenbrunnen pavilion",
+        "Attend a performance at the Theater Aachen"
+      ],
+      "hidden_gems": [
+        "Discover the lesser-known Büchel neighborhood's street art",
+        "Wander through the Botanical Gardens of RWTH Aachen University",
+        "Visit the historic Pontviertel district with its quaint cafes and galleries",
+        "Explore the medieval ruins of Burtscheid Abbey",
+        "Take a bike tour along the scenic Wurm River path"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Aachen Cathedral (Aachener Dom)",
+        "type": "Church",
+        "description": "A UNESCO World Heritage Site, Aachen Cathedral is famed for its stunning Carolingian architecture and the Palatine Chapel built by Emperor Charlemagne in 796 AD. It houses the Shrine of Charlemagne, making it a pilgrimage site with rich medieval history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Special Christmas services and decorations in December attract many visitors",
+        "booking_tips": "Tickets can be purchased on-site; guided tours available via the cathedral's website",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 50.7763,
+        "longitude": 6.0839,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "9:30-18:00",
+          "weekend": "9:30-18:00",
+          "notes": "Closing times vary during religious holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Ludwig Forum for International Art nearby"
+        },
+        "official_url": "https://www.aachenerdom.de/",
+        "website": "https://www.aachenerdom.de/"
+      },
+      {
+        "name": "Ludwig Forum for International Art",
+        "type": "Museum",
+        "description": "This contemporary art museum hosts an impressive collection of international modern and contemporary art, including works by Picasso and Warhol. Housed in a former umbrella factory, the building itself is an architectural highlight.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Temporary exhibitions rotate seasonally, check website for latest",
+        "booking_tips": "Advance booking recommended for special exhibitions",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7784,
+        "longitude": 6.0831,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "11:00-18:00",
+          "weekend": "11:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum ideal for rainy days"
+        },
+        "official_url": "https://www.ludwigforum.de/",
+        "website": "https://www.ludwigforum.de/"
+      },
+      {
+        "name": "Elisenbrunnen",
+        "type": "Historic Site",
+        "description": "Elisenbrunnen is a neoclassical pavilion famous for its sulfur springs, which historically made Aachen a renowned spa town. Visitors can taste the mineral-rich thermal water and enjoy the surrounding park area.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "The fountain is open year-round; the adjacent park is especially pleasant in spring and summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7747,
+        "longitude": 6.0812,
+        "neighborhood": "Burtscheid",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": "Open access"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Combine with visit to nearby Aachener Tierpark indoor exhibits if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Centre Charlemagne – Neues Stadtmuseum Aachen",
+        "type": "Museum",
+        "description": "This modern city museum offers interactive exhibits that explore Aachen's history from Roman times through the Middle Ages to present day. It’s especially notable for its multimedia displays about Charlemagne and the city's role in European history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Special programs and workshops during school holidays",
+        "booking_tips": "Online ticket purchase recommended during weekends",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7761,
+        "longitude": 6.0843,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum excellent for rainy days"
+        },
+        "official_url": "https://www.centre-charlemagne.de/",
+        "website": "https://www.centre-charlemagne.de/"
+      },
+      {
+        "name": "Aachener Tierpark Euregiozoo",
+        "type": "Park|Zoo",
+        "description": "This charming zoo and park features a variety of animals including local fauna and exotic species, set within naturalistic habitats. It’s a great family-friendly destination with educational programs and picnic areas.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; spring and summer offer best outdoor animal viewing",
+        "booking_tips": "Buy tickets at entrance; group discounts available",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 50.7737,
+        "longitude": 6.0668,
+        "neighborhood": "Forst",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Shorter winter hours possible"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Schanz",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Partially indoor animal houses available"
+        },
+        "official_url": "https://www.euregiozoo.de/",
+        "website": "https://www.euregiozoo.de/"
+      },
+      {
+        "name": "Ponttor",
+        "type": "Historic Site",
+        "description": "One of the two remaining medieval city gates of Aachen, Ponttor is a well-preserved fortification dating back to the 14th century. It symbolizes the city's rich medieval past and offers a glimpse into historic defensive architecture.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring or autumn when the weather is mild for walking tours",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7739,
+        "longitude": 6.0803,
+        "neighborhood": "Innenstadt",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": "Open access"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Combine with nearby indoor museums if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Marktplatz Aachen",
+        "type": "Market",
+        "description": "The vibrant central market square of Aachen features colorful historic buildings, lively cafes, and a weekly farmers market. It is the social heart of the city and hosts seasonal markets such as the famous Christmas market.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Christmas market in December is a major attraction with festive stalls and lights",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7768,
+        "longitude": 6.0833,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "6:00-18:00",
+          "weekend": "6:00-18:00",
+          "notes": "Market days vary"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor shopping malls nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Couven Museum",
+        "type": "Museum",
+        "description": "Located in a historic 18th-century patrician house, the Couven Museum showcases exquisite Rococo and Biedermeier interiors, offering insight into bourgeois life in Aachen during the 18th and 19th centuries.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small museum, best to book online in advance during peak seasons",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7761,
+        "longitude": 6.0845,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Perfect indoor alternative on rainy days"
+        },
+        "official_url": "https://www.couven-museum.de/",
+        "website": "https://www.couven-museum.de/"
+      },
+      {
+        "name": "Westpark",
+        "type": "Park",
+        "description": "A pleasant urban park featuring expansive green lawns, walking paths, a pond, and a playground. Westpark is a favorite local spot for relaxation, picnics, and outdoor sports close to the city center.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and summer offer colorful flower displays and outdoor events",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 50.7782,
+        "longitude": 6.0674,
+        "neighborhood": "Forst",
+        "opening_hours": {
+          "weekday": "6:00-22:00",
+          "weekend": "6:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Schanz",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Consider visiting the nearby Ludwig Forum museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Grashaus",
+        "type": "Historic Site|Gallery",
+        "description": "This historic 16th-century merchant's house now serves as an exhibition space for archaeological and historical displays, including medieval artifacts from Aachen and the surrounding region.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small venue with limited hours; check schedule before visiting",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7767,
+        "longitude": 6.0836,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "13:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed on weekends"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor option if weather is poor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Theatre Aachen (Theater Aachen)",
+        "type": "Theatre",
+        "description": "Aachen's premier venue for opera, ballet, and drama with a rich cultural history dating back to the 19th century. The theater's impressive facade and interior reflect classic architectural styles.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Program changes seasonally; special performances around holidays",
+        "booking_tips": "Book tickets in advance, especially for popular shows",
+        "ratings": {
+          "cost_estimate": 30,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7765,
+        "longitude": 6.083,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "Varies by performance",
+          "weekend": "Varies by performance",
+          "notes": "Check show schedule"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue"
+        },
+        "official_url": "https://www.theater-aachen.de/",
+        "website": "https://www.theater-aachen.de/"
+      },
+      {
+        "name": "Couvenstraße Shopping District",
+        "type": "Shopping|Neighborhood",
+        "description": "A pedestrian-friendly street lined with boutiques, cafes, and specialty shops, Couvenstraße offers a charming shopping experience blending historic architecture with modern retail.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Varies",
+        "seasonal_notes": "Festive decorations during Christmas season enhance the atmosphere",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 50.776,
+        "longitude": 6.082,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-20:00",
+          "weekend": "12:00-18:00",
+          "notes": "Store hours vary"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor shopping malls nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Aachener Weihnachtsmarkt (Christmas Market)",
+        "type": "Market|Seasonal",
+        "description": "Held annually in the historic city center, Aachen's Christmas Market is renowned for its festive atmosphere, artisan crafts, and traditional foods like Printen gingerbread. It attracts visitors from all over Europe during Advent.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget",
+        "seasonal_notes": "Operates from late November to December 23rd",
+        "booking_tips": "No booking needed; arrive early evening for best experience",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 50.7769,
+        "longitude": 6.0828,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-21:00",
+          "weekend": "10:00-21:00",
+          "notes": "Seasonal only"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61",
+            "71"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor cafes and shops nearby"
+        },
+        "official_url": "https://www.aachenerweihnachtsmarkt.de/",
+        "website": "https://www.aachenerweihnachtsmarkt.de/"
+      },
+      {
+        "name": "Grüne Ecke (Green Corner)",
+        "type": "Park|Viewpoint",
+        "description": "A small, peaceful green space near the city center offering benches and a quiet spot to relax, popular with locals for a brief urban nature break. It provides a subtle viewpoint over nearby rooftops and church spires.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Lovely in spring and autumn with colorful foliage",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 1
+        },
+        "latitude": 50.7779,
+        "longitude": 6.0837,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "6:00-22:00",
+          "weekend": "6:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit indoor museums if weather is inclement"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Adalbertstraße",
+        "type": "Neighborhood",
+        "description": "Known for its lively student scene and eclectic mix of bars, cafes, and shops, Adalbertstraße is a cultural hotspot near Aachen’s university. It’s perfect for experiencing local nightlife and casual dining.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Bustling year-round, livelier during university semesters",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 50.779,
+        "longitude": 6.0725,
+        "neighborhood": "Campusviertel",
+        "opening_hours": {
+          "weekday": "Varies by venue",
+          "weekend": "Varies by venue",
+          "notes": "Mostly evenings"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Schanz",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor bars and cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Lousberg",
+        "type": "Viewpoint|Park",
+        "description": "Lousberg is a forested hill offering panoramic views over Aachen and the surrounding region. It features walking trails, a small café, and historical monuments, making it a popular spot for nature walks and photography.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Especially beautiful in autumn when the foliage changes color",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7832,
+        "longitude": 6.0839,
+        "neighborhood": "Burtscheid",
+        "opening_hours": {
+          "weekday": "6:00-20:00",
+          "weekend": "6:00-20:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 25
+            }
+          ],
+          "bus_routes": [
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor museums if weather is poor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "International Newspaper Museum (Zeitungsmuseum)",
+        "type": "Museum",
+        "description": "Dedicated to the history of print media, this museum features historic newspapers, printing presses, and exhibits on the evolution of journalism. It is located in a former monastery building, blending media history with architectural charm.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Call ahead or check website for special event days",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 50.7795,
+        "longitude": 6.077,
+        "neighborhood": "Innenstadt",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Hbf",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.zeitungsmuseum.de/",
+        "website": "https://www.zeitungsmuseum.de/"
+      },
+      {
+        "name": "Maria Trost Basilica",
+        "type": "Church",
+        "description": "This baroque pilgrimage church perched on a hill offers beautiful frescoes and a panoramic view of Aachen. Built in the 18th century, it remains an important spiritual site and architectural gem outside the city center.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Pilgrimages peak in summer months",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 50.7843,
+        "longitude": 6.0762,
+        "neighborhood": "Forst",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "RB20",
+              "station": "Aachen Schanz",
+              "walk_minutes": 25
+            }
+          ],
+          "bus_routes": [
+            "51",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Combine with indoor museums if weather poor"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Altstadt",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Altstadt is Aachen's historic heart, where cobblestone streets wind past medieval buildings and vibrant market squares. It exudes an enchanting blend of old-world charm and lively urban energy.",
+        "location": {
+          "central": true,
+          "description": "Located at the very center of Aachen, encompassing the original medieval city core.",
+          "borders": [
+            "Pontviertel",
+            "Burtscheid",
+            "Laurensberg"
+          ],
+          "landmarks": [
+            "Aachen Cathedral",
+            "Elisenbrunnen",
+            "City Hall (Rathaus)"
+          ]
+        },
+        "history": {
+          "overview": "Altstadt developed around the Roman settlement and flourished in the Middle Ages as an imperial city under Charlemagne.",
+          "significance": "It houses Aachen Cathedral, a UNESCO World Heritage Site and the coronation church of German kings.",
+          "notable_events": [
+            "Coronation of Emperor Charlemagne (800 AD)",
+            "Medieval fairs and markets",
+            "World Heritage designation (1978)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Aachen Hauptbahnhof (main train station)",
+            "Bus stops: Theaterstraße, Elisenbrunnen"
+          ],
+          "safety": "Very safe with regular police presence and busy pedestrian zones",
+          "best_time_to_visit": "Spring through early autumn for street festivals and outdoor cafés",
+          "walkability": "Extremely walkable with pedestrian-only zones and compact streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Aachen Cathedral",
+            "Historic architecture",
+            "Museums and galleries",
+            "Shopping streets",
+            "Seasonal markets"
+          ],
+          "atmosphere": [
+            "historic",
+            "bustling",
+            "picturesque"
+          ],
+          "best_for": [
+            "history enthusiasts",
+            "cultural tourists",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Aachen Cathedral",
+              "type": "Religious/Architectural Landmark",
+              "description": "A masterpiece of Carolingian architecture and burial site of Charlemagne.",
+              "appeal": "World Heritage status and stunning medieval art."
+            },
+            {
+              "name": "Elisenbrunnen",
+              "type": "Historic Fountain",
+              "description": "Neoclassical pavilion famous for its thermal springs.",
+              "appeal": "Iconic meeting point and architectural beauty."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ratskeller Aachen",
+              "cuisine": "Traditional German",
+              "price_range": "€€",
+              "known_for": "Local specialties like Printen and hearty Rhineland dishes",
+              "atmosphere": "Cozy, historic tavern ambiance"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the cathedral with fewer crowds.",
+          "Stop by the small Printen bakeries for authentic Aachen gingerbread.",
+          "Explore side alleys for hidden artisan shops and cafés."
+        ]
+      },
+      {
+        "name": "Pontviertel",
+        "alternate_names": [
+          "Pontviertel District"
+        ],
+        "character": "Pontviertel pulses with youthful energy, eclectic bars, and street art, making it Aachen’s trendiest neighborhood. It’s a hotspot for students and creatives seeking an alternative vibe.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, along the border with Burtscheid.",
+          "borders": [
+            "Altstadt",
+            "Burtscheid",
+            "Eilendorf"
+          ],
+          "landmarks": [
+            "Aachen Thermal Baths",
+            "Carolus Thermen Spa"
+          ]
+        }
+      },
+      {
+        "name": "Burtscheid",
+        "alternate_names": [],
+        "character": "Burtscheid is a charming residential and spa district known for its thermal springs and relaxed pace. It blends natural beauty with historic spa culture, offering a peaceful retreat from the city bustle.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the Altstadt, just outside the central urban area.",
+          "borders": [
+            "Altstadt",
+            "Pontviertel",
+            "Brand"
+          ],
+          "landmarks": [
+            "Carolus Thermen Spa",
+            "Burtscheid Abbey"
+          ]
+        },
+        "history": {
+          "overview": "Burtscheid’s history centers on its thermal springs, attracting visitors since Roman times.",
+          "significance": "It’s Aachen’s historic spa quarter and a key area for wellness tourism.",
+          "notable_events": [
+            "Establishment of Carolus Thermen in the 20th century",
+            "Medieval monastery foundation",
+            "Thermal spring discoveries"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 2, 4",
+            "Burtscheid Kurpark stop"
+          ],
+          "safety": "Very safe and family-friendly neighborhood",
+          "best_time_to_visit": "Year-round, especially relaxing in winter and spring",
+          "walkability": "Walkable with parks and quiet streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Thermal baths",
+            "Spa culture",
+            "Green parks",
+            "Historic abbey"
+          ],
+          "atmosphere": [
+            "tranquil",
+            "historic",
+            "natural"
+          ],
+          "best_for": [
+            "wellness travelers",
+            "families",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Carolus Thermen",
+              "type": "Spa/Wellness Center",
+              "description": "Modern thermal baths built over historic Roman springs.",
+              "appeal": "Ideal for relaxation with pools, saunas, and wellness treatments."
+            },
+            {
+              "name": "Burtscheid Abbey",
+              "type": "Historic Religious Site",
+              "description": "A medieval abbey with beautiful architecture and peaceful gardens.",
+              "appeal": "Offers insight into the area’s religious and cultural history."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Gasthaus Burtscheider Mühle",
+              "cuisine": "Traditional German",
+              "price_range": "€€",
+              "known_for": "Local dishes in a rustic, welcoming setting",
+              "atmosphere": "Cozy and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Book spa treatments in advance on weekends.",
+          "Take a stroll through Kurpark for scenic views and fresh air.",
+          "Visit the abbey during local heritage days for special tours."
+        ]
+      },
+      {
+        "name": "Laurensberg",
+        "alternate_names": [],
+        "character": "Laurensberg is a quiet, largely residential neighborhood with a village feel, nestled in the northern outskirts of Aachen. It is favored by families and students seeking green spaces and a calm environment.",
+        "location": {
+          "central": false,
+          "description": "North of the city center, bordering Germany’s border with Belgium and the Netherlands.",
+          "borders": [
+            "Pontviertel",
+            "Eilendorf",
+            "Brand"
+          ],
+          "landmarks": [
+            "Laurensberg Church",
+            "Lousberg Hill"
+          ]
+        },
+        "history": {
+          "overview": "Originally a small village, Laurensberg was incorporated into Aachen in the 20th century as the city expanded.",
+          "significance": "It serves as a green buffer zone and residential escape from urban density.",
+          "notable_events": [
+            "Incorporation into Aachen (1972)",
+            "Preservation of natural landscapes"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 21, 22",
+            "Laurensberg Bahnhof"
+          ],
+          "safety": "Very safe and family-oriented",
+          "best_time_to_visit": "Spring and summer for outdoor activities",
+          "walkability": "Moderately walkable with parks and trails"
+        },
+        "appeal": {
+          "known_for": [
+            "Green spaces",
+            "University proximity",
+            "Peaceful streets"
+          ],
+          "atmosphere": [
+            "quiet",
+            "residential",
+            "green"
+          ],
+          "best_for": [
+            "families",
+            "students",
+            "nature walkers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Lousberg Hill",
+              "type": "Natural Park",
+              "description": "Hill offering panoramic views and wooded hiking trails.",
+              "appeal": "Popular for outdoor recreation and nature photography."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Lousberg",
+              "cuisine": "Café and light meals",
+              "price_range": "€",
+              "known_for": "Relaxed atmosphere and homemade cakes",
+              "atmosphere": "Casual and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit Lousberg early morning for peaceful hikes and city views.",
+          "Explore small local shops on Laurensbergstraße for unique finds.",
+          "Try the seasonal farmers' market held on weekends."
+        ]
+      },
+      {
+        "name": "Adalbertviertel",
+        "alternate_names": [
+          "Food District",
+          "Adalbert Quarter"
+        ],
+        "character": "Adalbertviertel is the gastronomic hotspot of Aachen, filled with an array of restaurants, cafés, and specialty food shops. It buzzes with culinary diversity, from traditional German fare to international flavors.",
+        "location": {
+          "central": true,
+          "description": "East of the Altstadt and south of Pontviertel, close to the city center.",
+          "borders": [
+            "Altstadt",
+            "Pontviertel",
+            "Burtscheid"
+          ],
+          "landmarks": [
+            "Adalbertstraße",
+            "Marktviertel"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class neighborhood, the area evolved into a vibrant food and market district over recent decades.",
+          "significance": "It’s the go-to destination for food lovers seeking authentic regional and international cuisine.",
+          "notable_events": [
+            "Establishment of weekly farmers markets",
+            "Culinary festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops: Adalbertstraße, Theaterstraße"
+          ],
+          "safety": "Safe and well-patrolled, especially during dining hours",
+          "best_time_to_visit": "Evenings and weekends for peak dining experience",
+          "walkability": "Highly walkable with many pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Diverse restaurants",
+            "Cafés and bakeries",
+            "Food markets",
+            "Local delicacies"
+          ],
+          "atmosphere": [
+            "lively",
+            "flavorful",
+            "welcoming"
+          ],
+          "best_for": [
+            "foodies",
+            "couples",
+            "groups of friends"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Weekly Farmers Market",
+              "type": "Market",
+              "description": "Fresh local produce and artisanal goods every Thursday and Saturday.",
+              "appeal": "An authentic taste of regional flavors and culture."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Zum Goldenen Einhorn",
+              "cuisine": "Traditional German",
+              "price_range": "€€€",
+              "known_for": "Classic Rhineland dishes with a modern twist",
+              "atmosphere": "Elegant yet cozy"
+            },
+            {
+              "name": "Café Middelberg",
+              "cuisine": "Bakery and café",
+              "price_range": "€",
+              "known_for": "Freshly baked Printen and coffee",
+              "atmosphere": "Bright and friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Reserve a table on weekends as spots fill quickly.",
+          "Try Printen, Aachen’s famous gingerbread, at local bakeries.",
+          "Visit the market early to get the freshest picks."
+        ]
+      },
+      {
+        "name": "Eilendorf",
+        "alternate_names": [],
+        "character": "Eilendorf offers a suburban, family-friendly atmosphere with abundant green spaces and community parks. It is a peaceful residential area favored by those seeking escape from urban hustle.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, on Aachen’s outskirts.",
+          "borders": [
+            "Laurensberg",
+            "Brand",
+            "Forst"
+          ],
+          "landmarks": [
+            "Eilendorf Park",
+            "Local sports facilities"
+          ]
+        },
+        "history": {
+          "overview": "A former village incorporated into Aachen, Eilendorf has maintained much of its rural charm while developing modern amenities.",
+          "significance": "It represents an important residential and recreational zone for the city.",
+          "notable_events": [
+            "Incorporation into Aachen (1972)",
+            "Development of community parks"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 11, 21",
+            "Eilendorf Bahnhof"
+          ],
+          "safety": "Very safe, quiet neighborhood",
+          "best_time_to_visit": "Spring and summer for park activities",
+          "walkability": "Moderately walkable with green trails"
+        },
+        "appeal": {
+          "known_for": [
+            "Parks and nature",
+            "Family-friendly amenities",
+            "Community events"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "green",
+            "residential"
+          ],
+          "best_for": [
+            "families",
+            "outdoor lovers",
+            "long-stay visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Eilendorf Park",
+              "type": "Public Park",
+              "description": "Large green area with playgrounds and walking paths.",
+              "appeal": "Ideal for families and outdoor relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Waldgeist",
+              "cuisine": "German and international",
+              "price_range": "€€",
+              "known_for": "Seasonal dishes and local ingredients",
+              "atmosphere": "Quiet and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike to explore nearby forest trails.",
+          "Attend local festivals in summer for authentic community experience.",
+          "Visit the weekly small market for fresh produce."
+        ]
+      },
+      {
+        "name": "Brand",
+        "alternate_names": [],
+        "character": "Brand is a friendly residential neighborhood known for its shopping streets and community feel. It offers a balanced mix of local shops, green spaces, and easy access to central Aachen.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, adjacent to Burtscheid and Eilendorf.",
+          "borders": [
+            "Burtscheid",
+            "Eilendorf",
+            "Laurensberg"
+          ],
+          "landmarks": [
+            "Brand Park",
+            "St. Donatus Church"
+          ]
+        },
+        "history": {
+          "overview": "Originally a village, Brand evolved into a suburban district with a strong local identity.",
+          "significance": "It serves as an important residential and commercial zone for Aachen.",
+          "notable_events": [
+            "Post-war urban expansion",
+            "Community cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 2, 3",
+            "Brand Markt"
+          ],
+          "safety": "Safe and family-oriented neighborhood",
+          "best_time_to_visit": "Year-round, especially summer for park events",
+          "walkability": "Walkable with shopping streets and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Local shops",
+            "Community events",
+            "Parks and recreation"
+          ],
+          "atmosphere": [
+            "friendly",
+            "relaxed",
+            "residential"
+          ],
+          "best_for": [
+            "families",
+            "shoppers",
+            "long-term residents"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Brand Park",
+              "type": "Public Park",
+              "description": "A spacious park with playgrounds and walking trails.",
+              "appeal": "Popular local spot for families and outdoor activities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Brandt",
+              "cuisine": "European café fare",
+              "price_range": "€",
+              "known_for": "Fresh pastries and friendly service",
+              "atmosphere": "Casual and comfortable"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the annual Brand summer festival for local music and food.",
+          "Explore the small boutiques along Brandstraße for unique gifts.",
+          "Use local buses to connect easily to the city center."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Päffgen",
+          "cuisine_type": "German, Regional",
+          "description": "A sophisticated take on traditional Aachen and Rhineland dishes, served in a cozy yet elegant setting.",
+          "price_range": "€€€",
+          "atmosphere": "Refined, warm, quiet",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 50.7753,
+          "longitude": 6.0839,
+          "reservation_needed": true,
+          "local_tips": "Try their signature Printen paired with locally brewed beer."
+        },
+        {
+          "name": "Restaurant La Becasse",
+          "cuisine_type": "French, European",
+          "description": "High-end French cuisine with seasonal ingredients, known for impeccable service and a curated wine list.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant, intimate",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "gourmet experience",
+            "celebrations"
+          ],
+          "latitude": 50.7745,
+          "longitude": 6.0874,
+          "reservation_needed": true,
+          "local_tips": "Reserve the chef's tasting menu for the full experience."
+        },
+        {
+          "name": "Zum goldenen Einhorn",
+          "cuisine_type": "German, Contemporary",
+          "description": "Modern interpretation of German cuisine with creative plating and seasonal produce.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy, artistic",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "foodies",
+            "date night"
+          ],
+          "latitude": 50.7749,
+          "longitude": 6.0827,
+          "reservation_needed": true,
+          "local_tips": "Ask for the seasonal specials featuring local game."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Cafe Madrid",
+          "cuisine_type": "Spanish, Tapas",
+          "description": "Casual spot offering authentic Spanish tapas and a lively atmosphere close to the city center.",
+          "price_range": "€€",
+          "atmosphere": "Lively, friendly",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "groups",
+            "casual meals"
+          ],
+          "latitude": 50.7768,
+          "longitude": 6.083,
+          "reservation_needed": false,
+          "local_tips": "Try the patatas bravas and house sangria."
+        },
+        {
+          "name": "Wurstebude",
+          "cuisine_type": "German, Fast Food",
+          "description": "Popular for authentic German sausages and quick bites, perfect for a casual lunch or snack.",
+          "price_range": "€",
+          "atmosphere": "Casual, bustling",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "quick meal",
+            "street food lovers"
+          ],
+          "latitude": 50.7761,
+          "longitude": 6.0815,
+          "reservation_needed": false,
+          "local_tips": "Try the currywurst with homemade sauce."
+        },
+        {
+          "name": "Chez Heinz",
+          "cuisine_type": "German, Bistro",
+          "description": "Cozy bistro serving hearty German classics like schnitzel and regional stews in a relaxed environment.",
+          "price_range": "€€",
+          "atmosphere": "Comfortable, casual",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "families",
+            "casual dining"
+          ],
+          "latitude": 50.7738,
+          "longitude": 6.0877,
+          "reservation_needed": false,
+          "local_tips": "Order the Sauerbraten for a true regional experience."
+        },
+        {
+          "name": "Cafe Middelberg",
+          "cuisine_type": "German, Cafe Food",
+          "description": "Traditional German cafe known for cakes, coffee, and light meals in a historic setting.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, historic",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "coffee breaks",
+            "dessert lovers"
+          ],
+          "latitude": 50.776,
+          "longitude": 6.0835,
+          "reservation_needed": false,
+          "local_tips": "Try the Aachen Printen with your coffee."
+        },
+        {
+          "name": "Mangal Döner",
+          "cuisine_type": "Turkish, Fast Food",
+          "description": "Highly rated spot for doner kebabs and Turkish street food, popular among locals for quick, tasty meals.",
+          "price_range": "€",
+          "atmosphere": "Casual, fast-paced",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "quick bites",
+            "late night"
+          ],
+          "latitude": 50.7743,
+          "longitude": 6.0846,
+          "reservation_needed": false,
+          "local_tips": "Try the spicy doner with extra garlic sauce."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Aachener Wochenmarkt",
+          "cuisine_type": "Local Market",
+          "description": "A vibrant weekly market offering local produce, cheeses, meats, and street food specialties including Printen and fresh sausages.",
+          "price_range": "€",
+          "atmosphere": "Lively, community-focused",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "market shopping",
+            "local snacks"
+          ],
+          "latitude": 50.7765,
+          "longitude": 6.084,
+          "reservation_needed": false,
+          "local_tips": "Visit on Wednesday or Saturday mornings for the best selection."
+        },
+        {
+          "name": "Printenbäckerei Heinemann Stand",
+          "cuisine_type": "German Confectionery",
+          "description": "Street stall specializing in the city's famous Printen gingerbread, a must-try sweet treat unique to Aachen.",
+          "price_range": "€",
+          "atmosphere": "Festive, bustling",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "snacking",
+            "souvenirs"
+          ],
+          "latitude": 50.7752,
+          "longitude": 6.0829,
+          "reservation_needed": false,
+          "local_tips": "Sample their herb-infused Printen variety."
+        },
+        {
+          "name": "Street Food Festival Aachen",
+          "cuisine_type": "Various International",
+          "description": "Seasonal street food festival featuring diverse international cuisines alongside local specialties held several times a year.",
+          "price_range": "€",
+          "atmosphere": "Festive, multicultural",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "food exploration",
+            "groups"
+          ],
+          "latitude": 50.7769,
+          "longitude": 6.0848,
+          "reservation_needed": false,
+          "local_tips": "Check event dates in advance; great for trying a variety of dishes."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Die Kurbel",
+          "cuisine_type": "Bar, German Beer",
+          "description": "A popular bar known for its extensive selection of German and local beers, plus a great atmosphere for socializing.",
+          "price_range": "€€",
+          "atmosphere": "Lively, casual",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "after work",
+            "groups"
+          ],
+          "latitude": 50.7748,
+          "longitude": 6.0824,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal craft beers on tap."
+        },
+        {
+          "name": "Bierhaus Aachen",
+          "cuisine_type": "Bar, German Beer Hall",
+          "description": "Traditional beer hall vibe with a wide range of local brews and hearty snacks.",
+          "price_range": "€€",
+          "atmosphere": "Rustic, convivial",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "groups",
+            "beer lovers"
+          ],
+          "latitude": 50.7757,
+          "longitude": 6.0841,
+          "reservation_needed": false,
+          "local_tips": "Visit during football matches for an exciting atmosphere."
+        },
+        {
+          "name": "Barista Coffee & Cocktails",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Trendy cocktail bar offering creative drinks and a cozy ambiance in the city center.",
+          "price_range": "€€€",
+          "atmosphere": "Chic, intimate",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "date night",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 50.774,
+          "longitude": 6.086,
+          "reservation_needed": true,
+          "local_tips": "Ask the bartender for their signature Printen-inspired cocktail."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Middelberg",
+          "cuisine_type": "German Cafe",
+          "description": "Classic Aachen cafe serving excellent coffee, cakes, and light meals in a historic building.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, traditional",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "coffee breaks",
+            "dessert"
+          ],
+          "latitude": 50.776,
+          "longitude": 6.0835,
+          "reservation_needed": false,
+          "local_tips": "Try the Printen with your coffee for a local flavor."
+        },
+        {
+          "name": "Café Kittel",
+          "cuisine_type": "Cafe, German",
+          "description": "A warm and inviting cafe known for homemade cakes and a relaxed vibe.",
+          "price_range": "€€",
+          "atmosphere": "Friendly, laid-back",
+          "neighborhood": "Innenstadt",
+          "best_for": [
+            "afternoon tea",
+            "quiet moments"
+          ],
+          "latitude": 50.7755,
+          "longitude": 6.0857,
+          "reservation_needed": false,
+          "local_tips": "Their apple strudel is a must-try."
+        },
+        {
+          "name": "Café Vienna",
+          "cuisine_type": "Cafe, Austrian-inspired",
+          "description": "Viennese style cafe serving specialty coffee and traditional pastries including Sachertorte.",
+          "price_range": "€€",
+          "atmosphere": "Elegant, relaxed",
+          "neighborhood": "Altstadt",
+          "best_for": [
+            "coffee lovers",
+            "pastry tasting"
+          ],
+          "latitude": 50.7747,
+          "longitude": 6.0832,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot for a leisurely brunch."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Aachen Printen Baking Workshop",
+        "description": "Learn to bake traditional Aachen Printen gingerbread in a hands-on workshop with a local bakery.",
+        "location": "Altstadt",
+        "price_range": "€€",
+        "reservation_needed": true,
+        "latitude": 50.775,
+        "longitude": 6.0835,
+        "local_tips": "Book in advance, especially before Christmas."
+      },
+      {
+        "name": "Guided Food Tour of Aachen",
+        "description": "Explore Aachen’s culinary highlights including Printen shops, local breweries, and traditional eateries with an expert guide.",
+        "location": "City Center",
+        "price_range": "€€",
+        "reservation_needed": true,
+        "latitude": 50.776,
+        "longitude": 6.084,
+        "local_tips": "Wear comfortable shoes for walking and come hungry!"
+      },
+      {
+        "name": "Visit to Aachener Wochenmarkt",
+        "description": "Experience the lively weekly market with local farmers, artisans, and food vendors showcasing regional specialties.",
+        "location": "Markt Square, Altstadt",
+        "price_range": "Free entry",
+        "reservation_needed": false,
+        "latitude": 50.7765,
+        "longitude": 6.084,
+        "local_tips": "Go early for the freshest produce and best bargains."
+      },
+      {
+        "name": "German Beer Tasting Night",
+        "description": "Participate in a guided tasting of local and regional German beers paired with traditional snacks.",
+        "location": "Various bars in Innenstadt",
+        "price_range": "€€",
+        "reservation_needed": true,
+        "latitude": 50.7745,
+        "longitude": 6.083,
+        "local_tips": "Perfect for beer enthusiasts wanting to explore beyond the usual lagers."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Spargel (white asparagus) dishes at local restaurants",
+        "Fresh rhubarb desserts",
+        "Seasonal wild herbs in salads and soups"
+      ],
+      "summer": [
+        "Grilled sausages and meats at outdoor markets",
+        "Fresh strawberries and cherries",
+        "Cold potato salads and light German summer fare"
+      ],
+      "autumn": [
+        "Wild game dishes featuring venison and boar",
+        "Mushroom specialties",
+        "Pumpkin soups and baked goods"
+      ],
+      "winter": [
+        "Hearty stews and roasts",
+        "Glühwein (mulled wine) at Christmas markets",
+        "Traditional Printen gingerbread, especially around Christmas"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Cologne",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "0h 40m",
+            "frequency": "hourly",
+            "price_range": "€15-€35",
+            "operator": "Deutsche Bahn",
+            "notes": "Frequent direct ICE and regional trains from Aachen Hauptbahnhof."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 10m",
+            "frequency": "hourly",
+            "price_range": "€8-€20",
+            "operator": "FlixBus",
+            "notes": "Multiple daily buses from Aachen ZOB to Cologne Central Station."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€20-€50",
+            "operator": "Thalys / SNCB",
+            "notes": "High-speed connections with direct trains via Liège."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 45m",
+            "frequency": "several daily",
+            "price_range": "€10-€25",
+            "operator": "FlixBus",
+            "notes": "Direct buses from Aachen to Brussels North Station."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "several daily",
+            "price_range": "€30-€70",
+            "operator": "NS International / Deutsche Bahn",
+            "notes": "Connections involve a transfer in Cologne or Düsseldorf."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses available but less frequent than train."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "Thalys",
+            "notes": "High-speed train connections via Cologne or Brussels."
+          },
+          {
+            "type": "bus",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Overnight buses available for budget travelers."
+          }
+        ]
+      },
+      {
+        "city": "Düsseldorf",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "0h 45m",
+            "frequency": "hourly",
+            "price_range": "€15-€35",
+            "operator": "Deutsche Bahn",
+            "notes": "Direct regional trains connecting Aachen and Düsseldorf Hauptbahnhof."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€8-€20",
+            "operator": "FlixBus",
+            "notes": "Frequent bus service with multiple stops."
+          }
+        ]
+      },
+      {
+        "city": "Luxembourg City",
+        "country": "Luxembourg",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "several daily",
+            "price_range": "€30-€70",
+            "operator": "CFL / Deutsche Bahn",
+            "notes": "Requires transfer usually in Trier or Koblenz."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses available but limited frequency."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "Eurostar / Deutsche Bahn",
+            "notes": "Train connections via Brussels and Eurostar through the Channel Tunnel."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Lufthansa / British Airways",
+            "notes": "Flights from Düsseldorf Airport (~30 km from Aachen) to London Heathrow and Gatwick."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "Deutsche Bahn / Czech Railways",
+            "notes": "Requires transfers in Dresden and Berlin."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "Lufthansa",
+            "notes": "Flights available from Düsseldorf Airport."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€50-€110",
+            "operator": "Deutsche Bahn / SBB",
+            "notes": "Direct and indirect trains with change in Basel."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€80-€180",
+            "operator": "Swiss International Air Lines",
+            "notes": "Flights from Düsseldorf Airport to Zurich Airport."
+          }
+        ]
+      },
+      {
+        "city": "Hamburg",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "Deutsche Bahn ICE",
+            "notes": "Direct high-speed trains available."
+          },
+          {
+            "type": "bus",
+            "duration": "7h",
+            "frequency": "daily",
+            "price_range": "€20-€45",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus options for budget travelers."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Aachen Tulip Festival",
+        "type": "outdoor",
+        "description": "Experience the vibrant display of tulips in the city parks and gardens, celebrating the arrival of spring with colorful blooms.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "City Parks and Gardens, Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "International May Festival",
+        "type": "cultural",
+        "description": "A renowned festival featuring classical music concerts, opera performances, and cultural events throughout Aachen.",
+        "best_months": [
+          "May"
+        ],
+        "location": "Various venues including Theater Aachen",
+        "price": "Moderate"
+      },
+      {
+        "name": "Spring Market at Katschhof Square",
+        "type": "food",
+        "description": "Enjoy seasonal local produce, traditional German spring delicacies, and artisanal products in a vibrant market setting.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Katschhof Square, Aachen",
+        "price": "Budget"
+      },
+      {
+        "name": "Rhine-Weser Cycling Tours",
+        "type": "sport",
+        "description": "Take advantage of pleasant spring weather to explore scenic cycling routes around Aachen and the nearby Eifel region.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Cycling trails around Aachen",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "CHIO Aachen - International Horse Show",
+        "type": "sport",
+        "description": "Europe’s most prestigious equestrian event featuring show jumping, dressage, and driving competitions attracting top athletes worldwide.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Soers Equestrian Grounds, Aachen",
+        "price": "Premium"
+      },
+      {
+        "name": "Aachen Open-Air Cinema",
+        "type": "cultural",
+        "description": "Enjoy open-air film screenings of international and German movies in atmospheric city locations during warm summer evenings.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Various outdoor venues in Aachen",
+        "price": "Budget"
+      },
+      {
+        "name": "Aachen City Beach",
+        "type": "outdoor",
+        "description": "Relax at the temporary urban beach set up in the city center with sand, lounge chairs, and beach bars – perfect for hot summer days.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Center of Aachen",
+        "price": "Free to moderate"
+      },
+      {
+        "name": "Local Beer Gardens",
+        "type": "food",
+        "description": "Savor local brews and traditional German summer snacks in lively beer gardens such as Pontstraße and around the Old Town.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Pontstraße and Old Town, Aachen",
+        "price": "Budget"
+      },
+      {
+        "name": "Hiking in the Eifel National Park",
+        "type": "outdoor",
+        "description": "Explore shaded trails and natural beauty in the nearby Eifel region, ideal for cooling down during summer hikes.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Eifel National Park, near Aachen",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Aachen Pumpkin Festival",
+        "type": "festival",
+        "description": "Celebrate autumn with pumpkin-themed decorations, food stalls, and family-friendly activities in the city center.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Old Town Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "St. Martin’s Day Procession",
+        "type": "cultural",
+        "description": "Join traditional lantern parades and bonfires commemorating St. Martin, popular with families and locals.",
+        "best_months": [
+          "November"
+        ],
+        "location": "Various neighborhoods in Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "Autumn Wine Tastings",
+        "type": "food",
+        "description": "Sample regional wines and seasonal dishes at local wine bars and tasting events celebrating the harvest.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Wine bars in Aachen",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking and Leaf Peeping in the Ardennes",
+        "type": "outdoor",
+        "description": "Enjoy the spectacular fall foliage on trails in the nearby Ardennes forest, perfect for day trips from Aachen.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Ardennes region, near Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "Aachen Christmas Market Preview",
+        "type": "festival",
+        "description": "Experience a warm-up event with early festive stalls and seasonal treats before the official Christmas market begins.",
+        "best_months": [
+          "Late November"
+        ],
+        "location": "Market Square, Aachen",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Aachen Christmas Market",
+        "type": "festival",
+        "description": "One of Germany’s most beautiful Christmas markets featuring traditional crafts, gingerbread (Printen), and mulled wine stalls.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Market Square and Katschhof, Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "Thermal Baths at Carolus Thermen",
+        "type": "outdoor",
+        "description": "Relax in soothing thermal waters and saunas, ideal for warming up during cold winter days in Aachen.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Carolus Thermen, Aachen",
+        "price": "Moderate"
+      },
+      {
+        "name": "New Year's Eve Fireworks at Elisenbrunnen",
+        "type": "festival",
+        "description": "Celebrate the New Year with fireworks and festivities around the historic Elisenbrunnen fountain.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Elisenbrunnen, Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "Winter Hiking in the Eifel",
+        "type": "sport",
+        "description": "Explore winter trails in the nearby Eifel region with opportunities for snowshoeing and crisp forest walks.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Eifel National Park, near Aachen",
+        "price": "Free"
+      },
+      {
+        "name": "Sampling Winter Specialties - Printen and Glühwein",
+        "type": "food",
+        "description": "Warm up with Aachen’s famous gingerbread called Printen and traditional mulled wine available at cafes and markets.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Cafes and markets in Aachen",
+        "price": "Budget"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "New Year and Epiphany",
+            "notes": "Cold winter weather with occasional snow; quieter tourist season but some local celebrations around Epiphany on January 6th; fewer crowds make it peaceful.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Post-holiday cold with low daylight; minimal events; good for budget travelers but limited attractions open.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 5,
+              "luxury": 1
+            }
+          },
+          {
+            "days": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold but stable weather; quieter city with some cultural indoor activities; suitable for museums and spa visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold winter continues; some indoor cultural events; low tourist numbers offer a peaceful visit.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Aachen Carnival (Rosenmontag and festivities)",
+            "notes": "One of the city's biggest cultural events with parades and celebrations; weather remains cold but the festive atmosphere attracts many visitors; expect higher crowds and lively streets.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 5,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival calm returns; cold weather but ideal for exploring local museums and thermal baths.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with variable weather; some rainy days; increasing daylight hours improve sightseeing conditions.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19
+            ],
+            "score": 3,
+            "special": true,
+            "event": "St. Patrick's Day events (minor local celebrations)",
+            "notes": "Some local pubs and venues host St. Patrick's Day events; weather turning milder; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring starts to bloom; more outdoor activities possible; pleasant temperatures and fewer tourists than summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter celebrations",
+            "notes": "Easter markets and church services attract visitors; spring weather is mild with occasional showers; lively atmosphere in the old town.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Good weather for outdoor activities such as visiting the historic cathedral and parks; crowds moderate as tourism picks up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Aachen Spring Festival",
+            "notes": "Annual city festival with music, food, and cultural events; ideal weather and festive mood; attracts many visitors but manageable crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day and Labor Day celebrations",
+            "notes": "Public holidays with local festivities; spring in full bloom; excellent weather for outdoor sightseeing and walking tours.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and pleasant weather; ideal for exploring Aachen's historic sites and surrounding nature; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak spring conditions with flowers blooming and pleasant temperatures; good time for outdoor cafes and walking the city.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm temperatures and long daylight; excellent for outdoor activities and visiting local parks.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm but sometimes humid weather; tourism increases as summer approaches; good for festivals and outdoor dining.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of June can be warmer with occasional rain; popular time for tourists; good weather for exploring city and nearby nature reserves.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather; some days can be hot; popular tourist season with lively atmosphere but higher prices.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat and school holidays increase crowds; some may find weather uncomfortable; prices peak.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 2,
+              "business": 2,
+              "budget": 1,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "High summer tourist density continues; good weather but less tranquility; some rain possible.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer weather; city busy with vacationers; some days can be uncomfortable due to heat; good for festivals and nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "score": 4,
+            "special": true,
+            "event": "CHIO Aachen (International Horse Show)",
+            "notes": "Major international equestrian event attracting visitors worldwide; vibrant atmosphere with large crowds; hotel prices peak.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-CHIO calm returns; still warm but beginning to cool down; moderate tourist activity.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild, pleasant weather; fewer tourists than summer; great for walking tours and outdoor cafes.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Aachen Oktoberfest (late September start)",
+            "notes": "Local Oktoberfest events begin with traditional music and food; enjoyable cultural experience with moderate crowds and comfortable weather.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued pleasant temperatures; ideal for sightseeing; crowds remain moderate due to festival season.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Aachen Oktoberfest continues",
+            "notes": "Festive autumn atmosphere with traditional Bavarian celebrations; cooler weather but still pleasant; popular among locals and visitors.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooling autumn weather with occasional rain; fewer tourists; good for indoor cultural activities and museum visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late autumn chill sets in; some rainy days; quieter city atmosphere; good for budget travelers and museum enthusiasts.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often rainy; low tourist activity; many outdoor attractions less enjoyable; indoor options recommended.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Approaching Advent season; some early Christmas markets open; chilly but increasing festive atmosphere.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Opening of Christmas Markets",
+            "notes": "Christmas markets start late November; festive mood improves visitor experience despite cold weather; crowds begin to pick up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets in full swing",
+            "notes": "Festive decorations, markets, and events create a magical atmosphere; cold weather but enjoyable for holiday travelers; crowds moderate to high.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Christmas and Advent festivals",
+            "notes": "Peak holiday season with beautiful markets and cultural events; festive concerts and decorations; very popular time to visit.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "New Year's Eve Celebrations",
+            "notes": "Festive atmosphere continues with New Year's events; cold weather; higher prices and crowds; good for travelers seeking celebrations.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

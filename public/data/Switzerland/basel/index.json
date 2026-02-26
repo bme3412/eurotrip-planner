@@ -1,1 +1,3454 @@
-{"city":"basel","country":"Switzerland","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "basel",
+  "country": "Switzerland",
+  "overview": {
+    "city_name": "Basel",
+    "country": "Switzerland",
+    "brief_description": "Basel is a vibrant cultural hub located at the meeting point of Switzerland, Germany, and France. Known for its rich history, world-class art museums, and lively festivals, it beautifully blends medieval charm with modern urban sophistication.",
+    "nickname": "City of Art and Culture",
+    "region": "Northwestern Switzerland",
+    "population": "approx. 200,000",
+    "why_visit": [
+      "Explore the renowned Kunstmuseum and Fondation Beyeler art collections",
+      "Experience the lively Basel Fasnacht carnival, Switzerland’s largest cultural festival",
+      "Stroll the picturesque old town with its medieval architecture",
+      "Enjoy the scenic Rhine riverfront and vibrant culinary scene"
+    ],
+    "best_time_to_visit": "April to June and September to October for mild weather and cultural events",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming flowers make it perfect for walking tours and outdoor museums.",
+      "summer": "Warmest season with many outdoor festivals, river cruises, and lively terraces along the Rhine.",
+      "autumn": "Cooler weather with beautiful fall foliage; ideal for museum visits and cultural events.",
+      "winter": "Chilly but festive atmosphere with Christmas markets and cozy cafes."
+    },
+    "practical_info": {
+      "currency": "Swiss Franc (CHF)",
+      "language": "German (Swiss German dialect), with widespread English",
+      "visit_duration": "2 to 3 days recommended",
+      "getting_around": "Efficient tram and bus networks plus bike-friendly streets",
+      "safety": "Very safe city with low crime rates; standard precautions advised"
+    },
+    "coordinates": {
+      "latitude": 47.5596,
+      "longitude": 7.5886
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit the Kunstmuseum Basel for classic and contemporary art",
+        "Explore the medieval Basel Minster and its cathedral square",
+        "Attend the Basel Fasnacht festival (if visiting in March)",
+        "Walk along the Rhine river promenade and enjoy a boat tour",
+        "Discover the Fondation Beyeler art museum in nearby Riehen"
+      ],
+      "worth_doing": [
+        "Tour the historic Old Town and Marktplatz",
+        "Visit the Tinguely Museum dedicated to kinetic art",
+        "Relax in the Botanical Gardens of the University of Basel",
+        "Shop and dine at the vibrant Freie Strasse pedestrian street",
+        "Explore the Basel Paper Mill Museum for unique cultural insight"
+      ],
+      "hidden_gems": [
+        "Hike up to St. Chrischona for panoramic views of Basel and the tri-border area",
+        "Discover the quiet and charming neighborhood of Kleinbasel across the Rhine",
+        "Visit the Museum für Gegenwartskunst for cutting-edge contemporary art",
+        "Explore the small but fascinating Jewish Museum of Switzerland",
+        "Take a short trip to Augusta Raurica, a nearby Roman archaeological site"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Basel Minster (Basler Münster)",
+        "type": "Church",
+        "description": "A stunning Gothic cathedral dominating Basel's skyline, the Basel Minster dates back to the 12th century and features vibrant red sandstone walls and twin towers. Visitors can climb the Pfalz terrace for panoramic views of the Rhine and the city.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring when flowers bloom in the cathedral courtyard",
+        "booking_tips": "No booking required; guided tours available seasonally",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 47.5585,
+        "longitude": 7.5906,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "07:00-18:00",
+          "weekend": "07:00-18:00",
+          "notes": "Hours may vary for services or events"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Marktplatz",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "30",
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.baslermuenster.ch/",
+        "website": "https://www.basel.com/en/Media/Attractions/Basel-Minster"
+      },
+      {
+        "name": "Kunstmuseum Basel",
+        "type": "Museum",
+        "description": "The Kunstmuseum Basel is the oldest public art collection in the world, housing masterpieces from the Middle Ages to contemporary art. Its extensive collections include works by Holbein, Picasso, and Basel-born artist Meret Oppenheim.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Special exhibitions often rotate seasonally",
+        "booking_tips": "Advance booking recommended during Art Basel fair and weekends",
+        "ratings": {
+          "cost_estimate": 16,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 47.559,
+        "longitude": 7.5847,
+        "neighborhood": "Kleinbasel",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Kunstmuseum",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": [
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://kunstmuseumbasel.ch/en/",
+        "website": "https://kunstmuseumbasel.ch/en/"
+      },
+      {
+        "name": "Tinguely Fountain",
+        "type": "Monument",
+        "description": "Located in front of the Theater Basel, the Tinguely Fountain is a playful kinetic sculpture created by Swiss artist Jean Tinguely. The whimsical mechanical figures spray water in choreographed movements, delighting visitors year-round.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Fountain operates only from spring to autumn",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.5598,
+        "longitude": 7.5883,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": "Water feature seasonal operation"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Theater",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Kunstmuseum Basel"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Spalentor (Gate of Spalen)",
+        "type": "Historic Site",
+        "description": "One of Basel’s three remaining city gates, Spalentor is a beautifully preserved medieval gate dating from the 14th century. Its ornate towers and frescoes offer a glimpse into Basel’s fortified past and make it a photogenic landmark.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.5581,
+        "longitude": 7.5759,
+        "neighborhood": "Clara",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": "Open air landmark"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 10",
+              "station": "Spalentor",
+              "walk_minutes": 2
+            }
+          ],
+          "bus_routes": [
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://www.basel.com/en/Media/Attractions/Spalentor"
+      },
+      {
+        "name": "Museum Tinguely",
+        "type": "Museum",
+        "description": "Dedicated to the works of Jean Tinguely, this museum houses an extensive collection of the Swiss sculptor's kinetic art. The building itself, designed by Mario Botta, is an architectural highlight located on the Rhine riverbank.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Temporary exhibitions with related artists throughout the year",
+        "booking_tips": "Tickets can be pre-booked online, especially during weekends",
+        "ratings": {
+          "cost_estimate": 14,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.5492,
+        "longitude": 7.5895,
+        "neighborhood": "Gundeldingen",
+        "opening_hours": {
+          "weekday": "11:00-18:00",
+          "weekend": "11:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Museum Tinguely",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": [
+            "34"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.tinguely.ch/en.html",
+        "website": "https://www.tinguely.ch/en.html"
+      },
+      {
+        "name": "Rhein River Promenade",
+        "type": "Viewpoint",
+        "description": "A scenic walking path along the Rhine offering stunning views of Basel's skyline, bridges, and lively river traffic. It’s popular for leisurely strolls, picnics, and watching the traditional Rhine swimmers during summer.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Ideal in warm months; river swims only in summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.559,
+        "longitude": 7.587,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Rheingasse",
+              "walk_minutes": 2
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Kunstmuseum Basel"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Marktplatz Basel",
+        "type": "Market",
+        "description": "The bustling central market square of Basel, dominated by the vibrant red Town Hall with its colorful murals. On weekdays, the market offers fresh produce, flowers, and regional specialties, providing an authentic local experience.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Market is busiest in spring and summer; Christmas market in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 47.5597,
+        "longitude": 7.5887,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "07:00-14:00",
+          "weekend": "07:00-14:00",
+          "notes": "Closed on Sundays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Marktplatz",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": [
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Basel Historical Museum"
+        },
+        "official_url": null,
+        "website": "https://www.basel.com/en/Media/Attractions/Marktplatz-Basel"
+      },
+      {
+        "name": "Fondation Beyeler",
+        "type": "Museum",
+        "description": "Nestled in a beautiful park, Fondation Beyeler showcases an impressive collection of modern classics including works by Monet, Picasso, and Rothko. The museum combines art with nature, designed by Renzo Piano to integrate seamlessly with its surroundings.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Premium",
+        "seasonal_notes": "Special exhibitions change seasonally, check website for details",
+        "booking_tips": "Advanced booking strongly recommended, especially on weekends",
+        "ratings": {
+          "cost_estimate": 23,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 47.5588,
+        "longitude": 7.5924,
+        "neighborhood": "Riehen",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 6",
+              "station": "Beyeler-Stiftung",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.fondationbeyeler.ch/en/",
+        "website": "https://www.fondationbeyeler.ch/en/"
+      },
+      {
+        "name": "Basel Historical Museum (Barfüsserkirche)",
+        "type": "Museum",
+        "description": "Housed in a former church, this museum explores Basel’s rich history from prehistoric times through the Middle Ages. Highlights include medieval weaponry, religious art, and a detailed model of Basel in the 15th century.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Special exhibitions and workshops in winter",
+        "booking_tips": "Tickets available onsite; group tours by arrangement",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.5603,
+        "longitude": 7.5871,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Barfüsserplatz",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": [
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.bhm.ch/en/",
+        "website": "https://www.bhm.ch/en/"
+      },
+      {
+        "name": "Zoological Museum Basel",
+        "type": "Museum",
+        "description": "Part of the University of Basel, this museum features extensive natural history exhibits, including regional fauna, fossils, and taxidermy collections. A favorite for families and science enthusiasts alike.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Free entry; check for guided tours availability",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.5593,
+        "longitude": 7.584,
+        "neighborhood": "Kleinbasel",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed on Sundays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Kunstmuseum",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.zoologie.unibas.ch/en/",
+        "website": "https://www.zoologie.unibas.ch/en/"
+      },
+      {
+        "name": "Merian Gardens (Merian Gärten)",
+        "type": "Park",
+        "description": "Spanning over 18 hectares, the Merian Gardens are botanical gardens featuring diverse plant collections, themed gardens, and a lovely pond. This green oasis is ideal for relaxation, nature walks, and seasonal flower displays.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Flower blooms peak in spring and early summer",
+        "booking_tips": "Entry ticket required; buy onsite or online",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 47.5667,
+        "longitude": 7.5892,
+        "neighborhood": "Gundeldingen",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Winter hours may be shorter"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 10",
+              "station": "Brüglingerstrasse",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Museum Tinguely"
+        },
+        "official_url": "https://www.merian.ch/en/",
+        "website": "https://www.merian.ch/en/"
+      },
+      {
+        "name": "Vitra Campus and Vitra Design Museum",
+        "type": "Museum",
+        "description": "Just outside Basel in Weil am Rhein, Germany, Vitra Design Museum is a world-renowned museum dedicated to industrial furniture design and architecture. The campus features iconic buildings by architects such as Zaha Hadid and Herzog & de Meuron.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Special exhibitions and events throughout the year",
+        "booking_tips": "Purchase tickets online in advance, especially on weekends",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 47.5933,
+        "longitude": 7.6192,
+        "neighborhood": "Weil am Rhein (Germany)",
+        "opening_hours": {
+          "weekday": "11:00-18:00",
+          "weekend": "11:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "39 from Basel, then 3 min walk"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.design-museum.de/en.html",
+        "website": "https://www.design-museum.de/en.html"
+      },
+      {
+        "name": "Kleinbasel Neighborhood",
+        "type": "Neighborhood",
+        "description": "The vibrant Kleinbasel district offers a mix of trendy cafes, street art, and multicultural markets. It’s a favorite area to explore authentic Basel life away from the tourist hotspots with lively nightlife and local boutiques.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor cafes busiest in summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 47.557,
+        "longitude": 7.584,
+        "neighborhood": "Kleinbasel",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "St. Johann",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "any",
+          "weather_fallback": "Kunstmuseum Basel"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Botmingen Castle (Schloss Bottmingen)",
+        "type": "Historic Site",
+        "description": "Located just outside Basel, this enchanting moated castle dates from the 13th century and is surrounded by serene gardens and a pond. It hosts occasional cultural events and is a picturesque spot for photo enthusiasts.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Gardens are best in spring and summer",
+        "booking_tips": "Castle interior is not regularly open to public; check event schedules",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.5333,
+        "longitude": 7.6333,
+        "neighborhood": "Bottmingen",
+        "opening_hours": {
+          "weekday": "09:00-19:00",
+          "weekend": "09:00-19:00",
+          "notes": "Castle grounds accessible year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "34",
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://www.bottmingen.ch/"
+      },
+      {
+        "name": "Augusta Raurica Archaeological Park",
+        "type": "Historic Site",
+        "description": "A short drive from Basel, Augusta Raurica is one of the best-preserved Roman archaeological sites in Switzerland, featuring a large amphitheater, Roman theater, and museum showcasing artifacts from the era.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open-air ruins best visited in spring to autumn",
+        "booking_tips": "Guided tours available; book in advance for groups",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 47.5432,
+        "longitude": 7.7891,
+        "neighborhood": "Augst",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Museum closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "48"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Augusta Raurica Museum"
+        },
+        "official_url": "https://www.augustaraurica.ch/en/",
+        "website": "https://www.augustaraurica.ch/en/"
+      },
+      {
+        "name": "Johanniter Bridge",
+        "type": "Viewpoint",
+        "description": "A pedestrian bridge connecting Grossbasel and Kleinbasel with views of the Rhine river and cityscape. It's a peaceful spot to watch boats pass and enjoy the sunset over Basel's historic districts.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Especially beautiful at sunset year-round",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 2
+        },
+        "latitude": 47.5572,
+        "longitude": 7.5901,
+        "neighborhood": "Grossbasel",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Mittlere Brücke",
+              "walk_minutes": 2
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Basel Paper Mill Museum (Basler Papiermühle)",
+        "type": "Museum",
+        "description": "This interactive museum showcases the history and craft of paper making and printing in a historic mill building along the Rhine. Visitors can try traditional paper-making techniques and explore printing presses.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Workshops available seasonally",
+        "booking_tips": "Book workshops in advance; general admission tickets sold onsite",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.5538,
+        "longitude": 7.5889,
+        "neighborhood": "Grossbasel",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "Claraplatz",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "30",
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.papiermuehle.ch/en/",
+        "website": "https://www.papiermuehle.ch/en/"
+      },
+      {
+        "name": "St. Alban-Tal and St. Alban-Vorstadt",
+        "type": "Neighborhood",
+        "description": "A historic district featuring cobblestone streets, medieval houses, and charming riverside views. This area is known for its peaceful atmosphere and several hidden gems including small galleries and cafes.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Lovely in autumn with colorful foliage",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.553,
+        "longitude": 7.588,
+        "neighborhood": "Grossbasel",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Tram 8",
+              "station": "St. Alban",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "any",
+          "weather_fallback": "Basel Historical Museum"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Grossbasel (Greater Basel)",
+        "alternate_names": [
+          "Old Town Grossbasel",
+          "Altstadt Grossbasel"
+        ],
+        "character": "Grossbasel is the historic heart of Basel, blending medieval charm with vibrant city life. Its narrow cobblestone streets and grand squares pulse with cultural richness and architectural marvels.",
+        "location": {
+          "central": true,
+          "description": "Located on the northwestern side of the Rhine River, forming the core of Basel's old town.",
+          "borders": [
+            "Kleinbasel",
+            "St. Alban",
+            "Gundeldingen"
+          ],
+          "landmarks": [
+            "Basel Minster",
+            "Marktplatz",
+            "Town Hall (Rathaus)"
+          ]
+        },
+        "history": {
+          "overview": "Grossbasel developed around the medieval period as the main settlement on the Rhine’s north bank.",
+          "significance": "It represents Basel’s historic and political center, housing centuries-old buildings and institutions.",
+          "notable_events": [
+            "Council of Basel (1431-1449)",
+            "Development of the Basel Minster"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Marktplatz Tram Station",
+            "Barfüsserplatz Tram Station"
+          ],
+          "safety": "Very safe with moderate tourist crowds",
+          "best_time_to_visit": "Spring to early autumn for pleasant walking weather",
+          "walkability": "Highly walkable with pedestrian zones and historic streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Medieval architecture",
+            "Cultural institutions",
+            "Historic markets",
+            "Basel Minster",
+            "Town Hall"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Cultural",
+            "Bustling"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Cultural travelers",
+            "City walkers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Basel Minster",
+              "type": "Cathedral",
+              "description": "A stunning Gothic cathedral with red sandstone architecture and panoramic views from its towers.",
+              "appeal": "Iconic historic landmark offering both religious heritage and city vistas."
+            },
+            {
+              "name": "Marktplatz",
+              "type": "Public Square",
+              "description": "Central square hosting Basel’s daily market and surrounded by colorful guild houses.",
+              "appeal": "Lively heart of the city where locals and tourists mingle."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Klara",
+              "cuisine": "Swiss/European",
+              "price_range": "€€€",
+              "known_for": "Traditional Basel dishes with a modern twist",
+              "atmosphere": "Elegant and historic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the market before crowds arrive.",
+          "Climb the Minster towers for breathtaking views over Basel and the Rhine.",
+          "Explore small side alleys for hidden artisan shops."
+        ]
+      },
+      {
+        "name": "Kleinbasel",
+        "alternate_names": [
+          "Little Basel"
+        ],
+        "character": "Kleinbasel is Basel’s creative and vibrant riverside district, known for its eclectic mix of street art, indie boutiques, and a lively nightlife scene. It buzzes with youthful energy and multicultural influences.",
+        "location": {
+          "central": true,
+          "description": "Situated on the southeastern bank of the Rhine, opposite Grossbasel.",
+          "borders": [
+            "Grossbasel",
+            "Clara",
+            "Gundeldingen"
+          ],
+          "landmarks": [
+            "Rheinpromenade",
+            "St. Johann Church",
+            "Dreiländereck"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class district, Kleinbasel grew into a creative hub during the 20th century.",
+          "significance": "It embodies Basel's modern cultural evolution and alternative arts scene.",
+          "notable_events": [
+            "Industrial growth in 19th century",
+            "Urban renewal and arts movement in late 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Kleinbasel Tram Stop",
+            "Riehenring Tram Stop"
+          ],
+          "safety": "Generally safe with lively nightlife areas",
+          "best_time_to_visit": "Summer for riverside activities and festivals",
+          "walkability": "Very walkable with riverside promenades and pedestrian streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Street art",
+            "Riverfront bars",
+            "Alternative culture",
+            "Live music venues",
+            "Multicultural eateries"
+          ],
+          "atmosphere": [
+            "Trendy",
+            "Bohemian",
+            "Lively"
+          ],
+          "best_for": [
+            "Young travelers",
+            "Nightlife seekers",
+            "Art lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Rheinpromenade",
+              "type": "Riverfront Walk",
+              "description": "Scenic walkway along the Rhine popular for relaxing and watching river traffic.",
+              "appeal": "Great spot for people-watching and summer festivals."
+            },
+            {
+              "name": "Dreiländereck",
+              "type": "Geographical Landmark",
+              "description": "Point where Switzerland, Germany, and France meet along the Rhine.",
+              "appeal": "Iconic tri-border meeting point with scenic views."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Zum Isaak",
+              "cuisine": "International/Swiss",
+              "price_range": "€€",
+              "known_for": "Casual dining with diverse international flavors",
+              "atmosphere": "Relaxed and eclectic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore side streets to find unique street art murals.",
+          "Visit during summer for open-air concerts and river festivals.",
+          "Try local craft beers in the many hip bars along the river."
+        ]
+      },
+      {
+        "name": "St. Alban",
+        "alternate_names": [
+          "St. Alban-Vorstadt"
+        ],
+        "character": "St. Alban blends historic charm with leafy residential streets and peaceful parks. The neighborhood balances serene river views with boutique shops and quaint cafés.",
+        "location": {
+          "central": true,
+          "description": "Just northwest of Grossbasel, along the Rhine’s north bank.",
+          "borders": [
+            "Grossbasel",
+            "Clara",
+            "Gundeldingen"
+          ],
+          "landmarks": [
+            "St. Alban-Tor",
+            "St. Alban Church",
+            "Basel Paper Mill Museum"
+          ]
+        },
+        "history": {
+          "overview": "Originally a medieval suburb, St. Alban developed around the St. Alban Abbey and gate.",
+          "significance": "It preserves Basel’s religious and mercantile history with well-preserved architecture.",
+          "notable_events": [
+            "St. Alban Gate construction",
+            "Medieval trade route development"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "St. Alban Tor Tram Stop",
+            "Dreispitz Tram Stop"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Spring and summer for riverside walks and gardens",
+          "walkability": "Highly walkable with quiet streets and scenic routes"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic gates",
+            "Riverside parks",
+            "Artisanal shops",
+            "Basel Paper Mill Museum"
+          ],
+          "atmosphere": [
+            "Tranquil",
+            "Historic",
+            "Charming"
+          ],
+          "best_for": [
+            "Families",
+            "History buffs",
+            "Leisure walkers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Basel Paper Mill Museum",
+              "type": "Museum",
+              "description": "Interactive museum showcasing the history of paper, printing, and writing.",
+              "appeal": "Unique cultural experience blending history with hands-on exhibits."
+            },
+            {
+              "name": "St. Alban-Tor",
+              "type": "Historic City Gate",
+              "description": "Medieval gate tower serving as a symbol of Basel’s city defenses.",
+              "appeal": "Architectural gem and popular photo spot."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Kunsthalle",
+              "cuisine": "Swiss/European",
+              "price_range": "€€€",
+              "known_for": "Seasonal, locally sourced dishes in an art-inspired setting",
+              "atmosphere": "Elegant and serene"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk along the Rhine’s north bank to enjoy peaceful views.",
+          "Visit the Paper Mill Museum on a weekday to avoid crowds.",
+          "Explore nearby artisan shops for unique souvenirs."
+        ]
+      },
+      {
+        "name": "Clara",
+        "alternate_names": [
+          "Clara-Vorstadt"
+        ],
+        "character": "Clara is a lively and diverse neighborhood known for its food markets, local eateries, and multicultural atmosphere. It offers an authentic slice of Basel’s everyday life with a strong sense of community.",
+        "location": {
+          "central": false,
+          "description": "East of Kleinbasel, along the Rhine, bridging residential and commercial zones.",
+          "borders": [
+            "Kleinbasel",
+            "Gundeldingen",
+            "St. Johann"
+          ],
+          "landmarks": [
+            "Voltaplatz Market",
+            "Clara Market Hall"
+          ]
+        },
+        "history": {
+          "overview": "Once an industrial area, Clara transformed into a mixed-use district with a focus on food and local commerce.",
+          "significance": "It highlights Basel’s working-class roots and evolving culinary scene.",
+          "notable_events": [
+            "Establishment of Clara Market",
+            "Urban regeneration in late 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Voltaplatz Tram Stop",
+            "Claraplatz Tram Stop"
+          ],
+          "safety": "Safe with a vibrant street life",
+          "best_time_to_visit": "Saturday mornings for market visits",
+          "walkability": "Walkable with lively streets and market areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Food markets",
+            "Multicultural cuisine",
+            "Local shopping",
+            "Community events"
+          ],
+          "atmosphere": [
+            "Authentic",
+            "Bustling",
+            "Friendly"
+          ],
+          "best_for": [
+            "Foodies",
+            "Cultural explorers",
+            "Budget travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Voltaplatz Market",
+              "type": "Open-air Market",
+              "description": "Weekly vibrant market offering fresh produce, street food, and crafts.",
+              "appeal": "Ideal spot to taste local flavors and mingle with residents."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Volkshaus",
+              "cuisine": "Swiss and International",
+              "price_range": "€€",
+              "known_for": "Casual dining with local specialties and international dishes",
+              "atmosphere": "Lively and community-oriented"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the market early for the freshest produce and best bargains.",
+          "Try diverse street food stalls to experience Basel’s multicultural palate.",
+          "Explore small shops for handmade crafts and souvenirs."
+        ]
+      },
+      {
+        "name": "Gundeldingen",
+        "alternate_names": [],
+        "character": "Gundeldingen is a primarily residential neighborhood with a relaxed suburban feel, dotted with green spaces and family-friendly parks. It offers a quiet retreat from the city bustle while maintaining convenient access to the center.",
+        "location": {
+          "central": false,
+          "description": "South of the city center, bordered by the Birsig stream.",
+          "borders": [
+            "Grossbasel",
+            "Clara",
+            "St. Alban"
+          ],
+          "landmarks": [
+            "Birskopf Park",
+            "Gundeldingen Cemetery"
+          ]
+        },
+        "history": {
+          "overview": "Originally rural farmland, Gundeldingen gradually urbanized in the 20th century into a residential district.",
+          "significance": "It reflects Basel’s suburban expansion and modern community development.",
+          "notable_events": [
+            "20th-century urbanization",
+            "Development of local parks"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Gundeldingen Tram Stop",
+            "Birskopf Stop"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Year-round for park walks and neighborhood strolls",
+          "walkability": "Moderately walkable with green paths and quiet streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Residential calm",
+            "Parks and green spaces",
+            "Local community vibe"
+          ],
+          "atmosphere": [
+            "Peaceful",
+            "Suburban",
+            "Green"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term travelers",
+            "Nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Birskopf Park",
+              "type": "Park",
+              "description": "Spacious green park perfect for jogging, picnics, and relaxation.",
+              "appeal": "Popular with locals for outdoor activities away from crowds."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Gundeldingen",
+              "cuisine": "Cafe/Brunch",
+              "price_range": "€",
+              "known_for": "Casual coffee and brunch fare in a cozy setting",
+              "atmosphere": "Relaxed and neighborhood-focused"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike to explore the green corridors along the Birsig stream.",
+          "Visit local farmers’ stalls for fresh produce on weekends.",
+          "Enjoy a quiet brunch at Café Gundeldingen away from tourist hubs."
+        ]
+      },
+      {
+        "name": "St. Johann",
+        "alternate_names": [],
+        "character": "St. Johann is a vibrant mixed-use neighborhood combining residential streets with small businesses and cultural venues. It has an authentic Basel atmosphere with accessible riverside areas and local markets.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, on the south bank of the Rhine.",
+          "borders": [
+            "Clara",
+            "Kleinbasel",
+            "Gundeldingen"
+          ],
+          "landmarks": [
+            "St. Johann Church",
+            "Rheinpark St. Johann"
+          ]
+        },
+        "history": {
+          "overview": "St. Johann evolved from a working-class district into a diverse neighborhood with growing cultural significance.",
+          "significance": "It showcases Basel’s social history and urban diversity.",
+          "notable_events": [
+            "Industrial era development",
+            "Recent cultural revitalization projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "St. Johann Tram Stop",
+            "Kannenfeldplatz Tram Stop"
+          ],
+          "safety": "Generally safe with some busy commercial spots",
+          "best_time_to_visit": "Late spring to early autumn for park and river activities",
+          "walkability": "Walkable with riverside paths and local shops"
+        },
+        "appeal": {
+          "known_for": [
+            "Riverside parks",
+            "Local markets",
+            "Community events",
+            "Small theaters"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Community-driven",
+            "Authentic"
+          ],
+          "best_for": [
+            "Cultural travelers",
+            "Families",
+            "Outdoor enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Rheinpark St. Johann",
+              "type": "Park",
+              "description": "Scenic riverside park with walking trails and playgrounds.",
+              "appeal": "Ideal for outdoor leisure and family picnics."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Gasthof zum Goldenen Sternen",
+              "cuisine": "Swiss",
+              "price_range": "€€",
+              "known_for": "Traditional Swiss cuisine in a cozy atmosphere",
+              "atmosphere": "Warm and inviting"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Take a stroll along the Rhine in the evening for sunset views.",
+          "Check local listings for small theater or music performances.",
+          "Try seasonal dishes at Gasthof zum Goldenen Sternen."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Cheval Blanc by Peter Knogl",
+          "cuisine_type": "French/Swiss Haute Cuisine",
+          "description": "A three-Michelin-starred restaurant offering exquisite French and Swiss dishes with a modern twist, located in the Grand Hotel Les Trois Rois.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant, luxurious, and intimate with impeccable service",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "gourmet enthusiasts"
+          ],
+          "latitude": 47.5594,
+          "longitude": 7.5911,
+          "reservation_needed": true,
+          "local_tips": "Try the signature dishes paired with selections from their extensive wine cellar."
+        },
+        {
+          "name": "Stucki",
+          "cuisine_type": "Contemporary Swiss",
+          "description": "Two Michelin-starred restaurant by chef Tanja Grandits, known for creative, colorful dishes emphasizing herbs and spices.",
+          "price_range": "€€€€",
+          "atmosphere": "Modern, chic, and vibrant with artistic plating",
+          "neighborhood": "Gundeldingen",
+          "best_for": [
+            "foodies",
+            "fine dining",
+            "celebrations"
+          ],
+          "latitude": 47.5483,
+          "longitude": 7.6002,
+          "reservation_needed": true,
+          "local_tips": "Book well in advance and try the tasting menu to fully experience the chef's creativity."
+        },
+        {
+          "name": "Volkshaus Basel",
+          "cuisine_type": "Swiss and European",
+          "description": "Upscale dining in a historic venue offering modern interpretations of Swiss classics with seasonal ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Historic yet contemporary, lively and elegant",
+          "neighborhood": "Kleinbasel",
+          "best_for": [
+            "business dinners",
+            "date night",
+            "locals"
+          ],
+          "latitude": 47.5608,
+          "longitude": 7.595,
+          "reservation_needed": true,
+          "local_tips": "Try the local fish dishes and seasonal game specialties."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Klara",
+          "cuisine_type": "Swiss Contemporary",
+          "description": "Trendy bistro serving modern Swiss dishes with a focus on local, fresh ingredients in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual, cozy, and modern",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "lunch",
+            "casual dinners",
+            "groups"
+          ],
+          "latitude": 47.559,
+          "longitude": 7.5885,
+          "reservation_needed": false,
+          "local_tips": "Great spot for trying Basel's famous 'Basler Läckerli' as dessert."
+        },
+        {
+          "name": "Volta Brasserie",
+          "cuisine_type": "Mediterranean & Swiss",
+          "description": "Casual brasserie with a sunlit terrace offering Mediterranean dishes and Swiss classics with a fresh twist.",
+          "price_range": "€€",
+          "atmosphere": "Bright, airy, and laid-back",
+          "neighborhood": "Kleinbasel",
+          "best_for": [
+            "weekend brunch",
+            "friends",
+            "light dinners"
+          ],
+          "latitude": 47.558,
+          "longitude": 7.6035,
+          "reservation_needed": false,
+          "local_tips": "Try their seasonal salads and homemade desserts."
+        },
+        {
+          "name": "Markthalle Basel",
+          "cuisine_type": "Varied (market hall with multiple vendors)",
+          "description": "A vibrant indoor market hall with several casual eateries offering international and local dishes in a lively atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Bustling, communal, and informal",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "quick bites",
+            "groups",
+            "food exploration"
+          ],
+          "latitude": 47.5583,
+          "longitude": 7.5905,
+          "reservation_needed": false,
+          "local_tips": "Try the freshly made Basler Läckerli and Swiss cheeses from local vendors."
+        },
+        {
+          "name": "Walliser Kanne",
+          "cuisine_type": "Swiss Traditional",
+          "description": "Classic Swiss restaurant known for hearty dishes like raclette and fondue in a cozy, rustic setting.",
+          "price_range": "€€",
+          "atmosphere": "Warm, traditional, and inviting",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "groups",
+            "family meals",
+            "comfort food lovers"
+          ],
+          "latitude": 47.5589,
+          "longitude": 7.5897,
+          "reservation_needed": true,
+          "local_tips": "Reserve for dinner and enjoy their seasonal Swiss cheese specialties."
+        },
+        {
+          "name": "Zum Goldenen Sternen",
+          "cuisine_type": "Swiss",
+          "description": "One of Basel’s oldest taverns offering authentic Basel-style dishes including the local specialty, Basler Mehlsuppe.",
+          "price_range": "€€",
+          "atmosphere": "Historic, cozy, and traditional",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "traditional cuisine",
+            "history lovers",
+            "locals"
+          ],
+          "latitude": 47.5597,
+          "longitude": 7.5888,
+          "reservation_needed": false,
+          "local_tips": "Try the Basler Mehlsuppe and enjoy the rustic ambiance."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Basel Marktplatz Food Stalls",
+          "cuisine_type": "Swiss & International street food",
+          "description": "Seasonal street food vendors offering quick bites including bratwurst, pretzels, and local specialties around the historic market square.",
+          "price_range": "€",
+          "atmosphere": "Lively, open-air, and casual",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "grab and go",
+            "snacking",
+            "exploring local flavors"
+          ],
+          "latitude": 47.559,
+          "longitude": 7.59,
+          "reservation_needed": false,
+          "local_tips": "Visit on market days to sample freshly baked goods and local sausages."
+        },
+        {
+          "name": "Markthalle Basel Street Food Corner",
+          "cuisine_type": "International Street Food",
+          "description": "Inside the Markthalle, various vendors sell street food styles from around the world, including falafel, Asian noodles, and Swiss specialties.",
+          "price_range": "€",
+          "atmosphere": "Casual, bustling, and diverse",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "quick meals",
+            "groups",
+            "foodies"
+          ],
+          "latitude": 47.5583,
+          "longitude": 7.5905,
+          "reservation_needed": false,
+          "local_tips": "Try multiple stalls to taste a variety of flavors in one visit."
+        },
+        {
+          "name": "Vogel Gryff Street Food Festival",
+          "cuisine_type": "Local and international festival food",
+          "description": "Annual street food festival celebrating Basel's culinary culture with a wide range of food trucks and stalls.",
+          "price_range": "€",
+          "atmosphere": "Festive, outdoor, and social",
+          "neighborhood": "Rheinufer (Rhine riverbank)",
+          "best_for": [
+            "festival goers",
+            "families",
+            "casual dining"
+          ],
+          "latitude": 47.56,
+          "longitude": 7.588,
+          "reservation_needed": false,
+          "local_tips": "Visit in late summer to enjoy local specialties alongside international dishes."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Zum Isaak",
+          "cuisine_type": "Bar, Swiss wines and cocktails",
+          "description": "Classic Basel bar with a wide selection of local wines, cocktails, and a cozy, traditional atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Warm, historic, and intimate",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "date night",
+            "after work drinks",
+            "locals"
+          ],
+          "latitude": 47.5591,
+          "longitude": 7.5892,
+          "reservation_needed": false,
+          "local_tips": "Try a glass of Swiss Pinot Noir or their creative house cocktails."
+        },
+        {
+          "name": "Union Bar",
+          "cuisine_type": "Cocktails and Craft Beers",
+          "description": "Trendy bar known for innovative cocktails, craft beers, and a lively atmosphere in the heart of Basel.",
+          "price_range": "€€",
+          "atmosphere": "Modern, lively, and social",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "groups",
+            "nightlife",
+            "cocktail lovers"
+          ],
+          "latitude": 47.5598,
+          "longitude": 7.5905,
+          "reservation_needed": false,
+          "local_tips": "Happy hour early in the evening offers good deals."
+        },
+        {
+          "name": "Klybeck Bar",
+          "cuisine_type": "Cocktails and Wine",
+          "description": "A stylish bar in the up-and-coming Klybeck district, offering a curated wine list and bespoke cocktails.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy, artistic, and relaxed",
+          "neighborhood": "Klybeck",
+          "best_for": [
+            "date night",
+            "art lovers",
+            "quiet drinks"
+          ],
+          "latitude": 47.5537,
+          "longitude": 7.583,
+          "reservation_needed": false,
+          "local_tips": "Visit during art opening nights to enjoy live music and special cocktails."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Frühling",
+          "cuisine_type": "Coffee and Swiss pastries",
+          "description": "Popular café with expertly crafted coffee and a variety of fresh Swiss pastries, perfect for breakfast or afternoon breaks.",
+          "price_range": "€",
+          "atmosphere": "Bright, cozy, and friendly",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "breakfast",
+            "coffee lovers",
+            "casual meetups"
+          ],
+          "latitude": 47.5595,
+          "longitude": 7.5898,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade Basler Läckerli with a cappuccino."
+        },
+        {
+          "name": "Les Gareçons",
+          "cuisine_type": "Coffee and Light Bites",
+          "description": "Trendy café serving specialty coffee and light, seasonal dishes with a modern interior and friendly vibe.",
+          "price_range": "€€",
+          "atmosphere": "Contemporary, lively, and casual",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "brunch",
+            "remote work",
+            "friends"
+          ],
+          "latitude": 47.5587,
+          "longitude": 7.5903,
+          "reservation_needed": false,
+          "local_tips": "Their avocado toast and flat whites are local favorites."
+        },
+        {
+          "name": "Café Bar Rosenkranz",
+          "cuisine_type": "Coffee, tea, and light snacks",
+          "description": "Historic café with a charming interior, serving classic coffee drinks, teas, and homemade cakes.",
+          "price_range": "€",
+          "atmosphere": "Classic, quaint, and relaxed",
+          "neighborhood": "Grossbasel",
+          "best_for": [
+            "quiet afternoons",
+            "reading",
+            "locals"
+          ],
+          "latitude": 47.5592,
+          "longitude": 7.5896,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal fruit tarts and soak in the old-world charm."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Basel Food Tour by EatTastes",
+        "description": "Guided walking tour exploring Basel’s culinary highlights including traditional Basel specialties, cheeses, and chocolates.",
+        "price_range": "€€",
+        "location": "Starts at Marktplatz, Grossbasel",
+        "latitude": 47.559,
+        "longitude": 7.59,
+        "reservation_needed": true,
+        "local_tips": "Book in advance to secure a spot; great introduction for first-time visitors."
+      },
+      {
+        "name": "Swiss Cheese and Chocolate Workshop",
+        "description": "Hands-on workshop where visitors learn about Swiss cheese-making and chocolate crafting with tastings included.",
+        "price_range": "€€€",
+        "location": "Various kitchens in Basel",
+        "latitude": 47.56,
+        "longitude": 7.591,
+        "reservation_needed": true,
+        "local_tips": "Ideal for families and food enthusiasts eager to learn about Swiss food culture."
+      },
+      {
+        "name": "Visit to Markthalle Basel",
+        "description": "Explore the vibrant indoor market with local producers, fresh seasonal produce, and food stalls representing Basel's multicultural food scene.",
+        "price_range": "€",
+        "location": "Markthalle, Grossbasel",
+        "latitude": 47.5583,
+        "longitude": 7.5905,
+        "reservation_needed": false,
+        "local_tips": "Go early to catch the freshest products and chat with vendors."
+      },
+      {
+        "name": "Cooking Class: Traditional Basel Cuisine",
+        "description": "Interactive cooking sessions focused on preparing Basel’s signature dishes such as Basler Läckerli, Basler Mehlsuppe, and more.",
+        "price_range": "€€€",
+        "location": "Cooking studios in Basel",
+        "latitude": 47.559,
+        "longitude": 7.59,
+        "reservation_needed": true,
+        "local_tips": "Perfect for food lovers wanting a deeper cultural experience."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Spargel (white asparagus) dishes",
+        "Fresh spring herbs in salads and sauces",
+        "Basler Mehlsuppe (flour soup) – often enjoyed year-round but especially warming in cooler spring days"
+      ],
+      "summer": [
+        "Rheinfelder fish freshly caught from the Rhine river",
+        "Cold salads with fresh garden vegetables",
+        "Swiss fruit tarts featuring cherries and berries"
+      ],
+      "autumn": [
+        "Game dishes such as venison and wild boar",
+        "Mushroom specialties from the Black Forest region",
+        "Chestnut-based desserts and soups"
+      ],
+      "winter": [
+        "Basler Läckerli – the iconic spiced gingerbread cookie",
+        "Fondue and raclette – Swiss melted cheese specialties",
+        "Hearty soups such as Basler Mehlsuppe served in Basel’s traditional taverns"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 3m",
+            "frequency": "hourly",
+            "price_range": "€29-€120",
+            "operator": "SNCF / TGV Lyria",
+            "notes": "High-speed direct trains from Basel SBB to Paris Gare de Lyon."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "multiple daily",
+            "price_range": "€50-€150",
+            "operator": "Air France, easyJet",
+            "notes": "Flights depart from EuroAirport Basel-Mulhouse-Freiburg to Paris Charles de Gaulle or Orly."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 0m",
+            "frequency": "hourly",
+            "price_range": "€20-€50",
+            "operator": "SBB",
+            "notes": "Frequent direct InterCity trains from Basel SBB to Zurich HB."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€10-€25",
+            "operator": "FlixBus",
+            "notes": "Economical bus option, less frequent than trains."
+          }
+        ]
+      },
+      {
+        "city": "Frankfurt",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 40m",
+            "frequency": "hourly",
+            "price_range": "€30-€90",
+            "operator": "Deutsche Bahn",
+            "notes": "Direct ICE trains to Frankfurt Hauptbahnhof."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 0m",
+            "frequency": "multiple daily",
+            "price_range": "€40-€120",
+            "operator": "Lufthansa, Swiss",
+            "notes": "Flights from EuroAirport to Frankfurt Airport."
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 0m",
+            "frequency": "4 daily",
+            "price_range": "€25-€80",
+            "operator": "Trenitalia / SBB",
+            "notes": "Direct EuroCity trains connecting Basel SBB with Milano Centrale."
+          },
+          {
+            "type": "bus",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€40",
+            "operator": "FlixBus",
+            "notes": "Budget option with scenic routes through the Alps."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 0m",
+            "frequency": "4 daily",
+            "price_range": "€40-€130",
+            "operator": "NS International / Deutsche Bahn",
+            "notes": "High-speed trains with one or two changes via Frankfurt or Cologne."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "multiple daily",
+            "price_range": "€50-€140",
+            "operator": "KLM, easyJet",
+            "notes": "Flights from EuroAirport to Amsterdam Schiphol Airport."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 0m",
+            "frequency": "4 daily",
+            "price_range": "€35-€110",
+            "operator": "Thalys / SNCB / Deutsche Bahn",
+            "notes": "High-speed connections via Paris or direct routes with transfers."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "multiple daily",
+            "price_range": "€45-€130",
+            "operator": "Brussels Airlines, easyJet",
+            "notes": "Direct flights from EuroAirport to Brussels Airport."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "8h 0m",
+            "frequency": "2 daily",
+            "price_range": "€40-€120",
+            "operator": "ÖBB / Deutsche Bahn",
+            "notes": "Overnight and day trains with one or two changes."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Austrian Airlines, SWISS",
+            "notes": "Direct flights from EuroAirport to Vienna International Airport."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "multiple daily",
+            "price_range": "€50-€160",
+            "operator": "British Airways, easyJet",
+            "notes": "Direct flights from EuroAirport Basel-Mulhouse-Freiburg to London Heathrow, Gatwick, or Stansted."
+          },
+          {
+            "type": "train",
+            "duration": "7h 0m",
+            "frequency": "2-3 daily",
+            "price_range": "€60-€150",
+            "operator": "SNCF / Eurostar",
+            "notes": "Train via Paris Gare du Nord and Eurostar to London St Pancras with transfers."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€40-€140",
+            "operator": "Vueling, Ryanair",
+            "notes": "Direct flights from EuroAirport to Barcelona El Prat Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "13h 0m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "FlixBus",
+            "notes": "Overnight bus option connecting Basel to Barcelona."
+          }
+        ]
+      },
+      {
+        "city": "Strasbourg",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "0h 45m",
+            "frequency": "hourly",
+            "price_range": "€15-€30",
+            "operator": "SNCF",
+            "notes": "Regional trains from Basel SBB to Strasbourg station."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "FlixBus",
+            "notes": "Budget bus service connecting Basel to Strasbourg."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 0m",
+            "frequency": "2 daily",
+            "price_range": "€35-€90",
+            "operator": "Trenitalia / SBB",
+            "notes": "Direct EuroCity trains or with one change via Milan."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Alitalia, easyJet",
+            "notes": "Flights from EuroAirport to Venice Marco Polo Airport."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Basel Art Museum Visit",
+        "type": "cultural",
+        "description": "Explore the renowned Kunstmuseum Basel featuring extensive collections of Renaissance to modern art, perfect during the mild spring weather.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Kunstmuseum Basel, St. Alban-Graben 16",
+        "price": "Moderate"
+      },
+      {
+        "name": "Rhine River Walks and Bike Rides",
+        "type": "outdoor",
+        "description": "Enjoy scenic walking and cycling paths along the Rhine as the city blooms in spring, offering pleasant temperatures and beautiful views.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Rhine River banks",
+        "price": "Free"
+      },
+      {
+        "name": "Basel Spring Festival",
+        "type": "festival",
+        "description": "A local celebration featuring live music, street performances, and artisan markets celebrating the arrival of spring.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Marktplatz and surrounding streets",
+        "price": "Free"
+      },
+      {
+        "name": "Rhabarberkuchen (Rhubarb Cake) Tasting",
+        "type": "food",
+        "description": "Taste seasonal Swiss rhubarb cakes at local bakeries, a traditional springtime dessert in Basel.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Local bakeries across Basel",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Basel Tattoo",
+        "type": "festival",
+        "description": "Experience one of Europe’s largest military music festivals featuring marching bands, spectacular performances, and fireworks.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Kaserne Basel",
+        "price": "Premium"
+      },
+      {
+        "name": "Swimming in the Rhine",
+        "type": "sport",
+        "description": "Take a refreshing swim or float down the Rhine River using the well-established currents, a beloved Basel summer pastime.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Rhine River",
+        "price": "Free"
+      },
+      {
+        "name": "Open-Air Cinema at Münsterplatz",
+        "type": "cultural",
+        "description": "Watch classic and contemporary films under the stars in the historic Münsterplatz during warm summer evenings.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Münsterplatz",
+        "price": "Budget"
+      },
+      {
+        "name": "Try Läckerli",
+        "type": "food",
+        "description": "Sample Basel’s famous honey-spice cookie, traditionally enjoyed year-round but especially refreshing with a summer iced coffee.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Confiserie shops throughout Basel",
+        "price": "Budget"
+      },
+      {
+        "name": "Botanical Garden Visit",
+        "type": "outdoor",
+        "description": "Stroll through the University of Basel Botanical Garden to see a wide variety of plants thriving in summer conditions.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Botanischer Garten der Universität Basel",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Autumn Wine Festivals",
+        "type": "festival",
+        "description": "Celebrate the local wine harvest with tastings and food pairings at various vineyards and wine bars around Basel.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Various locations including Kleinbasel and surrounding vineyards",
+        "price": "Moderate"
+      },
+      {
+        "name": "Walking Tours of Old Town",
+        "type": "cultural",
+        "description": "Enjoy cooler weather to explore Basel’s medieval Old Town with its historic buildings, museums, and quaint cafes.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Basel Old Town",
+        "price": "Free"
+      },
+      {
+        "name": "Fondue Evenings",
+        "type": "food",
+        "description": "Savor traditional Swiss cheese fondue in cozy restaurants as the temperatures drop and autumn evenings grow crisp.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Restaurants across Basel",
+        "price": "Moderate"
+      },
+      {
+        "name": "Herbstmesse (Autumn Fair)",
+        "type": "festival",
+        "description": "Experience Basel’s largest funfair with rides, games, and food stalls, offering lively entertainment for all ages.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Messeplatz Basel",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit to the Basel Paper Mill Museum",
+        "type": "cultural",
+        "description": "Explore the history of paper-making and printing in Basel at this unique museum, ideal for cooler autumn days.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Basler Papiermühle, St. Alban-Tal 37",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Basel Christmas Market",
+        "type": "festival",
+        "description": "Browse one of Switzerland’s largest Christmas markets with festive stalls, mulled wine, and handcrafted gifts in a magical setting.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Barfüsserplatz and Münsterplatz",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating at the Eisbahn Basel",
+        "type": "sport",
+        "description": "Enjoy outdoor ice skating at the temporary rink set up in the city center during the winter months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Eisbahn Basel, Claraplatz",
+        "price": "Budget"
+      },
+      {
+        "name": "Swiss Raclette Tasting",
+        "type": "food",
+        "description": "Warm up with traditional Swiss raclette cheese dishes served in local restaurants and markets during the cold season.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Restaurants and Christmas market stalls",
+        "price": "Moderate"
+      },
+      {
+        "name": "Visit to the Basel Historical Museum",
+        "type": "cultural",
+        "description": "Discover Basel’s rich history and culture indoors, an excellent activity for chilly winter days.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Barfüsserplatz 1",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Walk along the Rhine",
+        "type": "outdoor",
+        "description": "Take brisk riverside walks enjoying the serene winter atmosphere and views of the snow-dusted cityscape.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Rhine River banks",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "New Year's Day & Epiphany",
+            "notes": "Cold winter weather with temperatures often below freezing; low tourist crowds except around New Year's celebrations. Quiet city, good for budget travelers and business trips.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often gray weather with limited daylight; most tourist attractions are open but fewer events. Low crowds but less appealing for sightseeing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter sports nearby are popular; Basel Museum Night often takes place late January or early February, attracting cultural tourists. Weather remains cold but stable.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of January remains cold; good for museum visits and indoor cultural activities. Low tourism with affordable accommodation.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather continues; museums, galleries, and winter markets open. Crowd levels remain low, good for budget travelers and cultural tourists.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Basel Fasnacht (Carnival)",
+            "notes": "Basel's biggest cultural event with parades, music, and vibrant costumes attracts large crowds. Weather is cold but festivities bring energy. Accommodation prices rise and streets are busy.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-Fasnacht days are quieter; weather still cold but some early signs of spring. Good for cultural visits and walking tours with fewer tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of February remains chilly; good time for indoor activities and museum visits. Lower crowds and moderate prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Transition month with gradually warming weather; some rain and still cool. Moderate crowds and reasonable prices.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Weather improves with early spring blooms; great for outdoor activities and city walks. Moderate crowds, pleasant for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Temperatures rise, daylight extends; good time to explore Rhine riverfront and parks. Increasingly popular but still manageable crowd levels.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring flowers bloom, weather warms; ideal for cultural and outdoor sightseeing. Moderate crowds and improving weather conditions.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full swing; mild temperatures and blooming parks. Good time for walking tours and visiting outdoor markets.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Week",
+            "notes": "Easter holidays bring moderate crowds and special events. Weather generally mild but variable. Higher accommodation prices during holiday period.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter calm returns; good weather for exploring Basel’s outdoor sights with fewer tourists. Pleasant for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late April offers warm days and blossoming gardens; ideal for river cruises and outdoor cafes. Crowd levels grow but still comfortable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labour Day (May 1) & Art Basel Preview Events",
+            "notes": "May Day public holiday and start of art-related events bring lively atmosphere. Weather is warm and sunny; perfect for cultural visitors and outdoor activities.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm spring weather; ideal for walking tours, gardens, and riverside activities. Crowds start to increase but still manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Art Basel (mid-May events and previews)",
+            "notes": "Art Basel preview events attract international visitors; city buzzing with cultural energy. Accommodation prices rise. Weather is comfortable and mostly sunny.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May continues warm and pleasant with long daylight hours, perfect for exploring the city and nearby countryside.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm weather and many open-air events. Ideal for outdoor cafes, river swimming, and festivals. Crowd levels rise with peak season starting.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Basel Summer Festival (various open-air concerts and markets)",
+            "notes": "Summer cultural festivals and markets in full swing. Warm weather and lively nightlife attract many travelers. Prices peak but offer excellent experiences.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warmest weather of the year; perfect for riverbank picnics and hiking nearby. High tourist volumes but city handles crowds well.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late June continues warm and lively; excellent for all outdoor activities and cultural events. Peak tourist season with busy attractions.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer with warm to hot weather. Outdoor festivals, river swimming, and vibrant nightlife attract many visitors. Accommodation prices high.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Basel Art and Music Festivals",
+            "notes": "Several major arts and music festivals take place; city is very busy but cultural offerings are outstanding. Prepare for crowds and premium prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather continues; great for exploring parks, museums, and riverfront. High demand for accommodations.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "End of July remains hot and lively with numerous outdoor activities and festivals. Best time for social and cultural experiences despite high prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather continues. Many festivals and outdoor events. High tourist volumes; accommodations fill quickly.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-August can be hot with occasional thunderstorms. Some locals take holidays, making some areas quieter. Good for relaxation and local experiences.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August sees moderate crowds as summer holiday season winds down. Weather remains warm and sunny, good for sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of August offers pleasant weather with fewer crowds. Good for cultural events and outdoor activities before autumn.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Basler Herbstmesse (Autumn Fair)",
+            "notes": "September marks the start of the Basler Herbstmesse, a major local fair with rides, food, and markets. Weather is mild and pleasant, making it a top time to visit.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm days and cool nights; ideal for outdoor exploration and cultural events. Moderate to high crowds but comfortable weather.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Mid-September is excellent for wine tours and hiking in surrounding hills with colorful foliage starting. Pleasant temperatures and manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late September cools slightly; fewer tourists but still good weather for sightseeing. Some museums start to reduce hours.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors prevalent; weather cools but usually stable. Good for wine festivals and cultural visits. Lower crowds than summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-October can bring rainy days and cooler temps; outdoor activities less appealing. Museums and indoor attractions are good alternatives.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool and damp weather; fewer tourists and lower prices. Good for quiet visits but limited outdoor options.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of October sees early winter chills; indoor cultural events dominate. Quiet city with low crowds, suitable for budget and business travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, gray, and often rainy; low daylight. Tourist attractions open but fewer events. Quiet city with low tourist activity.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Weather remains cold and damp; few outdoor activities. Good time for museum visits but generally low appeal for leisure tourists.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late November sees start of Christmas markets and festive decorations, increasing appeal despite cold weather.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Start of Basel Christmas Markets",
+            "notes": "Christmas markets open, attracting visitors despite cold and often damp weather. Crowds moderate; festive atmosphere brightens the city.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Basel Christmas Markets",
+            "notes": "Festive holiday markets in full swing; cold but charming atmosphere with decorations and seasonal events. Higher crowds on weekends and holidays.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued festive atmosphere with Christmas markets and cultural events. Cold weather persists; good for holiday travelers and cultural tourists.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Busy pre-Christmas period with high demand for accommodations. Festive events and shopping peak. Weather cold, sometimes snowy.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas & New Year's Eve",
+            "notes": "Peak festive season with Christmas and New Year's celebrations. City vibrant but very crowded; cold weather. Advance bookings essential.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 1,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

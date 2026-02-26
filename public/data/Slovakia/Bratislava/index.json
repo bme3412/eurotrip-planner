@@ -1,1 +1,3126 @@
-{"city":"bratislava","country":"Slovakia","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "bratislava",
+  "country": "Slovakia",
+  "overview": {
+    "city_name": "Bratislava",
+    "country": "Slovakia",
+    "brief_description": "Bratislava, the charming capital of Slovakia, sits along the banks of the Danube River where Slovakia borders Austria and Hungary. It offers a captivating blend of medieval history, vibrant cultural scenes, and modern urban life, all within a compact and walkable city center.",
+    "nickname": "The Little Big City",
+    "region": "Central Europe",
+    "population": "approximately 430,000",
+    "why_visit": [
+      "Explore a beautifully preserved Old Town with winding streets and colorful baroque buildings",
+      "Discover Bratislava Castle with panoramic views over the Danube and surrounding countries",
+      "Enjoy a lively café and culinary scene featuring traditional Slovak and international cuisine",
+      "Experience the unique position at the crossroads of three countries, perfect for day trips"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and outdoor festivals and events abound",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blossoming parks make it perfect for sightseeing and outdoor cafes.",
+      "summer": "Warm and sunny with vibrant festivals, open-air concerts, and river cruises on the Danube.",
+      "autumn": "Cooler weather with colorful foliage and harvest festivals offering seasonal foods and wines.",
+      "winter": "Cold with occasional snow, charming Christmas markets, and cozy indoor cultural events."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Slovak",
+      "visit_duration": "2 to 3 days to cover main attractions and nearby excursions",
+      "getting_around": "Compact city center ideal for walking; trams and buses cover wider areas; taxis and bike rentals available",
+      "safety": "Generally safe with low crime; standard precautions advised in crowded tourist areas"
+    },
+    "coordinates": {
+      "latitude": 48.1486,
+      "longitude": 17.1077
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Bratislava Castle and enjoy panoramic views over the Danube",
+        "Stroll through the historic Old Town and its iconic Main Square",
+        "Explore the unique Blue Church (Church of St. Elizabeth)",
+        "Tour the Slovak National Gallery and Bratislava City Museum",
+        "Take a Danube river cruise to see the city from the water"
+      ],
+      "worth_doing": [
+        "Walk along the UFO Observation Deck on the SNP Bridge",
+        "Relax in Sad Janka Kráľa, one of Europe's oldest public parks",
+        "Sample traditional Slovak dishes at local taverns (hospoda)",
+        "Visit the modern Eurovea shopping and entertainment complex by the river",
+        "Attend a concert or performance at the Slovak National Theatre"
+      ],
+      "hidden_gems": [
+        "Explore the narrow alleys and quirky statues scattered throughout the Old Town",
+        "Visit the Devin Castle ruins just outside the city, overlooking the confluence of the Danube and Morava rivers",
+        "Discover the unique architecture and exhibitions at the Danubiana Meulensteen Art Museum along the Danube",
+        "Check out the vibrant street art scene in the Petržalka district",
+        "Relax in the quiet, lesser-known gardens of the Grassalkovich Palace grounds"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Bratislava Castle",
+        "type": "Historic Site",
+        "description": "Perched atop a hill overlooking the Danube River, Bratislava Castle is a symbol of the city's rich history. The castle has served as a royal residence, military fortress, and today houses the Slovak National Museum with exhibitions on Slovak history and archaeology.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round, but exterior views are best in spring and summer",
+        "booking_tips": "Tickets can be purchased on-site; guided tours available on weekends",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 48.1446,
+        "longitude": 17.1037,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed on major Slovak holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "29",
+            "31"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit the castle museum indoors if weather is poor"
+        },
+        "official_url": "https://www.snm.sk/?about-us-3&main-entities-40&akcia=bratislavsky-hrad",
+        "website": null
+      },
+      {
+        "name": "Old Town (Staré Mesto)",
+        "type": "Neighborhood",
+        "description": "The historic heart of Bratislava, Old Town is a charming maze of narrow medieval streets, colorful baroque buildings, vibrant cafes, and quaint shops. Key landmarks include the Main Square, Old Town Hall, and numerous churches.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant year-round, festive Christmas markets in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 48.1439,
+        "longitude": 17.1073,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "29",
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 4,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Many indoor cafes and museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Michael's Gate (Michalská brána)",
+        "type": "Monument",
+        "description": "The only preserved gate of the city’s medieval fortifications, Michael’s Gate dates back to the 14th century. It features a distinctive green copper roof and houses a small museum of medieval weapons and city fortifications.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Exterior is photogenic year-round, museum best visited during open hours",
+        "booking_tips": "Tickets are inexpensive and available on-site",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1441,
+        "longitude": 17.1079,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museum interior offers shelter from rain"
+        },
+        "official_url": "https://www.visitbratislava.com/places/michaels-gate/",
+        "website": null
+      },
+      {
+        "name": "Slovak National Gallery",
+        "type": "Gallery",
+        "description": "Housed in a beautiful neo-Renaissance building, the Slovak National Gallery exhibits Slovak and international art from medieval times to contemporary works. The impressive collection includes paintings, sculptures, and graphic art.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round, special exhibitions rotate seasonally",
+        "booking_tips": "Advance booking recommended for special exhibitions",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1425,
+        "longitude": 17.1099,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor venue, ideal for rainy days"
+        },
+        "official_url": "https://www.sng.sk/en",
+        "website": "https://www.sng.sk/en"
+      },
+      {
+        "name": "UFO Observation Deck and Restaurant",
+        "type": "Viewpoint",
+        "description": "Located atop the SNP Bridge, the UFO Observation Deck offers 360-degree panoramic views over Bratislava and the Danube River. The futuristic restaurant serves Slovak and international cuisine, making it a unique dining experience.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Premium",
+        "seasonal_notes": "Best visited at sunset or nighttime for city lights",
+        "booking_tips": "Reservations recommended for the restaurant, especially at sunset",
+        "ratings": {
+          "cost_estimate": 30,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 48.1482,
+        "longitude": 17.1035,
+        "neighborhood": "Ružinov",
+        "opening_hours": {
+          "weekday": "10:00-23:00",
+          "weekend": "10:00-23:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "61",
+            "70"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor observation deck and restaurant"
+        },
+        "official_url": "https://www.ufo.sk/",
+        "website": "https://www.ufo.sk/"
+      },
+      {
+        "name": "Grassalkovich Palace",
+        "type": "Palace",
+        "description": "Built in the 18th century, Grassalkovich Palace is the residence of the Slovak President. It is a splendid example of Rococo architecture surrounded by a beautiful French-style garden, which is open to the public.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Gardens are particularly lovely in spring and summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1476,
+        "longitude": 17.1074,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Gardens open 7:00-22:00",
+          "weekend": "Gardens open 7:00-22:00",
+          "notes": "Palace itself closed to public"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "29",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Gardens are outdoor; visit nearby indoor museums if rainy"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Slovak National Museum - Natural History Museum",
+        "type": "Museum",
+        "description": "Located in the historic Old Town Hall building, this museum showcases Slovakia's natural heritage including minerals, fossils, and taxidermy animals. It provides an engaging insight into the region’s biodiversity and geology.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round, suitable for all weather",
+        "booking_tips": "Tickets available on site; group tours by prior arrangement",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 48.143,
+        "longitude": 17.1075,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Fully indoor museum"
+        },
+        "official_url": "https://www.snm.sk/?about-us-3&main-entities-40&akcia=prirodovedne-muzeum",
+        "website": null
+      },
+      {
+        "name": "Sad Janka Kráľa Park",
+        "type": "Park",
+        "description": "One of the oldest public parks in Europe, Sad Janka Kráľa is a peaceful green oasis on the banks of the Danube. The park features walking paths, playgrounds, and benches under century-old trees, perfect for relaxing or picnicking.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in all seasons; cherry blossoms in spring",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 48.1395,
+        "longitude": 17.1083,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museums nearby if weather is bad"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Primate's Palace",
+        "type": "Palace",
+        "description": "Famous for its stunning Hall of Mirrors and the collection of English tapestries, Primate's Palace is a neoclassical gem in Bratislava’s Old Town. It was the residence of Archbishop József Batthyány and now hosts official events.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round except major holidays",
+        "booking_tips": "Guided tours available; tickets recommended in advance during peak season",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 48.144,
+        "longitude": 17.1074,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "9:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "29",
+            "31"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Entirely indoor palace"
+        },
+        "official_url": "https://www.visitbratislava.com/places/primates-palace/",
+        "website": null
+      },
+      {
+        "name": "Slovak National Theatre",
+        "type": "Theatre",
+        "description": "An elegant neo-Renaissance building hosting opera, ballet, and drama performances. The Slovak National Theatre is a cultural hub showcasing Slovak and international productions in a stunning historic setting.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Performance schedule varies; best to check in advance",
+        "booking_tips": "Advance booking essential for popular performances",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 5
+        },
+        "latitude": 48.1481,
+        "longitude": 17.1067,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Varies by performance",
+          "weekend": "Varies by performance",
+          "notes": "Box office open daily except holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor theatre"
+        },
+        "official_url": "https://www.snd.sk/en",
+        "website": "https://www.snd.sk/en"
+      },
+      {
+        "name": "Slavin War Memorial",
+        "type": "Monument",
+        "description": "A massive monument and cemetery commemorating Soviet soldiers who died liberating Bratislava in WWII. It offers panoramic views over the city and is a solemn site of remembrance and reflection.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Accessible year-round; best on clear days for views",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1578,
+        "longitude": 17.0992,
+        "neighborhood": "Nové Mesto",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "39"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "No indoor facilities; visit nearby museums if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Danube River Promenade",
+        "type": "Historic Site",
+        "description": "This scenic walkway along the Danube River is perfect for leisurely strolls with views of the water, passing ships, and Bratislava’s skyline. It connects the Old Town with the harbor and offers cafes and benches to relax.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best in warm months; some cafes may close in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 48.1422,
+        "longitude": 17.1105,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes nearby if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Jewish Culture",
+        "type": "Museum",
+        "description": "Located in the historic synagogue building, the museum explores the rich history and heritage of Jewish communities in Slovakia through artifacts, photographs, and documents. It promotes education and remembrance.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; quieter in winter months",
+        "booking_tips": "Tickets available on-site; guided tours by appointment",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1437,
+        "longitude": 17.1058,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Fully indoor museum"
+        },
+        "official_url": "https://www.snm.sk/?about-us-3&main-entities-40&akcia=muzeum-zidovskej-kultury",
+        "website": null
+      },
+      {
+        "name": "Hlavné námestie (Main Square)",
+        "type": "Historic Site",
+        "description": "The central square of Bratislava’s Old Town, Hlavné námestie is surrounded by colorful buildings, historic fountains, and street performers. It hosts regular markets, festivals, and is a lively meeting point for locals and tourists alike.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Christmas market in December is a highlight",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1438,
+        "longitude": 17.1068,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Nearby cafes and indoor markets"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Blue Church (Church of St. Elizabeth)",
+        "type": "Church",
+        "description": "Known for its striking pastel blue facade and art nouveau architecture, the Blue Church is one of Bratislava’s most unique religious buildings. Constructed in the early 20th century, it features ornate mosaics and stained-glass windows.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round, best viewed in natural daylight",
+        "booking_tips": "No tickets needed; respectful attire requested",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 48.1449,
+        "longitude": 17.1263,
+        "neighborhood": "Nivy",
+        "opening_hours": {
+          "weekday": "7:00-19:00",
+          "weekend": "7:00-19:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "50",
+            "80"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor church"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Market Hall (Tržnica)",
+        "type": "Market",
+        "description": "A bustling indoor market offering fresh produce, local delicacies, flowers, and traditional crafts. Market Hall is a great place to experience local life and sample Slovak foods in a lively atmosphere.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited in the morning; some stalls close early afternoon",
+        "booking_tips": "No booking required; cash is preferred",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 48.1467,
+        "longitude": 17.1092,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "6:00-17:00",
+          "weekend": "6:00-13:00",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "29",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Fully indoor market"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Hviezdoslavovo Square",
+        "type": "Historic Site",
+        "description": "A large, elegant square lined with trees, statues, and historic buildings, Hviezdoslavovo Square is a cultural hotspot hosting open-air concerts, festivals, and outdoor cafes. The square is named after Slovak poet Pavol Országh Hviezdoslav.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Summer months feature many outdoor events",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 48.1435,
+        "longitude": 17.1093,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Arms",
+        "type": "Museum",
+        "description": "Located in the Old Town Hall, the Museum of Arms displays an extensive collection of historical weapons, armor, and military equipment from medieval times through the 19th century. It offers a fascinating glimpse into Bratislava’s martial past.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round except Mondays",
+        "booking_tips": "Tickets available on-site; guided tours possible by arrangement",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 48.143,
+        "longitude": 17.1076,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "31",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.snm.sk/?about-us-3&main-entities-40&akcia=muzeum-zbraní",
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Staré Mesto",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "The historic heart of Bratislava, Staré Mesto is a vibrant area where medieval charm meets lively cafes and bustling squares. Cobblestone streets wind past gothic churches, colorful facades, and a mix of tourists and locals enjoying the city’s rich heritage.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of Bratislava, along the Danube River",
+          "borders": [
+            "Nové Mesto",
+            "Ružinov",
+            "Karlova Ves"
+          ],
+          "landmarks": [
+            "Bratislava Castle",
+            "Michael's Gate",
+            "Old Town Hall",
+            "St. Martin's Cathedral"
+          ]
+        },
+        "history": {
+          "overview": "Staré Mesto has been the city's center since medieval times, preserving much of Bratislava’s original architecture and urban layout.",
+          "significance": "It serves as the cultural and historical soul of Bratislava, hosting many festivals and events.",
+          "notable_events": [
+            "Coronation of Hungarian kings",
+            "Medieval markets and fairs",
+            "Post-WWII restoration efforts"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Hlavná Stanica (main bus station nearby)",
+            "Tram lines 1, 4, 9",
+            "Bus lines 31, 39"
+          ],
+          "safety": "Very safe, especially during daytime; usual precautions at night.",
+          "best_time_to_visit": "Late spring to early autumn for pleasant weather and outdoor cafes.",
+          "walkability": "Extremely walkable with pedestrian-only zones and narrow streets."
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Museums and galleries",
+            "Riverside views",
+            "Street performances",
+            "Cafes and bars"
+          ],
+          "atmosphere": [
+            "historic",
+            "lively",
+            "picturesque"
+          ],
+          "best_for": [
+            "history buffs",
+            "first-time visitors",
+            "photographers",
+            "culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Bratislava Castle",
+              "type": "Castle",
+              "description": "Iconic hilltop fortress offering panoramic views over the city and the Danube River.",
+              "appeal": "A symbol of Bratislava’s history and a great vantage point."
+            },
+            {
+              "name": "Michael's Gate",
+              "type": "Historic Gate",
+              "description": "The only preserved medieval city gate with a tower and museum inside.",
+              "appeal": "A striking medieval landmark and photo spot."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Slovak Pub",
+              "cuisine": "Traditional Slovak",
+              "price_range": "€€",
+              "known_for": "Authentic local dishes like bryndzové halušky",
+              "atmosphere": "Rustic and cozy with folk decor"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the Old Town’s quiet charm before the crowds arrive.",
+          "Check out the hidden courtyards and small galleries tucked away from main streets.",
+          "Try local wines at small wine bars off the main squares."
+        ]
+      },
+      {
+        "name": "Petržalka",
+        "alternate_names": [
+          "Petrzalka"
+        ],
+        "character": "Known as Bratislava’s largest residential district, Petržalka contrasts the historic center with its vast panelák housing estates and sprawling parks. It’s a lively, practical neighborhood favored by locals, offering a glimpse of everyday life outside the tourist buzz.",
+        "location": {
+          "central": false,
+          "description": "South of the Danube River, directly across from Staré Mesto",
+          "borders": [
+            "Staré Mesto",
+            "Jarovce",
+            "Ružinov"
+          ],
+          "landmarks": [
+            "Sad Janka Kráľa Park",
+            "Petržalka Market",
+            "Petržalka Bus Terminal"
+          ]
+        },
+        "history": {
+          "overview": "Developed primarily during the socialist era, Petržalka became home to thousands moving into Bratislava’s urban environment.",
+          "significance": "It showcases the city’s rapid post-war expansion and socio-economic development.",
+          "notable_events": [
+            "Construction of large-scale panelák buildings in 1970s-80s",
+            "Post-1989 urban renewal projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Petržalka Bus Terminal",
+            "Tram lines 4, 6, 8",
+            "Bus lines 80, 93"
+          ],
+          "safety": "Generally safe, with well-lit streets and community policing.",
+          "best_time_to_visit": "Spring and summer for park activities and riverbank walks.",
+          "walkability": "Moderate walkability; large blocks but good pedestrian paths near parks."
+        },
+        "appeal": {
+          "known_for": [
+            "Green spaces",
+            "Affordable housing",
+            "Riverfront promenade",
+            "Local markets"
+          ],
+          "atmosphere": [
+            "residential",
+            "relaxed",
+            "community-oriented"
+          ],
+          "best_for": [
+            "families",
+            "budget travelers",
+            "long-term visitors",
+            "those interested in local life"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Sad Janka Kráľa",
+              "type": "Park",
+              "description": "One of the oldest public parks in Europe, offering wide green spaces and playgrounds.",
+              "appeal": "Perfect for relaxation and family outings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Petržalka Market",
+              "cuisine": "Street food and local snacks",
+              "price_range": "€",
+              "known_for": "Fresh produce and casual meals",
+              "atmosphere": "Bustling and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike to explore the extensive riverbank paths and parks.",
+          "Visit the local market on weekends to experience authentic Bratislava life.",
+          "Check out community events often held in Sad Janka Kráľa during summer."
+        ]
+      },
+      {
+        "name": "Nové Mesto",
+        "alternate_names": [
+          "New Town"
+        ],
+        "character": "Nové Mesto is a dynamic neighborhood blending modern amenities, shopping centers, and office zones with quieter residential streets. It has a more contemporary feel, attracting locals and visitors looking for a balanced urban experience beyond the Old Town.",
+        "location": {
+          "central": true,
+          "description": "Directly east and northeast of Staré Mesto, extending towards the foothills.",
+          "borders": [
+            "Staré Mesto",
+            "Ružinov",
+            "Karlova Ves"
+          ],
+          "landmarks": [
+            "Slovak National Tennis Centre",
+            "Bratislava Zoo",
+            "Aupark Shopping Center"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the 19th and 20th centuries as the city expanded, Nové Mesto mixes older villas with modern developments.",
+          "significance": "It represents Bratislava’s growth as a modern European capital.",
+          "notable_events": [
+            "Construction of key sports and exhibition facilities",
+            "Urban renewal projects in early 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Tram lines 4, 6",
+            "Bus lines 29, 32",
+            "Nové Mesto railway station nearby"
+          ],
+          "safety": "Safe and well-patrolled, with family-friendly areas.",
+          "best_time_to_visit": "Year-round, with spring and summer ideal for outdoor spaces.",
+          "walkability": "Good walkability with parks and shopping areas easily accessible."
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping malls",
+            "Sports facilities",
+            "Urban parks",
+            "Modern dining"
+          ],
+          "atmosphere": [
+            "modern",
+            "active",
+            "family-friendly"
+          ],
+          "best_for": [
+            "shoppers",
+            "sport enthusiasts",
+            "business travelers",
+            "families"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Bratislava Zoo",
+              "type": "Zoo",
+              "description": "A lovely mid-sized zoo nestled near the forested foothills.",
+              "appeal": "Great for families and nature lovers."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Fach",
+              "cuisine": "Modern European",
+              "price_range": "€€€",
+              "known_for": "Creative seasonal menus and excellent wine pairings",
+              "atmosphere": "Trendy and elegant"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit Aupark mall for both shopping and river views from its terrace.",
+          "Take a short hike up to Kamzík TV Tower for panoramic city views.",
+          "Try weekday lunch specials at local bistros for good value meals."
+        ]
+      },
+      {
+        "name": "Ružinov",
+        "alternate_names": [],
+        "character": "Ružinov is a predominantly residential neighborhood combining quiet streets, parks, and modern apartment complexes. It offers a more laid-back vibe with convenient access to amenities and family-friendly spaces.",
+        "location": {
+          "central": false,
+          "description": "Southeast of Staré Mesto, bordering the airport area",
+          "borders": [
+            "Nové Mesto",
+            "Petržalka",
+            "Vrakuňa"
+          ],
+          "landmarks": [
+            "Apollo Business Center",
+            "Štrkovecké jazero (Lake)"
+          ]
+        },
+        "history": {
+          "overview": "Developed substantially during the 20th century, Ružinov expanded with residential housing and business districts.",
+          "significance": "It reflects Bratislava’s suburban growth and modern lifestyle development.",
+          "notable_events": [
+            "Post-1960s residential expansions",
+            "Development of business parks in 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 50, 65",
+            "Tram line 4 nearby"
+          ],
+          "safety": "Generally safe with family-oriented neighborhoods.",
+          "best_time_to_visit": "Spring and summer for lakeside activities.",
+          "walkability": "Moderate walkability; parks and commercial centers are accessible."
+        },
+        "appeal": {
+          "known_for": [
+            "Lakes and parks",
+            "Business centers",
+            "Residential calm",
+            "Sports facilities"
+          ],
+          "atmosphere": [
+            "quiet",
+            "suburban",
+            "green"
+          ],
+          "best_for": [
+            "families",
+            "business travelers",
+            "long-term residents"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Štrkovecké jazero",
+              "type": "Lake / Park",
+              "description": "A popular recreational lake surrounded by walking paths and playgrounds.",
+              "appeal": "Ideal spot for picnics, swimming, and relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bistro St. Germain",
+              "cuisine": "International",
+              "price_range": "€€",
+              "known_for": "Fresh brunches and coffee",
+              "atmosphere": "Casual and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a paddle boat for a fun afternoon on Štrkovecké jazero.",
+          "Visit local weekend markets for fresh regional produce.",
+          "Explore nearby walking trails in the surrounding green areas."
+        ]
+      },
+      {
+        "name": "Staré Mesto - Ventúrska Area",
+        "alternate_names": [
+          "Ventúrska"
+        ],
+        "character": "A trendy sub-area within the Old Town known for its hip cafes, boutique shops, and lively nightlife. This compact district buzzes with youthful energy and creative flair, blending historic walls with modern urban culture.",
+        "location": {
+          "central": true,
+          "description": "Central within Staré Mesto, near the main pedestrian streets",
+          "borders": [
+            "Staré Mesto Center",
+            "Nové Mesto"
+          ],
+          "landmarks": [
+            "Ventúrska Street",
+            "Urban Market Square"
+          ]
+        },
+        "history": {
+          "overview": "Historically a merchant district, the Ventúrska area has evolved into a hotspot for creative industries and nightlife.",
+          "significance": "It represents Bratislava’s modern cultural renaissance and youth culture.",
+          "notable_events": [
+            "Growth of indie cafes and art spaces in 2010s",
+            "Annual street art festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Tram stops on nearby Laurinská Street",
+            "Bus stops on Obchodná Street"
+          ],
+          "safety": "Safe but lively at night; usual urban caution advised.",
+          "best_time_to_visit": "Evenings year-round for nightlife and weekends for markets.",
+          "walkability": "Highly walkable with compact streets and pedestrian zones."
+        },
+        "appeal": {
+          "known_for": [
+            "Boutique shops",
+            "Craft beer bars",
+            "Street art",
+            "Live music venues"
+          ],
+          "atmosphere": [
+            "hip",
+            "vibrant",
+            "artsy"
+          ],
+          "best_for": [
+            "young travelers",
+            "nightlife seekers",
+            "creative types"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Urban Market Square",
+              "type": "Market",
+              "description": "A trendy market featuring local crafts, food stalls, and live music events.",
+              "appeal": "A vibrant hub for discovering local artisans and foodies."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Fach Bar",
+              "cuisine": "Craft beers and cocktails",
+              "price_range": "€€",
+              "known_for": "Innovative drinks and relaxed vibe",
+              "atmosphere": "Trendy and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit on Fridays for the street market and live DJ sets.",
+          "Try locally brewed craft beers in smaller pubs off the main Ventúrska Street.",
+          "Explore side alleys for hidden art murals and independent galleries."
+        ]
+      },
+      {
+        "name": "Obchodná Street Area",
+        "alternate_names": [
+          "Shopping District"
+        ],
+        "character": "Obchodná Street is Bratislava’s premier shopping avenue, buzzing with international brands, local boutiques, and busy pedestrian traffic. The area combines convenience and energy, popular among shoppers and business visitors alike.",
+        "location": {
+          "central": true,
+          "description": "Runs through the northern edge of Staré Mesto, connecting the main train station to the Old Town",
+          "borders": [
+            "Staré Mesto",
+            "Nové Mesto"
+          ],
+          "landmarks": [
+            "Aupark Shopping Center",
+            "Central Shopping Mall"
+          ]
+        },
+        "history": {
+          "overview": "Historically a commercial corridor connecting key transit hubs, it evolved into a modern shopping street in the post-communist era.",
+          "significance": "It is the city's main retail artery and a symbol of Bratislava’s economic modernization.",
+          "notable_events": [
+            "Opening of Aupark in 2001",
+            "Pedestrianization and street renewal projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Main train station (Hlavná stanica)",
+            "Multiple tram and bus lines"
+          ],
+          "safety": "Safe and busy during the day; pickpocket awareness recommended.",
+          "best_time_to_visit": "Weekdays for shopping, weekends for street performers and events.",
+          "walkability": "Highly walkable with wide sidewalks and pedestrian crossings."
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Cafes",
+            "Business offices",
+            "Street entertainment"
+          ],
+          "atmosphere": [
+            "bustling",
+            "commercial",
+            "modern"
+          ],
+          "best_for": [
+            "shoppers",
+            "business travelers",
+            "urban explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Aupark Shopping Center",
+              "type": "Mall",
+              "description": "A large shopping mall with international brands, eateries, and river views.",
+              "appeal": "Convenient for shopping and dining with modern facilities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Mondieu",
+              "cuisine": "Cafe and Brunch",
+              "price_range": "€€",
+              "known_for": "Delicious brunch and coffee specialties",
+              "atmosphere": "Trendy and relaxed"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early to avoid crowds and enjoy quieter shopping.",
+          "Stop by side streets for unique local shops and artisan goods.",
+          "Grab a coffee at Mondieu to rest between shopping stops."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Savoy Restaurant",
+          "cuisine_type": "Central European, Slovak",
+          "description": "An elegant fine dining spot offering refined Slovak and international dishes in a historic setting overlooking the Danube.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant, classic with river views",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 48.1454,
+          "longitude": 17.1088,
+          "reservation_needed": true,
+          "local_tips": "Try their traditional Bryndzové halušky with a modern twist."
+        },
+        {
+          "name": "Fou Zoo",
+          "cuisine_type": "Asian Fusion",
+          "description": "Trendy fine dining with a creative fusion of Asian and European flavors, known for innovative dishes and stylish interior.",
+          "price_range": "€€€",
+          "atmosphere": "Modern, vibrant, lively",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "foodies",
+            "groups",
+            "date night"
+          ],
+          "latitude": 48.1461,
+          "longitude": 17.1063,
+          "reservation_needed": true,
+          "local_tips": "Book early on weekends; their tuna tartare is a must-try."
+        },
+        {
+          "name": "Albrecht Restaurant",
+          "cuisine_type": "European, Slovak",
+          "description": "A Michelin Guide recommended restaurant with a focus on seasonal Slovak ingredients presented in elegant dishes.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated, intimate",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "gastronomic experience"
+          ],
+          "latitude": 48.1467,
+          "longitude": 17.1067,
+          "reservation_needed": true,
+          "local_tips": "Try the tasting menu paired with Slovak wines."
+        },
+        {
+          "name": "Zylinder Café & Restaurant",
+          "cuisine_type": "Austro-Hungarian",
+          "description": "Historic restaurant serving traditional Austro-Hungarian dishes with a luxurious ambiance in the heart of Bratislava.",
+          "price_range": "€€€",
+          "atmosphere": "Historic, elegant",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "romantic dinner",
+            "history lovers"
+          ],
+          "latitude": 48.146,
+          "longitude": 17.1072,
+          "reservation_needed": true,
+          "local_tips": "Try the Wiener schnitzel, a signature dish here."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Bratislavský Meštiansky Pivovar",
+          "cuisine_type": "Slovak, Central European",
+          "description": "Popular brewery and restaurant serving hearty Slovak dishes and house-brewed beers in a lively atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, traditional",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "local cuisine",
+            "beer lovers"
+          ],
+          "latitude": 48.145,
+          "longitude": 17.107,
+          "reservation_needed": false,
+          "local_tips": "Try the Bryndzové halušky with a cold Slovak beer."
+        },
+        {
+          "name": "Urban House",
+          "cuisine_type": "International, Café",
+          "description": "Hip spot for casual dining with an eclectic menu including burgers, salads, and craft coffee in a relaxed urban setting.",
+          "price_range": "€€",
+          "atmosphere": "Trendy, casual, cozy",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee breaks",
+            "casual meals",
+            "friends"
+          ],
+          "latitude": 48.1475,
+          "longitude": 17.1079,
+          "reservation_needed": false,
+          "local_tips": "Great place for brunch or a coffee with a book."
+        },
+        {
+          "name": "Flagship Restaurant",
+          "cuisine_type": "Slovak, International",
+          "description": "Comfortable, unpretentious restaurant focusing on Slovak comfort food and international classics with friendly service.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, friendly",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "families",
+            "casual dining",
+            "groups"
+          ],
+          "latitude": 48.1448,
+          "longitude": 17.1081,
+          "reservation_needed": false,
+          "local_tips": "Try the local goulash or seasonal soups."
+        },
+        {
+          "name": "L’Oliva",
+          "cuisine_type": "Mediterranean, Italian",
+          "description": "Cozy spot offering fresh Mediterranean and Italian dishes with quality ingredients and a warm atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, intimate",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "small groups"
+          ],
+          "latitude": 48.1458,
+          "longitude": 17.1083,
+          "reservation_needed": true,
+          "local_tips": "Their seafood risotto is exceptional."
+        },
+        {
+          "name": "Mondieu",
+          "cuisine_type": "Café, Light Meals",
+          "description": "Popular café chain in Bratislava known for great coffee, cakes, and light meals perfect for a casual lunch or snack.",
+          "price_range": "€",
+          "atmosphere": "Bright, casual, modern",
+          "neighborhood": "Multiple locations",
+          "best_for": [
+            "coffee lovers",
+            "breakfast",
+            "casual meetups"
+          ],
+          "latitude": 48.149,
+          "longitude": 17.107,
+          "reservation_needed": false,
+          "local_tips": "Try their signature flat white and carrot cake."
+        },
+        {
+          "name": "Urban Bistro",
+          "cuisine_type": "Modern Slovak, European",
+          "description": "Modern bistro serving updated traditional Slovak dishes with fresh, local ingredients in a relaxed environment.",
+          "price_range": "€€",
+          "atmosphere": "Modern, casual",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "lunch",
+            "casual dining",
+            "locals"
+          ],
+          "latitude": 48.1462,
+          "longitude": 17.1056,
+          "reservation_needed": false,
+          "local_tips": "Seasonal menus highlight Slovak produce and cheeses."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Old Market Hall (Stará Tržnica)",
+          "cuisine_type": "Local Slovak, International",
+          "description": "Historic indoor market with stalls selling traditional Slovak snacks, fresh produce, and international street food.",
+          "price_range": "€",
+          "atmosphere": "Bustling, authentic, casual",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "quick bites",
+            "local snacks",
+            "market experience"
+          ],
+          "latitude": 48.1468,
+          "longitude": 17.1102,
+          "reservation_needed": false,
+          "local_tips": "Try the local Lángoš (fried dough) with garlic and cheese."
+        },
+        {
+          "name": "Food Truck Festival Bratislava",
+          "cuisine_type": "Various Street Food",
+          "description": "Seasonal outdoor food truck events featuring a variety of street food options from Slovak to international cuisines.",
+          "price_range": "€",
+          "atmosphere": "Festive, social, casual",
+          "neighborhood": "Various locations",
+          "best_for": [
+            "socializing",
+            "variety",
+            "outdoor eating"
+          ],
+          "latitude": 48.148,
+          "longitude": 17.1075,
+          "reservation_needed": false,
+          "local_tips": "Check event dates online; great place to try local craft beers too."
+        },
+        {
+          "name": "Eurovea Waterfront Food Stalls",
+          "cuisine_type": "International, Slovak",
+          "description": "Seasonal food stalls along the Danube riverfront offering quick bites, local specialties, and refreshing drinks.",
+          "price_range": "€",
+          "atmosphere": "Casual, scenic, lively",
+          "neighborhood": "Eurovea",
+          "best_for": [
+            "picnics",
+            "snacks on the go",
+            "outdoor dining"
+          ],
+          "latitude": 48.1436,
+          "longitude": 17.115,
+          "reservation_needed": false,
+          "local_tips": "Grab a local pastry and enjoy the river views."
+        },
+        {
+          "name": "Street Food Park Bratislava",
+          "cuisine_type": "Various International and Local",
+          "description": "Dedicated street food park offering diverse food trucks and stalls with a wide range of affordable dishes.",
+          "price_range": "€",
+          "atmosphere": "Casual, fun, communal",
+          "neighborhood": "Nivy",
+          "best_for": [
+            "groups",
+            "variety",
+            "casual meals"
+          ],
+          "latitude": 48.1415,
+          "longitude": 17.1079,
+          "reservation_needed": false,
+          "local_tips": "Try Slovak sausage with mustard and a craft beer."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Nu Spirit Bar & Lounge",
+          "cuisine_type": "Cocktails, Bar",
+          "description": "Trendy bar known for creative cocktails, live DJ sets, and a sophisticated yet relaxed vibe.",
+          "price_range": "€€",
+          "atmosphere": "Chic, lively, modern",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "cocktail lovers",
+            "night out",
+            "music enthusiasts"
+          ],
+          "latitude": 48.1465,
+          "longitude": 17.1065,
+          "reservation_needed": false,
+          "local_tips": "Try their signature cocktails inspired by Slovak ingredients."
+        },
+        {
+          "name": "Bukowski Bar",
+          "cuisine_type": "Cocktails, Bar",
+          "description": "Cozy, literary-themed bar with a wide range of creative cocktails and a relaxed atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, intimate, casual",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "cocktail connoisseurs"
+          ],
+          "latitude": 48.1457,
+          "longitude": 17.1073,
+          "reservation_needed": false,
+          "local_tips": "Ask bartenders for personalized cocktail recommendations."
+        },
+        {
+          "name": "The Club Bratislava",
+          "cuisine_type": "Nightclub, Bar",
+          "description": "Popular nightclub with a large dance floor, international DJs, and a vibrant party environment.",
+          "price_range": "€€",
+          "atmosphere": "Energetic, loud, social",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "dancing",
+            "nightlife",
+            "groups"
+          ],
+          "latitude": 48.1469,
+          "longitude": 17.1079,
+          "reservation_needed": false,
+          "local_tips": "Arrive early on weekends to avoid long lines."
+        },
+        {
+          "name": "Bar Red Cat",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Hidden gem cocktail bar with expertly crafted drinks and a vintage interior that feels like a step back in time.",
+          "price_range": "€€",
+          "atmosphere": "Intimate, vintage, relaxed",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "quiet drinks",
+            "date night"
+          ],
+          "latitude": 48.1462,
+          "longitude": 17.1059,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot for a pre-dinner cocktail."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Kafé Scherz",
+          "cuisine_type": "Coffee, Pastries",
+          "description": "Specialty coffee shop known for excellent brews, cozy atmosphere, and delicious homemade pastries.",
+          "price_range": "€",
+          "atmosphere": "Cozy, artsy, quiet",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee lovers",
+            "work or study",
+            "breakfast"
+          ],
+          "latitude": 48.1455,
+          "longitude": 17.108,
+          "reservation_needed": false,
+          "local_tips": "Try their single origin pour-over coffee."
+        },
+        {
+          "name": "Mondieu Café",
+          "cuisine_type": "Coffee, Light Meals",
+          "description": "Popular local café chain with a bright interior and a wide selection of coffees and cakes.",
+          "price_range": "€",
+          "atmosphere": "Bright, casual",
+          "neighborhood": "Multiple locations",
+          "best_for": [
+            "breakfast",
+            "casual coffee",
+            "snacks"
+          ],
+          "latitude": 48.149,
+          "longitude": 17.107,
+          "reservation_needed": false,
+          "local_tips": "Try their signature flat white or seasonal cakes."
+        },
+        {
+          "name": "Urban House",
+          "cuisine_type": "Coffee, International Casual",
+          "description": "A trendy café with a hip vibe serving specialty coffee, brunch, and light meals.",
+          "price_range": "€",
+          "atmosphere": "Trendy, casual",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "brunch",
+            "coffee dates",
+            "friends"
+          ],
+          "latitude": 48.1475,
+          "longitude": 17.1079,
+          "reservation_needed": false,
+          "local_tips": "Great spot for weekend brunch."
+        },
+        {
+          "name": "Balzac Coffee",
+          "cuisine_type": "Coffee, Light Snacks",
+          "description": "French-inspired coffee shop offering quality espresso drinks and light pastries in a stylish setting.",
+          "price_range": "€",
+          "atmosphere": "Stylish, relaxed",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee breaks",
+            "light meals"
+          ],
+          "latitude": 48.1463,
+          "longitude": 17.1084,
+          "reservation_needed": false,
+          "local_tips": "Try their croissants paired with a cappuccino."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Bratislava Food Tour",
+        "description": "Guided walking tour sampling traditional Slovak dishes like Bryndzové halušky, sausages, and local pastries while learning about food culture.",
+        "price_range": "€€",
+        "best_for": [
+          "foodies",
+          "first-time visitors",
+          "cultural immersion"
+        ]
+      },
+      {
+        "name": "Slovak Cooking Class",
+        "description": "Hands-on cooking experience where you learn to prepare classic Slovak dishes such as Bryndzové halušky and Kapustnica soup.",
+        "price_range": "€€",
+        "best_for": [
+          "cooking enthusiasts",
+          "small groups",
+          "cultural experience"
+        ]
+      },
+      {
+        "name": "Visit to Old Market Hall (Stará Tržnica)",
+        "description": "Explore Bratislava’s historic market hall, taste fresh local produce, cheeses, and traditional snacks from vendors.",
+        "price_range": "€",
+        "best_for": [
+          "market lovers",
+          "local food sampling",
+          "casual exploration"
+        ]
+      },
+      {
+        "name": "Craft Beer Tasting Tour",
+        "description": "Discover Bratislava’s growing craft beer scene with tastings at local breweries and pubs featuring Slovak brews.",
+        "price_range": "€€",
+        "best_for": [
+          "beer lovers",
+          "groups",
+          "evening activity"
+        ]
+      },
+      {
+        "name": "Seasonal Food Festival Visits",
+        "description": "Attend seasonal food festivals showcasing Slovak specialties and international street food, often held at Eurovea or Nivy Market.",
+        "price_range": "€",
+        "best_for": [
+          "families",
+          "food explorers",
+          "festive outings"
+        ]
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh wild asparagus dishes",
+        "Spring lamb specialties",
+        "Easter pastries like Mazanec (sweet bread)"
+      ],
+      "summer": [
+        "Fresh fruit desserts using local berries",
+        "Grilled trout from nearby rivers",
+        "Cold soups such as cold cucumber soup"
+      ],
+      "autumn": [
+        "Mushroom dishes featuring local wild mushrooms",
+        "Game meat specialties such as venison",
+        "Pumpkin and cabbage-based dishes"
+      ],
+      "winter": [
+        "Kapustnica – traditional sauerkraut soup with smoked meat",
+        "Roasted chestnuts and mulled wine",
+        "Christmas cookies and honey cakes"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 0m",
+            "frequency": "hourly",
+            "price_range": "€5-€15",
+            "operator": "ÖBB",
+            "notes": "Frequent direct trains from Bratislava hlavná stanica to Vienna Hauptbahnhof."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€4-€12",
+            "operator": "FlixBus",
+            "notes": "Multiple daily departures; buses arrive at Vienna Erdberg or Vienna International Bus Station."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 0m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "ČD / ZSSK",
+            "notes": "Direct trains available; some require transfer in Brno or Břeclav."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "FlixBus",
+            "notes": "Direct and indirect routes; buses depart from Bratislava Mlynské Nivy bus station."
+          }
+        ]
+      },
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 40m",
+            "frequency": "daily",
+            "price_range": "€10-€25",
+            "operator": "MÁV / ZSSK",
+            "notes": "Direct trains from Bratislava hlavná stanica to Budapest Keleti."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€7-€15",
+            "operator": "FlixBus",
+            "notes": "Frequent bus connections; buses arrive at Budapest Népliget bus station."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Lufthansa, Ryanair",
+            "notes": "Flights depart from Bratislava Airport (BTS) to Berlin Brandenburg (BER)."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 0m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Overnight buses available; depart from Bratislava Mlynské Nivy bus station."
+          }
+        ]
+      },
+      {
+        "city": "Kraków",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses depart from Bratislava Mlynské Nivy bus station."
+          },
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "PKP Intercity / ZSSK",
+            "notes": "One or two transfers required, typically in Žilina and/or Prague."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 0m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "Deutsche Bahn / ÖBB / ZSSK",
+            "notes": "Usually one transfer in Vienna or Salzburg."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "several times weekly",
+            "price_range": "€50-€130",
+            "operator": "Lufthansa",
+            "notes": "Flights from Bratislava Airport to Munich Airport (MUC)."
+          }
+        ]
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "5h 0m",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Direct buses from Bratislava Mlynské Nivy bus station."
+          },
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "HŽ / ZSSK",
+            "notes": "Usually one transfer in Vienna or Budapest."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "weekly",
+            "price_range": "€60-€150",
+            "operator": "Ryanair",
+            "notes": "Flights from Bratislava Airport to Venice Marco Polo Airport (VCE)."
+          },
+          {
+            "type": "train",
+            "duration": "9h 0m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "ÖBB / Trenitalia",
+            "notes": "Multiple transfers, typically via Vienna and Villach."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "several times weekly",
+            "price_range": "€50-€140",
+            "operator": "Brussels Airlines, Ryanair",
+            "notes": "Flights depart from Bratislava Airport to Brussels Airport (BRU)."
+          },
+          {
+            "type": "bus",
+            "duration": "14h 0m",
+            "frequency": "daily",
+            "price_range": "€40-€70",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus with overnight options."
+          }
+        ]
+      },
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€40-€110",
+            "operator": "LOT Polish Airlines, Ryanair",
+            "notes": "Flights from Bratislava Airport to Warsaw Chopin Airport (WAW)."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 0m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses from Bratislava Mlynské Nivy bus station."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Bratislava City Marathon",
+        "type": "sport",
+        "description": "An annual marathon attracting runners of all levels, winding through the scenic city streets and along the Danube River.",
+        "best_months": [
+          "April"
+        ],
+        "location": "City center and Danube riverfront",
+        "price": "Moderate"
+      },
+      {
+        "name": "Bratislava Botanical Garden Visit",
+        "type": "outdoor",
+        "description": "Explore blooming flowers and diverse plant species at the university botanical garden, perfect for a peaceful spring stroll.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Mlynská dolina",
+        "price": "Budget"
+      },
+      {
+        "name": "Easter Markets and Traditions",
+        "type": "cultural",
+        "description": "Experience traditional Slovak Easter crafts, foods, and cultural performances in the historic Old Town.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Old Town",
+        "price": "Free"
+      },
+      {
+        "name": "Tasting Seasonal Slovak Asparagus",
+        "type": "food",
+        "description": "Sample fresh local asparagus dishes at restaurants offering seasonal menus featuring this spring delicacy.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Various local restaurants",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Bratislava Music Festival",
+        "type": "cultural",
+        "description": "A prestigious classical music festival featuring renowned orchestras and soloists performing in historic venues.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Slovak National Theatre, Reduta Concert Hall",
+        "price": "Premium"
+      },
+      {
+        "name": "Outdoor Swimming at Kuchajda Lake",
+        "type": "outdoor",
+        "description": "Enjoy sunbathing, swimming, and water sports at this popular lake with nearby cafes and green spaces.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Kuchajda Lake",
+        "price": "Free"
+      },
+      {
+        "name": "Danube River Cruise",
+        "type": "outdoor",
+        "description": "Take a scenic boat tour on the Danube, offering views of Bratislava Castle and the city skyline from the water.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Danube River",
+        "price": "Moderate"
+      },
+      {
+        "name": "Summer Wine Festival",
+        "type": "food",
+        "description": "Sample a variety of Slovak wines and traditional snacks while enjoying live music and a festive atmosphere.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Old Town Square",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking in Small Carpathians",
+        "type": "outdoor",
+        "description": "Explore scenic trails and vineyards in the nearby Small Carpathian mountains, ideal for day trips from the city.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Small Carpathians near Bratislava",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Bratislava Chestnut Festival",
+        "type": "food",
+        "description": "Celebrate the chestnut harvest with culinary tastings, street performances, and craft stalls in the Old Town.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Old Town",
+        "price": "Free"
+      },
+      {
+        "name": "Wine Harvest Festival in Devin",
+        "type": "festival",
+        "description": "Join traditional grape pressing, wine tasting, and folk music near the Devin Castle vineyards.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Devin Village",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit Bratislava Castle and Gardens",
+        "type": "cultural",
+        "description": "Enjoy the autumnal views from the castle and stroll through the surrounding gardens with colorful foliage.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Bratislava Castle",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Walks Along the Danube",
+        "type": "outdoor",
+        "description": "Take peaceful riverside walks to enjoy crisp weather and changing leaves along the Danube promenade.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Danube Riverbanks",
+        "price": "Free"
+      },
+      {
+        "name": "Pumpkin Dishes at Local Restaurants",
+        "type": "food",
+        "description": "Taste hearty pumpkin soups and desserts featured in seasonal menus across Bratislava eateries.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Local restaurants",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Bratislava Christmas Markets",
+        "type": "festival",
+        "description": "Explore festive stalls offering crafts, mulled wine, and Slovak holiday treats in the charming Old Town squares.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Old Town",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating at Hviezdoslav Square",
+        "type": "sport",
+        "description": "Enjoy seasonal outdoor ice skating in the heart of the city, surrounded by festive lights and music.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Hviezdoslav Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit Slovak National Gallery and Museums",
+        "type": "cultural",
+        "description": "Warm up indoors by exploring Slovak art, history, and culture at the city’s renowned museums and galleries.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Various museums in Bratislava",
+        "price": "Moderate"
+      },
+      {
+        "name": "Try Traditional Slovak Winter Foods",
+        "type": "food",
+        "description": "Savor hearty dishes like kapustnica (cabbage soup) and lokše (potato pancakes) at cozy local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local eateries",
+        "price": "Moderate"
+      },
+      {
+        "name": "New Year's Eve Celebrations",
+        "type": "festival",
+        "description": "Join lively street parties, fireworks, and concerts welcoming the new year in Bratislava’s main squares.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Old Town and Main Square",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year's Holiday",
+            "notes": "Cold winter weather with temperatures often below freezing; New Year's celebrations bring moderate crowds; many attractions are open but some may have reduced hours.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Deep winter cold and often grey, snowy days; low tourist activity; many outdoor attractions less enjoyable due to weather; some museums remain open.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold but stable winter weather; fewer tourists means low crowds; good for budget travelers who prefer quiet city exploration; limited outdoor activities due to cold.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still winter with cold temperatures and occasional snow; low tourist numbers; some cultural events indoors; good for museum visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Carnival / Fašiangy (Slovak pre-Lenten festival)",
+            "notes": "Traditional Slovak carnival festivities with folk music and cultural events; cold but festive atmosphere; moderate crowds attend local celebrations.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter starts to wane with slowly increasing daylight; cold but less harsh; fewer tourists offer peaceful sightseeing; indoor attractions recommended.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with unpredictable weather; temperatures rise but rain showers common; fewer tourists, good for budget travelers; nature begins to bloom.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Markets and Celebrations (variable dates)",
+            "notes": "Easter festivities bring local markets, crafts, and traditional food; mild weather starts to appear; increased visitors but manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring is emerging with milder weather; outdoor sightseeing improves; fewer tourists than summer; pleasant conditions for walking tours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Consistent spring weather with blossoming parks and gardens; comfortable temperatures; low to moderate crowds; ideal for outdoor activities and cultural visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Bratislava Music Festival (usually late April)",
+            "notes": "International classical music festival attracts visitors; pleasant weather enhances experience; moderate crowds due to event.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full swing with warm days and blooming nature; ideal for walking tours and river cruises; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labour Day and Bratislava City Days (Early May)",
+            "notes": "Warm spring weather with festivals, concerts, and cultural events; vibrant city atmosphere; high visitor interest but still manageable crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and pleasant late spring weather; ideal for outdoor sightseeing, garden visits, and river cruises; moderate crowds but not overwhelming.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer with warm, often sunny days; outdoor cafés and river activities popular; moderate to high crowds as tourist season begins.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Bratislava Jazz Days (mid to late June)",
+            "notes": "International jazz festival draws music lovers; warm weather and lively nightlife; higher crowds but high quality cultural experience.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm to hot summer weather, sometimes humid; peak tourist season leads to higher prices and crowded attractions; good for nightlife and festivals.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Uprising Day Festival (July 29th)",
+            "notes": "Commemorative events and cultural programs; weather can be hot; very busy tourist season; great for festival fans but less ideal for budget travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer continues with occasional thunderstorms; popular holiday month for locals and tourists; crowded but vibrant atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Bratislava Music Festival (late August)",
+            "notes": "Classical music festival with evening concerts; warm evenings and festive atmosphere; high crowds but excellent cultural experience.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild temperatures and less crowded attractions; ideal for sightseeing and outdoor activities; grape harvest season nearby.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "St. Martin's Day (November 11th but celebrations begin in September with wine festivals)",
+            "notes": "Wine festivals and harvest celebrations start in late September; comfortable weather; moderate crowds with local flavor.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Cooler autumn weather with colorful foliage; fewer tourists than summer; good month for cultural events; some rainy days possible.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Bratislava Wine Festival (early October)",
+            "notes": "Annual wine festival in the old town square; pleasant autumn weather; moderate crowds; great for food and wine lovers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool to cold weather with increasing rain and fog; fewer tourists; indoor cultural attractions recommended; some local holidays.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Struggle for Freedom and Democracy Day (Nov 17)",
+            "notes": "National holiday with commemorative events; cooler weather; low tourist numbers but some local activity.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Beginning of festive season; Christmas markets open with decorations and local crafts; cold weather but lively atmosphere.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Advent and Christmas Markets (mid to late December)",
+            "notes": "Peak festive season with traditional markets, concerts, and seasonal food; cold but magical atmosphere; high crowds especially near Christmas.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Holiday period with many attractions closed or limited hours; festive events occur; cold weather; moderate crowds among locals and tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

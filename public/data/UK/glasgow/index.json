@@ -1,1 +1,3384 @@
-{"city":"glasgow","country":"UK","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "glasgow",
+  "country": "UK",
+  "overview": {
+    "city_name": "Glasgow",
+    "country": "UK",
+    "brief_description": "Glasgow, Scotland's largest city, captivates visitors with its vibrant cultural scene, stunning Victorian architecture, and rich industrial heritage. Known for its friendly locals and dynamic arts community, it seamlessly blends history with modern urban energy.",
+    "nickname": "The Dear Green Place",
+    "region": "West Scotland",
+    "population": "approx. 635,000",
+    "why_visit": [
+      "World-class museums and galleries including the Kelvingrove Art Gallery and Museum",
+      "Architectural masterpieces by Charles Rennie Mackintosh",
+      "Thriving live music and nightlife scene",
+      "Abundant green spaces like Glasgow Green and the Botanic Gardens"
+    ],
+    "best_time_to_visit": "May to September, when the weather is milder and outdoor festivals are in full swing",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks make it ideal for exploring outdoor attractions and riverside walks.",
+      "summer": "Warmest months with numerous festivals, open-air events, and extended daylight hours.",
+      "autumn": "Crisp air and colorful foliage provide a picturesque backdrop for city strolls and cultural visits.",
+      "winter": "Chilly and wet with shorter days, but festive markets and cozy pubs offer seasonal charm."
+    },
+    "practical_info": {
+      "currency": "British Pound Sterling (GBP)",
+      "language": "English (Scottish Gaelic also spoken by some)",
+      "visit_duration": "3 to 4 days recommended to explore main attractions thoroughly",
+      "getting_around": "Extensive bus network, subway system (The Clockwork Orange), walking, and taxis",
+      "safety": "Generally safe for tourists; standard city precautions advised especially at night in entertainment districts"
+    },
+    "coordinates": {
+      "latitude": 55.8642,
+      "longitude": -4.2518
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Explore the Kelvingrove Art Gallery and Museum’s diverse collections",
+        "Visit the Glasgow Cathedral and the nearby Necropolis for history and panoramic views",
+        "Discover the Glasgow School of Art and other Charles Rennie Mackintosh designs",
+        "Enjoy live music at King Tut's Wah Wah Hut or the SSE Hydro arena",
+        "Stroll through the Botanic Gardens and the West End’s charming streets"
+      ],
+      "worth_doing": [
+        "Tour the Riverside Museum of Transport and Technology",
+        "Relax at Glasgow Green and see the People's Palace museum",
+        "Shop and dine in the Merchant City district",
+        "Catch a theatrical performance at the Theatre Royal or Citizens Theatre",
+        "Visit the Gallery of Modern Art (GoMA) in the city centre"
+      ],
+      "hidden_gems": [
+        "Discover street art and murals in the city’s East End",
+        "Explore Pollok Country Park and the Burrell Collection",
+        "Take a day trip to the nearby Loch Lomond & The Trossachs National Park",
+        "Visit the Sharmanka Kinetic Theatre for a unique mechanical art show",
+        "Check out the vintage shops and independent cafes on Great Western Road"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Kelvingrove Art Gallery and Museum",
+        "type": "Museum",
+        "description": "Kelvingrove Art Gallery and Museum houses one of Europe's great art collections, featuring works from Old Masters to modern artists. The museum's impressive Victorian architecture and diverse exhibits, including natural history and arms and armor, make it a cultural cornerstone of Glasgow.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Booking tickets online is recommended during weekends and holidays to avoid queues.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 55.8682,
+        "longitude": -4.2881,
+        "neighborhood": "West End",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Mondays from January to March"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Kelvinhall",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "3",
+            "4",
+            "16",
+            "77"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowlife.org.uk/museums/venues/kelvingrove-art-gallery-and-museum",
+        "website": "https://www.glasgowlife.org.uk/museums/venues/kelvingrove-art-gallery-and-museum"
+      },
+      {
+        "name": "Glasgow Cathedral",
+        "type": "Church",
+        "description": "Glasgow Cathedral is a stunning example of medieval Gothic architecture and the only cathedral on the Scottish mainland to have survived the Reformation intact. The cathedral's intricate stonework, historic crypt, and stained glass windows provide a spiritual and historical experience.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "No booking required, but guided tours are available on request.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 55.8605,
+        "longitude": -4.246,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "12:00-17:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "19",
+            "38",
+            "43"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowcathedral.org.uk/",
+        "website": "https://www.glasgowcathedral.org.uk/"
+      },
+      {
+        "name": "The Riverside Museum",
+        "type": "Museum",
+        "description": "Designed by celebrated architect Zaha Hadid, the Riverside Museum showcases Glasgow’s rich transport heritage with interactive exhibits including vintage cars, locomotives, and bicycles. Located on the banks of the River Clyde, it offers engaging displays for all ages.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Pre-booking is advised for weekends and school holidays.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 55.864,
+        "longitude": -4.3063,
+        "neighborhood": "Partick",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Mondays except during school holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Partick",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "77",
+            "100"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowlife.org.uk/museums/venues/riverside-museum",
+        "website": "https://www.glasgowlife.org.uk/museums/venues/riverside-museum"
+      },
+      {
+        "name": "George Square",
+        "type": "Historic Site",
+        "description": "George Square is Glasgow’s principal civic square, surrounded by impressive Victorian architecture and statues of notable Scots. It’s a vibrant public space hosting events, markets, and festivals, making it a perfect spot to soak in the city’s atmosphere.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Christmas market and ice rink in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 55.859,
+        "longitude": -4.2591,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 3
+            },
+            {
+              "line": "Subway",
+              "station": "Buchanan Street",
+              "walk_minutes": 4
+            }
+          ],
+          "bus_routes": [
+            "2",
+            "3",
+            "4",
+            "6",
+            "8",
+            "19",
+            "38"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "any",
+          "weather_fallback": "Visit nearby Gallery of Modern Art if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Glasgow Botanic Gardens",
+        "type": "Park",
+        "description": "Established in 1817, the Glasgow Botanic Gardens feature beautiful glasshouses like the iconic Kibble Palace, showcasing exotic plants from around the world. The gardens provide a peaceful green retreat with walking paths, sculptures, and seasonal flower displays.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and summer are best for vibrant blooms; glasshouses are great year-round.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 55.8795,
+        "longitude": -4.3001,
+        "neighborhood": "West End",
+        "opening_hours": {
+          "weekday": "07:00-18:00",
+          "weekend": "07:00-18:00",
+          "notes": "Glasshouses open 10:00-16:30 daily"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Hillhead",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "6",
+            "77",
+            "90"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Kibble Palace glasshouse"
+        },
+        "official_url": "https://www.glasgowbotanicgardens.com/",
+        "website": "https://www.glasgowbotanicgardens.com/"
+      },
+      {
+        "name": "Buchanan Street",
+        "type": "Market|Shopping Street",
+        "description": "Buchanan Street is Glasgow’s premier shopping and pedestrian thoroughfare, famed for its lively atmosphere, street performers, and a wide array of shops from high street brands to luxury boutiques. It’s the perfect place to experience Glasgow’s vibrant urban culture.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Festive decorations and events during Christmas season",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 55.8608,
+        "longitude": -4.2557,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "10:00-20:00",
+          "weekend": "12:00-18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Buchanan Street",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": [
+            "2",
+            "3",
+            "4",
+            "6",
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor shopping centres nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Lighthouse",
+        "type": "Gallery|Viewpoint",
+        "description": "The Lighthouse is Scotland’s Centre for Design and Architecture housed in a striking Charles Rennie Mackintosh building. Visitors can explore design exhibitions and climb the iconic spiral staircase for panoramic views of Glasgow’s skyline.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Booking in advance recommended for weekend visits.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 55.86,
+        "longitude": -4.2538,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "11:00-17:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Buchanan Street",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "3",
+            "4",
+            "8",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.thelighthouse.co.uk/",
+        "website": "https://www.thelighthouse.co.uk/"
+      },
+      {
+        "name": "Pollok Country Park",
+        "type": "Park",
+        "description": "Pollok Country Park is Glasgow’s largest park, offering sprawling woodlands, gardens, and the renowned Pollok House, a grand country mansion with impressive art collections. It’s a perfect destination for nature lovers and history enthusiasts alike.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful autumn foliage; gardens peak in summer.",
+        "booking_tips": "Pollok House requires timed-entry tickets, book in advance.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8475,
+        "longitude": -4.3113,
+        "neighborhood": "South Side",
+        "opening_hours": {
+          "weekday": "07:00-20:00",
+          "weekend": "07:00-20:00",
+          "notes": "Pollok House open 11:00-16:00; closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Hillhead",
+              "walk_minutes": 25
+            }
+          ],
+          "bus_routes": [
+            "57",
+            "75",
+            "77"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Pollok House indoor tour"
+        },
+        "official_url": "https://www.glasgowlife.org.uk/pollokcountrypark",
+        "website": "https://www.glasgowlife.org.uk/pollokcountrypark"
+      },
+      {
+        "name": "People's Palace and Winter Gardens",
+        "type": "Museum|Park",
+        "description": "Located in Glasgow Green, the People’s Palace narrates the social history of Glasgow through engaging exhibits, while the attached Victorian Winter Gardens offer a lush indoor garden space with exotic plants. It’s a blend of culture and nature in the heart of the city.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 55.854,
+        "longitude": -4.2269,
+        "neighborhood": "East End",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 20
+            }
+          ],
+          "bus_routes": [
+            "75",
+            "77",
+            "38"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowlife.org.uk/museums/venues/peoples-palace",
+        "website": "https://www.glasgowlife.org.uk/museums/venues/peoples-palace"
+      },
+      {
+        "name": "Glasgow Science Centre",
+        "type": "Museum|Science Centre",
+        "description": "The Glasgow Science Centre is a hands-on science museum featuring interactive exhibits, a planetarium, and an IMAX cinema. It’s a popular destination for families and curious minds, offering engaging experiences about technology, space, and the natural world.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Special exhibitions often rotate seasonally.",
+        "booking_tips": "Buy tickets online to get discounts and skip queues.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 55.8592,
+        "longitude": -4.3037,
+        "neighborhood": "Pacific Quay",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Christmas and Boxing Day"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Cessnock",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "100",
+            "199"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowsciencecentre.org/",
+        "website": "https://www.glasgowsciencecentre.org/"
+      },
+      {
+        "name": "St Mungo Museum of Religious Life and Art",
+        "type": "Museum",
+        "description": "Dedicated to exploring the world’s major religions through art and artifacts, the St Mungo Museum offers thoughtful exhibitions in a striking building inspired by Glasgow Cathedral. It provides cultural insight and promotes understanding across faiths.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8602,
+        "longitude": -4.2476,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "38",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowlife.org.uk/museums/venues/st-mungo-museum-of-religious-life-and-art",
+        "website": "https://www.glasgowlife.org.uk/museums/venues/st-mungo-museum-of-religious-life-and-art"
+      },
+      {
+        "name": "Ashton Lane",
+        "type": "Street|Nightlife",
+        "description": "Ashton Lane is a charming cobbled lane in the West End known for its atmospheric bars, restaurants, and independent cinema. It’s a favorite local spot for evening socializing with a cozy, vibrant vibe especially under string lights.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Outdoor seating is popular in summer evenings.",
+        "booking_tips": "Reservations recommended for popular restaurants on weekends.",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 55.876,
+        "longitude": -4.3004,
+        "neighborhood": "West End",
+        "opening_hours": {
+          "weekday": "Varies by venue, generally 16:00-00:00",
+          "weekend": "Varies by venue, generally 16:00-01:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Hillhead",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "6",
+            "77"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor bars and cinema"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Glasgow Necropolis",
+        "type": "Historic Site",
+        "description": "The Glasgow Necropolis is a Victorian cemetery on a hill east of the Cathedral, known for its elaborate monuments and stunning views of the city. It offers a unique combination of history, architecture, and peaceful green space.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and summer bring colorful blooms; autumn foliage is dramatic.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8609,
+        "longitude": -4.2425,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "07:00-sunset",
+          "weekend": "07:00-sunset",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "19",
+            "38"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "House for an Art Lover",
+        "type": "Gallery|Historic Site",
+        "description": "This stunning Art Nouveau building in Bellahouston Park was designed by Charles Rennie Mackintosh and completed decades after his death. It hosts exhibitions, weddings, and a café, and the surrounding park offers beautiful walking paths.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Gardens are best enjoyed in spring and summer.",
+        "booking_tips": "Café and events may require advance booking.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8498,
+        "longitude": -4.3068,
+        "neighborhood": "South Side",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Ibrox",
+              "walk_minutes": 20
+            }
+          ],
+          "bus_routes": [
+            "57",
+            "60"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://houseforanartlover.co.uk/",
+        "website": "https://houseforanartlover.co.uk/"
+      },
+      {
+        "name": "Glasgow Green",
+        "type": "Park",
+        "description": "Glasgow Green is the city’s oldest public park, featuring wide open lawns, the People’s Palace, and the Doulton Fountain—the largest terracotta fountain in the world. It’s a historic gathering place with spaces for recreation and events.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Popular for festivals and open-air events in summer.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 55.853,
+        "longitude": -4.226,
+        "neighborhood": "East End",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 20
+            }
+          ],
+          "bus_routes": [
+            "75",
+            "77",
+            "38"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "any",
+          "weather_fallback": "Visit People’s Palace indoor museum if raining"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Tenement House",
+        "type": "Historic Site|Museum",
+        "description": "Preserved by the National Trust for Scotland, The Tenement House offers a rare glimpse into Glasgow’s domestic life in the early 20th century. Visitors explore a fully furnished flat with authentic period décor and household items.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be purchased on-site; guided tours available.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8657,
+        "longitude": -4.2588,
+        "neighborhood": "West End",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Hillhead",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "6",
+            "77"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.nts.org.uk/visit/places/tenement-house",
+        "website": "https://www.nts.org.uk/visit/places/tenement-house"
+      },
+      {
+        "name": "Celtic Park Stadium",
+        "type": "Sporting Venue",
+        "description": "Home to Celtic FC, Celtic Park is one of the largest football stadiums in the UK. The stadium offers guided tours where visitors can explore the stands, players’ tunnel, and trophy rooms, immersing themselves in Glasgow’s passionate football culture.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Tours may be limited on match days; check schedule.",
+        "booking_tips": "Advance booking is essential, especially around match dates.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8493,
+        "longitude": -4.2315,
+        "neighborhood": "Parkhead",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "Closed on match days",
+          "notes": "Check online for match day closures"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Cessnock",
+              "walk_minutes": 25
+            }
+          ],
+          "bus_routes": [
+            "49",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.celticfc.com/stadium-tours/",
+        "website": "https://www.celticfc.com/stadium-tours/"
+      },
+      {
+        "name": "The Barras Market",
+        "type": "Market",
+        "description": "The Barras is a historic street market in Glasgow’s East End, famous for antiques, vintage goods, and quirky stalls. It reflects the city’s working-class heritage and offers a lively shopping experience with local character.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round, but busier on Saturdays.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 55.8523,
+        "longitude": -4.2332,
+        "neighborhood": "East End",
+        "opening_hours": {
+          "weekday": "08:00-17:00",
+          "weekend": "08:00-17:00",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "St Enoch",
+              "walk_minutes": 20
+            }
+          ],
+          "bus_routes": [
+            "75",
+            "49"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Nearby indoor markets or shops"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Glasgow Royal Concert Hall",
+        "type": "Concert Hall",
+        "description": "The Glasgow Royal Concert Hall is a premier venue hosting classical concerts, pop gigs, and cultural events. Its modern architecture and central location make it a focal point for the city’s vibrant performing arts scene.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Check schedule for seasonal festivals and special performances.",
+        "booking_tips": "Advance ticket purchase recommended for popular shows.",
+        "ratings": {
+          "cost_estimate": 25,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 55.8606,
+        "longitude": -4.2613,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": "Box office open 10:00-17:00 weekdays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Subway",
+              "station": "Buchanan Street",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "2",
+            "3",
+            "4",
+            "6",
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.glasgowconcerthalls.com/",
+        "website": "https://www.glasgowconcerthalls.com/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "City Centre",
+        "alternate_names": [
+          "Glasgow Central",
+          "Downtown Glasgow"
+        ],
+        "character": "The bustling heart of Glasgow pulses with energy, featuring a dynamic mix of historic architecture and modern shopping hubs. It's a vibrant commercial and cultural core where locals and tourists converge.",
+        "location": {
+          "central": true,
+          "description": "Situated in the very center of Glasgow, encompassing the main shopping streets and major transport hubs.",
+          "borders": [
+            "Merchant City",
+            "Finnieston",
+            "Sauchiehall Street",
+            "West End"
+          ],
+          "landmarks": [
+            "George Square",
+            "Gallery of Modern Art",
+            "Buchanan Street",
+            "Glasgow Central Station"
+          ]
+        },
+        "history": {
+          "overview": "City Centre evolved from Glasgow's medieval origins into a Victorian commercial powerhouse during the Industrial Revolution.",
+          "significance": "It remains the economic and cultural heart of the city, showcasing Glasgow’s transformation and resilience.",
+          "notable_events": [
+            "Industrial boom in 19th century",
+            "Redevelopment for 2014 Commonwealth Games",
+            "Hosting major cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Glasgow Central Station",
+            "Queen Street Station",
+            "Buchanan Street Subway Station",
+            "Extensive bus routes"
+          ],
+          "safety": "Generally safe with usual urban precautions, well-patrolled and busy at all hours",
+          "best_time_to_visit": "Spring to early autumn for pleasant weather and festivals",
+          "walkability": "Highly walkable with pedestrianized streets and excellent signage"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping on Buchanan Street",
+            "Historic architecture",
+            "Major cultural venues",
+            "Central transport hub"
+          ],
+          "atmosphere": [
+            "energetic",
+            "cosmopolitan",
+            "lively"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "shoppers",
+            "culture seekers",
+            "business travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "George Square",
+              "type": "Public Square",
+              "description": "Glasgow’s iconic city square surrounded by historic buildings and hosting major events.",
+              "appeal": "Central meeting point with rich history and vibrant atmosphere."
+            },
+            {
+              "name": "Gallery of Modern Art (GoMA)",
+              "type": "Art Museum",
+              "description": "Leading contemporary art museum housed in a neoclassical building.",
+              "appeal": "Showcases cutting-edge art and engaging exhibitions."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Corinthian Club",
+              "cuisine": "Scottish & International",
+              "price_range": "€€€",
+              "known_for": "Upscale dining and stylish cocktails",
+              "atmosphere": "Elegant and lively with historic decor"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early on weekends to avoid shopping crowds.",
+          "Explore back alleys around Buchanan Street for hidden cafes and boutiques.",
+          "George Square’s Christmas Market is a must-see during winter."
+        ]
+      },
+      {
+        "name": "Finnieston",
+        "alternate_names": [
+          "West End Docklands"
+        ],
+        "character": "Finnieston is Glasgow’s hip and trendy neighborhood, renowned for its lively bar scene, craft breweries, and innovative eateries. It exudes a youthful, creative energy with a blend of industrial heritage and modern flair.",
+        "location": {
+          "central": false,
+          "description": "West of the City Centre along the north bank of the River Clyde.",
+          "borders": [
+            "City Centre",
+            "Partick",
+            "Kelvingrove"
+          ],
+          "landmarks": [
+            "SEC Centre",
+            "BBC Scotland",
+            "Finnieston Crane"
+          ]
+        },
+        "history": {
+          "overview": "Once an industrial and docklands area, Finnieston has been transformed into a cultural hotspot over the past two decades.",
+          "significance": "It illustrates Glasgow’s post-industrial regeneration and creative renaissance.",
+          "notable_events": [
+            "Closure of docks mid-20th century",
+            "Development of SEC venue",
+            "Rise of craft brewery scene"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Exhibition Centre Station",
+            "Partick Station",
+            "Frequent bus routes"
+          ],
+          "safety": "Safe with a friendly nightlife environment, though usual caution at night advised.",
+          "best_time_to_visit": "Late spring through early autumn for outdoor terraces and festivals",
+          "walkability": "Highly walkable, compact area with good pedestrian routes"
+        },
+        "appeal": {
+          "known_for": [
+            "Craft breweries",
+            "Live music venues",
+            "Trendy bars",
+            "Contemporary dining",
+            "Creative arts"
+          ],
+          "atmosphere": [
+            "edgy",
+            "vibrant",
+            "innovative"
+          ],
+          "best_for": [
+            "young professionals",
+            "music lovers",
+            "foodies",
+            "nightlife enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "SEC Centre",
+              "type": "Event & Concert Venue",
+              "description": "Major venue for concerts, conferences, and exhibitions.",
+              "appeal": "Host to top international music and entertainment acts."
+            },
+            {
+              "name": "Finnieston Crane",
+              "type": "Historic Landmark",
+              "description": "Iconic giant cantilever crane symbolizing Glasgow’s shipbuilding past.",
+              "appeal": "Photogenic industrial heritage and riverside walks."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ox and Finch",
+              "cuisine": "Modern Scottish",
+              "price_range": "€€€",
+              "known_for": "Innovative small plates and seasonal ingredients",
+              "atmosphere": "Hip and bustling"
+            },
+            {
+              "name": "Drygate Brewing Co.",
+              "cuisine": "Gastropub",
+              "price_range": "€€",
+              "known_for": "Craft beers brewed onsite and hearty food",
+              "atmosphere": "Casual and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Book tables early on weekends as popular spots fill fast.",
+          "Check live music schedules at the SEC and nearby venues.",
+          "Explore the nearby riverside paths for great views and photo ops."
+        ]
+      },
+      {
+        "name": "West End",
+        "alternate_names": [
+          "Kelvingrove Area"
+        ],
+        "character": "The West End is a leafy, bohemian neighborhood famous for its eclectic shops, vintage markets, and cultural institutions. It combines relaxed residential streets with vibrant university life and green parks.",
+        "location": {
+          "central": false,
+          "description": "West of the City Centre, centered around Byres Road and Kelvingrove Park.",
+          "borders": [
+            "Finnieston",
+            "Hillhead",
+            "Dowanhill"
+          ],
+          "landmarks": [
+            "Kelvingrove Art Gallery and Museum",
+            "University of Glasgow",
+            "Botanic Gardens"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the Victorian era as a residential area for the middle class, the West End has long been a cultural and educational hub.",
+          "significance": "It hosts some of Glasgow’s most prominent cultural institutions and historic architecture.",
+          "notable_events": [
+            "Founding of University of Glasgow campus here",
+            "Kelvingrove Museum opening",
+            "Annual West End Festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Hillhead Subway Station",
+            "Kelvinbridge Subway Station",
+            "Bus routes on Byres Road"
+          ],
+          "safety": "Very safe and family-friendly with a relaxed vibe",
+          "best_time_to_visit": "Spring and summer for outdoor cafes and park visits",
+          "walkability": "Extremely walkable with wide pavements and park trails"
+        },
+        "appeal": {
+          "known_for": [
+            "University culture",
+            "Art galleries",
+            "Botanic Gardens",
+            "Vintage shops",
+            "Cafes and pubs"
+          ],
+          "atmosphere": [
+            "charming",
+            "artsy",
+            "laid-back"
+          ],
+          "best_for": [
+            "students",
+            "families",
+            "culture seekers",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Kelvingrove Art Gallery and Museum",
+              "type": "Museum",
+              "description": "One of Scotland’s most popular museums with diverse exhibits.",
+              "appeal": "Free entry and stunning art and natural history collections."
+            },
+            {
+              "name": "Glasgow Botanic Gardens",
+              "type": "Botanical Garden",
+              "description": "Beautiful gardens featuring glasshouses and rare plants.",
+              "appeal": "Peaceful green space perfect for relaxing walks."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ubiquitous Chip",
+              "cuisine": "Scottish",
+              "price_range": "€€€",
+              "known_for": "Traditional Scottish dishes with a gourmet twist",
+              "atmosphere": "Rustic and cozy"
+            },
+            {
+              "name": "Cafe Strange Brew",
+              "cuisine": "Cafe",
+              "price_range": "€",
+              "known_for": "Specialty coffee and brunch",
+              "atmosphere": "Hip and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Botanic Gardens early to avoid crowds.",
+          "Check out the vintage shops on Great Western Road for unique finds.",
+          "Attend the West End Festival in June for music and street arts."
+        ]
+      },
+      {
+        "name": "Shawlands",
+        "alternate_names": [
+          "Southside Glasgow"
+        ],
+        "character": "Shawlands is a friendly, authentic residential neighborhood with a strong community spirit and a growing food scene. It offers a relaxed atmosphere away from the tourist crowds, favored by locals.",
+        "location": {
+          "central": false,
+          "description": "Located south of the River Clyde, about 3 miles from the City Centre.",
+          "borders": [
+            "Langside",
+            "Pollokshields",
+            "Crossmyloof"
+          ],
+          "landmarks": [
+            "Queens Park",
+            "Shawlands Arcade"
+          ]
+        },
+        "history": {
+          "overview": "Originally a village absorbed into Glasgow’s expansion, Shawlands developed as a middle-class suburb in the early 20th century.",
+          "significance": "It represents Glasgow’s residential growth and community-focused living.",
+          "notable_events": [
+            "Expansion with railway development",
+            "Recent food and drink renaissance"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Shawlands Bus Station",
+            "Pollokshaws East and West Rail Stations"
+          ],
+          "safety": "Safe with a welcoming community feel",
+          "best_time_to_visit": "Spring to autumn for park activities and street markets",
+          "walkability": "Walkable with good local amenities clustered around the main streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Queens Park",
+            "Local farmers markets",
+            "Independent cafes",
+            "Community events"
+          ],
+          "atmosphere": [
+            "friendly",
+            "relaxed",
+            "authentic"
+          ],
+          "best_for": [
+            "families",
+            "local culture seekers",
+            "budget travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Queens Park",
+              "type": "Park",
+              "description": "Large green space offering walking paths, sports fields, and panoramic city views.",
+              "appeal": "Great spot for outdoor activities and relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Oceana",
+              "cuisine": "Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh Scottish seafood specialties",
+              "atmosphere": "Casual and welcoming"
+            },
+            {
+              "name": "The Glad Cafe",
+              "cuisine": "Cafe & Bar",
+              "price_range": "€",
+              "known_for": "Live music nights and artisan coffee",
+              "atmosphere": "Bohemian and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Shawlands Arcade on weekends for local crafts and food stalls.",
+          "Queens Park offers stunning sunset views over the city skyline.",
+          "Try a midweek visit to enjoy quieter cafes and parks."
+        ]
+      },
+      {
+        "name": "Merchant City",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Merchant City is a stylish and historic district with beautifully preserved Georgian and Victorian architecture. It's a lively neighborhood blending heritage, high-end shopping, and a vibrant cultural scene.",
+        "location": {
+          "central": true,
+          "description": "East of the City Centre, adjacent to Glasgow Cathedral and the River Clyde.",
+          "borders": [
+            "City Centre",
+            "Calton",
+            "Gorbals"
+          ],
+          "landmarks": [
+            "St Andrew’s in the Square",
+            "Merchant Square",
+            "Tron Theatre"
+          ]
+        },
+        "history": {
+          "overview": "Once the mercantile heart of Glasgow during the 18th century, this area housed wealthy traders and merchants.",
+          "significance": "Merchant City symbolizes Glasgow’s golden age of trade and commerce.",
+          "notable_events": [
+            "18th-century mercantile prosperity",
+            "Urban regeneration in late 20th century",
+            "Merchant City Festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Buchanan Street Subway Station",
+            "High Street Station nearby",
+            "Bus routes along Ingram Street"
+          ],
+          "safety": "Safe with vibrant nightlife, usual night precautions advised",
+          "best_time_to_visit": "Summer for festivals and outdoor dining",
+          "walkability": "Highly walkable with pedestrian squares and narrow streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Boutique shopping",
+            "Gourmet dining",
+            "Art galleries"
+          ],
+          "atmosphere": [
+            "elegant",
+            "vibrant",
+            "cultured"
+          ],
+          "best_for": [
+            "culture lovers",
+            "food enthusiasts",
+            "nightlife visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "St Andrew’s in the Square",
+              "type": "Historic Church",
+              "description": "An exquisite neoclassical church converted into an event venue.",
+              "appeal": "Stunning architecture and frequent cultural events."
+            },
+            {
+              "name": "Tron Theatre",
+              "type": "Theatre",
+              "description": "A vibrant venue for contemporary and experimental performances.",
+              "appeal": "Showcases innovative Scottish theatre."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Gannet",
+              "cuisine": "Modern Scottish",
+              "price_range": "€€€",
+              "known_for": "Creative and seasonal dishes",
+              "atmosphere": "Chic and intimate"
+            },
+            {
+              "name": "Brel",
+              "cuisine": "European Bistro",
+              "price_range": "€€",
+              "known_for": "Innovative sharing plates and cocktails",
+              "atmosphere": "Trendy and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Attend the Merchant City Festival for street performances and markets.",
+          "Explore hidden courtyards for quiet cafes and bars.",
+          "Reserve dining spots in advance on weekends."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Cail Bruich",
+          "cuisine_type": "Modern Scottish",
+          "description": "Award-winning restaurant offering innovative dishes crafted from locally sourced Scottish ingredients with an elegant presentation.",
+          "price_range": "€€€€",
+          "atmosphere": "Sophisticated and intimate with a contemporary Scottish flair",
+          "neighborhood": "Woodlands",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "food enthusiasts"
+          ],
+          "latitude": 55.8768,
+          "longitude": -4.2814,
+          "reservation_needed": true,
+          "local_tips": "Try their tasting menu paired with Scottish wines for a full experience."
+        },
+        {
+          "name": "The Gannet",
+          "cuisine_type": "Modern European / Scottish",
+          "description": "A modern bistro delivering inventive dishes that celebrate Scottish produce with bold flavors and refined techniques.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy yet relaxed with a rustic-modern interior",
+          "neighborhood": "Finnieston",
+          "best_for": [
+            "foodies",
+            "friends dining",
+            "date night"
+          ],
+          "latitude": 55.8653,
+          "longitude": -4.2886,
+          "reservation_needed": true,
+          "local_tips": "Book early for weekend dinner; their venison dish is a must-try in season."
+        },
+        {
+          "name": "Ox and Finch",
+          "cuisine_type": "Small plates / Scottish fusion",
+          "description": "Creative sharing plates in a lively setting, focusing on local ingredients with global influences.",
+          "price_range": "€€€",
+          "atmosphere": "Casual yet chic, bustling open kitchen vibe",
+          "neighborhood": "Finnieston",
+          "best_for": [
+            "groups",
+            "casual date",
+            "food sharing"
+          ],
+          "latitude": 55.8659,
+          "longitude": -4.289,
+          "reservation_needed": true,
+          "local_tips": "Order several plates to share and leave room for their decadent desserts."
+        },
+        {
+          "name": "Stravaigin",
+          "cuisine_type": "Modern Scottish with international touches",
+          "description": "Eclectic menu combining Scottish ingredients with global flavors in a quirky, welcoming atmosphere.",
+          "price_range": "€€€",
+          "atmosphere": "Cozy and eclectic with an artsy vibe",
+          "neighborhood": "West End",
+          "best_for": [
+            "adventurous eaters",
+            "casual dining",
+            "groups"
+          ],
+          "latitude": 55.876,
+          "longitude": -4.2915,
+          "reservation_needed": true,
+          "local_tips": "Their weekend brunch is popular; try the smoked haddock kedgeree."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Paesano Pizza",
+          "cuisine_type": "Neapolitan Pizza",
+          "description": "Authentic Neapolitan pizza with a chewy, charred crust, fresh toppings, and vibrant flavors.",
+          "price_range": "€€",
+          "atmosphere": "Lively and informal with a buzzy crowd",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "groups",
+            "families",
+            "quick casual meal"
+          ],
+          "latitude": 55.8625,
+          "longitude": -4.2516,
+          "reservation_needed": false,
+          "local_tips": "Arrive early or late as it gets very busy, especially on weekends."
+        },
+        {
+          "name": "The Hanoi Bike Shop",
+          "cuisine_type": "Vietnamese street food",
+          "description": "Casual spot serving authentic Vietnamese street food with a focus on fresh herbs and bold flavors.",
+          "price_range": "€€",
+          "atmosphere": "Bright, casual, and lively with communal seating",
+          "neighborhood": "West End",
+          "best_for": [
+            "casual lunch",
+            "groups",
+            "quick bites"
+          ],
+          "latitude": 55.8793,
+          "longitude": -4.2932,
+          "reservation_needed": false,
+          "local_tips": "Try the pho and the crispy fried chicken banh mi."
+        },
+        {
+          "name": "Paesano Southside",
+          "cuisine_type": "Neapolitan Pizza",
+          "description": "Sister restaurant to Paesano, offering the same authentic Neapolitan pizzas in a spacious setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual and family-friendly",
+          "neighborhood": "Southside",
+          "best_for": [
+            "families",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 55.8445,
+          "longitude": -4.2627,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot if city centre is busy; great for takeaway too."
+        },
+        {
+          "name": "Saramago Café",
+          "cuisine_type": "Vegetarian / Vegan",
+          "description": "Popular vegetarian and vegan café offering hearty, wholesome dishes with global influences.",
+          "price_range": "€€",
+          "atmosphere": "Warm and cozy with an artsy vibe",
+          "neighborhood": "West End",
+          "best_for": [
+            "vegetarians",
+            "casual dining",
+            "brunch"
+          ],
+          "latitude": 55.8795,
+          "longitude": -4.297,
+          "reservation_needed": false,
+          "local_tips": "Try their vegan full Scottish breakfast for a local twist."
+        },
+        {
+          "name": "The 78",
+          "cuisine_type": "Gastropub / Scottish",
+          "description": "Trendy pub offering elevated Scottish comfort food with an extensive craft beer selection.",
+          "price_range": "€€",
+          "atmosphere": "Casual, bustling with a youthful crowd",
+          "neighborhood": "Southside",
+          "best_for": [
+            "groups",
+            "casual dinner",
+            "beer lovers"
+          ],
+          "latitude": 55.844,
+          "longitude": -4.2635,
+          "reservation_needed": false,
+          "local_tips": "Their haggis bon bons are a delicious twist on a Scottish classic."
+        },
+        {
+          "name": "Paesano Pizza South Side",
+          "cuisine_type": "Neapolitan Pizza",
+          "description": "Known for authentic pizzas with traditional toppings and dough, cooked in a wood-fired oven.",
+          "price_range": "€€",
+          "atmosphere": "Casual and family-friendly",
+          "neighborhood": "South Side",
+          "best_for": [
+            "families",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 55.8445,
+          "longitude": -4.2627,
+          "reservation_needed": false,
+          "local_tips": "Great alternative if city centre Paesano is full."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "The Barras Market",
+          "cuisine_type": "Various Scottish and international street food",
+          "description": "Historic market offering a variety of street food stalls serving everything from traditional Scottish dishes to global flavors.",
+          "price_range": "€",
+          "atmosphere": "Busy, eclectic, and authentic market vibe",
+          "neighborhood": "East End",
+          "best_for": [
+            "casual eating",
+            "exploring local culture",
+            "budget dining"
+          ],
+          "latitude": 55.858,
+          "longitude": -4.2165,
+          "reservation_needed": false,
+          "local_tips": "Go early on weekends for the best food and vintage finds."
+        },
+        {
+          "name": "Glasgow Street Food Market (various locations)",
+          "cuisine_type": "Multicultural street food",
+          "description": "Rotating street food markets featuring a wide spectrum of international cuisines and local Scottish specialties.",
+          "price_range": "€",
+          "atmosphere": "Festive and lively with communal seating",
+          "neighborhood": "Various (check event listings)",
+          "best_for": [
+            "casual dining",
+            "groups",
+            "trying new foods"
+          ],
+          "latitude": 55.8642,
+          "longitude": -4.2518,
+          "reservation_needed": false,
+          "local_tips": "Follow their social media for pop-up locations and special events."
+        },
+        {
+          "name": "The Flying Duck",
+          "cuisine_type": "Street food and craft beer",
+          "description": "Popular street food vendor known for gourmet burgers and craft beers, often found at Glasgow food markets and events.",
+          "price_range": "€",
+          "atmosphere": "Casual, fun, and outdoor festival vibe",
+          "neighborhood": "Markets and events around Glasgow",
+          "best_for": [
+            "casual bites",
+            "beer lovers",
+            "festivals"
+          ],
+          "latitude": 55.8642,
+          "longitude": -4.2518,
+          "reservation_needed": false,
+          "local_tips": "Try their signature duck burger when available."
+        },
+        {
+          "name": "The Big Feed Street Food Market",
+          "cuisine_type": "Diverse street food options",
+          "description": "Vibrant street food market offering a rotating selection of stalls with Scottish and international street food favorites.",
+          "price_range": "€",
+          "atmosphere": "Social and festive outdoor market atmosphere",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "groups",
+            "casual dining",
+            "food adventurers"
+          ],
+          "latitude": 55.8595,
+          "longitude": -4.26,
+          "reservation_needed": false,
+          "local_tips": "Visit in summer for the best weather and widest selection."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "The Pot Still",
+          "cuisine_type": "Whisky bar",
+          "description": "A legendary Glasgow bar with an extensive whisky collection and a cozy, traditional atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Classic, intimate, and warm",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "whisky lovers",
+            "quiet drinks",
+            "locals"
+          ],
+          "latitude": 55.8601,
+          "longitude": -4.2562,
+          "reservation_needed": false,
+          "local_tips": "Ask the bartenders for rare single malts and tasting recommendations."
+        },
+        {
+          "name": "Babbity Bowster",
+          "cuisine_type": "Cocktail bar / Scottish pub",
+          "description": "Traditional Scottish pub known for its friendly vibe and excellent cocktails alongside a wide selection of whiskies.",
+          "price_range": "€€",
+          "atmosphere": "Lively and welcoming with a historic charm",
+          "neighborhood": "Merchant City",
+          "best_for": [
+            "groups",
+            "casual drinks",
+            "tourists"
+          ],
+          "latitude": 55.8598,
+          "longitude": -4.2473,
+          "reservation_needed": false,
+          "local_tips": "Try their whisky flights to sample Scotland’s best."
+        },
+        {
+          "name": "The Ben Nevis",
+          "cuisine_type": "Whisky bar",
+          "description": "A traditional whisky bar with a relaxed vibe offering a large collection of whiskies and cask ales.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and friendly with a classic pub feel",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "locals",
+            "whisky tastings",
+            "casual nights"
+          ],
+          "latitude": 55.8608,
+          "longitude": -4.2525,
+          "reservation_needed": false,
+          "local_tips": "Look out for their whisky tasting events and live music nights."
+        },
+        {
+          "name": "The Finnieston",
+          "cuisine_type": "Cocktail and whisky bar",
+          "description": "Trendy bar known for creative cocktails and a great selection of Scottish whiskies in an upscale industrial setting.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and vibrant with lively crowds",
+          "neighborhood": "Finnieston",
+          "best_for": [
+            "date night",
+            "cocktail lovers",
+            "groups"
+          ],
+          "latitude": 55.8657,
+          "longitude": -4.2902,
+          "reservation_needed": true,
+          "local_tips": "Book ahead on weekends; try their signature Finnieston Fizz."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Papercup Coffee Company",
+          "cuisine_type": "Specialty coffee",
+          "description": "Award-winning specialty coffee shop focused on quality beans and expert brewing techniques.",
+          "price_range": "€",
+          "atmosphere": "Minimalist and modern with a calm ambiance",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "coffee aficionados",
+            "work sessions",
+            "casual catch-ups"
+          ],
+          "latitude": 55.8615,
+          "longitude": -4.2541,
+          "reservation_needed": false,
+          "local_tips": "Try their seasonal single origin espresso for a unique coffee experience."
+        },
+        {
+          "name": "Riverhill Coffee Bar",
+          "cuisine_type": "Specialty coffee and light bites",
+          "description": "Hip café offering expertly crafted coffee and a menu of fresh, locally sourced light meals and pastries.",
+          "price_range": "€",
+          "atmosphere": "Bright, friendly, and contemporary",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "brunch",
+            "coffee lovers",
+            "work or study"
+          ],
+          "latitude": 55.8609,
+          "longitude": -4.2519,
+          "reservation_needed": false,
+          "local_tips": "Their homemade pastries pair perfectly with a flat white."
+        },
+        {
+          "name": "Soderberg Bakery",
+          "cuisine_type": "Swedish bakery and café",
+          "description": "Popular bakery specializing in Swedish pastries, breads, and quality coffee in a cozy setting.",
+          "price_range": "€",
+          "atmosphere": "Cozy and rustic with a Scandinavian feel",
+          "neighborhood": "West End",
+          "best_for": [
+            "pastry lovers",
+            "breakfast",
+            "casual meetups"
+          ],
+          "latitude": 55.8757,
+          "longitude": -4.293,
+          "reservation_needed": false,
+          "local_tips": "Try their cardamom buns and cinnamon rolls, best enjoyed with a latte."
+        },
+        {
+          "name": "Singl-end Café & Bakehouse",
+          "cuisine_type": "Specialty coffee and artisan bakery",
+          "description": "Renowned for excellent coffee and freshly baked breads and pastries made on-site.",
+          "price_range": "€",
+          "atmosphere": "Friendly, bustling, and artisan-focused",
+          "neighborhood": "City Centre",
+          "best_for": [
+            "coffee lovers",
+            "breakfast",
+            "baked goods"
+          ],
+          "latitude": 55.862,
+          "longitude": -4.2507,
+          "reservation_needed": false,
+          "local_tips": "Their sourdough breads are highly sought after – buy early before they sell out."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Glasgow Food Walking Tour",
+        "description": "Guided tour exploring Glasgow’s diverse culinary scene including tastings at local markets, bakeries, and eateries.",
+        "price_range": "€€",
+        "location": "City Centre",
+        "latitude": 55.8607,
+        "longitude": -4.2518,
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable shoes and save room for tasting stops featuring haggis and local cheeses."
+      },
+      {
+        "name": "Scottish Cooking Classes at The Hidden Lane",
+        "description": "Hands-on classes teaching traditional Scottish dishes like Cullen Skink, bannocks, and haggis.",
+        "price_range": "€€€",
+        "location": "West End",
+        "latitude": 55.8754,
+        "longitude": -4.2885,
+        "reservation_needed": true,
+        "local_tips": "Book in advance and try attending a seasonal class to learn about local specialty ingredients."
+      },
+      {
+        "name": "Barras Market Food Exploration",
+        "description": "Self-guided or guided visit to the historic Barras Market combining street food sampling with local culture insights.",
+        "price_range": "€",
+        "location": "East End",
+        "latitude": 55.8578,
+        "longitude": -4.217,
+        "reservation_needed": false,
+        "local_tips": "Visit on a Saturday morning for the fullest market experience and best food variety."
+      },
+      {
+        "name": "Craft Beer and Whisky Pairing Experience",
+        "description": "Tasting sessions pairing Glasgow’s craft beers with Scottish whiskies, led by local experts.",
+        "price_range": "€€€",
+        "location": "Merchant City",
+        "latitude": 55.859,
+        "longitude": -4.2435,
+        "reservation_needed": true,
+        "local_tips": "Perfect for whisky novices and beer lovers looking to explore Scotland’s beverage heritage."
+      },
+      {
+        "name": "Glasgow Farmers Market Visit",
+        "description": "Explore fresh local produce, artisanal cheeses, and baked goods at Glasgow’s regular farmers markets.",
+        "price_range": "€",
+        "location": "Various locations (e.g., West End, City Centre)",
+        "latitude": 55.876,
+        "longitude": -4.293,
+        "reservation_needed": false,
+        "local_tips": "Go early for the best selection and chat with producers to learn about Scottish seasonal ingredients."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh Scottish asparagus dishes",
+        "Wild garlic and nettle soups",
+        "Spring lamb with local herbs"
+      ],
+      "summer": [
+        "Scottish salmon and shellfish",
+        "Strawberries and cream desserts",
+        "Fresh berries and rhubarb pies"
+      ],
+      "autumn": [
+        "Venison and game meat specialties",
+        "Mushroom foraging dishes",
+        "Hearty stews with root vegetables"
+      ],
+      "winter": [
+        "Traditional haggis with neeps and tatties",
+        "Cullen Skink (smoked haddock soup)",
+        "Warm whisky-infused desserts"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "hourly",
+            "price_range": "€40-€120",
+            "operator": "Avanti West Coast",
+            "notes": "Direct trains from Glasgow Central to London Euston; fastest and most comfortable option."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 0m",
+            "frequency": "daily",
+            "price_range": "€15-€40",
+            "operator": "National Express",
+            "notes": "Overnight and daytime services available; budget-friendly but longer journey."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "hourly",
+            "price_range": "€40-€150",
+            "operator": "British Airways, easyJet",
+            "notes": "Multiple daily flights from Glasgow Airport to London Heathrow, Gatwick, and City Airports."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "multiple daily",
+            "price_range": "€50-€200",
+            "operator": "Air France, easyJet",
+            "notes": "Direct flights from Glasgow Airport to Paris Charles de Gaulle and Orly Airports."
+          },
+          {
+            "type": "train",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€80-€180",
+            "operator": "Avanti West Coast + Eurostar",
+            "notes": "Train via London: Glasgow to London then Eurostar to Paris; requires transfer and advance booking."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€180",
+            "operator": "KLM, easyJet",
+            "notes": "Direct flights from Glasgow Airport to Amsterdam Schiphol."
+          },
+          {
+            "type": "train",
+            "duration": "9h 0m",
+            "frequency": "daily",
+            "price_range": "€90-€200",
+            "operator": "Avanti West Coast + Eurostar + NS",
+            "notes": "Train via London and Brussels with multiple transfers."
+          }
+        ]
+      },
+      {
+        "city": "Dublin",
+        "country": "Ireland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 0m",
+            "frequency": "multiple daily",
+            "price_range": "€40-€120",
+            "operator": "Aer Lingus, Ryanair",
+            "notes": "Direct flights from Glasgow Airport to Dublin Airport."
+          },
+          {
+            "type": "ferry",
+            "duration": "8h 0m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "P&O Ferries",
+            "notes": "Bus or train from Glasgow to Cairnryan, then ferry to Belfast; onward train or bus to Dublin."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€70-€200",
+            "operator": "easyJet, Lufthansa",
+            "notes": "Direct flights from Glasgow Airport to Berlin Brandenburg Airport."
+          },
+          {
+            "type": "train",
+            "duration": "12h 0m",
+            "frequency": "daily",
+            "price_range": "€120-€250",
+            "operator": "Avanti West Coast + Eurostar + Deutsche Bahn",
+            "notes": "Multiple transfers via London and Brussels; requires advance booking."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€170",
+            "operator": "Brussels Airlines, easyJet",
+            "notes": "Direct flights from Glasgow Airport to Brussels Airport."
+          },
+          {
+            "type": "train",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€85-€180",
+            "operator": "Avanti West Coast + Eurostar",
+            "notes": "Train via London with a transfer at London St Pancras."
+          }
+        ]
+      },
+      {
+        "city": "Edinburgh",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "50m",
+            "frequency": "hourly",
+            "price_range": "€15-€35",
+            "operator": "ScotRail",
+            "notes": "Frequent direct trains from Glasgow Queen Street to Edinburgh Waverley."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€8-€20",
+            "operator": "Citylink, Megabus",
+            "notes": "Frequent coach services; budget option."
+          }
+        ]
+      },
+      {
+        "city": "Oslo",
+        "country": "Norway",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "multiple weekly",
+            "price_range": "€80-€220",
+            "operator": "SAS, Norwegian",
+            "notes": "Direct flights from Glasgow Airport to Oslo Gardermoen."
+          }
+        ]
+      },
+      {
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€190",
+            "operator": "SAS, easyJet",
+            "notes": "Direct flights from Glasgow Airport to Copenhagen Airport."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€200",
+            "operator": "Vueling, Ryanair",
+            "notes": "Direct flights from Glasgow Airport to Barcelona El Prat Airport."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€180",
+            "operator": "KLM, easyJet",
+            "notes": "Direct flights from Glasgow Airport to Amsterdam Schiphol."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Glasgow International Comedy Festival",
+        "type": "festival",
+        "description": "A lively festival featuring stand-up, improv, and sketch comedy across various venues in the city.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Various venues across Glasgow city centre",
+        "price": "Moderate"
+      },
+      {
+        "name": "Botanic Gardens Spring Walk",
+        "type": "outdoor",
+        "description": "Enjoy the vibrant blooms and tranquil pathways in Glasgow's Botanic Gardens, ideal for a peaceful spring stroll.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Glasgow Botanic Gardens, West End",
+        "price": "Free"
+      },
+      {
+        "name": "Glasgow Farmers’ Market",
+        "type": "food",
+        "description": "Sample fresh, locally sourced spring produce including seasonal vegetables, baked goods, and artisan cheeses.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Cambridge Street Market",
+        "price": "Budget"
+      },
+      {
+        "name": "Kelvingrove Art Gallery and Museum Visit",
+        "type": "cultural",
+        "description": "Explore the diverse collections and special spring exhibitions at this iconic Glasgow museum.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Kelvingrove Park",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Glasgow Mela",
+        "type": "festival",
+        "description": "A vibrant celebration of world cultures with music, dance, food, and crafts held annually in July.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Glasgow Green",
+        "price": "Free"
+      },
+      {
+        "name": "Riverside Museum and Tall Ship",
+        "type": "cultural",
+        "description": "Visit the award-winning transport museum and explore the historic Tall Ship moored nearby.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Riverside Museum, Pointhouse Place",
+        "price": "Free"
+      },
+      {
+        "name": "Outdoor Cinema at George Square",
+        "type": "outdoor",
+        "description": "Enjoy popular films under the stars in the heart of Glasgow during the summer months.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "George Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Summer Food Markets",
+        "type": "food",
+        "description": "Taste seasonal Scottish berries, salmon, and locally brewed beers at weekend food markets.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Various city centre markets",
+        "price": "Budget"
+      },
+      {
+        "name": "Cycling along the Forth and Clyde Canal",
+        "type": "sport",
+        "description": "Take advantage of long daylight hours to cycle scenic routes along the historic canal.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Forth and Clyde Canal Towpath",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Celtic Connections Festival",
+        "type": "festival",
+        "description": "A renowned winter music festival spotlighting Celtic and roots music, beginning late January but announced and partially previewed in autumn.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Various venues including Glasgow Royal Concert Hall",
+        "price": "Moderate"
+      },
+      {
+        "name": "Pollok Country Park Autumn Walk",
+        "type": "outdoor",
+        "description": "Witness vibrant autumn foliage and visit Pollok House, a historic mansion with exhibitions.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Pollok Country Park, Southside",
+        "price": "Free"
+      },
+      {
+        "name": "Glasgow Food & Drink Festival",
+        "type": "food",
+        "description": "Celebrate Scotland’s harvest with tastings of seasonal dishes like game, root vegetables, and whisky.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Various locations citywide",
+        "price": "Budget"
+      },
+      {
+        "name": "Autumnal Visit to Glasgow Cathedral",
+        "type": "cultural",
+        "description": "Explore Glasgow Cathedral’s medieval architecture and the atmospheric autumn light filtering through stained glass.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Glasgow Cathedral, Cathedral Square",
+        "price": "Free"
+      },
+      {
+        "name": "Golfing at Haggs Castle",
+        "type": "sport",
+        "description": "Enjoy a round of golf amid autumn colours at this historic 18-hole course just outside the city centre.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Haggs Castle Golf Club",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Glasgow Christmas Markets",
+        "type": "festival",
+        "description": "Browse festive stalls selling crafts, gifts, and seasonal treats in the city centre with ice skating available nearby.",
+        "best_months": [
+          "December"
+        ],
+        "location": "George Square and St Enoch Square",
+        "price": "Free"
+      },
+      {
+        "name": "National Piping Centre Concerts",
+        "type": "cultural",
+        "description": "Experience traditional Scottish bagpipe music and winter concerts in an intimate setting.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "National Piping Centre, McPhater Street",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Walks in Glasgow Green",
+        "type": "outdoor",
+        "description": "Enjoy crisp winter air and views of the River Clyde while exploring Glasgow Green’s historic paths.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Glasgow Green",
+        "price": "Free"
+      },
+      {
+        "name": "Winter Festival at Kelvingrove Art Gallery",
+        "type": "cultural",
+        "description": "Visit special winter exhibitions and festive events at one of Glasgow’s most popular museums.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Kelvingrove Art Gallery and Museum",
+        "price": "Free"
+      },
+      {
+        "name": "Scottish Winter Food Sampling",
+        "type": "food",
+        "description": "Warm up with traditional dishes like Cullen skink, haggis, and whisky tastings at local pubs and restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Various city centre pubs and eateries",
+        "price": "Budget"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year Celebrations",
+            "notes": "Cold and wet weather, but festive New Year events at George Square attract crowds; daylight hours are short.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Post-holiday lull with cold, damp weather and fewer cultural events; low tourism but also limited daylight.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Weather remains cold with occasional rain; indoor cultural venues like Kelvingrove Art Gallery provide good refuge; fewer tourists overall.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, often wet weather continues; fewer tourists but limited outdoor activities; indoor museums and theatres active.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Glasgow Film Festival (early-mid Feb)",
+            "notes": "Festival increases cultural activity and visitors; weather still cold but event atmosphere compensates; good for film enthusiasts.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather persists but daylight gradually increases; fewer crowds and affordable accommodation.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather begins to improve with more daylight; early spring flowers appear; moderate tourist activity.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "score": 4,
+            "special": true,
+            "event": "St. Patrick's Day (March 17)",
+            "notes": "St. Patrick's Day events in Glasgow bring lively celebrations; weather is variable but improving; good time for cultural events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring weather improves with longer daylight; city parks open up; moderate crowds and good value.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring is in full bloom; mild weather with occasional rain; good time for outdoor sightseeing and festivals starting.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Glasgow International Comedy Festival (early April)",
+            "notes": "Comedy Festival provides lively indoor entertainment; weather can be unpredictable; crowds increase slightly.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer temperatures and blooming parks; good for walking tours and outdoor activities; moderate tourist numbers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Celtic Connections Festival (late Jan - early Feb overlaps into May events)",
+            "notes": "Though main festival is earlier, May benefits from warmer weather and extended cultural events; ideal for music lovers and outdoor exploration.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Mild, pleasant weather with longer daylight; city parks and gardens like Glasgow Botanic Gardens in full bloom; excellent for all visitor types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "West End Festival (late May, often starts mid-month)",
+            "notes": "Popular arts and community festival with outdoor events, live music, and markets; great weather and lively atmosphere make May ideal for visiting.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Beginning of summer with long daylight (up to 17 hours); mild temperatures and many outdoor activities; ideal for sightseeing and festivals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": true,
+            "event": "TRNSMT Festival (mid-June)",
+            "notes": "Major music festival attracting large crowds; good weather usually; busy and lively atmosphere but prices and crowds peak.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm weather continues with long days; slightly fewer crowds after festival; excellent for outdoor activities and sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather but occasional rain; high tourist season with busy attractions; good for festivals and outdoor events.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Merchant City Festival (mid July)",
+            "notes": "Popular arts and cultural festival with outdoor concerts and markets; warm weather and lively atmosphere; expect crowds and higher accommodation prices.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm, sometimes wet summer weather; busy tourist season continues; good for outdoor events and sightseeing but can be crowded.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Glasgow International Jazz Festival (mid-August)",
+            "notes": "Renowned jazz festival with international acts; great summer weather; lively city atmosphere and excellent cultural experience.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather persists; slightly fewer festivals but high tourism; good weather for parks and riverside walks.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild weather and less rain; crowds reduce as summer ends; good value accommodations; outdoor attractions still pleasant.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Glasgow Doors Open Days (mid-September)",
+            "notes": "Cultural event allowing access to historic buildings; weather variable but generally good; attracts local and international visitors.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooling temperatures and shorter days; fewer tourists; good for indoor cultural visits and local life experiences.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors appear in parks; weather becomes cooler and wetter; fewer tourists and good deals on accommodation.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Clydebuilt Festival (mid-October)",
+            "notes": "Celebrates Glasgow’s shipbuilding heritage; interesting cultural events indoors; weather can be rainy but crowds are low.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cold and wet weather; shorter days; limited outdoor activities; low tourist numbers but museums remain active.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and wet with short daylight; few outdoor activities; start of festive event preparations; low tourist presence.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Glasgow Christmas Lights Switch-On (mid-November)",
+            "notes": "Festive atmosphere begins with city-wide light displays; attracts locals and tourists; weather cold but festive cheer high.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, damp weather continues; indoor cultural venues active; fewer tourists and lower prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Festive markets open; cold and often wet; increasing crowds near Christmas; good for holiday atmosphere and shopping.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Glasgow Christmas Markets and Hogmanay Preparations",
+            "notes": "Festive markets and events draw visitors; cold weather but vibrant atmosphere; popular for couples and families.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Hogmanay Celebrations (New Year’s Eve)",
+            "notes": "One of the UK's biggest New Year celebrations with street parties and fireworks; cold but festive; very busy and lively atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

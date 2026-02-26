@@ -1,1 +1,3015 @@
-{"city":"cordoba","country":"Spain","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "cordoba",
+  "country": "Spain",
+  "overview": {
+    "city_name": "Cordoba",
+    "country": "Spain",
+    "brief_description": "Cordoba is a captivating Andalusian city where the grandeur of the Moorish era blends seamlessly with vibrant Spanish culture. Famous for its stunning Mezquita, this city offers a rich historical tapestry, charming streets, and a warm Mediterranean atmosphere.",
+    "nickname": "La Ciudad de las Tres Culturas",
+    "region": "Andalusia",
+    "population": "approximately 325,000",
+    "why_visit": [
+      "Explore the breathtaking Mezquita-Catedral, a UNESCO World Heritage site",
+      "Stroll through the atmospheric Jewish Quarter with its narrow cobblestone streets",
+      "Experience the annual Patio Festival showcasing stunning floral displays",
+      "Discover Roman and Moorish architecture alongside lively tapas bars"
+    ],
+    "best_time_to_visit": "April to June and September to October, when the weather is mild and the city hosts vibrant festivals",
+    "seasonal_notes": {
+      "spring": "Pleasant temperatures and blooming patios make it the most popular season for visitors.",
+      "summer": "Very hot and dry, with temperatures often exceeding 35°C (95°F); best for early morning or evening activities.",
+      "autumn": "Temperatures cool down comfortably, ideal for sightseeing and outdoor events.",
+      "winter": "Mild and quieter, winter offers a peaceful atmosphere with fewer tourists but cooler evenings."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Spanish",
+      "visit_duration": "2 to 3 days to fully appreciate major sites and local culture",
+      "getting_around": "Walking is best for the historic center; buses and taxis serve wider areas.",
+      "safety": "Generally safe for tourists; standard precautions against petty theft advised in crowded areas."
+    },
+    "coordinates": {
+      "latitude": 37.888175,
+      "longitude": -4.779383
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit the Mezquita-Catedral de Córdoba to admire its unique blend of Islamic and Christian architecture",
+        "Walk through the Jewish Quarter and visit the Synagogue",
+        "Explore the Alcázar de los Reyes Cristianos and its gardens",
+        "See the Roman Bridge and enjoy views over the Guadalquivir River",
+        "Attend the Festival de los Patios if visiting in May"
+      ],
+      "worth_doing": [
+        "Tour the Palacio de Viana with its twelve beautiful courtyards",
+        "Visit the Museo de Bellas Artes for regional artwork",
+        "Enjoy traditional Andalusian cuisine at local taverns",
+        "Relax in the Hammam Al Ándalus Arab baths",
+        "Explore the nearby Medina Azahara archaeological site"
+      ],
+      "hidden_gems": [
+        "Discover the Calleja de las Flores, a picturesque narrow street with flowerpots",
+        "Visit the Museo Arqueológico to see Roman artifacts",
+        "Explore the vibrant Mercado Victoria for gourmet tapas and local products",
+        "Walk along the less-touristic parts of the Guadalquivir riverbanks",
+        "Attend a flamenco show in an intimate local venue"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Mezquita-Catedral de Córdoba",
+        "type": "Monument",
+        "description": "The Mezquita-Catedral is a stunning architectural masterpiece combining Islamic and Christian art. Originally a mosque built in the 8th century, it was converted into a cathedral in the 13th century. Its forest of columns and red-and-white arches create a mesmerizing interior.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Avoid peak summer heat; spring and fall are ideal for visiting.",
+        "booking_tips": "Book tickets online in advance to skip long lines.",
+        "ratings": {
+          "cost_estimate": 11,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 37.8794,
+        "longitude": -4.7794,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-19:00",
+          "notes": "Hours may vary during religious holidays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C2",
+            "C3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://mezquita-catedraldecordoba.es/",
+        "website": "https://mezquita-catedraldecordoba.es/"
+      },
+      {
+        "name": "Alcázar de los Reyes Cristianos",
+        "type": "Palace",
+        "description": "This medieval fortress and palace was used by Christian monarchs and features beautiful gardens, towers, and mosaics. Visitors can explore the lush courtyards and learn about Córdoba’s history during the Reconquista.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Spring is perfect for garden blooms; summers can be hot.",
+        "booking_tips": "Tickets can be purchased on site; less crowded late afternoon.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8807,
+        "longitude": -4.783,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "8:30-19:30",
+          "weekend": "8:30-19:30",
+          "notes": "Extended hours in summer."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.alcazardelosreyescristianos.cordoba.es/",
+        "website": "https://www.alcazardelosreyescristianos.cordoba.es/"
+      },
+      {
+        "name": "Roman Bridge of Córdoba",
+        "type": "Historic Site",
+        "description": "Spanning the Guadalquivir River, this 1st-century Roman bridge offers scenic views and a glimpse into Córdoba’s ancient past. It connects the historic center with Campo de la Verdad neighborhood.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Evening strolls are pleasant year-round; summer evenings can be warm.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8781,
+        "longitude": -4.7849,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C3",
+            "L1"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby Museo Julio Romero de Torres if raining."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Jewish Quarter (La Judería)",
+        "type": "Neighborhood",
+        "description": "This labyrinthine neighborhood is rich in history with narrow streets, whitewashed houses, and landmarks like the Synagogue of Córdoba. It offers charming shops, tapas bars, and a deep cultural atmosphere.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and fall are ideal for walking tours; summers can be hot.",
+        "booking_tips": "Consider guided walking tours to get historical context.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 37.879,
+        "longitude": -4.7799,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C2",
+            "C5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Museo Taurino or indoor markets if too hot."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Palacio de Viana",
+        "type": "Palace",
+        "description": "Known as the 'Museum of Patios,' this Renaissance palace houses twelve magnificent courtyards featuring flowers, fountains, and sculptures. The interior showcases period furniture and art from Córdoba’s noble families.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Patios are especially beautiful in spring when flowers bloom.",
+        "booking_tips": "Purchase tickets online to avoid queues, especially in spring.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8824,
+        "longitude": -4.7725,
+        "neighborhood": "Viana",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed on Mondays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.palaciodeviana.org/",
+        "website": "https://www.palaciodeviana.org/"
+      },
+      {
+        "name": "Plaza de la Corredera",
+        "type": "Historic Site",
+        "description": "This large 17th-century rectangular plaza is lined with vibrant arcaded buildings and lively cafes. It has been a traditional marketplace and social hub and remains a favorite spot for locals and visitors to relax and people-watch.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor seating is pleasant in spring and fall; summers can be warm midday.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 37.881,
+        "longitude": -4.7768,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C4",
+            "C5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby museums if raining."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo Julio Romero de Torres",
+        "type": "Museum",
+        "description": "Dedicated to the works of Córdoba’s most famous painter, Julio Romero de Torres, this museum houses a rich collection of his symbolic and sensual portraits. The building itself is a beautiful example of neomudéjar architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round with consistent hours.",
+        "booking_tips": "Tickets can be bought at the door; less crowded mornings.",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8802,
+        "longitude": -4.7796,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C2",
+            "C3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://julioromero.cordoba.es/",
+        "website": "https://julioromero.cordoba.es/"
+      },
+      {
+        "name": "Medina Azahara Archaeological Site",
+        "type": "Historic Site",
+        "description": "Located a few kilometers from Córdoba, Medina Azahara is the ruins of a vast 10th-century Islamic palace-city. It represents the grandeur of the Caliphate of Córdoba with its monumental architecture and extensive gardens.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Best visited in spring or fall to avoid summer heat.",
+        "booking_tips": "Advanced online booking recommended; guided tours available.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 37.8669,
+        "longitude": -4.9433,
+        "neighborhood": "Medina Azahara",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed Tuesdays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "Medina Azahara tourist bus"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Museo Arqueológico de Córdoba if weather is poor."
+        },
+        "official_url": "https://www.medinaazahara.org/",
+        "website": "https://www.medinaazahara.org/"
+      },
+      {
+        "name": "Museo Arqueológico de Córdoba",
+        "type": "Museum",
+        "description": "This museum features a rich collection of artifacts from Córdoba’s prehistoric, Roman, and Islamic periods. It offers archaeological insights into the city’s long history with beautifully curated exhibits.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round with stable hours.",
+        "booking_tips": "Tickets available at entrance; less busy in afternoons.",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8833,
+        "longitude": -4.7794,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://arqueologicodecordoba.mcu.es/",
+        "website": "https://arqueologicodecordoba.mcu.es/"
+      },
+      {
+        "name": "Plaza del Potro",
+        "type": "Historic Site",
+        "description": "A charming Renaissance square featuring a fountain with a bronze colt statue, Plaza del Potro has inspired artists like Cervantes. It’s surrounded by historic buildings and hosts the Museo de Bellas Artes and the Posada del Potro.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 37.8761,
+        "longitude": -4.7796,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C4",
+            "C5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Visit Museo de Bellas Artes nearby if raining."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Mercado Victoria",
+        "type": "Market",
+        "description": "A modern gourmet market housed in a historic building, Mercado Victoria offers a variety of local food stalls, tapas bars, and artisan products. It's a vibrant spot to experience Córdoba’s culinary scene in a lively atmosphere.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; outdoor seating available in good weather.",
+        "booking_tips": "No booking needed, but weekends can be crowded.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 37.883,
+        "longitude": -4.7673,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "12:00-24:00",
+          "weekend": "12:00-24:00",
+          "notes": "Hours may vary during festivals."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C6",
+            "L1"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor market with covered seating."
+        },
+        "official_url": "https://mercadovictoria.com/",
+        "website": "https://mercadovictoria.com/"
+      },
+      {
+        "name": "Parque de Miraflores",
+        "type": "Park",
+        "description": "This spacious park along the Guadalquivir River offers walking paths, picnic areas, and playgrounds. It's a favorite spot for locals to relax, jog, or enjoy outdoor activities with scenic river views.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and fall offer the best weather; summer can be hot midday.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 37.882,
+        "longitude": -4.766,
+        "neighborhood": "Miraflores",
+        "opening_hours": {
+          "weekday": "6:00-22:00",
+          "weekend": "6:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C6",
+            "L2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Museo Arqueológico if raining."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Torre de la Calahorra",
+        "type": "Historic Site",
+        "description": "A fortified gate tower guarding the southern end of the Roman Bridge, the Torre de la Calahorra now hosts a museum about Córdoba’s multicultural past. The tower offers panoramic views of the river and city.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; pleasant in spring and fall.",
+        "booking_tips": "Tickets purchased onsite; less crowded midweek.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8767,
+        "longitude": -4.7858,
+        "neighborhood": "Campo de la Verdad",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed Mondays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://torredelacalahorra.cordoba.es/",
+        "website": "https://torredelacalahorra.cordoba.es/"
+      },
+      {
+        "name": "Museo de Bellas Artes de Córdoba",
+        "type": "Museum",
+        "description": "Housed in a former 16th-century hospital, this fine arts museum features a collection of Spanish paintings, sculptures, and decorative arts from the Renaissance to modern times.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; closed Mondays.",
+        "booking_tips": "Tickets available at entrance; mornings less busy.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8759,
+        "longitude": -4.7776,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C4",
+            "C5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.museobellasartescordoba.es/",
+        "website": "https://www.museobellasartescordoba.es/"
+      },
+      {
+        "name": "Puerta del Puente",
+        "type": "Monument",
+        "description": "This 16th-century Renaissance gate stands at the entrance to the historic center near the Roman Bridge. It was built to commemorate Emperor Charles V’s visit and offers great photo opportunities with the river and Mezquita nearby.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.3,
+          "cultural_significance": 3
+        },
+        "latitude": 37.8769,
+        "longitude": -4.7835,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 0.5,
+          "ideal_time_block": "any",
+          "weather_fallback": "Visit nearby Alcázar if weather is poor."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Patio de los Naranjos",
+        "type": "Historic Site",
+        "description": "This orange tree courtyard adjacent to the Mezquita was once part of the mosque’s ablutions area. Today it is a serene spot to rest and admire the blend of Islamic and Christian architectural elements.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best in spring when orange blossoms scent the air.",
+        "booking_tips": "Access included with Mezquita ticket; no separate booking needed.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 37.8792,
+        "longitude": -4.7791,
+        "neighborhood": "Historic Center",
+        "opening_hours": {
+          "weekday": "8:30-19:00",
+          "weekend": "8:30-19:00",
+          "notes": "Dependent on Mezquita opening hours."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C1",
+            "C2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Explore Mezquita interior if raining."
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Casa de Sefarad",
+        "type": "Museum",
+        "description": "Dedicated to the history and culture of Sephardic Jews in Córdoba, this small museum offers exhibits and audiovisual presentations exploring Jewish heritage in Andalusia.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round except holidays.",
+        "booking_tips": "Small venue; group visits benefit from advance notice.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 37.88,
+        "longitude": -4.7798,
+        "neighborhood": "Jewish Quarter",
+        "opening_hours": {
+          "weekday": "10:00-14:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays and holidays."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C2",
+            "C5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.25,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://casadesefarad.org/",
+        "website": "https://casadesefarad.org/"
+      },
+      {
+        "name": "Parque de la Asomadilla",
+        "type": "Park",
+        "description": "A large green space with walking trails, picnic zones, and playgrounds, Parque de la Asomadilla offers panoramic views of Córdoba and is perfect for outdoor recreation away from the city bustle.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant year-round; best in spring and fall.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 37.8883,
+        "longitude": -4.8034,
+        "neighborhood": "La Asomadilla",
+        "opening_hours": {
+          "weekday": "7:00-22:00",
+          "weekend": "7:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "C3",
+            "L3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit indoor museums if raining."
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Centro Histórico",
+        "alternate_names": [
+          "Old Town",
+          "Historic Center"
+        ],
+        "character": "The beating heart of Córdoba, where ancient streets weave through layers of history and culture. This neighborhood exudes a timeless charm with its whitewashed buildings and narrow alleys alive with stories from Roman, Islamic, and Christian eras.",
+        "location": {
+          "central": true,
+          "description": "Right in the city center, encompassing the area around the Mezquita and the Roman Bridge.",
+          "borders": [
+            "San Basilio",
+            "Juderia",
+            "San Lorenzo"
+          ],
+          "landmarks": [
+            "Mezquita-Catedral de Córdoba",
+            "Roman Bridge",
+            "Alcázar de los Reyes Cristianos"
+          ]
+        },
+        "history": {
+          "overview": "Centro Histórico is the oldest part of Córdoba, reflecting its Roman foundations and Islamic golden age during Al-Andalus.",
+          "significance": "It preserves the city's multicultural heritage and houses UNESCO World Heritage sites.",
+          "notable_events": [
+            "Construction of the Great Mosque in 784 AD",
+            "Christian Reconquest in 1236",
+            "UNESCO designation in 1984"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Puerta Nueva Bus Stop",
+            "Roman Bridge Bus Stop"
+          ],
+          "safety": "Very safe, tourist-friendly with occasional pickpockets",
+          "best_time_to_visit": "Spring and fall for festivals and mild weather",
+          "walkability": "Extremely walkable with pedestrian-only streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Mezquita",
+            "Historic architecture",
+            "Museums",
+            "Artisan shops",
+            "Street performances"
+          ],
+          "atmosphere": [
+            "historic",
+            "vibrant",
+            "cultural"
+          ],
+          "best_for": [
+            "history buffs",
+            "first-time visitors",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Mezquita-Catedral de Córdoba",
+              "type": "Religious/Architectural",
+              "description": "A stunning mosque-cathedral blending Islamic and Christian architecture.",
+              "appeal": "A must-see icon symbolizing Córdoba’s rich cultural fusion."
+            },
+            {
+              "name": "Roman Bridge",
+              "type": "Historical Landmark",
+              "description": "An ancient stone bridge crossing the Guadalquivir River dating back to the 1st century BC.",
+              "appeal": "Offers breathtaking views and photo opportunities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bodegas Campos",
+              "cuisine": "Traditional Andalusian",
+              "price_range": "€€",
+              "known_for": "Classic Cordoban dishes like salmorejo and flamenquín",
+              "atmosphere": "Rustic and lively, with a historic tavern vibe"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the Mezquita without crowds.",
+          "Explore side alleys for hidden artisan shops and quieter cafés.",
+          "Wear comfortable shoes; cobblestones can be uneven."
+        ]
+      },
+      {
+        "name": "San Basilio",
+        "alternate_names": [
+          "San Basilio Quarter"
+        ],
+        "character": "A picturesque neighborhood famous for its stunning patios and authentic Andalusian charm. It’s quieter than the historic center but filled with vibrant local life and floral displays.",
+        "location": {
+          "central": true,
+          "description": "Just north of Centro Histórico, close to the Alcázar.",
+          "borders": [
+            "Centro Histórico",
+            "San Lorenzo",
+            "Juderia"
+          ],
+          "landmarks": [
+            "Patios of San Basilio",
+            "Torre de la Malmuerta"
+          ]
+        },
+        "history": {
+          "overview": "San Basilio grew as a residential quarter for artisans and craftsmen during the Islamic period.",
+          "significance": "Home to Córdoba’s famous patios, it represents the city’s intangible cultural heritage.",
+          "notable_events": [
+            "Annual Patio Festival",
+            "Construction of Torre de la Malmuerta in the 15th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "San Basilio Bus Stop"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "May, during the Patio Festival",
+          "walkability": "Highly walkable with charming narrow streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Floral patios",
+            "Traditional houses",
+            "Local artisan shops"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "authentic",
+            "colorful"
+          ],
+          "best_for": [
+            "garden lovers",
+            "photographers",
+            "cultural tourists"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Patios of San Basilio",
+              "type": "Cultural/Architectural",
+              "description": "Traditional homes with elaborately decorated flower-filled patios.",
+              "appeal": "Experience Córdoba’s unique floral tradition and local hospitality."
+            },
+            {
+              "name": "Torre de la Malmuerta",
+              "type": "Historic Tower",
+              "description": "A 15th-century defensive tower with a unique octagonal shape.",
+              "appeal": "A striking example of medieval military architecture."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Taberna Salinas",
+              "cuisine": "Andalusian tapas",
+              "price_range": "€€",
+              "known_for": "Traditional tapas such as rabo de toro",
+              "atmosphere": "Cozy and authentic local tavern"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the Patio Festival to see the homes at their most colorful.",
+          "Ask locals for recommendations on lesser-known patios open to visitors.",
+          "Try the local homemade wines in small tavernas."
+        ]
+      },
+      {
+        "name": "Campo de la Verdad",
+        "alternate_names": [],
+        "character": "A lively, working-class neighborhood with a strong sense of community and a growing creative spirit. This area feels more residential and less touristy, with authentic markets and family-run eateries.",
+        "location": {
+          "central": false,
+          "description": "Located south of the Guadalquivir River, across from the historic center.",
+          "borders": [
+            "Fátima",
+            "San Rafael",
+            "Miralbaida"
+          ],
+          "landmarks": [
+            "Plaza de Toros de Córdoba",
+            "Parque Cruz Conde"
+          ]
+        },
+        "history": {
+          "overview": "Originally a neighborhood for agricultural workers, it developed into a dense residential area in the 20th century.",
+          "significance": "Represents Córdoba’s modern urban expansion and working-class roots.",
+          "notable_events": [
+            "Post-war urban growth",
+            "Recent cultural revitalization projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Campo de la Verdad Bus Stop"
+          ],
+          "safety": "Generally safe, some areas less patrolled at night",
+          "best_time_to_visit": "Spring and summer for local festivals",
+          "walkability": "Moderately walkable with some urban spread"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Community festivals",
+            "Authentic Andalusian life"
+          ],
+          "atmosphere": [
+            "authentic",
+            "friendly",
+            "unpretentious"
+          ],
+          "best_for": [
+            "cultural explorers",
+            "budget travelers",
+            "long-term stays"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Plaza de Toros de Córdoba",
+              "type": "Cultural/Sports",
+              "description": "Historic bullring hosting traditional events and festivals.",
+              "appeal": "Experience Andalusian cultural traditions firsthand."
+            },
+            {
+              "name": "Parque Cruz Conde",
+              "type": "Park",
+              "description": "A large green space popular with locals for walks and relaxation.",
+              "appeal": "Offers a peaceful break from urban life."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Mesón La Posada",
+              "cuisine": "Traditional Spanish",
+              "price_range": "€",
+              "known_for": "Hearty local dishes and friendly service",
+              "atmosphere": "Casual and welcoming neighborhood spot"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the local markets early in the morning for fresh produce.",
+          "Try to time your visit with local neighborhood festivals for a true cultural experience.",
+          "Public transit connects well with the city center but plan extra time for off-peak hours."
+        ]
+      },
+      {
+        "name": "Calleja de las Flores",
+        "alternate_names": [
+          "Flower Alley"
+        ],
+        "character": "A tiny, photogenic street bursting with flowers and vibrant colors, embodying the romance of Córdoba’s historic charm. It’s one of the city’s most photographed spots, perfect for a quick atmospheric stroll.",
+        "location": {
+          "central": true,
+          "description": "Located in the Judería (Jewish Quarter) within Centro Histórico.",
+          "borders": [
+            "Juderia",
+            "Centro Histórico"
+          ],
+          "landmarks": [
+            "Calleja de las Flores",
+            "Plaza del Potro"
+          ]
+        },
+        "history": {
+          "overview": "This alley dates back to the medieval Jewish quarter and has evolved into a symbol of Córdoba’s colorful heritage.",
+          "significance": "It’s an emblem of Córdoba’s tradition of decorating patios and streets with flowers.",
+          "notable_events": [
+            "Inclusion in many travel guides and photo collections",
+            "Patio festival highlights"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Plaza del Potro Bus Stop"
+          ],
+          "safety": "Very safe, heavily visited by tourists",
+          "best_time_to_visit": "Spring when flowers are in full bloom",
+          "walkability": "Extremely walkable; pedestrian only"
+        },
+        "appeal": {
+          "known_for": [
+            "Flower displays",
+            "Photography",
+            "Romantic atmosphere"
+          ],
+          "atmosphere": [
+            "quaint",
+            "charming",
+            "picturesque"
+          ],
+          "best_for": [
+            "couples",
+            "photographers",
+            "short visits"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 1,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Calleja de las Flores",
+              "type": "Street/Scenic",
+              "description": "A narrow alley renowned for its profusion of hanging flower pots and views of the Mezquita’s tower.",
+              "appeal": "A must-see for iconic Córdoba photos."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Taberna La Montillana",
+              "cuisine": "Tapas and Andalusian",
+              "price_range": "€€",
+              "known_for": "Traditional tapas in a cozy setting",
+              "atmosphere": "Authentic and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning or late afternoon for the best light for photos.",
+          "Combine a visit here with the nearby Plaza del Potro for a full cultural experience.",
+          "Don’t miss the view of the Mezquita tower at the alley’s end."
+        ]
+      },
+      {
+        "name": "Avenida Delicias",
+        "alternate_names": [],
+        "character": "A bustling commercial and dining corridor with a trendy, youthful energy. This neighborhood blends modern shopping centers with lively bars, making it Córdoba’s go-to spot for nightlife and contemporary culture.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, near Renfe Córdoba train station.",
+          "borders": [
+            "Ciudad Jardín",
+            "Levante",
+            "Centro Histórico"
+          ],
+          "landmarks": [
+            "Renfe Córdoba Station",
+            "Calle Cruz Conde (shopping area)"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly in the 20th century, Avenida Delicias grew as a commercial artery linking transport hubs with residential zones.",
+          "significance": "It represents Córdoba’s modern urban life and nightlife development.",
+          "notable_events": [
+            "Expansion of commercial centers in the 1980s",
+            "Growth of nightlife venues in 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Renfe Córdoba Station",
+            "Avenida Delicias Bus Stops"
+          ],
+          "safety": "Safe but be cautious late at night",
+          "best_time_to_visit": "Evenings for nightlife, weekends for shopping",
+          "walkability": "Moderately walkable; some long stretches"
+        },
+        "appeal": {
+          "known_for": [
+            "Nightlife",
+            "Shopping malls",
+            "Live music",
+            "Bars and clubs"
+          ],
+          "atmosphere": [
+            "energetic",
+            "modern",
+            "social"
+          ],
+          "best_for": [
+            "young travelers",
+            "nightlife seekers",
+            "shoppers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Renfe Córdoba Station",
+              "type": "Transport Hub",
+              "description": "Main train station connecting Córdoba to major Spanish cities.",
+              "appeal": "Gateway for travelers arriving by train."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Cervecería La Trastienda",
+              "cuisine": "Tapas and international",
+              "price_range": "€€",
+              "known_for": "Varied tapas and lively atmosphere",
+              "atmosphere": "Trendy and casual"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Try local craft beers at bars along Avenida Delicias.",
+          "Visit on Thursdays or weekends for live music events.",
+          "Combine shopping with tapas tasting in nearby streets."
+        ]
+      },
+      {
+        "name": "Juderia",
+        "alternate_names": [
+          "Jewish Quarter"
+        ],
+        "character": "A labyrinth of narrow cobblestone streets filled with history, artisan shops, and traditional Andalusian houses. The Juderia offers an atmospheric blend of ancient Jewish heritage and Moorish influence.",
+        "location": {
+          "central": true,
+          "description": "Directly adjacent to the Mezquita in the Centro Histórico.",
+          "borders": [
+            "Centro Histórico",
+            "San Basilio"
+          ],
+          "landmarks": [
+            "Synagogue of Córdoba",
+            "Plaza de Maimónides"
+          ]
+        },
+        "history": {
+          "overview": "Once the vibrant Jewish quarter of Córdoba, this neighborhood thrived during the medieval period before the expulsion of Jews in 1492.",
+          "significance": "It preserves the memory and culture of Córdoba’s Jewish community.",
+          "notable_events": [
+            "Medieval Jewish cultural flourishing",
+            "Expulsion decree of 1492"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Plaza de la Corredera Bus Stop"
+          ],
+          "safety": "Very safe, popular with tourists",
+          "best_time_to_visit": "Spring and fall to avoid summer heat",
+          "walkability": "Very walkable with pedestrian-only zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Synagogue",
+            "Jewish heritage",
+            "Traditional crafts",
+            "Boutique shops"
+          ],
+          "atmosphere": [
+            "historic",
+            "mysterious",
+            "inviting"
+          ],
+          "best_for": [
+            "history lovers",
+            "cultural travelers",
+            "shoppers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 4,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Synagogue of Córdoba",
+              "type": "Religious/Historic",
+              "description": "One of the few preserved medieval synagogues in Spain.",
+              "appeal": "A rare glimpse into the Jewish history of Andalusia."
+            },
+            {
+              "name": "Plaza de Maimónides",
+              "type": "Public Square",
+              "description": "A charming plaza named after the famous Jewish philosopher born in Córdoba.",
+              "appeal": "Great spot to relax and absorb local history."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Casa Pepe de la Judería",
+              "cuisine": "Cordoban and Mediterranean",
+              "price_range": "€€€",
+              "known_for": "Flamenco shows and traditional Andalusian dishes",
+              "atmosphere": "Authentic with live cultural performances"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Book a guided walking tour to fully appreciate the Jewish Quarter’s history.",
+          "Visit early to avoid crowds and enjoy the quiet streets.",
+          "Try to catch a flamenco show at one of the local taverns."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Noor",
+          "cuisine_type": "Andalusian contemporary",
+          "description": "Michelin-starred restaurant blending traditional Cordoban flavors with modern techniques, led by chef Paco Morales.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and intimate with a focus on sensory experiences",
+          "neighborhood": "Historic Center",
+          "best_for": [
+            "special occasions",
+            "food enthusiasts",
+            "date night"
+          ],
+          "latitude": 37.8833,
+          "longitude": -4.7798,
+          "reservation_needed": true,
+          "local_tips": "Ask for the tasting menu to experience signature dishes like 'Salmorejo' elevated with unique textures."
+        },
+        {
+          "name": "Bodegas Campos",
+          "cuisine_type": "Traditional Andalusian",
+          "description": "Classic Cordoban cuisine in a historic setting, famous for its Cordoban salmorejo and oxtail stew.",
+          "price_range": "€€€",
+          "atmosphere": "Rustic and authentic with lively local charm",
+          "neighborhood": "Centro",
+          "best_for": [
+            "groups",
+            "family dinners",
+            "traditional food lovers"
+          ],
+          "latitude": 37.883,
+          "longitude": -4.776,
+          "reservation_needed": true,
+          "local_tips": "Try their homemade flamenquín and finish with local dessert pastel cordobés."
+        },
+        {
+          "name": "Choco",
+          "cuisine_type": "Mediterranean fusion",
+          "description": "Contemporary dishes combining Mediterranean flavors with innovative presentation in a cozy atmosphere.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy yet relaxed, perfect for casual fine dining",
+          "neighborhood": "Centro",
+          "best_for": [
+            "date night",
+            "small groups",
+            "foodies"
+          ],
+          "latitude": 37.8825,
+          "longitude": -4.779,
+          "reservation_needed": true,
+          "local_tips": "Pair your meal with local Montilla-Moriles wine to complement flavors."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Taberna Salinas",
+          "cuisine_type": "Traditional Spanish tapas",
+          "description": "Historic tavern serving classic tapas with a focus on fresh, local ingredients and traditional recipes.",
+          "price_range": "€€",
+          "atmosphere": "Bustling and authentic with a lively crowd",
+          "neighborhood": "Centro",
+          "best_for": [
+            "casual meals",
+            "groups",
+            "tapas enthusiasts"
+          ],
+          "latitude": 37.8817,
+          "longitude": -4.7801,
+          "reservation_needed": false,
+          "local_tips": "Try their famous salmorejo and berenjenas fritas (fried eggplants) with honey."
+        },
+        {
+          "name": "Bar Santos",
+          "cuisine_type": "Spanish bar food",
+          "description": "Famous for its tortilla de patatas, this small bar is a favorite among locals for a quick, tasty bite.",
+          "price_range": "€",
+          "atmosphere": "Casual and lively with a traditional bar feel",
+          "neighborhood": "Historic Center",
+          "best_for": [
+            "quick bites",
+            "budget travelers",
+            "solo diners"
+          ],
+          "latitude": 37.8829,
+          "longitude": -4.7768,
+          "reservation_needed": false,
+          "local_tips": "Go early or late to avoid the crowds; the tortilla is often sold out by evening."
+        },
+        {
+          "name": "Taberna La Viuda",
+          "cuisine_type": "Andalusian tapas",
+          "description": "Charming tavern with an extensive tapas menu highlighting local flavors and seasonal ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and traditional with rustic decor",
+          "neighborhood": "Juderia",
+          "best_for": [
+            "tapas tasting",
+            "friends",
+            "casual dining"
+          ],
+          "latitude": 37.8784,
+          "longitude": -4.7759,
+          "reservation_needed": false,
+          "local_tips": "Don’t miss the oxtail and spinach with chickpeas, a regional favorite."
+        },
+        {
+          "name": "La Cuchara de San Lorenzo",
+          "cuisine_type": "Local Andalusian",
+          "description": "Known for hearty Cordoban dishes and a friendly atmosphere, perfect for casual dining.",
+          "price_range": "€€",
+          "atmosphere": "Warm and inviting with rustic charm",
+          "neighborhood": "Centro",
+          "best_for": [
+            "comfort food",
+            "groups",
+            "family meals"
+          ],
+          "latitude": 37.8821,
+          "longitude": -4.781,
+          "reservation_needed": false,
+          "local_tips": "Try seasonal stews and local wines for an authentic experience."
+        },
+        {
+          "name": "Taberna El Pisto",
+          "cuisine_type": "Traditional Andalusian",
+          "description": "Small tavern serving authentic Cordoban dishes with a focus on fresh, simple ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Simple and friendly, great for casual meals",
+          "neighborhood": "Centro",
+          "best_for": [
+            "casual dining",
+            "locals",
+            "budget-friendly"
+          ],
+          "latitude": 37.8815,
+          "longitude": -4.7785,
+          "reservation_needed": false,
+          "local_tips": "Sample the salmorejo and the local cheeses."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercado Victoria",
+          "cuisine_type": "Varied Spanish street food",
+          "description": "Gourmet market with multiple food stalls offering everything from tapas to international street food.",
+          "price_range": "€€",
+          "atmosphere": "Vibrant and social with indoor/outdoor seating",
+          "neighborhood": "Centro",
+          "best_for": [
+            "groups",
+            "food exploration",
+            "casual dining"
+          ],
+          "latitude": 37.8848,
+          "longitude": -4.7772,
+          "reservation_needed": false,
+          "local_tips": "Try different stalls for a variety of local bites and Andalusian wines."
+        },
+        {
+          "name": "Plaza de la Corredera Market Stalls",
+          "cuisine_type": "Traditional street snacks",
+          "description": "Open-air market with vendors selling traditional snacks like churros, olives, and freshly squeezed juices.",
+          "price_range": "€",
+          "atmosphere": "Lively and casual with a local crowd",
+          "neighborhood": "Plaza de la Corredera",
+          "best_for": [
+            "quick snacks",
+            "budget travelers",
+            "people watching"
+          ],
+          "latitude": 37.8828,
+          "longitude": -4.7776,
+          "reservation_needed": false,
+          "local_tips": "Great spot to try fresh orange juice and churros dipped in thick hot chocolate."
+        },
+        {
+          "name": "Churerría La Candelaria",
+          "cuisine_type": "Dessert street food",
+          "description": "Popular churros stand serving freshly fried churros with chocolate, ideal for a sweet treat on the go.",
+          "price_range": "€",
+          "atmosphere": "Casual and fast-paced",
+          "neighborhood": "Centro",
+          "best_for": [
+            "dessert lovers",
+            "families",
+            "late night snacks"
+          ],
+          "latitude": 37.8821,
+          "longitude": -4.7793,
+          "reservation_needed": false,
+          "local_tips": "Perfect after an evening stroll; get there early on weekends to avoid lines."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Sojo Ribera",
+          "cuisine_type": "Cocktails and tapas",
+          "description": "Trendy rooftop bar offering panoramic views of the Guadalquivir River and Mezquita, with creative cocktails.",
+          "price_range": "€€€",
+          "atmosphere": "Modern, chic, and lively",
+          "neighborhood": "Ribera",
+          "best_for": [
+            "date night",
+            "sunset views",
+            "cocktail lovers"
+          ],
+          "latitude": 37.8795,
+          "longitude": -4.7762,
+          "reservation_needed": true,
+          "local_tips": "Visit at sunset for spectacular views paired with a signature cocktail."
+        },
+        {
+          "name": "Taberna La Montillana",
+          "cuisine_type": "Wine bar",
+          "description": "Cozy wine bar specializing in Montilla-Moriles wines, perfect for wine tasting and light tapas.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and intimate",
+          "neighborhood": "Centro",
+          "best_for": [
+            "wine enthusiasts",
+            "quiet evenings",
+            "locals"
+          ],
+          "latitude": 37.8814,
+          "longitude": -4.7799,
+          "reservation_needed": false,
+          "local_tips": "Ask for recommendations on local wines to pair with their small plates."
+        },
+        {
+          "name": "Bodegas Mezquita",
+          "cuisine_type": "Traditional Andalusian bar",
+          "description": "Historic bar with a lively atmosphere, serving local wines and tapas near the Mezquita.",
+          "price_range": "€€",
+          "atmosphere": "Bustling and friendly",
+          "neighborhood": "Juderia",
+          "best_for": [
+            "after sightseeing",
+            "groups",
+            "locals"
+          ],
+          "latitude": 37.8798,
+          "longitude": -4.7748,
+          "reservation_needed": false,
+          "local_tips": "Try a glass of fino sherry with the house olives."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café de la Luna",
+          "cuisine_type": "Coffee and pastries",
+          "description": "Charming café known for artisanal coffee, fresh pastries, and a cozy ambiance in the heart of the old town.",
+          "price_range": "€",
+          "atmosphere": "Relaxed and intimate",
+          "neighborhood": "Centro",
+          "best_for": [
+            "breakfast",
+            "coffee lovers",
+            "quiet moments"
+          ],
+          "latitude": 37.881,
+          "longitude": -4.778,
+          "reservation_needed": false,
+          "local_tips": "Try their tostada with Iberian ham and fresh tomato."
+        },
+        {
+          "name": "Café Maestre",
+          "cuisine_type": "Traditional Spanish café",
+          "description": "Popular café offering classic Spanish coffee culture with churros and light sandwiches.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic",
+          "neighborhood": "Centro",
+          "best_for": [
+            "breakfast",
+            "people watching",
+            "budget travelers"
+          ],
+          "latitude": 37.8835,
+          "longitude": -4.7804,
+          "reservation_needed": false,
+          "local_tips": "Order churros con chocolate for a true local experience."
+        },
+        {
+          "name": "Confitería La Campana",
+          "cuisine_type": "Pastry and café",
+          "description": "Historic pastry shop and café serving traditional Cordoban sweets and coffee since 1945.",
+          "price_range": "€",
+          "atmosphere": "Classic and elegant",
+          "neighborhood": "Centro",
+          "best_for": [
+            "dessert lovers",
+            "coffee breaks",
+            "families"
+          ],
+          "latitude": 37.8822,
+          "longitude": -4.7795,
+          "reservation_needed": false,
+          "local_tips": "Try the pastel cordobés, a local puff pastry filled with pumpkin jam."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Cordoba Tapas Tour",
+        "description": "Guided walking tour exploring the best traditional tapas bars in the historic center, including tastings of salmorejo and flamenquín.",
+        "price_range": "€€",
+        "neighborhood": "Centro",
+        "latitude": 37.882,
+        "longitude": -4.779,
+        "reservation_needed": true,
+        "local_tips": "Book in advance to secure spots; tours often include visits to family-run taverns."
+      },
+      {
+        "name": "Cooking Class: Andalusian Cuisine",
+        "description": "Hands-on cooking class teaching how to prepare iconic Cordoban dishes like salmorejo, oxtail stew, and pastel cordobés.",
+        "price_range": "€€€",
+        "neighborhood": "Centro",
+        "latitude": 37.8832,
+        "longitude": -4.7788,
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable clothes and appetite; classes usually end with a shared meal and wine."
+      },
+      {
+        "name": "Visit to Mercado Victoria",
+        "description": "Self-guided or guided visit through Cordoba’s gourmet market sampling local products and street food specialties.",
+        "price_range": "€",
+        "neighborhood": "Centro",
+        "latitude": 37.8848,
+        "longitude": -4.7772,
+        "reservation_needed": false,
+        "local_tips": "Go early to avoid crowds and catch freshly made tapas from vendors."
+      },
+      {
+        "name": "Olive Oil Tasting Experience",
+        "description": "Discover the varieties and quality of Andalusian olive oils with a tasting workshop paired with local bread and cheeses.",
+        "price_range": "€€",
+        "neighborhood": "Centro",
+        "latitude": 37.88,
+        "longitude": -4.779,
+        "reservation_needed": true,
+        "local_tips": "Great for foodies interested in regional ingredients; pairs well with a visit to a local almazara (olive mill)."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Espárragos trigueros (wild asparagus) dishes",
+        "Cordoban gazpacho variations",
+        "Fresh lamb stews"
+      ],
+      "summer": [
+        "Salmorejo (cold tomato and bread soup)",
+        "Gazpacho Andaluz",
+        "Grilled sardines and seafood tapas"
+      ],
+      "autumn": [
+        "Oxtail stew (Rabo de toro)",
+        "Mushroom and truffle dishes",
+        "Chestnut desserts and pastries"
+      ],
+      "winter": [
+        "Puchero (traditional meat and chickpea stew)",
+        "Hot chocolate with churros",
+        "Seasonal game dishes such as partridge"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Madrid",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 45m",
+            "frequency": "hourly",
+            "price_range": "€25-€60",
+            "operator": "Renfe AVE",
+            "notes": "High-speed AVE trains connect Córdoba and Madrid directly."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "multiple daily",
+            "price_range": "€15-€30",
+            "operator": "ALSA",
+            "notes": "Direct buses from Córdoba bus station to Madrid Estación Sur."
+          }
+        ]
+      },
+      {
+        "city": "Seville",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "45m",
+            "frequency": "hourly",
+            "price_range": "€15-€35",
+            "operator": "Renfe AVE",
+            "notes": "Frequent high-speed services between Córdoba and Seville."
+          },
+          {
+            "type": "bus",
+            "duration": "2h",
+            "frequency": "daily",
+            "price_range": "€12-€20",
+            "operator": "ALSA",
+            "notes": "Regular bus routes available."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€45-€90",
+            "operator": "Renfe AVE",
+            "notes": "High-speed train with one change, usually in Madrid."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€100",
+            "operator": "Vueling, Iberia",
+            "notes": "Flights depart from Córdoba Airport to Barcelona El Prat."
+          }
+        ]
+      },
+      {
+        "city": "Lisbon",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "ALSA, Rede Expressos",
+            "notes": "Direct international buses available, no direct train."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "few times weekly",
+            "price_range": "€50-€120",
+            "operator": "TAP Portugal, Ryanair",
+            "notes": "Limited flights; may require connection."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Air France, Vueling",
+            "notes": "Flights from Córdoba Airport via Madrid or Barcelona."
+          },
+          {
+            "type": "train",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€90-€180",
+            "operator": "Renfe, SNCF",
+            "notes": "High-speed train via Madrid and Barcelona; requires multiple changes."
+          }
+        ]
+      },
+      {
+        "city": "Valencia",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "Renfe",
+            "notes": "Regular train connections with one or two changes."
+          },
+          {
+            "type": "bus",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "ALSA",
+            "notes": "Direct buses available."
+          }
+        ]
+      },
+      {
+        "city": "Malaga",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 40m",
+            "frequency": "hourly",
+            "price_range": "€20-€50",
+            "operator": "Renfe AVE",
+            "notes": "High-speed train connecting Córdoba and Málaga."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€12-€25",
+            "operator": "ALSA",
+            "notes": "Regular bus services available."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "3h 15m",
+            "frequency": "few times weekly",
+            "price_range": "€70-€180",
+            "operator": "Lufthansa, Swiss",
+            "notes": "Flights from Córdoba via Madrid or Barcelona."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Alitalia, Vueling",
+            "notes": "Connecting flights available via Madrid or Barcelona."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 45m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "KLM, Iberia",
+            "notes": "Flights connect Córdoba with Amsterdam via Madrid."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Patios Festival (Fiesta de los Patios)",
+        "type": "cultural",
+        "description": "Explore beautifully decorated private courtyards across Córdoba, adorned with flowers and traditional Andalusian décor, open to the public during this vibrant festival.",
+        "best_months": [
+          "May"
+        ],
+        "location": "Historic Center",
+        "price": "Free"
+      },
+      {
+        "name": "Cruces de Mayo",
+        "type": "festival",
+        "description": "Experience Córdoba’s traditional Crosses of May festival, featuring decorated crosses in public squares, live music, and street food stalls.",
+        "best_months": [
+          "May"
+        ],
+        "location": "Various squares in Córdoba",
+        "price": "Free"
+      },
+      {
+        "name": "Alcázar de los Reyes Cristianos Gardens Walk",
+        "type": "outdoor",
+        "description": "Enjoy a leisurely stroll through the lush gardens of the Alcázar, taking in blooming flowers and serene fountains under mild spring weather.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Alcázar de los Reyes Cristianos",
+        "price": "Moderate"
+      },
+      {
+        "name": "Spring Tapas Tasting",
+        "type": "food",
+        "description": "Sample seasonal Andalusian specialties such as fresh asparagus and artichokes in Córdoba’s tapas bars during springtime.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Old Town tapas bars",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Festival de la Guitarra",
+        "type": "cultural",
+        "description": "Attend world-class guitar concerts featuring flamenco and classical performances in historic venues throughout Córdoba.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Various theaters and plazas",
+        "price": "Moderate"
+      },
+      {
+        "name": "Evening Walk along the Guadalquivir River",
+        "type": "outdoor",
+        "description": "Beat the summer heat with a sunset stroll by the river, enjoying cooler breezes and views of the Roman Bridge.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Guadalquivir Riverbank",
+        "price": "Free"
+      },
+      {
+        "name": "Flamenco Shows",
+        "type": "cultural",
+        "description": "Experience passionate live flamenco performances in intimate venues during warm summer nights.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Tablaos in Historic Center",
+        "price": "Moderate"
+      },
+      {
+        "name": "Summer Night Tapas Crawl",
+        "type": "food",
+        "description": "Enjoy Córdoba’s nightlife with a tapas crawl sampling cold gazpacho, salmorejo, and other refreshing dishes.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Central Córdoba",
+        "price": "Budget"
+      },
+      {
+        "name": "Swimming at La Victoria Pool",
+        "type": "sport",
+        "description": "Cool off in the public outdoor pool, a popular local spot for swimming and relaxation during hot summer days.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Piscina La Victoria",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Cordoba Guitar Festival",
+        "type": "cultural",
+        "description": "Attend the autumn edition of the Cordoba Guitar Festival, showcasing renowned guitarists and diverse musical styles.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Various venues",
+        "price": "Moderate"
+      },
+      {
+        "name": "Olive Oil Harvest Tours",
+        "type": "outdoor",
+        "description": "Join guided tours to nearby olive groves to witness and participate in the traditional olive harvest season.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Countryside around Córdoba",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Food Markets",
+        "type": "food",
+        "description": "Taste freshly harvested local products like chestnuts, figs, and new olive oil at Córdoba’s autumn markets.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Mercado Victoria and central markets",
+        "price": "Budget"
+      },
+      {
+        "name": "Roman Bridge and Mezquita Visit",
+        "type": "cultural",
+        "description": "Explore Córdoba’s iconic Mezquita and Roman Bridge in pleasant autumn weather, avoiding summer crowds.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Historic Center",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking in Sierra de Hornachuelos",
+        "type": "sport",
+        "description": "Take advantage of cooler temperatures for hiking and birdwatching in this nearby natural park.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Sierra de Hornachuelos Natural Park",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Markets and Lights",
+        "type": "festival",
+        "description": "Enjoy festive decorations, artisan stalls, and seasonal treats at Córdoba’s Christmas markets and illuminated streets.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza de las Tendillas and Old Town",
+        "price": "Free"
+      },
+      {
+        "name": "New Year’s Eve Celebrations",
+        "type": "festival",
+        "description": "Join locals in lively plazas for traditional grape-eating at midnight and fireworks to welcome the new year.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza de las Tendillas",
+        "price": "Free"
+      },
+      {
+        "name": "Visit to Medina Azahara",
+        "type": "cultural",
+        "description": "Explore the impressive ruins of the medieval Islamic city, more comfortable to visit in the cooler winter months.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Medina Azahara archaeological site",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Tapas with Local Wine",
+        "type": "food",
+        "description": "Warm up with hearty Andalusian stews and local Montilla-Moriles wines in cozy Córdoba taverns.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Historic Center bars",
+        "price": "Budget"
+      },
+      {
+        "name": "Indoor Flamenco Performances",
+        "type": "cultural",
+        "description": "Experience intimate flamenco shows indoors, perfect for chilly winter evenings.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Tablaos and theaters",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Three Kings Day (Epiphany)",
+            "notes": "Cool, mild weather; festive atmosphere with Three Kings Day celebrations; moderate crowds mainly local families and tourists interested in cultural events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Coldest period of the year, low tourist activity; some rainy days; city is quiet but some museums and attractions remain open.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather starts to improve slightly with mild days; low to moderate crowds; good for cultural visits and avoiding peak season prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Still cool but improving weather; some rainy days; fewer tourists, quiet city ambiance; good for budget travelers and cultural sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Cordoba Carnival (dates vary, often mid-February)",
+            "notes": "Festive carnival period with colorful parades and local traditions; mild weather; crowds increase but manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival period with lower crowds; temperatures rising slightly; good for outdoor exploring before spring crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring begins; mild and pleasant weather; moderate crowds start to form; great for walking and sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Preparations for Semana Santa (Holy Week)",
+            "notes": "Weather very good; city begins to buzz with Semana Santa preparations; excellent time to experience local culture before the big crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm, sunny days; early spring flowers bloom; good for outdoor activities; moderate visitors but lower than April peak.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Semana Santa (Holy Week) - Dates vary, often early to mid-April",
+            "notes": "One of the most important religious and cultural events in Cordoba; spectacular processions; very crowded but unforgettable experience; mild warm weather.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post Semana Santa period with residual crowds; weather warm and pleasant; good for sightseeing and outdoor dining.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Patios Festival (Fiesta de los Patios) - Usually mid to late May but can start late April",
+            "notes": "Early patios bloom with flowers; pleasant temperatures; increasing tourists but still manageable; great cultural experience with open private patios decorated with flowers.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Patios Festival continues (early May)",
+            "notes": "Peak month for the famous Patios Festival; spectacular floral displays throughout the city; warm, sunny weather; very popular with tourists.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm to hot weather; still good for outdoor activities; crowd levels drop slightly after Patios Festival; good for exploring the Mezquita and old town.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Temperatures start rising significantly, often exceeding 30°C (86°F); outdoor sightseeing can be tiring; fewer tourists than May but heat can be intense.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Heat intensifies with daily highs often above 35°C (95°F); mid-day sightseeing uncomfortable; low season for tourism; many locals take holidays.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat with temperatures regularly above 38°C (100°F); many attractions close midday; very low tourism except some business travelers; not ideal for sightseeing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 1,
+              "business": 3,
+              "budget": 2,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Continued extreme heat; outdoor activities difficult; very low visitor numbers; best to avoid unless seeking quiet and low prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 1,
+              "business": 3,
+              "budget": 2,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Slightly lower but still high temperatures; locals mostly on vacation; many shops and restaurants close mid-August; low tourist activity.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 2,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of August sees temperatures easing; some cultural events restart; better for sightseeing but still warm; moderate low crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Weather becomes pleasant again, temperatures drop to comfortable 25-30°C (77-86°F); crowds start to increase; good month for visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued pleasant weather; ideal for outdoor dining and walking; moderate tourists; good cultural events begin.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild autumn weather, cooling down to 20-25°C (68-77°F); fewer crowds than September; good for exploring historic sites and parks.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Stable weather; occasional rain; great month for cultural festivals and visiting museums; moderate crowds and comfortable temperatures.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures averaging 15-20°C (59-68°F); increased rain; lower crowds; good for indoor cultural activities and budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Similar conditions continue; off-season with fewer tourists; good for travelers looking to avoid crowds and enjoy museums and gastronomy.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool weather with occasional rain; beginning of festive season; moderate crowds around early December; good for cultural and holiday experiences.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Festivities",
+            "notes": "Festive decorations, markets and events create a charming atmosphere; cooler weather but enjoyable; crowds increase but still manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year period",
+            "notes": "Holiday period with festive events; cool weather; moderate to high crowds from local and international visitors enjoying celebrations.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

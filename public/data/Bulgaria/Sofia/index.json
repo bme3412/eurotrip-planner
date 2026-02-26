@@ -1,1 +1,3201 @@
-{"city":"sofia","country":"Bulgaria","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "sofia",
+  "country": "Bulgaria",
+  "overview": {
+    "city_name": "Sofia",
+    "country": "Bulgaria",
+    "brief_description": "Sofia, the vibrant capital of Bulgaria, is a captivating blend of ancient history and modern culture nestled at the foot of Mount Vitosha. This city offers a unique mix of Roman ruins, Orthodox churches, lively markets, and green parks, making it a fascinating destination for travelers seeking both cultural richness and natural beauty.",
+    "nickname": "The City of Seven Hills",
+    "region": "Southeastern Europe, Balkans",
+    "population": "approximately 1.2 million",
+    "why_visit": [
+      "Explore ancient Roman and Byzantine ruins like the Serdica complex",
+      "Discover stunning Orthodox landmarks such as Alexander Nevsky Cathedral",
+      "Hike on Mount Vitosha for breathtaking views and outdoor adventure",
+      "Experience vibrant local markets and traditional Bulgarian cuisine"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and ideal for sightseeing and outdoor activities",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks make it perfect for walking tours and cultural festivals.",
+      "summer": "Warm and sunny with lively street events; great for hiking on nearby mountains.",
+      "autumn": "Crisp air and colorful foliage create a picturesque setting for exploring historic sites.",
+      "winter": "Chilly with occasional snow, ideal for winter sports enthusiasts heading to nearby resorts."
+    },
+    "practical_info": {
+      "currency": "Bulgarian Lev (BGN)",
+      "language": "Bulgarian",
+      "visit_duration": "3 to 4 days to explore main attractions and nearby nature",
+      "getting_around": "Efficient public transport including metro, trams, buses, plus taxis and walking",
+      "safety": "Generally safe for tourists; usual urban precautions recommended"
+    },
+    "coordinates": {
+      "latitude": 42.6977,
+      "longitude": 23.3219
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Alexander Nevsky Cathedral and its impressive golden domes",
+        "Explore the underground Roman ruins at Serdica Metro Station",
+        "Walk through the vibrant Vitosha Boulevard for shopping and dining",
+        "Climb or take a cable car up to Mount Vitosha for panoramic views",
+        "Discover the National History Museum showcasing Bulgaria’s heritage"
+      ],
+      "worth_doing": [
+        "Tour the Boyana Church with its medieval frescoes (UNESCO site)",
+        "Relax in Borisova Gradina Park, Sofia’s oldest and largest green space",
+        "Visit the Ivan Vazov National Theatre for a cultural experience",
+        "Explore the Central Market Hall for local crafts and food",
+        "Check out the Museum of Socialist Art for a unique historical perspective"
+      ],
+      "hidden_gems": [
+        "Wander through the charming streets of the Old Sofia neighborhood",
+        "Discover the ruins and history of the Church of St. George, the oldest building in Sofia",
+        "Visit the Red Flat, an immersive museum showcasing everyday life under communism",
+        "Explore the nearby Dragalevtsi Monastery and its peaceful surroundings",
+        "Stop by the Earth and Man National Museum for fascinating mineral collections"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Alexander Nevsky Cathedral",
+        "type": "Church",
+        "description": "One of Sofia’s most iconic landmarks, the Alexander Nevsky Cathedral is a stunning example of Neo-Byzantine architecture. Built to honor the Russian soldiers who died during the Russo-Turkish War, its golden domes and richly decorated interior draw visitors from around the world.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 42.695138,
+        "longitude": 23.332331,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "7:00-19:00",
+          "weekend": "7:00-19:00",
+          "notes": "Open year-round, closed during major religious holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "9",
+            "72",
+            "94"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.stalexandernevsky.com/",
+        "website": "https://www.stalexandernevsky.com/"
+      },
+      {
+        "name": "National Palace of Culture (NDK)",
+        "type": "Palace",
+        "description": "The National Palace of Culture is Sofia’s largest multifunctional conference and exhibition center, surrounded by a beautiful park with fountains and sculptures. It hosts concerts, exhibitions, and festivals year-round, making it a cultural hub in the city.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget to Moderate depending on event",
+        "seasonal_notes": "Outdoor park area is best visited in spring and summer",
+        "booking_tips": "Check event schedules in advance for tickets",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 42.688716,
+        "longitude": 23.319714,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "9:00-22:00",
+          "weekend": "10:00-22:00",
+          "notes": "Varies by event"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "NDK",
+              "walk_minutes": 2
+            }
+          ],
+          "bus_routes": [
+            "94",
+            "280",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor exhibitions and performances"
+        },
+        "official_url": "https://ndk.bg/en",
+        "website": "https://ndk.bg/en"
+      },
+      {
+        "name": "Boyana Church",
+        "type": "Church",
+        "description": "A UNESCO World Heritage site, Boyana Church is famed for its remarkable medieval frescoes dating back to the 13th century. Located in a picturesque village on the outskirts of Sofia, it offers a fascinating glimpse into Bulgaria’s religious art and history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Best visited in spring or autumn to avoid summer crowds",
+        "booking_tips": "Advance booking recommended for guided tours",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 42.635217,
+        "longitude": 23.276528,
+        "neighborhood": "Boyana",
+        "opening_hours": {
+          "weekday": "9:00-17:30",
+          "weekend": "9:00-17:30",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Vitosha",
+              "walk_minutes": 20
+            }
+          ],
+          "bus_routes": [
+            "64"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "http://boyanachurch.org",
+        "website": null
+      },
+      {
+        "name": "Vitosha Mountain",
+        "type": "Viewpoint|Park",
+        "description": "Just south of Sofia, Vitosha Mountain offers hiking, skiing, and panoramic views over the city and beyond. It’s a beloved natural escape for locals and tourists alike, with well-marked trails and seasonal activities.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free (lift tickets extra)",
+        "seasonal_notes": "Winter for skiing, summer for hiking",
+        "booking_tips": "Purchase ski lift tickets online during winter",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 3
+        },
+        "latitude": 42.6265,
+        "longitude": 23.261,
+        "neighborhood": "Vitosha",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": "Cable cars operate 9:00-16:00 seasonally"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Vitosha",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "66"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 6,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit National Museum of Natural History instead"
+        },
+        "official_url": null,
+        "website": "https://visitvitosha.com/en/"
+      },
+      {
+        "name": "Ivan Vazov National Theatre",
+        "type": "Theatre",
+        "description": "The oldest and most authoritative theatre in Bulgaria, Ivan Vazov National Theatre is a neoclassical masterpiece. It stages a variety of performances, from classical plays to modern dramas, and its grand facade is a must-see in Sofia’s city center.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Season runs September to June",
+        "booking_tips": "Book tickets online in advance for popular shows",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 5
+        },
+        "latitude": 42.6941,
+        "longitude": 23.3242,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "12:00-20:00 (box office)",
+          "weekend": "Closed or varies with shows",
+          "notes": "Shows mostly in the evening"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "9",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor theatre"
+        },
+        "official_url": "https://nationaltheatre.bg/en/",
+        "website": "https://nationaltheatre.bg/en/"
+      },
+      {
+        "name": "Serdika Archaeological Complex",
+        "type": "Historic Site",
+        "description": "Unearthed beneath the streets of Sofia, the Serdika Archaeological Complex reveals ruins from the Roman city Serdica, including streets, baths, and mosaics. The site is integrated with the metro station, offering a unique underground historical experience.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 42.6972,
+        "longitude": 23.3235,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "6:00-23:00 (metro hours)",
+          "weekend": "6:00-23:00 (metro hours)",
+          "notes": "Accessible at all times with metro"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Serdika",
+              "walk_minutes": 0
+            },
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 0
+            }
+          ],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Museum of History",
+        "type": "Museum",
+        "description": "Bulgaria’s largest history museum, it houses over 650,000 artifacts spanning prehistoric times to the modern era. Located in Boyana, the museum’s exhibits include Thracian treasures, medieval artifacts, and royal regalia.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Less crowded in winter months",
+        "booking_tips": "Tickets can be purchased on-site; guided tours available",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 42.6365,
+        "longitude": 23.2739,
+        "neighborhood": "Boyana",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Vitosha",
+              "walk_minutes": 20
+            }
+          ],
+          "bus_routes": [
+            "64"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "http://historymuseum.org/en/",
+        "website": "http://historymuseum.org/en/"
+      },
+      {
+        "name": "Zhenski Pazar Market",
+        "type": "Market",
+        "description": "A lively and authentic open-air market, Zhenski Pazar offers fresh produce, spices, textiles, and local delicacies. It’s a great place to experience Sofia’s everyday life and sample Bulgarian street food.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited spring through autumn",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.695,
+        "longitude": 23.3249,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "7:00-18:00",
+          "weekend": "7:00-15:00",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Lavov Most",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "72",
+            "76"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Central Sofia Market Hall"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Central Sofia Market Hall (Tsentralni Hali)",
+        "type": "Market",
+        "description": "A historic indoor market hall built in the early 20th century, it features dozens of vendors selling fresh food, souvenirs, and crafts. The building’s striking architecture and lively atmosphere make it a popular spot for both locals and tourists.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.6952,
+        "longitude": 23.3241,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "7:00-19:00",
+          "weekend": "7:00-15:00",
+          "notes": "Closed on major holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Serdika",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "9",
+            "72",
+            "94"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Sveti Georgi Rotunda",
+        "type": "Church",
+        "description": "Dating back to the 4th century, the Sveti Georgi Rotunda is Sofia’s oldest preserved building. This small red-brick circular church is famous for its early Christian frescoes and atmospheric interior, tucked away in the courtyard of a modern building.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 5
+        },
+        "latitude": 42.6973,
+        "longitude": 23.3237,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Serdika",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "9",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Art Gallery",
+        "type": "Gallery",
+        "description": "Housed in the former royal palace, the National Art Gallery showcases Bulgaria’s rich artistic heritage from medieval icons to contemporary works. Its grand rooms and elegant architecture enhance the experience for art enthusiasts.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Less crowded in winter",
+        "booking_tips": "Discounts for students and seniors available",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 42.6958,
+        "longitude": 23.3217,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "72",
+            "94"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://nationalartgallerybg.org/en/",
+        "website": "https://nationalartgallerybg.org/en/"
+      },
+      {
+        "name": "Sofia Botanical Garden",
+        "type": "Park",
+        "description": "Managed by the Bulgarian Academy of Sciences, the Sofia Botanical Garden houses over 8,000 plant species from around the world. It’s a tranquil spot for nature lovers, with themed sections, greenhouses, and walking paths.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best in spring and early summer when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 42.6723,
+        "longitude": 23.3335,
+        "neighborhood": "Druzhba",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed on major holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M3",
+              "station": "Druzhba",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "34",
+            "404"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit National Museum of Natural History"
+        },
+        "official_url": "https://www.sbbg.org/en/",
+        "website": "https://www.sbbg.org/en/"
+      },
+      {
+        "name": "Russian Church (Church of St. Nicholas the Miracle-Maker)",
+        "type": "Church",
+        "description": "Built in the early 20th century, this charming Russian Orthodox church is known for its colorful onion domes and richly decorated interior. It serves as a peaceful spiritual oasis in the heart of Sofia.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 42.6963,
+        "longitude": 23.3263,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed on Orthodox major holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "72",
+            "94"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "City Garden (Gradska Gradina)",
+        "type": "Park",
+        "description": "Located next to the National Theatre, the City Garden is Sofia’s oldest and most popular urban park. It features sculptures, fountains, and charming cafés, making it a perfect spot to relax after sightseeing.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Lush and vibrant in spring and summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.6944,
+        "longitude": 23.324,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": "N/A"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "9",
+            "72"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit National Art Gallery"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Museum of Natural History",
+        "type": "Museum",
+        "description": "Established in 1889, this museum showcases an extensive collection of minerals, fossils, plants, and animals native to Bulgaria and the Balkans. It's an excellent option for families and those interested in natural sciences.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Less crowded in winter",
+        "booking_tips": "Tickets available at the entrance",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 42.6861,
+        "longitude": 23.3216,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "NDK",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "94",
+            "280"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "http://www.nmnhs.com/",
+        "website": "http://www.nmnhs.com/"
+      },
+      {
+        "name": "Sofia Synagogue",
+        "type": "Historic Site|Religious Site",
+        "description": "The third largest Sephardic synagogue in Europe, Sofia Synagogue is renowned for its impressive Moorish Revival architecture and richly decorated interior. It remains an active place of worship and a symbol of Bulgaria’s Jewish heritage.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Open to visitors outside prayer times; donations appreciated",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 42.6959,
+        "longitude": 23.3233,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed Saturdays",
+          "notes": "Closed on Jewish holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Serdika",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "72",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Red Flat Cultural Center",
+        "type": "Gallery|Cultural Center",
+        "description": "An alternative art space showcasing contemporary Bulgarian and international artists, the Red Flat Cultural Center also hosts workshops and lectures. It’s a creative hub away from the typical tourist path.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free to Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check event schedule online",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.6975,
+        "longitude": 23.3198,
+        "neighborhood": "Center",
+        "opening_hours": {
+          "weekday": "12:00-20:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays and Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Serdika",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "72",
+            "94"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": "https://redflat.bg/"
+      },
+      {
+        "name": "Borisova Gradina Park",
+        "type": "Park",
+        "description": "This sprawling central park is the oldest and most beloved green space in Sofia, featuring tree-lined avenues, sports facilities, and several monuments. It’s ideal for walking, picnicking, or renting a bike during warmer months.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Lush and vibrant in spring-summer, beautiful autumn foliage",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 42.6785,
+        "longitude": 23.3239,
+        "neighborhood": "Center-East",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": "N/A"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "G.M. Dimitrov",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "72",
+            "213",
+            "305"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "National Museum of History"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "City Center (Central Sofia)",
+        "alternate_names": [
+          "Sofia Center",
+          "Downtown Sofia"
+        ],
+        "character": "The bustling heart of Sofia, where history and modern life collide amid grand boulevards, lively squares, and iconic landmarks. It’s a dynamic mix of government buildings, shopping streets, and cultural institutions that pulse with energy day and night.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of Sofia, encompassing the main square and surrounding streets",
+          "borders": [
+            "Lozenets",
+            "Oborishte",
+            "Ivan Vazov",
+            "Knyazhevo"
+          ],
+          "landmarks": [
+            "Alexander Nevsky Cathedral",
+            "National Assembly",
+            "Ivan Vazov National Theatre",
+            "Sveta Nedelya Church"
+          ]
+        },
+        "history": {
+          "overview": "Centuries-old, this area has been Sofia’s political and cultural center since Ottoman times and earlier.",
+          "significance": "It holds the most important government institutions and historical architecture, embodying Sofia’s identity.",
+          "notable_events": [
+            "Liberation of Sofia (1878)",
+            "Protests and political rallies",
+            "Construction of Alexander Nevsky Cathedral (early 20th century)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Serdika Metro Station",
+            "Sofia Central Bus Station",
+            "Multiple tram lines"
+          ],
+          "safety": "Generally safe with usual urban precautions",
+          "best_time_to_visit": "Spring to early autumn for pleasant weather",
+          "walkability": "Very walkable with pedestrian zones and wide sidewalks"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic landmarks",
+            "Government buildings",
+            "Shopping streets",
+            "Museums",
+            "Theatres"
+          ],
+          "atmosphere": [
+            "vibrant",
+            "historic",
+            "cosmopolitan"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "culture seekers",
+            "shoppers",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Alexander Nevsky Cathedral",
+              "type": "Religious landmark",
+              "description": "A monumental Orthodox cathedral with stunning golden domes and intricate mosaics.",
+              "appeal": "Iconic symbol of Sofia and Bulgaria, perfect for architecture and history lovers."
+            },
+            {
+              "name": "Ivan Vazov National Theatre",
+              "type": "Theatre",
+              "description": "Bulgaria’s national theatre housed in an elegant neoclassical building.",
+              "appeal": "Cultural hub offering performances and a beautiful square to relax in."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Made in Home",
+              "cuisine": "Contemporary Bulgarian",
+              "price_range": "€€",
+              "known_for": "Locally sourced ingredients and creative dishes",
+              "atmosphere": "Cozy, eclectic, casual"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Cathedral early morning to avoid crowds and enjoy peaceful moments.",
+          "Explore side streets around Vitosha Boulevard for hidden cafes and boutiques.",
+          "Use Serdika metro station to quickly access many points of interest."
+        ]
+      },
+      {
+        "name": "Krepost (hip/trendy)",
+        "alternate_names": [
+          "Krepost District"
+        ],
+        "character": "A creative enclave blending street art, indie cafes, and avant-garde galleries, Krepost buzzes with youthful energy and innovation. The neighborhood is a magnet for artists, musicians, and trendsetters shaping Sofia’s contemporary culture.",
+        "location": {
+          "central": false,
+          "description": "Northeast of the city center, just beyond the historic core",
+          "borders": [
+            "Oborishte",
+            "Slatina"
+          ],
+          "landmarks": [
+            "Krepost Art Gallery",
+            "Urban Garden Park"
+          ]
+        },
+        "history": {
+          "overview": "Once an industrial and working-class district, Krepost transformed in the 2010s into Sofia’s creative hotspot.",
+          "significance": "It symbolizes Sofia’s cultural renewal and the rise of underground art scenes.",
+          "notable_events": [
+            "Opening of Krepost Art Festival",
+            "Establishment of urban art studios"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "G.M. Dimitrov Metro Station",
+            "Bus lines 72, 76"
+          ],
+          "safety": "Generally safe with a relaxed vibe",
+          "best_time_to_visit": "Late spring to early autumn for open-air events",
+          "walkability": "Moderately walkable; some streets are industrial"
+        },
+        "appeal": {
+          "known_for": [
+            "Street art",
+            "Live music venues",
+            "Independent galleries",
+            "Craft beer bars",
+            "Alternative culture"
+          ],
+          "atmosphere": [
+            "edgy",
+            "artistic",
+            "laid-back"
+          ],
+          "best_for": [
+            "young travelers",
+            "artists",
+            "music fans",
+            "nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 5,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Krepost Art Gallery",
+              "type": "Gallery",
+              "description": "Showcases contemporary Bulgarian and international street art.",
+              "appeal": "A must-see for fans of modern urban culture."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Brewery 13",
+              "cuisine": "Craft beer and pub fare",
+              "price_range": "€€",
+              "known_for": "Locally brewed beers and relaxed vibe",
+              "atmosphere": "Casual, vibrant, friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check event listings for pop-up art shows and live concerts.",
+          "Visit on a weekend afternoon to explore street art with fewer crowds.",
+          "Try local craft beers at small breweries scattered around."
+        ]
+      },
+      {
+        "name": "Lozenets",
+        "alternate_names": [
+          "Lozenets District"
+        ],
+        "character": "An upscale neighborhood with a leafy, residential feel, Lozenets balances quiet streets and trendy cafes with luxury shopping and embassies. It’s favored by locals for its parks, boutique hotels, and vibrant food scene.",
+        "location": {
+          "central": false,
+          "description": "South of the city center, near the foot of Vitosha Mountain",
+          "borders": [
+            "City Center",
+            "Ivan Vazov",
+            "Boyana"
+          ],
+          "landmarks": [
+            "South Park (Yuzhen Park)",
+            "National Palace of Culture (nearby)"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly in the 20th century as a prestigious residential area.",
+          "significance": "Known for housing Sofia’s affluent residents and diplomatic missions.",
+          "notable_events": [
+            "Development of South Park",
+            "Establishment of cultural venues"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Vitosha Metro Station",
+            "Tram lines 7, 10"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Spring and autumn for park walks",
+          "walkability": "Highly walkable with shaded streets and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Parks and green spaces",
+            "Upscale dining",
+            "Boutique shopping",
+            "Embassies",
+            "Quiet streets"
+          ],
+          "atmosphere": [
+            "tranquil",
+            "refined",
+            "green"
+          ],
+          "best_for": [
+            "families",
+            "luxury travelers",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "South Park",
+              "type": "Park",
+              "description": "A large urban park with playgrounds, walking paths, and cafes.",
+              "appeal": "Perfect for relaxing and outdoor activities away from the city buzz."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Little Things",
+              "cuisine": "Modern European",
+              "price_range": "€€€",
+              "known_for": "Innovative dishes and elegant ambiance",
+              "atmosphere": "Chic, intimate, calm"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk through South Park at sunset for beautiful city views.",
+          "Explore side streets for hidden coffee shops and artisan boutiques.",
+          "Visit local weekend markets for fresh produce and crafts."
+        ]
+      },
+      {
+        "name": "Vitosha Boulevard (Food and Shopping District)",
+        "alternate_names": [
+          "Vitoshka"
+        ],
+        "character": "The premier pedestrian shopping street in Sofia, alive with international brands, street performers, and a culinary mosaic of cafes and restaurants. It’s a vibrant social hub where locals and tourists mingle amid stylish storefronts and outdoor terraces.",
+        "location": {
+          "central": true,
+          "description": "Extends south from the city center along Vitosha Boulevard",
+          "borders": [
+            "City Center",
+            "Lozenets",
+            "Ivan Vazov"
+          ],
+          "landmarks": [
+            "Vitosha Boulevard",
+            "National Palace of Culture (nearby)"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the late 19th and early 20th centuries as Sofia’s main commercial artery.",
+          "significance": "It represents Sofia’s modernization and European style of urban life.",
+          "notable_events": [
+            "Pedestrianization of the boulevard",
+            "Growth of international retail presence"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Serdika Metro Station",
+            "Vitosha Metro Station",
+            "Multiple tram lines"
+          ],
+          "safety": "Very safe and tourist-friendly",
+          "best_time_to_visit": "Late spring through early autumn for outdoor dining",
+          "walkability": "Extremely walkable with wide pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Outdoor cafes",
+            "Street performances",
+            "International cuisine",
+            "People watching"
+          ],
+          "atmosphere": [
+            "bustling",
+            "stylish",
+            "energetic"
+          ],
+          "best_for": [
+            "shoppers",
+            "food lovers",
+            "casual strollers",
+            "urban explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Vitosha Boulevard",
+              "type": "Shopping street",
+              "description": "Sofia’s main walking street lined with shops, cafes, and restaurants.",
+              "appeal": "Prime destination for shopping and dining in a lively atmosphere."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Moma Bulgarian Food & Wine",
+              "cuisine": "Traditional Bulgarian",
+              "price_range": "€€",
+              "known_for": "Authentic Bulgarian flavors in a charming folk-inspired setting",
+              "atmosphere": "Warm, rustic, welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit in the evening for lively street music and illuminated facades.",
+          "Try the outdoor terraces for people watching and local wines.",
+          "Shop for Bulgarian designer souvenirs in boutique stores off the main boulevard."
+        ]
+      },
+      {
+        "name": "Oborishte (Historic Center)",
+        "alternate_names": [
+          "Oborishte District"
+        ],
+        "character": "A neighborhood steeped in history, featuring cobbled streets, neoclassical architecture, and a calm, scholarly atmosphere. It houses important museums, churches, and old government buildings, making it a cultural and intellectual hub.",
+        "location": {
+          "central": true,
+          "description": "Directly north of the City Center, part of the historic core",
+          "borders": [
+            "City Center",
+            "Krepost",
+            "Lozenets"
+          ],
+          "landmarks": [
+            "Sofia History Museum",
+            "St. George Rotunda",
+            "Russian Church"
+          ]
+        },
+        "history": {
+          "overview": "One of Sofia’s oldest quarters, with roots going back to Roman and medieval times.",
+          "significance": "Preserves the city’s architectural heritage and religious landmarks.",
+          "notable_events": [
+            "Discovery of Roman ruins",
+            "Construction of St. George Rotunda in the 4th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Serdika Metro Station",
+            "Bus lines 9, 72"
+          ],
+          "safety": "Safe with quiet streets",
+          "best_time_to_visit": "Year-round, with spring and autumn best for walking",
+          "walkability": "Highly walkable with many pedestrian-friendly areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Museums",
+            "Roman ruins",
+            "Religious sites",
+            "Quiet charm"
+          ],
+          "atmosphere": [
+            "historic",
+            "serene",
+            "cultural"
+          ],
+          "best_for": [
+            "history buffs",
+            "architecture lovers",
+            "museum-goers",
+            "quiet travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "St. George Rotunda",
+              "type": "Historic church",
+              "description": "The oldest building in Sofia, a red brick Roman-era rotunda with ancient frescoes.",
+              "appeal": "A rare glimpse into Sofia’s Roman past in the city center."
+            },
+            {
+              "name": "Sofia History Museum",
+              "type": "Museum",
+              "description": "Exhibits on Sofia’s rich history from antiquity to modern times.",
+              "appeal": "Essential for understanding the city’s evolution."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Pod Lipite",
+              "cuisine": "Traditional Bulgarian",
+              "price_range": "€€",
+              "known_for": "Classic Bulgarian dishes in a traditional atmosphere",
+              "atmosphere": "Cozy, authentic, historic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Look for the hidden Roman ruins visible through glass floors in some buildings.",
+          "Visit the Russian Church for beautiful icons and architecture.",
+          "Stroll in the evening to enjoy the peaceful atmosphere after daytime crowds."
+        ]
+      },
+      {
+        "name": "Druzhba (Residential Area)",
+        "alternate_names": [
+          "Druzhba Residential Complex"
+        ],
+        "character": "A vast, predominantly residential neighborhood characterized by Soviet-era apartment blocks, community parks, and local markets. It offers an authentic glimpse into everyday life in Sofia outside the tourist zones.",
+        "location": {
+          "central": false,
+          "description": "Located east of the city center, near the airport",
+          "borders": [
+            "Mladost",
+            "Iskar",
+            "Lozenets"
+          ],
+          "landmarks": [
+            "Druzhba Park",
+            "Local markets"
+          ]
+        },
+        "history": {
+          "overview": "Built mainly during the socialist period to accommodate Sofia’s growing population.",
+          "significance": "Represents the urban development and social history of late 20th-century Bulgaria.",
+          "notable_events": [
+            "Construction during 1970s-80s",
+            "Community-driven urban renewal projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Druzhba Metro Station",
+            "Bus lines 88, 111"
+          ],
+          "safety": "Relatively safe with a strong local community",
+          "best_time_to_visit": "Summer for park activities",
+          "walkability": "Moderate walkability; some areas better with public transit"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Community parks",
+            "Affordable eateries",
+            "Apartment complexes"
+          ],
+          "atmosphere": [
+            "everyday",
+            "residential",
+            "authentic"
+          ],
+          "best_for": [
+            "long-term visitors",
+            "budget travelers",
+            "those interested in local life"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Druzhba Park",
+              "type": "Park",
+              "description": "A neighborhood green space with playgrounds and walking paths.",
+              "appeal": "Popular with locals for relaxation and outdoor activities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Chuchura",
+              "cuisine": "Bulgarian",
+              "price_range": "€",
+              "known_for": "Homestyle Bulgarian dishes at affordable prices",
+              "atmosphere": "Casual, friendly, local"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the local market on weekends for fresh produce and crafts.",
+          "Use Druzhba Metro Station for easy access to the city center.",
+          "Try small local bakeries for authentic Bulgarian pastries."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Sense Hotel Rooftop Bar & Dining",
+          "cuisine_type": "Modern European with Bulgarian influences",
+          "description": "A sophisticated rooftop restaurant offering panoramic views over Sofia with an elegant menu blending local ingredients and contemporary techniques.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and romantic with stunning city views",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 42.6977,
+          "longitude": 23.3232,
+          "reservation_needed": true,
+          "local_tips": "Try their interpretation of kavarma, a traditional Bulgarian stew, elevated with seasonal vegetables."
+        },
+        {
+          "name": "Cosmos",
+          "cuisine_type": "Modern Bulgarian",
+          "description": "Innovative fine dining focusing on Bulgarian flavors with a creative twist, using local and seasonal produce.",
+          "price_range": "€€€",
+          "atmosphere": "Contemporary and artistic",
+          "neighborhood": "Lozenets",
+          "best_for": [
+            "foodies",
+            "intimate dinners"
+          ],
+          "latitude": 42.6784,
+          "longitude": 23.3175,
+          "reservation_needed": true,
+          "local_tips": "Book the tasting menu to experience a journey through Bulgaria’s culinary heritage."
+        },
+        {
+          "name": "Made in Home",
+          "cuisine_type": "Bulgarian fusion",
+          "description": "Cozy fine dining spot offering creative takes on traditional Bulgarian dishes in a homey setting.",
+          "price_range": "€€",
+          "atmosphere": "Warm and inviting",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "family gatherings"
+          ],
+          "latitude": 42.6973,
+          "longitude": 23.3235,
+          "reservation_needed": true,
+          "local_tips": "Try the banitsa with homemade cheese and a glass of local red wine."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Moma Bulgarian Food & Wine",
+          "cuisine_type": "Traditional Bulgarian",
+          "description": "Popular casual restaurant serving authentic Bulgarian dishes with a rustic, folkloric atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Lively and cultural",
+          "neighborhood": "City Center",
+          "best_for": [
+            "groups",
+            "families"
+          ],
+          "latitude": 42.6971,
+          "longitude": 23.3219,
+          "reservation_needed": false,
+          "local_tips": "Don’t miss the Shopska salad, Bulgaria’s iconic fresh vegetable salad topped with sirene cheese."
+        },
+        {
+          "name": "Skaptobara",
+          "cuisine_type": "Bistro / Bulgarian contemporary",
+          "description": "Trendy bistro with a focus on seasonal local ingredients and a rotating menu of Bulgarian comfort food.",
+          "price_range": "€€",
+          "atmosphere": "Casual and modern",
+          "neighborhood": "Oborishte",
+          "best_for": [
+            "lunch",
+            "casual dining"
+          ],
+          "latitude": 42.6929,
+          "longitude": 23.3248,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade lukanka (Bulgarian cured sausage) with bread."
+        },
+        {
+          "name": "Made in Blue",
+          "cuisine_type": "Mediterranean and Bulgarian fusion",
+          "description": "Casual spot mixing Bulgarian flavors with Mediterranean influences in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Bright and friendly",
+          "neighborhood": "Lozenets",
+          "best_for": [
+            "friends",
+            "lunch"
+          ],
+          "latitude": 42.682,
+          "longitude": 23.3227,
+          "reservation_needed": false,
+          "local_tips": "Their grilled trout with herbs is a local favorite."
+        },
+        {
+          "name": "The Little Things",
+          "cuisine_type": "Bulgarian and international",
+          "description": "Comfortable casual dining with a mix of Bulgarian classics and international dishes.",
+          "price_range": "€",
+          "atmosphere": "Cozy and casual",
+          "neighborhood": "City Center",
+          "best_for": [
+            "casual meals",
+            "groups"
+          ],
+          "latitude": 42.6975,
+          "longitude": 23.322,
+          "reservation_needed": false,
+          "local_tips": "Try the grilled kebapche – a classic Bulgarian grilled minced meat dish."
+        },
+        {
+          "name": "Made in Home Bistro",
+          "cuisine_type": "Bulgarian comfort food",
+          "description": "Casual extension of the fine dining restaurant, offering traditional Bulgarian dishes with a homestyle feel.",
+          "price_range": "€",
+          "atmosphere": "Relaxed and warm",
+          "neighborhood": "City Center",
+          "best_for": [
+            "families",
+            "lunch"
+          ],
+          "latitude": 42.6974,
+          "longitude": 23.324,
+          "reservation_needed": false,
+          "local_tips": "Try the tarator – a refreshing cold cucumber and yogurt soup."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Women’s Market (Zhenski Pazar)",
+          "cuisine_type": "Traditional Bulgarian street food and produce",
+          "description": "Vibrant market offering fresh produce, cheeses, and street snacks like banitsa and grilled meats.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic",
+          "neighborhood": "Zhenski Pazar",
+          "best_for": [
+            "street food lovers",
+            "budget eats"
+          ],
+          "latitude": 42.6966,
+          "longitude": 23.3323,
+          "reservation_needed": false,
+          "local_tips": "Try the freshly baked banitsa from market stalls, perfect for a quick snack."
+        },
+        {
+          "name": "Central Sofia Market Hall",
+          "cuisine_type": "Bulgarian and Balkan street foods",
+          "description": "Indoor market with a variety of vendors selling traditional pastries, grilled meats, and quick bites.",
+          "price_range": "€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "City Center",
+          "best_for": [
+            "quick meals",
+            "exploring local flavors"
+          ],
+          "latitude": 42.6968,
+          "longitude": 23.3225,
+          "reservation_needed": false,
+          "local_tips": "Sample the grilled kebapche and fresh lyutenitsa (pepper spread) on bread."
+        },
+        {
+          "name": "Skaptobara Street Food Corner",
+          "cuisine_type": "Bulgarian street food",
+          "description": "Small street food spot attached to the Skaptobara bistro serving quick traditional snacks.",
+          "price_range": "€",
+          "atmosphere": "Casual and fast-paced",
+          "neighborhood": "Oborishte",
+          "best_for": [
+            "lunch on the go",
+            "street food"
+          ],
+          "latitude": 42.693,
+          "longitude": 23.3245,
+          "reservation_needed": false,
+          "local_tips": "Try their grilled cheese (kashkaval) sandwiches."
+        },
+        {
+          "name": "Sofia Food Truck Festival (seasonal)",
+          "cuisine_type": "Various including Bulgarian street food",
+          "description": "Seasonal street food event featuring multiple food trucks with local and international street eats.",
+          "price_range": "€",
+          "atmosphere": "Festive and social",
+          "neighborhood": "Various locations, often in City Park",
+          "best_for": [
+            "foodies",
+            "events"
+          ],
+          "latitude": 42.688,
+          "longitude": 23.3145,
+          "reservation_needed": false,
+          "local_tips": "Visit in summer to sample a variety of grilled meats and local craft beers."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "One More Bar",
+          "cuisine_type": "Cocktails and spirits",
+          "description": "Trendy bar known for expertly crafted cocktails and a lively atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and stylish",
+          "neighborhood": "City Center",
+          "best_for": [
+            "night out",
+            "cocktail lovers"
+          ],
+          "latitude": 42.697,
+          "longitude": 23.3215,
+          "reservation_needed": false,
+          "local_tips": "Try their signature cocktail ‘The Sofia Mule’ with local rakia."
+        },
+        {
+          "name": "Bar Me",
+          "cuisine_type": "Craft cocktails",
+          "description": "Intimate cocktail bar focusing on quality ingredients and creative drinks.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and intimate",
+          "neighborhood": "Lozenets",
+          "best_for": [
+            "date night",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 42.6781,
+          "longitude": 23.3168,
+          "reservation_needed": true,
+          "local_tips": "Ask the bartenders for recommendations based on your spirit preferences."
+        },
+        {
+          "name": "Sputnik Bar",
+          "cuisine_type": "Craft beers and cocktails",
+          "description": "Popular spot combining a relaxed vibe with a great selection of craft beers and inventive cocktails.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "City Center",
+          "best_for": [
+            "groups",
+            "casual drinks"
+          ],
+          "latitude": 42.6982,
+          "longitude": 23.3225,
+          "reservation_needed": false,
+          "local_tips": "Try local craft beers on tap paired with their small plates."
+        },
+        {
+          "name": "The Cocktail Bar",
+          "cuisine_type": "Cocktails",
+          "description": "Classic cocktail bar with a focus on Bulgarian ingredients and international recipes.",
+          "price_range": "€€",
+          "atmosphere": "Elegant and relaxed",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "after work drinks"
+          ],
+          "latitude": 42.6969,
+          "longitude": 23.324,
+          "reservation_needed": false,
+          "local_tips": "Try a rakia-based cocktail to taste Bulgaria’s signature spirit."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Drekka",
+          "cuisine_type": "Specialty coffee",
+          "description": "Sofia’s premier specialty coffee roaster and café known for high-quality beans and expert brewing.",
+          "price_range": "€",
+          "atmosphere": "Minimalist and hip",
+          "neighborhood": "City Center",
+          "best_for": [
+            "coffee lovers",
+            "work/study"
+          ],
+          "latitude": 42.6976,
+          "longitude": 23.323,
+          "reservation_needed": false,
+          "local_tips": "Try the single origin pour-over coffee and chat with the baristas about their beans."
+        },
+        {
+          "name": "Rainbow Factory",
+          "cuisine_type": "Coffee and desserts",
+          "description": "Vibrant café serving excellent coffee and a wide range of homemade cakes and desserts.",
+          "price_range": "€",
+          "atmosphere": "Colorful and cozy",
+          "neighborhood": "Lozenets",
+          "best_for": [
+            "dessert lovers",
+            "casual meetups"
+          ],
+          "latitude": 42.6787,
+          "longitude": 23.322,
+          "reservation_needed": false,
+          "local_tips": "Try their signature rainbow cake paired with a cappuccino."
+        },
+        {
+          "name": "Vienna Coffee House",
+          "cuisine_type": "Traditional coffee house",
+          "description": "Classic European style coffee house known for its old-world charm and excellent espresso.",
+          "price_range": "€",
+          "atmosphere": "Elegant and traditional",
+          "neighborhood": "City Center",
+          "best_for": [
+            "coffee breaks",
+            "quiet reading"
+          ],
+          "latitude": 42.6978,
+          "longitude": 23.3217,
+          "reservation_needed": false,
+          "local_tips": "Pair your coffee with a slice of banitsa or a traditional Bulgarian pastry."
+        },
+        {
+          "name": "Chucky's Coffee House",
+          "cuisine_type": "Specialty coffee",
+          "description": "Small and cozy specialty coffee spot with a focus on quality and friendly service.",
+          "price_range": "€",
+          "atmosphere": "Casual and welcoming",
+          "neighborhood": "Oborishte",
+          "best_for": [
+            "coffee lovers",
+            "casual meetups"
+          ],
+          "latitude": 42.6927,
+          "longitude": 23.324,
+          "reservation_needed": false,
+          "local_tips": "Try their seasonal filter coffee and homemade pastries."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Sofia Food Tour",
+        "description": "Guided walking tour sampling traditional Bulgarian dishes and local wines at the city’s best eateries and markets.",
+        "price_range": "€€",
+        "location": "City Center",
+        "duration_minutes": 180,
+        "local_tips": "Book in advance and come hungry to taste banitsa, lyutenitsa, and shopska salad."
+      },
+      {
+        "name": "Bulgarian Cooking Class with Market Visit",
+        "description": "Hands-on cooking class starting at a local market to pick fresh ingredients followed by preparation of classic dishes like kavarma and tarator.",
+        "price_range": "€€€",
+        "location": "City Center",
+        "duration_minutes": 240,
+        "local_tips": "Wear comfortable clothes and bring an appetite for traditional homemade meals."
+      },
+      {
+        "name": "Visit to the Women’s Market (Zhenski Pazar)",
+        "description": "Explore Sofia’s oldest market with a local guide to discover fresh produce, cheeses, and street food specialties.",
+        "price_range": "€",
+        "location": "Zhenski Pazar",
+        "duration_minutes": 90,
+        "local_tips": "Try seasonal fruits and sample freshly made banitsa from vendors."
+      },
+      {
+        "name": "Bulgarian Wine Tasting Experience",
+        "description": "Sample a selection of Bulgaria’s finest wines led by a sommelier, paired with local cheeses and charcuterie.",
+        "price_range": "€€",
+        "location": "City Center",
+        "duration_minutes": 120,
+        "local_tips": "Ask about indigenous grape varieties like Mavrud and Melnik."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Snezhanka Salad (yogurt, cucumbers, garlic, and herbs)",
+        "Fresh wild asparagus dishes",
+        "Pickled vegetables and early spring cheese specialties"
+      ],
+      "summer": [
+        "Shopska Salad (tomato, cucumber, pepper, onion, sirene cheese)",
+        "Tarator (cold cucumber and yogurt soup)",
+        "Grilled meats and fresh vegetable lyutenitsa spread"
+      ],
+      "autumn": [
+        "Kavarma (slow-cooked pork or chicken stew with vegetables)",
+        "Mushroom dishes featuring wild forest mushrooms",
+        "Pumpkin desserts and nuts"
+      ],
+      "winter": [
+        "Bob Chorba (traditional bean soup)",
+        "Banitsa with seasonal fillings (pumpkin, spinach, cheese)",
+        "Hot rakia and mulled wine"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Lufthansa, Bulgaria Air",
+            "notes": "Direct flights available from Sofia Airport (SOF) to Berlin Brandenburg (BER)."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "9h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "ÖBB, Bulgarian Railways",
+            "notes": "Overnight trains available with a change in Budapest; scenic route through the Balkans."
+          },
+          {
+            "type": "bus",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses from Sofia Central Bus Station to Vienna International Bus Terminal."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Austrian Airlines, Bulgaria Air",
+            "notes": "Multiple daily direct flights, convenient for quick travel."
+          }
+        ]
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "hourly",
+            "price_range": "€15-€35",
+            "operator": "Metro Turizm, Kamil Koç",
+            "notes": "Frequent direct buses; border crossing can add time during peak seasons."
+          },
+          {
+            "type": "flight",
+            "duration": "1h",
+            "frequency": "multiple daily",
+            "price_range": "€40-€100",
+            "operator": "Turkish Airlines, Pegasus Airlines",
+            "notes": "Multiple flights daily, both to Istanbul Airport (IST) and Sabiha Gökçen (SAW)."
+          }
+        ]
+      },
+      {
+        "city": "Belgrade",
+        "country": "Serbia",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "11h",
+            "frequency": "daily",
+            "price_range": "€20-€50",
+            "operator": "Serbian Railways, Bulgarian Railways",
+            "notes": "Direct overnight train connecting Sofia and Belgrade."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Lasta, FlixBus",
+            "notes": "Frequent bus services with multiple departure times daily."
+          }
+        ]
+      },
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€20-€45",
+            "operator": "Ktel, FlixBus",
+            "notes": "Direct buses from Sofia to Athens with scenic Balkan landscapes."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€40-€110",
+            "operator": "Aegean Airlines, Bulgaria Air",
+            "notes": "Multiple daily flights, convenient for fast travel."
+          }
+        ]
+      },
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "10h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€60",
+            "operator": "Hungarian Railways (MÁV), Bulgarian Railways",
+            "notes": "Direct and overnight trains available via Serbia."
+          },
+          {
+            "type": "bus",
+            "duration": "9h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Daytime direct buses from Sofia to Budapest."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "daily",
+            "price_range": "€50-€160",
+            "operator": "Alitalia, Bulgaria Air, Ryanair",
+            "notes": "Direct flights from Sofia to Rome Fiumicino (FCO) and Ciampino (CIA)."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€60-€140",
+            "operator": "Czech Airlines, Bulgaria Air",
+            "notes": "Direct flights available; limited frequency on weekends."
+          },
+          {
+            "type": "bus",
+            "duration": "15h",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus route with overnight options."
+          }
+        ]
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses available, with scenic routes through Serbia and Croatia."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "3-5 times weekly",
+            "price_range": "€50-€130",
+            "operator": "Bulgaria Air, Ryanair",
+            "notes": "Flights mostly available on select days; good option for quick travel."
+          }
+        ]
+      },
+      {
+        "city": "Thessaloniki",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "hourly",
+            "price_range": "€10-€20",
+            "operator": "Ktel, FlixBus",
+            "notes": "Very frequent and popular route; border crossing times vary."
+          },
+          {
+            "type": "train",
+            "duration": "5h",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Bulgarian Railways, TrainOSE",
+            "notes": "Train connection with one change at the Greek border."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Sofia Marathon",
+        "type": "sport",
+        "description": "Join thousands of runners in this annual marathon that winds through Sofia’s most iconic landmarks, combining sport with city sightseeing.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "City center, Sofia",
+        "price": "Moderate"
+      },
+      {
+        "name": "Cherry Blossom Walks in Borisova Gradina",
+        "type": "outdoor",
+        "description": "Enjoy the blooming cherry blossoms in Sofia’s largest and oldest park, perfect for relaxing strolls and picnics.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Borisova Gradina Park",
+        "price": "Free"
+      },
+      {
+        "name": "Easter Celebrations",
+        "type": "cultural",
+        "description": "Experience traditional Bulgarian Orthodox Easter with colorful egg decorating, church services, and festive foods like kozunak (sweet bread).",
+        "best_months": [
+          "April"
+        ],
+        "location": "Multiple churches and public spaces across Sofia",
+        "price": "Free"
+      },
+      {
+        "name": "Spring Food Tastings and Markets",
+        "type": "food",
+        "description": "Sample seasonal Bulgarian produce such as fresh strawberries, asparagus, and herbs at local farmers’ markets and food festivals.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Zhenski Pazar Market, Sofia",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Sofia International Film Festival",
+        "type": "cultural",
+        "description": "Attend screenings and events showcasing international and Bulgarian films, often held in open-air venues around the city.",
+        "best_months": [
+          "May",
+          "June"
+        ],
+        "location": "Various cinemas and outdoor locations in Sofia",
+        "price": "Moderate"
+      },
+      {
+        "name": "Vitosha Mountain Hiking and Picnics",
+        "type": "outdoor",
+        "description": "Escape the city heat by hiking the trails of Vitosha Mountain, with panoramic views and natural picnic spots.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Vitosha Nature Park",
+        "price": "Free"
+      },
+      {
+        "name": "Summer Night Jazz Festival",
+        "type": "festival",
+        "description": "Enjoy live jazz performances in open-air venues featuring local and international artists during warm summer evenings.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "South Park, Sofia",
+        "price": "Budget"
+      },
+      {
+        "name": "Try Tarator and Shopska Salad",
+        "type": "food",
+        "description": "Cool down with traditional Bulgarian cold cucumber soup (tarator) and a refreshing Shopska salad made with fresh summer vegetables.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Traditional Bulgarian restaurants across Sofia",
+        "price": "Budget"
+      },
+      {
+        "name": "Open-Air Theatre Performances at The National Palace of Culture",
+        "type": "cultural",
+        "description": "Watch plays and concerts in an outdoor setting within the vibrant National Palace of Culture complex.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "National Palace of Culture (NDK), Sofia",
+        "price": "Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Sofia Wine Festival",
+        "type": "festival",
+        "description": "Taste a wide selection of Bulgarian wines and enjoy live music and traditional food in a festive atmosphere.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "City Garden, Sofia",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Walks in Borisova Gradina and South Park",
+        "type": "outdoor",
+        "description": "Experience the colorful autumn foliage in Sofia’s largest parks, ideal for photography and leisurely walks.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Borisova Gradina and South Park, Sofia",
+        "price": "Free"
+      },
+      {
+        "name": "National Revival Festival",
+        "type": "cultural",
+        "description": "Celebrate Bulgarian heritage with folk music, dance performances, and crafts reflecting the country’s history.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Ivan Vazov National Theatre and nearby squares, Sofia",
+        "price": "Free"
+      },
+      {
+        "name": "Pumpkin Soup and Seasonal Mushroom Dishes",
+        "type": "food",
+        "description": "Warm up with traditional Bulgarian pumpkin soup and dishes featuring freshly foraged autumn mushrooms.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Local restaurants in Sofia",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit the National Museum of History",
+        "type": "cultural",
+        "description": "Explore Bulgaria’s rich history through extensive exhibits, perfect for cooler autumn days.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "National Museum of History, Sofia",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Markets",
+        "type": "festival",
+        "description": "Browse handcrafted gifts, enjoy mulled wine, and taste seasonal treats at Sofia’s festive Christmas markets.",
+        "best_months": [
+          "December"
+        ],
+        "location": "City Garden and various squares, Sofia",
+        "price": "Free entry, moderate for purchases"
+      },
+      {
+        "name": "Skiing in Vitosha Mountain",
+        "type": "sport",
+        "description": "Take advantage of the nearby ski slopes for downhill skiing, snowboarding, and winter hiking.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Vitosha Ski Resort",
+        "price": "Moderate"
+      },
+      {
+        "name": "Visit the Alexander Nevsky Cathedral",
+        "type": "cultural",
+        "description": "Marvel at the stunning Orthodox cathedral decorated for the holidays, offering a peaceful retreat from the cold.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Alexander Nevsky Cathedral, Sofia",
+        "price": "Free"
+      },
+      {
+        "name": "Try Banitsa with Yogurt and Hot Rakia",
+        "type": "food",
+        "description": "Warm up with traditional Bulgarian banitsa pastry served with yogurt and enjoy a glass of hot rakia, a local fruit brandy.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Bakeries and taverns throughout Sofia",
+        "price": "Budget"
+      },
+      {
+        "name": "Winter Walks in City Parks",
+        "type": "outdoor",
+        "description": "Enjoy crisp winter air and the serene snow-covered landscapes of Sofia’s parks like Borisova Gradina.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Borisova Gradina and South Park, Sofia",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Orthodox Christmas & New Year Holidays",
+            "notes": "Cold winter weather with temperatures often below freezing; festive atmosphere with local traditions; some tourist activity for holidays but generally low crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often snowy; fewer tourists after holiday period; quieter city but limited outdoor activities due to weather.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold with occasional snow, indoor attractions recommended; low tourist presence; budget travelers may find good deals.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Winter continues with cold temperatures; snow possible; low crowds and fewer events; suitable for budget travelers and winter sport enthusiasts nearby.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Surva Festival (International Festival of Masquerade Games)",
+            "notes": "One of Bulgaria's most famous winter festivals with traditional rituals; cold but cultural richness compensates; attracts moderate visitors for the event.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of winter with slightly milder weather; indoor sightseeing recommended; low crowds; good for cultural visits and city exploration.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with variable weather; some rainy days; outdoor attractions start to open; moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Baba Marta Day (March 1)",
+            "notes": "Traditional Bulgarian holiday celebrating spring; pleasant weather begins; local cultural events; good time for outdoor walks and early spring festivals.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring is settling in; mild temperatures and blooming parks; ideal for sightseeing and outdoor cafes; gradually increasing crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom; mild and pleasant weather; outdoor city tours and nearby mountain hiking are excellent; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter Orthodox Celebrations (variable dates, often April)",
+            "notes": "Major religious and cultural events with vibrant local traditions; great for cultural travelers; weather is comfortable; crowds higher during Easter weekend.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter calm with pleasant temperatures; ideal for outdoor activities and sightseeing; moderate crowds; good deals on accommodation.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Labor Day & St. George's Day (May 1-6)",
+            "notes": "Public holidays with celebrations and some local festivals; mild, warm weather; moderate to high crowds due to holidays.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late spring with warm, pleasant weather; excellent for outdoor sightseeing, parks, and city walks; crowds moderate but growing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Sofia International Film Festival (usually late March-April but some events in May)",
+            "notes": "Cultural festival with international appeal; great weather; vibrant city life; good for arts and culture travelers; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer with warm, sunny weather; ideal for outdoor activities, festivals, and exploring city parks; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Sofia Pride (usually early June)",
+            "notes": "Major cultural and social event attracting visitors; vibrant city atmosphere; warm weather; crowded during events.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer days; good for outdoor sightseeing and short excursions to nearby mountains; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Summer heat can be strong, with temperatures often above 30°C; good for festivals and nightlife; peak tourism season with high crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "A to JazZ Festival (mid July)",
+            "notes": "Renowned international jazz festival with concerts in various venues; warm weather; attracts music lovers; busy but rewarding experience.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued summer heat with occasional thunderstorms; high tourism season with crowded attractions; good nightlife and outdoor events.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Assumption Day (August 15)",
+            "notes": "Religious holiday with local celebrations; some public events but many locals on vacation; city can be quieter; hot weather continues.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm days and cooler evenings; ideal weather for sightseeing and outdoor activities; crowds start to decrease after summer peak.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Sofia Wine Festival (mid-September)",
+            "notes": "Celebration of local wines and gastronomy; pleasant weather; great for food and wine lovers; moderate crowds and lively atmosphere.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors in parks; cooler temperatures but still comfortable; good for cultural sightseeing; fewer tourists than summer.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "National Awakening Day (October 19)",
+            "notes": "Public holiday with some cultural events; weather turning cooler and wetter; lower tourist numbers; good for budget travelers seeking quieter experience.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool and often rainy; many indoor museums and galleries available; low tourist activity; not ideal for outdoor sightseeing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cold and wet; quiet city with fewer tourists; good for cultural travelers who prefer indoor activities and low prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Chilly weather with holiday markets starting; city begins to decorate for Christmas; moderate tourist interest.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year Festivities",
+            "notes": "Festive atmosphere with Christmas markets, concerts, and celebrations; cold weather but very charming; higher crowds around holidays.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

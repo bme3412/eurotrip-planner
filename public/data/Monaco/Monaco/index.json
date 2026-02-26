@@ -1,1 +1,3392 @@
-{"city":"monaco","country":"Monaco","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "monaco",
+  "country": "Monaco",
+  "overview": {
+    "city_name": "Monaco",
+    "country": "Monaco",
+    "brief_description": "Monaco is a glamorous, sovereign city-state on the French Riviera known for its luxury lifestyle, stunning Mediterranean coastline, and prestigious events. This tiny principality offers a unique blend of opulence, rich history, and vibrant cultural experiences all within a compact urban setting.",
+    "nickname": "The Principality",
+    "region": "Western Europe",
+    "population": "approximately 39,000",
+    "why_visit": [
+      "Experience the world-famous Monaco Grand Prix, a thrilling Formula 1 race through city streets",
+      "Explore the luxurious casinos and nightlife of Monte Carlo",
+      "Visit the Prince's Palace and admire its historic architecture and royal collections",
+      "Enjoy stunning seaside views and Mediterranean beaches"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and sunny, perfect for outdoor activities and events",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming gardens create a pleasant atmosphere for sightseeing and outdoor dining.",
+      "summer": "Hot and sunny, ideal for beach visits and attending major events like the Monaco Grand Prix and the Monte Carlo Summer Festival.",
+      "autumn": "Comfortable weather with fewer tourists, great for exploring museums and walking the scenic coastal paths.",
+      "winter": "Mild winters with occasional rain, a quieter time to enjoy the city’s cultural sites and festive holiday decorations."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "French",
+      "visit_duration": "2 to 3 days",
+      "getting_around": "Walking is ideal due to Monaco’s small size; supplemented by buses and taxis for longer distances",
+      "safety": "Monaco is one of the safest places in the world with very low crime rates, but standard travel precautions are advised"
+    },
+    "coordinates": {
+      "latitude": 43.7384,
+      "longitude": 7.4246
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Attend or watch the Monaco Grand Prix",
+        "Visit the Casino de Monte-Carlo",
+        "Tour the Prince's Palace and watch the Changing of the Guard",
+        "Stroll through the Exotic Garden of Monaco",
+        "Explore the Oceanographic Museum"
+      ],
+      "worth_doing": [
+        "Relax at Larvotto Beach",
+        "Discover the Japanese Garden",
+        "Visit the Monaco Cathedral",
+        "Walk the Formula 1 circuit route",
+        "Shop in the luxury boutiques of Carré d’Or"
+      ],
+      "hidden_gems": [
+        "Explore the Fort Antoine Theatre and its panoramic views",
+        "Visit the Saint-Martin Gardens for a peaceful retreat",
+        "Discover the Museum of Stamps and Coins for a unique cultural insight",
+        "Take a coastal hike along the Tête de Chien cliff",
+        "Enjoy local flavors at the Condamine Market"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Prince's Palace of Monaco",
+        "type": "Palace",
+        "description": "The Prince's Palace is the official residence of the Sovereign Prince of Monaco. Built in 1191 as a Genoese fortress, it has been expanded and transformed over centuries and offers a glimpse into Monaco’s royal history and opulent lifestyle. Visitors can witness the changing of the guard and tour the State Apartments filled with Renaissance and Baroque art.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Pre-book tickets online, especially in summer months to avoid queues.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.7315,
+        "longitude": 7.4236,
+        "neighborhood": "Monaco-Ville",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.palais.mc/en/",
+        "website": "https://www.palais.mc/en/"
+      },
+      {
+        "name": "Oceanographic Museum of Monaco",
+        "type": "Museum",
+        "description": "Perched dramatically on the cliffside, the Oceanographic Museum is a renowned marine science museum and aquarium founded by Prince Albert I in 1910. It showcases an extensive collection of marine fauna, coral reefs, and historic oceanographic instruments, making it a must-visit for ocean lovers and families.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Aquarium exhibits are year-round.",
+        "booking_tips": "Buy tickets online to skip lines during peak tourist season.",
+        "ratings": {
+          "cost_estimate": 14,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 43.7334,
+        "longitude": 7.4254,
+        "neighborhood": "Monaco-Ville",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Extended hours in summer"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.oceano.mc/en",
+        "website": "https://www.oceano.mc/en"
+      },
+      {
+        "name": "Jardin Exotique de Monaco",
+        "type": "Park",
+        "description": "This remarkable botanical garden is home to a vast collection of succulent and exotic plants from around the world, nestled on a cliff with panoramic views over Monaco and the Mediterranean. The garden also features a prehistoric anthropology museum and underground caves to explore.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Best visited in spring and autumn for mild weather.",
+        "booking_tips": "Tickets can be purchased on-site; avoid weekends in high season for fewer crowds.",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.747,
+        "longitude": 7.4125,
+        "neighborhood": "La Condamine",
+        "opening_hours": {
+          "weekday": "09:00-19:00",
+          "weekend": "09:00-19:00",
+          "notes": "Closes earlier in winter months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Oceanographic Museum of Monaco"
+        },
+        "official_url": "https://www.jardin-exotique.mc/en/",
+        "website": "https://www.jardin-exotique.mc/en/"
+      },
+      {
+        "name": "Casino de Monte-Carlo",
+        "type": "Monument",
+        "description": "The iconic Monte-Carlo Casino, designed by Charles Garnier, is a stunning Belle Époque masterpiece and a symbol of Monaco's glamour. Beyond gambling, visitors can admire its richly decorated gaming rooms, opulent architecture, and the surrounding gardens.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Premium",
+        "seasonal_notes": "Evening shows and events vary by season.",
+        "booking_tips": "Entry requires a dress code; non-gamblers can pay a small entrance fee to visit the gaming rooms.",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.7384,
+        "longitude": 7.4274,
+        "neighborhood": "Monte-Carlo",
+        "opening_hours": {
+          "weekday": "14:00-04:00",
+          "weekend": "14:00-04:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.montecarlosbm.com/en/casino-monaco/",
+        "website": "https://www.montecarlosbm.com/en/casino-monaco/"
+      },
+      {
+        "name": "Monaco Cathedral (Saint Nicholas Cathedral)",
+        "type": "Church",
+        "description": "This Roman-Byzantine style cathedral, built in 1875, is the resting place of Monaco’s royal family including Grace Kelly and Prince Rainier III. Admire the beautiful white marble façade, stained glass windows, and the impressive altarpiece by Ludovico Brea inside.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Special masses and ceremonies during religious holidays.",
+        "booking_tips": "Open to visitors during most daylight hours; donations appreciated.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 43.7327,
+        "longitude": 7.4254,
+        "neighborhood": "Monaco-Ville",
+        "opening_hours": {
+          "weekday": "08:30-19:00",
+          "weekend": "08:30-19:00",
+          "notes": "Mass times may limit visitor access"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.cathedrale-monaco.com",
+        "website": "https://www.cathedrale-monaco.com"
+      },
+      {
+        "name": "Japanese Garden",
+        "type": "Park",
+        "description": "The serene Japanese Garden offers a peaceful retreat featuring traditional Japanese landscaping with a tea house, waterfalls, and koi ponds. Created in 1994, it is a beautifully maintained space perfect for meditation or a calm stroll near the Monte-Carlo district.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Enjoy cherry blossoms in spring.",
+        "booking_tips": "No booking required; best visited on weekdays to avoid crowds.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7398,
+        "longitude": 7.4292,
+        "neighborhood": "Monte-Carlo",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-19:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Oceanographic Museum of Monaco"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Fontvieille Park and Princess Grace Rose Garden",
+        "type": "Park",
+        "description": "Located in the Fontvieille district, this lush park is dedicated to Princess Grace and features over 4,000 rose bushes, beautiful sculptures, and sweeping views of the harbor. It’s an ideal spot for leisurely walks and picnics away from the hustle of the city.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Rose blooms peak in late spring and early summer.",
+        "booking_tips": "No booking required; visit during weekdays for tranquility.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7279,
+        "longitude": 7.418,
+        "neighborhood": "Fontvieille",
+        "opening_hours": {
+          "weekday": "07:00-20:00",
+          "weekend": "07:00-20:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Monaco Top Cars Collection",
+        "type": "Museum",
+        "description": "This private automobile museum showcases an impressive collection of classic and vintage cars, including rare models and Formula 1 vehicles linked to the Monaco Grand Prix. Car enthusiasts will appreciate the detailed displays and historical context behind each vehicle.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check opening hours in advance; often closed on Mondays.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7273,
+        "longitude": 7.4147,
+        "neighborhood": "Fontvieille",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "http://www.topcarscollection.com/",
+        "website": "http://www.topcarscollection.com/"
+      },
+      {
+        "name": "Saint-Martin Gardens",
+        "type": "Park",
+        "description": "These tranquil gardens next to the Saint-Martin Church offer a peaceful green space with Mediterranean plants, fountains, and seating areas. It is a lovely spot to relax and enjoy views of the old town and sea.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and summer with blooming flowers.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 2
+        },
+        "latitude": 43.732,
+        "longitude": 7.4233,
+        "neighborhood": "Monaco-Ville",
+        "opening_hours": {
+          "weekday": "07:00-20:00",
+          "weekend": "07:00-20:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Monaco Cathedral"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Monaco Grand Prix Circuit (Circuit de Monaco)",
+        "type": "Historic Site",
+        "description": "Famous worldwide, the Monaco Grand Prix circuit winds through the city streets. Outside race days, visitors can walk parts of the track and see famous corners like the hairpin and tunnel. The circuit epitomizes Monaco’s blend of glamour and motorsport history.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Race held in late May; crowd and traffic restrictions then.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 43.739,
+        "longitude": 7.4276,
+        "neighborhood": "Monte-Carlo",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": "Accessible year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Monaco Automobile Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Nouveau Musée National de Monaco – Villa Paloma",
+        "type": "Museum",
+        "description": "Villa Paloma is a contemporary art museum housed in a stylish villa with modern architecture and a lush garden. It offers rotating exhibitions featuring international contemporary artists and Monaco’s cultural scene.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Exhibitions change seasonally, check schedule before visiting.",
+        "booking_tips": "Tickets can be purchased on-site; online booking recommended for popular exhibitions.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.7393,
+        "longitude": 7.4372,
+        "neighborhood": "La Rousse/Saint Roman",
+        "opening_hours": {
+          "weekday": "11:00-19:00",
+          "weekend": "11:00-19:00",
+          "notes": "Closed Tuesdays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.nmnm.mc/en/",
+        "website": "https://www.nmnm.mc/en/"
+      },
+      {
+        "name": "Port Hercules",
+        "type": "Historic Site|Viewpoint",
+        "description": "Port Hercules is Monaco’s only deep-water port, lined with luxury yachts and surrounded by cafes and shops. Walking along the harbor offers picturesque views of the Mediterranean and the city’s skyline, especially beautiful at sunset.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Yacht shows and regattas take place seasonally.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7323,
+        "longitude": 7.4271,
+        "neighborhood": "La Condamine",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Oceanographic Museum of Monaco"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Marché de La Condamine",
+        "type": "Market",
+        "description": "This lively market in La Condamine district offers fresh local produce, flowers, seafood, and artisanal products. It’s a great place to experience local Monégasque culture, sample regional specialties, and mingle with residents.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Market is open year-round; summer mornings are busiest.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7367,
+        "longitude": 7.4218,
+        "neighborhood": "La Condamine",
+        "opening_hours": {
+          "weekday": "07:00-13:00",
+          "weekend": "07:00-13:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Chapel of Mercy (Chapelle de la Miséricorde)",
+        "type": "Church",
+        "description": "Built in the 17th century, this Baroque chapel features ornate interior decorations, frescoes, and is a fine example of religious art in Monaco. It holds cultural importance as a spiritual site for local residents.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open for services and special events.",
+        "booking_tips": "Visitors should respect religious services in progress.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7356,
+        "longitude": 7.425,
+        "neighborhood": "La Condamine",
+        "opening_hours": {
+          "weekday": "09:00-12:00",
+          "weekend": "09:00-12:00",
+          "notes": "Closed during services"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Exotic Caves of Monaco (Grotte de l'Observatoire)",
+        "type": "Historic Site|Natural Site",
+        "description": "Located beneath the Exotic Garden, these prehistoric caves were discovered in 1916 and offer guided tours showcasing stunning stalactites and stalagmites. The caves provide insight into Monaco’s geological history and are a cool retreat during hot days.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Tours available year-round; cave temperatures remain constant.",
+        "booking_tips": "Book guided tours in advance during summer.",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.7468,
+        "longitude": 7.4119,
+        "neighborhood": "La Condamine",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Tours depart regularly"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Oceanographic Museum of Monaco"
+        },
+        "official_url": "https://www.jardin-exotique.mc/en/grotte.html",
+        "website": "https://www.jardin-exotique.mc/en/grotte.html"
+      },
+      {
+        "name": "Monaco Naval Museum",
+        "type": "Museum",
+        "description": "The Naval Museum chronicles Monaco’s maritime history with models of ships, navigational instruments, and artifacts related to naval exploration and the principality’s seafaring past. It offers fascinating insight into the Mediterranean’s naval heritage.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check opening days as museum is small and may have limited hours.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.7312,
+        "longitude": 7.426,
+        "neighborhood": "Monaco-Ville",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Le Rocher (The Rock)",
+        "type": "Neighborhood|Viewpoint",
+        "description": "Le Rocher is Monaco's historic old town perched on a rocky promontory overlooking the sea. Wander its narrow medieval streets, discover quaint shops and cafes, and enjoy spectacular views from the ramparts and gardens.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant year-round; cooler in winter.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 43.731,
+        "longitude": 7.423,
+        "neighborhood": "Monaco-Ville",
+        "opening_hours": {
+          "weekday": "24 hours",
+          "weekend": "24 hours",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Prince's Palace of Monaco"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Monte Carlo",
+        "alternate_names": [
+          "Monaco-Ville",
+          "The Rock"
+        ],
+        "character": "Monte Carlo is the glittering heart of Monaco, known for its luxury casinos, grand hotels, and glamorous lifestyle. It exudes an aura of opulence and excitement, where high-stakes gaming meets elegant promenades along the Mediterranean.",
+        "location": {
+          "central": true,
+          "description": "Situated on the northeastern coast of Monaco, overlooking the sea.",
+          "borders": [
+            "La Condamine",
+            "Casino Square"
+          ],
+          "landmarks": [
+            "Casino de Monte-Carlo",
+            "Hotel de Paris",
+            "Opéra de Monte-Carlo"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the mid-19th century, Monte Carlo became synonymous with luxury gambling and high society.",
+          "significance": "It put Monaco on the world map as a playground for the rich and famous.",
+          "notable_events": [
+            "Opening of the Casino de Monte-Carlo in 1863",
+            "Monaco Grand Prix origins in nearby streets"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Monte Carlo Bus Station"
+          ],
+          "safety": "Very safe, heavily policed and tourist-friendly",
+          "best_time_to_visit": "Spring through early fall for pleasant weather and events",
+          "walkability": "Highly walkable with well-maintained pedestrian areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Casino gambling",
+            "Luxury shopping",
+            "High-end dining",
+            "Opera and theater",
+            "Grand Prix viewing"
+          ],
+          "atmosphere": [
+            "Glamorous",
+            "Sophisticated",
+            "Energetic"
+          ],
+          "best_for": [
+            "Luxury travelers",
+            "Casino enthusiasts",
+            "Event-goers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Casino de Monte-Carlo",
+              "type": "Casino",
+              "description": "Iconic Belle Époque casino renowned worldwide for gaming and architecture.",
+              "appeal": "A must-visit for experiencing Monaco's luxury and history."
+            },
+            {
+              "name": "Opéra de Monte-Carlo",
+              "type": "Opera House",
+              "description": "Historic opera venue hosting world-class performances.",
+              "appeal": "Cultural jewel amidst the luxury district."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Le Louis XV - Alain Ducasse",
+              "cuisine": "French Mediterranean",
+              "price_range": "€€€€€",
+              "known_for": "Michelin-starred haute cuisine",
+              "atmosphere": "Elegant, refined, and exclusive"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early in the evening to enjoy the casino's architecture before it gets crowded.",
+          "Book dining reservations well in advance, especially during Grand Prix week.",
+          "Explore the nearby Japanese Garden for a quiet retreat."
+        ]
+      },
+      {
+        "name": "La Condamine",
+        "alternate_names": [
+          "The Port Area"
+        ],
+        "character": "La Condamine offers a lively mix of seafaring charm and bustling markets, centered around Monaco's picturesque harbor. It feels vibrant and authentic, balancing everyday life with tourist appeal.",
+        "location": {
+          "central": true,
+          "description": "Located west of Monte Carlo along the waterfront harbor.",
+          "borders": [
+            "Monte Carlo",
+            "Fontvieille",
+            "Monaco-Ville"
+          ],
+          "landmarks": [
+            "Port Hercules",
+            "Condamine Market",
+            "St. Devote Church"
+          ]
+        },
+        "history": {
+          "overview": "Historically the main port and commercial district, La Condamine has been a hub of trade and fishing.",
+          "significance": "It remains the working heart of Monaco’s maritime activity.",
+          "notable_events": [
+            "Development of Port Hercules as a luxury marina",
+            "Annual Saint Devote celebrations"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Condamine Bus Stop"
+          ],
+          "safety": "Safe with a friendly neighborhood feel",
+          "best_time_to_visit": "Spring and summer for open-air markets and boating",
+          "walkability": "Very walkable, especially around the harbor"
+        },
+        "appeal": {
+          "known_for": [
+            "Harbor views",
+            "Fresh markets",
+            "Maritime atmosphere",
+            "Casual dining"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Authentic",
+            "Relaxed"
+          ],
+          "best_for": [
+            "Food lovers",
+            "Boating enthusiasts",
+            "Casual tourists"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Port Hercules",
+              "type": "Marina",
+              "description": "Monaco’s main deep-water port with luxury yachts and waterfront cafes.",
+              "appeal": "Ideal for watching the glamorous yacht culture up close."
+            },
+            {
+              "name": "Condamine Market",
+              "type": "Market",
+              "description": "Traditional open-air market offering fresh produce and local goods.",
+              "appeal": "Perfect for tasting local flavors and mingling with residents."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Le Quai des Artistes",
+              "cuisine": "Seafood",
+              "price_range": "€€-€€€",
+              "known_for": "Fresh Mediterranean seafood with harbor views",
+              "atmosphere": "Casual yet chic, perfect for sunset dining"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the market early in the morning for the freshest produce and fish.",
+          "Walk the harbor promenade at sunset for stunning views of luxury yachts.",
+          "Try local specialties like socca and barbagiuan at market stalls."
+        ]
+      },
+      {
+        "name": "Fontvieille",
+        "alternate_names": [
+          "Fontvieille District"
+        ],
+        "character": "Fontvieille is a modern, peaceful neighborhood with a blend of residential zones, parks, and some commercial spaces, set on reclaimed land. It feels spacious and family-friendly, contrasting with Monaco’s dense historic areas.",
+        "location": {
+          "central": false,
+          "description": "Southwest tip of Monaco, built on reclaimed land along the coast.",
+          "borders": [
+            "La Condamine",
+            "Monaco Harbor"
+          ],
+          "landmarks": [
+            "Fontvieille Park",
+            "Louis II Stadium",
+            "Princess Grace Rose Garden"
+          ]
+        },
+        "history": {
+          "overview": "Constructed in the 1970s on reclaimed land to expand Monaco’s territory.",
+          "significance": "Fontvieille represents Monaco’s innovative urban development and modern living.",
+          "notable_events": [
+            "Completion of land reclamation projects",
+            "Growth of sporting facilities"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Fontvieille Bus Stops"
+          ],
+          "safety": "Very safe and quiet residential area",
+          "best_time_to_visit": "Year-round, especially spring for gardens",
+          "walkability": "Good walkability with parks and waterfront promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Modern architecture",
+            "Parks and green spaces",
+            "Sporting venues",
+            "Marina views"
+          ],
+          "atmosphere": [
+            "Calm",
+            "Contemporary",
+            "Family-oriented"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term residents",
+            "Visitors seeking quiet"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Princess Grace Rose Garden",
+              "type": "Garden",
+              "description": "A beautifully landscaped garden honoring Princess Grace with thousands of rose varieties.",
+              "appeal": "A peaceful retreat with stunning floral displays."
+            },
+            {
+              "name": "Louis II Stadium",
+              "type": "Sports Venue",
+              "description": "Monaco’s main stadium hosting football matches and events.",
+              "appeal": "Visit for sports fans and lively local events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Piazza",
+              "cuisine": "Italian",
+              "price_range": "€€",
+              "known_for": "Authentic Italian dishes in a relaxed setting",
+              "atmosphere": "Casual and friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike to explore the waterfront and parks easily.",
+          "Visit the rose garden in May-June when flowers are in full bloom.",
+          "Fontvieille has fewer tourists, so it’s great for a quiet afternoon."
+        ]
+      },
+      {
+        "name": "Monaco-Ville",
+        "alternate_names": [
+          "The Old Town",
+          "Le Rocher"
+        ],
+        "character": "Monaco-Ville is the historic medieval quarter perched atop the Rock, offering narrow cobblestone streets and panoramic sea views. It feels timeless and regal, steeped in heritage and tradition.",
+        "location": {
+          "central": true,
+          "description": "Located on a rocky promontory overlooking the sea and the harbor.",
+          "borders": [
+            "La Condamine",
+            "Monte Carlo"
+          ],
+          "landmarks": [
+            "Prince's Palace",
+            "Monaco Cathedral",
+            "Oceanographic Museum"
+          ]
+        },
+        "history": {
+          "overview": "The original settlement of Monaco dating back to ancient times and the seat of the Grimaldi family.",
+          "significance": "It is the historic and political heart of the principality.",
+          "notable_events": [
+            "Grimaldi family rule since 1297",
+            "Construction of the Oceanographic Museum in 1910"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Monaco-Ville Bus Stops"
+          ],
+          "safety": "Very safe with low crime rate",
+          "best_time_to_visit": "Spring and fall for pleasant weather and fewer crowds",
+          "walkability": "Challenging due to steep, narrow streets, but very walkable"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Prince’s Palace",
+            "Museums",
+            "Scenic views"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Quiet",
+            "Picturesque"
+          ],
+          "best_for": [
+            "History buffs",
+            "Culture seekers",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 1,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Prince's Palace of Monaco",
+              "type": "Historic Palace",
+              "description": "The official residence of Monaco’s ruling prince with ceremonial guard changes.",
+              "appeal": "A window into Monaco’s royal heritage."
+            },
+            {
+              "name": "Oceanographic Museum",
+              "type": "Museum",
+              "description": "World-renowned marine science museum founded by Prince Albert I.",
+              "appeal": "Fascinates visitors with marine exhibits and spectacular cliffside views."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Montgolfière",
+              "cuisine": "French Mediterranean",
+              "price_range": "€€€",
+              "known_for": "Classic dishes in a historic setting",
+              "atmosphere": "Intimate and charming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Arrive early to watch the palace guard ceremony at 11:55 AM.",
+          "Wear comfortable shoes for the steep cobblestone streets.",
+          "Visit the Oceanographic Museum’s rooftop terrace for breathtaking sea views."
+        ]
+      },
+      {
+        "name": "Carré d'Or",
+        "alternate_names": [
+          "Golden Square"
+        ],
+        "character": "Carré d'Or is Monaco’s premier luxury shopping district, filled with designer boutiques, upscale restaurants, and lavish hotels. The vibe is chic and cosmopolitan, embodying the essence of high-end urban elegance.",
+        "location": {
+          "central": true,
+          "description": "Nestled between Monte Carlo and La Condamine, centered around Casino Square.",
+          "borders": [
+            "Monte Carlo",
+            "La Condamine"
+          ],
+          "landmarks": [
+            "Casino Square",
+            "Metropole Shopping Center",
+            "Hotel Hermitage"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the early 20th century as Monaco’s luxury commercial hub.",
+          "significance": "It remains the go-to area for luxury shopping and dining.",
+          "notable_events": [
+            "Opening of Metropole Shopping Center",
+            "Numerous fashion week events"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Casino Bus Stop"
+          ],
+          "safety": "Very safe with high tourist presence",
+          "best_time_to_visit": "Year-round, peak during fashion and event seasons",
+          "walkability": "Extremely walkable with pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Luxury boutiques",
+            "Designer brands",
+            "Gourmet restaurants",
+            "Elegant hotels"
+          ],
+          "atmosphere": [
+            "Sophisticated",
+            "Exclusive",
+            "Vibrant"
+          ],
+          "best_for": [
+            "Shoppers",
+            "Foodies",
+            "Luxury seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 1,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Metropole Shopping Center",
+              "type": "Shopping Mall",
+              "description": "Upscale shopping mall featuring luxury brands and designer boutiques.",
+              "appeal": "A premier destination for high-end shopping."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Yoshi by Joël Robuchon",
+              "cuisine": "Japanese",
+              "price_range": "€€€€",
+              "known_for": "Michelin-starred Japanese cuisine",
+              "atmosphere": "Modern, elegant, and refined"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit boutiques early in the day for personalized service.",
+          "Enjoy an aperitif at a terrace cafe to soak in the luxury ambiance.",
+          "Check for seasonal sales for occasional luxury deals."
+        ]
+      },
+      {
+        "name": "Jardin Exotique",
+        "alternate_names": [
+          "Exotic Garden Area"
+        ],
+        "character": "Jardin Exotique is a tranquil and scenic neighborhood known for its lush botanical gardens perched on cliffs. It offers a peaceful, nature-centric atmosphere contrasting with Monaco’s urban core.",
+        "location": {
+          "central": false,
+          "description": "Located on the northwestern edge of Monaco, overlooking the city and sea.",
+          "borders": [
+            "Monaco-Ville",
+            "Fontvieille"
+          ],
+          "landmarks": [
+            "Exotic Garden of Monaco",
+            "Observatory Cave"
+          ]
+        },
+        "history": {
+          "overview": "Developed around the famous Exotic Garden established in the 1930s.",
+          "significance": "It preserves unique plant species and geological features.",
+          "notable_events": [
+            "Opening of the Exotic Garden in 1933",
+            "Discovery of the Observatory Cave"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Jardin Exotique Bus Stop"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Spring and early summer for blooming succulents",
+          "walkability": "Moderately walkable with some steep paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Botanical garden",
+            "Panoramic views",
+            "Geological caves",
+            "Peaceful ambiance"
+          ],
+          "atmosphere": [
+            "Serene",
+            "Natural",
+            "Picturesque"
+          ],
+          "best_for": [
+            "Nature lovers",
+            "Photographers",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Exotic Garden of Monaco",
+              "type": "Botanical Garden",
+              "description": "Home to an extensive collection of succulents and cacti with stunning sea views.",
+              "appeal": "A unique natural attraction in Monaco’s steep terrain."
+            },
+            {
+              "name": "Observatory Cave",
+              "type": "Geological Site",
+              "description": "A cave featuring prehistoric fossils and guided tours.",
+              "appeal": "Fascinating for geology and history enthusiasts."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Le Pinocchio",
+              "cuisine": "Italian",
+              "price_range": "€€",
+              "known_for": "Fresh pasta and Mediterranean dishes",
+              "atmosphere": "Cozy and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Wear comfortable shoes for the garden’s uneven terrain.",
+          "Combine your visit with a hike along the coastal paths nearby.",
+          "Visit early morning to avoid crowds and enjoy cooler temperatures."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Le Louis XV - Alain Ducasse à l’Hôtel de Paris",
+          "cuisine_type": "French, Mediterranean",
+          "description": "A three Michelin-starred restaurant offering refined Mediterranean cuisine crafted by Alain Ducasse in an opulent setting.",
+          "price_range": "€€€€",
+          "atmosphere": "Luxurious and elegant, perfect for celebratory dining",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "special occasions",
+            "gourmet experience",
+            "romantic dinners"
+          ],
+          "latitude": 43.7394,
+          "longitude": 7.4274,
+          "reservation_needed": true,
+          "local_tips": "Request a table near the garden terrace for an intimate dining experience."
+        },
+        {
+          "name": "Yoshi",
+          "cuisine_type": "Japanese, Sushi",
+          "description": "Michelin-starred Japanese restaurant offering authentic sushi and kaiseki dishes with a modern twist.",
+          "price_range": "€€€€",
+          "atmosphere": "Chic and contemporary with minimalist Japanese aesthetics",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "sushi lovers",
+            "intimate dinners",
+            "luxury dining"
+          ],
+          "latitude": 43.7398,
+          "longitude": 7.4271,
+          "reservation_needed": true,
+          "local_tips": "Try the omakase menu for a curated chef's selection experience."
+        },
+        {
+          "name": "Le Grill",
+          "cuisine_type": "French, Mediterranean, Grill",
+          "description": "Located on the rooftop of Hôtel de Paris, Le Grill offers spectacular views alongside expertly grilled Mediterranean dishes.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant with panoramic views of the Mediterranean Sea",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "sunset dinners",
+            "romantic evenings",
+            "fine dining"
+          ],
+          "latitude": 43.7394,
+          "longitude": 7.4274,
+          "reservation_needed": true,
+          "local_tips": "Book a window seat to enjoy breathtaking sunset views over the sea."
+        },
+        {
+          "name": "Blue Bay",
+          "cuisine_type": "Mediterranean, Fusion",
+          "description": "Michelin-starred restaurant blending Mediterranean flavors with Caribbean influences in a sophisticated setting.",
+          "price_range": "€€€€",
+          "atmosphere": "Modern elegance with a relaxed vibe",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "food adventurers",
+            "special occasions"
+          ],
+          "latitude": 43.7389,
+          "longitude": 7.424,
+          "reservation_needed": true,
+          "local_tips": "The tasting menu paired with wine is highly recommended."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Café de Paris Monte-Carlo",
+          "cuisine_type": "French, Brasserie",
+          "description": "Iconic brasserie offering classic French dishes in a lively and historic setting.",
+          "price_range": "€€€",
+          "atmosphere": "Bustling and vibrant with Belle Époque charm",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "people watching",
+            "lunch",
+            "casual dining"
+          ],
+          "latitude": 43.7395,
+          "longitude": 7.4273,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot to enjoy a café au lait while observing the casino crowd."
+        },
+        {
+          "name": "Mozza",
+          "cuisine_type": "Italian, Pizza",
+          "description": "Trendy Italian eatery known for its artisanal pizzas and fresh pasta dishes.",
+          "price_range": "€€",
+          "atmosphere": "Casual and friendly with a modern vibe",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "families",
+            "groups",
+            "casual dinners"
+          ],
+          "latitude": 43.7382,
+          "longitude": 7.4248,
+          "reservation_needed": false,
+          "local_tips": "Try the truffle pizza for a local favorite."
+        },
+        {
+          "name": "Le Safari",
+          "cuisine_type": "Mediterranean",
+          "description": "Popular spot serving fresh seafood and Mediterranean classics right near the exotic gardens.",
+          "price_range": "€€€",
+          "atmosphere": "Relaxed yet chic with outdoor seating",
+          "neighborhood": "Monaco-Ville",
+          "best_for": [
+            "seafood lovers",
+            "lunch",
+            "casual dining"
+          ],
+          "latitude": 43.7335,
+          "longitude": 7.4259,
+          "reservation_needed": true,
+          "local_tips": "Book in advance during summer for a terrace table."
+        },
+        {
+          "name": "Brasserie de Monaco",
+          "cuisine_type": "French, Brasserie",
+          "description": "Classic brasserie with traditional French fare and a great selection of wines and beers.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and informal with a local crowd",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "groups",
+            "casual dining",
+            "after work"
+          ],
+          "latitude": 43.7379,
+          "longitude": 7.4227,
+          "reservation_needed": false,
+          "local_tips": "Try their house-made terrine and daily specials."
+        },
+        {
+          "name": "Il Terrazzino",
+          "cuisine_type": "Italian",
+          "description": "Cozy Italian restaurant known for authentic pasta and warm hospitality.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and casual with a family feel",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "date night",
+            "families"
+          ],
+          "latitude": 43.739,
+          "longitude": 7.4245,
+          "reservation_needed": false,
+          "local_tips": "Reserve a spot on the terrace during warmer months."
+        },
+        {
+          "name": "Stars'N'Bars",
+          "cuisine_type": "American, Bar & Grill",
+          "description": "Casual American-style bar and grill popular for burgers, ribs, and sports viewing.",
+          "price_range": "€€",
+          "atmosphere": "Lively and casual with an international crowd",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "groups",
+            "sports fans",
+            "casual dining"
+          ],
+          "latitude": 43.7393,
+          "longitude": 7.427,
+          "reservation_needed": false,
+          "local_tips": "Great place for watching major sports games with a lively atmosphere."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Marché de la Condamine",
+          "cuisine_type": "Local market, mixed",
+          "description": "Traditional market offering local produce, cheeses, olives, and ready-to-eat street food specialties.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic market vibe",
+          "neighborhood": "La Condamine",
+          "best_for": [
+            "snacks",
+            "local produce",
+            "casual bites"
+          ],
+          "latitude": 43.7408,
+          "longitude": 7.4257,
+          "reservation_needed": false,
+          "local_tips": "Try socca, a chickpea pancake specialty from nearby Nice, available at market stalls."
+        },
+        {
+          "name": "Food Truck Festival (seasonal)",
+          "cuisine_type": "Various international street foods",
+          "description": "Seasonal events featuring a variety of food trucks offering everything from gourmet burgers to crepes.",
+          "price_range": "€",
+          "atmosphere": "Festive and casual outdoor dining",
+          "neighborhood": "Varies, often Fontvieille or Port Hercule",
+          "best_for": [
+            "families",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 43.7363,
+          "longitude": 7.4197,
+          "reservation_needed": false,
+          "local_tips": "Check event dates in advance; great for tasting diverse street food in one place."
+        },
+        {
+          "name": "La Pêche Fraîche",
+          "cuisine_type": "Seafood street food",
+          "description": "Popular spot offering fresh seafood snacks and sandwiches near the port.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively near the marina",
+          "neighborhood": "Port Hercules",
+          "best_for": [
+            "seafood lovers",
+            "quick bites"
+          ],
+          "latitude": 43.7372,
+          "longitude": 7.426,
+          "reservation_needed": false,
+          "local_tips": "Try the grilled sardine sandwich, a local favorite."
+        },
+        {
+          "name": "Crêperie du Port",
+          "cuisine_type": "French Crepes",
+          "description": "Street crepe stand serving both savory and sweet crepes, perfect for a quick snack.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly by the waterfront",
+          "neighborhood": "Port Hercules",
+          "best_for": [
+            "quick snack",
+            "dessert lovers"
+          ],
+          "latitude": 43.7371,
+          "longitude": 7.4263,
+          "reservation_needed": false,
+          "local_tips": "Try the classic ham and cheese savory crepe or the Nutella and banana sweet crepe."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Bar Américain at Hôtel de Paris",
+          "cuisine_type": "Cocktails, Spirits",
+          "description": "Historic bar known for classic cocktails and a glamorous atmosphere dating back to the 1920s.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated and vintage with live piano music",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "cocktail lovers",
+            "romantic evenings",
+            "luxury experience"
+          ],
+          "latitude": 43.7394,
+          "longitude": 7.4275,
+          "reservation_needed": true,
+          "local_tips": "Try their signature 'Monaco Mule' cocktail."
+        },
+        {
+          "name": "Jimmy'z Monte-Carlo",
+          "cuisine_type": "Nightclub, Bar",
+          "description": "Iconic nightclub and bar famous for celebrity sightings and vibrant nightlife.",
+          "price_range": "€€€",
+          "atmosphere": "Energetic, upscale party vibe",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "nightlife",
+            "dancing",
+            "celebrations"
+          ],
+          "latitude": 43.7397,
+          "longitude": 7.4277,
+          "reservation_needed": true,
+          "local_tips": "Arrive early or book a table to avoid long lines on weekends."
+        },
+        {
+          "name": "Blue Gin",
+          "cuisine_type": "Cocktails, Lounge",
+          "description": "Trendy cocktail lounge with a chic ambiance and innovative drinks menu.",
+          "price_range": "€€€",
+          "atmosphere": "Modern and stylish with a relaxed vibe",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "cocktails",
+            "date night",
+            "small groups"
+          ],
+          "latitude": 43.739,
+          "longitude": 7.4268,
+          "reservation_needed": true,
+          "local_tips": "Try the signature gin-based cocktails and enjoy the live DJ sets."
+        },
+        {
+          "name": "Buddha-Bar Monte-Carlo",
+          "cuisine_type": "Asian-inspired cocktails",
+          "description": "Famed for its exotic decor and creative cocktails with Asian fusion influences.",
+          "price_range": "€€€",
+          "atmosphere": "Opulent and exotic with a vibrant crowd",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "nightlife",
+            "cocktail enthusiasts",
+            "lounge atmosphere"
+          ],
+          "latitude": 43.7386,
+          "longitude": 7.4247,
+          "reservation_needed": true,
+          "local_tips": "Ideal for late-night drinks; the atmosphere peaks after 11pm."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café de Paris Monte-Carlo",
+          "cuisine_type": "French Café",
+          "description": "Traditional café offering excellent coffee and French pastries in a historic setting.",
+          "price_range": "€€",
+          "atmosphere": "Bustling and classic with outdoor seating",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "breakfast",
+            "people watching",
+            "casual meetups"
+          ],
+          "latitude": 43.7395,
+          "longitude": 7.4273,
+          "reservation_needed": false,
+          "local_tips": "Best enjoyed in the morning with a croissant and espresso."
+        },
+        {
+          "name": "Stars'N'Bars Café",
+          "cuisine_type": "International Café",
+          "description": "Casual café known for good coffee, light lunches, and friendly service.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and informal",
+          "neighborhood": "Monte Carlo",
+          "best_for": [
+            "casual coffee",
+            "light meals"
+          ],
+          "latitude": 43.7393,
+          "longitude": 7.427,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade cakes with your coffee."
+        },
+        {
+          "name": "Café de la Mairie",
+          "cuisine_type": "French Café",
+          "description": "Quaint café near the town hall serving excellent coffee and pastries with a local flair.",
+          "price_range": "€",
+          "atmosphere": "Cozy and traditional",
+          "neighborhood": "Monaco-Ville",
+          "best_for": [
+            "quiet coffee breaks",
+            "local atmosphere"
+          ],
+          "latitude": 43.7369,
+          "longitude": 7.4249,
+          "reservation_needed": false,
+          "local_tips": "Try the almond croissants; it's a local favorite."
+        },
+        {
+          "name": "Le Marché de la Condamine Café",
+          "cuisine_type": "Market Café",
+          "description": "Casual café inside the Condamine market offering fresh juices and light snacks.",
+          "price_range": "€",
+          "atmosphere": "Lively and informal",
+          "neighborhood": "La Condamine",
+          "best_for": [
+            "market visits",
+            "quick coffee",
+            "snacks"
+          ],
+          "latitude": 43.7408,
+          "longitude": 7.4257,
+          "reservation_needed": false,
+          "local_tips": "Great spot to recharge while exploring the market."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Monaco Food Tour",
+        "description": "Guided walking tour sampling Monaco’s best local specialties including socca, fresh seafood, and pastries.",
+        "price_range": "€€",
+        "location": "Monte Carlo and Monaco-Ville",
+        "duration": "3 hours",
+        "best_for": [
+          "foodies",
+          "first-time visitors",
+          "small groups"
+        ],
+        "local_tips": "Wear comfortable shoes and come hungry; the tour includes multiple tastings."
+      },
+      {
+        "name": "Cooking Class at La Bastide Gourmet",
+        "description": "Hands-on cooking experience focusing on Mediterranean and Monegasque cuisine taught by professional chefs.",
+        "price_range": "€€€",
+        "location": "Monte Carlo",
+        "duration": "4 hours",
+        "best_for": [
+          "cooking enthusiasts",
+          "couples",
+          "small groups"
+        ],
+        "local_tips": "Book in advance and inquire about seasonal menus featuring local seafood."
+      },
+      {
+        "name": "Visit to Marché de la Condamine",
+        "description": "Explore Monaco’s bustling market with a local guide to discover fresh produce, cheeses, and street food specialties.",
+        "price_range": "€",
+        "location": "La Condamine",
+        "duration": "1.5 hours",
+        "best_for": [
+          "culture lovers",
+          "food shoppers",
+          "photographers"
+        ],
+        "local_tips": "Go early in the morning for the freshest selections and less crowd."
+      },
+      {
+        "name": "Wine and Cheese Tasting Experience",
+        "description": "An elegant tasting session featuring local wines paired with artisanal cheeses from Monaco and the surrounding region.",
+        "price_range": "€€",
+        "location": "Monte Carlo",
+        "duration": "2 hours",
+        "best_for": [
+          "wine lovers",
+          "couples",
+          "small groups"
+        ],
+        "local_tips": "Ask for recommendations on pairing local rosé wines with soft cheeses."
+      },
+      {
+        "name": "Seafood Boat Tour with Lunch",
+        "description": "Half-day boat tour along the coast with fresh seafood lunch prepared onboard by a private chef.",
+        "price_range": "€€€€",
+        "location": "Port Hercules",
+        "duration": "5 hours",
+        "best_for": [
+          "luxury travelers",
+          "seafood enthusiasts",
+          "private groups"
+        ],
+        "local_tips": "Book early and specify dietary preferences; the experience is unforgettable at sunset."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Barbajuan (fried savory pastries filled with Swiss chard and ricotta)",
+        "Fresh artichokes from Menton",
+        "Asparagus dishes featuring local white asparagus"
+      ],
+      "summer": [
+        "Socca (chickpea flour pancake, a street food specialty)",
+        "Tomato and basil salads with fresh mozzarella",
+        "Grilled Mediterranean seafood such as squid, prawns, and sea bass"
+      ],
+      "autumn": [
+        "Chestnut dishes including chestnut soup and desserts",
+        "Wild mushrooms incorporated into risottos and pasta",
+        "Fresh truffles featured in seasonal menus"
+      ],
+      "winter": [
+        "Braised beef daube with local red wine",
+        "Hearty vegetable stews with root vegetables",
+        "Traditional fougasse bread served warm with olive oil"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Nice",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "0h 25m",
+            "frequency": "hourly",
+            "price_range": "€5-€15",
+            "operator": "SNCF TER",
+            "notes": "Frequent regional trains from Monaco-Monte Carlo station to Nice Ville"
+          },
+          {
+            "type": "bus",
+            "duration": "0h 40m",
+            "frequency": "hourly",
+            "price_range": "€1.50-€3",
+            "operator": "Lignes d'Azur",
+            "notes": "Bus line 100 runs along the coast connecting Monaco to Nice"
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 00m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "Trenitalia, Thello",
+            "notes": "Direct and connecting trains via Ventimiglia; scenic route through the Alps"
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Alitalia, EasyJet",
+            "notes": "Flights depart from Nice Côte d'Azur Airport, accessible by train or bus"
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 00m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "SNCF TGV",
+            "notes": "High-speed trains from Nice Ville; connecting transfer by TER or bus from Monaco"
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "multiple daily",
+            "price_range": "€70-€180",
+            "operator": "Air France, EasyJet",
+            "notes": "Flights from Nice Airport; accessible via Monaco bus/train"
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Alitalia, Vueling",
+            "notes": "Flights operate from Nice Côte d'Azur Airport with connections from Monaco"
+          }
+        ]
+      },
+      {
+        "city": "Geneva",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "SNCF, Swiss Federal Railways",
+            "notes": "Route via Marseille and Lyon from Monaco with scenic views"
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€50-€130",
+            "operator": "Vueling, EasyJet",
+            "notes": "Flights operate from Nice Airport; transfer via bus/train from Monaco"
+          }
+        ]
+      },
+      {
+        "city": "Marseille",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€25-€60",
+            "operator": "SNCF TER",
+            "notes": "Direct regional trains from Monaco via Nice Ville"
+          },
+          {
+            "type": "bus",
+            "duration": "3h 00m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Affordable bus connection along the coast"
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Trenitalia",
+            "notes": "Multiple changes required, usually in Milan and Verona"
+          }
+        ]
+      },
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "weekly",
+            "price_range": "€100-€220",
+            "operator": "Aegean Airlines",
+            "notes": "Limited direct flights from Nice Airport; requires transfer from Monaco"
+          }
+        ]
+      },
+      {
+        "city": "Corsica (Ajaccio)",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "ferry",
+            "duration": "6h 00m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "Corsica Ferries",
+            "notes": "Ferry service from Nice port; accessible by bus/train from Monaco"
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Monte-Carlo Spring Arts Festival",
+        "type": "cultural",
+        "description": "A vibrant celebration of contemporary art featuring exhibitions, performances, and workshops across Monaco.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Various venues in Monte-Carlo",
+        "price": "Moderate"
+      },
+      {
+        "name": "Princess Grace Rose Garden Walk",
+        "type": "outdoor",
+        "description": "Stroll through the beautifully manicured rose gardens dedicated to Princess Grace, showcasing hundreds of fragrant blooms.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Fontvieille district",
+        "price": "Free"
+      },
+      {
+        "name": "Monaco Grand Prix F1 Testing",
+        "type": "sport",
+        "description": "Experience the thrill as F1 teams test their cars on the iconic Monaco Grand Prix circuit in preparation for the race season.",
+        "best_months": [
+          "May"
+        ],
+        "location": "Monte Carlo Circuit",
+        "price": "Free"
+      },
+      {
+        "name": "Seafood and Shellfish Tasting",
+        "type": "food",
+        "description": "Sample fresh Mediterranean seafood specialties at local restaurants as the season brings in the finest catches.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Port Hercules waterfront eateries",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Formula 1 Monaco Grand Prix",
+        "type": "sport",
+        "description": "The world-famous Formula 1 race takes over the city streets, offering an electrifying atmosphere and exclusive events.",
+        "best_months": [
+          "May"
+        ],
+        "location": "Monte Carlo Circuit",
+        "price": "Premium"
+      },
+      {
+        "name": "Monte-Carlo Beach Club",
+        "type": "outdoor",
+        "description": "Relax and swim in luxury at this private beach club with pools, sunbathing terraces, and Mediterranean views.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Monte-Carlo Beach",
+        "price": "Premium"
+      },
+      {
+        "name": "Monaco Yacht Show",
+        "type": "cultural",
+        "description": "Explore some of the world’s most luxurious yachts and marine innovations at this prestigious annual event.",
+        "best_months": [
+          "September"
+        ],
+        "location": "Port Hercules",
+        "price": "Moderate"
+      },
+      {
+        "name": "Outdoor Cinema at Jardin Exotique",
+        "type": "cultural",
+        "description": "Watch classic and contemporary films under the stars in a unique garden setting overlooking the sea.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Jardin Exotique",
+        "price": "Budget"
+      },
+      {
+        "name": "Mediterranean Seafood Festivals",
+        "type": "food",
+        "description": "Celebrate summer with local seafood festivals featuring grilled fish, shellfish, and Provençal flavors.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Various local markets and waterfront venues",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Monaco International Fireworks Festival",
+        "type": "cultural",
+        "description": "Watch spectacular nightly fireworks displays over the harbor, accompanied by music and festivities.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Port Hercules",
+        "price": "Free"
+      },
+      {
+        "name": "Monaco Yacht Show After Parties",
+        "type": "cultural",
+        "description": "Enjoy exclusive social events and parties celebrating the world of luxury yachting with music and fine dining.",
+        "best_months": [
+          "September"
+        ],
+        "location": "Monte Carlo",
+        "price": "Premium"
+      },
+      {
+        "name": "Harvest Wine Tastings",
+        "type": "food",
+        "description": "Experience local wine harvest celebrations with tastings of regional vintages paired with seasonal delicacies.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Nearby vineyards and Monaco wine bars",
+        "price": "Moderate"
+      },
+      {
+        "name": "Monaco Top Cars Collection Visit",
+        "type": "cultural",
+        "description": "Explore a remarkable collection of vintage and rare automobiles in a climate-controlled museum setting.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Fontvieille",
+        "price": "Moderate"
+      },
+      {
+        "name": "Outdoor Hiking in the Maritime Alps",
+        "type": "outdoor",
+        "description": "Enjoy cooler temperatures with scenic hiking trails offering panoramic views of Monaco and the Mediterranean coast.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Nearby Maritime Alps",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Monaco Christmas Market",
+        "type": "cultural",
+        "description": "Browse festive stalls offering handcrafted gifts, seasonal treats, and warm beverages in a magical holiday setting.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Place d'Armes, Monaco-Ville",
+        "price": "Free"
+      },
+      {
+        "name": "New Year’s Eve Gala at the Casino de Monte-Carlo",
+        "type": "cultural",
+        "description": "Ring in the New Year with glamorous parties, live music, and fine dining in one of Monaco’s most iconic venues.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Casino de Monte-Carlo",
+        "price": "Premium"
+      },
+      {
+        "name": "Winter Mediterranean Seafood Dishes",
+        "type": "food",
+        "description": "Savor hearty seafood stews and seasonal Mediterranean specialties perfect for cooler winter evenings.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Monaco’s gourmet restaurants",
+        "price": "Moderate"
+      },
+      {
+        "name": "Visit the Oceanographic Museum",
+        "type": "cultural",
+        "description": "Explore marine life exhibits and aquariums in this historic museum, ideal for indoor exploration during winter.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Monaco-Ville",
+        "price": "Moderate"
+      },
+      {
+        "name": "Monte-Carlo Winter Sports Excursions",
+        "type": "sport",
+        "description": "Day trips to nearby Alpine resorts offer skiing, snowboarding, and winter hiking just a short drive away.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Nearby French Alps",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year's Day Celebrations",
+            "notes": "Cool weather with mild Mediterranean climate; low tourist numbers after holidays; quiet atmosphere but some festive events early in the month.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool and sometimes rainy weather; very low tourist presence; many attractions and casinos open but quiet.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather slowly improving though still cool; fewer crowds make it good for budget travelers; some cultural venues open.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool but pleasant days, increasingly suitable for outdoor walking tours; low crowd levels; good for off-season travel.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Still cool but gradually warming; low tourism; good deals on accommodations; calm atmosphere.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Monaco Carnival",
+            "notes": "Famous annual carnival with parades and parties; mild weather; attracts more visitors, increasing crowd levels; vibrant and festive.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival quieter days; weather remains mild; good for sightseeing without large crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mild temperatures, increasing sunshine; off-peak travel advantages; quiet and relaxing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Spring begins with increasing temperatures; some rain possible; low to moderate crowds; good value period.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer days and blossoming gardens; outdoor activities become more comfortable; increasing visitor interest.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Pleasant weather, ideal for sightseeing and yacht watching; crowds start to build but still manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of March brings mild, sunny days; good for outdoor events and early season luxury travelers; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom; comfortable temperatures and longer days; increasing tourism but not crowded; ideal for outdoor sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Monte-Carlo Rolex Masters (tennis)",
+            "notes": "Major tennis event attracts global visitors; spring weather is excellent; vibrant atmosphere with high luxury traveler interest; expect very high crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-tennis event calm with pleasant weather; good time for sightseeing and yacht watching; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm and sunny days; ideal for beach and harbor activities; moderate crowd levels; good balance for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Monaco Grand Prix Preparations",
+            "notes": "Start of Grand Prix week preparations; pleasant, warm weather; excitement builds; increasing visitors but still manageable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Monaco Grand Prix Week",
+            "notes": "The pinnacle event of the year; packed with tourists and luxury guests; extremely high prices and crowd levels; iconic Formula 1 race.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Grand Prix calm returns; warm, sunny weather; crowds drop but still elevated; good for sightseeing and luxury travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May features warm, sunny days and less crowded beaches; perfect for outdoor activities and luxury experiences.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer; warm, sunny, and dry weather; ideal beach conditions; moderately high crowds but not overwhelming.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm and sunny; popular time for luxury travelers and families; lively social scene and festivals begin.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm evenings and long daylight hours; excellent for nightlife and seaside dining; steady tourist flow.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Monte-Carlo Jazz Festival",
+            "notes": "Major cultural event attracting music lovers; summer weather at its best; increased crowds and hotel prices; excellent for luxury and cultural tourists.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer season; hot, sunny, and dry; ideal for beaches, boating, and outdoor events; high prices and busy streets.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Monaco Grand Prix Historic (Classic Car Event)",
+            "notes": "Exciting classic car races and exhibitions; warm summer weather; very crowded and high prices; great for car enthusiasts and luxury travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Still hot and sunny; slightly fewer tourists post-historic event; good for beach and nightlife; some hotel deals possible.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm and sunny with occasional thunderstorms; crowds remain high but manageable; good for all traveler types except budget.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "High temperatures with potential heatwaves; many locals leave for holidays; some restaurants and shops close; lower crowd levels but less activity.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Continued hot weather and lower activity; quieter city atmosphere; less vibrant nightlife; good for budget travelers seeking deals.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Warm but less crowded; some local festivals take place; good for cultural travelers; fewer luxury events.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late August sees locals return; city gradually livens; warm weather continues; moderate crowds with better hotel availability.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early September has warm days and cooler evenings; crowds increase as locals return; good weather for beach and outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Monaco Yacht Show",
+            "notes": "Prestigious luxury yacht event attracting wealthy visitors; excellent weather; very high crowds and prices; great for luxury travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-yacht show calm; pleasant temperatures; good for sightseeing and outdoor dining; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild and sunny days with cooler nights; excellent for hiking and sightseeing; crowds moderate and hotel prices more reasonable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with comfortable temperatures; less crowded than summer; great for cultural visits and walking tours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasing chance of rain; cooler temperatures; quieter city but some attractions may have reduced hours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler and wetter weather; less tourist activity; good for budget travelers and business visitors; fewer outdoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of October may bring some sunny days; low crowds; ideal for travelers seeking quiet and lower prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool and rainy weather; low tourist presence; some attractions closed or reduced hours; not ideal for outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Persistent cool and wet weather; quiet city; good for budget travelers and business stays; limited outdoor options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Similar conditions; low activity; ideal for off-season travelers seeking solitude and low prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Toward end of November, some festive decorations appear; weather remains cool; slowly increasing activity for winter holiday season.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool and festive atmosphere starts; Christmas markets and decorations; some tourists arrive for holidays; weather chilly but manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Festive events continue; cool weather with occasional rain; moderate crowds; good for winter cultural experiences.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Holiday Season / Christmas Markets",
+            "notes": "Height of holiday festivities; charming decorations and markets; cooler weather but festive mood; increased visitors from Europe.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "New Year's Eve Celebrations",
+            "notes": "Festive end of year events; cool weather; lively atmosphere with parties and fireworks; very popular with both locals and visitors.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

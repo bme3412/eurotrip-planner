@@ -1,1 +1,3406 @@
-{"city":"palma","country":"Spain","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "palma",
+  "country": "Spain",
+  "overview": {
+    "city_name": "Palma",
+    "country": "Spain",
+    "brief_description": "Palma is the vibrant capital of the Balearic island of Mallorca, known for its stunning Gothic architecture, lively waterfront, and Mediterranean charm. This historic city seamlessly blends rich cultural heritage with modern amenities, making it a top destination for travelers seeking sun, sea, and culture.",
+    "nickname": "La Ciutat",
+    "region": "Balearic Islands, Mediterranean",
+    "population": "approximately 420,000",
+    "why_visit": [
+      "Explore the magnificent Palma Cathedral with its breathtaking Gothic design",
+      "Stroll along the picturesque old town with its narrow streets and lively plazas",
+      "Relax on beautiful nearby beaches like Cala Major and Playa de Palma",
+      "Enjoy vibrant nightlife and exquisite Mediterranean cuisine"
+    ],
+    "best_time_to_visit": "May to October, when the weather is warm, sunny, and perfect for beach and outdoor activities",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming landscapes make it ideal for sightseeing and outdoor exploration.",
+      "summer": "Hot and sunny, perfect for beach lovers but also the busiest tourist season.",
+      "autumn": "Pleasant weather with fewer crowds, great for cultural visits and hiking.",
+      "winter": "Cool and quiet, offering a peaceful experience and lower prices, though beach activities are limited."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Spanish (Catalan also widely spoken)",
+      "visit_duration": "3 to 5 days recommended to fully experience the city and surroundings",
+      "getting_around": "Buses, taxis, rental bikes, and car rentals are common; the city is walkable especially in the old town",
+      "safety": "Generally safe for travelers, usual precautions for petty theft in tourist areas advised"
+    },
+    "coordinates": {
+      "latitude": 39.5696,
+      "longitude": 2.6502
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Palma Cathedral (La Seu) and admire its stunning architecture",
+        "Walk through the historic Old Town and Plaza Mayor",
+        "Relax at Playa de Palma or Cala Major beaches",
+        "Explore the Almudaina Palace and its beautiful gardens",
+        "Enjoy local cuisine at Mercado de l'Olivar"
+      ],
+      "worth_doing": [
+        "Take a boat trip along the coastline",
+        "Visit Es Baluard Museum of Modern and Contemporary Art",
+        "Climb Bellver Castle for panoramic city views",
+        "Discover the Arab Baths",
+        "Shop in the boutiques along Passeig del Born"
+      ],
+      "hidden_gems": [
+        "Explore the quaint neighborhood of Santa Catalina with its trendy cafes",
+        "Visit the lesser-known Convent of Santa Clara",
+        "Wander through the colorful street art in the La Lonja district",
+        "Relax in the lesser-visited Parc de la Mar",
+        "Check out the artisan markets on weekends"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "La Seu Cathedral",
+        "type": "Church",
+        "description": "Palma's iconic Gothic cathedral, officially known as Catedral-Basílica de Santa María de Mallorca, boasts stunning stained-glass windows and a soaring interior redesigned by Gaudí. Completed in the early 17th century, it overlooks the sea, offering breathtaking views and a deep dive into Mallorca's religious art and architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Avoid midday summer crowds",
+        "booking_tips": "Book tickets online to skip queues.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 39.5696,
+        "longitude": 2.6502,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:15",
+          "weekend": "10:00-18:15",
+          "notes": "Hours may vary in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A - indoor site"
+        },
+        "official_url": "https://catedraldemallorca.org/",
+        "website": "https://catedraldemallorca.org/en/"
+      },
+      {
+        "name": "Palau de l'Almudaina",
+        "type": "Palace",
+        "description": "A magnificent Moorish royal palace adjacent to La Seu Cathedral, Palau de l'Almudaina blends Islamic and Gothic architectural styles. Once the residence of Mallorcan monarchs, it now serves as a ceremonial palace and museum with impressive tapestries and medieval artifacts.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Combined ticket available with cathedral visits.",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 39.5699,
+        "longitude": 2.6524,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor palace museum"
+        },
+        "official_url": "https://patrimoni.palma.cat/en/almdudaina",
+        "website": "https://patrimoni.palma.cat/en/almdudaina"
+      },
+      {
+        "name": "Es Baluard Museu d'Art Modern i Contemporani",
+        "type": "Museum",
+        "description": "This modern art museum located in a former fortress offers an excellent collection of contemporary Mallorcan and international artists. The building itself features impressive viewpoints overlooking Palma Bay and combines historic walls with modern architecture.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available online; free on Sundays after 15:00",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 39.5667,
+        "longitude": 2.6436,
+        "neighborhood": "La Calatrava",
+        "opening_hours": {
+          "weekday": "10:00-20:00",
+          "weekend": "10:00-20:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.esbaluard.org/en/",
+        "website": "https://www.esbaluard.org/en/"
+      },
+      {
+        "name": "Parc de la Mar",
+        "type": "Park",
+        "description": "Situated below the cathedral, Parc de la Mar is a lovely seaside park with large reflecting pools and sculptures, perfect for a leisurely stroll. It offers spectacular views of La Seu Cathedral and the Mediterranean, making it a favorite spot for locals and visitors to relax and people-watch.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant year-round, ideal in spring and fall",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 39.5693,
+        "longitude": 2.6464,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby indoor cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Mercat de l'Olivar",
+        "type": "Market",
+        "description": "Palma's largest and liveliest market, Mercat de l'Olivar offers fresh seafood, produce, meats, and local delicacies. The market's vibrant atmosphere and quality stalls make it a perfect spot for food lovers to sample Mallorcan specialties and mingle with locals.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Busy on weekends and holidays",
+        "booking_tips": "Arrive early for the freshest products",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 39.571,
+        "longitude": 2.6466,
+        "neighborhood": "Eixample",
+        "opening_hours": {
+          "weekday": "07:00-14:30",
+          "weekend": "07:00-14:30",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "15",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market"
+        },
+        "official_url": "https://mercatolivar.com/",
+        "website": "https://mercatolivar.com/"
+      },
+      {
+        "name": "Castell de Bellver",
+        "type": "Historic Site",
+        "description": "A unique circular Gothic castle perched on a hill overlooking Palma, Castell de Bellver dates back to the 14th century. It offers panoramic views of the city and harbor, a museum of Mallorcan history, and extensive wooded parkland surrounding the fortress.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Spring and autumn ideal for hiking the surrounding park",
+        "booking_tips": "Buy combined ticket for castle and museum",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 39.5795,
+        "longitude": 2.6133,
+        "neighborhood": "Bellver",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Castle interior museum"
+        },
+        "official_url": "https://www.castelldebellver.palma.cat/",
+        "website": "https://www.castelldebellver.palma.cat/"
+      },
+      {
+        "name": "Passeig des Born",
+        "type": "Historic Site",
+        "description": "The elegant tree-lined boulevard at Palma’s historic center, Passeig des Born is famous for its upscale shops, cafes, and vibrant atmosphere. This 19th-century promenade is perfect for a leisurely stroll and people-watching while soaking in the city’s charm.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Bustling year-round, lively especially in spring and fall",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 39.5691,
+        "longitude": 2.6495,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor galleries"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Fundació Pilar i Joan Miró",
+        "type": "Gallery",
+        "description": "Dedicated to the works of Joan Miró, this foundation showcases a rich collection of paintings, sculptures, and ceramics. The artist’s studio and gardens provide insight into his creative process amidst a serene setting on the outskirts of Palma.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Purchase tickets online to ensure entry.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 39.5566,
+        "longitude": 2.6008,
+        "neighborhood": "Portixol",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Tuesdays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "25",
+            "35"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor gallery"
+        },
+        "official_url": "https://www.fundaciomiro.palma.cat/en/",
+        "website": "https://www.fundaciomiro.palma.cat/en/"
+      },
+      {
+        "name": "Es Jonquet",
+        "type": "Neighborhood",
+        "description": "A picturesque traditional fishermen’s quarter with narrow winding streets and whitewashed houses, Es Jonquet offers a glimpse into Palma’s maritime past. Quaint restaurants and a laid-back atmosphere make it a charming area to explore on foot.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant to visit year-round",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 39.5664,
+        "longitude": 2.6287,
+        "neighborhood": "La Lonja",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby indoor cafes or bars"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Plaça Major",
+        "type": "Historic Site",
+        "description": "Palma’s main square is a lively hub framed by arcaded buildings hosting shops, cafes, and occasional street markets. Its vibrant atmosphere and central location make it a perfect meeting point and place to enjoy local life.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Christmas market in December",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 39.5703,
+        "longitude": 2.6483,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Nearby indoor shopping arcades"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Basilica de Sant Francesc",
+        "type": "Church",
+        "description": "This 13th-century Gothic church, dedicated to Saint Francis, features a peaceful cloister and a Baroque altar. Located near the Old Town, it provides a quiet retreat from the bustling city with its serene gardens and intricate architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 39.5708,
+        "longitude": 2.6458,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "08:00-13:00,15:00-19:00",
+          "weekend": "09:00-13:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor church"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Jardí del Bisbe",
+        "type": "Park",
+        "description": "A hidden garden near the cathedral, Jardí del Bisbe offers lush greenery, fountains, and peaceful benches surrounded by historic walls. This tranquil spot is ideal for a quiet break while exploring Palma’s Old Town.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 2
+        },
+        "latitude": 39.5695,
+        "longitude": 2.6512,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "08:00-20:00",
+          "weekend": "08:00-20:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby indoor cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museu Fundación Juan March",
+        "type": "Museum",
+        "description": "This museum offers a fine collection of 20th-century Spanish art including works by Picasso, Dalí, and Miró. Its modern building and rotating exhibitions make it a cultural highlight in Palma’s art scene.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check the website for current exhibitions and opening hours.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 39.5716,
+        "longitude": 2.6481,
+        "neighborhood": "Eixample",
+        "opening_hours": {
+          "weekday": "10:00-20:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "20"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.marchfoundation.org/en/museums/fundacion-juan-march-mallorca/",
+        "website": "https://www.marchfoundation.org/en/museums/fundacion-juan-march-mallorca/"
+      },
+      {
+        "name": "Cala Major Beach",
+        "type": "Beach",
+        "description": "Just a short drive from Palma’s center, Cala Major is a sandy beach with clear turquoise waters, ideal for swimming and sunbathing. The beach is lined with restaurants and cafes, making it a popular spot to unwind after sightseeing.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in late spring through early autumn",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 39.5553,
+        "longitude": 2.6021,
+        "neighborhood": "Cala Major",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby cafes or indoor pools"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "La Lonja",
+        "type": "Historic Site",
+        "description": "A fine example of Gothic civil architecture, La Lonja was originally built as a merchants’ exchange in the 15th century and now hosts art exhibitions and cultural events. Its elegant halls and cloister-like courtyard provide a glimpse into Palma’s maritime trading history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 39.5657,
+        "longitude": 2.628,
+        "neighborhood": "La Lonja",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor galleries nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Molinar Beach",
+        "type": "Beach",
+        "description": "A quieter alternative to Palma’s central beaches, Molinar offers a sandy shore and calm waters favored by locals. The adjacent promenade is dotted with traditional seafood restaurants and is perfect for a relaxed seaside walk.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited May-September",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 39.5536,
+        "longitude": 2.6345,
+        "neighborhood": "Molinar",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor dining nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Convento de Santa Clara",
+        "type": "Historic Site",
+        "description": "Located near the port, this former convent dates back to the 14th century and features a beautiful cloister and chapel. Its peaceful gardens and historic architecture offer insight into Palma’s religious life across centuries.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check opening days before visiting.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 39.57,
+        "longitude": 2.6417,
+        "neighborhood": "Portixol",
+        "opening_hours": {
+          "weekday": "09:00-14:00",
+          "weekend": "Closed",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Nearby cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Passeig Marítim",
+        "type": "Viewpoint",
+        "description": "This bustling waterfront promenade stretches along Palma’s harbor, lined with palm trees, yachts, and bars. It’s perfect for sunset walks with spectacular views of the bay and the city skyline.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Very pleasant spring through autumn evenings",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 39.566,
+        "longitude": 2.645,
+        "neighborhood": "Portixol",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "15",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Nearby indoor bars and restaurants"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Ciutat Antiga",
+        "alternate_names": [
+          "Old Town",
+          "Casco Antiguo"
+        ],
+        "character": "The historic heart of Palma, bursting with centuries-old architecture and narrow winding streets. It offers an enchanting blend of medieval charm and lively urban life.",
+        "location": {
+          "central": true,
+          "description": "Situated at the core of Palma, encompassing the original city walls area.",
+          "borders": [
+            "La Llotja",
+            "La Lonja",
+            "Sant Jaume"
+          ],
+          "landmarks": [
+            "Palma Cathedral (La Seu)",
+            "Palau de l'Almudaina",
+            "Arab Baths"
+          ]
+        },
+        "history": {
+          "overview": "Founded by the Romans and later shaped by Moorish and Catalan influences, Ciutat Antiga is Palma’s oldest district.",
+          "significance": "It represents Palma’s cultural and historical roots, preserving Gothic and Renaissance architecture.",
+          "notable_events": [
+            "Construction of Palma Cathedral in the 13th century",
+            "Moorish rule in medieval times"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Jaume III bus stops",
+            "Plaza Mayor bus interchange"
+          ],
+          "safety": "Generally safe but watch for pickpockets in crowded tourist spots",
+          "best_time_to_visit": "Spring and autumn for pleasant weather and fewer crowds",
+          "walkability": "Highly walkable with pedestrian-only streets and plazas"
+        },
+        "appeal": {
+          "known_for": [
+            "Gothic architecture",
+            "Historic landmarks",
+            "Boutique shops",
+            "Art galleries"
+          ],
+          "atmosphere": [
+            "Charming",
+            "Historic",
+            "Bustling"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Cultural travelers",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Palma Cathedral (La Seu)",
+              "type": "Cathedral",
+              "description": "A stunning Gothic cathedral overlooking the sea with magnificent stained glass windows.",
+              "appeal": "Iconic landmark and architectural marvel of Palma."
+            },
+            {
+              "name": "Arab Baths",
+              "type": "Historical site",
+              "description": "One of the few remnants of Moorish Palma, showcasing ancient bathhouse ruins.",
+              "appeal": "A glimpse into Palma’s Islamic past."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Forn de Sant Joan",
+              "cuisine": "Mediterranean",
+              "price_range": "€€€",
+              "known_for": "Creative local dishes and elegant ambiance",
+              "atmosphere": "Chic and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to avoid crowds at Palma Cathedral.",
+          "Explore the hidden courtyards and small artisan shops around Plaça Major.",
+          "Try local pastries in small cafes tucked away in side streets."
+        ]
+      },
+      {
+        "name": "Santa Catalina",
+        "alternate_names": [
+          "El Mercado",
+          "The Market Quarter"
+        ],
+        "character": "A vibrant, bohemian neighborhood famous for its bustling market and eclectic dining scene. It’s Palma’s trendy hotspot with a youthful and creative vibe.",
+        "location": {
+          "central": true,
+          "description": "West of the Old Town, just a short walk from the city center.",
+          "borders": [
+            "La Llotja",
+            "Son Armadams"
+          ],
+          "landmarks": [
+            "Santa Catalina Market",
+            "Parc de la Mar (nearby)"
+          ]
+        },
+        "history": {
+          "overview": "Originally a fishing village, Santa Catalina evolved into a lively artisan and market district.",
+          "significance": "Known for its traditional market that remains a community hub despite gentrification.",
+          "notable_events": [
+            "Transformation into Palma’s culinary district in the 21st century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Santa Catalina bus stops"
+          ],
+          "safety": "Safe with a friendly, community feel",
+          "best_time_to_visit": "Year-round, lively especially in evenings and weekends",
+          "walkability": "Very walkable with narrow streets and pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Gourmet food market",
+            "Trendy bars and cafes",
+            "Artisan shops",
+            "Street art"
+          ],
+          "atmosphere": [
+            "Hip",
+            "Energetic",
+            "Creative"
+          ],
+          "best_for": [
+            "Foodies",
+            "Young travelers",
+            "Nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Santa Catalina Market",
+              "type": "Market",
+              "description": "A bustling indoor market offering fresh produce, seafood, and local delicacies.",
+              "appeal": "Ideal for tasting authentic Mallorcan flavors."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Bodeguilla",
+              "cuisine": "Tapas",
+              "price_range": "€€",
+              "known_for": "Traditional Spanish tapas with a modern twist",
+              "atmosphere": "Casual and lively"
+            },
+            {
+              "name": "Ginbo",
+              "cuisine": "Cocktail bar",
+              "price_range": "€€€",
+              "known_for": "Creative gin cocktails",
+              "atmosphere": "Trendy and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the market early for the freshest seafood and local produce.",
+          "Stay for dinner and enjoy the vibrant tapas bars after sunset.",
+          "Look for street art murals along the main streets for great photos."
+        ]
+      },
+      {
+        "name": "La Lonja",
+        "alternate_names": [
+          "The Wharf",
+          "El Puerto"
+        ],
+        "character": "A stylish and fashionable neighborhood centered around Palma’s old port area, blending maritime charm with upscale dining and nightlife.",
+        "location": {
+          "central": true,
+          "description": "Southwest of the Old Town, adjacent to the harbor.",
+          "borders": [
+            "Ciutat Antiga",
+            "Santa Catalina"
+          ],
+          "landmarks": [
+            "La Lonja Church",
+            "Palma Marina"
+          ]
+        },
+        "history": {
+          "overview": "La Lonja was historically Palma’s shipping and trading hub, now revitalized as a trendy district.",
+          "significance": "Its transformation showcases the city’s maritime heritage alongside modern leisure culture.",
+          "notable_events": [
+            "Restoration of La Lonja Church",
+            "Development of Palma Marina"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Port bus stops"
+          ],
+          "safety": "Safe and well-patrolled, popular with tourists",
+          "best_time_to_visit": "Evenings in spring and summer for nightlife",
+          "walkability": "Highly walkable with scenic waterfront promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Waterfront views",
+            "Seafood restaurants",
+            "Art galleries",
+            "Nightclubs"
+          ],
+          "atmosphere": [
+            "Chic",
+            "Lively",
+            "Upscale"
+          ],
+          "best_for": [
+            "Nightlife lovers",
+            "Gourmet diners",
+            "Art enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "La Lonja Church",
+              "type": "Gothic Church",
+              "description": "A beautiful example of Gothic architecture once used by merchants.",
+              "appeal": "Historic site with serene ambiance near the harbor."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ombu",
+              "cuisine": "Seafood",
+              "price_range": "€€€",
+              "known_for": "Fresh fish dishes with Mediterranean flair",
+              "atmosphere": "Elegant and relaxed waterfront setting"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk along the marina at sunset for stunning views.",
+          "Reserve a table at seafood restaurants in advance during peak season.",
+          "Visit art galleries on quieter afternoons to meet local artists."
+        ]
+      },
+      {
+        "name": "Paseo Marítimo",
+        "alternate_names": [
+          "Seafront Promenade"
+        ],
+        "character": "A long, lively waterfront boulevard popular for evening strolls, trendy clubs, and upscale hotels. It’s a hotspot for nightlife and leisure with sea breezes and palm trees.",
+        "location": {
+          "central": false,
+          "description": "Runs along Palma’s coastline, north and west of the Old Town.",
+          "borders": [
+            "La Lonja",
+            "Son Armadams"
+          ],
+          "landmarks": [
+            "Bellver Castle (nearby)",
+            "Port of Palma"
+          ]
+        },
+        "history": {
+          "overview": "Once a simple coastal road, it has become Palma’s premier nightlife and hotel district.",
+          "significance": "It symbolizes Palma’s modern leisure culture and seaside appeal.",
+          "notable_events": [
+            "Development of luxury hotels",
+            "Growth of beach clubs and nightlife venues"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus line stops along the promenade"
+          ],
+          "safety": "Generally safe but busy at night—stay alert",
+          "best_time_to_visit": "Summer evenings for nightlife and events",
+          "walkability": "Very walkable with wide sidewalks and bike lanes"
+        },
+        "appeal": {
+          "known_for": [
+            "Nightclubs",
+            "Beach access",
+            "Luxury hotels",
+            "Seaside dining"
+          ],
+          "atmosphere": [
+            "Vibrant",
+            "Energetic",
+            "Trendy"
+          ],
+          "best_for": [
+            "Party-goers",
+            "Luxury travelers",
+            "Beach lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Bellver Castle",
+              "type": "Medieval Castle",
+              "description": "Circular castle perched on a hill with panoramic views of Palma and the sea.",
+              "appeal": "Historic landmark close to the promenade offering hiking and photo ops."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Tast Club",
+              "cuisine": "International",
+              "price_range": "€€€",
+              "known_for": "Cocktails and late-night dining",
+              "atmosphere": "Trendy and upbeat"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit Bellver Castle in the late afternoon to avoid midday heat.",
+          "Check local listings for summer beach parties and music events.",
+          "Use the bike lanes to explore the full length of the promenade."
+        ]
+      },
+      {
+        "name": "Son Armadams",
+        "alternate_names": [],
+        "character": "A quiet, leafy residential neighborhood favored by locals, with elegant villas and a calm atmosphere. It offers a peaceful retreat from the busy city center.",
+        "location": {
+          "central": false,
+          "description": "Northwest of the Old Town, adjacent to Santa Catalina.",
+          "borders": [
+            "Santa Catalina",
+            "Paseo Marítimo"
+          ],
+          "landmarks": [
+            "Jardines de S'Hort del Rei"
+          ]
+        },
+        "history": {
+          "overview": "Traditionally a suburban district with aristocratic estates, now a sought-after residential area.",
+          "significance": "Known for its green spaces and quiet streets within close reach of Palma’s amenities.",
+          "notable_events": [
+            "Development of garden estates in early 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops connecting to city center"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Anytime for a peaceful walk",
+          "walkability": "Walkable but more residential with fewer commercial spots"
+        },
+        "appeal": {
+          "known_for": [
+            "Quiet streets",
+            "Green parks",
+            "Elegant homes"
+          ],
+          "atmosphere": [
+            "Calm",
+            "Residential",
+            "Refined"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term travelers",
+            "Nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Jardines de S'Hort del Rei",
+              "type": "Garden park",
+              "description": "Peaceful gardens offering shaded paths and Mediterranean flora.",
+              "appeal": "Perfect spot for relaxation and nature walks."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Espana",
+              "cuisine": "Tapas",
+              "price_range": "€€",
+              "known_for": "Authentic Mallorcan tapas in a local setting",
+              "atmosphere": "Cozy and unpretentious"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Enjoy an early morning walk through the Jardines de S'Hort del Rei.",
+          "Visit local bakeries for traditional Mallorcan pastries in the neighborhood.",
+          "Avoid weekends if you prefer quiet streets, as some locals take short trips into the city center."
+        ]
+      },
+      {
+        "name": "La Rambla",
+        "alternate_names": [],
+        "character": "A lively boulevard and neighborhood known for its shopping, street performances, and vibrant daytime atmosphere. It’s a bustling corridor connecting the Old Town to the modern parts of Palma.",
+        "location": {
+          "central": true,
+          "description": "Extends south from Plaça d’Espanya towards the seafront.",
+          "borders": [
+            "Ciutat Antiga",
+            "Camp Redó"
+          ],
+          "landmarks": [
+            "Plaça d'Espanya",
+            "Gran Hotel"
+          ]
+        },
+        "history": {
+          "overview": "Developed as a main thoroughfare in the 19th century, La Rambla has been Palma’s commercial artery.",
+          "significance": "It serves as a cultural and social meeting point with a mix of old and new Palma.",
+          "notable_events": [
+            "Urban renovations in the 20th century",
+            "Annual festivals and parades"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Plaça d’Espanya metro and bus station",
+            "La Rambla bus stops"
+          ],
+          "safety": "Safe with typical urban precautions",
+          "best_time_to_visit": "Spring and summer afternoons",
+          "walkability": "Highly walkable with wide pedestrian areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Street markets",
+            "Cafes",
+            "Live performers"
+          ],
+          "atmosphere": [
+            "Bustling",
+            "Energetic",
+            "Colorful"
+          ],
+          "best_for": [
+            "Shoppers",
+            "Families",
+            "Casual tourists"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 3,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Plaça d’Espanya",
+              "type": "Square",
+              "description": "A grand square serving as Palma’s transport hub and gateway to the city.",
+              "appeal": "Architectural interest and lively atmosphere."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ca’n Joan de S’aigo",
+              "cuisine": "Mallorcan",
+              "price_range": "€",
+              "known_for": "Traditional ensaïmadas and hot chocolate",
+              "atmosphere": "Historic and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit local artisan stalls on market days for unique souvenirs.",
+          "Try the traditional almond ice cream at Ca’n Joan de S’aigo.",
+          "Stay alert for street performers and impromptu music shows along the boulevard."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Adrián Quetglas",
+          "cuisine_type": "Modern Mediterranean",
+          "description": "Innovative cuisine blending Mediterranean and international flavors, led by Chef Adrián Quetglas, awarded a Michelin star.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and intimate with contemporary decor",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "special occasions",
+            "foodies",
+            "date night"
+          ],
+          "latitude": 39.56994,
+          "longitude": 2.64831,
+          "reservation_needed": true,
+          "local_tips": "Try the tasting menu with paired wines for the full experience."
+        },
+        {
+          "name": "Marc Fosh",
+          "cuisine_type": "Contemporary Mediterranean",
+          "description": "Michelin-starred restaurant offering creative dishes using local Mallorcan ingredients with a refined touch.",
+          "price_range": "€€€€",
+          "atmosphere": "Modern, bright, and stylish",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "gourmet dining",
+            "date night",
+            "celebrations"
+          ],
+          "latitude": 39.57012,
+          "longitude": 2.64985,
+          "reservation_needed": true,
+          "local_tips": "Book well in advance, especially on weekends."
+        },
+        {
+          "name": "DINS Santi Taura",
+          "cuisine_type": "Mallorcan Contemporary",
+          "description": "Chef Santi Taura’s innovative take on traditional Mallorcan cuisine, awarded a Michelin star.",
+          "price_range": "€€€",
+          "atmosphere": "Chic yet cozy with minimalist design",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "local cuisine lovers",
+            "intimate dinners"
+          ],
+          "latitude": 39.571,
+          "longitude": 2.6501,
+          "reservation_needed": true,
+          "local_tips": "Ask for the chef’s tasting menu to explore Mallorcan flavors."
+        },
+        {
+          "name": "Toque",
+          "cuisine_type": "Mediterranean Fusion",
+          "description": "Small, Michelin-starred restaurant offering a seasonal tasting menu with Mediterranean influences.",
+          "price_range": "€€€€",
+          "atmosphere": "Intimate and refined",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "food enthusiasts",
+            "date night"
+          ],
+          "latitude": 39.5743,
+          "longitude": 2.62715,
+          "reservation_needed": true,
+          "local_tips": "Perfect for adventurous diners keen on tasting menus."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Ca'n Joan de s'Aigo",
+          "cuisine_type": "Traditional Mallorcan",
+          "description": "Historic establishment known for classic Mallorcan dishes and famous ensaimadas and hot chocolate.",
+          "price_range": "€",
+          "atmosphere": "Cozy and authentic",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "breakfast",
+            "families",
+            "casual meals"
+          ],
+          "latitude": 39.57049,
+          "longitude": 2.64742,
+          "reservation_needed": false,
+          "local_tips": "Try the ensaimada fresh from the oven."
+        },
+        {
+          "name": "Quina Creu",
+          "cuisine_type": "Mediterranean Tapas",
+          "description": "Vibrant tapas bar serving creative small plates with local ingredients in a lively setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual and buzzing",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "groups",
+            "tapas lovers",
+            "social dining"
+          ],
+          "latitude": 39.5718,
+          "longitude": 2.6469,
+          "reservation_needed": true,
+          "local_tips": "Reserve ahead for weekends and try the octopus tapas."
+        },
+        {
+          "name": "Naan Project",
+          "cuisine_type": "Contemporary Mediterranean",
+          "description": "Creative Mediterranean dishes in a relaxed atmosphere with a focus on fresh, local produce.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and laid-back",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "casual dates",
+            "friends",
+            "foodies"
+          ],
+          "latitude": 39.575,
+          "longitude": 2.6278,
+          "reservation_needed": true,
+          "local_tips": "Try the house-made bread and seasonal salads."
+        },
+        {
+          "name": "Bar España",
+          "cuisine_type": "Tapas",
+          "description": "Classic tapas bar with a long local tradition, perfect for a casual evening sampling various small dishes.",
+          "price_range": "€",
+          "atmosphere": "Informal and lively",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "groups",
+            "budget dining",
+            "locals"
+          ],
+          "latitude": 39.57088,
+          "longitude": 2.6467,
+          "reservation_needed": false,
+          "local_tips": "Arrive early to get a seat during busy hours."
+        },
+        {
+          "name": "La Rosa Vermutería",
+          "cuisine_type": "Vermouth and Tapas",
+          "description": "Trendy spot specializing in vermouth and traditional tapas with a modern twist.",
+          "price_range": "€€",
+          "atmosphere": "Hip and social",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "aperitifs",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 39.57465,
+          "longitude": 2.6287,
+          "reservation_needed": false,
+          "local_tips": "Pair your vermouth with the anchovy tapas."
+        },
+        {
+          "name": "S'Angel",
+          "cuisine_type": "Mallorcan and Mediterranean",
+          "description": "Casual dining with a focus on traditional Mallorcan flavors and fresh seafood.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and family-friendly",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "families",
+            "seafood lovers",
+            "casual meals"
+          ],
+          "latitude": 39.56935,
+          "longitude": 2.6487,
+          "reservation_needed": false,
+          "local_tips": "Try the tumbet, a Mallorcan vegetable dish."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercat de l'Olivar",
+          "cuisine_type": "Market Food Stalls",
+          "description": "Palma’s main food market offering fresh seafood, tapas, and local produce to enjoy on the spot or take away.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "quick bites",
+            "food exploration",
+            "locals"
+          ],
+          "latitude": 39.5692,
+          "longitude": 2.648,
+          "reservation_needed": false,
+          "local_tips": "Try the fresh oysters or pa amb oli from market stalls."
+        },
+        {
+          "name": "Mercat de Santa Catalina",
+          "cuisine_type": "Market and Street Food",
+          "description": "Trendy market with a mix of traditional and modern street food stalls, perfect for a casual meal or snack.",
+          "price_range": "€",
+          "atmosphere": "Lively and trendy",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "snacking",
+            "casual dining",
+            "groups"
+          ],
+          "latitude": 39.5749,
+          "longitude": 2.6275,
+          "reservation_needed": false,
+          "local_tips": "Try the local cheeses and freshly squeezed juices."
+        },
+        {
+          "name": "Pa amb Oli Street Vendors",
+          "cuisine_type": "Traditional Mallorcan Snack",
+          "description": "Various street vendors offering pa amb oli, Mallorca’s signature bread with olive oil, tomatoes, cheese, and ham.",
+          "price_range": "€",
+          "atmosphere": "Informal and quick",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "quick snack",
+            "locals",
+            "tourists"
+          ],
+          "latitude": 39.57,
+          "longitude": 2.647,
+          "reservation_needed": false,
+          "local_tips": "Best enjoyed with local sobrassada or Mahón cheese."
+        },
+        {
+          "name": "Chiringuito Cala Major",
+          "cuisine_type": "Beachside Seafood Snacks",
+          "description": "Casual beach bars offering grilled seafood and tapas ideal for enjoying a relaxed meal by the sea.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and scenic",
+          "neighborhood": "Cala Major",
+          "best_for": [
+            "beach snacks",
+            "seafood lovers",
+            "sunset dining"
+          ],
+          "latitude": 39.5448,
+          "longitude": 2.6089,
+          "reservation_needed": false,
+          "local_tips": "Try the grilled sardines and refreshing local white wine."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Bar Abaco",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Opulent cocktail bar set in a historic mansion with extravagant floral decorations and creative drinks.",
+          "price_range": "€€€",
+          "atmosphere": "Luxurious and theatrical",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "cocktails",
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 39.5705,
+          "longitude": 2.6465,
+          "reservation_needed": true,
+          "local_tips": "Try their signature cocktails and enjoy the baroque interiors."
+        },
+        {
+          "name": "Brondo Architect Hotel Rooftop Bar",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Trendy rooftop bar with panoramic views of Palma, offering creative cocktails and a relaxed vibe.",
+          "price_range": "€€",
+          "atmosphere": "Chic and modern",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "sunset drinks",
+            "young crowd",
+            "casual nightlife"
+          ],
+          "latitude": 39.5714,
+          "longitude": 2.646,
+          "reservation_needed": false,
+          "local_tips": "Visit for sunset to catch spectacular views of the cathedral."
+        },
+        {
+          "name": "Ginbo",
+          "cuisine_type": "Gin Bar",
+          "description": "Specialized gin bar with a vast selection of gins and tailor-made cocktails in an intimate setting.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and stylish",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "gin lovers",
+            "intimate gatherings",
+            "date night"
+          ],
+          "latitude": 39.57485,
+          "longitude": 2.6291,
+          "reservation_needed": false,
+          "local_tips": "Ask the bartenders for personalized gin recommendations."
+        },
+        {
+          "name": "La Rosa Vermutería",
+          "cuisine_type": "Vermouth Bar",
+          "description": "Popular bar known for a wide variety of vermouths and traditional tapas.",
+          "price_range": "€€",
+          "atmosphere": "Lively and social",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "aperitif",
+            "groups",
+            "locals"
+          ],
+          "latitude": 39.57465,
+          "longitude": 2.6287,
+          "reservation_needed": false,
+          "local_tips": "Great spot for an afternoon vermouth with anchovies."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Forn Fondo",
+          "cuisine_type": "Bakery and Café",
+          "description": "Traditional Mallorcan bakery and café famous for ensaimadas and pastries.",
+          "price_range": "€",
+          "atmosphere": "Warm and welcoming",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "breakfast",
+            "coffee lovers",
+            "pastry enthusiasts"
+          ],
+          "latitude": 39.5699,
+          "longitude": 2.6478,
+          "reservation_needed": false,
+          "local_tips": "Try the freshly baked ensaimadas with your coffee."
+        },
+        {
+          "name": "Rosevelvet Bakery",
+          "cuisine_type": "Bakery and Café",
+          "description": "Cozy café offering excellent coffee, homemade cakes, and healthy brunch options.",
+          "price_range": "€€",
+          "atmosphere": "Hip and relaxed",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "brunch",
+            "coffee dates",
+            "vegetarian options"
+          ],
+          "latitude": 39.5751,
+          "longitude": 2.6279,
+          "reservation_needed": false,
+          "local_tips": "Their carrot cake is a local favorite."
+        },
+        {
+          "name": "Café Riutort",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Renowned specialty coffee roaster and café with expertly brewed espresso and filter coffee.",
+          "price_range": "€€",
+          "atmosphere": "Modern and minimalist",
+          "neighborhood": "Centro Histórico",
+          "best_for": [
+            "coffee aficionados",
+            "work-from-cafe",
+            "casual meetups"
+          ],
+          "latitude": 39.5713,
+          "longitude": 2.6482,
+          "reservation_needed": false,
+          "local_tips": "Try a single-origin pour-over for a true coffee experience."
+        },
+        {
+          "name": "Espla Café",
+          "cuisine_type": "Specialty Coffee and Brunch",
+          "description": "Small café focusing on high-quality coffee and fresh, local ingredients for brunch dishes.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and cozy",
+          "neighborhood": "Santa Catalina",
+          "best_for": [
+            "brunch",
+            "coffee lovers",
+            "relaxed meals"
+          ],
+          "latitude": 39.5735,
+          "longitude": 2.6268,
+          "reservation_needed": false,
+          "local_tips": "Their avocado toast pairs perfectly with a flat white."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Palma Food Walking Tour",
+        "description": "Guided walking tours exploring traditional Mallorcan cuisine, tapas bars, and local markets.",
+        "price_range": "€€",
+        "best_for": [
+          "foodies",
+          "first-time visitors",
+          "culture enthusiasts"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Book morning tours to visit the markets at their freshest."
+      },
+      {
+        "name": "Mallorcan Cooking Class with Local Chef",
+        "description": "Hands-on cooking classes teaching traditional Mallorcan dishes like tumbet and sobrasada preparation.",
+        "price_range": "€€€",
+        "best_for": [
+          "cooking enthusiasts",
+          "small groups",
+          "cultural immersion"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Classes often include a market visit to select fresh ingredients."
+      },
+      {
+        "name": "Mercat de l'Olivar Tasting Experience",
+        "description": "Self-guided or group tasting experience inside Palma’s main market sampling fresh seafood, cheeses, and wines.",
+        "price_range": "€€",
+        "best_for": [
+          "casual food lovers",
+          "market explorers",
+          "quick bites"
+        ],
+        "reservation_needed": false,
+        "local_tips": "Try the fresh oysters and local wines at the market stalls."
+      },
+      {
+        "name": "Wine and Cheese Tasting Tour",
+        "description": "Guided tastings focusing on Mallorcan wines paired with local cheeses and cured meats.",
+        "price_range": "€€",
+        "best_for": [
+          "wine lovers",
+          "couples",
+          "small groups"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Combine with a visit to a nearby vineyard for a full-day experience."
+      },
+      {
+        "name": "Paella Cooking Workshop",
+        "description": "Interactive workshop teaching how to prepare authentic Spanish paella using local Mallorcan ingredients.",
+        "price_range": "€€",
+        "best_for": [
+          "groups",
+          "families",
+          "cooking enthusiasts"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Book in advance, especially during summer months."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fava beans with Mallorcan sausage",
+        "Fresh artichokes from the island",
+        "Asparagus dishes with local olive oil"
+      ],
+      "summer": [
+        "Ensalada Mallorquina - a refreshing tomato and onion salad",
+        "Grilled sardines and other fresh seafood",
+        "Cold soups like gazpacho"
+      ],
+      "autumn": [
+        "Roasted chestnuts and sweet potatoes",
+        "Wild mushrooms in rice dishes",
+        "Mallorcan sobrasada cured meat specialties"
+      ],
+      "winter": [
+        "Caldo Mallorquín - traditional hearty vegetable and meat soup",
+        "Almond desserts and pastries",
+        "Hot chocolate with ensaimadas"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "hourly",
+            "price_range": "€30-€100",
+            "operator": "Vueling, Ryanair",
+            "notes": "Multiple daily flights from Palma de Mallorca Airport to Barcelona-El Prat; fastest and most popular connection."
+          },
+          {
+            "type": "ferry",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "Balearia, Trasmediterranea",
+            "notes": "Night and day ferries from Palma port to Barcelona port; scenic and convenient for vehicles."
+          }
+        ]
+      },
+      {
+        "city": "Madrid",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€35-€120",
+            "operator": "Iberia, Air Europa",
+            "notes": "Direct flights from Palma de Mallorca Airport to Madrid-Barajas; most efficient way."
+          }
+        ]
+      },
+      {
+        "city": "Valencia",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€25-€90",
+            "operator": "Vueling",
+            "notes": "Direct flights connecting Palma and Valencia; limited but regular service."
+          },
+          {
+            "type": "ferry",
+            "duration": "overnight 8h",
+            "frequency": "weekly",
+            "price_range": "€50-€90",
+            "operator": "Balearia",
+            "notes": "Weekly ferry service mainly for vehicles and freight; check schedules."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Air France, Ryanair",
+            "notes": "Direct flights to Paris Charles de Gaulle and Orly airports; best for international connections."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€50-€140",
+            "operator": "Vueling, Ryanair",
+            "notes": "Direct flights to Rome Fiumicino and Ciampino airports; popular for leisure travelers."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€170",
+            "operator": "Eurowings, Ryanair",
+            "notes": "Direct flights to Berlin Brandenburg Airport; no train or ferry connection."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "hourly",
+            "price_range": "€40-€150",
+            "operator": "British Airways, Ryanair, EasyJet",
+            "notes": "Flights to Heathrow, Gatwick, and Stansted; most convenient way to reach London."
+          }
+        ]
+      },
+      {
+        "city": "Lisbon",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 50m",
+            "frequency": "daily",
+            "price_range": "€50-€130",
+            "operator": "TAP Air Portugal, Ryanair",
+            "notes": "Direct flights to Lisbon Humberto Delgado Airport; no direct ferry or train."
+          }
+        ]
+      },
+      {
+        "city": "Marseille",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€110",
+            "operator": "Vueling, Ryanair",
+            "notes": "Direct flights to Marseille Provence Airport; popular for southern France access."
+          },
+          {
+            "type": "ferry",
+            "duration": "overnight 10h",
+            "frequency": "weekly",
+            "price_range": "€60-€100",
+            "operator": "Corsica Ferries",
+            "notes": "Weekly ferry service; primarily used for vehicles and freight."
+          }
+        ]
+      },
+      {
+        "city": "Malaga",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€30-€90",
+            "operator": "Vueling, Ryanair",
+            "notes": "Direct flights to Malaga-Costa del Sol Airport; popular for beach tourism."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Fira de Primavera (Spring Fair)",
+        "type": "festival",
+        "description": "A lively fair with local crafts, food stalls, and live music celebrating the arrival of spring in Palma.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Parc de la Mar",
+        "price": "Free"
+      },
+      {
+        "name": "Cycling along the Palma Bay Promenade",
+        "type": "sport",
+        "description": "Enjoy mild spring weather by cycling the scenic seafront promenade with beautiful views of the Mediterranean.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Palma Bay Promenade",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit to Bellver Castle",
+        "type": "cultural",
+        "description": "Explore the unique circular Gothic castle and its extensive park, perfect for pleasant springtime walks.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Bellver Castle",
+        "price": "Moderate"
+      },
+      {
+        "name": "Seasonal tasting of Sobrasada",
+        "type": "food",
+        "description": "Sample Mallorca’s traditional cured sausage, often enjoyed fresh in spring markets and tapas bars.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Mercat de l'Olivar",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Palma International Boat Show",
+        "type": "festival",
+        "description": "A prestigious event showcasing luxury yachts and marine technology, attracting enthusiasts worldwide.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Palma Marina",
+        "price": "Moderate"
+      },
+      {
+        "name": "Beach Day at Cala Major",
+        "type": "outdoor",
+        "description": "Relax or swim at one of Palma’s most popular sandy beaches, ideal for sunbathing and water sports in hot weather.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Cala Major Beach",
+        "price": "Free"
+      },
+      {
+        "name": "Open-air concerts at Parc de la Mar",
+        "type": "cultural",
+        "description": "Enjoy live music performances set against the backdrop of Palma’s cathedral under summer skies.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Parc de la Mar",
+        "price": "Free"
+      },
+      {
+        "name": "Tasting Ensaimada Pastries",
+        "type": "food",
+        "description": "Try the iconic Mallorcan spiral pastry, best enjoyed fresh from local bakeries during summer mornings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Local bakeries in Palma",
+        "price": "Budget"
+      },
+      {
+        "name": "Sailing and Windsurfing",
+        "type": "sport",
+        "description": "Take advantage of warm winds and calm seas for sailing and windsurfing lessons or rentals along Palma’s coast.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Palma Bay",
+        "price": "Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Fira del Ram",
+        "type": "festival",
+        "description": "A traditional autumn fair with rides, artisan stalls, and local food celebrating Mallorcan culture.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Paseo Marítimo",
+        "price": "Free"
+      },
+      {
+        "name": "Hiking Serra de Tramuntana foothills",
+        "type": "outdoor",
+        "description": "Enjoy cooler autumn temperatures while hiking scenic trails with panoramic views near Palma.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Serra de Tramuntana near Palma",
+        "price": "Free"
+      },
+      {
+        "name": "Wine tasting tours",
+        "type": "food",
+        "description": "Explore Mallorca’s vineyards with tours and tastings of local reds and whites in the mild autumn weather.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Wine estates near Palma",
+        "price": "Moderate"
+      },
+      {
+        "name": "Visit to Palma Cathedral",
+        "type": "cultural",
+        "description": "Discover the impressive Gothic architecture and seasonal exhibitions inside the iconic La Seu cathedral.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Palma Cathedral",
+        "price": "Moderate"
+      },
+      {
+        "name": "Sampling roasted chestnuts and panellets",
+        "type": "food",
+        "description": "Enjoy traditional autumn treats like roasted chestnuts and almond sweets at local markets and cafes.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Mercat de l'Olivar",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Markets in Plaza Mayor",
+        "type": "festival",
+        "description": "Experience festive stalls selling crafts, decorations, and seasonal treats in Palma’s main square.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza Mayor",
+        "price": "Free"
+      },
+      {
+        "name": "Visit to Es Baluard Museum of Modern and Contemporary Art",
+        "type": "cultural",
+        "description": "Escape cooler weather by exploring cutting-edge art exhibitions in this waterfront museum.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Es Baluard Museum",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter walks in Parc de la Mar",
+        "type": "outdoor",
+        "description": "Mild winter temperatures make for pleasant strolls with views of the cathedral and bay.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Parc de la Mar",
+        "price": "Free"
+      },
+      {
+        "name": "Tasting Caldera de Llagosta",
+        "type": "food",
+        "description": "Try this traditional Mallorcan lobster stew, a warming winter specialty served in local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Seafood restaurants in Palma",
+        "price": "Moderate"
+      },
+      {
+        "name": "Cycling in mild winter weather",
+        "type": "sport",
+        "description": "Take advantage of Palma’s mild winters by cycling quieter city streets and nearby countryside routes.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "City and outskirts of Palma",
+        "price": "Budget"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Dia de Reyes (Epiphany)",
+            "notes": "Cool mild weather with occasional rain; Epiphany celebrations bring local cultural events but also some crowds in Palma center.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Post-holiday period with cooler weather averaging 12°C; fewer tourists but some rain and wind; quieter city.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool and mild with increasing daylight; good for cultural sightseeing and off-season prices; some local events start to pick up.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Stable mild winter weather; ideal for quiet exploration and local museum visits; low tourist numbers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool temperatures around 13°C; few tourists; some rain possible; good for budget travelers and quiet city walks.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Carnaval de Palma",
+            "notes": "Mild weather with festive Carnaval events attracting local and some international visitors; lively atmosphere but not overcrowded.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-Carnaval calm; cooler and quieter; excellent for cultural visits, museums, and coastal walks.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather begins to improve slightly; low crowds; good option for off-season budget travelers and cultural tourists.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Spring arrives with mild temperatures averaging 15°C; occasional rain; quiet city with nature beginning to bloom.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa (Easter Week - variable dates, often late March/April)",
+            "notes": "Early Semana Santa celebrations sometimes start in March; religious processions and cultural events increase crowds and atmosphere.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer days up to 17-18°C; outdoor cafes and parks become pleasant; moderate tourist influx starting.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Festes de Primavera (Spring Festival)",
+            "notes": "City livens with music, flower shows, and parades; good weather; increasing visitors but not overwhelming.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa (if falling in April)",
+            "notes": "Peak Semana Santa period in some years; religious processions and local festivities attract many visitors; pleasant spring weather.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm spring weather (17-19°C); less crowded than Semana Santa but increasing tourism; ideal for outdoor exploration.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Excellent weather with sunny days and temperatures around 20°C; ideal for beach walks and outdoor dining; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently pleasant weather; spring flowers in bloom; great for hiking, cultural visits, and early beach days; manageable crowd levels.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Fiesta de la Cruz (May Day Cross Festival)",
+            "notes": "Warm spring weather (20-23°C); local festivals and outdoor events; increasing visitors but still comfortable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Ideal weather with sunny skies and warm temperatures; beaches start to be inviting; perfect for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm and sunny; ideal for outdoor excursions, water sports, and cultural events; crowd levels rising but manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer warmth with temperatures around 23°C; perfect for beach lovers and festival goers; moderate to high crowds start.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather with average highs around 27°C; start of high season; lively nightlife and beach activities; higher prices and crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently hot and sunny; beaches crowded but lively; excellent for luxury travelers and couples seeking vibrant atmosphere.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Nit de l'Art (Art Night - mid June, variable date)",
+            "notes": "Festival of contemporary art with many exhibitions and events; weather ideal for late evening walks; attracts art lovers and tourists.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer conditions; warm seas and long daylight hours; busy but lively; best for travelers who enjoy active social scenes.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer weather (28-30°C); high season with crowded beaches and busy city; vibrant nightlife and many cultural events.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak tourist season with warm sea temperatures; beaches crowded; great for water sports and nightlife; prices at peak.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently hot and vibrant; best for travelers who enjoy lively beach and party atmosphere; less ideal for budget travelers and those avoiding crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "High season continues with warm nights and active cultural scene; suitable for social travelers and luxury market.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 1,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Very hot summer weather (29-31°C); extremely crowded with tourists; some locals leave the city; prices peak; great for beach lovers but crowded.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High temperatures and humidity; crowded beaches and attractions; good for travelers seeking nightlife and beach parties; less ideal for families and budget travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Fiesta de la Mare de Déu d'Agost (Assumption Day celebrations, Aug 15)",
+            "notes": "Traditional religious celebrations with local festivals; very crowded but culturally rich; weather hot and sunny.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late summer heat with crowds starting to slightly decrease after mid-August; still busy and lively with warm sea.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm early autumn weather (25-28°C); sea remains warm; crowds begin to thin; ideal for beach and cultural activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Pleasant temperatures and lower humidity; fewer tourists; good deals start appearing; excellent for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Stable mild weather with sunny days; great for hiking, sightseeing, and wine festivals starting in Mallorca region.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Slightly cooler evenings; some rain possible; fewer tourists but still good outdoor conditions; ideal for cultural travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild autumn weather (20-23°C); reduced crowds; some rainy days but many sunny; good for sightseeing and wine tasting.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Fiesta de Sant Narcís (regional festival near Palma late October)",
+            "notes": "Local cultural events and festivals; weather comfortable for outdoor activities; fewer tourists, authentic experience.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures (17-19°C); increased rainfall; quieter city; some indoor cultural activities recommended.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cooler and wetter; off-season for tourism; good for budget travelers and those seeking quiet cultural visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cooler and wetter weather; average highs around 15°C; limited outdoor activities; low tourism activity.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Grey skies and rainy days common; many hotels and restaurants reduce hours; best suited for budget or business travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Off-season with cool weather; limited beach and outdoor options; low prices but less vibrant atmosphere.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": true,
+            "event": "All Saints Day (Nov 1) and local remembrances",
+            "notes": "Some cultural and religious observances; weather remains cool and rainy; still low tourist activity but cultural interest possible.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Dia de la Constitución (Dec 6)",
+            "notes": "Cool weather with occasional rain; festive holiday decorations begin; moderate local events attract visitors.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter weather with short days; quieter city; good for cultural visits and Christmas market preparations.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Christmas markets and holiday lights increase atmosphere; cooler but festive; moderate crowds mainly locals and some tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year's Eve celebrations",
+            "notes": "Festive holiday period with special events and celebrations; weather cool but city is lively; higher crowds especially around New Year's Eve.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

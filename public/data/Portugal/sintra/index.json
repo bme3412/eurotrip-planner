@@ -1,1 +1,2886 @@
-{"city":"sintra","country":"Portugal","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "sintra",
+  "country": "Portugal",
+  "overview": {
+    "city_name": "Sintra",
+    "country": "Portugal",
+    "brief_description": "Nestled in the lush hills just west of Lisbon, Sintra is a fairy-tale town renowned for its enchanting palaces, historic estates, and mystical forests. This UNESCO World Heritage site captivates visitors with its unique blend of Romantic architecture and natural beauty, making it a must-see destination in Portugal.",
+    "nickname": "The Town of Palaces",
+    "region": "Lisbon Region",
+    "population": "approximately 38,000",
+    "why_visit": [
+      "Explore the whimsical Pena Palace perched atop Sintra’s hills",
+      "Wander through the mystical gardens of Quinta da Regaleira",
+      "Discover the Moorish Castle with panoramic views over the region",
+      "Experience charming historic streets and local gastronomy"
+    ],
+    "best_time_to_visit": "April to June and September to October, when the weather is mild and the crowds are smaller",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming gardens make it ideal for outdoor exploration.",
+      "summer": "Warm weather attracts more tourists; early mornings are best to avoid crowds.",
+      "autumn": "Cooler temperatures and colorful foliage create a picturesque atmosphere.",
+      "winter": "Quiet and peaceful with occasional rain, perfect for cozy visits to museums and palaces."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Portuguese",
+      "visit_duration": "2 to 3 days",
+      "getting_around": "Primarily on foot within town; local buses and tuk-tuks available for hilltop sites",
+      "safety": "Generally very safe, with standard precautions recommended for tourists"
+    },
+    "coordinates": {
+      "latitude": 38.8029,
+      "longitude": -9.3817
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Pena Palace and its vibrant terraces",
+        "Explore the mysterious Quinta da Regaleira and its Initiation Well",
+        "Hike the ancient walls of the Moorish Castle",
+        "Stroll through Sintra Historic Centre and try local pastries",
+        "Tour the National Palace of Sintra with its iconic chimneys"
+      ],
+      "worth_doing": [
+        "Discover the romantic Monserrate Palace and gardens",
+        "Walk along the scenic trails in Sintra-Cascais Natural Park",
+        "Visit the Convent of the Capuchos for a glimpse of monastic life",
+        "Enjoy panoramic views from the Chalet and Garden of the Countess of Edla",
+        "Sample regional wines and cheeses in local shops"
+      ],
+      "hidden_gems": [
+        "Explore the abandoned Seteais Palace gardens",
+        "Visit the lesser-known Palace of Valenças with its medieval charm",
+        "Walk the quiet trail to Praia da Adraga, a stunning nearby beach",
+        "Discover the tiny chapel of São Saturnino with its unique interior",
+        "Check out the small but fascinating Toy Museum in Sintra town"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Palácio Nacional da Pena",
+        "type": "Palace",
+        "description": "This colorful 19th-century Romanticist palace sits atop a hill, offering panoramic views over Sintra and the Atlantic coast. Built by King Ferdinand II, it combines Gothic, Moorish, and Manueline architectural styles, making it one of Portugal's most iconic monuments.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Premium",
+        "seasonal_notes": "Can be crowded in summer; spring and autumn offer pleasant weather.",
+        "booking_tips": "Advance tickets recommended to avoid long queues.",
+        "ratings": {
+          "cost_estimate": 14,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 38.7875,
+        "longitude": -9.39,
+        "neighborhood": "São Pedro de Penaferrim",
+        "opening_hours": {
+          "weekday": "09:30-19:00",
+          "weekend": "09:30-19:00",
+          "notes": "Last admission 1 hour before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor palace rooms and exhibition halls"
+        },
+        "official_url": "https://www.parquesdesintra.pt/en/parks-monuments/park-and-national-palace-of-pena/",
+        "website": null
+      },
+      {
+        "name": "Quinta da Regaleira",
+        "type": "Historic Site",
+        "description": "A UNESCO World Heritage site, this enigmatic estate features lush gardens, underground tunnels, and symbolic architecture inspired by alchemy and mysticism. The Initiation Well is a must-see, descending spirally into the earth.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Spring flowers bloom beautifully; wet weather can make tunnels slippery.",
+        "booking_tips": "Buy tickets online to skip the line.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 38.7971,
+        "longitude": -9.3905,
+        "neighborhood": "Sintra Town Center",
+        "opening_hours": {
+          "weekday": "09:30-20:00",
+          "weekend": "09:30-20:00",
+          "notes": "Longer hours in summer"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Limited indoor areas; best on dry days"
+        },
+        "official_url": "https://www.regaleira.pt/en/",
+        "website": null
+      },
+      {
+        "name": "Palácio Nacional de Sintra",
+        "type": "Palace",
+        "description": "Located in the town center, this medieval royal palace is known for its distinctive twin chimneys and well-preserved Moorish and Manueline interiors. It was a favorite royal residence from the 14th to 19th centuries.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be purchased on site; less crowded early morning.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 38.7975,
+        "longitude": -9.392,
+        "neighborhood": "Sintra Historic Center",
+        "opening_hours": {
+          "weekday": "09:30-18:00",
+          "weekend": "09:30-18:00",
+          "notes": "Closed Tuesdays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434",
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Fully indoor"
+        },
+        "official_url": "https://www.parquesdesintra.pt/en/parks-monuments/national-palace-of-sintra/",
+        "website": null
+      },
+      {
+        "name": "Castelo dos Mouros",
+        "type": "Historic Site",
+        "description": "This 8th-century Moorish castle crowns the Sintra hills, offering sweeping views of the surrounding landscape. Its rugged stone walls and battlements create a dramatic atmosphere, perfect for history enthusiasts and photographers.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Spring and autumn ideal to avoid summer heat.",
+        "booking_tips": "Tickets available at entrance; early arrival advised.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 38.7937,
+        "longitude": -9.3959,
+        "neighborhood": "São Pedro de Penaferrim",
+        "opening_hours": {
+          "weekday": "09:30-20:00",
+          "weekend": "09:30-20:00",
+          "notes": "Longer summer hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "No indoor areas; best visited in good weather"
+        },
+        "official_url": "https://www.parquesdesintra.pt/en/parks-monuments/moorish-castle/",
+        "website": null
+      },
+      {
+        "name": "Convento dos Capuchos",
+        "type": "Historic Site",
+        "description": "Also known as the Cork Convent, this 16th-century Franciscan monastery is famous for its austere architecture blending into the surrounding forest. Visitors experience a peaceful retreat amid tiny chapels and cork-lined cells.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited in dry weather due to forest trails.",
+        "booking_tips": "Limited entrance capacity; book ahead during peak seasons.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 38.7945,
+        "longitude": -9.421,
+        "neighborhood": "Sintra-Cascais Natural Park",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Main spaces indoors but forest trails outdoors"
+        },
+        "official_url": "https://www.parquesdesintra.pt/en/parks-monuments/monastery-of-the-capuccinos/",
+        "website": null
+      },
+      {
+        "name": "Parque da Liberdade",
+        "type": "Park",
+        "description": "A tranquil public park in the heart of Sintra town, featuring manicured gardens, fountains, and shaded pathways. It is a perfect spot for a leisurely stroll or a picnic while enjoying local flora and occasional cultural events.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant all year; spring flowers are a highlight.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 38.7977,
+        "longitude": -9.393,
+        "neighborhood": "Sintra Historic Center",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Not applicable"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museu Anjos Teixeira",
+        "type": "Museum",
+        "description": "Dedicated to the works of the Portuguese sculptor Anjos Teixeira, this museum houses an extensive collection of his sculptures and drawings. It offers insight into 20th-century Portuguese art in an intimate setting.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Visit during weekdays for a quiet experience.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 38.7988,
+        "longitude": -9.3938,
+        "neighborhood": "Sintra Town Center",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays and Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum, perfect for rainy days"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Chalet and Garden of the Countess of Edla",
+        "type": "Historic Site|Park",
+        "description": "This romantic 19th-century chalet was built by King Ferdinand II for his second wife, the Countess of Edla. Surrounded by exotic gardens and walking trails, it blends Swiss-style architecture with lush flora.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Best during spring and autumn for garden colors.",
+        "booking_tips": "Visit combined with Pena Palace for convenience.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 38.7859,
+        "longitude": -9.3889,
+        "neighborhood": "São Pedro de Penaferrim",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Seasonal closures possible"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Chalet interior offers shelter"
+        },
+        "official_url": "https://www.parquesdesintra.pt/en/parks-monuments/chalet-and-garden-of-the-countess-of-edla/",
+        "website": null
+      },
+      {
+        "name": "Sintra National Palace Gardens",
+        "type": "Park",
+        "description": "These historic gardens surrounding the Sintra National Palace feature exotic trees, shaded paths, and peaceful fountains. They provide a refreshing green space in the town center, ideal for a contemplative walk.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free with palace ticket",
+        "seasonal_notes": "Garden blooms peak in spring.",
+        "booking_tips": "Included with palace admission.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 38.7976,
+        "longitude": -9.3922,
+        "neighborhood": "Sintra Historic Center",
+        "opening_hours": {
+          "weekday": "09:30-18:00",
+          "weekend": "09:30-18:00",
+          "notes": "Same as palace hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434",
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Outdoor only"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Seteais Palace",
+        "type": "Palace|Hotel",
+        "description": "An elegant 18th-century neoclassical palace now operating as a luxury hotel. Visitors can admire its beautiful gardens and panoramic views of Pena Palace and the Moorish Castle while enjoying a tea or meal at its terrace restaurant.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Premium",
+        "seasonal_notes": "Terrace is enjoyable year-round but best in mild weather.",
+        "booking_tips": "Restaurant reservations recommended for terrace seating.",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 38.791,
+        "longitude": -9.3932,
+        "neighborhood": "São Pedro de Penaferrim",
+        "opening_hours": {
+          "weekday": "10:00-22:00",
+          "weekend": "10:00-22:00",
+          "notes": "Access mainly via restaurant or hotel guest"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "434"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor dining available"
+        },
+        "official_url": "https://www.seteais.com/en/",
+        "website": null
+      },
+      {
+        "name": "Sintra-Cascais Natural Park",
+        "type": "Park|Nature Reserve",
+        "description": "A vast protected area encompassing forests, cliffs, and beaches around Sintra. Ideal for hiking, birdwatching, and experiencing the diverse natural beauty of the Portuguese coastline and hinterland.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and autumn best for hiking; summer can be hot.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 4
+        },
+        "latitude": 38.795,
+        "longitude": -9.42,
+        "neighborhood": "Greater Sintra Area",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Natural park with trails accessible any time"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 6,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Not suitable in heavy rain"
+        },
+        "official_url": "https://parquesnaturais.pt/parks/sintra-cascais-natural-park/",
+        "website": null
+      },
+      {
+        "name": "Museum of Modern Art - Museu de Arte Moderna de Sintra",
+        "type": "Museum",
+        "description": "Showcases Portuguese and international contemporary art in a historic building. The museum hosts temporary exhibitions, workshops, and cultural events, appealing to art lovers and families alike.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check current exhibitions online before visiting.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 38.7993,
+        "longitude": -9.3915,
+        "neighborhood": "Sintra Town Center",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Fully indoor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Sintra Market (Feira de Sintra)",
+        "type": "Market",
+        "description": "A vibrant local market held weekly offering fresh produce, crafts, antiques, and regional specialties. It is a great place to experience local culture and buy souvenirs.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open mainly on weekends and holidays; weather-dependent.",
+        "booking_tips": "Arrive early for best selection.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 38.799,
+        "longitude": -9.3935,
+        "neighborhood": "Sintra Town Center",
+        "opening_hours": {
+          "weekday": "Closed",
+          "weekend": "08:00-14:00",
+          "notes": "Occasional holiday openings"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Outdoor market; not ideal in rain"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Capela de São Martinho",
+        "type": "Church",
+        "description": "A small historic chapel dating back to the 16th century, featuring traditional Portuguese Manueline architectural details and intricate interior azulejos (tiles). It offers a quiet cultural stop within the town.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 2
+        },
+        "latitude": 38.7984,
+        "longitude": -9.3943,
+        "neighborhood": "Sintra Historic Center",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Subject to religious service times"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor chapel"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Cabo da Roca",
+        "type": "Viewpoint|Natural Landmark",
+        "description": "Located about 18 km from Sintra town, Cabo da Roca is the westernmost point of mainland Europe. The dramatic cliffs overlooking the Atlantic Ocean provide breathtaking views and a popular spot for photographers and hikers.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Can be windy and cooler; spring and autumn best weather.",
+        "booking_tips": "Visit early to avoid crowds and fog.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 38.78,
+        "longitude": -9.4981,
+        "neighborhood": "Colares",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "No facilities after sunset"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "403"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "No indoor alternatives"
+        },
+        "official_url": "https://www.visitportugal.com/en/node/73861",
+        "website": null
+      },
+      {
+        "name": "Monserrate Palace and Park",
+        "type": "Palace|Park",
+        "description": "An exotic 19th-century palace surrounded by botanical gardens featuring rare plants from around the world. The palace’s Indo-Gothic architecture and landscaped grounds offer a unique blend of culture and nature.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Spring and early summer best to see gardens in bloom.",
+        "booking_tips": "Purchase combo tickets with other Sintra palaces for savings.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 38.7839,
+        "longitude": -9.4043,
+        "neighborhood": "São Martinho",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Tuesdays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "435"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Palace interior offers shelter"
+        },
+        "official_url": "https://www.parquesdesintra.pt/en/parks-monuments/monserrate-palace-and-park/",
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Historic Center",
+        "alternate_names": [
+          "Old Town Sintra",
+          "Centro Histórico"
+        ],
+        "character": "The Historic Center of Sintra is a charming labyrinth of narrow cobblestone streets, lined with pastel-colored buildings and quaint shops. It buzzes with a timeless ambiance where the past effortlessly blends with the present.",
+        "location": {
+          "central": true,
+          "description": "Located at the heart of Sintra, encompassing the main town square and surrounding streets.",
+          "borders": [
+            "São Pedro",
+            "Santa Maria e São Miguel",
+            "Monte da Lua"
+          ],
+          "landmarks": [
+            "Sintra National Palace",
+            "Town Hall",
+            "Church of São Martinho"
+          ]
+        },
+        "history": {
+          "overview": "This area has been the historic core since medieval times, evolving under Moorish and later Portuguese influence.",
+          "significance": "It is the cultural and historical heart of Sintra, preserving much of its architectural heritage and traditional lifestyle.",
+          "notable_events": [
+            "Medieval fairs and markets",
+            "Residence of Portuguese nobility",
+            "UNESCO World Heritage designation"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Sintra Train Station (walking distance)",
+            "Central bus stops"
+          ],
+          "safety": "Very safe, popular among tourists and locals alike",
+          "best_time_to_visit": "Spring and early autumn for pleasant weather and fewer crowds",
+          "walkability": "Extremely walkable with pedestrian-only streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Traditional shops",
+            "Cultural festivals",
+            "Local artisan crafts"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Picturesque",
+            "Vibrant"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Cultural travelers",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Sintra National Palace",
+              "type": "Historic Palace",
+              "description": "A former royal residence famous for its distinctive twin chimneys and medieval architecture.",
+              "appeal": "Its unique blend of Gothic, Manueline, and Moorish styles attracts history lovers."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Saudade",
+              "cuisine": "Portuguese",
+              "price_range": "€€",
+              "known_for": "Traditional pastries and local dishes",
+              "atmosphere": "Cozy and nostalgic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the streets without crowds.",
+          "Try the local travesseiros pastries at a bakery near the palace.",
+          "Wear comfortable shoes due to uneven cobblestones."
+        ]
+      },
+      {
+        "name": "Monserrate",
+        "alternate_names": [
+          "Parque de Monserrate Area"
+        ],
+        "character": "Monserrate offers a tranquil escape with lush botanical gardens and a romantic palace surrounded by exotic flora. The vibe is serene and elegant, perfect for nature lovers and those seeking inspiration.",
+        "location": {
+          "central": false,
+          "description": "Located about 3 km southeast of the Historic Center, near the Sintra-Cascais Natural Park boundary.",
+          "borders": [
+            "São Martinho"
+          ],
+          "landmarks": [
+            "Palácio de Monserrate",
+            "Monserrate Botanical Gardens"
+          ]
+        },
+        "history": {
+          "overview": "The Monserrate Palace was built in the 19th century as a summer residence and became a symbol of Romanticism in Portugal.",
+          "significance": "It represents Sintra’s 19th-century aristocratic fascination with exoticism and landscape design.",
+          "notable_events": [
+            "Restoration of the palace in the 20th century",
+            "Botanical garden development"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus 434 from Sintra train station"
+          ],
+          "safety": "Very safe, quiet area with few visitors in off-season",
+          "best_time_to_visit": "Spring for garden blooms, late summer for mild weather",
+          "walkability": "Moderate; the park paths require some uphill walking"
+        },
+        "appeal": {
+          "known_for": [
+            "Botanical gardens",
+            "Romantic palace",
+            "Peaceful nature walks"
+          ],
+          "atmosphere": [
+            "Tranquil",
+            "Romantic",
+            "Lush"
+          ],
+          "best_for": [
+            "Nature lovers",
+            "Couples",
+            "Photography enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 2,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Palácio de Monserrate",
+              "type": "Palace",
+              "description": "An exotic, Romantic-style palace surrounded by internationally inspired gardens.",
+              "appeal": "Its unique architecture and gardens offer a peaceful cultural experience."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Monserrate Tea House",
+              "cuisine": "Portuguese and European",
+              "price_range": "€€",
+              "known_for": "Light meals and teas in a garden setting",
+              "atmosphere": "Relaxed and scenic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Bring water and wear good walking shoes for garden exploration.",
+          "Visit the palace interior for exquisite woodwork and frescoes.",
+          "Combine with a hike through Sintra-Cascais Natural Park."
+        ]
+      },
+      {
+        "name": "Penha Verde",
+        "alternate_names": [],
+        "character": "Penha Verde is a quiet, leafy residential neighborhood favored by locals, offering a relaxed suburban vibe with beautiful views of Sintra’s hills. It feels like a peaceful retreat from tourist bustle while still close to the center.",
+        "location": {
+          "central": false,
+          "description": "Situated northwest of the Historic Center, on gentle slopes leading up to the Sintra mountains.",
+          "borders": [
+            "São Pedro",
+            "Santa Maria e São Miguel"
+          ],
+          "landmarks": [
+            "Penha Verde viewpoint",
+            "Local parks"
+          ]
+        },
+        "history": {
+          "overview": "Originally farmland, Penha Verde gradually developed as a residential area in the 20th century.",
+          "significance": "It represents the growth of Sintra as a living town beyond its historic core.",
+          "notable_events": [
+            "Expansion of residential housing post-1950s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Local bus lines"
+          ],
+          "safety": "Very safe, family-friendly area",
+          "best_time_to_visit": "Year-round",
+          "walkability": "Moderate; some hills but mostly quiet streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Residential comfort",
+            "Local community life",
+            "Scenic views"
+          ],
+          "atmosphere": [
+            "Peaceful",
+            "Green",
+            "Authentic"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term travelers",
+            "People seeking tranquility"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Penha Verde Viewpoint",
+              "type": "Scenic Viewpoint",
+              "description": "Offers panoramic views of Sintra’s historic center and surrounding hills.",
+              "appeal": "A quiet spot for sunset watchers and photographers."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurante Penha Verde",
+              "cuisine": "Portuguese",
+              "price_range": "€€",
+              "known_for": "Traditional home-cooked meals",
+              "atmosphere": "Casual and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore local bakeries for authentic Sintra pastries.",
+          "Visit the viewpoint at dusk for spectacular lighting.",
+          "Use local buses to connect with central Sintra easily."
+        ]
+      },
+      {
+        "name": "Santa Maria e São Miguel",
+        "alternate_names": [
+          "Santa Maria"
+        ],
+        "character": "This neighborhood combines residential calm with a touch of historic charm, featuring traditional homes and quiet plazas. It maintains a strong local feel with fewer tourists but plenty of authentic daily life.",
+        "location": {
+          "central": true,
+          "description": "Directly adjacent and east of the Historic Center, forming part of Sintra’s old urban fabric.",
+          "borders": [
+            "Historic Center",
+            "São Pedro",
+            "Penha Verde"
+          ],
+          "landmarks": [
+            "Church of Santa Maria",
+            "Local markets"
+          ]
+        },
+        "history": {
+          "overview": "Santa Maria e São Miguel developed alongside Sintra’s growth as a market town in the medieval era.",
+          "significance": "It has preserved many traditional buildings and serves as a living example of Sintra’s community heritage.",
+          "notable_events": [
+            "Medieval market gatherings",
+            "Religious festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops serving local routes"
+          ],
+          "safety": "Safe and quiet neighborhood",
+          "best_time_to_visit": "Spring and summer for local festivals",
+          "walkability": "Highly walkable with flat streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Historic churches",
+            "Community events"
+          ],
+          "atmosphere": [
+            "Traditional",
+            "Quiet",
+            "Welcoming"
+          ],
+          "best_for": [
+            "Cultural travelers",
+            "Those seeking authenticity",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Church of Santa Maria",
+              "type": "Religious Site",
+              "description": "A modest yet beautiful church showcasing traditional Portuguese religious art.",
+              "appeal": "Offers insight into the spiritual heritage of Sintra’s locals."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Taberna da Serra",
+              "cuisine": "Portuguese",
+              "price_range": "€€",
+              "known_for": "Regional dishes and wines",
+              "atmosphere": "Rustic and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check the market days for fresh local products.",
+          "Attend a Sunday mass to experience local traditions.",
+          "Explore side streets for hidden artisan shops."
+        ]
+      },
+      {
+        "name": "São Pedro",
+        "alternate_names": [],
+        "character": "São Pedro is a vibrant, residential neighborhood with a mix of traditional homes and modern amenities. It exudes a welcoming, lived-in charm with local cafes and small shops dotting the streets.",
+        "location": {
+          "central": true,
+          "description": "Southwest of the Historic Center, it serves as a transition zone between the old town and newer developments.",
+          "borders": [
+            "Historic Center",
+            "Santa Maria e São Miguel",
+            "Penha Verde"
+          ],
+          "landmarks": [
+            "São Pedro Church",
+            "Local parks"
+          ]
+        },
+        "history": {
+          "overview": "The neighborhood grew as Sintra expanded beyond its medieval walls during the 19th and 20th centuries.",
+          "significance": "It represents the evolution of Sintra from a royal town to a modern community.",
+          "notable_events": [
+            "Urban expansion in the 1800s",
+            "Community cultural initiatives"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines connecting to train station and center"
+          ],
+          "safety": "Generally safe with active local community",
+          "best_time_to_visit": "Year-round",
+          "walkability": "Good walkability with some hilly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local eateries",
+            "Community parks",
+            "Neighborhood festivals"
+          ],
+          "atmosphere": [
+            "Friendly",
+            "Authentic",
+            "Relaxed"
+          ],
+          "best_for": [
+            "Long-stay travelers",
+            "Families",
+            "Those seeking local life"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "São Pedro Church",
+              "type": "Religious Site",
+              "description": "A historic church with elegant baroque features.",
+              "appeal": "A peaceful cultural landmark reflecting neighborhood heritage."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Cantinho Gourmet",
+              "cuisine": "Portuguese and Mediterranean",
+              "price_range": "€€",
+              "known_for": "Fresh seafood and local specialties",
+              "atmosphere": "Casual and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the local weekly market for fresh produce.",
+          "Try a pastel de nata at a neighborhood bakery.",
+          "Explore small parks for quiet breaks."
+        ]
+      },
+      {
+        "name": "Quinta da Regaleira District",
+        "alternate_names": [
+          "Regaleira"
+        ],
+        "character": "This neighborhood is centered around the enigmatic Quinta da Regaleira estate, creating an atmosphere of mystique and romanticism. The area feels artistic and somewhat whimsical, attracting visitors intrigued by symbolism and secret gardens.",
+        "location": {
+          "central": true,
+          "description": "Just west of the Historic Center, within walking distance to major sights.",
+          "borders": [
+            "Historic Center",
+            "São Pedro",
+            "Monte da Lua"
+          ],
+          "landmarks": [
+            "Quinta da Regaleira",
+            "Initiation Well"
+          ]
+        },
+        "history": {
+          "overview": "Built in the early 20th century, Quinta da Regaleira was commissioned by an eccentric millionaire fascinated by mysticism.",
+          "significance": "The estate is a UNESCO World Heritage site and a symbol of Sintra’s Romantic and esoteric history.",
+          "notable_events": [
+            "Construction of the estate (1904–1910)",
+            "UNESCO designation"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Close to central bus stops and Sintra train station"
+          ],
+          "safety": "Safe, heavily visited by tourists",
+          "best_time_to_visit": "Early morning or late afternoon to avoid crowds",
+          "walkability": "Highly walkable with some steep paths inside the estate"
+        },
+        "appeal": {
+          "known_for": [
+            "Quinta da Regaleira estate",
+            "Mystical gardens",
+            "Secret tunnels"
+          ],
+          "atmosphere": [
+            "Mysterious",
+            "Romantic",
+            "Artistic"
+          ],
+          "best_for": [
+            "Art lovers",
+            "Mystery enthusiasts",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Quinta da Regaleira",
+              "type": "Historic Estate",
+              "description": "A grand estate with gardens, grottoes, and symbolic architecture.",
+              "appeal": "Famous for its mystical atmosphere and unique design."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café de São Bento",
+              "cuisine": "Portuguese",
+              "price_range": "€€",
+              "known_for": "Coffee and light meals",
+              "atmosphere": "Artistic and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Buy tickets online to skip lines at Quinta da Regaleira.",
+          "Explore the Initiation Well early to avoid crowds and capture great photos.",
+          "Wear sturdy shoes due to steep and uneven paths."
+        ]
+      },
+      {
+        "name": "Monte da Lua",
+        "alternate_names": [],
+        "character": "Monte da Lua is a quiet, green neighborhood characterized by villas and peaceful streets, offering stunning views over Sintra’s valleys. It feels like a refuge for artists and nature enthusiasts seeking calm and inspiration.",
+        "location": {
+          "central": false,
+          "description": "Southwest outskirts of Sintra, bordering the Sintra-Cascais Natural Park.",
+          "borders": [
+            "Historic Center",
+            "Penha Verde",
+            "Quinta da Regaleira"
+          ],
+          "landmarks": [
+            "Monte da Lua viewpoint"
+          ]
+        },
+        "history": {
+          "overview": "Monte da Lua grew as an exclusive residential area in the mid-20th century, attracting artists and intellectuals.",
+          "significance": "It represents Sintra’s modern expansion with a focus on nature and artistic community.",
+          "notable_events": [
+            "Development of artist residencies",
+            "Community cultural events"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Limited public transit; best accessed by car or taxi"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Spring and summer for outdoor activities",
+          "walkability": "Moderate to low due to hilly terrain"
+        },
+        "appeal": {
+          "known_for": [
+            "Scenic views",
+            "Artistic community",
+            "Peaceful atmosphere"
+          ],
+          "atmosphere": [
+            "Quiet",
+            "Green",
+            "Inspirational"
+          ],
+          "best_for": [
+            "Artists",
+            "Nature lovers",
+            "Retreat seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 1,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Monte da Lua Viewpoint",
+              "type": "Scenic Viewpoint",
+              "description": "Offers breathtaking panoramas of Sintra’s forests and palaces.",
+              "appeal": "A perfect spot for quiet reflection and sunset watching."
+            }
+          ],
+          "dining": []
+        },
+        "insider_tips": [
+          "Bring a camera for stunning landscape shots.",
+          "Plan for transportation as public options are limited.",
+          "Visit local art studios if open to the public."
+        ]
+      },
+      {
+        "name": "Rua Padarias and Surroundings (Food District)",
+        "alternate_names": [
+          "Foodie Quarter"
+        ],
+        "character": "Rua Padarias and its nearby streets form Sintra’s main food district, lively with cafes, bakeries, and restaurants offering local and international cuisine. The atmosphere is bustling by day and relaxed in the evening, making it a gourmand's hotspot.",
+        "location": {
+          "central": true,
+          "description": "Just south of the Historic Center, centered around Rua Padarias street.",
+          "borders": [
+            "Historic Center",
+            "São Pedro"
+          ],
+          "landmarks": [
+            "Local markets",
+            "Popular cafes and pastry shops"
+          ]
+        },
+        "history": {
+          "overview": "This area historically housed small markets and bakeries serving the local community.",
+          "significance": "It has evolved into the culinary heart of Sintra, blending tradition with modern flavors.",
+          "notable_events": [
+            "Establishment of key bakeries in the early 20th century",
+            "Growth of gastronomy tourism"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops nearby",
+            "Walking distance from train station"
+          ],
+          "safety": "Safe and busy with tourists and locals",
+          "best_time_to_visit": "Late morning to evening for best dining experience",
+          "walkability": "Highly walkable"
+        },
+        "appeal": {
+          "known_for": [
+            "Traditional pastries",
+            "Diverse restaurants",
+            "Coffee culture",
+            "Wine bars"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Welcoming",
+            "Flavorful"
+          ],
+          "best_for": [
+            "Food lovers",
+            "Casual diners",
+            "Groups of friends"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Local Food Markets",
+              "type": "Market",
+              "description": "Fresh produce and artisanal food stalls showcasing regional products.",
+              "appeal": "Ideal for tasting and buying local specialties."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Piriquita",
+              "cuisine": "Portuguese Pastries",
+              "price_range": "€",
+              "known_for": "Travesseiros and queijadas pastries",
+              "atmosphere": "Bustling bakery with historic charm"
+            },
+            {
+              "name": "Tascantiga",
+              "cuisine": "Portuguese Tapas",
+              "price_range": "€€",
+              "known_for": "Authentic petiscos and local wines",
+              "atmosphere": "Cozy and friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Try pastéis de nata early before they sell out.",
+          "Pair your meal with a glass of local Colares wine.",
+          "Visit on weekdays to avoid weekend crowds."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Tascantiga",
+          "cuisine_type": "Portuguese Tapas",
+          "description": "Charming spot offering a refined take on traditional Portuguese tapas with fresh, local ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Intimate and cozy with rustic decor",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "date night",
+            "food enthusiasts"
+          ],
+          "latitude": 38.7968,
+          "longitude": -9.3909,
+          "reservation_needed": true,
+          "local_tips": "Try the octopus with paprika and the Sintra cheese platter."
+        },
+        {
+          "name": "Café de Paris",
+          "cuisine_type": "French-Portuguese Fusion",
+          "description": "Elegant restaurant blending French techniques with Portuguese flavors in a Belle Époque setting.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant and romantic with classic Parisian charm",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 38.797,
+          "longitude": -9.3904,
+          "reservation_needed": true,
+          "local_tips": "Reserve a table by the window for a view of the National Palace."
+        },
+        {
+          "name": "Cantinho Gourmet",
+          "cuisine_type": "Contemporary Portuguese",
+          "description": "Modern Portuguese cuisine with creative presentations and seasonal ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and modern with an artistic flair",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "foodies",
+            "groups"
+          ],
+          "latitude": 38.7965,
+          "longitude": -9.3902,
+          "reservation_needed": true,
+          "local_tips": "Ask for the chef’s tasting menu to experience seasonal specialties."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Adega das Caves",
+          "cuisine_type": "Traditional Portuguese",
+          "description": "Comfortable tavern-style restaurant serving authentic Sintra and Portuguese dishes.",
+          "price_range": "€€",
+          "atmosphere": "Warm, rustic, and lively",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "families",
+            "casual meals"
+          ],
+          "latitude": 38.7973,
+          "longitude": -9.3907,
+          "reservation_needed": false,
+          "local_tips": "Try the local travesseiros (pillow-shaped pastries) for dessert."
+        },
+        {
+          "name": "Piriquita II",
+          "cuisine_type": "Bakery and Café",
+          "description": "Famous for traditional Sintra pastries, especially the travesseiros and queijadas.",
+          "price_range": "€",
+          "atmosphere": "Bustling and casual bakery setting",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "breakfast",
+            "snacks"
+          ],
+          "latitude": 38.7966,
+          "longitude": -9.3903,
+          "reservation_needed": false,
+          "local_tips": "Come early to avoid lines for the travesseiros."
+        },
+        {
+          "name": "Cantinho da Belinha",
+          "cuisine_type": "Portuguese",
+          "description": "Casual spot offering hearty, traditional dishes with a homestyle feel.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and unpretentious",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "groups",
+            "lunch"
+          ],
+          "latitude": 38.7971,
+          "longitude": -9.3889,
+          "reservation_needed": false,
+          "local_tips": "Try the bacalhau à lagareiro, a local codfish specialty."
+        },
+        {
+          "name": "Café Saudade",
+          "cuisine_type": "Portuguese Café",
+          "description": "Cozy café serving light meals, snacks, and great coffee in a relaxed atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Casual and welcoming",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "coffee breaks",
+            "light meals"
+          ],
+          "latitude": 38.7969,
+          "longitude": -9.3905,
+          "reservation_needed": false,
+          "local_tips": "Pair your coffee with a queijada pastry for an authentic treat."
+        },
+        {
+          "name": "Tulhas",
+          "cuisine_type": "Portuguese",
+          "description": "Traditional Portuguese restaurant known for its grilled meats and regional specialties.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, family-friendly",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "families",
+            "groups"
+          ],
+          "latitude": 38.7974,
+          "longitude": -9.3898,
+          "reservation_needed": false,
+          "local_tips": "The house specialty, grilled lamb, is a must-try."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercado de Sintra (Sintra Market)",
+          "cuisine_type": "Local Market Foods",
+          "description": "Traditional market with stalls offering fresh produce, cheeses, cured meats, and quick local snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic market vibe",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "local flavors",
+            "snacks"
+          ],
+          "latitude": 38.7977,
+          "longitude": -9.3901,
+          "reservation_needed": false,
+          "local_tips": "Try the local cheeses and freshly baked bread from market vendors."
+        },
+        {
+          "name": "Pastelaria Garret",
+          "cuisine_type": "Pastry Shop",
+          "description": "Famous for Sintra’s traditional pastries including the queijada and travesseiros, perfect for takeaway.",
+          "price_range": "€",
+          "atmosphere": "Small, busy pastry shop",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "pastry lovers",
+            "quick bites"
+          ],
+          "latitude": 38.7964,
+          "longitude": -9.3906,
+          "reservation_needed": false,
+          "local_tips": "Try the warm travesseiros fresh from the oven."
+        },
+        {
+          "name": "Snack Bar Saudade",
+          "cuisine_type": "Portuguese Snacks",
+          "description": "Popular spot for quick traditional snacks like bifanas (pork sandwiches) and grilled chouriço.",
+          "price_range": "€",
+          "atmosphere": "Casual and quick-service",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "fast casual",
+            "snacks"
+          ],
+          "latitude": 38.7967,
+          "longitude": -9.3899,
+          "reservation_needed": false,
+          "local_tips": "Perfect place to grab a bifana after sightseeing."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Bar do Fundo",
+          "cuisine_type": "Cocktails and Portuguese Wines",
+          "description": "Trendy bar offering creative cocktails and an excellent selection of local wines.",
+          "price_range": "€€",
+          "atmosphere": "Lively and modern with a friendly crowd",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "nightlife",
+            "friends"
+          ],
+          "latitude": 38.7969,
+          "longitude": -9.39,
+          "reservation_needed": false,
+          "local_tips": "Try the Ginja liqueur cocktails, a Portuguese cherry brandy specialty."
+        },
+        {
+          "name": "Bacalhau Bar",
+          "cuisine_type": "Wine Bar",
+          "description": "Cozy wine bar featuring Portuguese wines and small plates focused on bacalhau (cod) dishes.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and rustic",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "wine lovers",
+            "date night"
+          ],
+          "latitude": 38.7972,
+          "longitude": -9.3908,
+          "reservation_needed": true,
+          "local_tips": "Ask for wine pairings with the cod tapas."
+        },
+        {
+          "name": "Bar do Rio",
+          "cuisine_type": "Portuguese Bar",
+          "description": "Casual bar with a good selection of Portuguese beers and petiscos (snacks).",
+          "price_range": "€",
+          "atmosphere": "Relaxed and local-favorite",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "casual drinks",
+            "locals"
+          ],
+          "latitude": 38.7963,
+          "longitude": -9.3907,
+          "reservation_needed": false,
+          "local_tips": "Try the local craft beers on tap."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Saudade",
+          "cuisine_type": "Portuguese Café",
+          "description": "Cozy café serving excellent coffee and light meals with traditional pastries.",
+          "price_range": "€",
+          "atmosphere": "Casual and quiet",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "coffee breaks",
+            "reading"
+          ],
+          "latitude": 38.7969,
+          "longitude": -9.3905,
+          "reservation_needed": false,
+          "local_tips": "Order a bica (Portuguese espresso) with a queijada."
+        },
+        {
+          "name": "Café Paris",
+          "cuisine_type": "European Café",
+          "description": "Elegant café with a vintage vibe, perfect for afternoon tea or pastries.",
+          "price_range": "€€",
+          "atmosphere": "Elegant and nostalgic",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "afternoon tea",
+            "people watching"
+          ],
+          "latitude": 38.797,
+          "longitude": -9.3904,
+          "reservation_needed": false,
+          "local_tips": "Try the Sintra travesseiros along with a cappuccino."
+        },
+        {
+          "name": "Casa Piriquita",
+          "cuisine_type": "Bakery and Café",
+          "description": "Historic bakery café renowned for its traditional Sintra pastries and coffee.",
+          "price_range": "€",
+          "atmosphere": "Bustling and family-friendly",
+          "neighborhood": "Sintra Historic Center",
+          "best_for": [
+            "breakfast",
+            "snacks"
+          ],
+          "latitude": 38.7966,
+          "longitude": -9.3903,
+          "reservation_needed": false,
+          "local_tips": "Try the travesseiros fresh out of the oven."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Sintra Food and Wine Walking Tour",
+        "description": "Guided tasting tour through Sintra’s historic center featuring top local wines, cheeses, and pastries.",
+        "duration_minutes": 180,
+        "price_eur": 65,
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable shoes and bring a camera for stops at iconic pastry shops."
+      },
+      {
+        "name": "Portuguese Cooking Class in Sintra",
+        "description": "Hands-on cooking class focused on traditional Portuguese dishes such as bacalhau and pastel de nata.",
+        "duration_minutes": 240,
+        "price_eur": 75,
+        "reservation_needed": true,
+        "local_tips": "Book in advance and inform about any dietary restrictions."
+      },
+      {
+        "name": "Visit to Mercado de Sintra with Local Chef",
+        "description": "Explore the vibrant Sintra market with a local chef, learning about fresh ingredients before a tasting session.",
+        "duration_minutes": 120,
+        "price_eur": 50,
+        "reservation_needed": true,
+        "local_tips": "Go early on market days for the best selection."
+      },
+      {
+        "name": "Pastry Tasting Tour",
+        "description": "Discover Sintra’s famous pastries on a guided tour sampling travesseiros, queijadas, and other sweets.",
+        "duration_minutes": 90,
+        "price_eur": 40,
+        "reservation_needed": true,
+        "local_tips": "Try to schedule the tour in the morning to enjoy the pastries fresh."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes in local restaurants",
+        "Wild herbs and green salads from Sintra’s countryside",
+        "Easter sweet breads and folar (Portuguese festive bread)"
+      ],
+      "summer": [
+        "Grilled sardines with fresh lemon",
+        "Seasonal berries in desserts",
+        "Cold soups like gaspacho with local tomatoes"
+      ],
+      "autumn": [
+        "Wild mushrooms dishes from Sintra’s forested areas",
+        "Chestnut sweets and roasted chestnuts",
+        "Octopus stewed with local spices"
+      ],
+      "winter": [
+        "Hearty stews like cozido à portuguesa",
+        "Roasted lamb dishes",
+        "Warm desserts with cinnamon and nuts such as arroz doce (rice pudding)"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Lisbon",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "0h 40m",
+            "frequency": "hourly",
+            "price_range": "€2-€5",
+            "operator": "Comboios de Portugal",
+            "notes": "Direct regional trains from Sintra to Lisbon Rossio station."
+          },
+          {
+            "type": "bus",
+            "duration": "0h 50m",
+            "frequency": "hourly",
+            "price_range": "€3-€6",
+            "operator": "Scotturb",
+            "notes": "Regular buses connecting Sintra and Lisbon city center."
+          }
+        ]
+      },
+      {
+        "city": "Porto",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 10m",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "Comboios de Portugal",
+            "notes": "Intercity trains from Lisbon (reachable from Sintra) to Porto Campanhã."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Rede Expressos",
+            "notes": "Buses depart from Lisbon bus terminal accessible via Sintra."
+          }
+        ]
+      },
+      {
+        "city": "Madrid",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "multiple daily",
+            "price_range": "€40-€120",
+            "operator": "Iberia, Ryanair",
+            "notes": "Flights from Lisbon Airport, reachable by train or bus from Sintra."
+          },
+          {
+            "type": "bus",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses from Lisbon to Madrid, accessible via Sintra."
+          }
+        ]
+      },
+      {
+        "city": "Seville",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "FlixBus",
+            "notes": "Buses depart from Lisbon, accessible from Sintra."
+          },
+          {
+            "type": "train",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€40-€70",
+            "operator": "Renfe / Comboios de Portugal",
+            "notes": "Combination of trains via Lisbon and border stations."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 20m",
+            "frequency": "multiple daily",
+            "price_range": "€50-€150",
+            "operator": "Air France, TAP Air Portugal",
+            "notes": "Flights from Lisbon Airport, reachable via Sintra."
+          },
+          {
+            "type": "train",
+            "duration": "20h",
+            "frequency": "daily",
+            "price_range": "€100-€200",
+            "operator": "Comboios de Portugal / SNCF",
+            "notes": "Night trains and connections via Lisbon and Madrid."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 45m",
+            "frequency": "multiple daily",
+            "price_range": "€60-€180",
+            "operator": "British Airways, TAP Air Portugal, Ryanair",
+            "notes": "Direct flights from Lisbon Airport."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€50-€130",
+            "operator": "Vueling, Ryanair, TAP Air Portugal",
+            "notes": "Flights from Lisbon Airport accessible from Sintra."
+          },
+          {
+            "type": "bus",
+            "duration": "14h",
+            "frequency": "daily",
+            "price_range": "€40-€70",
+            "operator": "FlixBus",
+            "notes": "Long-distance buses from Lisbon."
+          }
+        ]
+      },
+      {
+        "city": "Faro",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€25",
+            "operator": "Comboios de Portugal",
+            "notes": "Trains from Sintra to Faro via Lisbon."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 45m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Rede Expressos",
+            "notes": "Direct buses from Lisbon."
+          }
+        ]
+      },
+      {
+        "city": "Geneva",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "EasyJet, TAP Air Portugal",
+            "notes": "Flights from Lisbon Airport."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Alitalia, TAP Air Portugal",
+            "notes": "Direct flights from Lisbon."
+          }
+        ]
+      },
+      {
+        "city": "Santander",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "ferry",
+            "duration": "7h",
+            "frequency": "weekly",
+            "price_range": "€30-€60",
+            "operator": "Brittany Ferries",
+            "notes": "Seasonal ferry from Porto (reachable via Sintra) to Santander."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Visiting Quinta da Regaleira Gardens",
+        "type": "outdoor",
+        "description": "Explore the mystical gardens with blooming flowers and hidden tunnels, perfect for spring’s mild weather.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Quinta da Regaleira, Sintra",
+        "price": "Moderate"
+      },
+      {
+        "name": "Sintra Music Festival",
+        "type": "cultural",
+        "description": "Enjoy classical music concerts held in historic venues throughout Sintra, celebrating the arrival of spring.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Various historic sites in Sintra",
+        "price": "Moderate"
+      },
+      {
+        "name": "Sampling Fresh Spring Produce at Local Markets",
+        "type": "food",
+        "description": "Taste seasonal specialties like fresh cherries and asparagus at Sintra’s weekly markets.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Sintra Market",
+        "price": "Budget"
+      },
+      {
+        "name": "Hiking the Sintra-Cascais Natural Park",
+        "type": "sport",
+        "description": "Enjoy scenic trails with wildflowers in bloom and comfortable temperatures ideal for hiking.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Sintra-Cascais Natural Park",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Beaches of Praia das Maçãs and Adraga",
+        "type": "outdoor",
+        "description": "Relax or swim at these scenic Atlantic beaches near Sintra, perfect for summer’s warm weather.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Praia das Maçãs and Praia da Adraga",
+        "price": "Free"
+      },
+      {
+        "name": "Festival de Sintra (Sintra Festival)",
+        "type": "cultural",
+        "description": "Attend one of Portugal’s premier classical music festivals held in historic palaces and gardens during summer.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Palácio Nacional de Sintra and other venues",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Tasting Local Seafood Dishes",
+        "type": "food",
+        "description": "Enjoy fresh grilled fish and seafood rice dishes at local seaside restaurants.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Seaside restaurants in Sintra region",
+        "price": "Moderate"
+      },
+      {
+        "name": "Night Walks in the Moorish Castle",
+        "type": "outdoor",
+        "description": "Experience guided night tours of the castle ruins with cooler summer evenings and starry skies.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Moorish Castle, Sintra",
+        "price": "Moderate"
+      },
+      {
+        "name": "Mountain Biking in Sintra Hills",
+        "type": "sport",
+        "description": "Explore rugged trails and pine forests on a bike, ideal for active travelers in summer.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Sintra Hills",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Exploring Pena Palace with Autumn Foliage",
+        "type": "cultural",
+        "description": "Visit the colorful Romanticist palace surrounded by vibrant autumn leaves and cooler weather.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Pena Palace, Sintra",
+        "price": "Moderate"
+      },
+      {
+        "name": "Chestnut Festival (Festa da Castanha)",
+        "type": "festival",
+        "description": "Celebrate the chestnut harvest with tastings, music, and local crafts, typically held in October.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Sintra town center",
+        "price": "Budget"
+      },
+      {
+        "name": "Wine Tasting in Sintra Vineyards",
+        "type": "food",
+        "description": "Sample regional wines during harvest season at Sintra’s small vineyards and wine cellars.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Sintra vineyards",
+        "price": "Moderate"
+      },
+      {
+        "name": "Photography Tours of Sintra’s Landscapes",
+        "type": "outdoor",
+        "description": "Capture stunning autumn colors in the forests and palaces with guided photography walks.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Sintra-Cascais Natural Park and Palaces",
+        "price": "Budget"
+      },
+      {
+        "name": "Trail Running through Sintra’s Hills",
+        "type": "sport",
+        "description": "Take advantage of cooler temperatures and scenic routes for invigorating trail runs.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Sintra Hills",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Visiting National Palace of Sintra",
+        "type": "cultural",
+        "description": "Tour the well-preserved medieval palace with indoor exhibits, perfect for cooler winter days.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "National Palace of Sintra",
+        "price": "Moderate"
+      },
+      {
+        "name": "Christmas Market in Sintra",
+        "type": "festival",
+        "description": "Enjoy festive stalls selling crafts, food, and seasonal treats during December in the town center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Sintra town center",
+        "price": "Budget"
+      },
+      {
+        "name": "Trying Queijadas and Travesseiros Pastries",
+        "type": "food",
+        "description": "Warm up with Sintra’s traditional winter pastries, perfect with a hot coffee in local cafes.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local pastry shops in Sintra",
+        "price": "Budget"
+      },
+      {
+        "name": "Coastal Walks at Low Crowds",
+        "type": "outdoor",
+        "description": "Enjoy peaceful winter walks along the coast near Sintra with crisp ocean air and fewer tourists.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Praia das Maçãs and nearby cliffs",
+        "price": "Free"
+      },
+      {
+        "name": "Indoor Yoga and Wellness Retreats",
+        "type": "sport",
+        "description": "Participate in wellness workshops and yoga sessions offered in Sintra’s boutique hotels during winter.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Boutique hotels and wellness centers, Sintra",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool and wet weather with fewer tourists; good for quiet exploration but some rain expected.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Similar weather, occasional rain; peaceful visits to palaces and parks, low crowds.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool temperatures but with some sunny days; low tourist presence and affordable prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 2,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Still cool and wet, low crowds; good off-season prices and quiet visits but limited outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Carnival (dates vary)",
+            "notes": "Carnival celebrations nearby increase vibrancy; weather improving slightly, moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              21,
+              29
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of winter with milder weather and blooming early spring flowers; still relatively quiet.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring arrives with warming temperatures and blossoming gardens; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Pleasant weather for hiking and sightseeing; still off-peak, ideal for couples and nature lovers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer days and longer daylight; gardens and palaces vibrant; good for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter (dates vary)",
+            "notes": "Spring in full bloom with mild weather; Easter celebrations bring cultural events; ideal for sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Excellent weather with pleasant temperatures and greenery; increasing tourists but not overcrowded.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and sunny days, perfect for outdoor activities and exploring castles and parks.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm, sunny weather with blooming gardens; high season begins but crowds are manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Festival of Sintra (mid-May, dates vary)",
+            "notes": "Festival with music and cultural events adds vibrancy; excellent weather; higher crowds but rewarding.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late spring warmth and longer days enhance sightseeing and hiking; crowds start to build toward summer.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm weather and long daylight; popular for outdoor visits; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Festa de São João (June 24 nearby in Lisbon)",
+            "notes": "Nearby Lisbon’s São João Festival affects regional tourism; warm weather and lively atmosphere in Sintra.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm, stable weather with minimal rain; ideal for hiking and cultural sightseeing; crowds peak but manageable.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer weather; Sintra is cooler than Lisbon but very crowded; prices peak and some outdoor fatigue possible.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued high temperatures and very busy; best for travelers who enjoy lively summer scenes and festivals.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer crowds and hot weather; early morning starts recommended for outdoor activities; high costs.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Very hot and busy month; many Portuguese locals vacation elsewhere, but international tourists peak; crowded sites.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High temperatures persist; crowded attractions; advisable to book accommodations well in advance.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August remains hot and busy; some relief near coast; evening events popular; plan for crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm days and cooler nights; crowds start to thin; excellent for outdoor activities and festivals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Ideal weather with mild temperatures; fewer tourists than summer; excellent value and pleasant conditions for all.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late September often has sunny days and cool evenings; perfect for exploring Sintra’s natural beauty and palaces.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors emerge; mild and pleasant weather; fewer tourists than summer; good for hiking and sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Weather cools and rain increases slightly; fewer visitors; good for budget travelers and quieter experience.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly rainy and cooler; some palaces and parks may be less accessible; low crowds but less ideal weather.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool, wet, and windy weather; low tourist activity; some attractions may have reduced hours; best for budget travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "High chance of rain and chilly temperatures; quiet town with limited outdoor activities; low prices but less enjoyable weather.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              21,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late November is cold and damp; ideal only for travelers seeking solitude or low-season bargains; many gardens dormant.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Chilly and wet; some holiday markets start; low crowds but festive atmosphere building towards Christmas.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              20
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas Markets (mid to late December)",
+            "notes": "Festive decorations and small markets; weather cold and often rainy; moderate visitors but charming holiday vibe.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "New Year’s Eve celebrations",
+            "notes": "Cool to cold weather; festive events in Lisbon influence Sintra visitors; low to moderate crowds; some sites closed on holidays.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

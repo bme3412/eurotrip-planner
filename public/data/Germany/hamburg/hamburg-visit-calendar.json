@@ -4,30 +4,101 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 2,
           "special": true,
           "event": "New Year's Day",
-          "notes": "Public holiday, most businesses closed, New Year's concerts at Elbphilharmonie and other venues"
+          "notes": "Public holiday, most businesses closed, New Year's concerts at Elbphilharmonie and other venues",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "score": 3,
           "special": true,
           "event": "Heilige Drei Könige (Epiphany)",
-          "notes": "January 6th is a public holiday in northern Germany, traditional Three Kings singers visit homes"
+          "notes": "January 6th is a public holiday in northern Germany, traditional Three Kings singers visit homes",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 2,
-          "notes": "Winter sales begin ('Winterschlussverkauf'), cold weather, few tourists, good time for museum visits"
+          "notes": "Winter sales begin ('Winterschlussverkauf'), cold weather, few tourists, good time for museum visits",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 2
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 2,
           "special": true,
           "event": "Beginning of Carnival Season",
-          "notes": "First carnival events begin, indoor activities dominate due to cold weather"
+          "notes": "First carnival events begin, indoor activities dominate due to cold weather",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 3,
@@ -38,23 +109,81 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 2,
-          "notes": "Cold winter weather continues, few tourists, excellent time for museums and indoor attractions"
+          "notes": "Cold winter weather continues, few tourists, excellent time for museums and indoor attractions",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 2
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 3,
           "special": true,
           "event": "Valentine's Day",
-          "notes": "Special menus at restaurants, not traditionally celebrated but increasing in popularity"
+          "notes": "Special menus at restaurants, not traditionally celebrated but increasing in popularity",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 3,
           "special": true,
           "event": "Carnival Peak Season",
-          "notes": "Costume parties, balls, and street celebrations culminating in Rosenmontag (Carnival Monday)"
+          "notes": "Costume parties, balls, and street celebrations culminating in Rosenmontag (Carnival Monday)",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 4,
@@ -65,16 +194,67 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
           "score": 3,
-          "notes": "Early spring with unpredictable weather, gradual warming, outdoor cafes begin to open on sunny days"
+          "notes": "Early spring with unpredictable weather, gradual warming, outdoor cafes begin to open on sunny days",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Spring Festival Season",
-          "notes": "Various spring festivals and events begin, including the Spring Fair at Heiligengeistfeld"
+          "notes": "Various spring festivals and events begin, including the Spring Fair at Heiligengeistfeld",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 8,
@@ -85,23 +265,83 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
           "score": 4,
           "special": true,
           "event": "Holy Week & Easter",
-          "notes": "Religious celebrations, Easter markets, many restaurants open with special menus"
+          "notes": "Religious celebrations, Easter markets, many restaurants open with special menus",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+          "days": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
           "score": 4,
-          "notes": "Spring weather improves, cherry blossoms in Planten un Blomen, outdoor cafe culture begins"
+          "notes": "Spring weather improves, cherry blossoms in Planten un Blomen, outdoor cafe culture begins",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Spring Festival",
-          "notes": "Hamburg's spring festival at Heiligengeistfeld with traditional northern German attractions"
+          "notes": "Hamburg's spring festival at Heiligengeistfeld with traditional northern German attractions",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 13,
@@ -112,30 +352,101 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 4,
           "special": true,
           "event": "Tag der Arbeit (Labor Day)",
-          "notes": "Public holiday with traditional Maypole celebrations and demonstrations"
+          "notes": "Public holiday with traditional Maypole celebrations and demonstrations",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 5,
-          "notes": "Beautiful spring weather, perfect for outdoor activities and harbor tours"
+          "notes": "Beautiful spring weather, perfect for outdoor activities and harbor tours",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Hamburg Port Anniversary",
-          "notes": "World's largest port festival with ship parades, maritime demonstrations, and fireworks"
+          "notes": "World's largest port festival with ship parades, maritime demonstrations, and fireworks",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Hafengeburtstag (Port Anniversary)",
-          "notes": "Final day of the port festival with spectacular fireworks and celebrations"
+          "notes": "Final day of the port festival with spectacular fireworks and celebrations",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 17,
@@ -146,23 +457,83 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
           "score": 5,
-          "notes": "Early summer weather, excellent for outdoor activities, moderate tourism levels"
+          "notes": "Early summer weather, excellent for outdoor activities, moderate tourism levels",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [9, 10],
+          "days": [
+            9,
+            10
+          ],
           "score": 5,
           "special": true,
           "event": "Corpus Christi",
-          "notes": "Religious holiday (date varies) with processions in city center"
+          "notes": "Religious holiday (date varies) with processions in city center",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Hamburg Summer Festival",
-          "notes": "Cultural festival with music, international food, and art installations"
+          "notes": "Cultural festival with music, international food, and art installations",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 20,
@@ -173,18 +544,69 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 5,
           "special": true,
           "event": "Hamburg State Opera Festival",
-          "notes": "Prestigious opera performances at the State Opera and other venues"
+          "notes": "Prestigious opera performances at the State Opera and other venues",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Sommerferien (Summer Vacation)",
-          "notes": "School holidays begin, more locals at beaches and outdoor venues"
+          "notes": "School holidays begin, more locals at beaches and outdoor venues",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 22,
@@ -195,23 +617,84 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 4,
-          "notes": "Peak summer heat, beach bars and outdoor activities very popular, high tourist season"
+          "notes": "Peak summer heat, beach bars and outdoor activities very popular, high tourist season",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 4,
           "special": true,
           "event": "Mariä Himmelfahrt (Assumption Day)",
-          "notes": "Public holiday in some areas, special masses at major churches"
+          "notes": "Public holiday in some areas, special masses at major churches",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Hamburg Cruise Days",
-          "notes": "World's largest cruise festival with spectacular ship parades and maritime events"
+          "notes": "World's largest cruise festival with spectacular ship parades and maritime events",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 22,
@@ -222,16 +705,66 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
-          "notes": "Pleasant late summer weather, perfect conditions for outdoor activities"
+          "notes": "Pleasant late summer weather, perfect conditions for outdoor activities",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
           "special": true,
           "event": "Hamburg Marathon",
-          "notes": "Annual marathon through the city's most scenic areas"
+          "notes": "Annual marathon through the city's most scenic areas",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 18,
@@ -242,30 +775,102 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3],
+          "days": [
+            1,
+            2,
+            3
+          ],
           "score": 4,
           "special": true,
           "event": "Hamburg Marathon Weekend",
-          "notes": "Final days of the marathon event with various running activities"
+          "notes": "Final days of the marathon event with various running activities",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [3],
+          "days": [
+            3
+          ],
           "score": 4,
           "special": true,
           "event": "Tag der Deutschen Einheit (German Unity Day)",
-          "notes": "National holiday celebrating German reunification, special events"
+          "notes": "National holiday celebrating German reunification, special events",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Beautiful autumn colors in parks and gardens, pleasant temperatures"
+          "notes": "Beautiful autumn colors in parks and gardens, pleasant temperatures",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Halloween/Reformationstag",
-          "notes": "Halloween celebrations growing in popularity; Reformation Day observed"
+          "notes": "Halloween celebrations growing in popularity; Reformation Day observed",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 13,
@@ -276,35 +881,115 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "Allerheiligen (All Saints' Day)",
-          "notes": "Public holiday in some areas, special masses at major churches"
+          "notes": "Public holiday in some areas, special masses at major churches",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 3,
-          "notes": "Quieter tourism period, increasingly cold weather, transition to indoor activities"
+          "notes": "Quieter tourism period, increasingly cold weather, transition to indoor activities",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 2
+          }
         },
         {
-          "days": [11],
+          "days": [
+            11
+          ],
           "score": 3,
           "special": true,
           "event": "St. Martin's Day",
-          "notes": "Children's lantern processions and traditional celebrations"
+          "notes": "Children's lantern processions and traditional celebrations",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "days": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
           "score": 3,
-          "notes": "Pre-Christmas atmosphere begins, decreasing daylight hours"
+          "notes": "Pre-Christmas atmosphere begins, decreasing daylight hours",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [30],
+          "days": [
+            30
+          ],
           "score": 4,
           "special": true,
           "event": "Advent Season Begins",
-          "notes": "First Christmas markets open, holiday decorations appear"
+          "notes": "First Christmas markets open, holiday decorations appear",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 7,
@@ -315,51 +1000,153 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets",
-          "notes": "Traditional Christmas markets throughout the city, especially at Rathausmarkt"
+          "notes": "Traditional Christmas markets throughout the city, especially at Rathausmarkt",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [6],
+          "days": [
+            6
+          ],
           "score": 4,
           "special": true,
           "event": "Nikolaustag (St. Nicholas Day)",
-          "notes": "Children receive small gifts, special Nikolaus appearances"
+          "notes": "Children receive small gifts, special Nikolaus appearances",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Market Season",
-          "notes": "Peak holiday atmosphere, festive decorations throughout the city"
+          "notes": "Peak holiday atmosphere, festive decorations throughout the city",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24],
+          "days": [
+            24
+          ],
           "score": 3,
           "special": true,
           "event": "Heiligabend (Christmas Eve)",
-          "notes": "Main Christmas celebration, most businesses close by afternoon"
+          "notes": "Main Christmas celebration, most businesses close by afternoon",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [25, 26],
+          "days": [
+            25,
+            26
+          ],
           "score": 3,
           "special": true,
           "event": "Weihnachten (Christmas) & Stephanitag",
-          "notes": "Public holidays, most businesses closed, quiet atmosphere"
+          "notes": "Public holidays, most businesses closed, quiet atmosphere",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [27, 28, 29, 30],
+          "days": [
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
-          "notes": "Post-Christmas period, some markets and decorations remain"
+          "notes": "Post-Christmas period, some markets and decorations remain",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Silvester (New Year's Eve)",
-          "notes": "Celebrations at Landungsbrücken and throughout the city, fireworks"
+          "notes": "Celebrations at Landungsbrücken and throughout the city, fireworks",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 4,
@@ -410,10 +1197,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very low/high tourism",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
-} 
+}

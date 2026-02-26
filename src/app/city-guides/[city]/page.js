@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import fsPromises from "fs/promises";
 import path from "path";
 import CityPageClient from "@/components/city-guides/CityPageClient";
+import TripDatesBanner from "@/components/common/TripDatesBanner";
 
 // Function to capitalize the first letter of each word
 const capitalize = (str) => {
@@ -278,9 +279,10 @@ function CityJsonLd({ cityData, citySlug }) {
   );
 }
 
-export default async function CityPage({ params }) {
+export default async function CityPage({ params, searchParams }) {
   const { city } = await params;
   const cityName = decodeURIComponent(city);
+  const resolvedSearch = await searchParams;
   
   /** @type {import('@/types').CityData | null} */
   const cityData = await getCityData(cityName);
@@ -290,9 +292,13 @@ export default async function CityPage({ params }) {
     notFound();
   }
 
+  const tripStart = resolvedSearch?.start ?? null;
+  const tripEnd = resolvedSearch?.end ?? null;
+
   return (
     <>
       <CityJsonLd cityData={cityData} citySlug={city} />
+      <TripDatesBanner start={tripStart} end={tripEnd} />
       <CityPageClient cityData={cityData} cityName={cityName} />
     </>
   );

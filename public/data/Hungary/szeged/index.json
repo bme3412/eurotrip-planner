@@ -1,1 +1,2976 @@
-{"city":"szeged","country":"Hungary","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "szeged",
+  "country": "Hungary",
+  "overview": {
+    "city_name": "Szeged",
+    "country": "Hungary",
+    "brief_description": "Szeged, known as the 'City of Sunshine,' is a vibrant cultural and university city located in southern Hungary near the Romanian and Serbian borders. Renowned for its stunning Art Nouveau architecture and lively festivals, Szeged offers a perfect blend of history, gastronomy, and natural beauty along the Tisza River.",
+    "nickname": "City of Sunshine",
+    "region": "Southern Great Plain",
+    "population": "approximately 160,000",
+    "why_visit": [
+      "Explore magnificent Art Nouveau buildings and the iconic Votive Church",
+      "Experience the annual Szeged Open-Air Festival featuring theatre and opera",
+      "Enjoy delicious local cuisine, especially the famous Szeged fish soup",
+      "Relax along the scenic Tisza River and in the city's numerous parks"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and festivals are in full swing",
+    "seasonal_notes": {
+      "spring": "Mild temperatures with blooming parks and the start of outdoor events",
+      "summer": "Hot and sunny, ideal for river activities and attending the Open-Air Festival",
+      "autumn": "Pleasant weather with beautiful fall foliage and harvest celebrations",
+      "winter": "Cool and quieter, offering a peaceful atmosphere and festive Christmas markets"
+    },
+    "practical_info": {
+      "currency": "Hungarian Forint (HUF)",
+      "language": "Hungarian",
+      "visit_duration": "2 to 3 days to explore key sights and enjoy local culture",
+      "getting_around": "Walking, cycling, and a reliable public bus network",
+      "safety": "Generally safe for tourists with standard urban precautions recommended"
+    },
+    "coordinates": {
+      "latitude": 46.253,
+      "longitude": 20.148
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit the Szeged Votive Church and climb its towers for panoramic views",
+        "Stroll through Dugonics Square and admire its historic architecture",
+        "Attend a performance at the Szeged National Theatre",
+        "Sample authentic Szeged fish soup at a local restaurant",
+        "Relax in the Szeged Botanical Garden and the nearby parks"
+      ],
+      "worth_doing": [
+        "Explore the Móra Ferenc Museum to learn about regional history",
+        "Take a boat trip or walk along the Tisza River promenade",
+        "Visit the Reök Palace to see impressive Art Nouveau exhibitions",
+        "Experience local life at Szeged Market Hall",
+        "Discover the University of Szeged campus and its lively atmosphere"
+      ],
+      "hidden_gems": [
+        "Discover the charming inner courtyards around the city center",
+        "Visit the Szeged Synagogue, a beautiful example of historic architecture",
+        "Explore the small galleries and artisan shops in the Fekete Ház area",
+        "Relax at the Anna Thermal Bath for a traditional Hungarian spa experience",
+        "Attend a local wine tasting event featuring wines from the Szeged region"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Votive Church of Szeged (Szegedi Dóm)",
+        "type": "Church",
+        "description": "The Votive Church is a stunning example of Neo-Romanesque architecture, dominating Szeged's cityscape with its twin towers and beautiful mosaics. Built to commemorate the city's recovery from the great flood of 1879, it is a symbol of resilience and faith, featuring intricate stained glass windows and a grand organ.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Special evening concerts in summer",
+        "booking_tips": "Free entry; guided tours available during peak season",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 46.2533,
+        "longitude": 20.1486,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "8:00-18:00",
+          "weekend": "8:00-18:00",
+          "notes": "Hours may vary on religious holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A, fully indoor"
+        },
+        "official_url": "https://szegidom.hu/en/",
+        "website": "https://szegidom.hu/en/"
+      },
+      {
+        "name": "Szeged National Theater",
+        "type": "Theater",
+        "description": "Szeged National Theater is a key cultural venue hosting opera, ballet, and drama performances. The modern architecture blends with artistic interiors, making it a vibrant center for performing arts in the city.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Seasonal programming varies; check schedule for festivals",
+        "booking_tips": "Book tickets online in advance for popular shows",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.2521,
+        "longitude": 20.1484,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Varies by performance",
+          "weekend": "Varies by performance",
+          "notes": "Box office open 10:00-18:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor theater"
+        },
+        "official_url": "https://szegediszinhaz.hu/en/",
+        "website": "https://szegediszinhaz.hu/en/"
+      },
+      {
+        "name": "Anna Thermal Bath and Wellness",
+        "type": "Wellness Center",
+        "description": "Anna Thermal Bath offers a relaxing experience with thermal pools, saunas, and wellness treatments sourced from natural hot springs. This historic spa has been a favorite for locals seeking rejuvenation since the early 20th century.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Saunas and indoor pools available year-round",
+        "booking_tips": "Reserve spa treatments in advance, especially weekends",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 46.2475,
+        "longitude": 20.1623,
+        "neighborhood": "Anna Liget",
+        "opening_hours": {
+          "weekday": "9:00-21:00",
+          "weekend": "9:00-21:00",
+          "notes": "Reduced hours on holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "10",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Fully indoor"
+        },
+        "official_url": "https://www.annafurdo.hu/en",
+        "website": "https://www.annafurdo.hu/en"
+      },
+      {
+        "name": "Szeged Zoo",
+        "type": "Zoo",
+        "description": "Szeged Zoo houses a diverse collection of animals from around the world, focusing on conservation and education. The zoo's naturalistic enclosures and interactive exhibits make it a great family destination.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; some animal exhibits indoors for winter",
+        "booking_tips": "Tickets available online with discounts for families",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 46.2483,
+        "longitude": 20.1652,
+        "neighborhood": "Anna Liget",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Shorter hours in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor exhibits available"
+        },
+        "official_url": "https://www.szegedzoo.hu/en",
+        "website": "https://www.szegedzoo.hu/en"
+      },
+      {
+        "name": "Dömötör Tower",
+        "type": "Historic Site",
+        "description": "The Dömötör Tower is the oldest building in Szeged, dating back to the 12th century. This medieval tower served as a bell tower and watchtower and offers insight into the city's early history and architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open seasonally, usually spring to autumn",
+        "booking_tips": "Check opening days in advance; guided tours available locally",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 46.2535,
+        "longitude": 20.1502,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "10:00-16:00",
+          "notes": "Closed in winter months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Votive Church nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Reök Palace",
+        "type": "Gallery",
+        "description": "Reök Palace is an Art Nouveau masterpiece housing a contemporary art gallery. Its ornate facade and elegant interiors create a unique atmosphere for exhibitions showcasing Hungarian and international artists.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Exhibitions rotate seasonally",
+        "booking_tips": "Check exhibition schedule online before visiting",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.2538,
+        "longitude": 20.1499,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor gallery"
+        },
+        "official_url": "https://reokpalota.hu/en",
+        "website": "https://reokpalota.hu/en"
+      },
+      {
+        "name": "Szeged Synagogue",
+        "type": "Historic Site|Religious Site",
+        "description": "The Szeged Synagogue is a beautiful blend of Art Nouveau and Moorish architectural styles, reflecting the city's Jewish heritage. It remains active and offers guided tours that highlight its art, history, and community importance.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Closed on Jewish holidays",
+        "booking_tips": "Arrange guided tours in advance, especially for groups",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.2504,
+        "longitude": 20.1496,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Saturdays and Jewish holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor site"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Szeged Open-air Festival",
+        "type": "Event|Festival",
+        "description": "Held annually in summer, the Szeged Open-air Festival is one of Hungary's most famous cultural events featuring operas, musicals, and theatrical performances in the iconic Votive Church square. It creates a magical atmosphere under the stars with world-class productions.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Premium",
+        "seasonal_notes": "Only in summer (July-August)",
+        "booking_tips": "Book tickets months in advance, especially for popular shows",
+        "ratings": {
+          "cost_estimate": 30,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 5
+        },
+        "latitude": 46.2533,
+        "longitude": 20.1486,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": "Seasonal festival"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 4,
+          "ideal_time_block": "evening",
+          "weather_fallback": "No indoor alternative for open-air shows"
+        },
+        "official_url": "https://szegediszalfestival.hu/en/",
+        "website": "https://szegediszalfestival.hu/en/"
+      },
+      {
+        "name": "Kárász Street",
+        "type": "Shopping Street|Neighborhood",
+        "description": "Kárász Street is Szeged’s bustling pedestrian zone filled with shops, cafes, and historic architecture. It is perfect for a leisurely stroll to enjoy local flavors, street performances, and the vibrant atmosphere of the city center.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Decorated beautifully during Christmas season",
+        "booking_tips": "No booking needed",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.2527,
+        "longitude": 20.1489,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Shops have individual hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor cafes or galleries nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Déli Park",
+        "type": "Park",
+        "description": "Déli Park is a peaceful green space ideal for relaxing, picnics, and outdoor activities. With well-maintained paths and playgrounds, it is a favorite spot for families and locals, offering a calm retreat from the urban buzz.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring with blooming flowers",
+        "booking_tips": "No booking required",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 46.2461,
+        "longitude": 20.1594,
+        "neighborhood": "Déli városrész",
+        "opening_hours": {
+          "weekday": "5:00-22:00",
+          "weekend": "5:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby Szeged Zoo indoor exhibits"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Pick Salami and Szeged Paprika Museum",
+        "type": "Museum",
+        "description": "Dedicated to Szeged’s iconic salami and paprika products, this museum showcases the history and production of these local culinary treasures. Visitors can see traditional manufacturing methods and taste authentic flavors.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round",
+        "booking_tips": "Guided tours recommended for full experience",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 46.254,
+        "longitude": 20.153,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.pickmuzeum.hu/en/",
+        "website": "https://www.pickmuzeum.hu/en/"
+      },
+      {
+        "name": "Móra Ferenc Museum",
+        "type": "Museum",
+        "description": "The Móra Ferenc Museum offers an extensive collection of archaeology, ethnography, and natural history exhibits focused on the Csongrád region. It is named after the famous Hungarian writer and provides great insight into local culture and history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; special exhibitions in summer",
+        "booking_tips": "Discounts for students and seniors",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.2547,
+        "longitude": 20.1539,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.museum.hu/museum/102/Mora-Ferenc-Museum",
+        "website": "https://www.museum.hu/museum/102/Mora-Ferenc-Museum"
+      },
+      {
+        "name": "Széchenyi Square",
+        "type": "Historic Site|Square",
+        "description": "Széchenyi Square is the central square of Szeged, surrounded by historic buildings, cafes, and the impressive City Hall. It is a popular meeting point and hosts various events, markets, and open-air concerts throughout the year.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Christmas market and summer festivals held here",
+        "booking_tips": "No booking needed",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 46.2526,
+        "longitude": 20.1482,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Events may affect access"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor cafes or museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Szeged Market Hall (Vásárcsarnok)",
+        "type": "Market",
+        "description": "The Szeged Market Hall is a vibrant indoor market featuring fresh produce, local delicacies, and artisan crafts. Its historic architecture and bustling atmosphere provide an authentic taste of daily life in Szeged.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visits in spring and summer for fresh seasonal products",
+        "booking_tips": "No booking required; early mornings are less crowded",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 46.253,
+        "longitude": 20.1468,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "6:00-17:00",
+          "weekend": "6:00-13:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Tisza River Promenade",
+        "type": "Viewpoint|Park",
+        "description": "The Tisza River Promenade offers scenic walking paths along the riverbanks, perfect for cycling, jogging, or relaxing with views of the water and city skyline. It is especially beautiful at sunset and during spring blossoms.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring and summer; some paths muddy in heavy rain",
+        "booking_tips": "No booking needed",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 46.2565,
+        "longitude": 20.1517,
+        "neighborhood": "Riverside",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Accessible year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit indoor museums if rainy"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Szent István Square",
+        "type": "Historic Site|Square",
+        "description": "Szent István Square is a charming historic square featuring statues, cafes, and access to several important buildings including the Dömötör Tower. It is ideal for soaking in Szeged’s atmosphere and enjoying local street life.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Seasonal events and markets take place here",
+        "booking_tips": "No booking needed",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 46.2533,
+        "longitude": 20.1498,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Events may affect access"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "University of Szeged Botanical Garden",
+        "type": "Park|Botanical Garden",
+        "description": "The University Botanical Garden features a wide variety of native and exotic plants in beautifully landscaped settings. It serves educational and conservation purposes and offers a tranquil environment for nature lovers.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best in spring and early summer when flowers bloom",
+        "booking_tips": "Entry tickets available on site; group tours possible by arrangement",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.2599,
+        "longitude": 20.1432,
+        "neighborhood": "University District",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "9:00-17:00",
+          "notes": "Closed on certain holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Móra Ferenc Museum indoors"
+        },
+        "official_url": "https://botanikuskert.u-szeged.hu/en",
+        "website": "https://botanikuskert.u-szeged.hu/en"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Belváros",
+        "alternate_names": [
+          "City Center",
+          "Downtown Szeged"
+        ],
+        "character": "Belváros pulses with the vibrant energy of Szeged’s heart, where historic charm meets bustling city life. Its lively streets are lined with cafés, shops, and cultural venues, making it the city’s main hub for visitors and locals alike.",
+        "location": {
+          "central": true,
+          "description": "Located in the very center of Szeged along the Tisza River.",
+          "borders": [
+            "Felsőváros",
+            "Kiskundorozsma",
+            "Rókus"
+          ],
+          "landmarks": [
+            "Votive Church",
+            "Dóm Square",
+            "Széchenyi tér"
+          ]
+        },
+        "history": {
+          "overview": "Belváros developed around Szeged’s medieval core and was extensively rebuilt after the great 1879 flood.",
+          "significance": "It is the historic and cultural heart of the city, showcasing iconic architecture and public spaces.",
+          "notable_events": [
+            "1879 Great Flood and subsequent city reconstruction",
+            "Annual Szeged Open-Air Festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Dóm tér tram stop",
+            "Kossuth Lajos sugárút bus lines"
+          ],
+          "safety": "Generally safe with regular police presence",
+          "best_time_to_visit": "Late spring to early autumn for festivals and outdoor dining",
+          "walkability": "Highly walkable with pedestrian-only zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Votive Church",
+            "Open-Air Festival",
+            "Historic architecture",
+            "Shopping",
+            "Riverside views"
+          ],
+          "atmosphere": [
+            "vibrant",
+            "historic",
+            "energetic"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "culture seekers",
+            "couples"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Votive Church",
+              "type": "Religious/Historic",
+              "description": "An iconic neo-Romanesque cathedral dominating Szeged’s skyline.",
+              "appeal": "Its stunning architecture and panoramic bell tower views attract visitors year-round."
+            },
+            {
+              "name": "Dóm Square",
+              "type": "Public Square",
+              "description": "Central square hosting the famous Szeged Open-Air Festival each summer.",
+              "appeal": "A cultural hotspot combining outdoor performances with beautiful surroundings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kakas Étterem",
+              "cuisine": "Hungarian",
+              "price_range": "€€",
+              "known_for": "Traditional Szeged fish soup",
+              "atmosphere": "Cozy and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the square before crowds arrive.",
+          "Try the local fish soup at a riverside café.",
+          "Attend an event at the Open-Air Theatre during summer."
+        ]
+      },
+      {
+        "name": "Felsőváros",
+        "alternate_names": [
+          "Upper Town"
+        ],
+        "character": "Felsőváros is a trendy, youthful neighborhood brimming with creative energy and modern flair. Hip cafés, boutique shops, and street art create a vibrant atmosphere favored by students and artists.",
+        "location": {
+          "central": false,
+          "description": "Northwest of the city center, about a 10-minute tram ride from Belváros.",
+          "borders": [
+            "Belváros",
+            "Tarján",
+            "Kiskundorozsma"
+          ],
+          "landmarks": [
+            "Reök Palace",
+            "Móra Ferenc Museum"
+          ]
+        },
+        "history": {
+          "overview": "Originally a residential district, it evolved into a cultural hotspot in recent decades.",
+          "significance": "Home to Szeged’s artistic institutions and a center for contemporary culture.",
+          "notable_events": [
+            "Restoration of Reök Palace",
+            "Annual Felsőváros Art Festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Felsőváros tram stop",
+            "Bartók tér bus connections"
+          ],
+          "safety": "Safe with a lively street presence",
+          "best_time_to_visit": "Spring and summer for outdoor terraces and festivals",
+          "walkability": "Very walkable with bike lanes"
+        },
+        "appeal": {
+          "known_for": [
+            "Contemporary art",
+            "Cafés and bars",
+            "Street art",
+            "Student life"
+          ],
+          "atmosphere": [
+            "hip",
+            "creative",
+            "bohemian"
+          ],
+          "best_for": [
+            "young travelers",
+            "art lovers",
+            "nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Reök Palace",
+              "type": "Art Nouveau Building/Museum",
+              "description": "A stunning Art Nouveau villa hosting modern art exhibitions.",
+              "appeal": "Architectural beauty combined with dynamic art programming."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Fekete Bárány",
+              "cuisine": "International fusion",
+              "price_range": "€€",
+              "known_for": "Creative cocktails and tapas-style dishes",
+              "atmosphere": "Trendy and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore the side streets to discover local street art.",
+          "Visit the Reök Palace during evening openings for a unique experience.",
+          "Try the craft beers at one of the local microbreweries."
+        ]
+      },
+      {
+        "name": "Fodorka",
+        "alternate_names": [],
+        "character": "Fodorka is the main food district of Szeged, where local markets and diverse eateries merge into a feast for the senses. The neighborhood buzzes with vendors selling fresh produce, spices, and traditional ingredients alongside modern restaurants.",
+        "location": {
+          "central": true,
+          "description": "Just east of Belváros, adjacent to the Tisza River.",
+          "borders": [
+            "Belváros",
+            "Rókus",
+            "Kiskundorozsma"
+          ],
+          "landmarks": [
+            "Szeged Market Hall"
+          ]
+        },
+        "history": {
+          "overview": "Historically Szeged’s commercial hub for food trade and markets.",
+          "significance": "It remains the culinary heart where traditions meet contemporary gastronomy.",
+          "notable_events": [
+            "Establishment of Szeged Market Hall in 1904"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Fodorka tram stop",
+            "Szeged Market bus lines"
+          ],
+          "safety": "Safe and lively during market hours",
+          "best_time_to_visit": "Morning to early afternoon for markets",
+          "walkability": "Highly walkable with pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Market Hall",
+            "Local produce",
+            "Hungarian delicacies",
+            "Street food"
+          ],
+          "atmosphere": [
+            "bustling",
+            "aromatic",
+            "authentic"
+          ],
+          "best_for": [
+            "foodies",
+            "culinary explorers",
+            "local shoppers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Szeged Market Hall",
+              "type": "Market",
+              "description": "A historic indoor market offering fresh produce, spices, and local specialties.",
+              "appeal": "An immersive experience into Szeged’s culinary traditions."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Halászcsárda",
+              "cuisine": "Hungarian seafood",
+              "price_range": "€€",
+              "known_for": "Traditional Szeged fish soup and river fish dishes",
+              "atmosphere": "Casual and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early to catch the freshest market stalls.",
+          "Try the homemade paprika products unique to Szeged.",
+          "Combine a market visit with a riverside walk along the Tisza."
+        ]
+      },
+      {
+        "name": "Rókus",
+        "alternate_names": [],
+        "character": "Rókus is a quiet, primarily residential neighborhood known for its tree-lined streets and a relaxed suburban feel. It offers a peaceful contrast to the busy city center with parks and local shops serving daily needs.",
+        "location": {
+          "central": false,
+          "description": "Southeast of Belváros, on the opposite side of the Tisza River.",
+          "borders": [
+            "Belváros",
+            "Fodorka",
+            "Kiskundorozsma"
+          ],
+          "landmarks": [
+            "Rókus Hospital",
+            "Szent Anna Square"
+          ]
+        },
+        "history": {
+          "overview": "Historically a workers’ district that expanded with the city’s industrial growth.",
+          "significance": "Represents the everyday life and community spirit of Szeged’s residents.",
+          "notable_events": [
+            "Post-WWII residential development"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Rókus tram stop",
+            "Local bus lines"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Year-round for quiet walks and local markets",
+          "walkability": "Moderately walkable with some green spaces"
+        },
+        "appeal": {
+          "known_for": [
+            "Residential calm",
+            "Local markets",
+            "Community parks"
+          ],
+          "atmosphere": [
+            "quiet",
+            "friendly",
+            "suburban"
+          ],
+          "best_for": [
+            "families",
+            "long-term travelers",
+            "those seeking local life"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Szent Anna Square",
+              "type": "Public Park",
+              "description": "A calm green space ideal for relaxation and community events.",
+              "appeal": "Offers a glimpse of everyday life away from tourist crowds."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Tóth Cukrászda",
+              "cuisine": "Hungarian pastries and cafés",
+              "price_range": "€",
+              "known_for": "Traditional cakes and coffee",
+              "atmosphere": "Cozy and local"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the local market on weekends for fresh produce.",
+          "Take a peaceful walk along the riverbank paths.",
+          "Try a coffee and cake at Tóth Cukrászda to experience local flavors."
+        ]
+      },
+      {
+        "name": "Alsóváros",
+        "alternate_names": [
+          "Lower Town"
+        ],
+        "character": "Alsóváros is historically rich with charming streets and venerable buildings, offering a quiet stroll through Szeged’s past. Its cozy cafés and small galleries attract visitors who appreciate history blended with a calm ambiance.",
+        "location": {
+          "central": true,
+          "description": "Southwest of Belváros, close to the river and main train station.",
+          "borders": [
+            "Belváros",
+            "Rókus",
+            "Felsőváros"
+          ],
+          "landmarks": [
+            "Szeged Synagogue",
+            "National Theater of Szeged"
+          ]
+        },
+        "history": {
+          "overview": "One of Szeged’s oldest neighborhoods, with roots going back to medieval times.",
+          "significance": "Preserves architectural heritage and cultural institutions.",
+          "notable_events": [
+            "Construction of the National Theater",
+            "Jewish community history"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Szeged railway station",
+            "National Theater tram stop"
+          ],
+          "safety": "Safe and calm",
+          "best_time_to_visit": "Spring and autumn for pleasant weather",
+          "walkability": "Very walkable with many pedestrian areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Theater",
+            "Jewish heritage",
+            "Art galleries"
+          ],
+          "atmosphere": [
+            "historic",
+            "quiet",
+            "cultural"
+          ],
+          "best_for": [
+            "history buffs",
+            "art lovers",
+            "cultural travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Szeged Synagogue",
+              "type": "Religious/Historic",
+              "description": "A beautiful 19th-century synagogue known for its Moorish Revival architecture.",
+              "appeal": "A key site for Jewish heritage in the region."
+            },
+            {
+              "name": "National Theater of Szeged",
+              "type": "Theater",
+              "description": "A cultural venue offering diverse theatrical performances in a historic building.",
+              "appeal": "Showcases Hungary’s vibrant performing arts scene."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kertész Restaurant",
+              "cuisine": "Hungarian and Central European",
+              "price_range": "€€",
+              "known_for": "Hearty traditional dishes and local wines",
+              "atmosphere": "Warm and inviting"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check the National Theater schedule for a live performance.",
+          "Visit the synagogue with a guided tour to appreciate its history.",
+          "Walk the quiet streets in the early evening for a peaceful experience."
+        ]
+      },
+      {
+        "name": "Tarján",
+        "alternate_names": [],
+        "character": "Tarján is a growing residential area with a mix of modern housing and green spaces, appealing to families and those seeking a suburban lifestyle close to the city. It offers parks and sports facilities balancing urban convenience with outdoor activities.",
+        "location": {
+          "central": false,
+          "description": "Northwest outskirts of Szeged, beyond Felsőváros.",
+          "borders": [
+            "Felsőváros",
+            "Újszeged"
+          ],
+          "landmarks": [
+            "Tarján Sports Complex",
+            "Tarján Park"
+          ]
+        },
+        "history": {
+          "overview": "Originally a village absorbed into Szeged’s urban expansion during the 20th century.",
+          "significance": "Represents modern growth and suburban development in Szeged.",
+          "notable_events": [
+            "Development of sports facilities in the 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Tarján bus stops",
+            "Limited tram access"
+          ],
+          "safety": "Very safe and family-oriented",
+          "best_time_to_visit": "Summer for park activities and sports events",
+          "walkability": "Moderate, with some car-dependency"
+        },
+        "appeal": {
+          "known_for": [
+            "Parks",
+            "Sports facilities",
+            "Family-friendly environment"
+          ],
+          "atmosphere": [
+            "quiet",
+            "spacious",
+            "suburban"
+          ],
+          "best_for": [
+            "families",
+            "active travelers",
+            "long-term stays"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Tarján Park",
+              "type": "Park",
+              "description": "A large green area featuring playgrounds and walking trails.",
+              "appeal": "Ideal for family outings and outdoor sports."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Tarján Csárda",
+              "cuisine": "Hungarian traditional",
+              "price_range": "€",
+              "known_for": "Comfort food and home-style cooking",
+              "atmosphere": "Casual and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike to explore the extensive park areas.",
+          "Visit during local sports events to experience community spirit.",
+          "Try homemade pastries at the nearby bakery."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Bordó Szem Bistro",
+          "cuisine_type": "Hungarian Contemporary",
+          "description": "Elegant bistro offering modern takes on Hungarian classics with a refined atmosphere.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and intimate, perfect for special occasions.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "date night",
+            "celebrations",
+            "business dinners"
+          ],
+          "latitude": 46.2538,
+          "longitude": 20.1464,
+          "reservation_needed": true,
+          "local_tips": "Try the Szegedi halászlé, a spicy fish soup, their signature dish."
+        },
+        {
+          "name": "Bisztró 28",
+          "cuisine_type": "Hungarian and European",
+          "description": "Modern bistro with creative dishes highlighting local ingredients and seasonal produce.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy yet relaxed, great for food enthusiasts.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "foodies",
+            "date night",
+            "small groups"
+          ],
+          "latitude": 46.2531,
+          "longitude": 20.1375,
+          "reservation_needed": true,
+          "local_tips": "Reserve ahead on weekends to secure a table, and don't miss the Szegedi paprika chicken."
+        },
+        {
+          "name": "Kikelet Étterem",
+          "cuisine_type": "Hungarian Traditional",
+          "description": "Classic Hungarian dishes served in a refined setting, focusing on authentic flavors.",
+          "price_range": "€€€",
+          "atmosphere": "Classic and elegant with a cozy ambiance.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "traditional cuisine lovers",
+            "family dinners",
+            "business meetings"
+          ],
+          "latitude": 46.2545,
+          "longitude": 20.1419,
+          "reservation_needed": true,
+          "local_tips": "Their fish soup with carp is a must-try during colder months."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Pick Salami and Szeged Paprika Museum Café",
+          "cuisine_type": "Hungarian Casual",
+          "description": "Casual spot attached to the museum serving traditional Szeged sausage sandwiches and paprika-inspired dishes.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively with a cultural touch.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "families",
+            "tourists",
+            "quick bites"
+          ],
+          "latitude": 46.2516,
+          "longitude": 20.1359,
+          "reservation_needed": false,
+          "local_tips": "Try the Pick salami platter paired with local bread."
+        },
+        {
+          "name": "Tiszavirág Restaurant",
+          "cuisine_type": "Hungarian and International",
+          "description": "Comfortable restaurant offering hearty Hungarian dishes alongside international favorites.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and warm, great for groups and families.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "groups",
+            "families",
+            "casual dining"
+          ],
+          "latitude": 46.2562,
+          "longitude": 20.1477,
+          "reservation_needed": false,
+          "local_tips": "Their duck leg with red cabbage is highly recommended."
+        },
+        {
+          "name": "Körséta Étterem",
+          "cuisine_type": "Hungarian",
+          "description": "A local favorite offering traditional dishes with a modern twist in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual and welcoming with local charm.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "locals",
+            "casual meals",
+            "groups"
+          ],
+          "latitude": 46.255,
+          "longitude": 20.1408,
+          "reservation_needed": false,
+          "local_tips": "Ask for the seasonal fish dishes featuring Tisza river fish."
+        },
+        {
+          "name": "Fekete Gólya Kávézó & Étterem",
+          "cuisine_type": "Hungarian & Café",
+          "description": "A cozy spot blending café vibes with a restaurant serving homemade Hungarian favorites.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and artsy, perfect for casual dining or coffee breaks.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "casual dining",
+            "coffee lovers",
+            "small groups"
+          ],
+          "latitude": 46.2534,
+          "longitude": 20.142,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade desserts and Hungarian pastries."
+        },
+        {
+          "name": "Gourmet Fodrász",
+          "cuisine_type": "Hungarian Fast Casual",
+          "description": "Popular spot for quick Hungarian street food with a focus on quality ingredients.",
+          "price_range": "€",
+          "atmosphere": "Casual and vibrant, perfect for a quick meal.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "quick bites",
+            "students",
+            "casual dining"
+          ],
+          "latitude": 46.2547,
+          "longitude": 20.1397,
+          "reservation_needed": false,
+          "local_tips": "Their lángos with sour cream and cheese is a local favorite."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Szeged Market Hall",
+          "cuisine_type": "Various Hungarian Street Food",
+          "description": "The main indoor market offering a variety of local produce and street food stalls featuring traditional Hungarian snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic market vibe.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "quick snacks",
+            "local food exploration",
+            "tourists"
+          ],
+          "latitude": 46.2529,
+          "longitude": 20.1402,
+          "reservation_needed": false,
+          "local_tips": "Try the kürtőskalács (chimney cake) from the market stalls."
+        },
+        {
+          "name": "Kígyó Street Food Festival (seasonal event)",
+          "cuisine_type": "Hungarian & International Street Food",
+          "description": "Annual street food festival held in summer with a variety of vendors serving both traditional and fusion dishes.",
+          "price_range": "€",
+          "atmosphere": "Festive, lively, and family-friendly.",
+          "neighborhood": "Kígyó utca area",
+          "best_for": [
+            "families",
+            "foodies",
+            "group outings"
+          ],
+          "latitude": 46.254,
+          "longitude": 20.147,
+          "reservation_needed": false,
+          "local_tips": "Visit in summer to enjoy live music alongside street food."
+        },
+        {
+          "name": "Dóm Square Food Stalls",
+          "cuisine_type": "Hungarian Street Food",
+          "description": "Food stalls around Szeged’s iconic Dóm Square offering quick traditional snacks and drinks.",
+          "price_range": "€",
+          "atmosphere": "Casual and tourist-friendly open-air setting.",
+          "neighborhood": "Dóm tér",
+          "best_for": [
+            "tourists",
+            "quick bites",
+            "casual dining"
+          ],
+          "latitude": 46.253,
+          "longitude": 20.1425,
+          "reservation_needed": false,
+          "local_tips": "Try the spicy Szegedi fish soup served in bread bowls."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Dóm Udvar",
+          "cuisine_type": "Bar & Lounge",
+          "description": "Stylish bar with a great selection of Hungarian wines and cocktails in a cozy courtyard setting near the cathedral.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and relaxed with a sophisticated vibe.",
+          "neighborhood": "Dóm tér",
+          "best_for": [
+            "date night",
+            "wine lovers",
+            "evening drinks"
+          ],
+          "latitude": 46.2532,
+          "longitude": 20.1417,
+          "reservation_needed": false,
+          "local_tips": "Try local Szeged wines and enjoy the view of the cathedral."
+        },
+        {
+          "name": "Vagyok Bár",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Trendy bar with a creative cocktail menu and a lively atmosphere popular among locals.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and modern, great for nights out.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "groups",
+            "cocktail enthusiasts",
+            "nightlife"
+          ],
+          "latitude": 46.2549,
+          "longitude": 20.1395,
+          "reservation_needed": false,
+          "local_tips": "Ask the bartenders for a custom cocktail based on your taste."
+        },
+        {
+          "name": "Múzeum Café & Bar",
+          "cuisine_type": "Bar & Café",
+          "description": "A hybrid café and bar offering great coffee by day and craft beers by night, set near Szeged's cultural center.",
+          "price_range": "€€",
+          "atmosphere": "Casual and artsy with a young crowd.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "coffee lovers",
+            "casual drinks",
+            "students"
+          ],
+          "latitude": 46.2558,
+          "longitude": 20.1435,
+          "reservation_needed": false,
+          "local_tips": "Try their Hungarian craft beers paired with light snacks."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Déryné Bisztró & Café",
+          "cuisine_type": "Hungarian Café",
+          "description": "Classic café known for its pastries, coffee, and relaxed atmosphere in the city center.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and historic, ideal for afternoon breaks.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "coffee breaks",
+            "pastry lovers",
+            "reading"
+          ],
+          "latitude": 46.254,
+          "longitude": 20.14,
+          "reservation_needed": false,
+          "local_tips": "Try the traditional Hungarian cakes, especially the Dobos torte."
+        },
+        {
+          "name": "Kávéház Szeged",
+          "cuisine_type": "European Café",
+          "description": "Elegant café serving high-quality coffee, teas, and light bites in a refined setting.",
+          "price_range": "€€",
+          "atmosphere": "Elegant and quiet, perfect for meetings or relaxed mornings.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "business meetings",
+            "quiet time",
+            "coffee connoisseurs"
+          ],
+          "latitude": 46.2535,
+          "longitude": 20.1388,
+          "reservation_needed": false,
+          "local_tips": "Pair your coffee with their fresh strudel options."
+        },
+        {
+          "name": "Madal Café Szeged",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Known for expertly brewed specialty coffee and friendly service in a minimalist space.",
+          "price_range": "€€",
+          "atmosphere": "Modern and minimalist, great for coffee aficionados.",
+          "neighborhood": "Inner City",
+          "best_for": [
+            "specialty coffee",
+            "work/study",
+            "coffee lovers"
+          ],
+          "latitude": 46.2552,
+          "longitude": 20.1423,
+          "reservation_needed": false,
+          "local_tips": "Try their single-origin pour-over coffees."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Szeged Culinary Walking Tour",
+        "description": "Guided walking tour exploring Szeged’s food markets, local eateries, and iconic dishes like Szegedi halászlé.",
+        "price_range": "€€",
+        "seasonal_availability": "Year-round",
+        "location": "Starts at Szeged Market Hall",
+        "latitude": 46.2529,
+        "longitude": 20.1402,
+        "reservation_needed": true,
+        "local_tips": "Book in advance and wear comfortable shoes for walking."
+      },
+      {
+        "name": "Paprika and Pick Salami Museum Visit & Tasting",
+        "description": "Experience Hungary’s signature paprika and famous Szeged salami with interactive tastings and museum tours.",
+        "price_range": "€",
+        "seasonal_availability": "Year-round",
+        "location": "Pick Salami and Szeged Paprika Museum",
+        "latitude": 46.2516,
+        "longitude": 20.1359,
+        "reservation_needed": true,
+        "local_tips": "Combine the visit with a meal at the museum café."
+      },
+      {
+        "name": "Hungarian Cooking Class in Szeged",
+        "description": "Hands-on cooking classes focused on traditional Szeged dishes such as fish soup and paprika chicken.",
+        "price_range": "€€€",
+        "seasonal_availability": "Year-round",
+        "location": "Various local kitchens",
+        "latitude": 46.253,
+        "longitude": 20.14,
+        "reservation_needed": true,
+        "local_tips": "Great as a group activity; book several weeks in advance."
+      },
+      {
+        "name": "Seasonal Market Visit with Local Producer Tastings",
+        "description": "Explore local farmers’ markets with a guide, sampling seasonal produce, cheeses, and cured meats unique to the Szeged region.",
+        "price_range": "€",
+        "seasonal_availability": "Spring to Autumn",
+        "location": "Szeged Market Hall and outdoor markets",
+        "latitude": 46.2529,
+        "longitude": 20.1402,
+        "reservation_needed": false,
+        "local_tips": "Visit early morning for the freshest selections."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes from local markets",
+        "Early spring lamb stew with Hungarian herbs",
+        "Seasonal fruit preserves featuring cherries and apricots"
+      ],
+      "summer": [
+        "Szegedi halászlé (spicy fish soup) served cold or hot",
+        "Grilled paprika-seasoned meats",
+        "Fresh fruit desserts with local peaches and berries"
+      ],
+      "autumn": [
+        "Mushroom dishes featuring local forest varieties",
+        "Game meat stews with root vegetables",
+        "Paprika-spiced roasted chestnuts"
+      ],
+      "winter": [
+        "Hearty fish soups with carp from the Tisza River",
+        "Stuffed cabbage with smoked pork",
+        "Traditional Hungarian Christmas pastries like bejgli"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€8-€15",
+            "operator": "MÁV",
+            "notes": "Direct InterCity trains available, comfortable and scenic route."
+          },
+          {
+            "type": "bus",
+            "duration": "3h",
+            "frequency": "hourly",
+            "price_range": "€6-€12",
+            "operator": "Volánbusz",
+            "notes": "Frequent buses from Szeged bus station to Budapest Népliget."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "4 times daily",
+            "price_range": "€15-€40",
+            "operator": "MÁV / ÖBB",
+            "notes": "Requires transfer in Budapest; comfortable international trains."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "3 times daily",
+            "price_range": "€10-€25",
+            "operator": "FlixBus",
+            "notes": "Direct buses available, often cheaper than trains."
+          }
+        ]
+      },
+      {
+        "city": "Belgrade",
+        "country": "Serbia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "4 times daily",
+            "price_range": "€12-€20",
+            "operator": "Lasta",
+            "notes": "Direct international buses from Szeged to Belgrade."
+          },
+          {
+            "type": "train",
+            "duration": "6h",
+            "frequency": "2 times daily",
+            "price_range": "€10-€18",
+            "operator": "Serbian Railways / MÁV",
+            "notes": "Slower option, fewer daily trains."
+          }
+        ]
+      },
+      {
+        "city": "Bratislava",
+        "country": "Slovakia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "5h",
+            "frequency": "2 times daily",
+            "price_range": "€18-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses; convenient for connecting to Bratislava city center."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Lufthansa",
+            "notes": "Flight from nearby Budapest Airport; must travel to Budapest first."
+          },
+          {
+            "type": "train",
+            "duration": "10h",
+            "frequency": "2 times daily",
+            "price_range": "€40-€90",
+            "operator": "MÁV / DB",
+            "notes": "Multiple transfers, including Budapest and Vienna."
+          }
+        ]
+      },
+      {
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "8h",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Direct long-distance bus, comfortable and economical."
+          }
+        ]
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "5h",
+            "frequency": "3 times daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses available with comfortable seating."
+          },
+          {
+            "type": "train",
+            "duration": "6h",
+            "frequency": "1-2 times daily",
+            "price_range": "€15-€35",
+            "operator": "Croatian Railways / MÁV",
+            "notes": "Requires transfer in Budapest or Osijek."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "9h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct bus connection, economical for budget travelers."
+          },
+          {
+            "type": "train",
+            "duration": "9h 30m",
+            "frequency": "1 daily",
+            "price_range": "€30-€60",
+            "operator": "MÁV / ČD",
+            "notes": "Requires transfer in Budapest; scenic routes."
+          }
+        ]
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Turkish Airlines",
+            "notes": "Flight from Budapest Airport; must travel to Budapest first."
+          },
+          {
+            "type": "bus",
+            "duration": "15h",
+            "frequency": "2 times weekly",
+            "price_range": "€50-€80",
+            "operator": "Metro Turizm",
+            "notes": "Long-distance overnight buses with border crossing."
+          }
+        ]
+      },
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "12h",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "FlixBus",
+            "notes": "Direct long-distance bus; overnight options available."
+          },
+          {
+            "type": "train",
+            "duration": "11h",
+            "frequency": "1 daily",
+            "price_range": "€30-€70",
+            "operator": "MÁV / PKP",
+            "notes": "Requires transfers, typically via Budapest and Krakow."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Szeged Open Air Festival",
+        "type": "cultural",
+        "description": "A world-renowned outdoor theater festival held at the Dóm Square, featuring opera, musicals, and plays in a stunning open-air setting.",
+        "best_months": [
+          "May",
+          "June"
+        ],
+        "location": "Dóm Square",
+        "price": "Moderate"
+      },
+      {
+        "name": "Tisza River Cycling",
+        "type": "sport",
+        "description": "Enjoy scenic cycling routes along the Tisza River as the weather warms, perfect for nature lovers and outdoor enthusiasts.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Tisza River banks",
+        "price": "Free"
+      },
+      {
+        "name": "Spring Flower Markets",
+        "type": "outdoor",
+        "description": "Explore vibrant flower markets around the city, ideal for picking up local blooms and enjoying the fresh spring air.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "City Center",
+        "price": "Budget"
+      },
+      {
+        "name": "Traditional Hungarian Tisza Lajos Soup Tasting",
+        "type": "food",
+        "description": "Sample Tisza Lajos, a traditional spicy fish soup popular in Szeged, especially fresh during spring fishing seasons.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Local restaurants",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Szeged Day (Szeged Napja)",
+        "type": "festival",
+        "description": "A lively city celebration featuring concerts, fireworks, and cultural programs to mark Szeged’s founding.",
+        "best_months": [
+          "August"
+        ],
+        "location": "City Center and riverfront",
+        "price": "Free"
+      },
+      {
+        "name": "Tiszavirág Festival",
+        "type": "festival",
+        "description": "An annual open-air music and cultural festival celebrating Hungarian folk, jazz, and world music by the Tisza River.",
+        "best_months": [
+          "June"
+        ],
+        "location": "Tisza River bank",
+        "price": "Moderate"
+      },
+      {
+        "name": "River Beach Swimming and Sunbathing",
+        "type": "outdoor",
+        "description": "Relax and swim at the artificial river beach on the Tisza, a favorite summer spot for locals and tourists alike.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Tisza River Beach",
+        "price": "Budget"
+      },
+      {
+        "name": "Szeged Paprika Festival",
+        "type": "food",
+        "description": "Celebrate Szeged’s famous paprika with tastings, cooking demonstrations, and market stalls selling local spices.",
+        "best_months": [
+          "September"
+        ],
+        "location": "City Market Hall",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Szeged Autumn Festival",
+        "type": "cultural",
+        "description": "A multi-disciplinary festival offering concerts, art exhibitions, and theater performances showcasing regional talent.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Various venues citywide",
+        "price": "Moderate"
+      },
+      {
+        "name": "Tisza River Fishing",
+        "type": "sport",
+        "description": "Autumn is prime fishing season on the Tisza River, ideal for anglers seeking carp and catfish in cooler weather.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Tisza River",
+        "price": "Budget"
+      },
+      {
+        "name": "Harvest Wine Tasting",
+        "type": "food",
+        "description": "Sample freshly harvested regional wines at local wine bars and harvest festivals celebrating Szeged’s viticulture.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "City wine bars",
+        "price": "Moderate"
+      },
+      {
+        "name": "City Park Walks in Fall Foliage",
+        "type": "outdoor",
+        "description": "Stroll the leafy streets and parks like Anna-kert to admire the colorful autumn foliage and crisp air.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Anna-kert and City Park",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Szeged Christmas Market",
+        "type": "festival",
+        "description": "A charming traditional Christmas market with festive lights, crafts, mulled wine, and seasonal treats at Dóm Square.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Dóm Square",
+        "price": "Free"
+      },
+      {
+        "name": "Thermal Spa Visits",
+        "type": "outdoor",
+        "description": "Warm up during winter at Szeged’s thermal baths, offering relaxing pools and wellness treatments year-round.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Anna Thermal Bath",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Folk Music Concerts",
+        "type": "cultural",
+        "description": "Experience intimate folk music concerts in cozy indoor venues highlighting Hungarian winter traditions.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local cultural centers",
+        "price": "Budget"
+      },
+      {
+        "name": "Hearty Hungarian Winter Cuisine",
+        "type": "food",
+        "description": "Savor warming dishes like goulash and stuffed cabbage in Szeged’s traditional eateries to beat the cold.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "City restaurants",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year's Day, Epiphany",
+            "notes": "Cold winter weather with temperatures often below freezing; low tourist activity but New Year's celebrations and Epiphany on Jan 6 provide some local events.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Coldest part of winter; very low tourist activity; many outdoor attractions less enjoyable due to weather.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 1
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold, but locals begin indoor cultural events; museums and cafes are good refuge; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Winter continues; weather still cold and sometimes snowy; good for budget travelers and business trips with fewer tourists.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and sometimes snowy; off-peak season with low crowds; indoor museums and thermal baths popular.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Szeged Winter Festival (mid February, approx.)",
+            "notes": "Festival brings cultural performances and some crowds; weather still cold but increased local events improve experience.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather persists but days gradually lengthen; good for cultural sightseeing and thermal baths.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Approaching early spring; slightly warmer; low to moderate crowds; good value for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with gradually warming weather; outdoor sites start to open; moderate visitor numbers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Hungarian National Holiday (March 15)",
+            "notes": "National holiday with parades and celebrations; good cultural experience but some crowding in central areas.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring is well underway; pleasant temperatures in mid-teens Celsius; ideal for walking tours, riverbank strolls, and early outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild spring weather with blossoming parks; comfortable for outdoor activities; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Holidays (variable dates, often April)",
+            "notes": "Easter brings local cultural events and some visitors; weather usually pleasant; good time for cultural immersion.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm spring weather, ideal for exploring outdoor attractions like the Szeged Cathedral and riverside parks; crowds grow but remain manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day (May 1), Spring festivals",
+            "notes": "Warm, pleasant weather with temperatures around 20°C; May Day celebrations and spring festivals create lively atmosphere; excellent for all travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm, sunny spring weather perfect for outdoor dining, river walks, and sightseeing; low rainfall; crowds increase but not overwhelming.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm sunny days averaging 22-25°C; perfect for outdoor festivals, cycling, and river activities; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Szeged Open Air Festival (starts late June)",
+            "notes": "Festival season begins with open-air theater and music events; warm weather; lively atmosphere; crowd levels rise around events.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Szeged Open Air Festival continues",
+            "notes": "High summer with hot weather often reaching 30°C; peak festival season; vibrant nightlife and events; higher crowds especially during festival days.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Very hot weather can be intense; good for water activities on the Tisza river; crowds remain high but taper off slightly after festival peak.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot and humid summer weather continues; some locals begin vacation; good for outdoor dining and river activities; crowds moderate to high.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Szeged Day (August 20) / St. Stephen's Day",
+            "notes": "National holiday with fireworks and festivities; hot weather; event draws local crowds and tourists; expect higher prices and busy venues.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm, pleasant weather; perfect for outdoor sightseeing and walking tours; crowds moderate and tapering.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Szeged Wine Festival (mid-September)",
+            "notes": "Wine festival attracts visitors with tastings and regional food; mild weather ideal for outdoor festivals; excellent time to visit.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors begin; cooler but still pleasant weather; fewer tourists; good for cultural visits and quiet walks.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather becomes cooler and wetter; outdoor activities less comfortable; fewer events; low crowds and lower prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and damp weather; many outdoor attractions closed or less appealing; very low tourist numbers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, often foggy and rainy; low tourist appeal; indoor museums and thermal baths are best options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Advent and Christmas Markets (start late November/early December)",
+            "notes": "Winter cold but festive atmosphere with Christmas markets and decorations; popular among cultural travelers; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather continues; Christmas markets ongoing; good for festive cultural experiences; some days may be snowy.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Holiday celebrations with markets, concerts, and festivities; cold but festive; higher prices and crowds around Christmas and New Year's Eve.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

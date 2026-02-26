@@ -1,1 +1,3001 @@
-{"city":"novi-sad","country":"Serbia","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "novi-sad",
+  "country": "Serbia",
+  "overview": {
+    "city_name": "novi-sad",
+    "country": "Serbia",
+    "brief_description": "Novi Sad is Serbia’s vibrant cultural hub located on the banks of the Danube River, renowned for its rich history and lively arts scene. As the second-largest city in Serbia, it blends charming Austro-Hungarian architecture with modern urban life, making it a captivating destination for travelers. It’s also known for hosting the iconic EXIT music festival, attracting visitors worldwide.",
+    "nickname": "Serbian Athens",
+    "region": "Vojvodina, Northern Serbia",
+    "population": "approximately 250,000",
+    "why_visit": [
+      "Explore the historic Petrovaradin Fortress with panoramic views over the Danube",
+      "Experience the internationally acclaimed EXIT music festival",
+      "Discover vibrant street art and a thriving café culture in the city center",
+      "Visit numerous museums and galleries showcasing Serbian culture and history"
+    ],
+    "best_time_to_visit": "May to September, when festivals are in full swing and the weather is warm",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks make it ideal for sightseeing and outdoor walks.",
+      "summer": "Hot and lively, summer hosts major festivals like EXIT, with bustling riverfront activities.",
+      "autumn": "Cooler weather perfect for enjoying cultural events and exploring wine regions nearby.",
+      "winter": "Chilly but charming with fewer tourists, great for cozy cafés and indoor museums."
+    },
+    "practical_info": {
+      "currency": "Serbian dinar (RSD)",
+      "language": "Serbian",
+      "visit_duration": "2 to 3 days recommended",
+      "getting_around": "Efficient bus network, taxis, and walkable city center",
+      "safety": "Generally safe for tourists; exercise usual urban precautions especially at night"
+    },
+    "coordinates": {
+      "latitude": 45.2671,
+      "longitude": 19.8335
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Tour the Petrovaradin Fortress and visit its underground tunnels",
+        "Attend the EXIT Festival if visiting in July",
+        "Stroll along the Danube promenade and enjoy riverside cafés",
+        "Visit the Museum of Vojvodina to learn regional history",
+        "Explore the lively Liberty Square (Trg Slobode) and its surrounding streets"
+      ],
+      "worth_doing": [
+        "Visit the Novi Sad Synagogue and Jewish Cultural Center",
+        "Relax in the sprawling Danube Park",
+        "Take a day trip to Fruška Gora National Park for hiking and monasteries",
+        "Discover the art at the Gallery of Matica Srpska",
+        "Sample traditional Serbian cuisine at local taverns (kafanas)"
+      ],
+      "hidden_gems": [
+        "Explore the underground wine cellars in the city’s Petrovaradin district",
+        "Check out the street art murals in the Stari Grad neighborhood",
+        "Visit the small but atmospheric Museum of Contemporary Art of Vojvodina",
+        "Attend a local jazz or alternative music gig in intimate venues",
+        "Take a boat tour on the Danube for a different perspective of the city"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Petrovaradin Fortress",
+        "type": "Historic Site",
+        "description": "Dominating the Danube River, Petrovaradin Fortress is a massive 17th-century fortress known as the \"Gibraltar on the Danube.\" It offers panoramic views of Novi Sad and hosts the world-famous EXIT music festival. The fortress also contains underground tunnels and a charming clock tower.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Summer is popular due to the EXIT festival; spring and autumn offer pleasant weather for walking.",
+        "booking_tips": "No booking needed for general access; special events may require tickets.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 45.2523,
+        "longitude": 19.8486,
+        "neighborhood": "Petrovaradin",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Some underground tours have fixed schedules."
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit the Museum of Novi Sad within the fortress"
+        },
+        "official_url": "https://www.petrovaradinska-tvrdjava.rs/",
+        "website": null
+      },
+      {
+        "name": "Novi Sad City Museum",
+        "type": "Museum",
+        "description": "Located in a beautiful Baroque building in the city center, the museum showcases Novi Sad's rich history, culture, and art from its founding to modern times. Exhibits include archaeological finds, historical artifacts, and traditional costumes.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be purchased on site; check for group tour availability.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 45.255,
+        "longitude": 19.845,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://www.muzejns.rs/",
+        "website": null
+      },
+      {
+        "name": "Danube Park",
+        "type": "Park",
+        "description": "A tranquil green oasis in the heart of Novi Sad, Danube Park offers walking paths, a small lake with ducks, and beautifully maintained flower beds. It is a favorite spot for locals to relax and enjoy nature.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and summer provide the best floral displays; autumn offers colorful foliage.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.2535,
+        "longitude": 19.8435,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit a nearby cafe or museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Name of Mary Church",
+        "type": "Church",
+        "description": "This stunning neo-Gothic Catholic church, built in the late 19th century, is one of Novi Sad’s iconic landmarks. Its twin spires dominate the city skyline, and the interior features beautiful stained glass and ornate decorations.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Special services and events occur around Easter and Christmas.",
+        "booking_tips": "Open to visitors; guided tours may be available on request.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 45.2557,
+        "longitude": 19.8443,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-19:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor church visit"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Vojvodina",
+        "type": "Museum",
+        "description": "Housed in a grand historic palace, this museum presents the cultural and historical heritage of the Vojvodina region through extensive collections of archeology, ethnography, and fine arts. It is a must-visit for history enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available onsite; guided tours may need advance reservation.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 45.254,
+        "longitude": 19.844,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://www.muzejvojvodine.org.rs/",
+        "website": null
+      },
+      {
+        "name": "Liberty Square (Trg Slobode)",
+        "type": "Historic Site",
+        "description": "The bustling central square of Novi Sad, Liberty Square is surrounded by important government buildings, cafes, and shops. It is a lively meeting place with historic statues and a hub for cultural events and festivals.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor events often take place in summer and during holidays.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 45.253,
+        "longitude": 19.844,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor cafes or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Name of Mary Square",
+        "type": "Historic Site",
+        "description": "This historic square surrounds the Name of Mary Church and is filled with charming cafes and cultural landmarks. It is a great place to experience Novi Sad’s vibrant street life and architecture.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor seating available in spring and summer.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.2556,
+        "longitude": 19.8438,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Fruška Gora National Park",
+        "type": "Park",
+        "description": "Just south of Novi Sad, Fruška Gora is a beautiful national park famous for its rolling hills, vineyards, and Orthodox monasteries dating back to the 15th and 16th centuries. It offers hiking, cycling, and wine tasting experiences.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and autumn are best for outdoor activities; winter can be cold but scenic.",
+        "booking_tips": "No entrance fee; guided tours to monasteries can be booked in advance.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 4,
+          "cultural_significance": 5
+        },
+        "latitude": 45.132,
+        "longitude": 19.885,
+        "neighborhood": "Fruška Gora region",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Monasteries have individual visiting hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "56"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 3,
+          "max_duration_hours": 6,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Museum of Vojvodina or City Museum"
+        },
+        "official_url": "http://www.fruška-gora.com/",
+        "website": null
+      },
+      {
+        "name": "The Gallery of Matica Srpska",
+        "type": "Gallery",
+        "description": "Founded in 1847, this gallery houses one of the most important collections of Serbian and European art, including works by Paja Jovanović and Uroš Predić. The neoclassical building itself is an architectural gem.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended during exhibitions and weekends.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 45.2551,
+        "longitude": 19.8419,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor gallery"
+        },
+        "official_url": "http://www.galerijamaticesrpske.rs/",
+        "website": null
+      },
+      {
+        "name": "Štrand Beach",
+        "type": "Park|Recreational Area",
+        "description": "The most popular sandy beach on the Danube River, Štrand is a lively summer destination featuring swimming areas, volleyball courts, cafes, and playgrounds. It is great for families and young visitors seeking relaxation and fun.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Open and vibrant in summer months; closed or limited winter access.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 3
+        },
+        "latitude": 45.2541,
+        "longitude": 19.8497,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "06:00-22:00 (summer)",
+          "weekend": "06:00-22:00 (summer)",
+          "notes": "Seasonal, typically May to September"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "7"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor cafes or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Limanski Park",
+        "type": "Park",
+        "description": "A peaceful green space near the Danube, Limanski Park features tree-lined paths, sculptures, and a small lake. It is a favorite for locals to relax and walk, especially in the spring and autumn.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in autumn for foliage colors.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 45.2555,
+        "longitude": 19.8459,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby indoor cafe or museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Novi Sad Synagogue",
+        "type": "Historic Site|Cultural Center",
+        "description": "This striking Art Nouveau building was once a synagogue and now serves as a cultural center and gallery showcasing Jewish heritage and cultural events. Its well-preserved architecture is a highlight.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check event schedules for cultural programs.",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 45.2548,
+        "longitude": 19.8424,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cultural center"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Ribarsko Ostrvo (Fishermen’s Island)",
+        "type": "Park|Recreational Area",
+        "description": "A green island on the Danube River, Ribarsko Ostrvo is a peaceful retreat with walking trails, picnic areas, and a small beach. It is perfect for nature lovers and those looking to escape the city bustle.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring through early autumn.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 45.253,
+        "longitude": 19.847,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Danube Park or indoor museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Old Bridge (Stari Most)",
+        "type": "Historic Site|Bridge|Viewpoint",
+        "description": "A historic iron bridge connecting the city center with the Petrovaradin fortress, the Old Bridge offers picturesque views of the Danube and Novi Sad’s skyline. It's a favorite for photographers and romantic walks.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful at sunset year-round.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 45.2522,
+        "longitude": 19.8465,
+        "neighborhood": "City Center / Petrovaradin",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Limanska Pijaca (Limanska Market)",
+        "type": "Market",
+        "description": "A traditional open-air market offering fresh local produce, meats, cheeses, and homemade goods. It is a great place to experience local life and sample authentic Serbian flavors.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best in spring and summer when fresh produce is abundant.",
+        "booking_tips": "Go early for best selection.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 45.2545,
+        "longitude": 19.8468,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "06:00-14:00",
+          "weekend": "06:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby cafes or indoor markets"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Contemporary Art of Vojvodina",
+        "type": "Museum",
+        "description": "This museum showcases modern and contemporary artworks from Serbian and international artists. The collection includes paintings, sculptures, and multimedia installations, making it a vibrant cultural spot.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Check exhibition schedule online; group tours available.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 45.2542,
+        "longitude": 19.8447,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "11:00-19:00",
+          "weekend": "11:00-15:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://www.msub.org.rs/",
+        "website": null
+      },
+      {
+        "name": "Spens Sports and Business Center",
+        "type": "Sports Complex",
+        "description": "A large multi-purpose complex hosting sports events, concerts, and exhibitions. Visitors can attend basketball games, concerts, or use the fitness facilities. It is a hub of modern culture and entertainment in Novi Sad.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Events scheduled year-round; check calendar for concerts and games.",
+        "booking_tips": "Buy tickets in advance for popular events.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 45.252,
+        "longitude": 19.843,
+        "neighborhood": "Liman",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": "Check official event schedule"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "7"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor complex"
+        },
+        "official_url": "http://www.spens.rs/",
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Stari Grad",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Stari Grad is the historic heart of Novi Sad, bustling with cultural landmarks and charming streets. It exudes a timeless European charm with its baroque architecture and lively pedestrian zones.",
+        "location": {
+          "central": true,
+          "description": "Located directly in the city center along the Danube River",
+          "borders": [
+            "Podbara",
+            "Liman",
+            "Rotkvarija"
+          ],
+          "landmarks": [
+            "Petrovaradin Fortress",
+            "Cathedral of St. George",
+            "Liberty Square (Trg Slobode)"
+          ]
+        },
+        "history": {
+          "overview": "Stari Grad has been the core of Novi Sad since its founding in the late 17th century.",
+          "significance": "It represents the city’s cultural and historical identity, preserving its Austro-Hungarian heritage.",
+          "notable_events": [
+            "Founding of Novi Sad in 1694",
+            "Austro-Hungarian architectural development",
+            "Cultural festivals like EXIT"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Liberty Square Bus Station",
+            "Main city buses"
+          ],
+          "safety": "Generally safe, with increased tourist presence during festivals",
+          "best_time_to_visit": "Spring to early autumn for outdoor events and river views",
+          "walkability": "Highly walkable with pedestrian streets and accessible landmarks"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Main cultural institutions",
+            "Riverside promenade",
+            "Festivals"
+          ],
+          "atmosphere": [
+            "historic",
+            "lively",
+            "picturesque"
+          ],
+          "best_for": [
+            "history buffs",
+            "culture lovers",
+            "first-time visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Petrovaradin Fortress",
+              "type": "Historic Fortress",
+              "description": "A massive 18th-century fortress overlooking the Danube with panoramic views.",
+              "appeal": "Iconic symbol of Novi Sad and venue for major events like EXIT festival."
+            },
+            {
+              "name": "Cathedral of St. George",
+              "type": "Religious Landmark",
+              "description": "A beautiful neo-classical Catholic cathedral dating back to the 18th century.",
+              "appeal": "Architectural gem and spiritual center in the city."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Fish & Zelenish",
+              "cuisine": "Serbian and Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh river fish dishes",
+              "atmosphere": "Cozy and traditional"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the quiet streets and local bakeries.",
+          "Explore side alleys to find unique artisan shops.",
+          "Catch sunset views from the fortress for spectacular city panoramas."
+        ]
+      },
+      {
+        "name": "Liman",
+        "alternate_names": [],
+        "character": "Liman is a vibrant, youthful neighborhood popular among students and young professionals, featuring modern apartments and green parks. It has a laid-back yet energetic vibe, mixing residential calm with lively cafes and nightlife.",
+        "location": {
+          "central": false,
+          "description": "Southeast of Stari Grad, along the Danube's left bank",
+          "borders": [
+            "Stari Grad",
+            "Detelinara",
+            "Rotkvarija"
+          ],
+          "landmarks": [
+            "University of Novi Sad campus",
+            "Limanski Park"
+          ]
+        },
+        "history": {
+          "overview": "Developed mostly during the socialist era, Liman grew as a residential and academic hub.",
+          "significance": "Home to the University of Novi Sad, it shapes the city’s youthful and intellectual character.",
+          "notable_events": [
+            "Expansion in the 1960s-70s",
+            "University establishment and growth"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Liman Bus Terminal",
+            "City bus lines connecting to center"
+          ],
+          "safety": "Safe, family-friendly environment with active community policing",
+          "best_time_to_visit": "Late spring to early autumn for park activities and festivals",
+          "walkability": "Moderately walkable with good pedestrian paths and bike lanes"
+        },
+        "appeal": {
+          "known_for": [
+            "University life",
+            "Green parks",
+            "Cafes and bars",
+            "Student culture"
+          ],
+          "atmosphere": [
+            "hip",
+            "relaxed",
+            "community-oriented"
+          ],
+          "best_for": [
+            "students",
+            "young travelers",
+            "families"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Limanski Park",
+              "type": "Urban Park",
+              "description": "A large green space perfect for picnics, jogging, and outdoor events.",
+              "appeal": "Popular local gathering spot with playgrounds and walking trails."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kafeterija Liman",
+              "cuisine": "Coffeehouse and light bites",
+              "price_range": "€",
+              "known_for": "Specialty coffees and relaxed vibe",
+              "atmosphere": "Casual and trendy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Try local pastries at small bakeries around the university.",
+          "Visit during student festivals for vibrant cultural experiences.",
+          "Rent a bike to explore the extensive park areas."
+        ]
+      },
+      {
+        "name": "Podbara",
+        "alternate_names": [],
+        "character": "Podbara is an old residential neighborhood characterized by tree-lined streets and a strong community feel. It blends quiet residential life with small shops and authentic local eateries, offering a genuine slice of Novi Sad life.",
+        "location": {
+          "central": false,
+          "description": "Northeast of Stari Grad, near the Danube",
+          "borders": [
+            "Stari Grad",
+            "Salajka",
+            "Rotkvarija"
+          ],
+          "landmarks": [
+            "Mihajlo Pupin Park",
+            "Vojvodina Museum"
+          ]
+        },
+        "history": {
+          "overview": "One of the oldest Novi Sad neighborhoods, developed in the 19th century as a working-class district.",
+          "significance": "Represents the city’s traditional local lifestyle and community roots.",
+          "notable_events": [
+            "Industrial growth in early 20th century",
+            "Preservation of folk traditions"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Podbara Bus Stops",
+            "Nearby tram connections"
+          ],
+          "safety": "Generally safe with a close-knit community atmosphere",
+          "best_time_to_visit": "Year-round for authentic local experiences",
+          "walkability": "Very walkable with flat streets and local markets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Traditional restaurants",
+            "Community parks"
+          ],
+          "atmosphere": [
+            "authentic",
+            "quiet",
+            "friendly"
+          ],
+          "best_for": [
+            "culture seekers",
+            "slow travelers",
+            "families"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Vojvodina Museum",
+              "type": "Museum",
+              "description": "Showcases regional history and cultural heritage of Vojvodina province.",
+              "appeal": "Insightful for history and ethnography enthusiasts."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restoran Kod Srbe",
+              "cuisine": "Traditional Serbian",
+              "price_range": "€€",
+              "known_for": "Grilled meats and local wines",
+              "atmosphere": "Warm and rustic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the weekend local market for fresh produce and homemade goods.",
+          "Try the seasonal fish specialties at small family-run restaurants.",
+          "Walk to Mihajlo Pupin Park for a peaceful afternoon."
+        ]
+      },
+      {
+        "name": "Rotkvarija",
+        "alternate_names": [],
+        "character": "Rotkvarija is an eclectic neighborhood combining historic charm with a growing artsy, bohemian scene. It features colorful streets, small galleries, and trendy cafés that attract creatives and young professionals.",
+        "location": {
+          "central": true,
+          "description": "Just east of Stari Grad, bordering the city center",
+          "borders": [
+            "Stari Grad",
+            "Liman",
+            "Podbara"
+          ],
+          "landmarks": [
+            "Kineska Česma (Chinese Fountain)",
+            "Gallery of Matica Srpska"
+          ]
+        },
+        "history": {
+          "overview": "Originally a working-class district, it has evolved into a cultural hotspot over recent decades.",
+          "significance": "Known for its artistic heritage and community initiatives fostering creative expression.",
+          "notable_events": [
+            "Post-WWII reconstruction",
+            "Rise of art collectives in early 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Rotkvarija Bus Stops",
+            "Close to city center tram routes"
+          ],
+          "safety": "Safe with active neighborhood watch groups",
+          "best_time_to_visit": "Spring and summer for outdoor art events",
+          "walkability": "Highly walkable with narrow streets and pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Art galleries",
+            "Cafés",
+            "Street art",
+            "Small theaters"
+          ],
+          "atmosphere": [
+            "bohemian",
+            "creative",
+            "laid-back"
+          ],
+          "best_for": [
+            "artists",
+            "young travelers",
+            "culture enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Kineska Česma",
+              "type": "Fountain",
+              "description": "A decorative fountain and local meeting spot dating from the early 20th century.",
+              "appeal": "Popular landmark with picturesque surroundings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Artisan Café",
+              "cuisine": "International & Serbian fusion",
+              "price_range": "€€",
+              "known_for": "Craft coffee and creative snacks",
+              "atmosphere": "Trendy and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore side streets for hidden murals and small art studios.",
+          "Attend weekend pop-up markets featuring local artists.",
+          "Try the homemade cakes at family-run bakeries."
+        ]
+      },
+      {
+        "name": "Centar",
+        "alternate_names": [
+          "City Center"
+        ],
+        "character": "Centar is the bustling commercial and administrative core of Novi Sad, filled with shops, offices, and vibrant street life. It offers a dynamic mix of modernity and tradition with pedestrian zones, plazas, and business hubs.",
+        "location": {
+          "central": true,
+          "description": "Heart of the city surrounding Liberty Square",
+          "borders": [
+            "Stari Grad",
+            "Rotkvarija",
+            "Salajka"
+          ],
+          "landmarks": [
+            "Liberty Square",
+            "City Hall",
+            "National Theatre"
+          ]
+        },
+        "history": {
+          "overview": "Centar developed as Novi Sad’s main urban and economic center through the 19th and 20th centuries.",
+          "significance": "It remains the focal point for commerce, administration, and social gatherings in the city.",
+          "notable_events": [
+            "Growth during Austro-Hungarian era",
+            "Key site for political rallies and festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Liberty Square Bus and Tram Hub",
+            "Main taxi stands"
+          ],
+          "safety": "Very safe with constant police presence and busy streets",
+          "best_time_to_visit": "Year-round, especially lively during festivals",
+          "walkability": "Extremely walkable with pedestrianized zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Theatre and concerts",
+            "Public events"
+          ],
+          "atmosphere": [
+            "energetic",
+            "cosmopolitan",
+            "busy"
+          ],
+          "best_for": [
+            "shoppers",
+            "business travelers",
+            "festival attendees"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Liberty Square",
+              "type": "Public Square",
+              "description": "The main square surrounded by shops, cafes, and historic buildings.",
+              "appeal": "Central hub for events, markets, and social life."
+            },
+            {
+              "name": "National Theatre",
+              "type": "Performing Arts Venue",
+              "description": "Hosts opera, ballet, and drama performances in a grand historic building.",
+              "appeal": "Cultural cornerstone for arts and entertainment."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Veliki Bistro",
+              "cuisine": "Contemporary Serbian",
+              "price_range": "€€€",
+              "known_for": "Innovative local dishes with fine dining ambiance",
+              "atmosphere": "Elegant and modern"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the Novi Sad Wine Festival for tastings in the square.",
+          "Shop early to avoid crowds in boutique stores.",
+          "Check schedules for theatre performances for a night out."
+        ]
+      },
+      {
+        "name": "Salajka",
+        "alternate_names": [],
+        "character": "Salajka is a quiet, predominantly residential neighborhood with a mix of older homes and modern apartments. It offers a more local, laid-back experience away from tourist crowds, with small parks and neighborhood cafés.",
+        "location": {
+          "central": false,
+          "description": "North of Centar and Rotkvarija, slightly inland from the river",
+          "borders": [
+            "Centar",
+            "Podbara",
+            "Rotkvarija"
+          ],
+          "landmarks": [
+            "Spens Sports Center",
+            "Salajka Market"
+          ]
+        },
+        "history": {
+          "overview": "Evolved from a 19th-century working-class area into a peaceful residential neighborhood.",
+          "significance": "Houses many local families and serves as a community hub with markets and sports facilities.",
+          "notable_events": [
+            "Post-WWII residential development",
+            "Hosting local sports events"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Salajka Bus Stops",
+            "City bus connections to center"
+          ],
+          "safety": "Generally safe and family-friendly",
+          "best_time_to_visit": "Spring and summer for park and sports activities",
+          "walkability": "Walkable with neighborhood streets and green spaces"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Sports facilities",
+            "Community parks"
+          ],
+          "atmosphere": [
+            "calm",
+            "residential",
+            "friendly"
+          ],
+          "best_for": [
+            "families",
+            "long-term visitors",
+            "sports enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Spens Sports Center",
+              "type": "Sports Complex",
+              "description": "Major indoor arena hosting basketball and volleyball matches.",
+              "appeal": "Key venue for sports fans and local events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kafana Stara Šajka",
+              "cuisine": "Traditional Serbian",
+              "price_range": "€",
+              "known_for": "Hearty local dishes and live folk music",
+              "atmosphere": "Warm and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore the Salajka Market early in the morning for fresh local produce.",
+          "Visit during local sports matches for an authentic community vibe.",
+          "Relax in neighborhood parks away from tourist crowds."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Restaurant Project 72 Wine & Deli",
+          "cuisine_type": "Contemporary Serbian & International",
+          "description": "A refined dining experience focused on local ingredients and an extensive wine list, blending modern Serbian flavors with international techniques.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant and intimate with minimalist decor",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 45.2558,
+          "longitude": 19.8416,
+          "reservation_needed": true,
+          "local_tips": "Try their seasonal tasting menu paired with Serbian wines."
+        },
+        {
+          "name": "Fish & Zelenish",
+          "cuisine_type": "Seafood & Mediterranean",
+          "description": "Specializes in fresh fish dishes and Mediterranean flavors with a Serbian twist, offering a sophisticated yet relaxed setting.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and modern with cozy lighting",
+          "neighborhood": "City Center",
+          "best_for": [
+            "seafood lovers",
+            "business dinners"
+          ],
+          "latitude": 45.2545,
+          "longitude": 19.8431,
+          "reservation_needed": true,
+          "local_tips": "Reserve a table near the window for great views of the city bustle."
+        },
+        {
+          "name": "Patisserie & Restaurant Pavle",
+          "cuisine_type": "Serbian Fine Dining & Pastry",
+          "description": "Combines traditional Serbian cuisine with exquisite desserts in an upscale and artistic atmosphere.",
+          "price_range": "€€€",
+          "atmosphere": "Artistic and elegant with a relaxed vibe",
+          "neighborhood": "City Center",
+          "best_for": [
+            "dessert enthusiasts",
+            "romantic dinners"
+          ],
+          "latitude": 45.2551,
+          "longitude": 19.8423,
+          "reservation_needed": true,
+          "local_tips": "Don't miss their signature plum dumplings for dessert."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Restoran Dva Jelena",
+          "cuisine_type": "Traditional Serbian",
+          "description": "Historic restaurant serving hearty Serbian classics in a warm, rustic setting dating back to 1892.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and traditional with wooden interiors",
+          "neighborhood": "City Center",
+          "best_for": [
+            "families",
+            "groups",
+            "local cuisine"
+          ],
+          "latitude": 45.2553,
+          "longitude": 19.8429,
+          "reservation_needed": false,
+          "local_tips": "Try the ćevapi and ajvar – local grilled sausages with pepper relish."
+        },
+        {
+          "name": "Riblja Čorba",
+          "cuisine_type": "Seafood & Serbian",
+          "description": "Casual spot famous for its rich fish soup and fresh river fish specialties.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively with a local crowd",
+          "neighborhood": "City Center",
+          "best_for": [
+            "quick meals",
+            "seafood lovers"
+          ],
+          "latitude": 45.2539,
+          "longitude": 19.842,
+          "reservation_needed": false,
+          "local_tips": "Their fish soup is a must-try comfort food."
+        },
+        {
+          "name": "Burger House",
+          "cuisine_type": "American-Style Burgers",
+          "description": "Popular casual spot serving gourmet burgers with locally sourced ingredients and craft beers.",
+          "price_range": "€",
+          "atmosphere": "Casual and vibrant, perfect for a fun meal",
+          "neighborhood": "City Center",
+          "best_for": [
+            "groups",
+            "families",
+            "quick casual"
+          ],
+          "latitude": 45.256,
+          "longitude": 19.8407,
+          "reservation_needed": false,
+          "local_tips": "Try the 'Vojvodina Burger' with local cheese and ajvar."
+        },
+        {
+          "name": "Miller Social & Food",
+          "cuisine_type": "International & Serbian Fusion",
+          "description": "Trendy spot offering inventive dishes blending Serbian ingredients with global flavors in a social atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Modern and social with a lively crowd",
+          "neighborhood": "City Center",
+          "best_for": [
+            "friends",
+            "after work drinks"
+          ],
+          "latitude": 45.2555,
+          "longitude": 19.8418,
+          "reservation_needed": false,
+          "local_tips": "Their craft cocktails complement the fusion dishes perfectly."
+        },
+        {
+          "name": "Tri Ribe",
+          "cuisine_type": "Seafood & Mediterranean",
+          "description": "Casual Mediterranean dining with a strong focus on fresh fish and seafood from local waters.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and friendly with nautical decor",
+          "neighborhood": "City Center",
+          "best_for": [
+            "seafood lovers",
+            "casual dining"
+          ],
+          "latitude": 45.2557,
+          "longitude": 19.843,
+          "reservation_needed": false,
+          "local_tips": "Ask for today's fresh catch grilled with herbs."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Futoška Pijaca",
+          "cuisine_type": "Local Market & Street Food",
+          "description": "Large open market where you can sample local cheeses, cured meats, fresh produce and traditional fast bites like burek.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic market vibe",
+          "neighborhood": "Futog",
+          "best_for": [
+            "food explorers",
+            "budget eats"
+          ],
+          "latitude": 45.2447,
+          "longitude": 19.8059,
+          "reservation_needed": false,
+          "local_tips": "Try freshly baked burek or grilled corn from the stalls."
+        },
+        {
+          "name": "Limanska Street Food Stalls",
+          "cuisine_type": "Serbian Street Food",
+          "description": "Various small vendors offering ćevapi, pljeskavica (Serbian burger), and other grilled specialties on the street.",
+          "price_range": "€",
+          "atmosphere": "Lively and casual street setting",
+          "neighborhood": "Liman",
+          "best_for": [
+            "quick bites",
+            "local flavors"
+          ],
+          "latitude": 45.2469,
+          "longitude": 19.8367,
+          "reservation_needed": false,
+          "local_tips": "Order ćevapi wrapped in somun bread with onions and kajmak."
+        },
+        {
+          "name": "Trg Slobode Food Kiosks",
+          "cuisine_type": "Mixed Street Food",
+          "description": "Food kiosks around Freedom Square offering pastries, grilled meats, and sweet treats like krempita.",
+          "price_range": "€",
+          "atmosphere": "Central and casual urban spot",
+          "neighborhood": "City Center",
+          "best_for": [
+            "tourists",
+            "snacking"
+          ],
+          "latitude": 45.255,
+          "longitude": 19.841,
+          "reservation_needed": false,
+          "local_tips": "Try krempita, a local custard cream pastry, for dessert."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "The Quarter",
+          "cuisine_type": "Bar / Cocktail",
+          "description": "Trendy cocktail bar with a creative drink menu, stylish interior, and a vibrant nightlife crowd.",
+          "price_range": "€€",
+          "atmosphere": "Upscale and energetic",
+          "neighborhood": "City Center",
+          "best_for": [
+            "night out",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 45.2552,
+          "longitude": 19.8415,
+          "reservation_needed": false,
+          "local_tips": "Try their signature rakija cocktails infused with local fruits."
+        },
+        {
+          "name": "The Black Turtle Pub",
+          "cuisine_type": "Craft Beer / Pub",
+          "description": "Popular craft beer pub with a wide selection of local and international brews in a laid-back setting.",
+          "price_range": "€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "City Center",
+          "best_for": [
+            "beer lovers",
+            "groups"
+          ],
+          "latitude": 45.2547,
+          "longitude": 19.8411,
+          "reservation_needed": false,
+          "local_tips": "Ask for the rotating Serbian craft beers on tap."
+        },
+        {
+          "name": "Bens Pub",
+          "cuisine_type": "Bar / Pub",
+          "description": "A cozy and friendly pub offering a good selection of beers and whiskies, popular with locals and expats alike.",
+          "price_range": "€",
+          "atmosphere": "Welcoming and relaxed",
+          "neighborhood": "City Center",
+          "best_for": [
+            "casual drinks",
+            "locals"
+          ],
+          "latitude": 45.2556,
+          "longitude": 19.8409,
+          "reservation_needed": false,
+          "local_tips": "Great spot to meet locals and enjoy live music nights."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Kafeterija",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Hip café serving expertly brewed coffee and light snacks in a minimalist, modern setting.",
+          "price_range": "€",
+          "atmosphere": "Trendy and relaxed",
+          "neighborhood": "City Center",
+          "best_for": [
+            "coffee lovers",
+            "remote work"
+          ],
+          "latitude": 45.255,
+          "longitude": 19.8414,
+          "reservation_needed": false,
+          "local_tips": "Try their single-origin pour-over coffee for a true specialty experience."
+        },
+        {
+          "name": "Minutka Coffee & More",
+          "cuisine_type": "Coffee & Light Bites",
+          "description": "A cozy café known for quality espresso drinks and homemade pastries with a friendly ambiance.",
+          "price_range": "€",
+          "atmosphere": "Cozy and casual",
+          "neighborhood": "City Center",
+          "best_for": [
+            "breakfast",
+            "coffee breaks"
+          ],
+          "latitude": 45.2548,
+          "longitude": 19.8422,
+          "reservation_needed": false,
+          "local_tips": "Their walnut cake pairs perfectly with cappuccino."
+        },
+        {
+          "name": "Kafic Forum",
+          "cuisine_type": "Cafe / Light Snacks",
+          "description": "Popular local café with a spacious interior and outdoor seating, offering coffee, smoothies, and light meals.",
+          "price_range": "€",
+          "atmosphere": "Social and bright",
+          "neighborhood": "City Center",
+          "best_for": [
+            "meetups",
+            "casual hangouts"
+          ],
+          "latitude": 45.2554,
+          "longitude": 19.8425,
+          "reservation_needed": false,
+          "local_tips": "Best spot for people watching in the city."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Novi Sad Food & Wine Walking Tour",
+        "description": "Guided walking tour through the city’s best eateries, markets, and wine bars, highlighting local specialties and wine pairings.",
+        "price_range": "€€",
+        "best_for": [
+          "food explorers",
+          "wine lovers"
+        ],
+        "neighborhood": "City Center",
+        "reservation_needed": true
+      },
+      {
+        "name": "Serbian Cooking Class with Local Chef",
+        "description": "Hands-on cooking class where visitors learn to prepare traditional dishes like sarma, ajvar, and homemade bread.",
+        "price_range": "€€",
+        "best_for": [
+          "culinary enthusiasts",
+          "groups"
+        ],
+        "neighborhood": "City Center",
+        "reservation_needed": true
+      },
+      {
+        "name": "Futoška Market Visit & Tasting",
+        "description": "Morning visit to the Futoška farmers market with tastings of fresh local produce, cheeses, and street snacks.",
+        "price_range": "€",
+        "best_for": [
+          "market lovers",
+          "budget travelers"
+        ],
+        "neighborhood": "Futog",
+        "reservation_needed": false
+      },
+      {
+        "name": "Wine Tasting Experience in Fruška Gora",
+        "description": "Day trip to nearby Fruška Gora vineyards with guided tastings of renowned Serbian wines and traditional food pairings.",
+        "price_range": "€€€",
+        "best_for": [
+          "wine aficionados",
+          "day trippers"
+        ],
+        "neighborhood": "Outside Novi Sad",
+        "reservation_needed": true
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes from Vojvodina region",
+        "Seasonal wild herbs incorporated in salads and soups",
+        "Early strawberries used in desserts"
+      ],
+      "summer": [
+        "Grilled meats and fish enjoyed outdoors",
+        "Ajvar (pepper relish) made from fresh summer peppers",
+        "Cooling fruit soups and fresh fruit desserts"
+      ],
+      "autumn": [
+        "Mushroom specialties from surrounding forests",
+        "Pumpkin dishes and pies",
+        "Plum-based desserts and rakija (fruit brandy)"
+      ],
+      "winter": [
+        "Hearty sarma (cabbage rolls) and bean stews",
+        "Warm pastries like pogača and burek",
+        "Hot mulled wine and spiced rakija"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Belgrade",
+        "country": "Serbia",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€5-€10",
+            "operator": "Serbian Railways",
+            "notes": "Direct trains between Novi Sad and Belgrade, popular for commuters."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€4-€8",
+            "operator": "Lasta",
+            "notes": "Frequent bus connections, more flexible timings."
+          }
+        ]
+      },
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "MÁV & Serbian Railways",
+            "notes": "International trains, scenic route via Subotica."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 45m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "FlixBus",
+            "notes": "Comfortable intercity buses with Wi-Fi."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "ÖBB & Serbian Railways",
+            "notes": "Overnight and day trains available, requires transfer in Budapest."
+          },
+          {
+            "type": "bus",
+            "duration": "7h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct bus routes, budget-friendly option."
+          }
+        ]
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses, comfortable and popular route."
+          }
+        ]
+      },
+      {
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "7h",
+            "frequency": "daily",
+            "price_range": "€20-€35",
+            "operator": "Nomago",
+            "notes": "Direct long-distance buses, good for regional travelers."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "weekly",
+            "price_range": "€50-€100",
+            "operator": "Air Serbia",
+            "notes": "Limited direct flights, might require connection via Belgrade."
+          },
+          {
+            "type": "bus",
+            "duration": "12h",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "FlixBus",
+            "notes": "Long-distance night buses available."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "FlixBus",
+            "notes": "Direct buses, popular for budget travelers."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "weekly",
+            "price_range": "€60-€120",
+            "operator": "Lufthansa via Belgrade",
+            "notes": "Requires connection in Belgrade, no direct flights."
+          }
+        ]
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Turkish Airlines",
+            "notes": "Direct flights from Belgrade, transfer by train or bus from Novi Sad."
+          }
+        ]
+      },
+      {
+        "city": "Sarajevo",
+        "country": "Bosnia and Herzegovina",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Centrotrans",
+            "notes": "Direct bus connection, scenic route through the Balkans."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "12h",
+            "frequency": "weekly",
+            "price_range": "€40-€70",
+            "operator": "FlixBus",
+            "notes": "Weekly direct buses, good for budget travelers."
+          }
+        ]
+      },
+      {
+        "city": "Bar",
+        "country": "Montenegro",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "8h",
+            "frequency": "daily",
+            "price_range": "€15-€25",
+            "operator": "Blue Line",
+            "notes": "Popular route to the Montenegrin coast."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Exit Festival Pre-events",
+        "type": "festival",
+        "description": "Experience smaller concerts and cultural events leading up to the famous Exit Festival, celebrating local and regional music talents.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Various venues across Novi Sad",
+        "price": "Budget"
+      },
+      {
+        "name": "Danube Park Stroll",
+        "type": "outdoor",
+        "description": "Enjoy blooming flowers and mild weather in the city's central park, perfect for relaxing walks and picnics.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Danube Park, Novi Sad city center",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Serbian Easter",
+        "type": "cultural",
+        "description": "Participate or observe Orthodox Easter celebrations with traditional foods and church services in Novi Sad.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Various Orthodox churches and local homes",
+        "price": "Free"
+      },
+      {
+        "name": "Spring Food Tasting",
+        "type": "food",
+        "description": "Sample seasonal Serbian delicacies like fresh asparagus, strawberries, and lamb dishes in local markets and restaurants.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Novi Sad Market and local eateries",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Exit Festival",
+        "type": "festival",
+        "description": "One of Europe's biggest music festivals set in the Petrovaradin Fortress featuring international and local artists across genres.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Petrovaradin Fortress",
+        "price": "Premium"
+      },
+      {
+        "name": "Danube River Cruises",
+        "type": "outdoor",
+        "description": "Take a scenic boat ride along the Danube, enjoying views of Novi Sad and its surroundings during warm summer days.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Danube River",
+        "price": "Moderate"
+      },
+      {
+        "name": "Beach Activities at Štrand",
+        "type": "outdoor",
+        "description": "Relax or engage in beach volleyball, kayaking, and sunbathing at Novi Sad’s popular riverside beach.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Štrand Beach, Danube River",
+        "price": "Free"
+      },
+      {
+        "name": "Novi Sad Jazz Festival",
+        "type": "festival",
+        "description": "Enjoy live jazz performances by renowned Serbian and international musicians in open-air settings.",
+        "best_months": [
+          "June"
+        ],
+        "location": "Various city squares and venues",
+        "price": "Budget"
+      },
+      {
+        "name": "Outdoor Cinema Nights",
+        "type": "cultural",
+        "description": "Watch classic and contemporary films under the stars during summertime screenings in city parks.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Danube Park and other open-air venues",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Novi Sad Wine Festival",
+        "type": "food",
+        "description": "Taste a wide selection of Serbian wines accompanied by traditional music and gourmet snacks.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Novi Sad Fairgrounds",
+        "price": "Moderate"
+      },
+      {
+        "name": "Petrovaradin Fortress Walks",
+        "type": "outdoor",
+        "description": "Explore the historic fortress and its tunnels surrounded by colorful autumn foliage and cooler weather.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Petrovaradin Fortress",
+        "price": "Free"
+      },
+      {
+        "name": "Harvest Season Food Sampling",
+        "type": "food",
+        "description": "Enjoy seasonal produce such as pumpkins, apples, and hearty stews featured in local restaurants.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Local markets and eateries",
+        "price": "Budget"
+      },
+      {
+        "name": "Museum of Vojvodina Visit",
+        "type": "cultural",
+        "description": "Discover regional history and art indoors, an ideal activity for cooler autumn days.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Museum of Vojvodina, Novi Sad",
+        "price": "Moderate"
+      },
+      {
+        "name": "Fruska Gora Hiking",
+        "type": "sport",
+        "description": "Take advantage of the crisp autumn air to hike or bike in the nearby national park with scenic vistas.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Fruska Gora National Park",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Winter Festival & Christmas Market",
+        "type": "festival",
+        "description": "Enjoy festive lights, seasonal food stalls, and handicrafts in the city center's holiday market.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Novi Sad city center",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating at Štrand",
+        "type": "sport",
+        "description": "Skate on the temporary ice rink set up near the riverside beach during colder months.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Štrand Beach area",
+        "price": "Budget"
+      },
+      {
+        "name": "Serbian Winter Cuisine Tasting",
+        "type": "food",
+        "description": "Warm up with hearty dishes like sarma, gibanica, and warm plum brandy served in local taverns.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Traditional restaurants in Novi Sad",
+        "price": "Budget"
+      },
+      {
+        "name": "Gallery and Theater Visits",
+        "type": "cultural",
+        "description": "Explore indoor arts and cultural performances in Novi Sad’s theaters and galleries during the cold season.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Novi Sad cultural centers",
+        "price": "Moderate"
+      },
+      {
+        "name": "Fruska Gora Winter Walks",
+        "type": "outdoor",
+        "description": "Experience peaceful snow-covered landscapes on gentle hikes or nature walks in the national park.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Fruska Gora National Park",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Serbian Orthodox Christmas (January 7)",
+            "notes": "Cold winter weather with occasional snow; festive atmosphere around Orthodox Christmas; low tourist crowds but limited outdoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold and often gray; off-peak season with few events; many attractions indoors but limited outdoor sightseeing options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Coldest month with temperatures often below freezing; minimal events, quiet city; good for budget travelers who don’t mind winter weather.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold and wintery with occasional snow; few events; low tourism and quiet city life; good for budget travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Winter Festival (dates vary, mid-February)",
+            "notes": "Winter Festival brings cultural events, music, and local food; cold but festive atmosphere; moderate crowd levels.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold but gradually getting milder; fewer tourists; good for exploring museums and indoor attractions.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with unpredictable weather; occasional rain and chilly temperatures; low to moderate crowds; good for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "International Women's Day (March 8) celebrations",
+            "notes": "Milder weather begins; some cultural and restaurant events around March 8; more locals out, moderate tourist numbers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring blossoms start; temperatures comfortable for walking; increasing daylight; good time for sightseeing with moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild spring weather with occasional rain; parks and vineyards in bloom; good for outdoor activities; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter (dates vary, usually April) - Serbian Orthodox Easter",
+            "notes": "Major holiday with colorful religious celebrations and local traditions; city lively and culturally rich; some attractions closed on Easter Sunday; very pleasant weather.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Comfortable temperatures and blooming nature; ideal for outdoor sightseeing, river walks, and exploring Petrovaradin Fortress; crowds growing but manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day / Labor Day (May 1)",
+            "notes": "Spring at its best with warm, pleasant weather; many locals on holiday; parks and Danube riverbank lively; ideal for outdoor events and festivals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm, sunny weather and blooming nature; excellent for cycling, hiking nearby Fruška Gora, and cultural festivals; moderate to high tourist activity.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer, warm and sunny; ideal for river beaches and open-air cafes; moderate crowds; good balance of events and weather.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "EXIT Festival pre-events (early June)",
+            "notes": "EXIT Festival pre-parties begin attracting music lovers; warm weather supports outdoor activities; lively nightlife starts building.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "EXIT Festival (late June to early July)",
+            "notes": "One of Europe's top music festivals; attracts tens of thousands; vibrant atmosphere; warm summer nights; very crowded and lively.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "EXIT Festival continues (early July)",
+            "notes": "Festival atmosphere continues into early July; hot summer weather; city busy and vibrant; excellent for music fans but crowded.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer weather with average highs around 30°C (86°F); good for river activities and outdoor dining; less crowded after EXIT; some days can be very hot.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued hot weather with occasional thunderstorms; popular time for locals to go on vacation making some areas quieter; good for outdoor activities early or late in day.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Somewhat hot and humid with peak summer temperatures; many locals travel abroad reducing local crowd levels; fewer events; good for budget travelers seeking quieter city.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm days and cooler nights; grape harvest season starts nearby; good for vineyard tours and outdoor events; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Novi Sad Jazz Festival (early-mid September)",
+            "notes": "Popular music festival with jazz concerts; pleasant autumn weather; attracts music lovers and cultural tourists; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild weather with decreasing temperatures; good for sightseeing and outdoor cafes; fewer tourists than summer; good balance of price and experience.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors in parks and vineyards; comfortable temperatures; some rain possible; good for wine tasting and cultural visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler and wetter weather begins; fewer tourists; quieter city; good for budget travelers and those avoiding crowds but limited outdoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often rainy; short daylight hours; low tourist activity; many indoor cultural events but weather limits outdoor exploration.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chilly and damp weather persists; few major events; city is quiet; suitable for budget travelers and those interested in museums and galleries.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold but festive atmosphere builds with Christmas markets opening late November; city decorated with lights; increasing number of events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Advent and Christmas Markets",
+            "notes": "Festive markets and events with local crafts and food; cold weather but lively atmosphere; popular with families and couples; moderately crowded.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "New Year's Eve",
+            "notes": "Festive celebrations with fireworks and parties; cold weather; city busy with locals and tourists; some businesses closed on holidays.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

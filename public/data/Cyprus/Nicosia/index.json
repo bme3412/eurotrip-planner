@@ -1,1 +1,3523 @@
-{"city":"nicosia","country":"Cyprus","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "nicosia",
+  "country": "Cyprus",
+  "overview": {
+    "city_name": "Nicosia",
+    "country": "Cyprus",
+    "brief_description": "Nicosia is a captivating city that uniquely blends rich history with vibrant modern life as the capital of Cyprus. It stands as the last divided capital in the world, offering a profound glimpse into both Greek and Turkish Cypriot cultures. Visitors can explore ancient city walls, bustling markets, and contemporary art scenes all within one dynamic urban landscape.",
+    "nickname": "The Last Divided Capital",
+    "region": "Eastern Mediterranean",
+    "population": "approximately 200,000",
+    "why_visit": [
+      "Explore the historic Venetian walls and the old city center with its narrow streets",
+      "Experience the cultural diversity and visit museums like the Cyprus Museum",
+      "Discover vibrant markets offering local crafts and traditional Cypriot cuisine",
+      "Visit the Green Line and Ledra Street crossing to understand the city’s unique political history"
+    ],
+    "best_time_to_visit": "April to June and September to October, when the weather is pleasantly warm and comfortable for sightseeing without the intense summer heat",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming flowers create perfect conditions for walking tours and outdoor cafes.",
+      "summer": "Hot and dry, with temperatures often exceeding 35°C (95°F); ideal for evening strolls and indoor cultural activities.",
+      "autumn": "Cooler days and warm evenings make it an excellent time for exploring archaeological sites and enjoying local festivals.",
+      "winter": "Mild and wet, with fewer tourists; some attractions may have shorter opening hours but the city is peaceful and cozy."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Greek and Turkish are official languages; English widely spoken",
+      "visit_duration": "3 to 4 days to fully experience the city and nearby attractions",
+      "getting_around": "Mainly by bus, taxis, and on foot within the old city; car rentals available for exploring beyond Nicosia",
+      "safety": "Generally safe with standard precautions; be mindful when crossing the Green Line and respect local regulations"
+    },
+    "coordinates": {
+      "latitude": 35.1856,
+      "longitude": 33.3823
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Walk the Venetian walls and visit the Famagusta Gate",
+        "Explore the Cyprus Museum for archaeological treasures",
+        "Stroll through Ledra Street and cross the Green Line checkpoint",
+        "Visit the Selimiye Mosque (St. Sophia Cathedral)",
+        "Experience local cuisine at traditional tavernas in the old city"
+      ],
+      "worth_doing": [
+        "Discover the Leventis Municipal Museum of Nicosia",
+        "Relax at the municipal park (Municipal Gardens)",
+        "Browse the handicrafts and souvenirs at the traditional markets",
+        "Visit the Archbishop’s Palace and its museum",
+        "Take a day trip to the nearby village of Lefkara, famous for lace and silverwork"
+      ],
+      "hidden_gems": [
+        "Explore the graffiti and street art in the Laiki Geitonia neighborhood",
+        "Visit the Mask Museum to see traditional Cypriot masks and cultural artifacts",
+        "Discover the small Byzantine churches tucked away within the old city walls",
+        "Enjoy a quiet moment at the Faneromeni Church courtyard",
+        "Check out the local contemporary art scene at the Nicosia Municipal Arts Centre"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Ledra Street",
+        "type": "Market",
+        "description": "Ledra Street is the main shopping thoroughfare in Nicosia, lined with shops, cafes, and historic buildings. It is also notable for crossing the Green Line, providing access between the Greek Cypriot and Turkish Cypriot sectors, making it a symbol of the city's division and reconciliation efforts.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1693,
+        "longitude": 33.3631,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "09:00-21:00",
+          "weekend": "10:00-22:00",
+          "notes": "Shops mostly closed on Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102",
+            "104",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit the Cyprus Museum nearby for indoor cultural experience"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Cyprus Museum",
+        "type": "Museum",
+        "description": "The Cyprus Museum, located in central Nicosia, houses the richest collection of Cypriot antiquities from prehistoric times to the Byzantine period. It offers detailed insights into the island's history through artifacts such as statues, pottery, and jewelry.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended during peak tourist seasons",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 35.1729,
+        "longitude": 33.3635,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "08:00-19:30",
+          "weekend": "08:00-19:30",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102",
+            "104"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum experience"
+        },
+        "official_url": "http://www.mcw.gov.cy/mcw/DA/DA.nsf/DMLmuseum_en/DMLmuseum_en?OpenDocument",
+        "website": "http://www.mcw.gov.cy/mcw/DA/DA.nsf/DMLmuseum_en/DMLmuseum_en?OpenDocument"
+      },
+      {
+        "name": "Selimiye Mosque (St. Sophia Cathedral)",
+        "type": "Historic Site",
+        "description": "Originally built as a Gothic cathedral in the 13th century, Selimiye Mosque is one of Nicosia's most iconic landmarks. Converted into a mosque in the Ottoman period, it showcases a unique fusion of Gothic architecture with Islamic influences.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Respectful dress code required; visits outside prayer times recommended",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 35.1706,
+        "longitude": 33.3582,
+        "neighborhood": "Arab Ahmet",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed during prayer times"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit the nearby Leventis Municipal Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Leventis Municipal Museum of Nicosia",
+        "type": "Museum",
+        "description": "This museum offers a comprehensive overview of Nicosia's history from antiquity to modern times. With engaging exhibits and multimedia presentations, it is a must-visit for those interested in the city's urban and cultural evolution.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1722,
+        "longitude": 33.3606,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://www.leventismuseum.org.cy",
+        "website": "http://www.leventismuseum.org.cy"
+      },
+      {
+        "name": "Famagusta Gate",
+        "type": "Monument",
+        "description": "Famagusta Gate is one of the three original gates of the Venetian walls built around Nicosia in the 16th century. Today, it serves as a cultural venue hosting art exhibitions and events, blending historical architecture with contemporary culture.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check event schedules online before visiting",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.17,
+        "longitude": 33.3643,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "May vary with events"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "104"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Laiki Geitonia",
+        "type": "Neighborhood",
+        "description": "Laiki Geitonia is a beautifully restored pedestrian neighborhood featuring traditional Cypriot architecture, quaint shops, and artisanal workshops. It offers an authentic atmosphere where visitors can experience local crafts, cuisine, and culture in a charming setting.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1715,
+        "longitude": 33.3618,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "All day",
+          "weekend": "All day",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Shacolas Tower Museum & Observatory",
+        "type": "Museum|Viewpoint",
+        "description": "Located in a skyscraper in central Nicosia, this museum and observatory offers panoramic views of the city and divided capital. Exhibits include photographs and historical displays about Nicosia's past and present, providing a unique perspective both literally and figuratively.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Best visited at sunset for city views",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 35.1707,
+        "longitude": 33.363,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-19:00",
+          "weekend": "10:00-19:00",
+          "notes": "Last entry 30 minutes before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "104",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor museum experience"
+        },
+        "official_url": "https://www.shacolas.com.cy/tower",
+        "website": "https://www.shacolas.com.cy/tower"
+      },
+      {
+        "name": "Hamam Omerye",
+        "type": "Historic Site|Wellness",
+        "description": "Hamam Omerye is a beautifully restored 16th-century Ottoman bathhouse in the old city. Visitors can enjoy traditional Turkish bath experiences or simply admire the architecture and tranquil atmosphere of this cultural gem.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Spa services may vary seasonally",
+        "booking_tips": "Advance booking recommended for spa treatments",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1709,
+        "longitude": 33.3591,
+        "neighborhood": "Arab Ahmet",
+        "opening_hours": {
+          "weekday": "09:00-22:00",
+          "weekend": "09:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor experience"
+        },
+        "official_url": "http://hamamomerye.com",
+        "website": "http://hamamomerye.com"
+      },
+      {
+        "name": "Pediaios River Park",
+        "type": "Park",
+        "description": "Pediaios River Park runs along the Pediaios River, offering a green oasis within Nicosia. It features walking paths, playgrounds, and picnic areas, making it a popular spot for relaxation and outdoor activities among locals and visitors alike.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring and autumn when weather is mild",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 35.1824,
+        "longitude": 33.37,
+        "neighborhood": "Kaimakli",
+        "opening_hours": {
+          "weekday": "06:00-20:00",
+          "weekend": "06:00-20:00",
+          "notes": "Hours vary seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "107",
+            "109"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit indoor museums if rainy"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Omeriye Mosque",
+        "type": "Historic Site|Mosque",
+        "description": "Omeriye Mosque, built on the site of a former Augustinian church, is a significant example of Ottoman architecture in Nicosia. It is active as a place of worship, and its peaceful courtyard offers a quiet spot in the bustling old city.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Non-Muslim visitors should visit outside prayer times",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1707,
+        "longitude": 33.3592,
+        "neighborhood": "Arab Ahmet",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed during prayers"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum visit nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Venetian Walls of Nicosia",
+        "type": "Historic Site",
+        "description": "Encircling the old city, the Venetian Walls were constructed in the 16th century for defense and are remarkably preserved. Visitors can walk along parts of the walls or explore the bastions offering views over Nicosia's unique divided urban landscape.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant in spring and autumn; hot in summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 35.17,
+        "longitude": 33.358,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "104",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor museums or the Shacolas Tower Observatory"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Struggle Museum",
+        "type": "Museum",
+        "description": "Dedicated to the Cypriot struggle for independence, this museum presents artifacts, documents, and multimedia exhibits detailing the island’s fight against colonial rule and its path to sovereignty.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1689,
+        "longitude": 33.3644,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Great Inn (Büyük Han)",
+        "type": "Historic Site|Market",
+        "description": "Located just across the Green Line in the Turkish Cypriot sector, the Büyük Han is a beautifully restored 16th-century caravanserai. It now hosts artisan shops, cafes, and galleries, making it a vibrant cultural hub and a glimpse into Ottoman-era architecture.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Accessible only with valid ID due to crossing the Green Line",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 35.1685,
+        "longitude": 33.37,
+        "neighborhood": "North Nicosia",
+        "opening_hours": {
+          "weekday": "10:00-20:00",
+          "weekend": "10:00-20:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "204",
+            "206"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor shopping and cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Shacolas Tower Observatory",
+        "type": "Viewpoint|Museum",
+        "description": "Offering a 360-degree view over Nicosia, this observatory atop the Shacolas Tower provides visitors with an unparalleled perspective of the divided capital. The adjacent museum shares historical context about the city's evolution.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Visit at sunset for stunning views",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 35.1707,
+        "longitude": 33.363,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-19:00",
+          "weekend": "10:00-19:00",
+          "notes": "Last entry 30 minutes before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "104",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.shacolas.com.cy/tower",
+        "website": "https://www.shacolas.com.cy/tower"
+      },
+      {
+        "name": "Archbishop's Palace",
+        "type": "Palace",
+        "description": "The Archbishop's Palace complex is a striking example of modern ecclesiastical architecture and houses the offices of the Church of Cyprus. The grounds include a museum with religious artifacts, icons, and Byzantine art.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check ahead for public access days",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 35.1669,
+        "longitude": 33.3597,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "09:00-16:00",
+          "weekend": "Closed",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Cyprus Museum nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Ayios Kassianos Church",
+        "type": "Church",
+        "description": "Dating back to the 12th century, Ayios Kassianos Church is one of Nicosia’s oldest surviving Byzantine churches. It contains impressive frescoes and icons that depict religious scenes, offering a glimpse into medieval Cypriot spirituality.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Respectful attire required",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 35.172,
+        "longitude": 33.368,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "Closed during services"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "104",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Eleftheria Square",
+        "type": "Historic Site|Viewpoint",
+        "description": "Eleftheria Square is the main public square of Nicosia, recently redesigned featuring modern architecture and open spaces. It is a vibrant gathering place surrounded by shops, cafes, and important government buildings.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 35.1697,
+        "longitude": 33.36,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102",
+            "104"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor museums or cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Municipal Gardens of Nicosia",
+        "type": "Park",
+        "description": "The Municipal Gardens offer a beautifully landscaped green space in the heart of Nicosia. With walking paths, fountains, and shaded areas, it is an ideal spot for relaxation and people-watching in a serene environment.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best in spring when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 35.1691,
+        "longitude": 33.3572,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "07:00-20:00",
+          "weekend": "07:00-20:00",
+          "notes": "Hours may shorten in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Old City (Walled City)",
+        "alternate_names": [
+          "Nicosia Old Town",
+          "Laiki Geitonia"
+        ],
+        "character": "The Old City pulses with a timeless charm, featuring narrow cobblestone streets and Venetian walls that encircle the historic core. Its vibe is a captivating blend of ancient heritage and lively artisan markets.",
+        "location": {
+          "central": true,
+          "description": "Located at the heart of Nicosia, fully enclosed within the Venetian fortifications.",
+          "borders": [
+            "Ayios Andreas",
+            "Laiki Geitonia",
+            "Ayia Sophia"
+          ],
+          "landmarks": [
+            "Famagusta Gate",
+            "Buyuk Han",
+            "Ledra Street Crossing"
+          ]
+        },
+        "history": {
+          "overview": "The Old City has been the nucleus of Nicosia since medieval times, reflecting layers of Venetian, Ottoman, and British influences.",
+          "significance": "It embodies the historical and cultural soul of Cyprus’ capital, serving as a living museum of its turbulent past and multicultural identity.",
+          "notable_events": [
+            "Venetian fortification construction (16th century)",
+            "1948 Intercommunal violence",
+            "Ledra Street crossing reopening (2008)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Famagusta Gate Bus Stop"
+          ],
+          "safety": "Generally safe, though pickpocketing can occur in crowded spots.",
+          "best_time_to_visit": "Spring and autumn for pleasant weather and festivals.",
+          "walkability": "Highly walkable with pedestrian-only streets and many alleys."
+        },
+        "appeal": {
+          "known_for": [
+            "Venetian walls",
+            "Traditional crafts",
+            "Historic churches",
+            "Artisan shops",
+            "Cultural festivals"
+          ],
+          "atmosphere": [
+            "historic",
+            "authentic",
+            "bustling"
+          ],
+          "best_for": [
+            "history buffs",
+            "culture seekers",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Buyuk Han",
+              "type": "Historic Caravanserai",
+              "description": "A beautifully restored Ottoman-era inn now housing cafés and artisan shops.",
+              "appeal": "Experience traditional architecture and local crafts in a lively courtyard."
+            },
+            {
+              "name": "Famagusta Gate",
+              "type": "City Gate",
+              "description": "One of the main entrances to the Old City, showcasing Venetian military architecture.",
+              "appeal": "Iconic photo spot and gateway to explore the historic heart."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Piatsa Gourounaki",
+              "cuisine": "Cypriot/Greek",
+              "price_range": "€€",
+              "known_for": "Authentic meze platters and local wines",
+              "atmosphere": "Cozy, traditional tavern"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy quiet streets and open artisan shops.",
+          "Stop by small workshops for handmade lace and pottery.",
+          "Explore side alleys to find hidden cafés away from tourist crowds."
+        ]
+      },
+      {
+        "name": "Engomi",
+        "alternate_names": [],
+        "character": "Engomi is a prominent residential and commercial district blending modernity with green spaces, known for its upscale vibe and embassies. It offers a sophisticated atmosphere with leafy streets and contemporary amenities.",
+        "location": {
+          "central": false,
+          "description": "West of the Old City, about 3 km from the city center.",
+          "borders": [
+            "Strovolos",
+            "Aglantzia",
+            "Kaimakli"
+          ],
+          "landmarks": [
+            "University of Cyprus",
+            "Cyprus Museum",
+            "Engomi Park"
+          ]
+        },
+        "history": {
+          "overview": "Once a modest village, Engomi expanded rapidly post-independence into a key administrative and residential hub.",
+          "significance": "Hosts major educational institutions and diplomatic missions, shaping modern Nicosia’s development.",
+          "notable_events": [
+            "Establishment of University of Cyprus (1989)",
+            "Expansion during 1970s urbanization"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Engomi Bus Terminal"
+          ],
+          "safety": "Very safe, with low crime rates.",
+          "best_time_to_visit": "Year-round, with mild Mediterranean climate.",
+          "walkability": "Moderately walkable, with some car dependency."
+        },
+        "appeal": {
+          "known_for": [
+            "University campus",
+            "Diplomatic quarters",
+            "Green parks",
+            "Modern residential complexes"
+          ],
+          "atmosphere": [
+            "calm",
+            "upscale",
+            "green"
+          ],
+          "best_for": [
+            "students",
+            "families",
+            "diplomats"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Cyprus Museum",
+              "type": "Archaeological Museum",
+              "description": "Largest collection of Cypriot antiquities from prehistoric to Byzantine times.",
+              "appeal": "Essential for understanding Cyprus’ rich history."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Garden Restaurant",
+              "cuisine": "Mediterranean",
+              "price_range": "€€€",
+              "known_for": "Fresh seafood and garden ambiance",
+              "atmosphere": "Elegant and relaxed"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during university events for cultural exhibitions.",
+          "Explore Engomi Park for a peaceful afternoon stroll.",
+          "Try local bakeries on Arch. Makariou III Avenue for authentic pastries."
+        ]
+      },
+      {
+        "name": "Ayios Andreas",
+        "alternate_names": [],
+        "character": "Ayios Andreas is a vibrant neighborhood mixing residential streets with bustling commercial avenues, known for its authentic Cypriot character. The area buzzes with local markets and lively cafés, offering a genuine urban experience.",
+        "location": {
+          "central": true,
+          "description": "Just south of the Old City, adjacent to the historic district.",
+          "borders": [
+            "Old City",
+            "Kaimakli",
+            "Strovolos"
+          ],
+          "landmarks": [
+            "Ayios Andreas Church",
+            "Eleftheria Square"
+          ],
+          "history": {
+            "overview": "Historically a working-class district, Ayios Andreas has evolved into a dynamic urban area.",
+            "significance": "It bridges the historic core with modern Nicosia, maintaining strong community traditions.",
+            "notable_events": [
+              "Post-war urban growth",
+              "Annual Ayios Andreas Festival"
+            ]
+          },
+          "practical_info": {
+            "transit": [
+              "Ayios Andreas Bus Stop"
+            ],
+            "safety": "Safe with an active neighborhood watch.",
+            "best_time_to_visit": "Spring and early summer for festivals.",
+            "walkability": "Highly walkable with many pedestrian-friendly streets."
+          },
+          "appeal": {
+            "known_for": [
+              "Local markets",
+              "Traditional eateries",
+              "Community events",
+              "Street art"
+            ],
+            "atmosphere": [
+              "lively",
+              "authentic",
+              "friendly"
+            ],
+            "best_for": [
+              "budget travelers",
+              "foodies",
+              "cultural explorers"
+            ]
+          },
+          "categories": {
+            "touristy": 2,
+            "residential": 4,
+            "green_spaces": 2,
+            "shopping": 3,
+            "dining": 4,
+            "nightlife": 3,
+            "cultural": 3,
+            "historic": 3
+          },
+          "highlights": {
+            "attractions": [
+              {
+                "name": "Ayios Andreas Church",
+                "type": "Religious Site",
+                "description": "A historic Orthodox church known for its beautiful frescoes.",
+                "appeal": "A serene spot to witness local religious traditions."
+              }
+            ],
+            "dining": [
+              {
+                "name": "To Katoi",
+                "cuisine": "Cypriot",
+                "price_range": "€€",
+                "known_for": "Traditional meze and grilled meats",
+                "atmosphere": "Casual, family-friendly"
+              }
+            ]
+          },
+          "insider_tips": [
+            "Visit the local market on Saturdays for fresh produce and handmade goods.",
+            "Try the halloumi sandwiches from street vendors.",
+            "Attend the Ayios Andreas Festival in May for live music and dance."
+          ]
+        },
+        "neighborhoods": [
+          {
+            "name": "Laiki Geitonia",
+            "alternate_names": [
+              "Traditional Neighborhood"
+            ],
+            "character": "Laiki Geitonia is a charming pedestrianized area within the Old City, showcasing traditional Cypriot architecture and crafts. It exudes a quaint, nostalgic vibe with its narrow alleys, stone houses, and artisanal shops.",
+            "location": {
+              "central": true,
+              "description": "Situated inside the Venetian walls, west of Eleftheria Square.",
+              "borders": [
+                "Old City",
+                "Ayios Andreas"
+              ],
+              "landmarks": [
+                "Leventis Municipal Museum",
+                "Traditional handicraft shops"
+              ]
+            },
+            "history": {
+              "overview": "This neighborhood preserves the vernacular architecture and lifestyle of Nicosia’s past.",
+              "significance": "A living museum of Cypriot urban heritage and craftsmanship.",
+              "notable_events": [
+                "Restoration projects in the 1990s",
+                "Cultural festivals promoting local crafts"
+              ]
+            },
+            "practical_info": {
+              "transit": [
+                "Famagusta Gate Bus Stop"
+              ],
+              "safety": "Very safe and tourist-friendly.",
+              "best_time_to_visit": "Spring and autumn for comfortable walking weather.",
+              "walkability": "Pedestrian-only, extremely walkable."
+            },
+            "appeal": {
+              "known_for": [
+                "Handicrafts",
+                "Traditional architecture",
+                "Local artisan shops",
+                "Quiet cafés"
+              ],
+              "atmosphere": [
+                "quaint",
+                "historic",
+                "peaceful"
+              ],
+              "best_for": [
+                "artisans",
+                "culture lovers",
+                "photographers"
+              ]
+            },
+            "categories": {
+              "touristy": 4,
+              "residential": 2,
+              "green_spaces": 1,
+              "shopping": 4,
+              "dining": 3,
+              "nightlife": 1,
+              "cultural": 5,
+              "historic": 5
+            },
+            "highlights": {
+              "attractions": [
+                {
+                  "name": "Leventis Municipal Museum",
+                  "type": "Museum",
+                  "description": "Exhibits the history and culture of Nicosia through interactive displays.",
+                  "appeal": "Ideal for gaining deep insights into the city’s evolution."
+                }
+              ],
+              "dining": [
+                {
+                  "name": "To Anamma",
+                  "cuisine": "Cypriot",
+                  "price_range": "€€",
+                  "known_for": "Home-style cooking and local wines",
+                  "atmosphere": "Intimate and traditional"
+                }
+              ]
+            },
+            "insider_tips": [
+              "Visit early to avoid crowds and enjoy the peaceful ambiance.",
+              "Look out for workshops demonstrating traditional crafts like lace and pottery.",
+              "Enjoy a coffee at a terrace café overlooking the winding alleys."
+            ]
+          },
+          {
+            "name": "Strovolos",
+            "alternate_names": [],
+            "character": "Strovolos is a primarily residential suburb offering a laid-back atmosphere with parks, shopping centers, and family-friendly amenities. It balances urban convenience with quiet neighborhoods.",
+            "location": {
+              "central": false,
+              "description": "Southwest of the city center, outside the Venetian walls.",
+              "borders": [
+                "Engomi",
+                "Ayios Andreas",
+                "Lakatamia"
+              ],
+              "landmarks": [
+                "Archangelos Michael Church",
+                "Strovolos Municipal Park"
+              ]
+            },
+            "history": {
+              "overview": "Developed extensively in the late 20th century as Nicosia expanded.",
+              "significance": "Serves as a key residential zone for middle-class families and professionals.",
+              "notable_events": [
+                "Urban development during 1980s and 1990s"
+              ]
+            },
+            "practical_info": {
+              "transit": [
+                "Strovolos Bus Terminal"
+              ],
+              "safety": "Safe, family-oriented area.",
+              "best_time_to_visit": "Spring and autumn for pleasant outdoor activities.",
+              "walkability": "Moderate walkability, some areas require a car."
+            },
+            "appeal": {
+              "known_for": [
+                "Parks",
+                "Shopping malls",
+                "Community centers",
+                "Residential comfort"
+              ],
+              "atmosphere": [
+                "quiet",
+                "family-friendly",
+                "green"
+              ],
+              "best_for": [
+                "families",
+                "long-term stays",
+                "nature lovers"
+              ]
+            },
+            "categories": {
+              "touristy": 1,
+              "residential": 5,
+              "green_spaces": 4,
+              "shopping": 4,
+              "dining": 3,
+              "nightlife": 1,
+              "cultural": 2,
+              "historic": 1
+            },
+            "highlights": {
+              "attractions": [
+                {
+                  "name": "Strovolos Municipal Park",
+                  "type": "Park",
+                  "description": "A well-maintained green space with playgrounds and walking paths.",
+                  "appeal": "Perfect for family outings and relaxation."
+                }
+              ],
+              "dining": [
+                {
+                  "name": "Mousikos Karpos",
+                  "cuisine": "Mediterranean",
+                  "price_range": "€€",
+                  "known_for": "Fresh grilled dishes and local wines",
+                  "atmosphere": "Casual and welcoming"
+                }
+              ]
+            },
+            "insider_tips": [
+              "Explore local bakeries for traditional Cypriot pastries.",
+              "Visit on weekends to enjoy community events in the municipal park.",
+              "Use local buses for easy access from the city center."
+            ]
+          },
+          {
+            "name": "Omorfita",
+            "alternate_names": [],
+            "character": "Omorfita offers a mix of residential calm and historic significance, with a culturally diverse population and charming streets. Its vibe is authentic and down-to-earth, reflecting everyday Nicosian life.",
+            "location": {
+              "central": false,
+              "description": "Northwest of the Old City, near the Green Line.",
+              "borders": [
+                "Kaimakli",
+                "Ayios Dhometios",
+                "Old City"
+              ],
+              "landmarks": [
+                "Omorfita Mosque",
+                "Local markets"
+              ]
+            },
+            "history": {
+              "overview": "A neighborhood that has witnessed the city’s division, retaining a complex social fabric.",
+              "significance": "Represents the multicultural and contested history of Nicosia.",
+              "notable_events": [
+                "Cyprus conflict impact post-1974",
+                "Green Line proximity"
+              ]
+            },
+            "practical_info": {
+              "transit": [
+                "Omorfita Bus Stops"
+              ],
+              "safety": "Generally safe but advised to stay aware near the Green Line.",
+              "best_time_to_visit": "Spring to avoid summer heat.",
+              "walkability": "Walkable with local shops and amenities."
+            },
+            "appeal": {
+              "known_for": [
+                "Local markets",
+                "Historic religious sites",
+                "Multicultural community"
+              ],
+              "atmosphere": [
+                "authentic",
+                "diverse",
+                "residential"
+              ],
+              "best_for": [
+                "cultural explorers",
+                "budget travelers",
+                "long-stay visitors"
+              ]
+            },
+            "categories": {
+              "touristy": 1,
+              "residential": 4,
+              "green_spaces": 2,
+              "shopping": 3,
+              "dining": 3,
+              "nightlife": 1,
+              "cultural": 3,
+              "historic": 3
+            },
+            "highlights": {
+              "attractions": [
+                {
+                  "name": "Omorfita Mosque",
+                  "type": "Religious Site",
+                  "description": "A historic mosque representing the Ottoman heritage of Nicosia.",
+                  "appeal": "Insight into the city's diverse religious history."
+                }
+              ],
+              "dining": [
+                {
+                  "name": "Kebab House Omorfita",
+                  "cuisine": "Middle Eastern",
+                  "price_range": "€",
+                  "known_for": "Grilled kebabs and falafel",
+                  "atmosphere": "Casual and local favorite"
+                }
+              ]
+            },
+            "insider_tips": [
+              "Visit local markets early in the morning for fresh produce.",
+              "Respect the sensitive political context near the Green Line.",
+              "Try traditional Cypriot sweets from family-run bakeries."
+            ]
+          },
+          {
+            "name": "Ledra Street",
+            "alternate_names": [
+              "Ledra Avenue"
+            ],
+            "character": "Ledra Street is Nicosia’s main pedestrian shopping and tourist artery, buzzing with energy and activity. It blends modern retail outlets with historic charm and serves as a cultural crossroads.",
+            "location": {
+              "central": true,
+              "description": "Extends from Eleftheria Square through the Old City to the Green Line.",
+              "borders": [
+                "Old City",
+                "Ayios Andreas"
+              ],
+              "landmarks": [
+                "Ledra Street Crossing",
+                "Eleftheria Square"
+              ]
+            },
+            "history": {
+              "overview": "Once a bustling commercial street, Ledra was divided by the Green Line until recent decades.",
+              "significance": "Symbolizes the city’s division and ongoing reunification efforts.",
+              "notable_events": [
+                "Ledra Street Crossing opening (2008)",
+                "Numerous cultural festivals"
+              ]
+            },
+            "practical_info": {
+              "transit": [
+                "Ledra Street Bus Stop"
+              ],
+              "safety": "Safe but can be crowded.",
+              "best_time_to_visit": "Evenings in spring and summer for vibrant atmosphere.",
+              "walkability": "Fully pedestrianized, very walkable."
+            },
+            "appeal": {
+              "known_for": [
+                "Shopping",
+                "Street performers",
+                "Cafés",
+                "Souvenir shops",
+                "Historical significance"
+              ],
+              "atmosphere": [
+                "lively",
+                "cosmopolitan",
+                "touristy"
+              ],
+              "best_for": [
+                "shoppers",
+                "casual tourists",
+                "night strollers"
+              ]
+            },
+            "categories": {
+              "touristy": 5,
+              "residential": 1,
+              "green_spaces": 1,
+              "shopping": 5,
+              "dining": 4,
+              "nightlife": 3,
+              "cultural": 4,
+              "historic": 4
+            },
+            "highlights": {
+              "attractions": [
+                {
+                  "name": "Ledra Street Crossing",
+                  "type": "Checkpoint",
+                  "description": "The pedestrian crossing point between Greek and Turkish Cypriot sides.",
+                  "appeal": "A unique place to witness the divided city's ongoing reconciliation."
+                }
+              ],
+              "dining": [
+                {
+                  "name": "Vincenzo’s",
+                  "cuisine": "Italian",
+                  "price_range": "€€",
+                  "known_for": "Wood-fired pizzas and friendly service",
+                  "atmosphere": "Casual and vibrant"
+                }
+              ]
+            },
+            "insider_tips": [
+              "Shop for hand-made leather goods in boutique stores.",
+              "Stay until evening to enjoy lively street music and lighting.",
+              "Combine your visit with a walk into the Old City’s nearby alleys."
+            ]
+          },
+          {
+            "name": "Aglantzia",
+            "alternate_names": [],
+            "character": "Aglantzia is a leafy suburban neighborhood with a focus on residential comfort and sports facilities, favored by families and young professionals. It offers a peaceful respite from the city center’s bustle with parks and quiet streets.",
+            "location": {
+              "central": false,
+              "description": "East of the city center, adjacent to Engomi and Strovolos.",
+              "borders": [
+                "Engomi",
+                "Strovolos",
+                "Agios Dometios"
+              ],
+              "landmarks": [
+                "Nicosia Municipal Stadium",
+                "Aglantzia Park"
+              ]
+            },
+            "history": {
+              "overview": "Developed in the mid-20th century as a suburban extension of Nicosia.",
+              "significance": "A key area for sports and community recreation in the capital region.",
+              "notable_events": [
+                "Construction of Municipal Stadium (1978)",
+                "Growth as a commuter suburb"
+              ]
+            },
+            "practical_info": {
+              "transit": [
+                "Aglantzia Bus Stops"
+              ],
+              "safety": "Safe and family-friendly.",
+              "best_time_to_visit": "Spring and autumn for outdoor activities.",
+              "walkability": "Moderate, with some green walking paths."
+            },
+            "appeal": {
+              "known_for": [
+                "Sports facilities",
+                "Parks",
+                "Quiet residential streets",
+                "Community events"
+              ],
+              "atmosphere": [
+                "peaceful",
+                "green",
+                "suburban"
+              ],
+              "best_for": [
+                "families",
+                "sports enthusiasts",
+                "nature lovers"
+              ]
+            },
+            "categories": {
+              "touristy": 1,
+              "residential": 5,
+              "green_spaces": 4,
+              "shopping": 2,
+              "dining": 2,
+              "nightlife": 1,
+              "cultural": 2,
+              "historic": 1
+            },
+            "highlights": {
+              "attractions": [
+                {
+                  "name": "Nicosia Municipal Stadium",
+                  "type": "Sports Venue",
+                  "description": "Main stadium hosting football matches and community events.",
+                  "appeal": "Catch local sports culture and matches."
+                }
+              ],
+              "dining": [
+                {
+                  "name": "Taverna O Kipos",
+                  "cuisine": "Cypriot",
+                  "price_range": "€€",
+                  "known_for": "Grilled meats and traditional meze",
+                  "atmosphere": "Relaxed and family-friendly"
+                }
+              ]
+            },
+            "insider_tips": [
+              "Visit the park on weekends for local outdoor yoga and fitness classes.",
+              "Try the seasonal fruit stands in spring and summer.",
+              "Use buses connecting to the city center for easy access."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Pyxida Fish Tavern",
+          "cuisine_type": "Seafood, Mediterranean",
+          "description": "Elegant restaurant known for fresh seafood and Cypriot specialties with a modern twist.",
+          "price_range": "€€€",
+          "atmosphere": "Upscale, intimate with contemporary decor",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 35.1681,
+          "longitude": 33.3614,
+          "reservation_needed": true,
+          "local_tips": "Try the grilled octopus and the fresh catch of the day paired with local white wine."
+        },
+        {
+          "name": "The House",
+          "cuisine_type": "Mediterranean, Cypriot",
+          "description": "Stylish fine dining with a focus on seasonal Cypriot ingredients and creative presentations.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and cozy, perfect for refined dining",
+          "neighborhood": "Ledra Street Area",
+          "best_for": [
+            "business dinners",
+            "romantic evenings"
+          ],
+          "latitude": 35.1678,
+          "longitude": 33.366,
+          "reservation_needed": true,
+          "local_tips": "Reserve the chef’s tasting menu for a full experience of Cypriot flavors."
+        },
+        {
+          "name": "La Maison Fleurie",
+          "cuisine_type": "French, Mediterranean",
+          "description": "A charming French-inspired restaurant blending Cypriot and French culinary traditions.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant, warm with a garden terrace",
+          "neighborhood": "Agios Andreas",
+          "best_for": [
+            "date night",
+            "food enthusiasts"
+          ],
+          "latitude": 35.1685,
+          "longitude": 33.3525,
+          "reservation_needed": true,
+          "local_tips": "Pair dishes with their extensive French wine selection and try the lamb shoulder."
+        },
+        {
+          "name": "Artima Bistro",
+          "cuisine_type": "Modern European, Cypriot",
+          "description": "Contemporary bistro offering innovative Cypriot dishes with international influences.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and artistic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "food lovers"
+          ],
+          "latitude": 35.168,
+          "longitude": 33.36,
+          "reservation_needed": true,
+          "local_tips": "The chef’s specials often include rare Cypriot herbs and seasonal game."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "To Anamma",
+          "cuisine_type": "Traditional Cypriot",
+          "description": "Popular spot serving authentic Cypriot meze and grilled meats in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively with local charm",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "families",
+            "groups"
+          ],
+          "latitude": 35.1683,
+          "longitude": 33.362,
+          "reservation_needed": false,
+          "local_tips": "Try the halloumi and sheftalia, and come hungry for the meze platters."
+        },
+        {
+          "name": "Piatsa Gourounaki",
+          "cuisine_type": "Greek, Cypriot",
+          "description": "Comfortable eatery known for its souvlaki, gyros, and casual Greek street food.",
+          "price_range": "€",
+          "atmosphere": "Informal, bustling",
+          "neighborhood": "Ledra Street",
+          "best_for": [
+            "quick meals",
+            "students"
+          ],
+          "latitude": 35.1675,
+          "longitude": 33.3645,
+          "reservation_needed": false,
+          "local_tips": "Order the pork souvlaki with tzatziki and fresh pita."
+        },
+        {
+          "name": "To Katoi",
+          "cuisine_type": "Cypriot, Mediterranean",
+          "description": "Cozy tavern serving traditional Cypriot dishes and local wines in a rustic setting.",
+          "price_range": "€€",
+          "atmosphere": "Warm, authentic village tavern vibe",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "casual dinners",
+            "locals"
+          ],
+          "latitude": 35.169,
+          "longitude": 33.3615,
+          "reservation_needed": false,
+          "local_tips": "Try the slow-cooked lamb kleftiko and the village salad."
+        },
+        {
+          "name": "Ficardo Restaurant",
+          "cuisine_type": "Mediterranean, Cypriot",
+          "description": "Known for fresh ingredients and traditional recipes with a modern approach.",
+          "price_range": "€€",
+          "atmosphere": "Friendly and relaxed",
+          "neighborhood": "Nicosia Center",
+          "best_for": [
+            "families",
+            "date nights"
+          ],
+          "latitude": 35.173,
+          "longitude": 33.358,
+          "reservation_needed": false,
+          "local_tips": "Don’t miss the moussaka and fresh seafood options."
+        },
+        {
+          "name": "To Anamma",
+          "cuisine_type": "Traditional Cypriot",
+          "description": "Traditional Cypriot tavern serving meze and grilled meats in a cozy atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Lively and authentic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "families"
+          ],
+          "latitude": 35.1683,
+          "longitude": 33.362,
+          "reservation_needed": false,
+          "local_tips": "Perfect for tasting a wide variety of Cypriot dishes."
+        },
+        {
+          "name": "Piatsa Estiasi",
+          "cuisine_type": "Greek, Cypriot",
+          "description": "Casual dining with a focus on traditional souvlaki, fresh salads and local favorites.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "quick bites",
+            "locals"
+          ],
+          "latitude": 35.1695,
+          "longitude": 33.363,
+          "reservation_needed": false,
+          "local_tips": "Try the pork souvlaki and enjoy it with a cold Cypriot beer."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Eleftheria Square Food Stalls",
+          "cuisine_type": "Cypriot street food",
+          "description": "Seasonal street food market offering traditional snacks like souvlaki, halloumi wraps, and loukoumades.",
+          "price_range": "€",
+          "atmosphere": "Bustling open-air market vibe",
+          "neighborhood": "Eleftheria Square",
+          "best_for": [
+            "quick bites",
+            "locals and tourists"
+          ],
+          "latitude": 35.1741,
+          "longitude": 33.3596,
+          "reservation_needed": false,
+          "local_tips": "Visit in the evening for the best street food atmosphere."
+        },
+        {
+          "name": "Laiki Geitonia Food Kiosks",
+          "cuisine_type": "Traditional Cypriot snacks",
+          "description": "Small kiosks offering freshly made traditional pies and sweets in the pedestrian old town.",
+          "price_range": "€",
+          "atmosphere": "Charming, historic neighborhood feel",
+          "neighborhood": "Laiki Geitonia",
+          "best_for": [
+            "snacks",
+            "exploring"
+          ],
+          "latitude": 35.1689,
+          "longitude": 33.3635,
+          "reservation_needed": false,
+          "local_tips": "Try the cheese and spinach pies while strolling through the area."
+        },
+        {
+          "name": "Ledra Street Food Stands",
+          "cuisine_type": "Fast casual, Cypriot",
+          "description": "Various stands with souvlaki, gyro wraps, and refreshing fruit juices along the main pedestrian street.",
+          "price_range": "€",
+          "atmosphere": "Energetic city center pedestrian street",
+          "neighborhood": "Ledra Street",
+          "best_for": [
+            "quick meals",
+            "shopping breaks"
+          ],
+          "latitude": 35.1669,
+          "longitude": 33.3661,
+          "reservation_needed": false,
+          "local_tips": "Grab a gyro wrap for a perfect on-the-go lunch."
+        },
+        {
+          "name": "Nicosia Municipal Market Snacks",
+          "cuisine_type": "Fresh local produce and snacks",
+          "description": "Inside the market, vendors offer fresh olives, cheeses, and traditional nuts and sweets.",
+          "price_range": "€",
+          "atmosphere": "Busy market atmosphere",
+          "neighborhood": "Central Nicosia",
+          "best_for": [
+            "sampling local produce",
+            "food shopping"
+          ],
+          "latitude": 35.1722,
+          "longitude": 33.3587,
+          "reservation_needed": false,
+          "local_tips": "Try the halloumi straight from the market stalls."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "7 St. Georges Bar & Grill",
+          "cuisine_type": "Bar, Grill",
+          "description": "Trendy bar known for craft cocktails and a wide selection of local wines and beers.",
+          "price_range": "€€",
+          "atmosphere": "Modern, lively with an urban vibe",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "night out",
+            "cocktail lovers"
+          ],
+          "latitude": 35.1684,
+          "longitude": 33.3618,
+          "reservation_needed": false,
+          "local_tips": "Try the signature Cypriot herb-infused cocktails."
+        },
+        {
+          "name": "Piatsa Gourounaki Bar",
+          "cuisine_type": "Bar with casual dining",
+          "description": "Casual bar attached to the popular souvlaki joint, offering local beers and relaxed atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Ledra Street",
+          "best_for": [
+            "after work drinks",
+            "casual nights"
+          ],
+          "latitude": 35.1676,
+          "longitude": 33.3646,
+          "reservation_needed": false,
+          "local_tips": "Happy hour is a great time to visit for budget-friendly drinks."
+        },
+        {
+          "name": "Vox Bar",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Stylish cocktail bar featuring creative drinks and a lively social scene.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and vibrant",
+          "neighborhood": "Nicosia Center",
+          "best_for": [
+            "date night",
+            "groups"
+          ],
+          "latitude": 35.1725,
+          "longitude": 33.357,
+          "reservation_needed": true,
+          "local_tips": "Ask for the bartender’s special cocktail made with local ingredients."
+        },
+        {
+          "name": "The Library Bar",
+          "cuisine_type": "Wine Bar",
+          "description": "Cozy and intimate bar with a curated selection of local and international wines.",
+          "price_range": "€€",
+          "atmosphere": "Quiet, sophisticated",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "romantic evenings",
+            "wine lovers"
+          ],
+          "latitude": 35.1682,
+          "longitude": 33.3602,
+          "reservation_needed": true,
+          "local_tips": "Perfect spot to try Cypriot Commandaria wine by the glass."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "To Kafe Tis Chrysanthi's",
+          "cuisine_type": "Cypriot, Coffeehouse",
+          "description": "Traditional Cypriot café serving strong coffee, sweets, and light snacks in a friendly atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Cozy and authentic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee breaks",
+            "people watching"
+          ],
+          "latitude": 35.1687,
+          "longitude": 33.361,
+          "reservation_needed": false,
+          "local_tips": "Try the traditional Cypriot coffee and a slice of baklava."
+        },
+        {
+          "name": "The Green Bean",
+          "cuisine_type": "Coffeehouse, Healthy",
+          "description": "Modern café offering specialty coffees, fresh juices, and healthy breakfast options.",
+          "price_range": "€",
+          "atmosphere": "Bright and casual",
+          "neighborhood": "Nicosia Center",
+          "best_for": [
+            "breakfast",
+            "remote working"
+          ],
+          "latitude": 35.1715,
+          "longitude": 33.3575,
+          "reservation_needed": false,
+          "local_tips": "Great for vegan and vegetarian friendly options."
+        },
+        {
+          "name": "Coffee Lab",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Hip café with expertly brewed coffee and a minimalist industrial vibe.",
+          "price_range": "€",
+          "atmosphere": "Trendy and relaxed",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee enthusiasts",
+            "casual meetings"
+          ],
+          "latitude": 35.1691,
+          "longitude": 33.3622,
+          "reservation_needed": false,
+          "local_tips": "Ask the barista for single-origin pour over coffee."
+        },
+        {
+          "name": "Margo's Coffee",
+          "cuisine_type": "Coffeehouse",
+          "description": "Charming café with a vintage feel, offering excellent coffee and homemade cakes.",
+          "price_range": "€",
+          "atmosphere": "Warm and inviting",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "dessert lovers",
+            "quiet afternoons"
+          ],
+          "latitude": 35.1689,
+          "longitude": 33.3605,
+          "reservation_needed": false,
+          "local_tips": "Try the homemade carrot cake with your cappuccino."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Nicosia Food Tour",
+        "description": "Guided walking tour sampling traditional Cypriot dishes and visiting local markets and eateries.",
+        "price_range": "€€",
+        "location": "Starts in Old Town",
+        "duration": "3 hours",
+        "local_tips": "Bring an appetite and wear comfortable shoes for walking."
+      },
+      {
+        "name": "Cypriot Cooking Class",
+        "description": "Hands-on cooking experience learning to prepare hallmark dishes like halloumi cheese and sheftalia sausage.",
+        "price_range": "€€",
+        "location": "Cooking schools in central Nicosia",
+        "duration": "4 hours",
+        "local_tips": "Book in advance and enjoy taking home recipes."
+      },
+      {
+        "name": "Visit to Nicosia Municipal Market",
+        "description": "Explore fresh local produce, cheeses, olives and traditional sweets with a knowledgeable guide.",
+        "price_range": "Free to explore, purchases extra",
+        "location": "Central Nicosia Market",
+        "duration": "1-2 hours",
+        "local_tips": "Visit in the morning for the freshest products."
+      },
+      {
+        "name": "Halloumi Cheese Tasting Experience",
+        "description": "Discover the history and production of Cyprus’s signature cheese with tastings of various types.",
+        "price_range": "€€",
+        "location": "Cheese producers near Nicosia",
+        "duration": "2 hours",
+        "local_tips": "Perfect gift idea: take home some halloumi."
+      },
+      {
+        "name": "Cyprus Wine and Food Pairing Tour",
+        "description": "Taste local wines paired with traditional Cypriot dishes and learn about the island’s wine heritage.",
+        "price_range": "€€€",
+        "location": "Wineries and restaurants near Nicosia",
+        "duration": "4-5 hours",
+        "local_tips": "Ideal for wine lovers wanting a comprehensive tasting experience."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh wild greens pies (hortopita)",
+        "Fava (yellow split pea dip)",
+        "Fresh goat cheese dishes"
+      ],
+      "summer": [
+        "Grilled halloumi with watermelon",
+        "Cold tzatziki and cucumber salads",
+        "Fresh figs and pomegranate desserts"
+      ],
+      "autumn": [
+        "Roasted chestnuts",
+        "Pumpkin fritters and desserts",
+        "Game meats and mushrooms stews"
+      ],
+      "winter": [
+        "Slow-cooked lamb kleftiko",
+        "Shepherd’s pie with local herbs",
+        "Carob syrup desserts"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Aegean Airlines, Cyprus Airways",
+            "notes": "Multiple daily direct flights from Larnaca Airport; main gateway to Greece"
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€80-€200",
+            "operator": "Ryanair, Wizz Air",
+            "notes": "Direct flights to Rome Fiumicino from Larnaca; budget options available"
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€70-€250",
+            "operator": "British Airways, easyJet, Ryanair",
+            "notes": "Direct flights to Heathrow and Gatwick from Larnaca and Paphos"
+          }
+        ]
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Turkish Airlines, Pegasus Airlines",
+            "notes": "Frequent flights to Istanbul Airport; important hub for connections"
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€90-€220",
+            "operator": "Lufthansa, Ryanair",
+            "notes": "Direct flights from Larnaca; convenient for central Europe access"
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€80-€230",
+            "operator": "Air France, easyJet",
+            "notes": "Direct flights to Charles de Gaulle; good for western Europe"
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€180",
+            "operator": "Austrian Airlines, Wizz Air",
+            "notes": "Direct flights from Larnaca; connects to east-central Europe"
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "4h 15m",
+            "frequency": "several times weekly",
+            "price_range": "€60-€180",
+            "operator": "Vueling, Ryanair",
+            "notes": "Mostly direct flights from Larnaca; popular for tourism"
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "several times weekly",
+            "price_range": "€70-€170",
+            "operator": "Ryanair",
+            "notes": "Direct flights to Venice Marco Polo; ideal for northern Italy"
+          }
+        ]
+      },
+      {
+        "city": "Limassol",
+        "country": "Cyprus",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "1h",
+            "frequency": "hourly",
+            "price_range": "€5-€10",
+            "operator": "Intercity Buses Cyprus",
+            "notes": "Frequent and affordable bus service connecting Nicosia and Limassol"
+          }
+        ]
+      },
+      {
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "45m",
+            "frequency": "hourly",
+            "price_range": "€3-€7",
+            "operator": "Intercity Buses Cyprus",
+            "notes": "Key connection to Larnaca International Airport for flights abroad"
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Nicosia Spring Festival",
+        "type": "festival",
+        "description": "A lively celebration featuring music, dance, and local crafts in the city center, welcoming the blossoming season.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Eleftheria Square",
+        "price": "Free"
+      },
+      {
+        "name": "Leventis Municipal Museum Visit",
+        "type": "cultural",
+        "description": "Explore the rich history and archaeology of Cyprus with special spring exhibitions and guided tours.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Leventis Municipal Museum",
+        "price": "Moderate"
+      },
+      {
+        "name": "Botanical Garden Walks",
+        "type": "outdoor",
+        "description": "Enjoy the blooming native flora and peaceful trails in the Cyprus University of Technology Botanical Garden.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Cyprus University of Technology Botanical Garden",
+        "price": "Free"
+      },
+      {
+        "name": "Halloumi Tasting",
+        "type": "food",
+        "description": "Sample fresh, locally made halloumi cheese, a Cypriot springtime delicacy best enjoyed grilled.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Local markets and tavernas across Nicosia",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Pedieos River Park Cycling",
+        "type": "sport",
+        "description": "Cycle along shaded paths beside the Pedieos River, enjoying nature and cooler spots during warm summer days.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Pedieos River Park",
+        "price": "Free"
+      },
+      {
+        "name": "Nicosia International Festival",
+        "type": "festival",
+        "description": "An annual cultural festival showcasing music, theater, and dance performances from local and international artists.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Various venues in Nicosia Old Town",
+        "price": "Moderate"
+      },
+      {
+        "name": "Shisha Cafés at Ledra Street",
+        "type": "food",
+        "description": "Relax in open-air cafés with traditional shisha and refreshing summer drinks, perfect for warm evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Ledra Street",
+        "price": "Budget"
+      },
+      {
+        "name": "Evening Strolls in Old Town",
+        "type": "outdoor",
+        "description": "Experience cooler temperatures by wandering the historic streets and alleys of Nicosia’s Venetian walls at dusk.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Nicosia Old Town",
+        "price": "Free"
+      },
+      {
+        "name": "Fresh Fruit Sampling",
+        "type": "food",
+        "description": "Enjoy seasonal fruits like watermelons and figs from local markets, a refreshing treat during hot summer days.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Municipal Market",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Wine Tasting Tours",
+        "type": "food",
+        "description": "Participate in guided wine tastings featuring Cypriot varietals during the grape harvest season nearby Nicosia.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Wineries near Nicosia",
+        "price": "Moderate"
+      },
+      {
+        "name": "Cyprus Coffee Culture Tour",
+        "type": "cultural",
+        "description": "Discover traditional Cypriot coffee preparation and enjoy tastings in historic cafés around the city.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Old Town Nicosia",
+        "price": "Budget"
+      },
+      {
+        "name": "Akamas Peninsula Hiking",
+        "type": "outdoor",
+        "description": "Explore nearby nature trails in mild autumn weather, witnessing changing colors and diverse flora.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Akamas Peninsula (day trip from Nicosia)",
+        "price": "Free"
+      },
+      {
+        "name": "Nicosia Film Festival",
+        "type": "festival",
+        "description": "An international film festival presenting feature films, documentaries, and shorts in cultural venues citywide.",
+        "best_months": [
+          "November"
+        ],
+        "location": "Cultural centers across Nicosia",
+        "price": "Moderate"
+      },
+      {
+        "name": "Roasted Chestnuts and Local Sweets",
+        "type": "food",
+        "description": "Enjoy seasonal roasted chestnuts and traditional Cypriot sweets available at street vendors during autumn evenings.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Old Town streets and markets",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market at Eleftheria Square",
+        "type": "festival",
+        "description": "Festive market with holiday crafts, food stalls, and seasonal performances creating a warm winter atmosphere.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Eleftheria Square",
+        "price": "Free"
+      },
+      {
+        "name": "Visit to Cyprus Folk Art Museum",
+        "type": "cultural",
+        "description": "Explore Cypriot traditions and crafts indoors, an ideal winter activity to stay warm while learning local history.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Cyprus Folk Art Museum, Old Town",
+        "price": "Moderate"
+      },
+      {
+        "name": "Traditional Soup Sampling",
+        "type": "food",
+        "description": "Warm up with hearty Cypriot soups like trahana or lentil soup served in local tavernas during colder months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local tavernas across Nicosia",
+        "price": "Budget"
+      },
+      {
+        "name": "Indoor Rock Climbing",
+        "type": "sport",
+        "description": "Stay active indoors at one of Nicosia’s climbing gyms, perfect for cooler winter days.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Indoor climbing centers in Nicosia",
+        "price": "Moderate"
+      },
+      {
+        "name": "New Year’s Eve Celebration at Ledra Street",
+        "type": "festival",
+        "description": "Join locals for lively street celebrations, music, and fireworks welcoming the new year in the city center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Ledra Street",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Epiphany (Theophania)",
+            "notes": "Cool, mild winter weather with average highs around 16°C; Epiphany celebrations on January 6 bring local cultural events but also some crowds in churches and near water.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool and somewhat wet winter period; less tourist activity, quieter city, but some rainy days and chilly evenings.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather slowly improves with mild days, less rain; good for cultural sightseeing and museum visits, still low tourist crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mild temperatures continue; suitable for off-season travel with fewer crowds and lower prices; some rainy days possible.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool, early spring weather with occasional rain; good time for cultural activities and exploring city museums with low crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Carnival (Apokries)",
+            "notes": "Mild weather and festive carnival events with parades and parties; moderate crowds but vibrant atmosphere.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival calm with pleasant days and fewer tourists; good for sightseeing; some rain possible.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Increasing sunshine and mild temperatures make outdoor activities enjoyable; good for budget travelers before spring crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring arrives with pleasant temperatures around 18°C; flowers bloom, ideal for walking tours; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Greek Orthodox Lent and Easter Preparations",
+            "notes": "Mild weather and vibrant religious and cultural activities ahead of Easter; excellent time for cultural immersion; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Comfortable weather ideal for exploring the old city and outdoor cafes; increasing tourism but still manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Cyprus National Holidays (Greek Independence Day - March 25)",
+            "notes": "National celebrations bring parades and events; weather remains mild but some areas may be busier and accommodations pricier.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm spring weather with average highs around 22°C; perfect for outdoor sightseeing and starting beach visits; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Greek Orthodox Easter (movable, often April)",
+            "notes": "Easter celebrations are culturally significant with vibrant local events and traditions; weather is warm and pleasant; higher crowds, especially around religious sites.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter calm with warm weather ideal for sightseeing and outdoor cafes; moderate crowds and good value accommodation.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm and sunny; ideal for early beach visits and outdoor dining; increasing tourist numbers but still manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm, pleasant weather averaging 26°C; ideal month for beaches, outdoor festivals, and sightseeing with fewer crowds than summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Nicosia Festival (arts and cultural events)",
+            "notes": "A highlight cultural event with music, theatre and exhibitions; perfect warm weather enhances experience; attracts local and international visitors.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Excellent weather for all outdoor activities including beach, hiking, and nightlife; moderate to high tourist flow begins but city is spacious.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May is warm with stable weather, ideal for exploring both city and countryside; very comfortable for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Hot and dry weather with average highs near 31°C; excellent for beachgoers and outdoor events; beginning of high season with busy but manageable crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot temperatures continue; some visitors might find midday heat intense; early morning and evenings best for sightseeing.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat with dry conditions; perfect for pool and beach resorts; city sightseeing less comfortable during midday heat.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot and sunny with very low rain chance; popular for beach holidays and nightlife; very busy and prices peak in city and resorts.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Very hot and dry with temperatures often exceeding 33°C; ideal for beach and pool activities but city touring less comfortable during day.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat with very high tourist numbers; some travelers may avoid city center due to heat and crowds; good for nightlife and resorts.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Continued very hot temperatures; midday outdoor activities challenging; nightlife and beach resorts preferred by most visitors.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Hot, dry, and crowded; best for beach holidays and nightlife; city sightseeing limited to early morning or late evening.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Hottest month with temperatures often exceeding 35°C; very crowded beach resorts; city sightseeing difficult during daytime heat.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Extreme warmth and humidity; many locals and tourists retreat to beaches or mountains; city center quiet during midday.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 2,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Persistent high temperatures; good for nightlife and pool/beach resorts; sightseeing limited to cooler hours.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Same as above; very hot, crowded, and dry; best enjoyed with a focus on relaxation and nightlife rather than city tours.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm but less extreme heat with temperatures averaging 30°C; sea still warm for swimming; crowds begin to thin after peak season.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued pleasant warm weather; ideal for outdoor exploration and beach activities; moderate crowds and good deals begin to appear.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild evenings and warm days; perfect for city tours, cultural visits, and beach; fewer tourists improve experience.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather starts to cool slightly; occasional rain possible; some tourist facilities begin closing for low season.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm early fall weather with average highs around 27°C; ideal for outdoor activities and cultural events; fewer crowds than summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild and comfortable; good for hiking and city sightseeing; some local festivals and food events occur this month.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Slightly cooler with increasing rainfall risk; good for indoor cultural activities; lower tourist numbers improve value.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooling temperatures and occasional showers; quieter tourist season; good for budget travelers and cultural visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cooler and wetter with average highs around 19°C; less ideal for outdoor activities; low tourist numbers and reduced prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Unpredictable weather with rain and wind; good for off-season travelers seeking quiet and low prices; limited outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cool and rainy conditions; city is quiet; museums and indoor cultural venues good options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Very low tourist activity; weather can be rainy and chilly; suitable for budget travelers and those interested in local life away from tourists.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool and increasingly festive; mild winter temperatures averaging 16°C; Christmas markets and decorations start appearing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mild weather with some rain; Christmas preparations in full swing; good for cultural visits and holiday shopping with moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year Festivities",
+            "notes": "Festive season with special events, markets, and cultural celebrations; mild weather; city attracts more visitors but remains manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Day and New Year's Eve",
+            "notes": "Peak festive celebrations with special events and nightlife; mild winter weather; higher crowds in city center and hotels.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

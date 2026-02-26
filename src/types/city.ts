@@ -71,7 +71,7 @@ export interface CityOverviewSection {
 
 // ── Attractions ────────────────────────────────────────────────────
 
-export interface Attraction {
+export interface Attraction extends Partial<GooglePlaceEnrichment> {
   name: string;
   type: string;                       // "monument", "museum", "park", etc.
   description: string;
@@ -238,6 +238,26 @@ export interface DailyRecommendation {
   description?: string;
   location?: string;
   local_tip?: string;
+}
+
+// ── Google Places Enrichment ────────────────────────────────────────
+
+export interface GooglePlacePhoto {
+  name: string;
+  widthPx: number;
+  heightPx: number;
+}
+
+export interface GooglePlaceEnrichment {
+  googlePlaceId?: string;
+  googleRating?: number;
+  googleReviewCount?: number;
+  googlePhotos?: GooglePlacePhoto[];
+  currentlyOpen?: boolean;
+  googleOpeningHours?: string[];
+  googleUrl?: string;
+  googleEditorialSummary?: string;
+  googlePriceLevel?: string;
 }
 
 // ── Summary ────────────────────────────────────────────────────────

@@ -1,1 +1,3349 @@
-{"city":"nyiregyhaza","country":"Hungary","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "nyiregyhaza",
+  "country": "Hungary",
+  "overview": {
+    "city_name": "Nyíregyháza",
+    "country": "Hungary",
+    "brief_description": "Nyíregyháza, the vibrant cultural and economic hub of Szabolcs-Szatmár-Bereg County, boasts a rich history blended with modern amenities. Known for its lively atmosphere and green spaces, it offers visitors a welcoming gateway to the scenic landscapes of northeastern Hungary.",
+    "nickname": "The City of Sunshine",
+    "region": "Northern Great Plain",
+    "population": "approximately 117,000",
+    "why_visit": [
+      "Explore the renowned Nyíregyháza Zoo, one of the largest in Central Europe",
+      "Experience local Hungarian traditions and cuisine in charming town markets",
+      "Visit the historical museums showcasing regional art and heritage",
+      "Enjoy the thermal baths and wellness centers for relaxation"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and outdoor attractions are in full swing",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks create perfect conditions for sightseeing and outdoor walks.",
+      "summer": "Warmest months with festivals and open-air events; ideal for visiting the zoo and thermal baths.",
+      "autumn": "Crisp air and colorful foliage highlight cultural tours and harvest festivals.",
+      "winter": "Chilly but festive, with fewer tourists and seasonal markets providing a cozy atmosphere."
+    },
+    "practical_info": {
+      "currency": "Hungarian Forint (HUF)",
+      "language": "Hungarian",
+      "visit_duration": "2 to 3 days to explore main attractions and nearby sites",
+      "getting_around": "Local buses, taxis, and bike rentals; walkable city center",
+      "safety": "Generally safe with typical urban precautions; well-patrolled public areas"
+    },
+    "coordinates": {
+      "latitude": 47.9574,
+      "longitude": 21.7166
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Nyíregyháza Zoo, known for its diverse species and natural habitats",
+        "Relax at Sóstó Thermal & Wellness Hotel and Spa",
+        "Tour the Open-Air Ethnographic Museum of Sóstó",
+        "Stroll through the city center and admire the Town Hall and Baroque architecture",
+        "Discover local flavors at Nyíregyháza Market Hall"
+      ],
+      "worth_doing": [
+        "Explore the Jósa András Museum for regional history and art",
+        "Attend a performance at the National Theatre of Nyíregyháza",
+        "Visit the nearby Lake Sóstó for boating and nature walks",
+        "Enjoy cycling around the greenbelt parks surrounding the city",
+        "Sample traditional Hungarian dishes at local family-run restaurants"
+      ],
+      "hidden_gems": [
+        "Walk the peaceful trails of the Sóstó Forest and Bird Reserve",
+        "Visit the small but charming Váci Mihály Literary Museum",
+        "Explore the lesser-known churches with unique frescoes around the city",
+        "Discover artisan crafts at local workshops in the city outskirts",
+        "Take a day trip to the nearby Tokaj wine region for exclusive tastings"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Sóstó Zoo and Wildlife Park",
+        "type": "Zoo|Park",
+        "description": "One of the largest zoos in Hungary, Sóstó Zoo offers an impressive variety of animals from around the globe. The park is beautifully landscaped, with walking paths and a lake, making it a perfect family-friendly destination. It also features petting areas and educational programs.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Closed on some winter days; best visited in spring to autumn",
+        "booking_tips": "Tickets can be purchased online to avoid queues during weekends",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 3
+        },
+        "latitude": 47.9617,
+        "longitude": 21.7175,
+        "neighborhood": "Sóstógyógyfürdő",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Hours vary in winter, check website"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "37",
+            "55"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 4,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Sóstó Museum nearby"
+        },
+        "official_url": "https://www.sostozoo.hu/en/",
+        "website": "https://www.sostozoo.hu/en/"
+      },
+      {
+        "name": "Sóstó Thermal Lake and Spa",
+        "type": "Thermal Bath|Park",
+        "description": "Famous for its therapeutic mineral waters, Sóstó Thermal Lake is one of Europe's largest natural thermal lakes. Visitors can enjoy swimming, wellness treatments, and spa services in a serene park setting. The spa complex combines modern facilities with natural surroundings.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round; outdoor lake bathing in warmer months",
+        "booking_tips": "Reservations recommended for spa treatments, especially weekends",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 47.964,
+        "longitude": 21.7203,
+        "neighborhood": "Sóstógyógyfürdő",
+        "opening_hours": {
+          "weekday": "08:00-20:00",
+          "weekend": "08:00-20:00",
+          "notes": "Pool hours may vary seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "37",
+            "55"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 4,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://sosto.hu/en/spa/",
+        "website": "https://sosto.hu/en/spa/"
+      },
+      {
+        "name": "Nyíregyháza City Museum (Városi Múzeum)",
+        "type": "Museum",
+        "description": "This museum chronicles the rich history and cultural heritage of Nyíregyháza and the surrounding region. Exhibits include archaeological finds, folk art, and historical artifacts that tell the story of the city's development over centuries.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Group tours available upon request; check for temporary exhibitions",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.9499,
+        "longitude": 21.7166,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://www.szon.hu/kultura/muzeum-nyiregyhaza-2951287/"
+      },
+      {
+        "name": "Kossuth Square (Kossuth tér)",
+        "type": "Historic Site|Square",
+        "description": "Kossuth Square is the central square in Nyíregyháza, renowned for its beautiful architecture and lively atmosphere. Surrounded by historic buildings, cafes, and shops, it is a perfect spot to experience local culture and events, including seasonal markets and festivals.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Seasonal markets during Christmas and summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.9475,
+        "longitude": 21.7161,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Nyíregyháza Greek Catholic Cathedral (Szent Miklós Görögkatolikus Székesegyház)",
+        "type": "Church",
+        "description": "This striking cathedral, dedicated to Saint Nicholas, showcases stunning neo-Byzantine architecture with intricate frescoes and colorful stained glass windows. It serves as a spiritual and cultural landmark for the Greek Catholic community in Nyíregyháza.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Visitors should check mass times to avoid service interruptions",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 47.9456,
+        "longitude": 21.7159,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "Hours vary during religious holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Vidámpark Amusement Park",
+        "type": "Amusement Park",
+        "description": "A fun-filled amusement park offering rides and attractions suitable for all ages, Vidámpark is especially popular with families. It features classic rides, games, and seasonal events, providing entertainment in a lively outdoor setting.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open mainly from spring through early autumn",
+        "booking_tips": "Buy tickets on site; group discounts sometimes available",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 47.9613,
+        "longitude": 21.7162,
+        "neighborhood": "Sóstógyógyfürdő",
+        "opening_hours": {
+          "weekday": "12:00-20:00",
+          "weekend": "10:00-22:00",
+          "notes": "Closed in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "37"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "City Museum if closed"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Sóstó Museum",
+        "type": "Museum",
+        "description": "Located near Sóstó Park, this museum focuses on the natural history and folk culture of the Nyírség region. It includes ethnographic collections, traditional costumes, and exhibits about local wildlife and habitats.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check for guided tours offered in English",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.9655,
+        "longitude": 21.7168,
+        "neighborhood": "Sóstógyógyfürdő",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "37",
+            "55"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Benczúr Garden",
+        "type": "Park",
+        "description": "A peaceful urban green space named after the famous Hungarian painter Gyula Benczúr. The garden offers walking paths, flowerbeds, and sculptures, providing a tranquil retreat in the city center for relaxation and picnics.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring and summer when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 47.9451,
+        "longitude": 21.7141,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Seasonal flower displays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Városmajor Sculpture Park",
+        "type": "Park|Gallery",
+        "description": "An outdoor sculpture park featuring contemporary Hungarian artworks set amidst natural woodland. The park invites visitors to explore artistic expressions in a peaceful forest environment close to the city center.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best in spring, summer, and early autumn; less accessible in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.9413,
+        "longitude": 21.7127,
+        "neighborhood": "Városmajor",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Seasonal trail maintenance"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "City Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Vay Ádám Museum and Memorial House",
+        "type": "Historic Site|Museum",
+        "description": "Dedicated to the life and works of Ádám Vay, a renowned Hungarian writer and ethnographer, this museum is housed in a traditional building that preserves local heritage. Visitors can explore ethnographic exhibits and period furnishings.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended for guided tours",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 47.9479,
+        "longitude": 21.7204,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Nyíregyháza Market Hall (Vásárcsarnok)",
+        "type": "Market",
+        "description": "A bustling indoor market hall where locals shop for fresh produce, meats, and traditional Hungarian goods. The market offers an authentic glimpse into daily life and regional culinary specialties, with friendly vendors and lively atmosphere.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Seasonal fruits and vegetables vary by month",
+        "booking_tips": "Best visited early for freshest selection",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 47.9488,
+        "longitude": 21.7158,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "06:00-14:00",
+          "weekend": "06:00-12:00",
+          "notes": "Closed Monday"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Reformed Great Church of Nyíregyháza",
+        "type": "Church",
+        "description": "This impressive neo-Gothic church is one of the city's main religious landmarks, known for its tall spire and beautiful stained glass. It plays a significant role in local religious life and hosts concerts and cultural events.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check for event schedules to attend concerts",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 47.9471,
+        "longitude": 21.7183,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-19:00",
+          "notes": "Service times vary"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Sóstó Forest Arboretum",
+        "type": "Park|Botanical Garden",
+        "description": "A diverse arboretum in the Sóstó area featuring native and exotic tree species, walking trails, and educational signage. It is ideal for nature lovers interested in botany and peaceful outdoor strolls.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Most beautiful in spring and autumn; some paths may be muddy after rain",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.967,
+        "longitude": 21.722,
+        "neighborhood": "Sóstógyógyfürdő",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Seasonal trail maintenance possible"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "37",
+            "55"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Móricz Zsigmond Cultural Center",
+        "type": "Gallery|Theater",
+        "description": "A vibrant cultural venue hosting art exhibitions, theater performances, and community events. The center promotes local artists and offers visitors a chance to experience contemporary Hungarian culture.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Event schedules vary seasonally",
+        "booking_tips": "Check event calendar and book tickets in advance for popular shows",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 47.947,
+        "longitude": 21.713,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "10:00-22:00",
+          "weekend": "Varies",
+          "notes": "Check schedule for closures"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Sóstói Múzeumfalu (Open-Air Museum)",
+        "type": "Historic Site|Museum",
+        "description": "An open-air ethnographic museum showcasing traditional Hungarian rural architecture and folk life. Visitors can explore reconstructed houses, workshops, and farm buildings that reflect the cultural heritage of the region.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Best in spring, summer, and early autumn; closed or limited access in winter",
+        "booking_tips": "Guided tours recommended for full experience",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 47.9623,
+        "longitude": 21.719,
+        "neighborhood": "Sóstógyógyfürdő",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed in winter months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "37",
+            "55"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "City Museum"
+        },
+        "official_url": "https://www.sostomuuseum.hu/en/",
+        "website": "https://www.sostomuuseum.hu/en/"
+      },
+      {
+        "name": "Erdődy Mansion",
+        "type": "Historic Site|Palace",
+        "description": "A historic mansion dating back to the 18th century, the Erdődy Mansion is a fine example of Baroque architecture. Though privately owned, its exterior and gardens are notable landmarks that reflect the aristocratic history of Nyíregyháza.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Gardens best enjoyed in late spring and summer",
+        "booking_tips": "No public interior access; view from outside",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.9481,
+        "longitude": 21.7193,
+        "neighborhood": "City Center",
+        "opening_hours": {
+          "weekday": "Visible from street at all times",
+          "weekend": "Visible from street at all times",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Downtown Nyíregyháza",
+        "alternate_names": [
+          "City Center",
+          "Belváros"
+        ],
+        "character": "Downtown Nyíregyháza buzzes with the energy of shops, cafes, and historic buildings, blending modern life with rich heritage. It’s the heart of the city where locals and tourists mingle amid bustling streets and vibrant cultural spots.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of the city, Downtown is the main hub of commercial and cultural activity.",
+          "borders": [
+            "Ságvári városrész",
+            "Kertváros"
+          ],
+          "landmarks": [
+            "Váci Mihály Cultural Center",
+            "Kossuth Square",
+            "County Hall"
+          ]
+        },
+        "history": {
+          "overview": "This area has been the city’s focal point since Nyíregyháza’s foundation in the 18th century, evolving from a market town to a regional capital.",
+          "significance": "It represents the historical and administrative heart of the city, reflecting architectural styles from neoclassical to modern.",
+          "notable_events": [
+            "City market establishment in the 1800s",
+            "Post-WWII urban redevelopment"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Nyíregyháza Bus Station",
+            "Central Tram Stop"
+          ],
+          "safety": "Generally safe with active police presence and busy pedestrian areas",
+          "best_time_to_visit": "Spring to early autumn for outdoor events and markets",
+          "walkability": "Highly walkable with pedestrian zones and accessible sidewalks"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Shopping streets",
+            "Cultural institutions",
+            "Cafes and restaurants"
+          ],
+          "atmosphere": [
+            "lively",
+            "historic",
+            "welcoming"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "cultural tourists",
+            "shoppers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Kossuth Square",
+              "type": "Public Square",
+              "description": "Central square known for its historical monuments and lively events.",
+              "appeal": "A vibrant meeting point reflecting the city’s heritage."
+            },
+            {
+              "name": "Váci Mihály Cultural Center",
+              "type": "Cultural Venue",
+              "description": "Hosts theater performances, art exhibitions, and concerts.",
+              "appeal": "Key spot for experiencing local arts and culture."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kossuth Café",
+              "cuisine": "Hungarian",
+              "price_range": "€€",
+              "known_for": "Traditional Hungarian pastries and coffee",
+              "atmosphere": "Cozy and historic with an old-world charm"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy peaceful walks before crowds arrive.",
+          "Check local event boards for open-air concerts during summer.",
+          "Try the seasonal markets for local crafts and fresh foods."
+        ]
+      },
+      {
+        "name": "Sóstógyógyfürdő",
+        "alternate_names": [
+          "Sóstó Thermal Spa District"
+        ],
+        "character": "Sóstógyógyfürdő is a lush, green neighborhood centered around health and relaxation, famous for its thermal baths and natural parks. It offers a peaceful retreat just outside the city’s bustle with family-friendly attractions.",
+        "location": {
+          "central": false,
+          "description": "Situated northeast of the city center, about 4 km away, accessible via public transit.",
+          "borders": [
+            "Sóstóhegy",
+            "Sóstóliget"
+          ],
+          "landmarks": [
+            "Aquarius Thermal Bath",
+            "Nyíregyháza Zoo",
+            "Sóstó Park"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the 20th century as a spa destination, the area grew around natural thermal springs.",
+          "significance": "It established Nyíregyháza as a wellness tourism hotspot in Hungary.",
+          "notable_events": [
+            "Opening of Aquarius Bath in 1998",
+            "Expansion of zoo in early 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Sóstógyógyfürdő Bus Stop"
+          ],
+          "safety": "Very safe and family-friendly, with well-maintained public spaces",
+          "best_time_to_visit": "Year-round, especially spring and autumn for spa and outdoor activities",
+          "walkability": "Moderately walkable with trails and park paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Thermal baths",
+            "Zoo and park",
+            "Family recreation",
+            "Nature trails"
+          ],
+          "atmosphere": [
+            "relaxing",
+            "natural",
+            "family-oriented"
+          ],
+          "best_for": [
+            "wellness travelers",
+            "families",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Aquarius Thermal Bath",
+              "type": "Thermal Spa",
+              "description": "Modern spa complex with indoor and outdoor pools fed by thermal springs.",
+              "appeal": "Ideal for relaxation and therapeutic treatments."
+            },
+            {
+              "name": "Nyíregyháza Zoo",
+              "type": "Zoo",
+              "description": "Large zoological park with diverse animal species and themed exhibits.",
+              "appeal": "Popular family attraction showcasing global wildlife."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sóstó Étterem",
+              "cuisine": "Hungarian and international",
+              "price_range": "€€",
+              "known_for": "Fresh, local ingredients and seasonal menus",
+              "atmosphere": "Casual and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Book spa treatments in advance during weekends.",
+          "Combine a zoo visit with a lakeside picnic for a full day experience.",
+          "Rent a bike to explore the park trails around the thermal baths."
+        ]
+      },
+      {
+        "name": "Ságvári városrész",
+        "alternate_names": [
+          "Ságvári Quarter"
+        ],
+        "character": "Ságvári városrész blends residential calm with pockets of trendy cafes and boutiques, attracting young locals and artists. It’s a lively, creative neighborhood with a growing reputation for its nightlife and street art scene.",
+        "location": {
+          "central": true,
+          "description": "Directly south of the city center, forming a vibrant urban transition zone.",
+          "borders": [
+            "Downtown Nyíregyháza",
+            "Kertváros",
+            "Bujtos"
+          ],
+          "landmarks": [
+            "Ságvári Art Center",
+            "Móricz Zsigmond Street"
+          ]
+        },
+        "history": {
+          "overview": "Originally a working-class district, it has transformed since the 1990s into a hub for culture and nightlife.",
+          "significance": "Key to Nyíregyháza’s modern cultural revival and youth scene.",
+          "notable_events": [
+            "Annual Ságvári Street Art Festival",
+            "Opening of local theaters"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Ságvári Bus Stop",
+            "Móricz Zsigmond Tram Station"
+          ],
+          "safety": "Generally safe but active nightlife means occasional late-night caution advised",
+          "best_time_to_visit": "Evenings and weekends for nightlife and festivals",
+          "walkability": "Highly walkable with compact streets and pedestrian areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Street art",
+            "Live music venues",
+            "Boutique shops",
+            "Trendy cafes"
+          ],
+          "atmosphere": [
+            "artsy",
+            "energetic",
+            "bohemian"
+          ],
+          "best_for": [
+            "young travelers",
+            "art lovers",
+            "nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Ságvári Art Center",
+              "type": "Gallery & Event Space",
+              "description": "Showcases local art and hosts live performances.",
+              "appeal": "A cultural hub for contemporary art and music."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kisüzem Café",
+              "cuisine": "International fusion",
+              "price_range": "€€",
+              "known_for": "Craft cocktails and eclectic menu",
+              "atmosphere": "Trendy and intimate with artistic décor"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the annual street art festival for vibrant outdoor exhibits.",
+          "Try the weekend jazz nights at local bars.",
+          "Explore side streets for hidden murals and vintage shops."
+        ]
+      },
+      {
+        "name": "Kertváros",
+        "alternate_names": [
+          "Garden City"
+        ],
+        "character": "Kertváros is a leafy, tranquil residential neighborhood known for its family homes and quiet streets lined with gardens. It’s the preferred area for locals seeking suburban comfort close to the city’s amenities.",
+        "location": {
+          "central": false,
+          "description": "West of the city center, characterized by low-rise housing and green spaces.",
+          "borders": [
+            "Downtown Nyíregyháza",
+            "Belváros",
+            "Ságvári városrész"
+          ],
+          "landmarks": [
+            "Kertvárosi Park",
+            "Local community center"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the mid-20th century as a planned residential district to accommodate Nyíregyháza’s growing population.",
+          "significance": "Represents the city’s post-war expansion and suburbanization.",
+          "notable_events": [
+            "Construction boom in the 1960s",
+            "Recent community-led green initiatives"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Kertváros Bus Stop"
+          ],
+          "safety": "Very safe with low crime rates and family presence",
+          "best_time_to_visit": "Spring and summer for garden walks and local markets",
+          "walkability": "Moderately walkable; best for leisurely strolls"
+        },
+        "appeal": {
+          "known_for": [
+            "Quiet residential streets",
+            "Community parks",
+            "Family-friendly atmosphere"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "green",
+            "suburban"
+          ],
+          "best_for": [
+            "families",
+            "long-term visitors",
+            "those seeking calm"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Kertvárosi Park",
+              "type": "Public Park",
+              "description": "Green park with playgrounds and picnic areas.",
+              "appeal": "Ideal for families and outdoor relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Zöldkert Bistro",
+              "cuisine": "Hungarian and European",
+              "price_range": "€€",
+              "known_for": "Fresh garden produce and homemade desserts",
+              "atmosphere": "Casual and cozy with a garden terrace"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit local weekend markets for fresh produce.",
+          "Walk the tree-lined streets for a glimpse of typical suburban life.",
+          "Attend community events often held at the local center."
+        ]
+      },
+      {
+        "name": "Bujtos",
+        "alternate_names": [],
+        "character": "Bujtos is a primarily residential district with a mix of older apartment blocks and newer developments, offering an authentic glimpse of everyday life in Nyíregyháza. It is a practical and quiet neighborhood favored by locals.",
+        "location": {
+          "central": false,
+          "description": "Southwest side of the city, bordering Ságvári városrész and Kertváros.",
+          "borders": [
+            "Ságvári városrész",
+            "Kertváros"
+          ],
+          "landmarks": [
+            "Bujtos Market",
+            "Local sports facilities"
+          ]
+        },
+        "history": {
+          "overview": "Emerged as a residential area during the socialist era to support the city’s industrial workforce.",
+          "significance": "Represents Nyíregyháza’s mid-20th century urban development.",
+          "notable_events": [
+            "Housing projects in the 1970s",
+            "Recent urban renewal efforts"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bujtos Bus Stop"
+          ],
+          "safety": "Safe with a close-knit community presence",
+          "best_time_to_visit": "All year round for an authentic local experience",
+          "walkability": "Walkable with some pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Community sports",
+            "Affordable housing"
+          ],
+          "atmosphere": [
+            "authentic",
+            "residential",
+            "unpretentious"
+          ],
+          "best_for": [
+            "budget travelers",
+            "long-term stays",
+            "cultural immersion"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Bujtos Market",
+              "type": "Local Market",
+              "description": "Traditional market offering fresh produce and household goods.",
+              "appeal": "Great spot to experience local daily life."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kis Bujtosi Kocsma",
+              "cuisine": "Hungarian pub fare",
+              "price_range": "€",
+              "known_for": "Hearty traditional dishes and local beers",
+              "atmosphere": "Casual and friendly neighborhood pub"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Drop by the market early morning for freshest goods.",
+          "Talk to shop owners for authentic local stories and recommendations.",
+          "Explore nearby parks for quiet walks after shopping."
+        ]
+      },
+      {
+        "name": "Városmajor",
+        "alternate_names": [],
+        "character": "Városmajor is a historic neighborhood rich with 19th-century architecture and charming streets that evoke Nyíregyháza’s past. It’s a quieter area favored by history buffs and those seeking a slower pace near the city center.",
+        "location": {
+          "central": true,
+          "description": "West of the main downtown area, within comfortable walking distance to the center.",
+          "borders": [
+            "Downtown Nyíregyháza",
+            "Kertváros"
+          ],
+          "landmarks": [
+            "Városmajor Church",
+            "Historic villas"
+          ]
+        },
+        "history": {
+          "overview": "Once home to Nyíregyháza’s middle class in the 19th and early 20th centuries, the area retains much of its historic charm.",
+          "significance": "Preserves architectural and cultural heritage significant to the city’s identity.",
+          "notable_events": [
+            "Preservation efforts in the 1980s",
+            "Annual heritage walks"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Városmajor Bus Stop"
+          ],
+          "safety": "Very safe, quiet residential feel",
+          "best_time_to_visit": "Spring and autumn for pleasant walks",
+          "walkability": "Highly walkable with tree-lined sidewalks"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Quiet streets",
+            "Local heritage"
+          ],
+          "atmosphere": [
+            "charming",
+            "historic",
+            "peaceful"
+          ],
+          "best_for": [
+            "history enthusiasts",
+            "photographers",
+            "couples"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Városmajor Church",
+              "type": "Religious Site",
+              "description": "Elegant historic church dating back to the 19th century.",
+              "appeal": "Architectural beauty and peaceful atmosphere."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Villa Étterem",
+              "cuisine": "Hungarian and European",
+              "price_range": "€€€",
+              "known_for": "Fine dining in a historic villa setting",
+              "atmosphere": "Elegant and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Take a guided heritage walk to fully appreciate the architecture.",
+          "Visit the church during service times to hear traditional hymns.",
+          "Enjoy coffee on the terrace of Villa Étterem in warmer months."
+        ]
+      },
+      {
+        "name": "Malomkert",
+        "alternate_names": [
+          "Mill Garden"
+        ],
+        "character": "Malomkert is a quaint neighborhood with a mix of green spaces and small shops, offering a relaxed atmosphere with a touch of local charm. It is known for its community gardens and proximity to the river.",
+        "location": {
+          "central": false,
+          "description": "Southwest outskirts of Nyíregyháza, near the Nyíregyháza-Sóstó river.",
+          "borders": [
+            "Bujtos",
+            "Ságvári városrész"
+          ],
+          "landmarks": [
+            "Malomkert Community Garden",
+            "Local mill ruins"
+          ]
+        },
+        "history": {
+          "overview": "Named after a historic mill that once operated along the river, the area developed as a small working-class neighborhood.",
+          "significance": "Preserves local traditions and community spirit through gardens and festivals.",
+          "notable_events": [
+            "Annual Malomkert Garden Festival",
+            "Restoration of mill ruins"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Malomkert Bus Stop"
+          ],
+          "safety": "Safe with a strong neighborhood watch and community presence",
+          "best_time_to_visit": "Summer for garden festivals and outdoor activities",
+          "walkability": "Moderately walkable with some natural trails"
+        },
+        "appeal": {
+          "known_for": [
+            "Community gardening",
+            "Local festivals",
+            "Quiet residential vibe"
+          ],
+          "atmosphere": [
+            "friendly",
+            "green",
+            "relaxed"
+          ],
+          "best_for": [
+            "nature lovers",
+            "community travelers",
+            "quiet retreats"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 4,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Malomkert Community Garden",
+              "type": "Garden/Park",
+              "description": "A vibrant garden maintained by residents hosting seasonal events.",
+              "appeal": "Great for seeing local flora and community spirit."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Malomkert Kávézó",
+              "cuisine": "Cafe fare",
+              "price_range": "€",
+              "known_for": "Homemade cakes and local coffee blends",
+              "atmosphere": "Cozy and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Attend the Garden Festival to meet locals and enjoy homemade foods.",
+          "Walk along the river path for peaceful nature views.",
+          "Try the seasonal jams sold at the café, made from garden harvests."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Lugas Étterem",
+          "cuisine_type": "Hungarian, Central European",
+          "description": "Elegant restaurant offering refined Hungarian cuisine with a modern twist, using local ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated yet warm, ideal for special occasions.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "business dinners",
+            "celebrations"
+          ],
+          "latitude": 47.9572,
+          "longitude": 21.7164,
+          "reservation_needed": true,
+          "local_tips": "Try their seasonal fish dishes, especially in spring and autumn."
+        },
+        {
+          "name": "Hotel Korona Étterem",
+          "cuisine_type": "Hungarian, International",
+          "description": "Upscale hotel restaurant known for traditional Hungarian dishes and a fine wine selection.",
+          "price_range": "€€€",
+          "atmosphere": "Classic and elegant, perfect for formal dining.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "business meals",
+            "families"
+          ],
+          "latitude": 47.9549,
+          "longitude": 21.7168,
+          "reservation_needed": true,
+          "local_tips": "Reserve a table near the window for a view of the main square."
+        },
+        {
+          "name": "Bujtás Étterem",
+          "cuisine_type": "Hungarian, Contemporary",
+          "description": "Modern Hungarian cuisine with creative plating and seasonal menus highlighting regional produce.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and intimate, great for food enthusiasts.",
+          "neighborhood": "Near City Center",
+          "best_for": [
+            "foodies",
+            "date night",
+            "small groups"
+          ],
+          "latitude": 47.9561,
+          "longitude": 21.718,
+          "reservation_needed": true,
+          "local_tips": "Ask for the chef's tasting menu to experience the full range of flavors."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Náncsi Néni Vendéglője",
+          "cuisine_type": "Traditional Hungarian",
+          "description": "Classic Hungarian tavern serving hearty dishes like goulash and stuffed cabbage in a friendly setting.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and rustic, family-friendly.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "families",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 47.9568,
+          "longitude": 21.7173,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade strudel for dessert."
+        },
+        {
+          "name": "Pizza Forte",
+          "cuisine_type": "Italian, Pizza",
+          "description": "Popular spot for wood-fired pizzas and Italian classics with quick service and casual vibes.",
+          "price_range": "€€",
+          "atmosphere": "Lively and informal.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "families",
+            "groups",
+            "quick meals"
+          ],
+          "latitude": 47.9555,
+          "longitude": 21.7157,
+          "reservation_needed": false,
+          "local_tips": "Their thin-crust pizzas are a local favorite."
+        },
+        {
+          "name": "Kakas Étterem",
+          "cuisine_type": "Hungarian, Central European",
+          "description": "Casual restaurant serving traditional dishes like Hortobágyi palacsinta and fresh seasonal soups.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and welcoming.",
+          "neighborhood": "Near City Center",
+          "best_for": [
+            "casual dining",
+            "families",
+            "groups"
+          ],
+          "latitude": 47.9575,
+          "longitude": 21.7192,
+          "reservation_needed": false,
+          "local_tips": "Don't miss the paprika chicken, a regional specialty."
+        },
+        {
+          "name": "Büfé Csárda",
+          "cuisine_type": "Hungarian street food, Fast Food",
+          "description": "Simple eatery known for quick, tasty Hungarian snacks and soups at affordable prices.",
+          "price_range": "€",
+          "atmosphere": "Casual and bustling.",
+          "neighborhood": "Near City Center",
+          "best_for": [
+            "quick bites",
+            "budget travelers",
+            "locals"
+          ],
+          "latitude": 47.958,
+          "longitude": 21.7185,
+          "reservation_needed": false,
+          "local_tips": "Try their lángos with garlic and sour cream."
+        },
+        {
+          "name": "Fazekas Vendéglő",
+          "cuisine_type": "Hungarian",
+          "description": "Family-run restaurant offering authentic Hungarian comfort food with generous portions.",
+          "price_range": "€€",
+          "atmosphere": "Homey and traditional.",
+          "neighborhood": "Outside City Center",
+          "best_for": [
+            "families",
+            "groups",
+            "local cuisine"
+          ],
+          "latitude": 47.9602,
+          "longitude": 21.7201,
+          "reservation_needed": false,
+          "local_tips": "Their beef stew is highly recommended by locals."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Nyíregyháza Market Hall",
+          "cuisine_type": "Local Produce, Snacks",
+          "description": "Vibrant indoor market offering fresh produce, local cheeses, meats, and street food stalls.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic market experience.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "snacking",
+            "food shopping",
+            "local culture"
+          ],
+          "latitude": 47.9558,
+          "longitude": 21.7161,
+          "reservation_needed": false,
+          "local_tips": "Sample the freshly made lángos topped with cheese and sour cream here."
+        },
+        {
+          "name": "Lángos Stand at Sóstógyógyfürdő",
+          "cuisine_type": "Hungarian street food",
+          "description": "Popular seasonal stand near the spa park offering traditional fried dough with various toppings.",
+          "price_range": "€",
+          "atmosphere": "Casual, outdoor, family-friendly.",
+          "neighborhood": "Sóstógyógyfürdő",
+          "best_for": [
+            "snacks",
+            "families",
+            "outdoor eating"
+          ],
+          "latitude": 47.9815,
+          "longitude": 21.7563,
+          "reservation_needed": false,
+          "local_tips": "Try the garlic and cheese toppings – a local favorite."
+        },
+        {
+          "name": "Kürtőskalács (Chimney Cake) Stand",
+          "cuisine_type": "Hungarian Street Food",
+          "description": "Mobile vendor serving freshly baked Kürtőskalács, a sweet spiral pastry rolled in sugar and nuts.",
+          "price_range": "€",
+          "atmosphere": "Festive and casual.",
+          "neighborhood": "City Center and events",
+          "best_for": [
+            "dessert",
+            "walk-and-eat",
+            "families"
+          ],
+          "latitude": 47.9565,
+          "longitude": 21.7178,
+          "reservation_needed": false,
+          "local_tips": "Best enjoyed warm and fresh with cinnamon sugar."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Patika Wine Bar",
+          "cuisine_type": "Wine Bar",
+          "description": "Cozy bar specializing in Hungarian wines with knowledgeable staff and a relaxed vibe.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and laid-back.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "wine tasting",
+            "date night",
+            "small groups"
+          ],
+          "latitude": 47.955,
+          "longitude": 21.717,
+          "reservation_needed": false,
+          "local_tips": "Ask for wines from the Tokaj region, a Hungarian specialty."
+        },
+        {
+          "name": "Craft Beer House Nyíregyháza",
+          "cuisine_type": "Craft Beer",
+          "description": "Trendy spot offering a variety of local and international craft beers in a lively setting.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and social.",
+          "neighborhood": "Near City Center",
+          "best_for": [
+            "groups",
+            "beer enthusiasts",
+            "casual nights"
+          ],
+          "latitude": 47.9573,
+          "longitude": 21.7159,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal brews and rotating guest taps."
+        },
+        {
+          "name": "Café & Bar Zöld",
+          "cuisine_type": "Bar, Café",
+          "description": "Chic bar with a great cocktail selection and occasional live music, popular among locals.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and cozy.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "cocktails",
+            "date night",
+            "live music"
+          ],
+          "latitude": 47.956,
+          "longitude": 21.7182,
+          "reservation_needed": false,
+          "local_tips": "Visit during weekend evenings for live jazz sessions."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Art Café Nyíregyháza",
+          "cuisine_type": "Coffee, Pastries",
+          "description": "Artistic café offering quality coffee, homemade cakes, and a creative atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and artsy.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "coffee breaks",
+            "reading",
+            "casual meetings"
+          ],
+          "latitude": 47.9557,
+          "longitude": 21.7171,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal fruit tarts, freshly baked daily."
+        },
+        {
+          "name": "Cukrászda Korzó",
+          "cuisine_type": "Pastry, Hungarian Desserts",
+          "description": "Traditional Hungarian pastry shop serving classic desserts like Dobos cake and Esterházy torta.",
+          "price_range": "€",
+          "atmosphere": "Classic and family-friendly.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "dessert lovers",
+            "families",
+            "quick stops"
+          ],
+          "latitude": 47.9563,
+          "longitude": 21.7167,
+          "reservation_needed": false,
+          "local_tips": "Pair your coffee with the somlói galuska, a Hungarian trifle."
+        },
+        {
+          "name": "Kávézó Csiga",
+          "cuisine_type": "Coffee, Light Meals",
+          "description": "Cozy coffeehouse with a good selection of coffees and light snacks, popular with students and locals.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly.",
+          "neighborhood": "Near University",
+          "best_for": [
+            "study sessions",
+            "casual hangouts",
+            "coffee lovers"
+          ],
+          "latitude": 47.959,
+          "longitude": 21.7225,
+          "reservation_needed": false,
+          "local_tips": "Visit in the morning for fresh pastries and a quiet atmosphere."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Nyíregyháza Traditional Food Tour",
+        "description": "Guided walking tour through local markets, eateries, and street food vendors sampling signature dishes like goulash, lángos, and chimney cake.",
+        "duration_minutes": 180,
+        "price_range": "€€",
+        "best_for": [
+          "foodies",
+          "cultural exploration",
+          "small groups"
+        ]
+      },
+      {
+        "name": "Hungarian Cooking Class at Lugas Étterem",
+        "description": "Hands-on cooking workshop where participants learn to prepare traditional Hungarian specialties such as paprika chicken and stuffed cabbage.",
+        "duration_minutes": 240,
+        "price_range": "€€€",
+        "best_for": [
+          "cooking enthusiasts",
+          "couples",
+          "small groups"
+        ]
+      },
+      {
+        "name": "Visit to Nyíregyháza Market Hall",
+        "description": "Explore the vibrant indoor market with a local guide, featuring fresh produce, local cheeses, sausages, and artisan products.",
+        "duration_minutes": 90,
+        "price_range": "€",
+        "best_for": [
+          "market lovers",
+          "cultural experience",
+          "all ages"
+        ]
+      },
+      {
+        "name": "Sóstó Spa and Culinary Day Trip",
+        "description": "Combine a relaxing visit to the Sóstó thermal baths with a tasting of regional specialties at nearby street food stands and restaurants.",
+        "duration_minutes": 360,
+        "price_range": "€€",
+        "best_for": [
+          "relaxation",
+          "food sampling",
+          "families"
+        ]
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes",
+        "Early-season wild mushrooms",
+        "Spring lamb stews"
+      ],
+      "summer": [
+        "Grilled fish from local lakes",
+        "Cold fruit soups (e.g., sour cherry soup)",
+        "Fresh vegetable salads with garden herbs"
+      ],
+      "autumn": [
+        "Wild game dishes",
+        "Pumpkin-based soups and desserts",
+        "Mushroom ragout"
+      ],
+      "winter": [
+        "Hearty goulash and paprika chicken stews",
+        "Warm chimney cakes (Kürtőskalács)",
+        "Mulled wine and spiced pastries"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€25",
+            "operator": "MÁV",
+            "notes": "Direct trains available frequently; comfortable and scenic route."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 45m",
+            "frequency": "hourly",
+            "price_range": "€8-€20",
+            "operator": "Volánbusz",
+            "notes": "Frequent direct buses; good for budget travelers."
+          }
+        ]
+      },
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "PKP Intercity and MÁV",
+            "notes": "Requires transfer in Budapest or Lőkösháza; comfortable international trains."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; overnight options."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€50",
+            "operator": "MÁV and ÖBB",
+            "notes": "One or two transfers needed; scenic route through Hungary and Austria."
+          },
+          {
+            "type": "bus",
+            "duration": "5h 45m",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; comfortable and affordable."
+          }
+        ]
+      },
+      {
+        "city": "Kraków",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses; convenient for tourism and business."
+          }
+        ]
+      },
+      {
+        "city": "Bratislava",
+        "country": "Slovakia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct routes; good connections for onward travel."
+          }
+        ]
+      },
+      {
+        "city": "Debrecen",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€5-€10",
+            "operator": "MÁV",
+            "notes": "Very frequent regional trains; fastest connection."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€4-€9",
+            "operator": "Volánbusz",
+            "notes": "Direct buses also frequent; budget-friendly."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "10h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "MÁV and Deutsche Bahn",
+            "notes": "Requires transfer in Budapest and Vienna; comfortable international route."
+          },
+          {
+            "type": "bus",
+            "duration": "11h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "FlixBus",
+            "notes": "Direct overnight buses available."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "9h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "ČD and MÁV",
+            "notes": "Transfers usually in Budapest and Brno; scenic in parts."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 45m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; overnight service."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Wizz Air",
+            "notes": "Flights from Debrecen Airport (nearby) to Rome Fiumicino with transfer to Nyíregyháza by train or bus."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "12h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "FlixBus",
+            "notes": "Direct overnight buses; budget friendly."
+          },
+          {
+            "type": "train",
+            "duration": "11h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "MÁV and Deutsche Bahn",
+            "notes": "Multiple transfers; comfortable but longer journey."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Nyíregyháza Botanical Garden Visit",
+        "type": "outdoor",
+        "description": "Explore the blooming flora and themed gardens in pleasant spring weather, ideal for nature lovers and photographers.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Nyíregyháza Botanical Garden",
+        "price": "Budget"
+      },
+      {
+        "name": "Spring Wine Festival",
+        "type": "festival",
+        "description": "Sample regional Hungarian wines and enjoy live music celebrating the arrival of spring.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "City Center, Nyíregyháza",
+        "price": "Moderate"
+      },
+      {
+        "name": "Sóstó Zoo Visit",
+        "type": "outdoor",
+        "description": "Visit one of Hungary’s largest zoos to see a variety of animals awakening from winter in a spring setting.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Sóstógyógyfürdő",
+        "price": "Moderate"
+      },
+      {
+        "name": "Local Asparagus Tasting",
+        "type": "food",
+        "description": "Enjoy fresh Hungarian asparagus dishes at local restaurants, a seasonal spring delicacy.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Various restaurants in Nyíregyháza",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Sóstó Thermal Spa and Aquapark",
+        "type": "outdoor",
+        "description": "Relax in thermal pools or enjoy water slides and sunbathing at this popular summer destination.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Sóstógyógyfürdő",
+        "price": "Moderate"
+      },
+      {
+        "name": "Nyíregyházi Nyár (Nyíregyháza Summer Festival)",
+        "type": "festival",
+        "description": "A vibrant cultural festival featuring concerts, theater, and folk dance performances throughout the city.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Various venues in Nyíregyháza",
+        "price": "Free to Moderate"
+      },
+      {
+        "name": "Cycling in the Tokaj Wine Region",
+        "type": "sport",
+        "description": "Take guided or solo cycling tours through nearby vineyards and scenic countryside during long summer days.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Tokaj Wine Region, near Nyíregyháza",
+        "price": "Budget"
+      },
+      {
+        "name": "Local Apricot Festival",
+        "type": "food",
+        "description": "Celebrate the apricot harvest with tastings, homemade jams, and apricot-based desserts at local markets.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Nyíregyháza Market Square",
+        "price": "Free"
+      },
+      {
+        "name": "Evening Stroll at Kállay Park",
+        "type": "outdoor",
+        "description": "Enjoy cool summer evenings walking through the city’s central park with fountains and sculptures.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Kállay Park, Nyíregyháza",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Harvest Wine Tastings in Tokaj",
+        "type": "food",
+        "description": "Experience the grape harvest season with wine tastings and cellar tours in the nearby Tokaj wine region.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Tokaj Wine Region",
+        "price": "Moderate"
+      },
+      {
+        "name": "Nyíregyháza Autumn Cultural Days",
+        "type": "cultural",
+        "description": "Attend exhibitions, concerts, and theatrical performances celebrating local culture and arts in autumn.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Nyíregyháza Cultural Center",
+        "price": "Moderate"
+      },
+      {
+        "name": "Pumpkin Festival",
+        "type": "festival",
+        "description": "A family-friendly event featuring pumpkin carving contests, traditional foods, and crafts.",
+        "best_months": [
+          "October"
+        ],
+        "location": "City Park, Nyíregyháza",
+        "price": "Free"
+      },
+      {
+        "name": "Hiking in the Nyírség Region",
+        "type": "outdoor",
+        "description": "Enjoy colorful autumn foliage on scenic trails around Nyíregyháza and the surrounding Nyírség landscape.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Nyírség Region",
+        "price": "Free"
+      },
+      {
+        "name": "Seasonal Mushroom Foraging Tours",
+        "type": "outdoor",
+        "description": "Join guided mushroom picking excursions in local forests, learning about edible and medicinal fungi.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Forests near Nyíregyháza",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market in Nyíregyháza",
+        "type": "festival",
+        "description": "Browse handcrafted gifts, festive foods, and enjoy seasonal performances at the charming Christmas market.",
+        "best_months": [
+          "December"
+        ],
+        "location": "City Center, Nyíregyháza",
+        "price": "Free"
+      },
+      {
+        "name": "Sóstó Thermal Spa Winter Wellness",
+        "type": "outdoor",
+        "description": "Warm up in thermal baths surrounded by snowy landscapes, perfect for relaxation in the cold season.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Sóstógyógyfürdő",
+        "price": "Moderate"
+      },
+      {
+        "name": "Traditional Hungarian Winter Cuisine Tasting",
+        "type": "food",
+        "description": "Enjoy hearty local dishes such as goulash and chimney cake in cozy Nyíregyháza restaurants during winter.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Various restaurants in Nyíregyháza",
+        "price": "Budget"
+      },
+      {
+        "name": "Ice Skating at Kossuth Square",
+        "type": "sport",
+        "description": "When weather permits, enjoy outdoor ice skating on a seasonal rink in the city’s main square.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Kossuth Square, Nyíregyháza",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit to Jósa András Museum",
+        "type": "cultural",
+        "description": "Explore local history and art collections indoors to escape the cold and learn about the region’s heritage.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Jósa András Museum, Nyíregyháza",
+        "price": "Budget"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "Epiphany (January 6)",
+            "notes": "Cold winter weather with average temperatures around -1°C to 2°C; Epiphany is a national holiday with limited local festivities, low tourist presence.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Mid-January is the coldest period with frequent frost and occasional snow, making outdoor activities less appealing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Slightly milder weather but still cold; indoor attractions and spa visits recommended; very low tourist numbers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Persistent winter chill; local cultural events minimal; good for off-season budget travel and quiet exploration.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold with occasional snow; indoor attractions and thermal baths are popular; low tourist crowds.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Valentine's Day (February 14)",
+            "notes": "Cold but increasing daylight; some romantic events for couples; thermal spas draw visitors; moderate local activity.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 5,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of winter; days gradually warm; outdoor walks possible; quiet period before spring tourism starts.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Similar mild winter conditions; good for budget travelers and those seeking quiet city exploration.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with increasing temperatures (~5-10°C); some rain; outdoor sightseeing starts to improve.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Hungarian National Holiday (March 15)",
+            "notes": "National holiday with local celebrations and parades; pleasant spring weather; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom; temperatures 10-15°C; ideal for outdoor activities and cultural exploration; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of March is mild and pleasant; outdoor cafes and parks open; good time for budget and mid-range travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring weather improves with average highs around 15°C; blooming parks and gardens; ideal for walking tours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter Holidays (dates vary, often April)",
+            "notes": "Easter celebrations with traditional markets and events; mild weather; increased visitor interest but still manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter spring with pleasant weather; ideal for outdoor activities and exploring local culture; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Nyíregyháza Spring Festival (local cultural event)",
+            "notes": "Local spring festival with music, food, and cultural activities; warm weather encourages outdoor participation; higher crowd levels.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labor Day (May 1)",
+            "notes": "Mild to warm weather (15-22°C); public holiday with local celebrations; perfect for outdoor activities and sightseeing.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Stable warm spring weather; gardens and parks fully blossoming; excellent for outdoor recreation and cultural visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Local Wine Festival (mid-May, approximate)",
+            "notes": "Popular local event featuring regional wines, music, and food; attracts visitors regionally; warm and pleasant weather.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May continues warm and sunny weather; ideal for outdoor excursions, zoo visits, and local sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Beginning of summer with warm temperatures (20-26°C); long daylight hours; great for outdoor activities and festivals.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Nyíregyháza Summer Opening Festival (mid-June)",
+            "notes": "Major local event marking start of summer with concerts, food fairs, and cultural programs; lively atmosphere; increased crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and sunny; good swimming and outdoor activities in nearby lakes and parks; moderate crowds due to local tourism.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late June is the start of high season; warm weather and outdoor entertainment at peak; higher prices and crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Nyíregyháza Summer Festival (early July)",
+            "notes": "Peak summer with hot weather (~25-30°C); major festival with concerts, street food, and cultural events; high crowd levels.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer weather; ideal for swimming and outdoor events; high tourist volumes but vibrant atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Continued summer heat and festival activity; peak season for tourism; expect busy venues and higher prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "End of July remains hot and lively; ideal for festival-goers and outdoor lovers; busy tourist season continues.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "St. Stephen's Day Preparations and Summer Events",
+            "notes": "Warm summer weather; many outdoor events and markets; increasing tourist crowds ahead of national holiday.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Typical hot summer days; excellent for outdoor swimming and cultural events; busy season with lively atmosphere.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "St. Stephen's Day (August 20)",
+            "notes": "Hungary's national holiday with fireworks and large celebrations; peak tourist crowds; vibrant city atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August slightly cooler but still warm; crowds start to decline as local schools return; good time for less busy tourism.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with comfortable temperatures (15-22°C); less crowded; good for cultural events and outdoor walks.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Harvest Festivals (local events begin)",
+            "notes": "Local harvest-related events and wine tastings start; pleasant weather and fewer tourists; great for cultural immersion.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild days and cool evenings; good weather for hiking and outdoor sightseeing; moderate local activity.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooling temperatures and increased rainfall; end of peak outdoor season; quieter tourism but less predictable weather.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler autumn weather (~10-15°C); fall foliage visible; fewer tourists; some local cultural events.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Hungarian Republic Day (October 23)",
+            "notes": "National holiday with ceremonies and cultural programs; generally mild weather; moderate crowds due to local events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-October weather is variable with occasional rain; outdoor activities less comfortable; quiet tourism.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of October is cooler and rainy; indoor attractions recommended; low tourist presence.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cooling temperatures (5-10°C); increased rainfall; fewer tourists; indoor cultural venues recommended.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Weather becomes colder and more unpredictable; minimal outdoor events; quiet tourism season.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cold and damp weather; good for budget travelers and business visitors; limited leisure tourism.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late November remains cold; Christmas markets start at month end; slight increase in visitors towards December.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Advent and Christmas Markets Begin",
+            "notes": "Cold weather (~0-5°C) with festive Christmas markets opening; moderate local activity; good for cultural and holiday travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold and sometimes snowy; Christmas preparations continue; quieter weekdays but weekends busier in markets.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Festivities",
+            "notes": "Festive period with markets, concerts, and local traditions; cold weather; increased visitors from Hungary and abroad.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas Day & New Year's Eve",
+            "notes": "Major holidays with local celebrations; cold, often snowy; some businesses closed; festive atmosphere with moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

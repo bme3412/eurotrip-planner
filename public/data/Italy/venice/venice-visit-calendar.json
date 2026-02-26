@@ -4,32 +4,104 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 2,
           "special": true,
           "event": "New Year's Day",
-          "notes": "Holiday atmosphere, many businesses closed, special Mass at St. Mark's Basilica"
+          "notes": "Holiday atmosphere, many businesses closed, special Mass at St. Mark's Basilica",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "score": 3,
           "special": true,
           "event": "Post-holiday period",
-          "notes": "Gradually reopening businesses, Christmas decorations still visible in St. Mark's Square"
+          "notes": "Gradually reopening businesses, Christmas decorations still visible in St. Mark's Square",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [6],
+          "days": [
+            6
+          ],
           "score": 3,
           "special": true,
           "event": "Epiphany (La Befana)",
-          "notes": "Holiday celebrating the 'good witch' who brings gifts to children, Befana Regatta on the Grand Canal with costumed rowers"
+          "notes": "Holiday celebrating the 'good witch' who brings gifts to children, Befana Regatta on the Grand Canal with costumed rowers",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
           "special": true,
           "event": "Winter Sales (Saldi)",
-          "notes": "Major shopping discounts throughout the city, especially in the boutiques around St. Mark's and Mercerie shopping streets"
+          "notes": "Major shopping discounts throughout the city, especially in the boutiques around St. Mark's and Mercerie shopping streets",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 7,
@@ -40,23 +112,82 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 3,
-          "notes": "Quiet winter period with potential for atmospheric fog (nebbia), haunting and beautiful for photography"
+          "notes": "Quiet winter period with potential for atmospheric fog (nebbia), haunting and beautiful for photography",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 5,
           "special": true,
           "event": "Carnevale di Venezia",
-          "notes": "World-famous pre-Lenten festival with elaborate masks, costumes, events in St. Mark's Square, and exclusive masked balls throughout the city"
+          "notes": "World-famous pre-Lenten festival with elaborate masks, costumes, events in St. Mark's Square, and exclusive masked balls throughout the city",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 4,
           "special": true,
           "event": "Valentine's Day",
-          "notes": "Special romantic gondola packages, themed events during Carnival, one of the most romantic times to visit Venice"
+          "notes": "Special romantic gondola packages, themed events during Carnival, one of the most romantic times to visit Venice",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 8,
@@ -67,23 +198,85 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
           "score": 4,
-          "notes": "Early spring with gradually warming temperatures, perfect for exploring the city with fewer crowds"
+          "notes": "Early spring with gradually warming temperatures, perfect for exploring the city with fewer crowds",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Holy Week preparations",
-          "notes": "Special religious ceremonies and preparations in St. Mark's Basilica and throughout the city's many churches"
+          "notes": "Special religious ceremonies and preparations in St. Mark's Basilica and throughout the city's many churches",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [19],
+          "days": [
+            19
+          ],
           "score": 4,
           "special": true,
           "event": "Feast of San Giuseppe",
-          "notes": "Celebrated with traditional frittelle and other seasonal pastries in bakeries throughout the city"
+          "notes": "Celebrated with traditional frittelle and other seasonal pastries in bakeries throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 13,
@@ -94,28 +287,98 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
           "score": 5,
           "special": true,
           "event": "Holy Week & Easter",
-          "notes": "Significant religious ceremonies at St. Mark's Basilica, processions throughout the city, special mass on Easter Sunday"
+          "notes": "Significant religious ceremonies at St. Mark's Basilica, processions throughout the city, special mass on Easter Sunday",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 5,
-          "notes": "Perfect spring weather with moderate temperatures, ideal for exploring the outer islands of the lagoon"
+          "notes": "Perfect spring weather with moderate temperatures, ideal for exploring the outer islands of the lagoon",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 5,
           "special": true,
           "event": "Liberation Day & Festa di San Marco",
-          "notes": "Celebration of Italy's liberation and Venice's patron saint with special ceremonies, processions, and the 'bocolo' tradition of giving a red rosebud to loved ones"
+          "notes": "Celebration of Italy's liberation and Venice's patron saint with special ceremonies, processions, and the 'bocolo' tradition of giving a red rosebud to loved ones",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Peak spring conditions with pleasant temperatures and manageable crowds"
+          "notes": "Peak spring conditions with pleasant temperatures and manageable crowds",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 17,
@@ -126,30 +389,101 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 4,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday with some business closures, but many tourism services remain open"
+          "notes": "Public holiday with some business closures, but many tourism services remain open",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
           "score": 5,
           "special": true,
           "event": "Biennale Art/Architecture Opening",
-          "notes": "Preview week of Venice's famous international art exhibition (odd years) or architecture exhibition (even years)"
+          "notes": "Preview week of Venice's famous international art exhibition (odd years) or architecture exhibition (even years)",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+          "days": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27
+          ],
           "score": 5,
-          "notes": "Ideal weather with warm days, mild nights, and Venice in full bloom, particularly on the outer islands"
+          "notes": "Ideal weather with warm days, mild nights, and Venice in full bloom, particularly on the outer islands",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [28, 29, 30, 31],
+          "days": [
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Festa della Sensa",
-          "notes": "Historic 'Marriage to the Sea' ceremony with boat processions and the Mayor of Venice tossing a gold ring into the lagoon"
+          "notes": "Historic 'Marriage to the Sea' ceremony with boat processions and the Mayor of Venice tossing a gold ring into the lagoon",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 21,
@@ -160,35 +494,120 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 5,
-          "notes": "Early summer conditions perfect for exploring all of Venice and the lagoon islands"
+          "notes": "Early summer conditions perfect for exploring all of Venice and the lagoon islands",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [2],
+          "days": [
+            2
+          ],
           "score": 4,
           "special": true,
           "event": "Festa della Repubblica",
-          "notes": "National holiday with some business closures but special events throughout the city"
+          "notes": "National holiday with some business closures but special events throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 4,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Summer season begins with increasing tourist numbers but excellent weather conditions"
+          "notes": "Summer season begins with increasing tourist numbers but excellent weather conditions",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [3, 4, 5, 6],
+          "days": [
+            3,
+            4,
+            5,
+            6
+          ],
           "score": 5,
           "special": true,
           "event": "Vogalonga",
-          "notes": "Non-competitive rowing event with thousands of traditional boats traversing the lagoon in a spectacular display of Venetian maritime culture"
+          "notes": "Non-competitive rowing event with thousands of traditional boats traversing the lagoon in a spectacular display of Venetian maritime culture",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [29],
+          "days": [
+            29
+          ],
           "score": 4,
           "special": true,
           "event": "Feast of Saints Peter and Paul",
-          "notes": "Religious celebrations at various churches throughout Venice"
+          "notes": "Religious celebrations at various churches throughout Venice",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 25,
@@ -199,28 +618,99 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 3,
-          "notes": "Peak summer heat and humidity with high tourist numbers, especially in the main areas of San Marco and Rialto"
+          "notes": "Peak summer heat and humidity with high tourist numbers, especially in the main areas of San Marco and Rialto",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 4,
           "special": true,
           "event": "Redentore Festival preparations",
-          "notes": "Build-up to Venice's most beloved festival with preparations visible throughout the city"
+          "notes": "Build-up to Venice's most beloved festival with preparations visible throughout the city",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22],
+          "days": [
+            21,
+            22
+          ],
           "score": 5,
           "special": true,
           "event": "Festa del Redentore",
-          "notes": "Venice's most important festival featuring a temporary bridge to Giudecca Island, decorated boats filling the lagoon, and spectacular fireworks over St. Mark's Basin"
+          "notes": "Venice's most important festival featuring a temporary bridge to Giudecca Island, decorated boats filling the lagoon, and spectacular fireworks over St. Mark's Basin",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
-          "notes": "Continued summer heat and peak tourism season, with many Venetians leaving for vacation"
+          "notes": "Continued summer heat and peak tourism season, with many Venetians leaving for vacation",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 28,
@@ -231,28 +721,99 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 2,
-          "notes": "Peak summer heat and humidity, maximum tourist crowds, many local residents away on vacation"
+          "notes": "Peak summer heat and humidity, maximum tourist crowds, many local residents away on vacation",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 2,
+            "luxury": 3
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Ferragosto (Assumption Day)",
-          "notes": "National holiday with some business closures, special religious ceremonies at churches dedicated to the Virgin Mary"
+          "notes": "National holiday with some business closures, special religious ceremonies at churches dedicated to the Virgin Mary",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 2,
-          "notes": "Continued heat and crowds, reduced local services as many Venetians remain on vacation"
+          "notes": "Continued heat and crowds, reduced local services as many Venetians remain on vacation",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 2,
+            "luxury": 3
+          }
         },
         {
-          "days": [29, 30, 31],
+          "days": [
+            29,
+            30,
+            31
+          ],
           "score": 3,
           "special": true,
           "event": "Venice Film Festival Opening",
-          "notes": "Beginning of the prestigious international film festival at the Lido, with celebrity sightings and gala events"
+          "notes": "Beginning of the prestigious international film festival at the Lido, with celebrity sightings and gala events",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 28,
@@ -263,23 +824,86 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 4,
           "special": true,
           "event": "Venice Film Festival",
-          "notes": "Continued screenings and events at the Venice Film Festival on Lido island, bringing celebrities and film industry professionals to the city"
+          "notes": "Continued screenings and events at the Venice Film Festival on Lido island, bringing celebrities and film industry professionals to the city",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Perfect late summer weather with decreasing crowds after the Film Festival, locals return and city resumes normal rhythm"
+          "notes": "Perfect late summer weather with decreasing crowds after the Film Festival, locals return and city resumes normal rhythm",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [3, 4, 5],
+          "days": [
+            3,
+            4,
+            5
+          ],
           "score": 4,
           "special": true,
           "event": "Regata Storica",
-          "notes": "Historic boat regatta on the Grand Canal featuring a water parade of traditional boats and competitive races in various categories"
+          "notes": "Historic boat regatta on the Grand Canal featuring a water parade of traditional boats and competitive races in various categories",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 25,
@@ -290,16 +914,67 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
           "score": 4,
-          "notes": "Autumn conditions with pleasant temperatures, occasional morning fog creating a magical atmosphere for photography"
+          "notes": "Autumn conditions with pleasant temperatures, occasional morning fog creating a magical atmosphere for photography",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30, 31],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Venice Marathon",
-          "notes": "International marathon event that crosses the lagoon on a pontoon bridge and finishes in St. Mark's Square"
+          "notes": "International marathon event that crosses the lagoon on a pontoon bridge and finishes in St. Mark's Square",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 18,
@@ -310,35 +985,115 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day",
-          "notes": "Public holiday with special masses at major churches and visits to San Michele Cemetery Island"
+          "notes": "Public holiday with special masses at major churches and visits to San Michele Cemetery Island",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2],
+          "days": [
+            2
+          ],
           "score": 3,
           "special": true,
           "event": "All Souls' Day",
-          "notes": "Traditional visits to San Michele Cemetery Island, the burial place for Venetians"
+          "notes": "Traditional visits to San Michele Cemetery Island, the burial place for Venetians",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 3,
-          "notes": "Autumn atmosphere with increasing chances of acqua alta (high water) flooding in low-lying areas like St. Mark's Square"
+          "notes": "Autumn atmosphere with increasing chances of acqua alta (high water) flooding in low-lying areas like St. Mark's Square",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [21],
+          "days": [
+            21
+          ],
           "score": 4,
           "special": true,
           "event": "Festa della Madonna della Salute",
-          "notes": "Important local religious festival with a temporary pontoon bridge across the Grand Canal to the Salute Church, built as thanks for the end of the 1630 plague"
+          "notes": "Important local religious festival with a temporary pontoon bridge across the Grand Canal to the Salute Church, built as thanks for the end of the 1630 plague",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
-          "notes": "Quiet period with atmospheric foggy days and increasing chance of acqua alta"
+          "notes": "Quiet period with atmospheric foggy days and increasing chance of acqua alta",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 12,
@@ -349,49 +1104,150 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
           "score": 3,
-          "notes": "Early winter with Christmas decorations appearing throughout the city, potential for acqua alta"
+          "notes": "Early winter with Christmas decorations appearing throughout the city, potential for acqua alta",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [8],
+          "days": [
+            8
+          ],
           "score": 4,
           "special": true,
           "event": "Immaculate Conception",
-          "notes": "Public holiday with special masses at churches throughout Venice"
+          "notes": "Public holiday with special masses at churches throughout Venice",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets",
-          "notes": "Festive atmosphere with Christmas market in Campo Santo Stefano (Campo dell'Albero) and decorations throughout the city"
+          "notes": "Festive atmosphere with Christmas market in Campo Santo Stefano (Campo dell'Albero) and decorations throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Eve and Day",
-          "notes": "Midnight Mass at St. Mark's Basilica and other churches, limited dining options but magical atmosphere"
+          "notes": "Midnight Mass at St. Mark's Basilica and other churches, limited dining options but magical atmosphere",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [26],
+          "days": [
+            26
+          ],
           "score": 3,
           "special": true,
           "event": "Santo Stefano",
-          "notes": "National holiday, continued celebrations, some businesses remain closed"
+          "notes": "National holiday, continued celebrations, some businesses remain closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [27, 28, 29, 30],
+          "days": [
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Between Christmas and New Year's, festive atmosphere continues with fewer tourists"
+          "notes": "Between Christmas and New Year's, festive atmosphere continues with fewer tourists",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "New Year's Eve",
-          "notes": "Celebrations in St. Mark's Square with music and collective midnight 'kiss', fireworks and special events throughout the city"
+          "notes": "Celebrations in St. Mark's Square with music and collective midnight 'kiss', fireworks and special events throughout the city",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 9,
@@ -442,10 +1298,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high tourism (crowding issues)",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or very limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
 }

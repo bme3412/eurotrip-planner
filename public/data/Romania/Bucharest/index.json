@@ -1,1 +1,3429 @@
-{"city":"bucharest","country":"Romania","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "bucharest",
+  "country": "Romania",
+  "overview": {
+    "city_name": "Bucharest",
+    "country": "Romania",
+    "brief_description": "Bucharest, Romania’s bustling capital, blends rich history with a vibrant modern culture. Known for its eclectic architecture, from grand communist-era buildings to charming old town streets, the city offers a dynamic urban experience steeped in Eastern European charm.",
+    "nickname": "Little Paris of the East",
+    "region": "Southeastern Europe",
+    "population": "approximately 1.8 million",
+    "why_visit": [
+      "Explore the impressive Palace of the Parliament, one of the largest administrative buildings in the world",
+      "Wander through the lively Lipscani district with its cafes, bars, and historic architecture",
+      "Discover Romania’s rich history and culture at the National Museum of Romanian History",
+      "Enjoy expansive green spaces like Herăstrău Park and the Botanical Garden"
+    ],
+    "best_time_to_visit": "April to June and September to October, when the weather is mild and tourist crowds are smaller",
+    "seasonal_notes": {
+      "spring": "Moderate temperatures and blooming parks create perfect conditions for sightseeing and outdoor cafes.",
+      "summer": "Warm to hot weather with occasional humidity; lively nightlife and festivals thrive but expect more tourists.",
+      "autumn": "Crisp air and colorful foliage make it ideal for walking tours and cultural events.",
+      "winter": "Cold with occasional snow; fewer tourists and festive holiday markets offer a cozy atmosphere."
+    },
+    "practical_info": {
+      "currency": "Romanian Leu (RON)",
+      "language": "Romanian",
+      "visit_duration": "3 to 4 days recommended to cover main attractions",
+      "getting_around": "Extensive metro, bus, and tram network; taxis and ride-sharing apps widely available",
+      "safety": "Generally safe, but standard precautions advised in crowded areas and at night"
+    },
+    "coordinates": {
+      "latitude": 44.4268,
+      "longitude": 26.1025
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Tour the Palace of the Parliament",
+        "Stroll through the Old Town (Lipscani district)",
+        "Visit the Romanian Athenaeum for a concert",
+        "Explore the Village Museum (Muzeul Satului)",
+        "Relax in Herăstrău Park"
+      ],
+      "worth_doing": [
+        "Discover the National Museum of Art of Romania",
+        "Walk along Calea Victoriei boulevard",
+        "Visit the Stavropoleos Monastery",
+        "Enjoy panoramic views from the SkyTower observation deck",
+        "Experience traditional Romanian cuisine at Caru’ cu Bere"
+      ],
+      "hidden_gems": [
+        "Explore the quirky Carturesti Carusel bookstore in a restored historical building",
+        "Visit the Dimitrie Gusti National Village Museum’s less frequented corners",
+        "Discover street art and murals in the Floreasca neighborhood",
+        "Relax at Therme Bucuresti, a large wellness and spa complex on the city outskirts",
+        "Check out the Museum of Senses for an interactive experience"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Palace of the Parliament",
+        "type": "Palace",
+        "description": "The Palace of the Parliament is the world's heaviest building and a symbol of Romania's communist era. Constructed during the 1980s under Nicolae Ceaușescu, it houses the Romanian Parliament and several museums. Visitors can explore opulent interiors and vast halls reflecting monumental architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Book guided tours online in advance to skip lines and access restricted areas.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 44.427963,
+        "longitude": 26.086095,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "10:00-16:00",
+          "notes": "Last entry one hour before closing"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Izvor",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "131",
+            "133",
+            "138"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://cic.cdep.ro/en/",
+        "website": "https://www.palatuldreptatii.ro/"
+      },
+      {
+        "name": "Romanian Athenaeum",
+        "type": "Historic Site|Concert Hall",
+        "description": "An iconic symbol of Bucharest, the Romanian Athenaeum is a stunning neoclassical concert hall built in 1888. It hosts the George Enescu Philharmonic Orchestra and features a magnificent domed ceiling with frescoes depicting Romanian history. The Athenaeum is a cultural hub for classical music lovers.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Concert schedule varies seasonally",
+        "booking_tips": "Purchase tickets in advance for popular concerts.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 44.439663,
+        "longitude": 26.096306,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Concerts mostly in evenings"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Piata Unirii",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "61",
+            "136"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor concert hall"
+        },
+        "official_url": "https://www.fge.org.ro/en/",
+        "website": "https://www.fge.org.ro/en/athenaeum/"
+      },
+      {
+        "name": "Village Museum (Muzeul Satului)",
+        "type": "Museum|Historic Site|Outdoor",
+        "description": "The Village Museum is an open-air ethnographic museum showcasing traditional Romanian village life with over 300 authentic houses, farms, and churches relocated from all regions of Romania. It offers insight into rural architecture and customs, set in a picturesque park environment.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited in spring to autumn for outdoor exploration",
+        "booking_tips": "Tickets available on-site; guided tours offered occasionally.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 44.448094,
+        "longitude": 26.049886,
+        "neighborhood": "Herastrau Park area",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Aviatorilor",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://muzeul-satului.ro/en/",
+        "website": "https://muzeul-satului.ro/en/"
+      },
+      {
+        "name": "Cismigiu Gardens",
+        "type": "Park",
+        "description": "Cismigiu Gardens is Bucharest's oldest public park, opened in 1847. It features winding paths, romantic bridges, a lake with boat rentals in summer, and various statues and cafes. The park is a peaceful green oasis in the city center, popular for leisurely strolls and relaxation.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Boat rentals available in summer months, skating rink in winter.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 44.437228,
+        "longitude": 26.096117,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Universitate",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "133",
+            "336"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Museum of Art of Romania",
+        "type": "Museum",
+        "description": "Housed in the former Royal Palace, the National Museum of Art of Romania features an extensive collection of Romanian medieval and modern art, alongside European masterpieces. The museum offers rich insight into Romanian culture and artistic heritage.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be bought on-site or online; visit early to avoid crowds.",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 44.43963,
+        "longitude": 26.096668,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Piata Unirii",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "61",
+            "133"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Perfect indoor option"
+        },
+        "official_url": "https://muzeulartacluj.ro/en/",
+        "website": "https://www.mnar.arts.ro/en/"
+      },
+      {
+        "name": "Old Town (Lipscani District)",
+        "type": "Historic Site|Neighborhood",
+        "description": "Bucharest’s Old Town, known as Lipscani, is a lively historic district characterized by cobblestone streets, 19th-century architecture, and a vibrant nightlife scene. It’s full of trendy bars, restaurants, cafes, and shops, offering a mix of history and contemporary culture.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Bustling year-round with outdoor terraces in warmer months.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 44.4355,
+        "longitude": 26.1023,
+        "neighborhood": "Lipscani",
+        "opening_hours": {
+          "weekday": "Any",
+          "weekend": "Any",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Universitate",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "133",
+            "783"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Many indoor bars and cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Stavropoleos Monastery",
+        "type": "Church",
+        "description": "This small 18th-century Eastern Orthodox monastery is famed for its beautiful Brâncovenesc architectural style, intricate stone and wood carvings, and peaceful courtyard. Located in the Old Town, it offers a quiet spiritual retreat amid the bustling city.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Visit early to avoid crowds and respect worship times.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 44.436667,
+        "longitude": 26.102,
+        "neighborhood": "Lipscani",
+        "opening_hours": {
+          "weekday": "08:00-19:00",
+          "weekend": "08:00-19:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Universitate",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "133"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor serenity"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Herăstrău Park (King Michael I Park)",
+        "type": "Park",
+        "description": "Herăstrău Park is Bucharest’s largest park, surrounding Lake Herăstrău and offering bike paths, boat rentals, playgrounds, and cafes. It is ideal for outdoor activities and relaxation, with the Village Museum located within its boundaries.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Boat rentals in summer, ice skating in winter at nearby rink.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 44.46445,
+        "longitude": 26.06006,
+        "neighborhood": "Pipera / Aviatorilor area",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Aviatorilor",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "105",
+            "131"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Museum of Romanian History",
+        "type": "Museum",
+        "description": "This museum showcases Romania’s archaeological and historical treasures, including the Romanian Crown Jewels and artifacts spanning prehistoric to modern periods. Located on Calea Victoriei, it’s a must-visit for history enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available on-site; less crowded on weekdays.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 44.4323,
+        "longitude": 26.0972,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Piata Unirii",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "133",
+            "61"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.mnir.ro/en/",
+        "website": "https://www.mnir.ro/en/"
+      },
+      {
+        "name": "Carol Park",
+        "type": "Park|Historic Site",
+        "description": "Carol Park is a historic park featuring monuments such as the Tomb of the Unknown Soldier and beautiful landscaping with fountains and wide alleys. It is a tranquil place perfect for walks and picnics, set on a hill offering panoramic views of the city.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Lovely in spring and autumn when foliage changes color.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 44.4183,
+        "longitude": 26.0928,
+        "neighborhood": "Tineretului",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M3",
+              "station": "Tineretului",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "136",
+            "178"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Museum of Contemporary Art (MNAC)",
+        "type": "Museum|Gallery",
+        "description": "Located within the Palace of the Parliament, MNAC hosts dynamic exhibitions of Romanian and international contemporary artists. It offers a modern and thought-provoking contrast to the historic surroundings, with changing exhibits throughout the year.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Purchase tickets online to guarantee entry during exhibitions.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 44.427963,
+        "longitude": 26.086095,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "11:00-19:00",
+          "weekend": "11:00-19:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Izvor",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "131",
+            "133"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor contemporary art"
+        },
+        "official_url": "https://www.mnac.ro/en/",
+        "website": "https://www.mnac.ro/en/"
+      },
+      {
+        "name": "Carol I National Library",
+        "type": "Historic Site|Library",
+        "description": "The Carol I National Library is Romania’s main library, housed in a modern building with impressive glass architecture. Besides its vast collection of books and manuscripts, it often hosts exhibitions and cultural events accessible to the public.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Visitors can access public areas freely; special exhibitions may require tickets.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 44.439,
+        "longitude": 26.0825,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "09:00-20:00",
+          "weekend": "10:00-18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Piata Victoriei",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "336"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.bibnat.ro/",
+        "website": "https://www.bibnat.ro/"
+      },
+      {
+        "name": "Obor Market",
+        "type": "Market",
+        "description": "Obor Market is one of Bucharest’s largest and oldest traditional markets, offering fresh produce, local delicacies, flowers, and household goods. The lively atmosphere offers an authentic glimpse into everyday Romanian life and culinary culture.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Seasonal fruits and vegetables reflect Romanian harvest cycles.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 44.46206,
+        "longitude": 26.14058,
+        "neighborhood": "Obor",
+        "opening_hours": {
+          "weekday": "06:00-16:00",
+          "weekend": "06:00-14:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Obor",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "101",
+            "182"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Macca-Vilacrosse Passage",
+        "type": "Historic Site|Shopping Arcade",
+        "description": "This beautiful 19th-century glass-covered arcade is a charming example of Bucharest’s Belle Époque architecture. It houses cafes, boutique shops, and a vibrant nightlife scene, making it a great spot for a stroll or coffee break in the historic city center.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 44.4365,
+        "longitude": 26.103,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "09:00-22:00",
+          "weekend": "09:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Universitate",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "133",
+            "783"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Many indoor cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Cotroceni Palace",
+        "type": "Palace|Museum",
+        "description": "Cotroceni Palace, the official residence of the Romanian President, combines historical architecture with beautiful gardens. The Cotroceni National Museum within offers exhibits on Romanian history, art, and royal heritage.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Guided tours require advance booking, often in Romanian only.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 44.4353,
+        "longitude": 26.0346,
+        "neighborhood": "Cotroceni",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed on Mondays and Sundays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Eroilor",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "133"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://palatuluicotroceni.ro/en/",
+        "website": "http://palatuluicotroceni.ro/en/"
+      },
+      {
+        "name": "National Museum of Natural History Grigore Antipa",
+        "type": "Museum",
+        "description": "Founded in 1834, this museum is one of the oldest in Romania and features extensive collections of fossils, minerals, and taxidermy animals. The exhibits provide fascinating insights into Romania’s natural environment and biodiversity.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Buy tickets on-site; weekend visits can be busy.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 44.4389,
+        "longitude": 26.0867,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M2",
+              "station": "Piata Victoriei",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "131",
+            "336"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://antipa.ro/en",
+        "website": "https://antipa.ro/en"
+      },
+      {
+        "name": "Revolution Square (Piața Revoluției)",
+        "type": "Historic Site|Square",
+        "description": "This public square is a key site in Romania’s 1989 Revolution, featuring monuments and buildings central to the overthrow of communism. Visitors can learn about Romania’s recent history and enjoy the surrounding architecture and cafes.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 5
+        },
+        "latitude": 44.4416,
+        "longitude": 26.0979,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Piata Victoriei",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "336",
+            "131"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Nearby museums indoors"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Bellu Cemetery",
+        "type": "Historic Site",
+        "description": "Bellu Cemetery is Romania’s most famous cemetery, known for its elaborate funerary art and the graves of many notable Romanian cultural and political figures. It offers a unique and contemplative walk through history and sculpture.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring and autumn for pleasant weather.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 44.4142,
+        "longitude": 26.1002,
+        "neighborhood": "Bellu",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M3",
+              "station": "Eroii Revolutiei",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "123",
+            "123B"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of the Romanian Peasant",
+        "type": "Museum",
+        "description": "This museum offers a comprehensive look at Romania’s rural traditions, crafts, and folk art through textiles, ceramics, and everyday objects. The building itself is a historic monument combining traditional and modern architectural styles.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available on-site; less crowded on weekdays.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 44.4359,
+        "longitude": 26.098,
+        "neighborhood": "Central Bucharest",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "M1",
+              "station": "Victoriei",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "336"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://muzeultaranuluiroman.ro/en/",
+        "website": "https://muzeultaranuluiroman.ro/en/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Old Town (Centrul Vechi)",
+        "alternate_names": [
+          "Lipscani"
+        ],
+        "character": "Old Town pulses with a blend of medieval charm and vibrant nightlife, where cobblestone streets host lively bars, cafes, and shops. By day, it’s a bustling cultural hub; by night, it transforms into the heart of Bucharest's party scene.",
+        "location": {
+          "central": true,
+          "description": "Located in the historic core of Bucharest, just east of University Square.",
+          "borders": [
+            "University Square",
+            "Piata Unirii",
+            "Mosilor"
+          ],
+          "landmarks": [
+            "Stavropoleos Monastery",
+            "National Museum of Romanian History",
+            "Caru' cu Bere"
+          ]
+        },
+        "history": {
+          "overview": "Old Town is Bucharest’s historic nucleus dating back to medieval times, once a thriving mercantile district.",
+          "significance": "It preserves the city's architectural heritage and acts as a living museum of Bucharest’s evolution.",
+          "notable_events": [
+            "Reconstruction after WWII bombings",
+            "Revival as nightlife hotspot in early 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Universitate Metro Station",
+            "Piata Unirii Metro Station",
+            "Tram lines 1, 10"
+          ],
+          "safety": "Generally safe; watch for pickpockets in crowded areas at night.",
+          "best_time_to_visit": "Spring to early autumn for outdoor cafes and festivals.",
+          "walkability": "Highly walkable with narrow streets and pedestrian zones."
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Nightlife",
+            "Bars and clubs",
+            "Museums",
+            "Street performances"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Historic",
+            "Eclectic"
+          ],
+          "best_for": [
+            "Nightlife seekers",
+            "History buffs",
+            "Cultural tourists",
+            "Young travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Stavropoleos Monastery",
+              "type": "Religious site",
+              "description": "A stunning 18th-century Eastern Orthodox monastery known for its frescoes and peaceful courtyard.",
+              "appeal": "An oasis of tranquility amidst the bustling Old Town."
+            },
+            {
+              "name": "National Museum of Romanian History",
+              "type": "Museum",
+              "description": "Exhibits Romania’s rich history from prehistoric times to modern day.",
+              "appeal": "Essential for understanding the country's heritage."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Caru' cu Bere",
+              "cuisine": "Traditional Romanian",
+              "price_range": "€€",
+              "known_for": "Classic Romanian dishes and house-brewed beer",
+              "atmosphere": "Historic, lively, and ornate"
+            },
+            {
+              "name": "Lacrimi și Sfinți",
+              "cuisine": "Modern Romanian",
+              "price_range": "€€€",
+              "known_for": "Innovative takes on traditional recipes",
+              "atmosphere": "Trendy and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit weekdays during the day to avoid crowds and enjoy the architecture peacefully.",
+          "Try the local craft beers offered at many pubs tucked down side alleys.",
+          "Look for live traditional music nights in smaller venues for an authentic experience."
+        ]
+      },
+      {
+        "name": "Cotroceni",
+        "alternate_names": [],
+        "character": "Cotroceni is a leafy, upscale residential area known for its elegant villas and quiet streets lined with trees. It offers a refined, calm atmosphere contrasting with the city’s busy center and is a favorite for diplomats and academics.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, near the University of Bucharest’s Cotroceni campus.",
+          "borders": [
+            "Eroilor",
+            "Drumul Taberei",
+            "Grozăvești"
+          ],
+          "landmarks": [
+            "Cotroceni Palace",
+            "Carol Davila University of Medicine and Pharmacy"
+          ]
+        },
+        "history": {
+          "overview": "Cotroceni developed around the Cotroceni Palace, originally built in the late 17th century as a monastery and later converted into a royal residence.",
+          "significance": "It symbolizes Romania’s royal and political heritage and houses important government institutions.",
+          "notable_events": [
+            "Residence of Romanian presidents",
+            "Site of diplomatic missions establishment"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Eroilor Metro Station",
+            "Grozăvești Metro Station",
+            "Bus lines 133, 226"
+          ],
+          "safety": "Very safe, quiet neighborhood with low crime rates.",
+          "best_time_to_visit": "Year-round, especially pleasant in spring and summer for park strolls.",
+          "walkability": "Moderately walkable with wide sidewalks and green spaces."
+        },
+        "appeal": {
+          "known_for": [
+            "Elegant architecture",
+            "Green parks",
+            "Government buildings",
+            "Peaceful ambiance"
+          ],
+          "atmosphere": [
+            "Quiet",
+            "Refined",
+            "Residential"
+          ],
+          "best_for": [
+            "Families",
+            "Diplomats",
+            "Visitors seeking calm",
+            "History enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Cotroceni Palace",
+              "type": "Historic palace/museum",
+              "description": "The former royal residence now hosting the Presidential Museum.",
+              "appeal": "A glimpse into Romania’s monarchy and political history."
+            },
+            {
+              "name": "Cotroceni National Museum",
+              "type": "Art museum",
+              "description": "Exhibits Romanian modern and contemporary art in a beautiful villa setting.",
+              "appeal": "Ideal for art lovers seeking a quieter cultural experience."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Mama Cotroceni",
+              "cuisine": "Romanian",
+              "price_range": "€",
+              "known_for": "Traditional Romanian comfort food",
+              "atmosphere": "Casual and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore the nearby Carol Park for a relaxing walk and local joggers’ favorite spot.",
+          "Visit the palace museum early in the day to avoid crowds and get a private tour experience.",
+          "Try local pastries at neighborhood bakeries for an authentic Romanian breakfast."
+        ]
+      },
+      {
+        "name": "Dristor",
+        "alternate_names": [],
+        "character": "Dristor is a bustling, predominantly residential neighborhood with a lively local market scene and affordable dining options. It’s a practical, everyday Bucharest area loved for its accessibility and neighborhood feel.",
+        "location": {
+          "central": false,
+          "description": "Southeast of the city center, adjoining Vitan and Titan neighborhoods.",
+          "borders": [
+            "Vitan",
+            "Titan",
+            "Armenească"
+          ],
+          "landmarks": [
+            "Dristor Metro Station",
+            "Vitan Mall"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly during the communist era with large apartment blocks to house workers and families.",
+          "significance": "Represents the urban expansion and modernization efforts in Bucharest’s outskirts.",
+          "notable_events": [
+            "Construction boom in the 1960s-1980s",
+            "Metro line extension in 1980s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Dristor 1 & 2 Metro Stations",
+            "Bus 123, 232"
+          ],
+          "safety": "Generally safe, with a strong community presence.",
+          "best_time_to_visit": "Year-round, especially good for casual shopping and eating.",
+          "walkability": "Moderately walkable with commercial strips and apartment complexes."
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Affordable food",
+            "Convenient transit",
+            "Community vibe"
+          ],
+          "atmosphere": [
+            "Practical",
+            "Lively",
+            "Friendly"
+          ],
+          "best_for": [
+            "Budget travelers",
+            "Long-term stays",
+            "Local experience seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Vitan Mall",
+              "type": "Shopping center",
+              "description": "A popular shopping destination with a variety of stores and eateries.",
+              "appeal": "Convenient for shoppers and casual visitors."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Plăcinte Dristor",
+              "cuisine": "Moldavian/Romanian",
+              "price_range": "€",
+              "known_for": "Traditional pies and hearty dishes",
+              "atmosphere": "Casual, family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the small local markets early in the morning for fresh produce and baked goods.",
+          "Use Dristor metro stations to easily connect to central Bucharest while staying in a quieter area.",
+          "Try street food stalls for authentic and inexpensive Romanian snacks."
+        ]
+      },
+      {
+        "name": "Floreasca",
+        "alternate_names": [],
+        "character": "Floreasca is a trendy, upscale district combining modern residential developments with lush parks and buzzing cafes. It’s favored by young professionals and creatives seeking a stylish yet relaxed atmosphere.",
+        "location": {
+          "central": false,
+          "description": "North of the city center, near Herăstrău Park and the northern business district.",
+          "borders": [
+            "Aviatorilor",
+            "Dorobanți",
+            "Herăstrău Park"
+          ],
+          "landmarks": [
+            "Floreasca Lake",
+            "Herăstrău Park",
+            "Promenada Mall"
+          ]
+        },
+        "history": {
+          "overview": "Originally a suburban area with villas, it has evolved into a fashionable neighborhood over the past two decades.",
+          "significance": "Represents Bucharest’s modern urban lifestyle with a focus on leisure and upscale living.",
+          "notable_events": [
+            "Development boom in early 2000s",
+            "Opening of Promenada Mall in 2014"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Aviatorilor Metro Station",
+            "Tram line 32"
+          ],
+          "safety": "Very safe, with a well-maintained environment.",
+          "best_time_to_visit": "Spring through autumn to enjoy outdoor terraces and park activities.",
+          "walkability": "Highly walkable with parks and pedestrian-friendly streets."
+        },
+        "appeal": {
+          "known_for": [
+            "Upscale dining",
+            "Green spaces",
+            "Lakeside views",
+            "Boutique shops"
+          ],
+          "atmosphere": [
+            "Chic",
+            "Relaxed",
+            "Trendy"
+          ],
+          "best_for": [
+            "Young professionals",
+            "Couples",
+            "Wellness and leisure travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 5,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 3,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Floreasca Lake",
+              "type": "Natural attraction",
+              "description": "A scenic lake surrounded by walking paths and parks.",
+              "appeal": "Perfect for relaxation, jogging, and picnics."
+            },
+            {
+              "name": "Herăstrău Park",
+              "type": "Park",
+              "description": "Bucharest’s largest park offering boating, museums, and open-air events.",
+              "appeal": "Ideal for outdoor activities and cultural events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sushi Terra",
+              "cuisine": "Japanese",
+              "price_range": "€€€",
+              "known_for": "Fresh, creative sushi and fusion dishes",
+              "atmosphere": "Modern and elegant"
+            },
+            {
+              "name": "Poesia",
+              "cuisine": "International",
+              "price_range": "€€€",
+              "known_for": "Innovative tasting menus and wine pairing",
+              "atmosphere": "Intimate and sophisticated"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the tranquility of Floreasca Lake before it gets busy.",
+          "Try weekend brunches at cafes overlooking the water for a local treat.",
+          "Rent a bike to explore the nearby Herăstrău Park extensively."
+        ]
+      },
+      {
+        "name": "Piata Victoriei",
+        "alternate_names": [
+          "Victory Square"
+        ],
+        "character": "Piata Victoriei is a dynamic central area blending government buildings, museums, and upscale shopping. It buzzes with political importance and cultural institutions, creating a sophisticated and energetic urban core.",
+        "location": {
+          "central": true,
+          "description": "Northeast of the Old Town, it forms a major transport and administrative hub.",
+          "borders": [
+            "Universitate",
+            "Aviatorilor",
+            "Romană"
+          ],
+          "landmarks": [
+            "Romanian Athenaeum",
+            "Victoria Palace",
+            "National Museum of Art"
+          ]
+        },
+        "history": {
+          "overview": "Piata Victoriei has long been a political and cultural center, hosting critical government offices and historic events.",
+          "significance": "It serves as the seat of the Romanian government and a focal point for national demonstrations.",
+          "notable_events": [
+            "1989 Romanian Revolution protests",
+            "Numerous political rallies"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Piata Victoriei Metro Station",
+            "Tram 41"
+          ],
+          "safety": "Safe, though busy and sometimes crowded during political events.",
+          "best_time_to_visit": "Spring and autumn for comfortable walking and outdoor visits.",
+          "walkability": "Highly walkable with wide boulevards and pedestrian crossings."
+        },
+        "appeal": {
+          "known_for": [
+            "Government institutions",
+            "Museums",
+            "Concert halls",
+            "Upscale shops"
+          ],
+          "atmosphere": [
+            "Formal",
+            "Energetic",
+            "Cultural"
+          ],
+          "best_for": [
+            "Culture seekers",
+            "Business travelers",
+            "History enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Romanian Athenaeum",
+              "type": "Concert hall",
+              "description": "Iconic neoclassical building hosting classical music concerts.",
+              "appeal": "A cultural landmark with exceptional acoustics and architecture."
+            },
+            {
+              "name": "Victoria Palace",
+              "type": "Government building",
+              "description": "The headquarters of the Romanian government, an imposing modernist structure.",
+              "appeal": "Symbolizes Romania’s political heart."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sushi Room",
+              "cuisine": "Japanese",
+              "price_range": "€€€",
+              "known_for": "High-end sushi and elegant atmosphere",
+              "atmosphere": "Modern and polished"
+            },
+            {
+              "name": "Shift Pub",
+              "cuisine": "International",
+              "price_range": "€€",
+              "known_for": "Craft beers and casual dining",
+              "atmosphere": "Trendy and relaxed"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check concert schedules at the Athenaeum and book tickets in advance.",
+          "Walk north towards Dorobanți for boutique shopping and quieter dining.",
+          "Visit the nearby Cismigiu Gardens after exploring the square for a peaceful retreat."
+        ]
+      },
+      {
+        "name": "Lipscani",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Lipscani is the historic heart of Bucharest with narrow alleys, baroque buildings, and a relentless nightlife energy. It’s where tradition meets modern entertainment in a colorful, crowded setting.",
+        "location": {
+          "central": true,
+          "description": "Directly in the city center, overlapping with Old Town.",
+          "borders": [
+            "Piata Unirii",
+            "University Square",
+            "Dealul Spirii"
+          ],
+          "landmarks": [
+            "Stavropoleos Church",
+            "Manuc’s Inn",
+            "Caru' cu Bere"
+          ]
+        },
+        "history": {
+          "overview": "Named after the merchants from Leipzig (Lipsia in Latin), Lipscani was the commercial hub of Bucharest since the Middle Ages.",
+          "significance": "It reflects the city’s mercantile past and architectural heritage.",
+          "notable_events": [
+            "Fire of 1847",
+            "Reconstruction post-Communist era"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Universitate Metro Station",
+            "Piata Unirii Metro Station"
+          ],
+          "safety": "Safe during the day; more caution advised at night due to crowds.",
+          "best_time_to_visit": "Late spring to early autumn for outdoor dining and festivals.",
+          "walkability": "Very walkable with pedestrian-only streets."
+        },
+        "appeal": {
+          "known_for": [
+            "Historic streets",
+            "Restaurants & bars",
+            "Art galleries",
+            "Boutique shops"
+          ],
+          "atmosphere": [
+            "Vibrant",
+            "Historic",
+            "Touristy"
+          ],
+          "best_for": [
+            "First-time visitors",
+            "Nightlife lovers",
+            "Cultural explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Manuc’s Inn",
+              "type": "Historic inn and restaurant",
+              "description": "One of the oldest operating inns in Bucharest dating back to 1808.",
+              "appeal": "Offers an authentic historic ambiance alongside traditional cuisine."
+            },
+            {
+              "name": "Stavropoleos Church",
+              "type": "Religious site",
+              "description": "A small, beautifully preserved Orthodox church with Byzantine frescoes.",
+              "appeal": "A peaceful historic gem amid the lively streets."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Caru' cu Bere",
+              "cuisine": "Romanian",
+              "price_range": "€€",
+              "known_for": "Traditional Romanian dishes and house beer",
+              "atmosphere": "Historic, lively, and festive"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore side alleys early morning for quiet photos and architecture views.",
+          "Try local spirits like țuică at traditional pubs to get the full cultural experience.",
+          "Visit during the Christmas market for festive decorations and local crafts."
+        ]
+      },
+      {
+        "name": "Titan",
+        "alternate_names": [],
+        "character": "Titan is a populous residential district featuring large parks, lakes, and family-friendly amenities. It combines affordable housing with green spaces, making it a favorite for locals seeking balance between city life and nature.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, bordering the large Titan Park.",
+          "borders": [
+            "Dristor",
+            "Vitan",
+            "Pantelimon"
+          ],
+          "landmarks": [
+            "Titan Park",
+            "Alexandru Ioan Cuza Park",
+            "Titan Metro Station"
+          ]
+        },
+        "history": {
+          "overview": "Built mainly in the communist period as a working-class neighborhood with mass housing projects.",
+          "significance": "Represents Bucharest’s post-war urban development and social housing policies.",
+          "notable_events": [
+            "Construction of Titan Park in 1973",
+            "Metro line expansion in the 1980s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Titan Metro Station",
+            "Tram 16, 40"
+          ],
+          "safety": "Generally safe, family-oriented neighborhood.",
+          "best_time_to_visit": "Spring and summer for park activities and lakeside walks.",
+          "walkability": "Moderate walkability with large green areas and residential blocks."
+        },
+        "appeal": {
+          "known_for": [
+            "Titan Park",
+            "Family-friendly atmosphere",
+            "Lakes and playgrounds",
+            "Affordable living"
+          ],
+          "atmosphere": [
+            "Relaxed",
+            "Community-oriented",
+            "Green"
+          ],
+          "best_for": [
+            "Families",
+            "Nature lovers",
+            "Budget-conscious travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Titan Park (Parcul IOR)",
+              "type": "Urban park",
+              "description": "One of Bucharest’s largest parks with a lake, amusement area, and sports facilities.",
+              "appeal": "Perfect for outdoor family activities and relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Mama Titan",
+              "cuisine": "Romanian",
+              "price_range": "€",
+              "known_for": "Traditional Romanian comfort food",
+              "atmosphere": "Casual and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike or paddle boat in Titan Park during warmer months for a fun day out.",
+          "Visit the weekend flea market near Titan Metro for unique local finds.",
+          "Try local bakeries around the neighborhood for fresh Romanian pastries."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "The Artist",
+          "cuisine_type": "Contemporary Romanian with international influences",
+          "description": "A Michelin-recommended restaurant offering innovative tasting menus that reinterpret traditional Romanian flavors with modern techniques.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and artistic with an intimate setting",
+          "neighborhood": "Central (near Piața Universității)",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "food enthusiasts"
+          ],
+          "latitude": 44.438327,
+          "longitude": 26.096159,
+          "reservation_needed": true,
+          "local_tips": "Try their signature dish 'Ciorbă de burtă' reimagined in a refined way."
+        },
+        {
+          "name": "Lacrimi și Sfinți",
+          "cuisine_type": "Traditional Romanian with a modern twist",
+          "description": "Celebrated for authentic Romanian dishes prepared with seasonal ingredients and a modern presentation.",
+          "price_range": "€€€",
+          "atmosphere": "Rustic-chic with traditional decor elements",
+          "neighborhood": "Old Town (Lipscani)",
+          "best_for": [
+            "cultural dining",
+            "small groups",
+            "locals and tourists"
+          ],
+          "latitude": 44.435455,
+          "longitude": 26.099154,
+          "reservation_needed": true,
+          "local_tips": "Reserve early for weekend dinners and try their homemade polenta with cheese."
+        },
+        {
+          "name": "Casa di David",
+          "cuisine_type": "Mediterranean and Romanian fusion",
+          "description": "Offers a cozy fine dining experience combining Mediterranean flavors with Romanian ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Warm and intimate with artistic touches",
+          "neighborhood": "Dorobanți",
+          "best_for": [
+            "romantic dinners",
+            "food explorers"
+          ],
+          "latitude": 44.456763,
+          "longitude": 26.106754,
+          "reservation_needed": true,
+          "local_tips": "Ask for wine pairing suggestions from their extensive Romanian wine list."
+        },
+        {
+          "name": "Mahala",
+          "cuisine_type": "Romanian contemporary",
+          "description": "Modern takes on Romanian classics served in a chic and lively space.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and vibrant",
+          "neighborhood": "Piata Amzei",
+          "best_for": [
+            "date night",
+            "groups of friends"
+          ],
+          "latitude": 44.441489,
+          "longitude": 26.103285,
+          "reservation_needed": true,
+          "local_tips": "Try their seasonal game dishes when available."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Caru' cu Bere",
+          "cuisine_type": "Traditional Romanian",
+          "description": "Historic brewery and restaurant serving hearty Romanian dishes in a stunning gothic revival interior.",
+          "price_range": "€€",
+          "atmosphere": "Lively and traditional",
+          "neighborhood": "Old Town (Lipscani)",
+          "best_for": [
+            "groups",
+            "first-timers",
+            "traditional food lovers"
+          ],
+          "latitude": 44.435932,
+          "longitude": 26.099436,
+          "reservation_needed": true,
+          "local_tips": "Try the sarmale (cabbage rolls) and homemade beer."
+        },
+        {
+          "name": "La Mama",
+          "cuisine_type": "Romanian homestyle",
+          "description": "Popular chain offering classic Romanian comfort food at affordable prices.",
+          "price_range": "€",
+          "atmosphere": "Casual and family-friendly",
+          "neighborhood": "Multiple locations; flagship near Universitate",
+          "best_for": [
+            "families",
+            "budget travelers",
+            "quick meals"
+          ],
+          "latitude": 44.439121,
+          "longitude": 26.096983,
+          "reservation_needed": false,
+          "local_tips": "Try the ciorbă de perișoare (meatball sour soup) for a comforting taste."
+        },
+        {
+          "name": "Shift Pub",
+          "cuisine_type": "International casual",
+          "description": "Trendy spot offering a diverse menu including vegetarian and vegan options alongside burgers and salads.",
+          "price_range": "€€",
+          "atmosphere": "Hip and relaxed",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "young crowd",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 44.436295,
+          "longitude": 26.100013,
+          "reservation_needed": false,
+          "local_tips": "Great for brunch and craft beer."
+        },
+        {
+          "name": "Expirat",
+          "cuisine_type": "Bistro and bar food",
+          "description": "Known for its casual vibe and tasty sandwiches, burgers, and Romanian snacks.",
+          "price_range": "€",
+          "atmosphere": "Casual and artsy",
+          "neighborhood": "Floreasca",
+          "best_for": [
+            "young locals",
+            "live music nights"
+          ],
+          "latitude": 44.459621,
+          "longitude": 26.096771,
+          "reservation_needed": false,
+          "local_tips": "Try their craft beer selection and grilled sausages."
+        },
+        {
+          "name": "Simigeria Luca",
+          "cuisine_type": "Romanian bakery and cafe",
+          "description": "Famous for traditional Romanian baked goods like covrigi (pretzels) and pastries.",
+          "price_range": "€",
+          "atmosphere": "Casual and fast-paced",
+          "neighborhood": "Multiple locations",
+          "best_for": [
+            "grab and go",
+            "breakfast",
+            "snacks"
+          ],
+          "latitude": 44.435768,
+          "longitude": 26.102345,
+          "reservation_needed": false,
+          "local_tips": "Perfect for a quick traditional Romanian snack."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Obor Market",
+          "cuisine_type": "Romanian street food and fresh produce",
+          "description": "One of Bucharest’s largest markets offering traditional street food stalls serving mici (grilled sausages), langos, and fresh produce.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic",
+          "neighborhood": "Obor",
+          "best_for": [
+            "local experience",
+            "budget eats"
+          ],
+          "latitude": 44.4397,
+          "longitude": 26.1646,
+          "reservation_needed": false,
+          "local_tips": "Try the mici with mustard and a cold local beer."
+        },
+        {
+          "name": "Caravana Street Food Festival",
+          "cuisine_type": "International and Romanian street food",
+          "description": "Seasonal street food festival featuring a variety of food trucks offering everything from burgers to traditional Romanian snacks.",
+          "price_range": "€",
+          "atmosphere": "Festive and lively",
+          "neighborhood": "Various parks and public spaces",
+          "best_for": [
+            "families",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 44.439,
+          "longitude": 26.09,
+          "reservation_needed": false,
+          "local_tips": "Check their schedule online; great for trying multiple street food styles."
+        },
+        {
+          "name": "Târgul de Mici de la Târgoviște (Mici Fair)",
+          "cuisine_type": "Romanian grilled food",
+          "description": "Annual event dedicated to Romania's signature street food, mici – spicy grilled meat rolls served with mustard and bread.",
+          "price_range": "€",
+          "atmosphere": "Festive and communal",
+          "neighborhood": "Central Bucharest during event times",
+          "best_for": [
+            "food lovers",
+            "locals and tourists"
+          ],
+          "latitude": 44.432,
+          "longitude": 26.1,
+          "reservation_needed": false,
+          "local_tips": "Visit in spring or summer when the fair is held; try mici with local beer."
+        },
+        {
+          "name": "Piata Amzei Food Stalls",
+          "cuisine_type": "Romanian fast food and snacks",
+          "description": "Cluster of stalls offering quick bites like covrigi, langos, and traditional pastries.",
+          "price_range": "€",
+          "atmosphere": "Casual and local",
+          "neighborhood": "Piata Amzei",
+          "best_for": [
+            "snacks",
+            "quick meals"
+          ],
+          "latitude": 44.4414,
+          "longitude": 26.1035,
+          "reservation_needed": false,
+          "local_tips": "Try the langos with garlic sauce for an authentic street snack."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Fix Me a Drink",
+          "cuisine_type": "Cocktail bar",
+          "description": "A cozy bar known for expertly crafted cocktails and a wide selection of spirits.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and stylish",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "cocktail lovers"
+          ],
+          "latitude": 44.435,
+          "longitude": 26.0998,
+          "reservation_needed": true,
+          "local_tips": "Ask the bartenders for personalized cocktail recommendations."
+        },
+        {
+          "name": "Nomad Skybar",
+          "cuisine_type": "Bar with panoramic views",
+          "description": "Rooftop bar offering stunning views of Bucharest’s skyline alongside creative cocktails and DJ sets.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and lively",
+          "neighborhood": "Floreasca",
+          "best_for": [
+            "sunset drinks",
+            "groups",
+            "parties"
+          ],
+          "latitude": 44.46,
+          "longitude": 26.095,
+          "reservation_needed": true,
+          "local_tips": "Visit at sunset for the best experience."
+        },
+        {
+          "name": "The Drunken Lords",
+          "cuisine_type": "Craft beer bar",
+          "description": "Popular venue with a wide range of Romanian and international craft beers on tap.",
+          "price_range": "€€",
+          "atmosphere": "Casual and vibrant",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "beer enthusiasts",
+            "groups"
+          ],
+          "latitude": 44.4362,
+          "longitude": 26.0999,
+          "reservation_needed": false,
+          "local_tips": "Try Romanian craft beers like Zăganu or Ground Zero."
+        },
+        {
+          "name": "Energiea",
+          "cuisine_type": "Bar and gastropub",
+          "description": "Eclectic bar with a focus on craft cocktails and a fusion menu of bar snacks and Romanian dishes.",
+          "price_range": "€€€",
+          "atmosphere": "Hip and spacious with an industrial vibe",
+          "neighborhood": "Floreasca",
+          "best_for": [
+            "groups",
+            "food and drink pairing"
+          ],
+          "latitude": 44.458,
+          "longitude": 26.1025,
+          "reservation_needed": true,
+          "local_tips": "Try their signature cocktails and share the smoked cheese plate."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Origo Coffee",
+          "cuisine_type": "Specialty coffee",
+          "description": "One of Bucharest’s top specialty coffee shops, known for quality beans and expert brewing.",
+          "price_range": "€",
+          "atmosphere": "Minimalist and cozy",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee aficionados",
+            "work and study"
+          ],
+          "latitude": 44.4365,
+          "longitude": 26.099,
+          "reservation_needed": false,
+          "local_tips": "Try their single-origin pour-over coffees."
+        },
+        {
+          "name": "M60",
+          "cuisine_type": "Cafe and art space",
+          "description": "Cafe that doubles as a cultural hub with art exhibitions, perfect for a relaxed coffee break.",
+          "price_range": "€",
+          "atmosphere": "Creative and relaxed",
+          "neighborhood": "Cotroceni",
+          "best_for": [
+            "artists",
+            "quiet meetings"
+          ],
+          "latitude": 44.4337,
+          "longitude": 26.0725,
+          "reservation_needed": false,
+          "local_tips": "Visit on weekends for live music and events."
+        },
+        {
+          "name": "Frudisiac",
+          "cuisine_type": "Specialty coffee and brunch",
+          "description": "Trendy spot offering expertly brewed coffee alongside healthy brunch options.",
+          "price_range": "€€",
+          "atmosphere": "Bright and welcoming",
+          "neighborhood": "Dorobanți",
+          "best_for": [
+            "brunch",
+            "friends meetups"
+          ],
+          "latitude": 44.456,
+          "longitude": 26.106,
+          "reservation_needed": false,
+          "local_tips": "Try their avocado toast paired with flat white."
+        },
+        {
+          "name": "Simbio",
+          "cuisine_type": "Cafe and bistro",
+          "description": "Popular all-day cafe serving coffee, fresh juices, and a seasonal menu in a chic garden setting.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and green",
+          "neighborhood": "Dorobanți",
+          "best_for": [
+            "brunch",
+            "casual dining"
+          ],
+          "latitude": 44.4565,
+          "longitude": 26.108,
+          "reservation_needed": true,
+          "local_tips": "Reserve for weekend brunch and try their shakshuka."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Bucharest Food Tour by Eat Romania",
+        "description": "Guided walking tour introducing travelers to traditional Romanian dishes, local markets, and historic eateries in the Old Town.",
+        "price_range": "€€",
+        "location": "Old Town, Bucharest",
+        "duration_minutes": 180,
+        "local_tips": "Wear comfortable shoes and come hungry for multiple tastings."
+      },
+      {
+        "name": "Romanian Cooking Class at Casa Doina",
+        "description": "Hands-on cooking classes focused on traditional Romanian recipes such as sarmale, ciorbă, and cozonac.",
+        "price_range": "€€€",
+        "location": "Central Bucharest",
+        "duration_minutes": 240,
+        "local_tips": "Book in advance; classes often include a shared meal."
+      },
+      {
+        "name": "Visit to Obor Market and Street Food Sampling",
+        "description": "Explore one of Bucharest’s largest markets with a guide and sample iconic street foods like mici, langos, and papanasi.",
+        "price_range": "€",
+        "location": "Obor Market",
+        "duration_minutes": 120,
+        "local_tips": "Go early to see the market at its liveliest."
+      },
+      {
+        "name": "Wine Tasting Tour of Romanian Wines",
+        "description": "Tasting sessions featuring Romania's diverse wine regions, often paired with traditional snacks.",
+        "price_range": "€€",
+        "location": "Various wine bars in Bucharest",
+        "duration_minutes": 90,
+        "local_tips": "Try Fetească Neagră, a signature Romanian red grape variety."
+      },
+      {
+        "name": "Traditional Pastry and Coffee Tasting at Simbio",
+        "description": "Sample Romanian pastries paired with specialty coffees in a stylish café setting.",
+        "price_range": "€€",
+        "location": "Simbio, Dorobanți",
+        "duration_minutes": 60,
+        "local_tips": "Perfect for a mid-afternoon break to recharge."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes",
+        "Wild garlic soups and salads",
+        "Seasonal fresh cheeses like urdă"
+      ],
+      "summer": [
+        "Grilled mici (Romanian sausages)",
+        "Cold soups like borș rece",
+        "Fresh fruit desserts such as cherry pies"
+      ],
+      "autumn": [
+        "Mushroom dishes featuring local forest varieties",
+        "Pumpkin soups and baked pumpkin desserts",
+        "Preserved vegetables and pickles"
+      ],
+      "winter": [
+        "Hearty stews like tocăniță",
+        "Ciorbă de burtă (tripe soup)",
+        "Cozonac (sweet bread) and mulled wine"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "17h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "ÖBB / CFR",
+            "notes": "Direct overnight trains available; scenic route through Hungary."
+          },
+          {
+            "type": "bus",
+            "duration": "13h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Multiple departures daily; economical choice."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€50-€150",
+            "operator": "Austrian Airlines, Wizz Air",
+            "notes": "Numerous flights daily to Vienna International Airport."
+          }
+        ]
+      },
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "10h 45m",
+            "frequency": "daily",
+            "price_range": "€25-€70",
+            "operator": "MÁV, CFR",
+            "notes": "Direct trains with comfortable sleeper options."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 30m",
+            "frequency": "multiple daily",
+            "price_range": "€15-€40",
+            "operator": "FlixBus",
+            "notes": "Several departures, good for budget travelers."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€40-€120",
+            "operator": "Wizz Air, TAROM",
+            "notes": "Flights operate multiple times per day."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€60-€180",
+            "operator": "Lufthansa, Ryanair",
+            "notes": "Direct flights to Berlin Brandenburg Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "21h 0m",
+            "frequency": "daily",
+            "price_range": "€35-€70",
+            "operator": "FlixBus",
+            "notes": "Overnight buses available; budget-friendly."
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Wizz Air, Ryanair",
+            "notes": "Flights to Milan Malpensa and Linate airports."
+          },
+          {
+            "type": "bus",
+            "duration": "23h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus with stops in multiple cities."
+          }
+        ]
+      },
+      {
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "9h 0m",
+            "frequency": "daily",
+            "price_range": "€15-€40",
+            "operator": "BDZ, CFR",
+            "notes": "Direct daily trains across the border."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "hourly",
+            "price_range": "€10-€25",
+            "operator": "FlixBus",
+            "notes": "Frequent departures; fastest land option."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 0m",
+            "frequency": "multiple daily",
+            "price_range": "€30-€100",
+            "operator": "Bulgaria Air, Ryanair",
+            "notes": "Short flights to Sofia Airport."
+          }
+        ]
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "multiple daily",
+            "price_range": "€50-€130",
+            "operator": "Turkish Airlines, Pegasus",
+            "notes": "Flights to Istanbul Airport and Sabiha Gökçen."
+          },
+          {
+            "type": "bus",
+            "duration": "12h 0m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "Metro Turizm",
+            "notes": "Comfortable long-distance bus services."
+          }
+        ]
+      },
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Aegean Airlines, Ryanair",
+            "notes": "Direct flights to Athens International Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "16h 0m",
+            "frequency": "daily",
+            "price_range": "€35-€70",
+            "operator": "Ktel Bus",
+            "notes": "Overnight bus via Thessaloniki."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "Czech Airlines, Ryanair",
+            "notes": "Flights to Václav Havel Airport Prague."
+          },
+          {
+            "type": "bus",
+            "duration": "18h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus with comfortable seating."
+          }
+        ]
+      },
+      {
+        "city": "Chisinau",
+        "country": "Moldova",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "10h 0m",
+            "frequency": "daily",
+            "price_range": "€10-€25",
+            "operator": "CFR, Moldovan Railways",
+            "notes": "Direct trains crossing the border daily."
+          },
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "multiple daily",
+            "price_range": "€8-€20",
+            "operator": "FlixBus, local carriers",
+            "notes": "Frequent departures; fastest land route."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€50-€140",
+            "operator": "Wizz Air, Ryanair",
+            "notes": "Flights to Venice Marco Polo Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "24h 0m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "FlixBus",
+            "notes": "Overnight bus with several stops en route."
+          }
+        ]
+      },
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€60-€160",
+            "operator": "LOT Polish Airlines, Ryanair",
+            "notes": "Multiple daily flights to Warsaw Chopin Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "21h 0m",
+            "frequency": "daily",
+            "price_range": "€35-€75",
+            "operator": "FlixBus",
+            "notes": "Overnight bus options available."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "George Enescu Festival",
+        "type": "cultural",
+        "description": "Romania's largest classical music festival featuring world-renowned orchestras and soloists performing in Bucharest's concert halls.",
+        "best_months": [
+          "September"
+        ],
+        "location": "Romanian Athenaeum and other venues",
+        "price": "Moderate"
+      },
+      {
+        "name": "Herăstrău Park Walks and Boat Rides",
+        "type": "outdoor",
+        "description": "Enjoy blooming gardens and mild weather while walking or renting a boat on Herăstrău Lake in Bucharest's largest park.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Herăstrău Park",
+        "price": "Free (walking) / Budget (boat rental)"
+      },
+      {
+        "name": "Savor Traditional Romanian Foods at Local Markets",
+        "type": "food",
+        "description": "Sample spring produce like fresh asparagus, wild garlic, and seasonal pastries at Piața Obor and other markets.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Piața Obor and other local markets",
+        "price": "Budget"
+      },
+      {
+        "name": "Easter Celebrations",
+        "type": "cultural",
+        "description": "Experience Orthodox Easter traditions with church services, painted eggs, and festive meals throughout the city.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Stavropoleos Church and various Orthodox churches",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Summer Well Festival",
+        "type": "festival",
+        "description": "An open-air music festival held just outside Bucharest, featuring international rock and indie artists in a scenic park setting.",
+        "best_months": [
+          "August"
+        ],
+        "location": "Domeniul Știrbey Park, Buftea",
+        "price": "Premium"
+      },
+      {
+        "name": "Caru' cu Bere Outdoor Terraces",
+        "type": "food",
+        "description": "Dine al fresco on traditional Romanian food and local beer in the historic Old Town during warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Caru' cu Bere, Old Town",
+        "price": "Moderate"
+      },
+      {
+        "name": "Cişmigiu Gardens Boating and Picnics",
+        "type": "outdoor",
+        "description": "Rent a rowboat on the lake or enjoy a picnic in Bucharest’s oldest park surrounded by blooming flowers and shady trees.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Cişmigiu Gardens",
+        "price": "Free (park) / Budget (boat rental)"
+      },
+      {
+        "name": "Street Food Festival",
+        "type": "food",
+        "description": "Sample diverse international and Romanian street food, craft beers, and live music in an open-air urban setting.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Various central locations (check annual schedule)",
+        "price": "Budget"
+      },
+      {
+        "name": "Bike Tours and Outdoor Fitness",
+        "type": "sport",
+        "description": "Explore Bucharest’s parks and landmarks on guided bike tours or join outdoor fitness classes in public parks.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Herăstrău Park, Carol Park",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Bucharest International Film Festival",
+        "type": "cultural",
+        "description": "Showcasing the best in international and Romanian cinema with screenings, Q&A sessions, and workshops.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Various cinemas in Bucharest",
+        "price": "Budget to Moderate"
+      },
+      {
+        "name": "Harvest Food Markets",
+        "type": "food",
+        "description": "Enjoy seasonal Romanian foods like pumpkins, apples, and traditional pastries at farmers' markets across the city.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Piața Obor and other markets",
+        "price": "Budget"
+      },
+      {
+        "name": "Vineyard Day Trips Near Bucharest",
+        "type": "outdoor",
+        "description": "Visit nearby vineyards for grape harvest tours, tastings, and scenic countryside walks during autumn colors.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Murfatlar and Dealu Mare wine regions",
+        "price": "Moderate"
+      },
+      {
+        "name": "National Museum of Romanian History",
+        "type": "cultural",
+        "description": "Explore Romania’s rich history with indoor exhibits, ideal for cooler autumn days.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Calea Victoriei 12",
+        "price": "Budget"
+      },
+      {
+        "name": "Carol Park Walks and Photography",
+        "type": "outdoor",
+        "description": "Enjoy the changing leaf colors and photo opportunities around the park’s monuments and lake.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Carol Park",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Markets",
+        "type": "festival",
+        "description": "Experience festive lights, traditional crafts, mulled wine, and seasonal foods in Old Town and University Square.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Old Town, University Square",
+        "price": "Free entry / Budget for food and crafts"
+      },
+      {
+        "name": "Ice Skating at Tineretului Park",
+        "type": "sport",
+        "description": "Enjoy outdoor ice skating on the rink in Tineretului Park, a popular winter activity for locals and visitors.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Tineretului Park",
+        "price": "Budget"
+      },
+      {
+        "name": "Romanian Winter Cuisine Sampling",
+        "type": "food",
+        "description": "Warm up with hearty dishes like sarmale (cabbage rolls), ciorbă (sour soup), and cozonac (sweet bread).",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Traditional restaurants in Old Town",
+        "price": "Moderate"
+      },
+      {
+        "name": "National Opera Bucharest Performances",
+        "type": "cultural",
+        "description": "Attend opera and ballet performances in the historic Romanian National Opera House during the festive season.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Romanian National Opera, Bucharest",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "New Year’s Eve Celebrations in Piata Constitutiei",
+        "type": "festival",
+        "description": "Join large public celebrations with live music, fireworks, and festive atmosphere to welcome the New Year.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Piata Constitutiei",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year's & Orthodox Christmas",
+            "notes": "Cold weather with temperatures often below freezing; festive atmosphere around New Year's and Orthodox Christmas (January 7) with some cultural events. Low tourist influx but many locals celebrate.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Typical midwinter cold with snow possible; many outdoor attractions less accessible. Quiet tourism with less events and shorter daylight hours.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 2,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold but some indoor cultural events start gaining momentum; good for budget travelers and business visitors due to low prices and availability.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often snowy with temperatures around freezing; few tourists and attractions are less crowded but outdoor activities are limited.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Valentine's Day (Feb 14)",
+            "notes": "Valentine's Day boosts couple visits and romantic events; cold weather persists. Indoor dining and cultural events are popular.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 5,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Gradual transition to early spring; some thawing starts; museums and indoor attractions good; budget-friendly season continues.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with increasing daylight and milder weather; some rain possible; outdoor sightseeing starts to improve.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Martisor Festival (March 1-8)",
+            "notes": "Local celebration of spring and renewal with traditional crafts and events; pleasant weather encourages outdoor activities; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Improving weather with mild temperatures; outdoor parks and cafes begin to open; good time for sightseeing before high season starts.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom; comfortable temperatures and longer days; ideal for walking tours and outdoor dining; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter (Orthodox, date varies; often April)",
+            "notes": "Major religious and cultural celebrations; vibrant local traditions and markets; excellent weather; higher crowds but rewarding experience.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm spring weather and blooming parks; outdoor cafes and events flourish; ideal for all traveler types; tourist season picking up.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labor Day (May 1) & Romania's National Day (May 1)",
+            "notes": "Public holidays with parades and events; pleasant weather and lively atmosphere; great for cultural exploration but some crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "One of the best months weather-wise with warm temperatures and low rain; outdoor festivals and gardens at peak bloom; ideal for all travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 5,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "International Festival of Theatre and Other Arts (dates vary, often May)",
+            "notes": "Cultural festival with performances across the city; great weather; vibrant atmosphere; attracts international visitors.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer, warm and sunny; great for outdoor activities, parks, and nightlife; some early summer tourists arrive.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "George Enescu Festival (International Classical Music Festival, late August-early September, but sometimes events start earlier)",
+            "notes": "June hosts early cultural events and concerts; warm weather; ideal for music lovers and cultural travelers; busy but manageable crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "High summer with hot weather; many outdoor festivals and events; city vibrant with tourists and locals; some heat waves possible.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Summer Well Festival (rock and indie music, mid-July, near Bucharest)",
+            "notes": "Music festival attracting regional visitors; hot weather can be intense; vibrant nightlife and events; crowded and pricier accommodations.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 5,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot summer continues; some locals leave city for vacations reducing crowd density; good for cultural visits; occasional thunderstorms.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "George Enescu Festival (late August to early September)",
+            "notes": "World-renowned classical music festival draws international visitors; pleasant late summer weather; city vibrant and cultural life peaks.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "George Enescu Festival continues (early September)",
+            "notes": "Festival ends early September; mild weather with cooler evenings; excellent for sightseeing, wine events and outdoor cafes; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm days and cooler nights; fewer tourists than summer peak; good for cultural visits and outdoor dining.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors in parks and gardens; cooler temperatures but still pleasant; fewer tourists; good for cultural events and museums.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cooler and wetter weather; fewer outdoor events; indoor cultural attractions recommended; moderate to low crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chilly and often rainy; outdoor activities limited; low tourist numbers; good deals on accommodation; museums and indoor venues favored.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cold, often foggy and rainy; low tourism; city feels quiet; great for budget travelers who prefer indoor cultural sites.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather but start of Christmas markets and festive lights; increasing tourist activity around holidays; some snow possible.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets & Advent Season",
+            "notes": "Festive atmosphere with markets and concerts; cold weather but lively and atmospheric; ideal for couples and families; crowds increase but manageable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Major holidays with special events, parties, and cultural shows; cold but festive; high demand for accommodations; excellent for festive travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

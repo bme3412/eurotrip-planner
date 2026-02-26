@@ -1,1 +1,2732 @@
-{"city":"varna","country":"Bulgaria","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "varna",
+  "country": "Bulgaria",
+  "overview": {
+    "city_name": "Varna",
+    "country": "Bulgaria",
+    "brief_description": "Varna is Bulgaria’s maritime capital and a vibrant cultural hub located on the Black Sea coast. Known for its blend of ancient history, bustling seaside promenade, and modern amenities, it offers an engaging mix of relaxation and exploration.",
+    "nickname": "The Sea Capital",
+    "region": "Northeastern Bulgaria, Black Sea Coast",
+    "population": "approximately 335,000",
+    "why_visit": [
+      "Stunning Black Sea beaches and waterfront promenade",
+      "Rich archaeological sites including the Varna Necropolis",
+      "Lively cultural scene with museums, festivals, and theaters",
+      "Delicious Bulgarian and seafood cuisine by the sea"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and perfect for beach activities and outdoor events",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blossoming parks make it ideal for sightseeing and outdoor cafes.",
+      "summer": "Hot and sunny with vibrant beach life, festivals, and bustling nightlife.",
+      "autumn": "Pleasant weather with fewer tourists, perfect for cultural tours and wine tasting nearby.",
+      "winter": "Cool and quieter with limited beach activity but opportunities to explore museums and cozy local restaurants."
+    },
+    "practical_info": {
+      "currency": "Bulgarian Lev (BGN)",
+      "language": "Bulgarian",
+      "visit_duration": "3 to 5 days to explore beaches, historical sites, and city life",
+      "getting_around": "Buses, taxis, and bike rentals; walkable city center and scenic coastal routes",
+      "safety": "Generally safe with usual urban precautions; watch for pickpocketing in crowded tourist areas"
+    },
+    "coordinates": {
+      "latitude": 43.2141,
+      "longitude": 27.9147
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Relax on Varna’s Sea Garden and Black Sea beaches",
+        "Visit the Archaeological Museum to see the Gold of Varna",
+        "Explore the Roman Baths, one of the largest Roman thermae in Europe",
+        "Stroll along the vibrant pedestrian promenade with shops and cafes",
+        "Climb up to the Dormition of the Mother of God Cathedral"
+      ],
+      "worth_doing": [
+        "Enjoy the Dolphinarium and Varna Aquarium",
+        "Take a boat trip along the coast",
+        "Visit the Retro Museum for Bulgarian vintage culture",
+        "Discover local art at the City Art Gallery",
+        "Experience the lively nightlife in central Varna"
+      ],
+      "hidden_gems": [
+        "Explore the underwater archaeological park at Cape St. Athanasius",
+        "Hike in the nearby Franga Plateau for panoramic sea views",
+        "Visit the Aladzha Monastery, a medieval rock monastery just outside Varna"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Sea Garden (Morska Gradina)",
+        "type": "Park",
+        "description": "The Sea Garden is Varna's largest and most famous park, stretching along the Black Sea coast. It features beautifully landscaped gardens, walking paths, playgrounds, and several monuments, making it a perfect place for leisurely strolls and family outings.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Lush and vibrant in spring and summer; some attractions close in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 43.2104,
+        "longitude": 27.9105,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "9",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Varna Archaeological Museum"
+        },
+        "official_url": "https://varnacity.bg/en/sea-garden",
+        "website": null
+      },
+      {
+        "name": "Varna Archaeological Museum",
+        "type": "Museum",
+        "description": "Home to one of the oldest gold treasures in the world, the Varna Archaeological Museum showcases fascinating artifacts from the prehistoric, Roman, and medieval periods. Its collection offers deep insights into the region's ancient civilizations.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round; less crowded in winter",
+        "booking_tips": "Tickets can be purchased on-site; group tours available by prior arrangement",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.214,
+        "longitude": 27.9109,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "10",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "http://www.archaeo-varna.com/",
+        "website": "http://www.archaeo-varna.com/"
+      },
+      {
+        "name": "Dormition of the Mother of God Cathedral",
+        "type": "Church",
+        "description": "This striking Orthodox cathedral, built in the late 19th century, is one of Varna's most recognizable landmarks. Its impressive domes and richly decorated interior with frescoes and icons reflect Bulgarian religious art and architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; services on Sundays and religious holidays",
+        "booking_tips": "Respectful attire required; photography allowed without flash",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 43.2143,
+        "longitude": 27.9117,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-19:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Roman Baths of Odessos",
+        "type": "Historic Site",
+        "description": "These ancient Roman baths date back to the 2nd century AD and are among the largest preserved Roman ruins in Bulgaria. Visitors can explore the well-preserved hypocaust heating system and mosaics, offering a glimpse into Roman life on the Black Sea coast.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Outdoor site; best visited in spring, summer, or early autumn",
+        "booking_tips": "Guided tours available; tickets purchased onsite",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.2151,
+        "longitude": 27.9153,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "09:00-17:30",
+          "weekend": "09:00-17:30",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Varna Archaeological Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Varna Naval Museum",
+        "type": "Museum",
+        "description": "Located near the port, the Varna Naval Museum is dedicated to Bulgaria’s maritime history and naval heritage. It features ship models, historical artifacts, and interactive exhibits, ideal for families and maritime enthusiasts.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; less busy off-season",
+        "booking_tips": "Tickets purchased on-site; group visits by appointment",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2138,
+        "longitude": 27.9146,
+        "neighborhood": "Port Area",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "10",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "http://navalmuseumvarna.com"
+      },
+      {
+        "name": "Varna Dolphinarium",
+        "type": "Aquatic Attraction",
+        "description": "The Varna Dolphinarium offers entertaining and educational dolphin and sea lion shows. It’s one of the few places on the Bulgarian coast where visitors can experience marine mammal performances and learn about marine life conservation.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Shows run from late spring to early autumn",
+        "booking_tips": "Advance booking recommended during summer high season",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2152,
+        "longitude": 27.911,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Seasonal operation; closed in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Varna Aquarium"
+        },
+        "official_url": "https://varna-dolphinarium.com",
+        "website": "https://varna-dolphinarium.com"
+      },
+      {
+        "name": "Varna Cathedral Bell Tower",
+        "type": "Viewpoint",
+        "description": "Adjacent to the Dormition Cathedral, the Bell Tower offers panoramic views of Varna and the Black Sea coast. Climbing its spiral staircase rewards visitors with stunning photographic opportunities and a unique perspective on the city skyline.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; best visited on clear days",
+        "booking_tips": "Small entrance fee; cash only",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2141,
+        "longitude": 27.9114,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "09:00-19:00",
+          "weekend": "09:00-19:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Aladzha Monastery",
+        "type": "Historic Site",
+        "description": "Located just north of Varna, this medieval rock monastery complex carved into limestone cliffs dates back to the 12th century. Its frescoed caves and tranquil forest setting provide a fascinating glimpse into Bulgaria’s medieval Orthodox heritage.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited in spring through autumn; limited winter access",
+        "booking_tips": "Guided tours recommended for full understanding",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.2822,
+        "longitude": 27.886,
+        "neighborhood": "Aladzha Area",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "10",
+            "31"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Varna Archaeological Museum"
+        },
+        "official_url": "https://varna.bg/en/aladzha-monastery",
+        "website": null
+      },
+      {
+        "name": "Naval Museum Submarine Drazki",
+        "type": "Historic Site",
+        "description": "This historic submarine, moored at Varna’s port, is a rare opportunity to explore a Cold War-era naval vessel. Visitors can tour the interior and learn about Bulgaria’s naval military history through exhibits and guided explanations.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open during warmer months; weather-dependent",
+        "booking_tips": "Tickets at entrance; limited capacity inside submarine",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2135,
+        "longitude": 27.916,
+        "neighborhood": "Port Area",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "10",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Varna Naval Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Varna Dolphinarium Park",
+        "type": "Park",
+        "description": "A smaller green space adjacent to the Dolphinarium, this park offers walking paths shaded by mature trees and benches overlooking the sea. It’s a calm retreat popular with locals for picnics and relaxation.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best in spring and summer months",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 43.2149,
+        "longitude": 27.9107,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "06:00-22:00",
+          "weekend": "06:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Varna Aquarium"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Varna City Gallery",
+        "type": "Gallery",
+        "description": "Located in the city center, Varna City Gallery features rotating exhibitions of contemporary Bulgarian and international art. The gallery is housed in an elegant historic building, making it an enriching cultural stop for art lovers.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; exhibitions vary seasonally",
+        "booking_tips": "Free entry or small donation; check current exhibits online",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2115,
+        "longitude": 27.9116,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://varna-gallery.com"
+      },
+      {
+        "name": "Kaliakra Cape Nature Reserve",
+        "type": "Viewpoint/Natural Site",
+        "description": "Though around 100 km from Varna, Kaliakra Cape is a must-visit for nature lovers. This dramatic seaside cliff offers spectacular views, rich biodiversity, and ruins of a medieval fortress overlooking the Black Sea.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in late spring to early autumn due to weather",
+        "booking_tips": "Bring water and sun protection; guided tours available from Varna",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 4
+        },
+        "latitude": 43.4232,
+        "longitude": 28.0848,
+        "neighborhood": "Kaliakra Area",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 4,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Varna Archaeological Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Central Market Hall (Tsentralni Hali)",
+        "type": "Market",
+        "description": "This lively indoor market is a hub for fresh produce, local delicacies, and handmade crafts. The Central Market Hall offers visitors an authentic Bulgarian shopping experience with vibrant stalls and friendly vendors.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; busiest on weekends",
+        "booking_tips": "Cash preferred; visit early for best selection",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2145,
+        "longitude": 27.909,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-15:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "10",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Varna Aquarium",
+        "type": "Aquarium",
+        "description": "The Varna Aquarium, located in the Sea Garden, showcases the diverse marine life of the Black Sea and other global waters. It features interactive exhibits, tanks with local fish species, and educational programs suitable for all ages.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; quieter weekdays",
+        "booking_tips": "Tickets available on-site; group discounts offered",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2109,
+        "longitude": 27.9116,
+        "neighborhood": "Sea Garden",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://varna-aquarium.com",
+        "website": "https://varna-aquarium.com"
+      },
+      {
+        "name": "St. Nicholas the Thaumaturgist Church",
+        "type": "Church",
+        "description": "This charming seaside Orthodox church, built in the early 20th century, is dedicated to the patron saint of sailors. Its location near the port and simple but elegant architecture make it a peaceful spiritual site with beautiful sea views.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; religious services on Sundays",
+        "booking_tips": "Respectful clothing recommended; quiet atmosphere",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.213,
+        "longitude": 27.9167,
+        "neighborhood": "Port Area",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "10",
+            "15"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Varna Puppet Theatre",
+        "type": "Theater",
+        "description": "This cultural institution offers engaging puppet shows primarily for children but also hosts performances for all ages. It is a charming venue to experience Bulgarian theatrical traditions and family entertainment.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Shows run mainly during school terms and holiday seasons",
+        "booking_tips": "Advance ticket purchase recommended; official website for schedules",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2147,
+        "longitude": 27.9138,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "14:00-19:00",
+          "weekend": "10:00-19:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "http://varna-puppet-theatre.bg/"
+      },
+      {
+        "name": "Euxinograd Palace and Park",
+        "type": "Palace/Park",
+        "description": "Situated about 8 km north of Varna, Euxinograd is a former royal summer palace with exquisite French-style gardens. While the palace functions as a government residence and is not fully open to the public, the park and vineyard areas can be explored on guided tours.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Best visited late spring through early autumn",
+        "booking_tips": "Advance booking required for guided tours",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 43.2544,
+        "longitude": 27.9002,
+        "neighborhood": "Euxinograd",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on official holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Varna City Gallery"
+        },
+        "official_url": "https://www.euxinograd.bg/",
+        "website": "https://www.euxinograd.bg/"
+      },
+      {
+        "name": "Retro Museum Varna",
+        "type": "Museum",
+        "description": "A unique museum capturing the everyday life, culture, and design of Bulgaria during the socialist era. Exhibits include vintage appliances, clothing, propaganda posters, and vehicles, offering a nostalgic and educational experience.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; quietest on weekdays",
+        "booking_tips": "Tickets on site; guided tours available by appointment",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.2117,
+        "longitude": 27.9127,
+        "neighborhood": "Central Varna",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-15:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7",
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://retromuseumvarna.com"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Sea Garden (Morska Gradina)",
+        "alternate_names": [
+          "Marine Park"
+        ],
+        "character": "A sprawling waterfront park offering a lush green escape with seaside views, lively promenades, and cultural spots. The vibe is relaxed yet vibrant, popular with locals and tourists enjoying nature and outdoor activities.",
+        "location": {
+          "central": true,
+          "description": "Located along the northern coastline, directly adjacent to Varna's city center on the Black Sea coast.",
+          "borders": [
+            "City Center",
+            "Chayka"
+          ],
+          "landmarks": [
+            "Varna Aquarium",
+            "Naval Museum",
+            "Dolphinarium"
+          ]
+        },
+        "history": {
+          "overview": "Established in the late 19th century, the Sea Garden has been Varna's premier public park for over a century.",
+          "significance": "It represents Varna’s connection to the sea and serves as a cultural and recreational hub for the city.",
+          "notable_events": [
+            "Annual Sea Garden Festival",
+            "Historical naval parades"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Sea Garden Tram Stop",
+            "Bus lines 7, 8"
+          ],
+          "safety": "High safety, well-patrolled",
+          "best_time_to_visit": "Spring to early autumn for outdoor enjoyment",
+          "walkability": "Extremely walkable with paved paths and promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Seaside views",
+            "Cultural venues",
+            "Green spaces",
+            "Outdoor concerts",
+            "Family-friendly atmosphere"
+          ],
+          "atmosphere": [
+            "relaxing",
+            "scenic",
+            "inviting"
+          ],
+          "best_for": [
+            "families",
+            "nature lovers",
+            "culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 1,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 3,
+          "cultural": 4,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Varna Aquarium",
+              "type": "Aquarium",
+              "description": "A historic aquarium showcasing Black Sea marine life.",
+              "appeal": "Perfect for families and marine enthusiasts wanting to explore local aquatic biodiversity."
+            },
+            {
+              "name": "Dolphinarium",
+              "type": "Marine animal show",
+              "description": "A popular venue for dolphin and sea lion performances.",
+              "appeal": "Offers engaging shows for visitors of all ages."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sea Terrace Restaurant",
+              "cuisine": "Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh Black Sea fish dishes",
+              "atmosphere": "Casual seaside dining with views of the water"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning for a peaceful walk before crowds arrive.",
+          "Check the schedule for outdoor concerts and festivals in the summer.",
+          "Rent a bike or scooter to explore the full length of the park efficiently."
+        ]
+      },
+      {
+        "name": "City Center (Centrum)",
+        "alternate_names": [
+          "Downtown Varna"
+        ],
+        "character": "The bustling heart of Varna, filled with elegant boulevards, historic architecture, and vibrant street life. It pulses with energy from shops, cafes, and cultural institutions, making it the city's main social and commercial hub.",
+        "location": {
+          "central": true,
+          "description": "Centrally located around the main pedestrian street and adjacent to the Sea Garden.",
+          "borders": [
+            "Sea Garden",
+            "Chayka",
+            "Galata"
+          ],
+          "landmarks": [
+            "Varna Opera House",
+            "Dormition of the Mother of God Cathedral",
+            "Roman Baths"
+          ]
+        },
+        "history": {
+          "overview": "Varna’s historic and administrative center, developed primarily in the late 19th and early 20th centuries.",
+          "significance": "It is the cultural and economic core, showcasing Varna’s architectural heritage and urban development.",
+          "notable_events": [
+            "Founding of Varna Municipality",
+            "Various cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Central Bus Station",
+            "Main tram stops"
+          ],
+          "safety": "Generally safe, standard city vigilance advised",
+          "best_time_to_visit": "Year-round, best in spring and autumn for pleasant weather",
+          "walkability": "Very walkable with many pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic landmarks",
+            "Shopping streets",
+            "Cafes and restaurants",
+            "Cultural venues",
+            "Nightlife"
+          ],
+          "atmosphere": [
+            "lively",
+            "historic",
+            "cosmopolitan"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "culture lovers",
+            "shoppers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Dormition of the Mother of God Cathedral",
+              "type": "Religious landmark",
+              "description": "A striking Orthodox cathedral with impressive architecture and murals.",
+              "appeal": "A must-see spiritual and architectural symbol of Varna."
+            },
+            {
+              "name": "Roman Thermae",
+              "type": "Archaeological site",
+              "description": "Extensive ruins of ancient Roman baths dating back to the 2nd century.",
+              "appeal": "Offers a fascinating glimpse into Varna’s Roman past."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Staria Chinar",
+              "cuisine": "Bulgarian traditional",
+              "price_range": "€€",
+              "known_for": "Authentic Bulgarian dishes and warm ambiance",
+              "atmosphere": "Cozy and rustic with a local vibe"
+            },
+            {
+              "name": "The Sea Terrace",
+              "cuisine": "International",
+              "price_range": "€€€",
+              "known_for": "Fine dining with panoramic city views",
+              "atmosphere": "Elegant and upscale"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore side streets for hidden cafes and artisan shops.",
+          "Visit the cathedral early in the morning to avoid crowds.",
+          "Try local pastries at bakeries along Knyaz Boris I Boulevard."
+        ]
+      },
+      {
+        "name": "Lozenets",
+        "alternate_names": [
+          "Lozenets District"
+        ],
+        "character": "An upscale, leafy neighborhood known for its trendy cafes, boutique shops, and modern residential complexes. The atmosphere is youthful and hip, attracting creatives and young professionals.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, about a 10-15 minute drive from downtown Varna.",
+          "borders": [
+            "City Center",
+            "Galata",
+            "Vazrazhdane"
+          ],
+          "landmarks": [
+            "Lozenets Park",
+            "Varna University Botanical Garden"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly in the late 20th century as a residential and cultural neighborhood.",
+          "significance": "A hotspot for growing arts and culinary scenes, contributing to Varna’s modern identity.",
+          "notable_events": [
+            "Annual Lozenets Street Art Festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Lozenets Bus Stops 10, 20"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Spring to early autumn for outdoor cafes and festivals",
+          "walkability": "Walkable with pleasant green streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Art galleries",
+            "Cafe culture",
+            "Boutique shopping",
+            "Parks",
+            "Trendy nightlife"
+          ],
+          "atmosphere": [
+            "hipster",
+            "creative",
+            "laid-back"
+          ],
+          "best_for": [
+            "young travelers",
+            "artists",
+            "foodies"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Lozenets Park",
+              "type": "Urban park",
+              "description": "A popular green space with playgrounds and walking paths.",
+              "appeal": "Ideal for relaxation and people-watching among locals."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Cafe Memento",
+              "cuisine": "Coffeehouse, light meals",
+              "price_range": "€",
+              "known_for": "Specialty coffee and creative desserts",
+              "atmosphere": "Trendy and cozy"
+            },
+            {
+              "name": "Mehana Lozenets",
+              "cuisine": "Traditional Bulgarian",
+              "price_range": "€€",
+              "known_for": "Authentic local dishes with a modern twist",
+              "atmosphere": "Warm and rustic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit during the street art festival to see murals and live performances.",
+          "Try the craft beers at local microbreweries nearby.",
+          "Explore the boutiques on Lozenets Street for unique souvenirs."
+        ]
+      },
+      {
+        "name": "Asparuhovo",
+        "alternate_names": [
+          "Asparuhovo District"
+        ],
+        "character": "A primarily residential neighborhood perched on hills offering panoramic views of the city and sea. It has a friendly, community-oriented vibe with local markets and family-run eateries.",
+        "location": {
+          "central": false,
+          "description": "South of the city center, separated by the canal, accessible via Asparuhovsko Shose bridge.",
+          "borders": [
+            "City Center",
+            "Galata"
+          ],
+          "landmarks": [
+            "Asparuhovo Bridge",
+            "Asparuhovo Beach"
+          ]
+        },
+        "history": {
+          "overview": "Named after the Bulgarian Khan Asparuh, this district developed rapidly during the socialist era as a working-class neighborhood.",
+          "significance": "Important for its strategic location connecting Varna to southern suburbs and its seaside recreational areas.",
+          "notable_events": [
+            "2005 Varna floods heavily affected Asparuhovo"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Asparuhovo Bus Lines 15, 16"
+          ],
+          "safety": "Moderate safety; standard urban precautions recommended",
+          "best_time_to_visit": "Summer for beach access and sea views",
+          "walkability": "Moderately walkable, some hilly terrain"
+        },
+        "appeal": {
+          "known_for": [
+            "Seaside beaches",
+            "Local markets",
+            "Panoramic views",
+            "Community atmosphere"
+          ],
+          "atmosphere": [
+            "authentic",
+            "laid-back",
+            "residential"
+          ],
+          "best_for": [
+            "families",
+            "budget travelers",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Asparuhovo Beach",
+              "type": "Beach",
+              "description": "A sandy beach popular with locals during summer months.",
+              "appeal": "Great for swimming and sunbathing away from crowded city beaches."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Fish House Asparuhovo",
+              "cuisine": "Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh grilled fish and traditional Bulgarian seafood specialties",
+              "atmosphere": "Casual and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk up to the hilltops for the best sunset views over Varna Bay.",
+          "Visit the weekend market for local produce and crafts.",
+          "Use public transport to avoid parking challenges during summer."
+        ]
+      },
+      {
+        "name": "Galata",
+        "alternate_names": [],
+        "character": "A diverse neighborhood blending industrial past with emerging residential and commercial developments. It has a gritty yet evolving vibe with a mix of old factories and modern apartments.",
+        "location": {
+          "central": false,
+          "description": "Northwest of the city center, adjacent to the port area and the canal.",
+          "borders": [
+            "City Center",
+            "Asparuhovo",
+            "Lozenets"
+          ],
+          "landmarks": [
+            "Port of Varna",
+            "Galata Bridge"
+          ]
+        },
+        "history": {
+          "overview": "Historically an industrial and port district, important for Varna’s maritime trade.",
+          "significance": "Its harbor facilities shaped the city’s economy and continue to impact Varna’s development.",
+          "notable_events": [
+            "Expansion of Varna Port in 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Galata Bus Lines 9, 13"
+          ],
+          "safety": "Moderate; some areas industrial and less trafficked",
+          "best_time_to_visit": "Summer and early autumn for waterfront walks",
+          "walkability": "Moderate, some industrial zones less pedestrian-friendly"
+        },
+        "appeal": {
+          "known_for": [
+            "Port views",
+            "Industrial heritage",
+            "Emerging art spaces",
+            "Affordable housing"
+          ],
+          "atmosphere": [
+            "gritty",
+            "transitional",
+            "authentic"
+          ],
+          "best_for": [
+            "urban explorers",
+            "budget travelers",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Varna Port",
+              "type": "Commercial port area",
+              "description": "Key maritime gateway with expansive docks and shipping activity.",
+              "appeal": "Offers unique industrial and coastal photo opportunities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Portside Grill",
+              "cuisine": "Bulgarian and seafood",
+              "price_range": "€€",
+              "known_for": "Fresh fish dishes and harbor views",
+              "atmosphere": "Casual and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to watch the bustling port activity.",
+          "Look for street art murals emerging in the residential pockets.",
+          "Try local bakeries hidden in quiet streets for authentic treats."
+        ]
+      },
+      {
+        "name": "Chayka",
+        "alternate_names": [
+          "Seagull"
+        ],
+        "character": "A quiet, primarily residential neighborhood with a strong seaside resort feel, featuring beaches and holiday accommodations. It’s relaxed and friendly, favored for its proximity to the sea and green spaces.",
+        "location": {
+          "central": false,
+          "description": "East of the city center along the Black Sea coast, just beyond the Sea Garden.",
+          "borders": [
+            "Sea Garden",
+            "City Center"
+          ],
+          "landmarks": [
+            "Chayka Beach",
+            "Holiday Villages"
+          ]
+        },
+        "history": {
+          "overview": "Developed as a resort area during the socialist era, Chayka became a popular vacation district.",
+          "significance": "It offers insight into Varna’s holiday culture and seaside leisure traditions.",
+          "notable_events": [
+            "Construction of Holiday Villages in the 1960s-70s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Chayka Bus lines 8, 9"
+          ],
+          "safety": "High safety, family-friendly",
+          "best_time_to_visit": "Summer months for beach and resort activities",
+          "walkability": "Good walkability with seaside promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Beaches",
+            "Resort hotels",
+            "Relaxed atmosphere",
+            "Sea views"
+          ],
+          "atmosphere": [
+            "calm",
+            "beachy",
+            "family-oriented"
+          ],
+          "best_for": [
+            "beachgoers",
+            "families",
+            "holidaymakers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Chayka Beach",
+              "type": "Beach",
+              "description": "A sandy beach with calm waters popular for families.",
+              "appeal": "Ideal for swimming, sunbathing, and seaside relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Seagull Café",
+              "cuisine": "Bulgarian and international",
+              "price_range": "€€",
+              "known_for": "Fresh seafood and casual dining",
+              "atmosphere": "Relaxed with sea views"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Stroll the promenade at sunset for stunning views of the bay.",
+          "Book beachfront accommodations early in summer to secure best spots.",
+          "Visit local markets nearby for fresh produce and souvenirs."
+        ]
+      },
+      {
+        "name": "Kolhozen Pazar",
+        "alternate_names": [
+          "Collective Farm Market"
+        ],
+        "character": "A vibrant, working-class neighborhood centered around one of Varna’s largest open-air markets. The area buzzes with daily commerce, street vendors, and authentic local life.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, near the main bus station.",
+          "borders": [
+            "City Center",
+            "Lozenets"
+          ],
+          "landmarks": [
+            "Kolhozen Pazar Market"
+          ]
+        },
+        "history": {
+          "overview": "Named after the collective farming era, this district grew around its bustling marketplace.",
+          "significance": "It remains a key center for fresh produce and traditional Bulgarian goods.",
+          "notable_events": [
+            "Market expansions in the 1980s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 6, 10, 12"
+          ],
+          "safety": "Moderate, watch for pickpockets in crowded market areas",
+          "best_time_to_visit": "Morning to early afternoon for market activity",
+          "walkability": "Good walkability within market area"
+        },
+        "appeal": {
+          "known_for": [
+            "Fresh produce market",
+            "Street food",
+            "Local shopping",
+            "Authentic atmosphere"
+          ],
+          "atmosphere": [
+            "bustling",
+            "authentic",
+            "lively"
+          ],
+          "best_for": [
+            "budget travelers",
+            "foodies",
+            "cultural explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Kolhozen Pazar Market",
+              "type": "Market",
+              "description": "A sprawling open-air market offering fruits, vegetables, meats, and crafts.",
+              "appeal": "Perfect for experiencing local Bulgarian market culture and fresh foods."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Market Grill Stalls",
+              "cuisine": "Bulgarian street food",
+              "price_range": "€",
+              "known_for": "Grilled meats and traditional snacks",
+              "atmosphere": "Casual and bustling"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Come early to get the freshest produce and avoid crowds.",
+          "Carry cash as many vendors do not accept cards.",
+          "Try banitsa and grilled kebapche from market stalls."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "The Sea Terrace",
+          "cuisine_type": "Mediterranean & Bulgarian",
+          "description": "Elegant seaside dining offering fresh Black Sea seafood with a modern twist.",
+          "price_range": "€€€",
+          "atmosphere": "Upscale, romantic with stunning sea views",
+          "neighborhood": "Primorski Park area",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 43.2143,
+          "longitude": 27.9035,
+          "reservation_needed": true,
+          "local_tips": "Try their grilled turbot and pair it with a local white wine."
+        },
+        {
+          "name": "Staria Chinar",
+          "cuisine_type": "Traditional Bulgarian",
+          "description": "A classic restaurant known for authentic Bulgarian dishes in a charming historic setting.",
+          "price_range": "€€€",
+          "atmosphere": "Cozy, traditional Bulgarian ambiance",
+          "neighborhood": "City Center",
+          "best_for": [
+            "cultural experience",
+            "family dinners"
+          ],
+          "latitude": 43.211,
+          "longitude": 27.9091,
+          "reservation_needed": true,
+          "local_tips": "Don’t miss the kavarma (slow-cooked meat stew) and banitsa."
+        },
+        {
+          "name": "Moma Bulgarian Food & Wine",
+          "cuisine_type": "Bulgarian Contemporary",
+          "description": "A stylish spot blending traditional Bulgarian flavors with contemporary presentation.",
+          "price_range": "€€€",
+          "atmosphere": "Modern rustic, lively",
+          "neighborhood": "City Center",
+          "best_for": [
+            "foodies",
+            "groups"
+          ],
+          "latitude": 43.2167,
+          "longitude": 27.9137,
+          "reservation_needed": true,
+          "local_tips": "Try the shopska salad and grilled trout with herbs."
+        },
+        {
+          "name": "Villa Rosiche",
+          "cuisine_type": "European & Bulgarian",
+          "description": "Elegant villa restaurant with refined dishes and an extensive wine list.",
+          "price_range": "€€€",
+          "atmosphere": "Chic, intimate",
+          "neighborhood": "Central Varna",
+          "best_for": [
+            "business dinners",
+            "romantic evenings"
+          ],
+          "latitude": 43.213,
+          "longitude": 27.907,
+          "reservation_needed": true,
+          "local_tips": "Ask about their seasonal chef’s tasting menu."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Happy Bar & Grill Varna",
+          "cuisine_type": "International & Bulgarian",
+          "description": "Popular chain serving diverse dishes from burgers to traditional Bulgarian specialties.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively",
+          "neighborhood": "City Center",
+          "best_for": [
+            "groups",
+            "families"
+          ],
+          "latitude": 43.2147,
+          "longitude": 27.9175,
+          "reservation_needed": false,
+          "local_tips": "Great spot for trying the Bulgarian grilled sausages."
+        },
+        {
+          "name": "Bistro Vodenitsata",
+          "cuisine_type": "Bulgarian",
+          "description": "Rustic bistro offering hearty traditional dishes with a home-cooked feel.",
+          "price_range": "€€",
+          "atmosphere": "Warm, family-friendly",
+          "neighborhood": "City Center",
+          "best_for": [
+            "comfort food lovers",
+            "families"
+          ],
+          "latitude": 43.2171,
+          "longitude": 27.9143,
+          "reservation_needed": false,
+          "local_tips": "Try the lyutenitsa and moussaka."
+        },
+        {
+          "name": "Piano Bar & Restaurant",
+          "cuisine_type": "Bulgarian & European",
+          "description": "Casual dining with live piano music and a broad menu including seafood and grilled meats.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, intimate",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "groups"
+          ],
+          "latitude": 43.2155,
+          "longitude": 27.9112,
+          "reservation_needed": false,
+          "local_tips": "Evening piano performances add to the ambiance."
+        },
+        {
+          "name": "Made in Home",
+          "cuisine_type": "Modern Bulgarian",
+          "description": "Charming spot with a focus on organic, homemade style Bulgarian dishes.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, artsy",
+          "neighborhood": "City Center",
+          "best_for": [
+            "vegetarians",
+            "casual dining"
+          ],
+          "latitude": 43.214,
+          "longitude": 27.915,
+          "reservation_needed": false,
+          "local_tips": "The seasonal vegetable dishes are a must-try."
+        },
+        {
+          "name": "Morski Dyadya",
+          "cuisine_type": "Seafood & Bulgarian",
+          "description": "Casual seafood restaurant specializing in fresh Black Sea fish and meze plates.",
+          "price_range": "€€",
+          "atmosphere": "Beachy, informal",
+          "neighborhood": "Sea Garden / Beach area",
+          "best_for": [
+            "seafood lovers",
+            "groups"
+          ],
+          "latitude": 43.219,
+          "longitude": 27.9018,
+          "reservation_needed": false,
+          "local_tips": "Go for the grilled calamari and local rakia."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Varna Central Market",
+          "cuisine_type": "Local produce & snacks",
+          "description": "Bustling market offering fresh fruits, vegetables, cheeses, and quick traditional snacks.",
+          "price_range": "€",
+          "atmosphere": "Lively, authentic",
+          "neighborhood": "City Center",
+          "best_for": [
+            "quick bites",
+            "local shopping"
+          ],
+          "latitude": 43.2132,
+          "longitude": 27.91,
+          "reservation_needed": false,
+          "local_tips": "Try the freshly baked banitsa from the bakery stalls."
+        },
+        {
+          "name": "Kebapche Street Stalls",
+          "cuisine_type": "Bulgarian street food",
+          "description": "Street vendors famous for serving kebapche – grilled minced meat sausages.",
+          "price_range": "€",
+          "atmosphere": "Casual, quick",
+          "neighborhood": "Near the City Center",
+          "best_for": [
+            "snacking",
+            "budget eats"
+          ],
+          "latitude": 43.2125,
+          "longitude": 27.9123,
+          "reservation_needed": false,
+          "local_tips": "Pair kebapche with a cold local beer or ayran."
+        },
+        {
+          "name": "Sea Garden Food Kiosks",
+          "cuisine_type": "Snack & fast food",
+          "description": "Kiosks along the Sea Garden offering grilled corn, stuffed pita, and local treats.",
+          "price_range": "€",
+          "atmosphere": "Outdoor, casual",
+          "neighborhood": "Sea Garden",
+          "best_for": [
+            "walk and eat",
+            "families"
+          ],
+          "latitude": 43.2175,
+          "longitude": 27.901,
+          "reservation_needed": false,
+          "local_tips": "Try the grilled sweet corn with butter and herbs."
+        },
+        {
+          "name": "Pogo Pogo Food Truck",
+          "cuisine_type": "Fusion street food",
+          "description": "Trendy food truck offering creative twists on traditional Bulgarian street food.",
+          "price_range": "€",
+          "atmosphere": "Trendy, casual",
+          "neighborhood": "City Center",
+          "best_for": [
+            "young crowd",
+            "quick bites"
+          ],
+          "latitude": 43.2149,
+          "longitude": 27.9162,
+          "reservation_needed": false,
+          "local_tips": "Try their banitsa wrap with eggs and cheese."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Del Mar Bar",
+          "cuisine_type": "Cocktails & spirits",
+          "description": "Chic bar with creative cocktails and a lively atmosphere near the sea.",
+          "price_range": "€€",
+          "atmosphere": "Trendy, upbeat",
+          "neighborhood": "Sea Garden",
+          "best_for": [
+            "night out",
+            "cocktail lovers"
+          ],
+          "latitude": 43.2194,
+          "longitude": 27.9015,
+          "reservation_needed": false,
+          "local_tips": "Try their signature sea-inspired cocktails."
+        },
+        {
+          "name": "The Roof Bar",
+          "cuisine_type": "Cocktails & wine",
+          "description": "Rooftop bar offering panoramic city views and a refined drink selection.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, scenic",
+          "neighborhood": "City Center",
+          "best_for": [
+            "romantic evenings",
+            "sunset drinks"
+          ],
+          "latitude": 43.2158,
+          "longitude": 27.911,
+          "reservation_needed": false,
+          "local_tips": "Arrive before sunset for the best views."
+        },
+        {
+          "name": "Sputnik Bar",
+          "cuisine_type": "Craft beers & cocktails",
+          "description": "Popular craft beer bar with a wide selection of local and international brews.",
+          "price_range": "€",
+          "atmosphere": "Lively, casual",
+          "neighborhood": "City Center",
+          "best_for": [
+            "beer enthusiasts",
+            "groups"
+          ],
+          "latitude": 43.2135,
+          "longitude": 27.9089,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal Bulgarian craft beers on tap."
+        },
+        {
+          "name": "The Old Sailor Pub",
+          "cuisine_type": "Pub & spirits",
+          "description": "Nautical-themed pub offering a cozy atmosphere and extensive whiskey selection.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, themed",
+          "neighborhood": "City Center",
+          "best_for": [
+            "whiskey lovers",
+            "casual nights"
+          ],
+          "latitude": 43.2128,
+          "longitude": 27.9105,
+          "reservation_needed": false,
+          "local_tips": "Ask for recommendations on Bulgarian whiskey brands."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Orange Center Cafe",
+          "cuisine_type": "Coffee & pastries",
+          "description": "Popular café known for its quality coffee and fresh homemade pastries.",
+          "price_range": "€",
+          "atmosphere": "Bright, modern",
+          "neighborhood": "City Center",
+          "best_for": [
+            "breakfast",
+            "work/study"
+          ],
+          "latitude": 43.214,
+          "longitude": 27.9115,
+          "reservation_needed": false,
+          "local_tips": "Try their traditional Bulgarian pastry banitsa for breakfast."
+        },
+        {
+          "name": "Coffee & Cakes",
+          "cuisine_type": "Coffee & desserts",
+          "description": "Cozy spot offering an excellent selection of cakes, desserts, and quality coffee.",
+          "price_range": "€",
+          "atmosphere": "Warm, inviting",
+          "neighborhood": "City Center",
+          "best_for": [
+            "dessert lovers",
+            "afternoon breaks"
+          ],
+          "latitude": 43.216,
+          "longitude": 27.914,
+          "reservation_needed": false,
+          "local_tips": "The baklava pairs perfectly with their espresso."
+        },
+        {
+          "name": "Cafe Bar Campus",
+          "cuisine_type": "Coffee & light bites",
+          "description": "Trendy café popular with students offering great coffee and light meals.",
+          "price_range": "€",
+          "atmosphere": "Casual, youthful",
+          "neighborhood": "Near Varna University",
+          "best_for": [
+            "students",
+            "casual meetups"
+          ],
+          "latitude": 43.2145,
+          "longitude": 27.919,
+          "reservation_needed": false,
+          "local_tips": "Try their iced coffee specials in summer."
+        },
+        {
+          "name": "The Bookstore Cafe",
+          "cuisine_type": "Coffee & snacks",
+          "description": "Literary-themed café combining coffee culture with a quiet reading space.",
+          "price_range": "€",
+          "atmosphere": "Quiet, cozy",
+          "neighborhood": "City Center",
+          "best_for": [
+            "reading",
+            "quiet work"
+          ],
+          "latitude": 43.2138,
+          "longitude": 27.913,
+          "reservation_needed": false,
+          "local_tips": "Ideal for a lazy afternoon with a book and cappuccino."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Varna Food Walking Tour",
+        "description": "Guided tour through Varna’s best food markets, traditional eateries, and hidden gems.",
+        "duration": "3 hours",
+        "price_range": "€€",
+        "local_tips": "Book in advance and come hungry to sample fresh banitsa, shopska salad, and local seafood."
+      },
+      {
+        "name": "Bulgarian Cooking Class at Chef's Studio",
+        "description": "Hands-on cooking class focusing on traditional Bulgarian dishes like tarator, kavarma, and lyutenitsa.",
+        "duration": "4 hours",
+        "price_range": "€€€",
+        "local_tips": "Great for small groups or couples wanting an immersive cultural experience."
+      },
+      {
+        "name": "Sea Garden Market Visit",
+        "description": "Explore the seasonal produce and fresh seafood stalls at Varna’s Sea Garden market with a local guide.",
+        "duration": "2 hours",
+        "price_range": "€",
+        "local_tips": "Perfect for early risers wanting to see the freshest catches and buy local cheeses."
+      },
+      {
+        "name": "Black Sea Wine Tasting",
+        "description": "A curated tasting experience featuring Bulgarian wines from the Black Sea region paired with local cheeses and charcuterie.",
+        "duration": "2 hours",
+        "price_range": "€€",
+        "local_tips": "Ideal for wine lovers eager to discover Bulgaria’s unique grape varieties."
+      },
+      {
+        "name": "Street Food Sampling Tour",
+        "description": "Casual guided tour sampling Varna’s best street food like kebapche, banitsa, and grilled corn.",
+        "duration": "2.5 hours",
+        "price_range": "€",
+        "local_tips": "Wear comfortable shoes and bring cash for small vendors."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh wild asparagus dishes",
+        "Tarator (cold cucumber and yogurt soup)",
+        "Early season strawberries and cherries"
+      ],
+      "summer": [
+        "Shopska salad with ripe tomatoes and cucumbers",
+        "Grilled Black Sea fish and seafood",
+        "Cold fruit soups and lyutenitsa (pepper and tomato spread)"
+      ],
+      "autumn": [
+        "Mushroom dishes using local wild mushrooms",
+        "Pumpkin-based desserts and soups",
+        "Slow-cooked kavarma (meat stew)"
+      ],
+      "winter": [
+        "Hearty banitsa with cheese and spinach",
+        "Warm baked moussaka",
+        "Traditional Bulgarian sausages and hearty soups"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Bulgarian State Railways",
+            "notes": "Direct overnight trains available; comfortable sleeper cars on some services."
+          },
+          {
+            "type": "bus",
+            "duration": "6h",
+            "frequency": "hourly",
+            "price_range": "€8-€15",
+            "operator": "Union Ivkoni, Etap-Adress",
+            "notes": "Frequent buses from Varna bus station; convenient for flexible schedules."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "Bulgaria Air, Ryanair",
+            "notes": "Multiple daily flights; quick option for business travelers."
+          }
+        ]
+      },
+      {
+        "city": "Bucharest",
+        "country": "Romania",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€12-€25",
+            "operator": "Autogari Express, Eurolines",
+            "notes": "Crosses border at Giurgiu; passports required for border control."
+          },
+          {
+            "type": "flight",
+            "duration": "1h",
+            "frequency": "weekly",
+            "price_range": "€40-€90",
+            "operator": "Tarom",
+            "notes": "Limited flights; mostly seasonal."
+          }
+        ]
+      },
+      {
+        "city": "Istanbul",
+        "country": "Turkey",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "7h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "Metro Turizm, Kamil Koç",
+            "notes": "Border crossing at Kapıkule; passport and visa required."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "Turkish Airlines, Pegasus",
+            "notes": "Multiple flights daily; convenient for connecting international flights."
+          }
+        ]
+      },
+      {
+        "city": "Athens",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "Aegean Airlines",
+            "notes": "Direct flights; ideal for summer holidays."
+          },
+          {
+            "type": "bus",
+            "duration": "9h 30m",
+            "frequency": "weekly",
+            "price_range": "€30-€50",
+            "operator": "KTEL",
+            "notes": "Route passes through Thessaloniki; overnight option available."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "Austrian Airlines, Bulgaria Air",
+            "notes": "Direct flights; good for business and leisure travelers."
+          },
+          {
+            "type": "bus",
+            "duration": "18h",
+            "frequency": "weekly",
+            "price_range": "€50-€80",
+            "operator": "FlixBus",
+            "notes": "Overnight buses; budget-friendly but long journey."
+          }
+        ]
+      },
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "Wizz Air",
+            "notes": "Low-cost carrier; multiple flights per week."
+          },
+          {
+            "type": "bus",
+            "duration": "15h",
+            "frequency": "weekly",
+            "price_range": "€40-€70",
+            "operator": "FlixBus",
+            "notes": "Night bus option; cheaper but longer travel time."
+          }
+        ]
+      },
+      {
+        "city": "Rimini",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "weekly",
+            "price_range": "€70-€120",
+            "operator": "Seasonal charters",
+            "notes": "Primarily summer seasonal; connects via Bologna or Rimini airports."
+          }
+        ]
+      },
+      {
+        "city": "Constanta",
+        "country": "Romania",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€8-€15",
+            "operator": "CFR Romanian Railways",
+            "notes": "Regional train service; scenic Black Sea route."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€10-€18",
+            "operator": "Autogari Express",
+            "notes": "Frequent departures; convenient for day trips."
+          }
+        ]
+      },
+      {
+        "city": "Thessaloniki",
+        "country": "Greece",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€20-€35",
+            "operator": "KTEL Thessaloniki",
+            "notes": "Direct routes available; popular for weekend trips."
+          },
+          {
+            "type": "train",
+            "duration": "7h",
+            "frequency": "weekly",
+            "price_range": "€15-€25",
+            "operator": "Bulgarian State Railways / TrainOSE",
+            "notes": "Cross-border train service; slower but scenic."
+          }
+        ]
+      },
+      {
+        "city": "Varna",
+        "country": "Bulgaria",
+        "transport_types": [
+          {
+            "type": "ferry",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Navibulgar",
+            "notes": "Ferry to Istanbul via Black Sea; seasonal and weather dependent."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Varna Carnival",
+        "type": "festival",
+        "description": "A vibrant parade featuring colorful costumes, music, and dancing celebrating the arrival of spring in Varna.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Central Varna",
+        "price": "Free"
+      },
+      {
+        "name": "Sea Garden Walks and Flower Viewing",
+        "type": "outdoor",
+        "description": "Enjoy leisurely walks through the Sea Garden park to see blooming flowers and early spring greenery along the Black Sea coast.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Sea Garden, Varna",
+        "price": "Free"
+      },
+      {
+        "name": "Easter Celebrations and Local Cuisine",
+        "type": "food",
+        "description": "Experience traditional Bulgarian Easter foods such as kozunak (sweet bread) and red-dyed eggs at local markets and restaurants.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Various restaurants and markets in Varna",
+        "price": "Budget"
+      },
+      {
+        "name": "Varna Archaeological Museum Visit",
+        "type": "cultural",
+        "description": "Explore one of Bulgaria’s oldest museums featuring prehistoric treasures, including the Varna Gold Treasure.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Varna Archaeological Museum",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Varna Summer International Music Festival",
+        "type": "festival",
+        "description": "Enjoy classical music concerts by world-renowned artists held in open-air venues across Varna.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Various venues in Varna",
+        "price": "Moderate"
+      },
+      {
+        "name": "Beach Activities at Varna’s Central Beach",
+        "type": "outdoor",
+        "description": "Swim, sunbathe, and participate in beach volleyball or water sports along the popular sandy coastline.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Central Beach, Varna",
+        "price": "Free"
+      },
+      {
+        "name": "Seafood Dining by the Port",
+        "type": "food",
+        "description": "Savor fresh Black Sea seafood dishes at seaside restaurants near Varna’s port and marina.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Varna Port and Marina",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking in the Golden Sands Nature Park",
+        "type": "sport",
+        "description": "Explore forest trails, enjoy panoramic views, and discover local flora and fauna in this protected natural area north of Varna.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Golden Sands Nature Park",
+        "price": "Free"
+      },
+      {
+        "name": "Nightlife and Open-Air Clubs",
+        "type": "cultural",
+        "description": "Experience Varna’s vibrant nightlife with open-air clubs and bars featuring live music and DJs during warm summer nights.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Beach area and city center",
+        "price": "Budget to Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Varna Wine and Gourmet Festival",
+        "type": "festival",
+        "description": "Sample Bulgarian wines and gourmet foods while enjoying live music and culinary workshops.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Varna City Center",
+        "price": "Moderate"
+      },
+      {
+        "name": "Birdwatching at Lake Varna",
+        "type": "outdoor",
+        "description": "Observe migratory birds at this important wetland area during autumn migration season.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Lake Varna area",
+        "price": "Free"
+      },
+      {
+        "name": "Harvest Season Local Markets",
+        "type": "food",
+        "description": "Taste fresh autumn produce such as pumpkins, grapes, and nuts at Varna’s farmers markets.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Central Market, Varna",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit the Aladzha Monastery",
+        "type": "cultural",
+        "description": "Explore this medieval rock monastery nestled in a forested area, perfect for cooler autumn days.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Aladzha Monastery, near Varna",
+        "price": "Budget"
+      },
+      {
+        "name": "Cycling along the Black Sea Coast",
+        "type": "sport",
+        "description": "Enjoy comfortable temperatures for cycling on paved coastal routes with sea views.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Coastal bike paths, Varna",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Varna Christmas Market",
+        "type": "festival",
+        "description": "Browse crafts, enjoy seasonal treats, and soak in festive lights and music in the city center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Varna City Center",
+        "price": "Free"
+      },
+      {
+        "name": "Visit the Naval Museum",
+        "type": "cultural",
+        "description": "Discover Bulgaria’s maritime history with exhibits on ships, naval equipment, and marine archeology.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Naval Museum, Varna",
+        "price": "Moderate"
+      },
+      {
+        "name": "Black Sea Winter Walks",
+        "type": "outdoor",
+        "description": "Brisk walks along the wintery seafront offer fresh air and dramatic coastal views.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Varna Seafront",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Bulgarian Winter Cuisine",
+        "type": "food",
+        "description": "Warm up with hearty dishes like bob chorba (bean soup) and banitsa (cheese pastry) at local eateries.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Various restaurants in Varna",
+        "price": "Budget"
+      },
+      {
+        "name": "Indoor Swimming and Spa Facilities",
+        "type": "sport",
+        "description": "Relax and stay active in Varna’s indoor pools and wellness centers during the colder months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local hotels and spa centers",
+        "price": "Moderate to Premium"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year Celebrations",
+            "notes": "Cold winter weather, temperatures often below freezing; low tourists except for New Year; festive atmosphere early month but limited outdoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Very cold and damp, minimal daylight, most attractions indoors; low tourist activity; not ideal for beach or outdoor sightseeing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 1,
+              "business": 2,
+              "budget": 2,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold winter continues; some cultural events indoors; low crowds and prices; weather limits outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              28
+            ],
+            "score": 2,
+            "special": true,
+            "event": "St. Trifon Zarezan (Wine Festival)",
+            "notes": "Still cold but the wine festival attracts some visitors; indoor events enliven the month; good for culture lovers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring, weather improving but still chilly and unpredictable; low crowds; good for budget travelers seeking off-season deals.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "International Women's Day (March 8)",
+            "notes": "Spring starts to show; mild weather with occasional rain; moderate crowds around the holiday; cultural events and early outdoor activities begin.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom, pleasant temperatures; ideal for sightseeing and nature walks; low to moderate crowds; beginning of tourist season.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Celebrations (date varies)",
+            "notes": "Easter is a major holiday with local customs and religious events; mild weather; moderate crowds especially from domestic tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Varna Summer Festival Opening",
+            "notes": "Warm and sunny weather perfect for beach and city sightseeing; many cultural events begin; comfortable temperatures; increasing tourist numbers but not overcrowded.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late spring, excellent weather for beaches and outdoor activities; vibrant nightlife starts; great value before peak summer season.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              20
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer, hot and sunny; perfect beach weather; increasing tourists but not yet peak; many outdoor festivals and events.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Varna International Ballet Competition (biennial, check year)",
+            "notes": "Late June brings some cultural events; very warm weather but some days can be hot; crowds start to peak; good for culture and beach lovers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Varna Summer Festival (ongoing)",
+            "notes": "Peak summer season with hot weather, busy beaches, high tourist crowd; many open-air concerts and events; prices peak; best for those who enjoy lively atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              20
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Still very warm and sunny; peak tourist crowds; beaches crowded; excellent nightlife and festivals continue; prices remain high.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Varna Day (August 15)",
+            "notes": "Major city holiday with festivities and fireworks; very warm but some relief as summer wanes; high crowds and prices; great for cultural enthusiasts.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm sea temperatures and mild weather; crowds start to thin; ideal for beach and sightseeing; excellent value and comfort.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Weather remains pleasant; fewer tourists; good for cultural activities and outdoor excursions; some businesses begin to reduce hours after peak season.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler autumn weather; occasional rain; quieter tourist scene; good for cultural visits and exploring historic sites; sea too cold for swimming.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chillier and wetter; many seasonal businesses close; low crowds; limited outdoor activities; better suited for those who prefer quiet and low costs.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              30
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold, damp, and often rainy; low tourist activity; most outdoor attractions closed; suitable only for business travelers or very budget-conscious visitors.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 4,
+              "budget": 5,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              20
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and dark; some Christmas markets and festive events late month; low crowds; indoor cultural activities available; not ideal for outdoor sightseeing or beach.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas and New Year's Eve Festivities",
+            "notes": "Festive atmosphere with local celebrations; colder weather; moderate crowds especially around holidays; good for cultural immersion and holiday markets.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      }
+    }
+  }
+}

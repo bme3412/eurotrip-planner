@@ -1,3 +1,4 @@
+import { withSentryConfig } from '@sentry/nextjs';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 /** @type {import('next').NextConfig} */
@@ -15,10 +16,9 @@ const baseConfig = {
   serverExternalPackages: ['mapbox-gl', 'react-map-gl', 'sharp'],
   outputFileTracingExcludes: {
     '/': [
-      './public/data/**/*' // Exclude everything under public/data
+      './public/data/**/*'
     ]
   },
-  // Configure external image domains for CDN
   images: {
     remotePatterns: [
       {
@@ -47,7 +47,6 @@ const baseConfig = {
       },
     ],
   },
-  // Optimize video serving
   async headers() {
     return [
       {
@@ -101,6 +100,16 @@ const baseConfig = {
   },
 };
 
-export default withBundleAnalyzer({
+const withAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-})(baseConfig);
+});
+
+export default withSentryConfig(withAnalyzer(baseConfig), {
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  tunnelRoute: "/monitoring",
+  hideSourceMaps: true,
+  telemetry: false,
+});

@@ -54,11 +54,61 @@ export interface CitiesApiCity {
 
 export interface Trip {
   id: string;
-  user_id: string;
-  name: string;
-  cities: string[];
-  start_date?: string;
-  end_date?: string;
+  user_id?: string;
+  user_email?: string;
+  city: string;
+  country?: string;
+  title?: string;
+  start_date: string;
+  end_date: string;
+  interests: string[];
+  pace: number;
+  budget: string;
+  status: 'planning' | 'confirmed' | 'active' | 'completed' | 'cancelled';
+  weather_adaptation_enabled: boolean;
+  initial_plan?: unknown;
   created_at: string;
-  updated_at: string;
+  days: TripDay[];
+}
+
+export interface TripDay {
+  id: string;
+  day_number: number;
+  date: string;
+  theme?: string;
+  notes?: string;
+  weather_forecast?: WeatherForecast;
+  activities: TripActivity[];
+}
+
+export interface TripActivity {
+  id: string;
+  time_block: 'morning' | 'lunch' | 'afternoon' | 'evening' | 'night';
+  sort_order: number;
+  start_time?: string;
+  end_time?: string;
+  name: string;
+  type?: string;
+  description?: string;
+  duration_minutes?: number;
+  price_range?: string;
+  latitude?: number;
+  longitude?: number;
+  neighborhood?: string;
+  google_place_id?: string;
+  google_rating?: number;
+  google_photo_name?: string;
+  indoor: boolean;
+  booking_required: boolean;
+  booking_url?: string;
+  status: 'planned' | 'confirmed' | 'skipped' | 'completed' | 'weather_swapped';
+  swap_reason?: string;
+}
+
+export interface WeatherForecast {
+  high_c: number;
+  low_c: number;
+  condition: string;
+  precipitation_chance: number;
+  wind_kph: number;
 }

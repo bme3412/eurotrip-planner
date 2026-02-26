@@ -4,23 +4,84 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 2,
           "special": true,
           "event": "New Year's Day",
-          "notes": "Holiday atmosphere lingering, many businesses closed"
+          "notes": "Holiday atmosphere lingering, many businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 2
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 3,
-          "notes": "Winter sales (soldes) begin, good shopping opportunities in the Graslin district"
+          "notes": "Winter sales (soldes) begin, good shopping opportunities in the Graslin district",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "La Folle Journée",
-          "notes": "Major classical music festival unique to Nantes, with hundreds of affordable concerts throughout the city"
+          "notes": "Major classical music festival unique to Nantes, with hundreds of affordable concerts throughout the city",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 9,
@@ -31,16 +92,64 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 3,
-          "notes": "Winter atmosphere, fewer tourists, excellent museum opportunities at Château des Ducs de Bretagne"
+          "notes": "Winter atmosphere, fewer tourists, excellent museum opportunities at Château des Ducs de Bretagne",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 4,
           "special": true,
           "event": "Winter School Holidays",
-          "notes": "French school vacation period, increased family tourism, special activities at Les Machines de l'Île"
+          "notes": "French school vacation period, increased family tourism, special activities at Les Machines de l'Île",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 10,
@@ -51,16 +160,67 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 4,
-          "notes": "Early spring weather, café terraces begin to open along the Erdre, pleasant time for exploring Bouffay district"
+          "notes": "Early spring weather, café terraces begin to open along the Erdre, pleasant time for exploring Bouffay district",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Salon du Tourisme et des Loisirs",
-          "notes": "Travel fair at Parc des Expositions showcasing regional and international destinations"
+          "notes": "Travel fair at Parc des Expositions showcasing regional and international destinations",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 13,
@@ -71,16 +231,66 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
-          "notes": "Spring in full bloom, ideal weather for exploring Jardin des Plantes and the Île de Nantes"
+          "notes": "Spring in full bloom, ideal weather for exploring Jardin des Plantes and the Île de Nantes",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Easter holidays and Spring Break",
-          "notes": "Family-oriented activities at Les Machines de l'Île, magnolias and camellias in bloom at the Jardin des Plantes"
+          "notes": "Family-oriented activities at Les Machines de l'Île, magnolias and camellias in bloom at the Jardin des Plantes",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 16,
@@ -91,25 +301,86 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday, many businesses closed but festive gatherings and demonstrations"
+          "notes": "Public holiday, many businesses closed but festive gatherings and demonstrations",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
           "score": 4,
           "special": true,
           "event": "Multiple Public Holidays",
-          "notes": "Victory Day (May 8) and often Ascension create long weekends, increased domestic tourism"
+          "notes": "Victory Day (May 8) and often Ascension create long weekends, increased domestic tourism",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Débord de Loire",
-          "notes": "Biennial maritime festival (in odd-numbered years) celebrating the Loire River with tall ships, performances, and riverside activities"
+          "notes": "Biennial maritime festival (in odd-numbered years) celebrating the Loire River with tall ships, performances, and riverside activities",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 19,
@@ -120,16 +391,66 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 5,
-          "notes": "Perfect weather, riverside activities along the Erdre and Loire in full swing, pre-summer atmosphere"
+          "notes": "Perfect weather, riverside activities along the Erdre and Loire in full swing, pre-summer atmosphere",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Aux Heures d'Été Festival",
-          "notes": "Free outdoor music festival with concerts in parks and public spaces across Nantes"
+          "notes": "Free outdoor music festival with concerts in parks and public spaces across Nantes",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 22,
@@ -140,23 +461,84 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 5,
           "special": true,
           "event": "Le Voyage à Nantes begins",
-          "notes": "The city's famous art trail begins with new installations, guided by a green line painted on streets"
+          "notes": "The city's famous art trail begins with new installations, guided by a green line painted on streets",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 5,
           "special": true,
           "event": "Bastille Day",
-          "notes": "National holiday with military parade, fireworks over the Loire, and festive atmosphere"
+          "notes": "National holiday with military parade, fireworks over the Loire, and festive atmosphere",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
-          "notes": "Peak summer season, outdoor dining along the Erdre, temporary beach on Île de Nantes"
+          "notes": "Peak summer season, outdoor dining along the Erdre, temporary beach on Île de Nantes",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 25,
@@ -167,30 +549,101 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
           "special": true,
           "event": "Le Voyage à Nantes continues",
-          "notes": "Art installations throughout the city, peak visitor period for this cultural route"
+          "notes": "Art installations throughout the city, peak visitor period for this cultural route",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Assumption Day",
-          "notes": "Public holiday, significant business closures throughout the city"
+          "notes": "Public holiday, significant business closures throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Continued summer activities, good weather for exploring the city and surrounding region"
+          "notes": "Continued summer activities, good weather for exploring the city and surrounding region",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Les Rendez-vous de l'Erdre begins",
-          "notes": "Festival combining jazz music and heritage river boats along the Erdre River"
+          "notes": "Festival combining jazz music and heritage river boats along the Erdre River",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 25,
@@ -201,23 +654,83 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4],
+          "days": [
+            1,
+            2,
+            3,
+            4
+          ],
           "score": 5,
           "special": true,
           "event": "Les Rendez-vous de l'Erdre continues",
-          "notes": "Jazz concerts on the riverbanks and heritage boats on display"
+          "notes": "Jazz concerts on the riverbanks and heritage boats on display",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 5,
-          "notes": "Perfect late summer weather, locals return, city reawakens with cultural season"
+          "notes": "Perfect late summer weather, locals return, city reawakens with cultural season",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "European Heritage Days",
-          "notes": "Special access to historic buildings normally closed to the public, including the Graslin Theater"
+          "notes": "Special access to historic buildings normally closed to the public, including the Graslin Theater",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 22,
@@ -228,16 +741,67 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 4,
-          "notes": "Beautiful autumn colors in Parc de Procé, pleasant temperatures, ideal for walking tours"
+          "notes": "Beautiful autumn colors in Parc de Procé, pleasant temperatures, ideal for walking tours",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Celtomania Festival begins",
-          "notes": "Celtic music and cultural festival celebrating Brittany's influence in Western Loire"
+          "notes": "Celtic music and cultural festival celebrating Brittany's influence in Western Loire",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 17,
@@ -248,30 +812,100 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day",
-          "notes": "Public holiday, many businesses closed"
+          "notes": "Public holiday, many businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 3,
-          "notes": "Autumn atmosphere, fewer tourists, excellent museum-going weather at Musée d'Arts"
+          "notes": "Autumn atmosphere, fewer tourists, excellent museum-going weather at Musée d'Arts",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [11],
+          "days": [
+            11
+          ],
           "score": 3,
           "special": true,
           "event": "Armistice Day",
-          "notes": "Commemorative events, some businesses closed"
+          "notes": "Commemorative events, some businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
           "special": true,
           "event": "Festival des 3 Continents",
-          "notes": "Prestigious film festival focusing on Asian, African, and Latin American cinema"
+          "notes": "Prestigious film festival focusing on Asian, African, and Latin American cinema",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 13,
@@ -282,30 +916,101 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets",
-          "notes": "Holiday markets at Place Royale and Place du Commerce, special illuminations of the Château"
+          "notes": "Holiday markets at Place Royale and Place du Commerce, special illuminations of the Château",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 2,
           "special": true,
           "event": "Christmas",
-          "notes": "Many closures, limited dining options, quieter atmosphere"
+          "notes": "Many closures, limited dining options, quieter atmosphere",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
-          "notes": "Between Christmas and New Year's, winter activities at Les Machines de l'Île"
+          "notes": "Between Christmas and New Year's, winter activities at Les Machines de l'Île",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "New Year's Eve",
-          "notes": "Celebrations and special menus at restaurants, festive atmosphere around Place Graslin"
+          "notes": "Celebrations and special menus at restaurants, festive atmosphere around Place Graslin",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 10,
@@ -353,10 +1058,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
 }

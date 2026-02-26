@@ -1,1 +1,2630 @@
-{"city":"gdansk","country":"Poland","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "gdansk",
+  "country": "Poland",
+  "overview": {
+    "city_name": "Gdansk",
+    "country": "Poland",
+    "brief_description": "Gdansk is a vibrant Baltic port city known for its rich maritime history, stunning medieval architecture, and dynamic cultural scene. As a gateway to the Tri-City area, it beautifully blends its Hanseatic heritage with modern urban life, making it a captivating destination on Poland's northern coast.",
+    "nickname": "The Pearl of the Baltic",
+    "region": "Pomerania, Northern Poland",
+    "population": "approx. 470,000",
+    "why_visit": [
+      "Explore the meticulously restored Old Town with its iconic Long Market and historic architecture",
+      "Discover the influential role Gdansk played in modern history, including the birthplace of the Solidarity movement",
+      "Relax along the scenic Baltic Sea coastline and nearby sandy beaches",
+      "Experience world-class museums, vibrant festivals, and a thriving culinary scene"
+    ],
+    "best_time_to_visit": "May to September, when the weather is mild and most outdoor attractions and festivals are in full swing",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks make it ideal for sightseeing and strolls along the Motlawa River.",
+      "summer": "Warmest and sunniest season, perfect for beach visits, outdoor dining, and cultural events like St. Dominic’s Fair.",
+      "autumn": "Cooler weather with fewer tourists, offering a more relaxed atmosphere and beautiful fall foliage in city parks.",
+      "winter": "Chilly and occasionally snowy, with festive Christmas markets and cozy indoor attractions."
+    },
+    "practical_info": {
+      "currency": "Polish Złoty (PLN)",
+      "language": "Polish (English widely spoken in tourist areas)",
+      "visit_duration": "3 to 4 days to explore the city and nearby attractions",
+      "getting_around": "Efficient public transport includes trams and buses; compact Old Town is best explored on foot",
+      "safety": "Generally very safe for tourists; usual urban precautions recommended, especially at night"
+    },
+    "coordinates": {
+      "latitude": 54.352,
+      "longitude": 18.6466
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Walk along the Long Market (Długi Targ) and admire the colorful merchant houses",
+        "Visit the historic Gdansk Crane (Żuraw) on the Motlawa River waterfront",
+        "Tour the European Solidarity Centre to learn about the city’s pivotal role in modern history",
+        "Explore St. Mary’s Church, one of the largest brick churches in the world",
+        "Relax at the nearby Sopot beach or take a day trip to the Hel Peninsula"
+      ],
+      "worth_doing": [
+        "Discover the National Museum’s impressive art collections",
+        "Climb the tower of the Main Town Hall for panoramic city views",
+        "Stroll through the Oliwa Park and visit the Oliwa Cathedral with its famous organ concerts",
+        "Enjoy fresh seafood at local restaurants along the waterfront",
+        "Take a boat tour of the Motlawa River and the Baltic coast"
+      ],
+      "hidden_gems": [
+        "Explore the medieval shipyard area and its street art murals",
+        "Visit the quirky Museum of the Second World War for a comprehensive and immersive experience",
+        "Relax at the quiet Westerplatte peninsula, site of the first battle of WWII",
+        "Discover the charming and less crowded Wrzeszcz district with its cafes and boutiques",
+        "Take a bike ride along the Baltic Sea coastline to uncover secluded beaches and natural reserves"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "St. Mary's Church (Bazylika Mariacka)",
+        "type": "Church",
+        "description": "St. Mary's Church is one of the largest brick churches in the world and a masterpiece of Gothic architecture. Its vast interior features beautiful stained glass windows, a historic astronomical clock, and an observation tower offering panoramic views of Gdańsk.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best enjoyed year-round; tower access may close in winter",
+        "booking_tips": "Tickets for the tower can be purchased on-site; arrive early to avoid queues",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 54.352,
+        "longitude": 18.6466,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "7:00-19:00",
+          "weekend": "7:00-19:00",
+          "notes": "Tower open 10:00-18:00, closed in December-January"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "122",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor church and museum"
+        },
+        "official_url": "https://bazylikamariacka.pl/",
+        "website": null
+      },
+      {
+        "name": "The Neptune Fountain",
+        "type": "Monument",
+        "description": "Located in the heart of the Long Market, the Neptune Fountain is an iconic symbol of Gdańsk. This 17th-century bronze statue celebrates the city's maritime heritage and serves as a popular meeting point amid colorful historic architecture.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in summer with outdoor cafes nearby",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 54.3507,
+        "longitude": 18.6487,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "126"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "European Solidarity Centre",
+        "type": "Museum",
+        "description": "This modern museum and library complex is dedicated to the history of the Solidarity movement and the fall of communism in Eastern Europe. Exhibits include interactive displays, historical documents, and multimedia presentations set in a striking contemporary building.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round; special exhibitions in summer",
+        "booking_tips": "Advance online ticket purchase recommended for weekends",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 54.3639,
+        "longitude": 18.6532,
+        "neighborhood": "Letnica",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "212",
+            "610"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Entirely indoor experience"
+        },
+        "official_url": "https://ecs.gda.pl/en/",
+        "website": "https://ecs.gda.pl/en/"
+      },
+      {
+        "name": "Westerplatte",
+        "type": "Historic Site",
+        "description": "Westerplatte is the site where the first battle of World War II took place. Visitors can explore the ruins of the Polish military outpost, monuments, and a small museum dedicated to the defenders’ bravery at this symbolic peninsula.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring to autumn; limited facilities in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 54.3997,
+        "longitude": 18.6668,
+        "neighborhood": "Westerplatte",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Museum open 9:00-17:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "106",
+            "109"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor museums if rainy"
+        },
+        "official_url": "https://www.westerplatte.pl/en/",
+        "website": "https://www.westerplatte.pl/en/"
+      },
+      {
+        "name": "Long Market (Długi Targ)",
+        "type": "Market",
+        "description": "The Long Market is a vibrant pedestrian street lined with colorful merchant houses, shops, cafes, and restaurants. This historic market square has been the city's social and economic hub since the Middle Ages and is perfect for a leisurely stroll.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Lively all year, with Christmas markets in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.3505,
+        "longitude": 18.6489,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Shops generally open 10:00-18:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes and shops"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of the Second World War",
+        "type": "Museum",
+        "description": "This world-class museum offers an extensive and immersive experience covering the global impact of World War II, with a focus on Poland. It features modern exhibits including artifacts, multimedia installations, and personal stories.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round; holiday hours may vary",
+        "booking_tips": "Pre-book tickets online to avoid long lines",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 54.3478,
+        "longitude": 18.6512,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "122",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://www.muzeum1939.pl/en/",
+        "website": "https://www.muzeum1939.pl/en/"
+      },
+      {
+        "name": "Oliwa Park",
+        "type": "Park",
+        "description": "Oliwa Park is a beautifully landscaped park known for its romantic alleys, historic monuments, and serene ponds. Adjacent to the Oliwa Cathedral, it is a perfect place for a relaxing walk or picnic amid lush greenery.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best in spring and summer when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 54.4001,
+        "longitude": 18.5796,
+        "neighborhood": "Oliwa",
+        "opening_hours": {
+          "weekday": "6:00-22:00",
+          "weekend": "6:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "127",
+            "130",
+            "210"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Oliwa Cathedral indoors"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Oliwa Cathedral (Archcathedral Basilica of the Holy Trinity)",
+        "type": "Church",
+        "description": "Dating back to the 12th century, Oliwa Cathedral is famous for its impressive Baroque organ, beautiful frescoes, and Gothic architecture. The cathedral regularly hosts classical organ concerts that attract music lovers worldwide.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Organ concerts mostly in summer months",
+        "booking_tips": "Check concert schedules in advance",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.3995,
+        "longitude": 18.5793,
+        "neighborhood": "Oliwa",
+        "opening_hours": {
+          "weekday": "7:00-18:00",
+          "weekend": "7:00-18:00",
+          "notes": "Concerts scheduled seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "127",
+            "130",
+            "210"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Entirely indoor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Golden Gate (Złota Brama)",
+        "type": "Historic Site",
+        "description": "The Golden Gate is an ornate Renaissance gate marking the entrance to Gdańsk’s Old Town. It features intricate sculptures symbolizing virtues such as peace and justice, and serves as a beautiful photo spot near the Long Market.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 54.3508,
+        "longitude": 18.6479,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Crane (Żuraw)",
+        "type": "Historic Site",
+        "description": "The Crane is a medieval port crane on the Motława River, once used to load cargo and erect ship masts. Today it houses a maritime museum and is a symbol of Gdańsk’s rich shipbuilding history.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; outdoor riverfront is scenic in summer",
+        "booking_tips": "Buy combined tickets with nearby museums",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.3492,
+        "longitude": 18.6542,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor maritime museum"
+        },
+        "official_url": "https://muzeumgdansk.pl/en/",
+        "website": "https://muzeumgdansk.pl/en/"
+      },
+      {
+        "name": "Amber Museum",
+        "type": "Museum",
+        "description": "Located in a historic granary on the Motława River, the Amber Museum showcases the history and artistry of Baltic amber. Exhibits include unique amber specimens, jewelry, and interactive displays on amber extraction and trade.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round",
+        "booking_tips": "Small museum, no need to book in advance",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 54.3489,
+        "longitude": 18.653,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://muzeumgdansk.pl/en/",
+        "website": "https://muzeumgdansk.pl/en/"
+      },
+      {
+        "name": "Mariacka Street",
+        "type": "Historic Site",
+        "description": "Mariacka Street is a charming cobblestone street famous for its amber shops, historic townhouses, and quaint cafes. It offers a picturesque atmosphere perfect for strolling and shopping for authentic Baltic amber souvenirs.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Bustling in summer and during festivals",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 54.3501,
+        "longitude": 18.6482,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Shops open 10:00-18:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor amber museum nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Gdańsk Shipyard",
+        "type": "Historic Site",
+        "description": "The Gdańsk Shipyard is the birthplace of the Solidarity movement, which played a key role in ending communist rule in Poland. Visitors can explore memorials, murals, and parts of the shipyard that remain active today.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor site best visited in warmer months",
+        "booking_tips": "Guided tours recommended for deeper insight",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 54.3712,
+        "longitude": 18.6258,
+        "neighborhood": "Letnica",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "212"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit European Solidarity Centre indoors"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Brzeźno Beach",
+        "type": "Beach",
+        "description": "Brzeźno Beach is a sandy Baltic Sea beach located just north of Gdańsk city center. It offers a relaxing seaside escape with a pier, walking paths, and cafes, popular with locals and visitors especially in summer.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited late spring to early autumn",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 54.3944,
+        "longitude": 18.6417,
+        "neighborhood": "Brzeźno",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Seasonal lifeguards present in summer"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "112",
+            "138"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor aquariums or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Gdańsk Botanical Garden",
+        "type": "Park",
+        "description": "Part of the University of Gdańsk, the Botanical Garden hosts a diverse collection of plants from Poland and worldwide. It offers tranquil walking trails, thematic gardens, and seasonal exhibitions, ideal for nature enthusiasts.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best in spring and summer; some greenhouses open year-round",
+        "booking_tips": "Tickets available at entrance; guided tours on request",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 54.3529,
+        "longitude": 18.5647,
+        "neighborhood": "Wrzeszcz",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "9:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "110",
+            "128",
+            "227"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby indoor museums"
+        },
+        "official_url": "https://ogrod.ug.edu.pl/en/",
+        "website": "https://ogrod.ug.edu.pl/en/"
+      },
+      {
+        "name": "Artus Court (Dwór Artusa)",
+        "type": "Historic Site|Museum",
+        "description": "Artus Court is a historic merchant meeting hall and a symbol of Gdańsk’s Golden Age. Today it operates as a museum showcasing exquisite interiors, paintings, and artifacts related to the city's trading history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round",
+        "booking_tips": "Purchase tickets combined with other museums for savings",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.3512,
+        "longitude": 18.6473,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.75,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://muzeumgdansk.pl/en/",
+        "website": "https://muzeumgdansk.pl/en/"
+      },
+      {
+        "name": "Gdańsk Zoo",
+        "type": "Zoo",
+        "description": "Located in the Oliwa district, Gdańsk Zoo is home to over 1,000 animals representing hundreds of species. The zoo features naturalistic habitats, educational programs, and a playground, making it a family-friendly attraction.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open from spring to late autumn; limited winter hours",
+        "booking_tips": "Buy tickets online during peak season",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 54.3908,
+        "longitude": 18.584,
+        "neighborhood": "Oliwa",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Shorter winter hours, usually 10:00-16:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "127",
+            "130"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby museums indoors"
+        },
+        "official_url": "https://zoo.gda.pl/en/",
+        "website": "https://zoo.gda.pl/en/"
+      },
+      {
+        "name": "Mariacka Gate",
+        "type": "Historic Site",
+        "description": "Mariacka Gate is a medieval city gate located at the southern end of Mariacka Street. It offers insight into Gdańsk’s fortifications and is a charming architectural feature often overlooked by tourists.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Accessible year-round",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 54.3495,
+        "longitude": 18.6462,
+        "neighborhood": "Main Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "111",
+            "117",
+            "127"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Główne Miasto",
+        "alternate_names": [
+          "Main City",
+          "Old Town"
+        ],
+        "character": "Główne Miasto is the historic heart of Gdańsk, where colorful medieval buildings line cobblestone streets bustling with tourists and locals alike. The vibe is a captivating blend of old-world charm and lively cultural energy.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of Gdańsk, directly on the Motława River waterfront",
+          "borders": [
+            "Stare Przedmieście",
+            "Śródmieście"
+          ],
+          "landmarks": [
+            "Neptune Fountain",
+            "Golden Gate",
+            "St. Mary's Church"
+          ]
+        },
+        "history": {
+          "overview": "Founded in the Middle Ages, Główne Miasto was the commercial and political center of the Hanseatic League port city.",
+          "significance": "It remains the symbol of Gdańsk’s rich maritime and mercantile heritage.",
+          "notable_events": [
+            "Reconstruction after WWII destruction",
+            "Solidarity movement origins nearby"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Gdańsk Główny railway station",
+            "Main tram lines 2, 6, 8"
+          ],
+          "safety": "High safety, popular among tourists",
+          "best_time_to_visit": "Late spring to early autumn for festivals and mild weather",
+          "walkability": "Extremely walkable with pedestrian-only streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Museums and galleries",
+            "Riverside promenade",
+            "Shopping for amber",
+            "Street performers"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Vibrant",
+            "Picturesque"
+          ],
+          "best_for": [
+            "History buffs",
+            "First-time visitors",
+            "Photographers",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "St. Mary's Church",
+              "type": "Religious / Historic",
+              "description": "One of the largest brick churches in Europe with stunning Gothic architecture.",
+              "appeal": "Offers panoramic views from the tower and rich interior art."
+            },
+            {
+              "name": "Neptune Fountain",
+              "type": "Monument",
+              "description": "Iconic 17th-century fountain symbolizing Gdańsk’s maritime heritage.",
+              "appeal": "Popular photo spot and city emblem."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restauracja Gdańska",
+              "cuisine": "Polish, Traditional",
+              "price_range": "€€",
+              "known_for": "Classic Pomeranian dishes and amber-infused cocktails",
+              "atmosphere": "Cozy, historic interior with nautical decor"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to avoid crowds at main attractions.",
+          "Explore side alleys for charming artisan shops and quieter cafes.",
+          "Check local event calendars for open-air concerts in the summer."
+        ]
+      },
+      {
+        "name": "Wrzeszcz",
+        "alternate_names": [
+          "Wrzeszcz Dolny",
+          "Wrzeszcz Górny"
+        ],
+        "character": "Wrzeszcz is a dynamic, trendy district combining modern urban life with artistic flair and youthful energy. Cafes, galleries, and boutique shops thrive alongside tech hubs and student residences.",
+        "location": {
+          "central": false,
+          "description": "West of Gdańsk city center, connected by tram and train lines",
+          "borders": [
+            "Zaspa",
+            "Suchanino",
+            "Śródmieście"
+          ],
+          "landmarks": [
+            "Galeria Bałtycka",
+            "Park Jaśkowej Doliny",
+            "Opera Bałtycka"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class neighborhood, Wrzeszcz evolved into a cultural hotspot during the late 20th century.",
+          "significance": "Now a creative and commercial hub attracting young professionals and artists.",
+          "notable_events": [
+            "Post-communist urban revitalization",
+            "Growth of cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Wrzeszcz railway station",
+            "Tram lines 3, 4, 5"
+          ],
+          "safety": "Generally safe with some busy nightlife areas",
+          "best_time_to_visit": "Spring through fall for outdoor terraces and festivals",
+          "walkability": "Walkable, with some hilly areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Contemporary art galleries",
+            "Trendy cafes",
+            "Live music venues",
+            "Shopping malls",
+            "Parks"
+          ],
+          "atmosphere": [
+            "Hip",
+            "Energetic",
+            "Creative"
+          ],
+          "best_for": [
+            "Young travelers",
+            "Art lovers",
+            "Nightlife seekers",
+            "Urban explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Opera Bałtycka",
+              "type": "Performing Arts",
+              "description": "Modern opera house hosting a variety of shows from classical to contemporary.",
+              "appeal": "Cultural centerpiece for music and theater lovers."
+            },
+            {
+              "name": "Park Jaśkowej Doliny",
+              "type": "Park",
+              "description": "A peaceful green retreat with walking trails and natural scenery.",
+              "appeal": "Great spot for relaxation and outdoor activities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Drukarnia Cafe",
+              "cuisine": "Coffee & Light Bites",
+              "price_range": "€",
+              "known_for": "Specialty coffee and vegan pastries",
+              "atmosphere": "Laid-back, artsy vibe"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore the small side streets for graffiti art and independent shops.",
+          "Try the weekend brunches at local cafes popular with students.",
+          "Visit Galeria Bałtycka early on weekends to avoid crowds."
+        ]
+      },
+      {
+        "name": "Oliwa",
+        "alternate_names": [
+          "Oliwa Park District"
+        ],
+        "character": "Oliwa is a leafy, serene neighborhood known for its expansive parks, historic cathedral, and a calm residential feel. It offers a tranquil escape from the urban bustle with a strong cultural presence.",
+        "location": {
+          "central": false,
+          "description": "Northwest of Gdańsk center, near the coast",
+          "borders": [
+            "Przymorze",
+            "Wrzeszcz"
+          ],
+          "landmarks": [
+            "Oliwa Cathedral",
+            "Oliwa Park",
+            "Gdańsk Zoo"
+          ]
+        },
+        "history": {
+          "overview": "Originally a monastery village, Oliwa became famous for its baroque cathedral and peaceful gardens.",
+          "significance": "A center of religious and cultural history with preserved parkland.",
+          "notable_events": [
+            "Construction of Oliwa Cathedral (12th century)",
+            "Development of Oliwa Park in the 18th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Oliwa railway station",
+            "Bus lines 127, 210"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Spring and summer for park blooms and open-air concerts",
+          "walkability": "Highly walkable with extensive green paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Oliwa Cathedral organ concerts",
+            "Botanical gardens",
+            "Quiet walks",
+            "Local markets"
+          ],
+          "atmosphere": [
+            "Peaceful",
+            "Historic",
+            "Green"
+          ],
+          "best_for": [
+            "Nature lovers",
+            "Families",
+            "Cultural tourists",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Oliwa Cathedral",
+              "type": "Religious / Historic",
+              "description": "Known for its magnificent baroque organ and beautiful stained glass windows.",
+              "appeal": "Famous venue for classical music concerts."
+            },
+            {
+              "name": "Oliwa Park",
+              "type": "Park / Garden",
+              "description": "A sprawling landscaped park with ponds, sculptures, and walking paths.",
+              "appeal": "Ideal for leisurely strolls and picnics."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restauracja Kubicki",
+              "cuisine": "Polish, European",
+              "price_range": "€€",
+              "known_for": "Traditional Pomeranian dishes with modern twists",
+              "atmosphere": "Elegant and calm"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Attend an organ concert at Oliwa Cathedral if possible.",
+          "Visit the park early in the morning to see local birdlife.",
+          "Try local honey and jams at Oliwa’s weekend market."
+        ]
+      },
+      {
+        "name": "Zaspa",
+        "alternate_names": [
+          "Zaspa-Młyniec"
+        ],
+        "character": "Zaspa is a large residential neighborhood characterized by Soviet-era apartment blocks interspersed with green spaces and playgrounds. It offers a glimpse into post-war urban planning with a practical, no-frills atmosphere.",
+        "location": {
+          "central": false,
+          "description": "Northwest of central Gdańsk, near the coast and Gdańsk Lech Wałęsa Airport",
+          "borders": [
+            "Przymorze",
+            "Wrzeszcz"
+          ],
+          "landmarks": [
+            "Zaspa Murals",
+            "Park Reagana"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the 1960s-70s as a mass housing project during the communist era.",
+          "significance": "Represents the social and architectural history of post-war Poland.",
+          "notable_events": [
+            "Construction of large-scale housing estates",
+            "Emergence of street art murals in recent years"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Zaspa tram stops",
+            "Bus lines 116, 210"
+          ],
+          "safety": "Moderate safety with active community policing",
+          "best_time_to_visit": "Summer for outdoor mural tours and park activities",
+          "walkability": "Moderately walkable with wide sidewalks and green belts"
+        },
+        "appeal": {
+          "known_for": [
+            "Street art murals",
+            "Affordable housing",
+            "Community parks",
+            "Proximity to beach"
+          ],
+          "atmosphere": [
+            "Functional",
+            "Community-oriented",
+            "Green"
+          ],
+          "best_for": [
+            "Budget travelers",
+            "Urban explorers",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Zaspa Murals",
+              "type": "Street Art",
+              "description": "Large-scale colorful murals painted on apartment blocks, showcasing urban art.",
+              "appeal": "Popular for photography and cultural walking tours."
+            },
+            {
+              "name": "Park Reagana",
+              "type": "Park",
+              "description": "A spacious park with walking paths, playgrounds, and sports facilities.",
+              "appeal": "Great for outdoor activities and family outings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Mleczny Zaspa",
+              "cuisine": "Traditional Polish",
+              "price_range": "€",
+              "known_for": "Affordable pierogi and hearty home-style meals",
+              "atmosphere": "Casual and local"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Take a guided mural tour to learn about the stories behind the street art.",
+          "Visit early evening when local families gather in the parks.",
+          "Try the local milk bars for authentic, low-cost Polish food."
+        ]
+      },
+      {
+        "name": "Stogi",
+        "alternate_names": [
+          "Wyspa Portowa"
+        ],
+        "character": "Stogi is a coastal neighborhood offering a laid-back beach atmosphere mixed with industrial port activity. It’s ideal for visitors seeking seaside relaxation away from the busy city center.",
+        "location": {
+          "central": false,
+          "description": "East of Gdańsk, on a peninsula extending into the Baltic Sea",
+          "borders": [
+            "Przeróbka",
+            "Letnica"
+          ],
+          "landmarks": [
+            "Stogi Beach",
+            "Gdańsk Oil Terminal"
+          ]
+        },
+        "history": {
+          "overview": "Originally a fishing village, Stogi developed into a key port and beach resort area in the 20th century.",
+          "significance": "Combines maritime industry with recreational seaside amenities.",
+          "notable_events": [
+            "Post-war development of beach infrastructure",
+            "Growth as a local holiday destination"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Tram line 8",
+            "Bus 111"
+          ],
+          "safety": "Safe, especially near the beach areas",
+          "best_time_to_visit": "Summer months for beach activities",
+          "walkability": "Walkable along the coastline and residential streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Long sandy beach",
+            "Water sports",
+            "Fishing industry",
+            "Seaside restaurants"
+          ],
+          "atmosphere": [
+            "Relaxed",
+            "Maritime",
+            "Casual"
+          ],
+          "best_for": [
+            "Beachgoers",
+            "Families",
+            "Outdoor enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 1,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Stogi Beach",
+              "type": "Beach",
+              "description": "A wide, sandy beach popular for swimming, sunbathing, and windsurfing.",
+              "appeal": "Cleaner and less crowded than central city beaches."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Przystań",
+              "cuisine": "Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh fish dishes and casual outdoor seating",
+              "atmosphere": "Rustic and friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Bring a bike to explore the coastal trails around the peninsula.",
+          "Visit early morning for peaceful beach walks and sunrise views.",
+          "Try local Baltic fish specialties at seaside bars."
+        ]
+      },
+      {
+        "name": "Śródmieście",
+        "alternate_names": [
+          "Downtown Gdańsk"
+        ],
+        "character": "Śródmieście is the modern commercial and administrative center of Gdańsk, featuring a mix of office buildings, shopping centers, and cultural institutions. It buzzes with urban energy while offering convenient access to transportation.",
+        "location": {
+          "central": true,
+          "description": "Directly adjacent and south of Główne Miasto",
+          "borders": [
+            "Główne Miasto",
+            "Wrzeszcz",
+            "Oliwa"
+          ],
+          "landmarks": [
+            "Gdańsk Główny railway station",
+            "Europejskie Centrum Solidarności"
+          ]
+        },
+        "history": {
+          "overview": "Developed primarily in the 19th and 20th centuries as the city expanded beyond its medieval core.",
+          "significance": "Home to key government buildings and business hubs in contemporary Gdańsk.",
+          "notable_events": [
+            "Post-war reconstruction",
+            "Birthplace of Solidarity movement landmarks"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Gdańsk Główny station",
+            "Tram lines 2, 4, 6, 8"
+          ],
+          "safety": "High safety with frequent police presence",
+          "best_time_to_visit": "Year-round, especially during business hours and cultural events",
+          "walkability": "Highly walkable with good pedestrian infrastructure"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping malls",
+            "Business district",
+            "Modern architecture",
+            "Cultural centers"
+          ],
+          "atmosphere": [
+            "Professional",
+            "Busy",
+            "Contemporary"
+          ],
+          "best_for": [
+            "Business travelers",
+            "Urban tourists",
+            "Conference attendees"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Europejskie Centrum Solidarności",
+              "type": "Museum",
+              "description": "Modern museum dedicated to the history of the Solidarity movement and Poland’s struggle for freedom.",
+              "appeal": "Educational and inspiring with interactive exhibits."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restauracja Filharmonia",
+              "cuisine": "European, Polish",
+              "price_range": "€€€",
+              "known_for": "Fine dining with views over the Motława River",
+              "atmosphere": "Elegant and refined"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Use the Gdańsk Główny station as a transport hub to explore other neighborhoods.",
+          "Visit the museum’s rooftop terrace for city views.",
+          "Explore nearby side streets for hidden cafes and boutiques."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Restauracja Pod Łososiem",
+          "cuisine_type": "Polish, Seafood",
+          "description": "Historic restaurant known for refined Polish cuisine and fresh Baltic seafood in an elegant setting dating back to the 16th century.",
+          "price_range": "€€€",
+          "atmosphere": "Classic, upscale, with a historic charm",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "business dinners",
+            "special occasions"
+          ],
+          "latitude": 54.3521,
+          "longitude": 18.6466,
+          "reservation_needed": true,
+          "local_tips": "Try their signature Baltic herring dishes and book a table by the window overlooking Long Market."
+        },
+        {
+          "name": "Metamorfoza",
+          "cuisine_type": "Modern Polish, European",
+          "description": "Innovative fine dining with a focus on seasonal Polish ingredients and modern culinary techniques.",
+          "price_range": "€€€",
+          "atmosphere": "Intimate, sophisticated, artistic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "foodies",
+            "date night",
+            "gourmet experiences"
+          ],
+          "latitude": 54.3525,
+          "longitude": 18.6468,
+          "reservation_needed": true,
+          "local_tips": "Opt for the tasting menu paired with local wines for a complete experience."
+        },
+        {
+          "name": "Goldwasser Restaurant",
+          "cuisine_type": "Polish, European",
+          "description": "Named after the famous local herbal vodka, serving traditional Polish dishes with a modern twist in an elegant interior.",
+          "price_range": "€€€",
+          "atmosphere": "Historic, elegant, cozy",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "romantic dinners",
+            "family gatherings"
+          ],
+          "latitude": 54.3519,
+          "longitude": 18.6472,
+          "reservation_needed": true,
+          "local_tips": "Try the pierogi and the Goldwasser liqueur to complete your meal."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Pierogarnia Mandu",
+          "cuisine_type": "Polish",
+          "description": "Specializes in freshly made pierogi with a variety of traditional and inventive fillings at affordable prices.",
+          "price_range": "€",
+          "atmosphere": "Casual, friendly, bustling",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "quick meals",
+            "families",
+            "budget travelers"
+          ],
+          "latitude": 54.3522,
+          "longitude": 18.648,
+          "reservation_needed": false,
+          "local_tips": "Try the meat and mushroom pierogi, a local favorite."
+        },
+        {
+          "name": "Bar Mleczny Neptun",
+          "cuisine_type": "Polish",
+          "description": "Classic Polish milk bar offering traditional, hearty home-style meals at very low prices.",
+          "price_range": "€",
+          "atmosphere": "Unpretentious, nostalgic, local",
+          "neighborhood": "Main City",
+          "best_for": [
+            "budget meals",
+            "authentic local experience"
+          ],
+          "latitude": 54.3528,
+          "longitude": 18.6505,
+          "reservation_needed": false,
+          "local_tips": "Try the żurek soup or kotlet schabowy for a true Polish comfort food experience."
+        },
+        {
+          "name": "Fellini",
+          "cuisine_type": "Italian, Pizza",
+          "description": "Popular Italian eatery serving authentic wood-fired pizzas and pasta in a cozy atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, family-friendly",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "families",
+            "casual dining"
+          ],
+          "latitude": 54.353,
+          "longitude": 18.6475,
+          "reservation_needed": false,
+          "local_tips": "Their margherita pizza is a crowd-pleaser; arrive early on weekends."
+        },
+        {
+          "name": "Restauracja Targ Rybny",
+          "cuisine_type": "Seafood, Polish",
+          "description": "Casual spot near the fish market offering fresh Baltic seafood and traditional Polish dishes.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed, authentic, market vibe",
+          "neighborhood": "Fish Market",
+          "best_for": [
+            "seafood lovers",
+            "lunch",
+            "casual dining"
+          ],
+          "latitude": 54.3507,
+          "longitude": 18.6537,
+          "reservation_needed": false,
+          "local_tips": "Visit during lunchtime for the freshest catch specials."
+        },
+        {
+          "name": "Piwna 47 Food & Wine",
+          "cuisine_type": "Polish, European",
+          "description": "Trendy yet casual restaurant and wine bar serving Polish and European dishes with a curated wine list.",
+          "price_range": "€€",
+          "atmosphere": "Modern, cozy, trendy",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "friends",
+            "wine lovers"
+          ],
+          "latitude": 54.3515,
+          "longitude": 18.647,
+          "reservation_needed": true,
+          "local_tips": "Ask for wine pairing suggestions to complement the seasonal menu."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Hala Targowa (Gdańsk Market Hall)",
+          "cuisine_type": "Various street foods, Polish specialties",
+          "description": "Historic indoor market with stalls offering fresh produce, pierogi, sausages, and local snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling, vibrant, local",
+          "neighborhood": "City Center",
+          "best_for": [
+            "quick bites",
+            "local flavors",
+            "market exploration"
+          ],
+          "latitude": 54.3526,
+          "longitude": 18.6554,
+          "reservation_needed": false,
+          "local_tips": "Try the smoked fish stalls and sample local cheeses."
+        },
+        {
+          "name": "Food Trucks at Plac Zebrań Ludowych",
+          "cuisine_type": "International & Polish street food",
+          "description": "Cluster of popular food trucks offering everything from zapiekanka to gourmet burgers and vegan options.",
+          "price_range": "€",
+          "atmosphere": "Casual, outdoor, lively",
+          "neighborhood": "City Center",
+          "best_for": [
+            "casual meals",
+            "groups",
+            "street food lovers"
+          ],
+          "latitude": 54.3489,
+          "longitude": 18.6533,
+          "reservation_needed": false,
+          "local_tips": "Visit on weekends for the widest selection and live music."
+        },
+        {
+          "name": "Zapiekanki Stalls on Piwna Street",
+          "cuisine_type": "Polish street food",
+          "description": "Famous for serving the iconic Polish open-faced baguette pizza known as zapiekanka, topped with mushrooms, cheese, and various extras.",
+          "price_range": "€",
+          "atmosphere": "Informal, quick, popular with locals and tourists",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "snacks",
+            "late night food",
+            "budget travelers"
+          ],
+          "latitude": 54.352,
+          "longitude": 18.646,
+          "reservation_needed": false,
+          "local_tips": "Try the classic mushroom and cheese zapiekanka with a splash of ketchup."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Drunk Cherry",
+          "cuisine_type": "Cocktails, Polish spirits",
+          "description": "Trendy cocktail bar specializing in creative drinks using local Polish spirits and seasonal ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Hip, intimate, modern",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 54.3528,
+          "longitude": 18.6465,
+          "reservation_needed": true,
+          "local_tips": "Ask the bartender for a cherry-themed cocktail inspired by the city’s fruit orchards."
+        },
+        {
+          "name": "Brovarnia Gdańsk",
+          "cuisine_type": "Craft beer, Polish pub fare",
+          "description": "Brewpub offering house-made beers and traditional Polish dishes in a lively, rustic setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, social",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "beer lovers",
+            "casual nights out"
+          ],
+          "latitude": 54.3524,
+          "longitude": 18.6469,
+          "reservation_needed": false,
+          "local_tips": "Try the Baltic Porter, a local beer specialty."
+        },
+        {
+          "name": "Bunkier",
+          "cuisine_type": "Cocktails, International bar snacks",
+          "description": "Eclectic bar housed in a WWII-era bunker offering creative cocktails and a unique historical atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Quirky, underground, cozy",
+          "neighborhood": "Wrzeszcz",
+          "best_for": [
+            "alternative scene",
+            "unique ambiance"
+          ],
+          "latitude": 54.3801,
+          "longitude": 18.6275,
+          "reservation_needed": false,
+          "local_tips": "Perfect place for craft cocktails after a day exploring the city."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Drukarnia Cafe",
+          "cuisine_type": "Coffee, pastries",
+          "description": "Artistic cafe known for quality coffee, homemade cakes, and a relaxed atmosphere with art exhibitions.",
+          "price_range": "€",
+          "atmosphere": "Cozy, artsy, quiet",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee lovers",
+            "reading",
+            "work/study"
+          ],
+          "latitude": 54.3523,
+          "longitude": 18.6467,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal pastries paired with their signature espresso."
+        },
+        {
+          "name": "Cafe Kamienica",
+          "cuisine_type": "Coffee, light meals",
+          "description": "Charming cafe with a vintage interior serving excellent coffee, teas, and light Polish-inspired snacks.",
+          "price_range": "€",
+          "atmosphere": "Warm, vintage, intimate",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "brunch",
+            "relaxing",
+            "friends"
+          ],
+          "latitude": 54.3531,
+          "longitude": 18.6471,
+          "reservation_needed": false,
+          "local_tips": "Visit for their homemade cakes and enjoy the cozy ambiance."
+        },
+        {
+          "name": "Pijalnia Czekolady E. Wedel",
+          "cuisine_type": "Chocolate, desserts",
+          "description": "Famous Polish chocolate brand’s cafe serving rich hot chocolate, cakes, and pralines.",
+          "price_range": "€",
+          "atmosphere": "Sweet, inviting, family-friendly",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "dessert lovers",
+            "families",
+            "couples"
+          ],
+          "latitude": 54.352,
+          "longitude": 18.6462,
+          "reservation_needed": false,
+          "local_tips": "Try the signature hot chocolate with whipped cream, a true Polish treat."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Gdańsk Food Walking Tour",
+        "description": "Guided walking tour through Old Town sampling traditional Polish dishes like pierogi, smoked fish, and local pastries.",
+        "price_range": "€€",
+        "location": "Old Town",
+        "duration_minutes": 180,
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable shoes and come hungry to try authentic local specialties."
+      },
+      {
+        "name": "Pierogi Cooking Class",
+        "description": "Hands-on cooking workshop where guests learn to make classic Polish pierogi from scratch and enjoy their creations.",
+        "price_range": "€€",
+        "location": "City Center",
+        "duration_minutes": 120,
+        "reservation_needed": true,
+        "local_tips": "Book in advance, classes fill up quickly especially in summer."
+      },
+      {
+        "name": "Visit to Hala Targowa Market",
+        "description": "Explore Gdańsk's vibrant indoor market with a guide to discover fresh produce, Baltic seafood, and traditional Polish ingredients.",
+        "price_range": "Free to explore, tasting extras €",
+        "location": "City Center",
+        "duration_minutes": 90,
+        "reservation_needed": false,
+        "local_tips": "Try smoked fish and regional cheeses; morning visits are best for freshness."
+      },
+      {
+        "name": "Baltic Fish Tasting Experience",
+        "description": "Tasting session focused on Baltic Sea fish including herring, cod, and salmon, paired with local breads and vodkas.",
+        "price_range": "€€",
+        "location": "Old Town",
+        "duration_minutes": 90,
+        "reservation_needed": true,
+        "local_tips": "Ideal for seafood lovers wanting to understand local fish traditions."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh wild garlic soups and salads",
+        "Asparagus dishes – white asparagus with hollandaise sauce",
+        "Seasonal fresh berry desserts"
+      ],
+      "summer": [
+        "Cold beetroot soup (chłodnik)",
+        "Grilled Baltic fish and seafood",
+        "Fresh strawberries and cherries from local orchards"
+      ],
+      "autumn": [
+        "Mushroom dishes featuring local wild mushrooms",
+        "Game meats like venison stews",
+        "Apple-based desserts and fresh apple cider"
+      ],
+      "winter": [
+        "Hearty żurek soup with sausage and egg",
+        "Traditional pierogi with meat and sauerkraut fillings",
+        "Mulled wine and spiced honey vodka (miód pitny)"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "hourly",
+            "price_range": "€15-€35",
+            "operator": "PKP Intercity",
+            "notes": "Direct high-speed trains available; comfortable and scenic route."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "hourly",
+            "price_range": "€10-€20",
+            "operator": "FlixBus",
+            "notes": "Budget-friendly option with multiple daily departures."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "Deutsche Bahn / PKP Intercity",
+            "notes": "One transfer in Poznań; comfortable international connection."
+          },
+          {
+            "type": "bus",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; cheaper but longer journey."
+          }
+        ]
+      },
+      {
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€40-€100",
+            "operator": "LOT Polish Airlines, SAS",
+            "notes": "Direct flights from Gdańsk Lech Wałęsa Airport; frequent daily departures."
+          },
+          {
+            "type": "train",
+            "duration": "10h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€90",
+            "operator": "DB, DSB, PKP",
+            "notes": "Requires multiple transfers via Berlin and Hamburg."
+          }
+        ]
+      },
+      {
+        "city": "Stockholm",
+        "country": "Sweden",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "LOT Polish Airlines, SAS",
+            "notes": "Direct flights available; fastest way to reach Sweden from Gdańsk."
+          },
+          {
+            "type": "ferry",
+            "duration": "overnight ~18h",
+            "frequency": "weekly",
+            "price_range": "€50-€100",
+            "operator": "Polferries",
+            "notes": "Ferry route from Gdańsk to Nynäshamn near Stockholm; combined with bus/train connections."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "9h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€45",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; economical but long journey."
+          },
+          {
+            "type": "train",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "ČD, PKP Intercity",
+            "notes": "One or two transfers, often via Wrocław or Warsaw."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€50-€110",
+            "operator": "KLM, LOT Polish Airlines",
+            "notes": "Direct flights from Gdańsk Airport; convenient for business and leisure travelers."
+          },
+          {
+            "type": "bus",
+            "duration": "14h",
+            "frequency": "daily",
+            "price_range": "€35-€60",
+            "operator": "FlixBus",
+            "notes": "Long-distance coach with overnight options."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "Brussels Airlines, LOT",
+            "notes": "Direct flights available; well connected with European hubs."
+          },
+          {
+            "type": "train",
+            "duration": "12h",
+            "frequency": "daily",
+            "price_range": "€70-€130",
+            "operator": "Thalys, PKP",
+            "notes": "Multiple transfers, often via Berlin and Cologne."
+          }
+        ]
+      },
+      {
+        "city": "Kaliningrad",
+        "country": "Russia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Local carriers",
+            "notes": "Border crossing required; passport and visa needed."
+          }
+        ]
+      },
+      {
+        "city": "Stockholm",
+        "country": "Sweden",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "LOT Polish Airlines, SAS",
+            "notes": "Direct flights available; fastest way to reach Sweden."
+          },
+          {
+            "type": "ferry",
+            "duration": "overnight ~18h",
+            "frequency": "weekly",
+            "price_range": "€50-€100",
+            "operator": "Polferries",
+            "notes": "Ferry route to Nynäshamn; combined with bus/train to Stockholm."
+          }
+        ]
+      },
+      {
+        "city": "Oslo",
+        "country": "Norway",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€70-€130",
+            "operator": "Norwegian Air Shuttle, LOT",
+            "notes": "Direct flights from Gdańsk Lech Wałęsa Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "overnight 18h",
+            "frequency": "weekly",
+            "price_range": "€50-€90",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus via Copenhagen and Gothenburg."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "St. Dominic's Fair",
+        "type": "festival",
+        "description": "One of the largest and oldest fairs in Europe, featuring artisan stalls, street performances, and traditional Polish foods.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Main Town, Gdańsk",
+        "price": "Free"
+      },
+      {
+        "name": "Oliwa Park Walks",
+        "type": "outdoor",
+        "description": "Enjoy blooming flowers and peaceful walking paths in this historic park surrounding Oliwa Cathedral.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Oliwa Park",
+        "price": "Free"
+      },
+      {
+        "name": "Spring Cycling Tours",
+        "type": "sport",
+        "description": "Explore Gdańsk and nearby seaside routes by bike, taking advantage of mild spring weather and less crowded paths.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "City-wide bike routes",
+        "price": "Budget"
+      },
+      {
+        "name": "Traditional Pierogi Tasting",
+        "type": "food",
+        "description": "Sample seasonal pierogi varieties filled with fresh spring vegetables and herbs at local eateries.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Various restaurants in Old Town",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "St. Dominic's Fair",
+        "type": "festival",
+        "description": "A vibrant summer continuation of the historic fair with crafts, concerts, and street food.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Main Town, Gdańsk",
+        "price": "Free"
+      },
+      {
+        "name": "Beach Days at Brzeźno",
+        "type": "outdoor",
+        "description": "Relax or swim at the popular sandy beach with amenities and promenade cafes.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Brzeźno Beach",
+        "price": "Free"
+      },
+      {
+        "name": "Gdańsk Shakespeare Festival",
+        "type": "cultural",
+        "description": "International theater festival hosting productions of Shakespeare’s plays and related performances.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Various theaters and outdoor stages",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Sailing on the Motława River",
+        "type": "sport",
+        "description": "Rent a small sailboat or join group tours to explore the harbor and coastline from the water.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Motława River Marina",
+        "price": "Budget to Moderate"
+      },
+      {
+        "name": "Fresh Baltic Seafood Dining",
+        "type": "food",
+        "description": "Enjoy locally caught fish and shellfish at seaside restaurants, highlighting summer flavors.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Harborfront eateries",
+        "price": "Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "European Solidarity Centre Visit",
+        "type": "cultural",
+        "description": "Explore exhibitions about the Solidarity movement and Poland’s path to democracy in cooler autumn months.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "European Solidarity Centre",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Walks in Tricity Landscape Park",
+        "type": "outdoor",
+        "description": "Experience colorful foliage and serene nature trails perfect for hiking and photography.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Tricity Landscape Park",
+        "price": "Free"
+      },
+      {
+        "name": "Chestnut and Mushroom Foraging",
+        "type": "outdoor",
+        "description": "Join guided tours to collect autumn mushrooms and chestnuts in nearby forests.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Forests around Gdańsk",
+        "price": "Budget"
+      },
+      {
+        "name": "Pierogi and Cabbage Soup Festivals",
+        "type": "food",
+        "description": "Celebrate traditional Polish autumn dishes like pierogi with mushroom fillings and hearty cabbage soups.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Local restaurants and markets",
+        "price": "Moderate"
+      },
+      {
+        "name": "Amber Museum Visit",
+        "type": "cultural",
+        "description": "Discover the history and craftsmanship of Baltic amber, a Gdańsk specialty, indoors during cooler weather.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Amber Museum, Old Town",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Gdańsk Christmas Market",
+        "type": "festival",
+        "description": "Enjoy festive stalls with crafts, mulled wine, and traditional Polish Christmas treats in the historic Main Town.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Long Market (Długi Targ)",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating at Targ Węglowy",
+        "type": "sport",
+        "description": "Seasonal outdoor ice rink offering skate rentals and a festive atmosphere in central Gdańsk.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Targ Węglowy Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Winter Baltic Sea Walks",
+        "type": "outdoor",
+        "description": "Brave the crisp air for scenic, peaceful winter walks along the Baltic coastline with dramatic sea views.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Baltic Sea coastline near Gdańsk",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Polish Christmas Dinner",
+        "type": "food",
+        "description": "Taste festive dishes such as carp, beetroot soup, and poppy seed cakes at local restaurants during the holiday season.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Restaurants in Old Town",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Westerplatte Historical Tour",
+        "type": "cultural",
+        "description": "Visit the WWII memorial and museum on Westerplatte peninsula, with fewer tourists in winter months.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Westerplatte",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year's Day",
+            "notes": "Cold, often sub-zero temperatures and short daylight hours; very low tourist crowds. New Year's celebrations attract some visitors, but most attractions are quiet.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Very cold and often snow-covered; many outdoor attractions less accessible. Low activity in cultural events; fewer tourists but limited daylight and cold weather discourage visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 2,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather continues with occasional snow; low tourist numbers. Some indoor cultural events begin to pick up but weather remains a deterrent for most travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              28
+            ],
+            "score": 3,
+            "special": true,
+            "event": "St. Valentine's Day",
+            "notes": "Still cold but increasing daylight and romantic atmosphere around Valentine's Day improve appeal for couples. Some cultural events and cozy indoor venues attract visitors.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Transition to spring with milder temperatures; some rainy days. Tourist numbers start to rise but many outdoor attractions still quiet. Good for budget travelers seeking fewer crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Celebrations (variable March/April)",
+            "notes": "Warmer weather and Easter holidays bring moderate crowds. Traditional markets and cultural events create an engaging atmosphere; ideal for families and cultural tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom, temperatures rise to comfortable levels; light rainfall possible. Increasing outdoor activities and moderate tourist crowds make it a good month.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Gdańsk Easter Markets and cultural events",
+            "notes": "Popular time for cultural festivals and markets; pleasant weather and growing tourist activity. Good balance of activities and manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day & Constitution Day Celebrations",
+            "notes": "Warm, pleasant weather with many outdoor festivities. National holidays bring vibrant local events, lively crowds, and great opportunities for sightseeing and cultural immersion.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently warm and sunny; ideal for outdoor exploration and beach visits. Tourist season ramps up but the city still feels spacious and welcoming.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              20
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer with long daylight hours and warm but comfortable temperatures. Excellent for beach activities, sightseeing, and outdoor festivals; crowds increase but manageable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              21,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "St. John's Night (Midsummer's Eve)",
+            "notes": "One of the city's liveliest festivals with bonfires, music, and traditional celebrations. Warm weather and festive atmosphere attract many visitors; expect higher crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer season with warmest temperatures, ideal for seaside and water activities. High tourist influx, lively nightlife, and numerous cultural events. Best for active travelers who enjoy crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Gdańsk Shakespeare Festival",
+            "notes": "Warm weather continues with many open-air cultural events including the renowned Shakespeare Festival. Peak tourist season with lively atmosphere and full services.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm but starting to cool slightly late in the month. Tourist crowds begin to taper off but still considerable. Good time for those avoiding peak July congestion.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild temperatures and fewer tourists. Ideal for cultural sightseeing and comfortable outdoor activities. Crowds reduce significantly compared to summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 5,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "All Saints' Day preparations and local harvest festivals",
+            "notes": "Cooling weather and some rainy days; local festivals provide cultural interest but fewer tourists. Good for travelers seeking authentic local experiences.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Autumn colors and cooler temperatures; increasing rainfall. Tourist numbers low but many attractions remain open. Good for budget travelers and those seeking a quieter visit.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chillier weather and shorter days; some attractions begin to close early for winter. Low tourist activity and less outdoor appeal.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 2,
+            "special": true,
+            "event": "All Saints' Day (Nov 1)",
+            "notes": "Cold, damp weather with very low sunlight; local religious observances create a solemn atmosphere. Tourist traffic low and many outdoor sites less accessible.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 2,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often grey with high chance of rain or early snow; very low tourism. Most outdoor activities not recommended.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 2,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              20
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas Markets",
+            "notes": "Cold weather but festive Christmas markets and decorations enliven the city. Moderate tourist numbers with great opportunities for cultural experiences and shopping.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              21,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "New Year's Eve Celebrations",
+            "notes": "Festive atmosphere with special events and fireworks; cold but lively. Higher crowds around holidays, suitable for travelers who enjoy winter festivities.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

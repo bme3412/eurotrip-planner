@@ -1,1 +1,2488 @@
-{"city":"mostar","country":"Bosnia-and-Herzegovina","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "mostar",
+  "country": "Bosnia-and-Herzegovina",
+  "overview": {
+    "city_name": "Mostar",
+    "country": "Bosnia and Herzegovina",
+    "brief_description": "Mostar is a captivating city famed for its iconic Ottoman-era bridge, the Stari Most, which gracefully arches over the Neretva River. Blending a rich history with vibrant cultural influences, it offers visitors a unique glimpse into a resilient city's past and present. Its charming old town, cobbled streets, and riverside cafes make it a captivating destination in the Balkans.",
+    "nickname": "City of Bridges",
+    "region": "Herzegovina",
+    "population": "approximately 105,000",
+    "why_visit": [
+      "Admire the UNESCO-listed Stari Most bridge and watch the daring bridge divers",
+      "Explore the historic Old Bazaar Kujundziluk with its traditional crafts and shops",
+      "Experience the fusion of Ottoman and Mediterranean architecture",
+      "Discover poignant war history through museums and memorials"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and ideal for sightseeing and river activities",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming landscapes make it perfect for walking tours and outdoor cafes.",
+      "summer": "Hot and sunny, great for swimming in the Neretva River and enjoying lively festivals.",
+      "autumn": "Cooler weather with fewer tourists, ideal for exploring museums and enjoying local cuisine.",
+      "winter": "Chilly and quieter, some attractions may have limited hours, but the city is peaceful and atmospheric."
+    },
+    "practical_info": {
+      "currency": "Bosnia and Herzegovina Convertible Mark (BAM)",
+      "language": "Bosnian, Croatian, Serbian",
+      "visit_duration": "2 to 3 days to explore main sights and surrounding areas",
+      "getting_around": "Primarily walkable; local buses and taxis available for longer distances",
+      "safety": "Generally safe for tourists; standard precautions advised especially at night"
+    },
+    "coordinates": {
+      "latitude": 43.3438,
+      "longitude": 17.8081
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Walk across and photograph the historic Stari Most bridge",
+        "Watch the traditional bridge divers leap into the Neretva River",
+        "Visit the Old Bazaar Kujundziluk for authentic crafts and souvenirs",
+        "Tour the Museum of War and Genocide Victims 1992-1995",
+        "Explore the Koski Mehmed Pasha Mosque and climb its minaret for panoramic views"
+      ],
+      "worth_doing": [
+        "Relax at riverside cafes and try local Bosnian coffee",
+        "Visit the Partisan Cemetery designed by Bogdan Bogdanović",
+        "Discover the Turkish House (Biscevic House) for Ottoman-era architecture",
+        "Take a day trip to nearby Blagaj Tekke and Buna River spring",
+        "Sample traditional Bosnian cuisine at local konobas (taverns)"
+      ],
+      "hidden_gems": [
+        "Hike to the Kravice Waterfalls for stunning natural beauty",
+        "Explore the less-visited Muslibegović House for an intimate cultural experience",
+        "Visit the war tunnels museum to understand Mostar’s recent history",
+        "Stroll through the peaceful Čule neighborhood for authentic local life",
+        "Attend a local music or art event in the old town for cultural immersion"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Stari Most (Old Bridge)",
+        "type": "Monument",
+        "description": "An iconic 16th-century Ottoman bridge spanning the Neretva River, Stari Most is a UNESCO World Heritage site symbolizing reconciliation and connection. Rebuilt after the 1990s war destruction, it offers stunning views and traditional diving shows in summer.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Popular and crowded during summer, especially for diving events",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 43.3433,
+        "longitude": 17.8101,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Accessible year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby Museum of War and Genocide Victims"
+        },
+        "official_url": "https://whc.unesco.org/en/list/946",
+        "website": null
+      },
+      {
+        "name": "Kravice Waterfalls",
+        "type": "Natural Site",
+        "description": "Located about 40 km from Mostar, Kravice Falls is a breathtaking cascade surrounded by lush greenery. It’s a popular swimming and picnic spot during summer months with crystal-clear water and scenic walking trails.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited from late spring to early fall; closed or limited access in winter",
+        "booking_tips": "Arrive early on weekends to avoid crowds",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.1117,
+        "longitude": 17.6699,
+        "neighborhood": "Kravice Area",
+        "opening_hours": {
+          "weekday": "08:00-19:00",
+          "weekend": "08:00-19:00",
+          "notes": "Hours vary seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "Tour buses & private transfers recommended"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://kravice.com/"
+      },
+      {
+        "name": "Koski Mehmed Pasha Mosque",
+        "type": "Religious Site",
+        "description": "Dating back to 1617, this Ottoman mosque offers exquisite interior decorations and one of the best viewpoints over Stari Most and the Neretva River from its minaret, accessible to visitors.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small entrance fee; modest dress required",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3437,
+        "longitude": 17.8093,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed during prayer times"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby Museum of Herzegovina"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Herzegovina",
+        "type": "Museum",
+        "description": "This museum showcases the rich history, culture, and ethnography of the Herzegovina region with artifacts from prehistoric times to modern day. Housed in a historic building, it offers engaging exhibits on local traditions and wartime history.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Group visits recommended to book in advance",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.344,
+        "longitude": 17.808,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Biscevic House",
+        "type": "Historic Site",
+        "description": "An excellently preserved Ottoman-era house from the 17th century, Biscevic House offers insight into traditional Bosnian domestic architecture and lifestyle. The ornate wooden interiors and courtyards showcase authentic craftsmanship.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small guided tours available; check times",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3441,
+        "longitude": 17.8105,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Museum of Herzegovina"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Koski Mehmed Pasha Minaret Viewpoint",
+        "type": "Viewpoint",
+        "description": "Climb the narrow stairs to the top of Koski Mehmed Pasha Mosque's minaret for panoramic views over Mostar’s Old Town, the river, and the famous bridge. A must for photographers and history lovers alike.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Pay the small fee at mosque entrance; wear comfortable shoes",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3437,
+        "longitude": 17.8093,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed during prayer times"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Crooked Bridge (Kriva Cuprija)",
+        "type": "Monument",
+        "description": "A smaller, picturesque Ottoman stone bridge dating back to the 16th century, Kriva Cuprija is a charming and less crowded alternative to Stari Most. It offers a glimpse into traditional bridge construction and river life.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant in spring and autumn for quieter visits",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3447,
+        "longitude": 17.8132,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Always accessible"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 0.75,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Partisan Cemetery",
+        "type": "Historic Site",
+        "description": "A striking World War II monument designed by architect Bogdan Bogdanovic, featuring abstract stone sculptures symbolizing sacrifice and peace. The cemetery offers a tranquil atmosphere and panoramic views over Mostar.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Best visited in dry weather due to hillside location",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3446,
+        "longitude": 17.8072,
+        "neighborhood": "Podveležje",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Always accessible"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Croatian National Theater in Mostar",
+        "type": "Theater",
+        "description": "A cultural hub for performing arts in Mostar, this theater hosts plays, concerts, and cultural events highlighting Croatian and regional heritage. The elegant building is an architectural attraction in itself.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Check schedule for seasonal performances",
+        "booking_tips": "Advance booking recommended for popular shows",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3419,
+        "longitude": 17.803,
+        "neighborhood": "Centar",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": "Event-based schedule"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": "http://www.hnk-mostar.com/",
+        "website": "http://www.hnk-mostar.com/"
+      },
+      {
+        "name": "Mostar Old Bazaar Kujundziluk",
+        "type": "Market",
+        "description": "A lively historic bazaar street lined with traditional craft shops, souvenir stalls, and cafes. Kujundziluk reflects Mostar’s Ottoman past and is perfect for shopping local handicrafts like copperware, carpets, and jewelry.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best explored in spring and autumn to avoid summer heat",
+        "booking_tips": "Bargaining is common and expected",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.343,
+        "longitude": 17.8107,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "09:00-19:00",
+          "weekend": "09:00-17:00",
+          "notes": "Hours may vary by shop"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Croatian Lodge 'Herceg Stjepan Kosača'",
+        "type": "Cultural Center",
+        "description": "A prominent cultural institution hosting art exhibitions, concerts, and literary events, this lodge is named after a medieval Bosnian duke. It also houses a gallery with rotating exhibitions of local and international artists.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Event schedule varies seasonally",
+        "booking_tips": "Check event calendar in advance",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3442,
+        "longitude": 17.8085,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "09:00-21:00",
+          "weekend": "10:00-18:00",
+          "notes": "Hours vary by event"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of War and Genocide Victims 1992-1995",
+        "type": "Museum",
+        "description": "A sobering museum dedicated to documenting the tragic events of the Bosnian War, focusing on Mostar’s wartime history and genocide victims. Exhibits include photographs, personal stories, and artifacts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Recommended guided tours for deeper understanding",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.3439,
+        "longitude": 17.8049,
+        "neighborhood": "Centar",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Croatian Cultural Center Gallery",
+        "type": "Gallery",
+        "description": "This gallery within the Croatian Lodge exhibits contemporary local and regional artworks, including paintings, sculptures, and photography. It’s a great spot to explore Mostar’s evolving art scene.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check current exhibitions before visiting",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3443,
+        "longitude": 17.8084,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Karadoz Bey Mosque",
+        "type": "Religious Site",
+        "description": "One of Mostar’s oldest mosques, built in the 16th century, notable for its elegant Ottoman architecture and peaceful courtyard. It remains an active place of worship and a testament to the city’s multicultural heritage.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Respectful dress and behavior required; limited access during prayer times",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3445,
+        "longitude": 17.8138,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "Closed during prayer times"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Neretva River Promenade",
+        "type": "Park",
+        "description": "A scenic riverside walkway along the Neretva offering relaxing views of Mostar’s bridge and Old Town. The promenade is lined with cafes and benches, ideal for leisurely strolls or people watching.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful at sunset; can be chilly in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3435,
+        "longitude": 17.809,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby cafes indoors"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Mostar City Museum",
+        "type": "Museum",
+        "description": "Located in a traditional Ottoman house, this museum offers historical exhibits about Mostar’s urban development, cultural heritage, and multi-ethnic population. It is a great introduction to the city’s diverse past.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Combine visit with nearby Old Bazaar",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3428,
+        "longitude": 17.81,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Croatian House of Culture",
+        "type": "Cultural Center",
+        "description": "A vibrant cultural venue hosting concerts, theater performances, and community events celebrating Croatian heritage in Mostar. The center often organizes festivals and exhibitions throughout the year.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Events peak in summer and cultural holidays",
+        "booking_tips": "Check event schedule online before visiting",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3415,
+        "longitude": 17.8035,
+        "neighborhood": "Centar",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": "Event-based schedule"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Stari Grad",
+        "alternate_names": [
+          "Old Town Mostar"
+        ],
+        "character": "Stari Grad is the historic heart of Mostar, where cobblestone streets wind past Ottoman-era architecture and the iconic Stari Most bridge. It bustles with tourists admiring the blend of East and West and local artisans selling their crafts.",
+        "location": {
+          "central": true,
+          "description": "Located directly in the city center along the banks of the Neretva River",
+          "borders": [
+            "Bajrakli",
+            "Podveležje"
+          ],
+          "landmarks": [
+            "Stari Most (Old Bridge)",
+            "Koski Mehmed Pasha Mosque",
+            "Muslibegović House"
+          ]
+        },
+        "history": {
+          "overview": "Stari Grad dates back to the 15th century as the historic Ottoman center of Mostar.",
+          "significance": "It is the cultural and historic soul of the city, symbolized by the reconstructed Old Bridge.",
+          "notable_events": [
+            "Destruction of Stari Most bridge in 1993",
+            "Reconstruction and reopening of the bridge in 2004"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Old Town Bus Stop"
+          ],
+          "safety": "Generally safe but crowded with tourists",
+          "best_time_to_visit": "Spring and early autumn for mild weather and fewer crowds",
+          "walkability": "Very walkable with pedestrian-only zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Stari Most bridge",
+            "Ottoman architecture",
+            "artisan markets",
+            "museums",
+            "riverside cafes"
+          ],
+          "atmosphere": [
+            "historic",
+            "vibrant",
+            "picturesque"
+          ],
+          "best_for": [
+            "history enthusiasts",
+            "photographers",
+            "cultural travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Stari Most",
+              "type": "Historic Bridge",
+              "description": "An iconic 16th-century Ottoman bridge and UNESCO World Heritage site.",
+              "appeal": "Symbolizes Mostar’s history and resilience; perfect for photos."
+            },
+            {
+              "name": "Koski Mehmed Pasha Mosque",
+              "type": "Religious site",
+              "description": "A mosque with a minaret offering panoramic views of the city.",
+              "appeal": "Climb the minaret for stunning vistas of the Old Town."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sadrvan",
+              "cuisine": "Bosnian",
+              "price_range": "€€",
+              "known_for": "Traditional Bosnian grilled meats and stews",
+              "atmosphere": "Authentic, cozy, family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to avoid the tourist crowds at the bridge.",
+          "Check out the artisan shops off the main street for unique souvenirs.",
+          "Climb the minaret of Koski Mehmed Pasha Mosque for the best city views."
+        ]
+      },
+      {
+        "name": "Bajrakli",
+        "alternate_names": [
+          "Bajrakli Area"
+        ],
+        "character": "Bajrakli is a lively, hip neighborhood blending traditional charm with youthful energy, featuring trendy cafes, art galleries, and boutique shops. It’s a favorite hangout for locals and visitors seeking a modern twist on Mostar’s culture.",
+        "location": {
+          "central": true,
+          "description": "Just east of Stari Grad, adjacent to the Old Town",
+          "borders": [
+            "Stari Grad",
+            "Centar"
+          ],
+          "landmarks": [
+            "Bajrakli Mosque",
+            "Gallery 4 Art"
+          ]
+        },
+        "history": {
+          "overview": "Historically a residential and religious quarter centered around the Bajrakli Mosque built in the 17th century.",
+          "significance": "It represents the continuity of Mostar’s Islamic heritage amid contemporary urban life.",
+          "notable_events": [
+            "Survival of Bajrakli Mosque during conflicts",
+            "Emergence as a cultural hotspot post-war"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bajrakli Bus Stop"
+          ],
+          "safety": "Safe, popular with locals and tourists alike",
+          "best_time_to_visit": "Late spring to early autumn for outdoor café culture",
+          "walkability": "Highly walkable with narrow streets and pedestrian areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Boutique shops",
+            "Modern art galleries",
+            "Hip cafes",
+            "Street art",
+            "Nightlife spots"
+          ],
+          "atmosphere": [
+            "trendy",
+            "creative",
+            "energetic"
+          ],
+          "best_for": [
+            "young travelers",
+            "art lovers",
+            "nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Gallery 4 Art",
+              "type": "Art Gallery",
+              "description": "Showcases contemporary Bosnian artists in a cozy setting.",
+              "appeal": "Perfect spot to discover local art trends and meet creatives."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café de Alma",
+              "cuisine": "International, Coffee",
+              "price_range": "€",
+              "known_for": "Specialty coffee and creative desserts",
+              "atmosphere": "Relaxed, hip, artistic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Stop by local galleries during evening openings for a vibrant scene.",
+          "Try Bosnian craft beers at the neighborhood’s small pubs.",
+          "Walk down side streets to find hidden murals and street art."
+        ]
+      },
+      {
+        "name": "Centar",
+        "alternate_names": [
+          "City Center"
+        ],
+        "character": "Centar is Mostar’s bustling commercial hub filled with shops, banks, and modern services. It offers a more contemporary urban atmosphere contrasted with the historic Old Town.",
+        "location": {
+          "central": true,
+          "description": "West of the Neretva River, across from the Old Town",
+          "borders": [
+            "Bajrakli",
+            "Podveležje"
+          ],
+          "landmarks": [
+            "Mostar Bus Station",
+            "Mepas Mall"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the 20th century as the city expanded beyond the historic core.",
+          "significance": "Represents Mostar’s modernization and economic development.",
+          "notable_events": [
+            "Post-war reconstruction and commercial growth"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Mostar Central Bus Station"
+          ],
+          "safety": "Generally safe, busy commercial area",
+          "best_time_to_visit": "Year-round, weekdays for shopping",
+          "walkability": "Moderately walkable; some streets busy with traffic"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping centers",
+            "Banks and offices",
+            "Modern cafes",
+            "Public transport access"
+          ],
+          "atmosphere": [
+            "busy",
+            "urban",
+            "functional"
+          ],
+          "best_for": [
+            "shoppers",
+            "business travelers",
+            "those catching buses"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Mepas Mall",
+              "type": "Shopping Mall",
+              "description": "Mostar’s largest modern shopping center with international brands.",
+              "appeal": "Ideal for shopping and indoor leisure activities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kavana Kino",
+              "cuisine": "Café, Snacks",
+              "price_range": "€",
+              "known_for": "Casual coffee breaks and light meals",
+              "atmosphere": "Casual, modern, lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Use Centar as your base for catching intercity buses.",
+          "Visit Mepas Mall for souvenirs and climate-controlled shopping.",
+          "Try local pastries at smaller bakeries hidden in side streets."
+        ]
+      },
+      {
+        "name": "Podveležje",
+        "alternate_names": [],
+        "character": "Podveležje is a predominantly residential neighborhood perched on the hills east of the river, offering quiet streets and scenic views. It is favored by locals and visitors looking for a peaceful retreat from the busy center.",
+        "location": {
+          "central": false,
+          "description": "East and slightly uphill from Stari Grad across the Neretva",
+          "borders": [
+            "Stari Grad",
+            "Centar"
+          ],
+          "landmarks": [
+            "Velež Stadium",
+            "Partisan Cemetery"
+          ]
+        },
+        "history": {
+          "overview": "Developed primarily in the 20th century as a working-class neighborhood with significant WWII memorials.",
+          "significance": "Hosts important war memorials and serves as a symbol of local pride.",
+          "notable_events": [
+            "Construction of Velež Stadium",
+            "WWII Partisan commemorations"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Podveležje Bus Stop"
+          ],
+          "safety": "Safe, quiet residential area",
+          "best_time_to_visit": "Spring and summer for pleasant walks and views",
+          "walkability": "Moderately walkable; some steep streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local life",
+            "Scenic views",
+            "Sports stadium",
+            "War memorials"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "residential",
+            "authentic"
+          ],
+          "best_for": [
+            "families",
+            "sports fans",
+            "quiet stays"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Velež Stadium",
+              "type": "Sports Venue",
+              "description": "Home stadium of the local football club FK Velež Mostar.",
+              "appeal": "Catch local football matches and experience community spirit."
+            },
+            {
+              "name": "Partisan Cemetery",
+              "type": "Historic Site",
+              "description": "Memorial cemetery dedicated to WWII partisans.",
+              "appeal": "A solemn place reflecting the city's complex history."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Local Konoba",
+              "cuisine": "Bosnian",
+              "price_range": "€",
+              "known_for": "Hearty home-style Bosnian cooking",
+              "atmosphere": "Casual, family-run, authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk up to the stadium on match day for a lively local experience.",
+          "Explore the trails nearby for panoramic views of the city.",
+          "Visit the Partisan Cemetery to understand local WWII history."
+        ]
+      },
+      {
+        "name": "Marijin Dvor",
+        "alternate_names": [],
+        "character": "Marijin Dvor is a dynamic commercial and cultural district known for its theaters, cinemas, and shopping centers. It mixes contemporary urban life with a strong community vibe.",
+        "location": {
+          "central": true,
+          "description": "Southwest of the city center, along the main road leading into Mostar",
+          "borders": [
+            "Centar",
+            "Bajrakli"
+          ],
+          "landmarks": [
+            "National Theater Mostar",
+            "City Mall"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the mid-20th century as a cultural and commercial hub.",
+          "significance": "The area is a center for performing arts and modern commerce.",
+          "notable_events": [
+            "Opening of the National Theater",
+            "Post-war urban development projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Marijin Dvor Bus Stop"
+          ],
+          "safety": "Safe, well-patrolled area",
+          "best_time_to_visit": "Year-round, especially for cultural events",
+          "walkability": "Good walkability with sidewalks and crosswalks"
+        },
+        "appeal": {
+          "known_for": [
+            "Theater performances",
+            "Shopping",
+            "Cinemas",
+            "Cafes"
+          ],
+          "atmosphere": [
+            "urban",
+            "artistic",
+            "energetic"
+          ],
+          "best_for": [
+            "culture seekers",
+            "shoppers",
+            "families"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 3,
+          "nightlife": 3,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "National Theater Mostar",
+              "type": "Performing Arts Venue",
+              "description": "Hosts plays, concerts, and cultural events year-round.",
+              "appeal": "A focal point for lovers of the arts in Mostar."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restoran Lagero",
+              "cuisine": "Bosnian, International",
+              "price_range": "€€",
+              "known_for": "Fusion dishes and local specialties",
+              "atmosphere": "Modern, casual, lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check the theater schedule in advance for unique cultural experiences.",
+          "Visit City Mall for variety in shopping and dining options.",
+          "Evenings bring a vibrant but relaxed nightlife scene."
+        ]
+      },
+      {
+        "name": "Bunur",
+        "alternate_names": [],
+        "character": "Bunur is a quiet residential neighborhood on the outskirts of Mostar, known for its family homes and green spaces. It offers a peaceful atmosphere away from the tourist bustle.",
+        "location": {
+          "central": false,
+          "description": "North of the city center, along the road to the airport",
+          "borders": [
+            "Podveležje"
+          ],
+          "landmarks": [
+            "Bunur Park"
+          ]
+        },
+        "history": {
+          "overview": "Traditionally a suburban area that expanded as Mostar grew.",
+          "significance": "Reflects the city’s modern residential development and community life.",
+          "notable_events": [
+            "Recent urban expansion",
+            "Creation of Bunur Park"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bunur Bus Stop"
+          ],
+          "safety": "Very safe, family-friendly",
+          "best_time_to_visit": "Spring and summer for park activities",
+          "walkability": "Moderate; some areas require walking along roads"
+        },
+        "appeal": {
+          "known_for": [
+            "Parks and greenery",
+            "Family-friendly environment",
+            "Local markets"
+          ],
+          "atmosphere": [
+            "quiet",
+            "green",
+            "residential"
+          ],
+          "best_for": [
+            "families",
+            "nature lovers",
+            "long-term stays"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Bunur Park",
+              "type": "Park",
+              "description": "A green space popular for picnics and outdoor activities.",
+              "appeal": "Offers a relaxing natural retreat close to the city."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Local Family Bistro",
+              "cuisine": "Bosnian",
+              "price_range": "€",
+              "known_for": "Homemade traditional dishes",
+              "atmosphere": "Warm, welcoming, casual"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit Bunur Park on weekends to see locals enjoying outdoor life.",
+          "Try the seasonal produce at neighborhood markets.",
+          "Rent a bike to explore the quieter roads connecting to the city."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Hindin Han",
+          "cuisine_type": "Bosnian traditional",
+          "description": "Set in a historic Ottoman-era building, Hindin Han offers an elegant take on Bosnian classics with an emphasis on grilled meats and fresh, local ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Historic, romantic, and intimate with traditional decor",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 43.3401,
+          "longitude": 17.8103,
+          "reservation_needed": true,
+          "local_tips": "Try the slow-cooked lamb and pair it with a local Herzegovinian wine."
+        },
+        {
+          "name": "Sadrvan",
+          "cuisine_type": "Bosnian, Balkan",
+          "description": "A well-known restaurant offering authentic Bosnian dishes with an emphasis on fresh grilled meats, hearty stews, and traditional breads.",
+          "price_range": "€€€",
+          "atmosphere": "Lively and traditional with outdoor seating overlooking the river",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "families",
+            "tourists"
+          ],
+          "latitude": 43.3388,
+          "longitude": 17.8097,
+          "reservation_needed": true,
+          "local_tips": "Order the cevapi and burek; the riverside terrace is perfect for summer evenings."
+        },
+        {
+          "name": "Restoran Lagero",
+          "cuisine_type": "Contemporary Bosnian fusion",
+          "description": "Modern Bosnian cuisine with a creative touch, using local ingredients and innovative presentation.",
+          "price_range": "€€€",
+          "atmosphere": "Modern, cozy, and refined",
+          "neighborhood": "Centar",
+          "best_for": [
+            "foodies",
+            "date night"
+          ],
+          "latitude": 43.3379,
+          "longitude": 17.8125,
+          "reservation_needed": true,
+          "local_tips": "Ask for seasonal specialties and enjoy their expertly paired local wines."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Šadrvan Fast Food",
+          "cuisine_type": "Bosnian fast casual",
+          "description": "Casual spot famous for traditional Bosnian grilled meats and pies served quickly in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual, bustling, and friendly",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "quick meals",
+            "families",
+            "groups"
+          ],
+          "latitude": 43.3385,
+          "longitude": 17.81,
+          "reservation_needed": false,
+          "local_tips": "Try the freshly made cevapi and pair it with ajvar sauce."
+        },
+        {
+          "name": "Tima-Irk",
+          "cuisine_type": "Bosnian traditional",
+          "description": "A beloved spot for hearty Bosnian specialties like stuffed peppers, sarma, and grilled meats in a simple environment.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, authentic, and local",
+          "neighborhood": "Centar",
+          "best_for": [
+            "locals",
+            "families"
+          ],
+          "latitude": 43.3372,
+          "longitude": 17.8118,
+          "reservation_needed": false,
+          "local_tips": "Their homemade pita breads are a must-try."
+        },
+        {
+          "name": "Hala",
+          "cuisine_type": "Mediterranean, Bosnian fusion",
+          "description": "Casual dining with a Mediterranean flair and local Bosnian ingredients, offering a variety of fresh salads, grilled dishes, and vegetarian options.",
+          "price_range": "€€",
+          "atmosphere": "Bright, modern, and relaxed",
+          "neighborhood": "Centar",
+          "best_for": [
+            "groups",
+            "vegetarians"
+          ],
+          "latitude": 43.3368,
+          "longitude": 17.8142,
+          "reservation_needed": false,
+          "local_tips": "The grilled trout and seasonal vegetable dishes are highly recommended."
+        },
+        {
+          "name": "Urban Grill",
+          "cuisine_type": "Grill, Bosnian",
+          "description": "Known for quality grilled meats and traditional accompaniments in a casual, contemporary setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "Centar",
+          "best_for": [
+            "groups",
+            "meat lovers"
+          ],
+          "latitude": 43.3375,
+          "longitude": 17.8129,
+          "reservation_needed": false,
+          "local_tips": "Try the mixed grill platter to sample several local favorites."
+        },
+        {
+          "name": "Restoran Lagero Fast Food",
+          "cuisine_type": "Bosnian fast casual",
+          "description": "Quick service spot offering traditional pies, cevapi, and snacks popular with locals for lunch or a quick bite.",
+          "price_range": "€",
+          "atmosphere": "Simple, no-frills",
+          "neighborhood": "Centar",
+          "best_for": [
+            "quick meals",
+            "budget travelers"
+          ],
+          "latitude": 43.338,
+          "longitude": 17.8123,
+          "reservation_needed": false,
+          "local_tips": "Try the burek, a flaky pastry filled with cheese or meat."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Old Bridge Market Food Stalls",
+          "cuisine_type": "Bosnian street food",
+          "description": "Several street food stalls near the iconic Stari Most bridge offering quick bites like cevapi, burek, and fresh pastries.",
+          "price_range": "€",
+          "atmosphere": "Bustling, touristy, lively",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "snacking",
+            "tourists",
+            "budget travelers"
+          ],
+          "latitude": 43.339,
+          "longitude": 17.8101,
+          "reservation_needed": false,
+          "local_tips": "Try the freshly grilled cevapi wrapped in somun bread with raw onions."
+        },
+        {
+          "name": "Tito's Street Food Corner",
+          "cuisine_type": "Bosnian fast food",
+          "description": "Popular street vendor known for traditional Bosnian pies and freshly made grilled meat sandwiches.",
+          "price_range": "€",
+          "atmosphere": "Casual and quick service",
+          "neighborhood": "Centar",
+          "best_for": [
+            "quick snack",
+            "locals"
+          ],
+          "latitude": 43.3365,
+          "longitude": 17.813,
+          "reservation_needed": false,
+          "local_tips": "The cheese-filled pita is a local favorite."
+        },
+        {
+          "name": "Buregdzinica Bosna",
+          "cuisine_type": "Bosnian pastries",
+          "description": "Small vendor specializing in traditional Bosnian burek and other stuffed pastries, perfect for a quick, savory snack.",
+          "price_range": "€",
+          "atmosphere": "Simple and authentic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "snacking",
+            "budget travelers"
+          ],
+          "latitude": 43.3383,
+          "longitude": 17.809,
+          "reservation_needed": false,
+          "local_tips": "Try the meat burek with yogurt for a traditional combo."
+        },
+        {
+          "name": "Herzegovina Fruit & Nut Stand",
+          "cuisine_type": "Local produce and snacks",
+          "description": "Street stand selling fresh seasonal fruits, dried nuts, and local honey – perfect for a healthy snack on the go.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "healthy snacks",
+            "nature lovers"
+          ],
+          "latitude": 43.3395,
+          "longitude": 17.8105,
+          "reservation_needed": false,
+          "local_tips": "Try the fresh figs and local walnuts when in season."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Black Dog Pub",
+          "cuisine_type": "Bar, international drinks",
+          "description": "Popular spot for craft beers, cocktails, and a lively atmosphere with live music nights.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, social",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "nightlife"
+          ],
+          "latitude": 43.3387,
+          "longitude": 17.8099,
+          "reservation_needed": false,
+          "local_tips": "Try the local Herzegovinian craft beers on tap."
+        },
+        {
+          "name": "Caffe Bar Casablanca",
+          "cuisine_type": "Cocktails and wine",
+          "description": "Trendy bar known for creative cocktails and a cozy vibe, popular with locals and visitors alike.",
+          "price_range": "€€",
+          "atmosphere": "Intimate, stylish, relaxed",
+          "neighborhood": "Centar",
+          "best_for": [
+            "date night",
+            "cocktail lovers"
+          ],
+          "latitude": 43.3378,
+          "longitude": 17.8124,
+          "reservation_needed": false,
+          "local_tips": "The bartenders make excellent seasonal cocktails using local ingredients."
+        },
+        {
+          "name": "Barhana",
+          "cuisine_type": "Wine bar",
+          "description": "A quaint wine bar showcasing Bosnian and regional wines alongside small plates and tapas.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, quiet, intimate",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "wine lovers",
+            "romantic evenings"
+          ],
+          "latitude": 43.3392,
+          "longitude": 17.8093,
+          "reservation_needed": false,
+          "local_tips": "Ask for a wine tasting flight to sample Herzegovina’s best vintages."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Kavana Libertas",
+          "cuisine_type": "Coffee and pastries",
+          "description": "Traditional Bosnian coffee house offering strong coffee, homemade cakes, and a peaceful ambiance by the river.",
+          "price_range": "€",
+          "atmosphere": "Relaxed, classic, cozy",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "coffee lovers",
+            "quiet mornings"
+          ],
+          "latitude": 43.34,
+          "longitude": 17.8098,
+          "reservation_needed": false,
+          "local_tips": "Try the Bosnian coffee served with rahat lokum (Turkish delight)."
+        },
+        {
+          "name": "Cafe de Alma",
+          "cuisine_type": "Coffee and light bites",
+          "description": "Modern cafe with a variety of specialty coffees, fresh juices, and light snacks.",
+          "price_range": "€",
+          "atmosphere": "Modern, bright, friendly",
+          "neighborhood": "Centar",
+          "best_for": [
+            "work sessions",
+            "casual meetups"
+          ],
+          "latitude": 43.3376,
+          "longitude": 17.8127,
+          "reservation_needed": false,
+          "local_tips": "Their cappuccino and fresh pastries are crowd favorites."
+        },
+        {
+          "name": "Caffe Bar Dobra Vaga",
+          "cuisine_type": "Coffee and desserts",
+          "description": "Small, charming cafe known for its desserts, coffee, and warm atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Cozy, intimate",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "dessert lovers",
+            "afternoon coffee"
+          ],
+          "latitude": 43.3389,
+          "longitude": 17.8106,
+          "reservation_needed": false,
+          "local_tips": "Sample the homemade walnut cake – a local specialty."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Mostar Food Tour",
+        "description": "Guided walking tour through the Old Town tasting traditional Bosnian dishes such as cevapi, burek, and Bosnian coffee.",
+        "price_range": "€€",
+        "duration": "3 hours",
+        "best_for": [
+          "first-time visitors",
+          "foodies"
+        ],
+        "local_tips": "Wear comfortable shoes and come hungry – the portions are generous."
+      },
+      {
+        "name": "Bosnian Cooking Class with a Local Family",
+        "description": "Hands-on cooking experience where you learn to prepare traditional Bosnian dishes like dolma, sarma, and pita pastries.",
+        "price_range": "€€€",
+        "duration": "4 hours",
+        "best_for": [
+          "cooking enthusiasts",
+          "cultural immersion"
+        ],
+        "local_tips": "Ask about the secret spice blends and enjoy a home-cooked meal afterwards."
+      },
+      {
+        "name": "Visit to Kujundžiluk Market",
+        "description": "Explore Mostar’s local market, sampling fresh fruits, cheeses, and homemade delicacies while learning about Bosnian ingredients.",
+        "price_range": "€",
+        "duration": "1-2 hours",
+        "best_for": [
+          "culture lovers",
+          "food explorers"
+        ],
+        "local_tips": "Buy local honey and dried figs as souvenirs."
+      },
+      {
+        "name": "Herzegovina Wine Tasting Tour",
+        "description": "Day trip to nearby Herzegovina vineyards with tastings of renowned regional wines paired with local cheese and prosciutto.",
+        "price_range": "€€€",
+        "duration": "5-6 hours",
+        "best_for": [
+          "wine lovers",
+          "day trippers"
+        ],
+        "local_tips": "Visit during harvest season (September-October) for the best experience."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes",
+        "Seasonal wild herbs pies (pita od divljeg bilja)",
+        "Young lamb roasted with herbs"
+      ],
+      "summer": [
+        "Grilled trout from nearby rivers",
+        "Cold yogurt-based soups",
+        "Fresh figs and cherries"
+      ],
+      "autumn": [
+        "Mushroom stews and pies",
+        "Chestnut desserts",
+        "Hearty meat dishes with seasonal root vegetables"
+      ],
+      "winter": [
+        "Slow-cooked lamb and beef stews",
+        "Warm Bosnian coffee with rahat lokum",
+        "Baked apple desserts with walnuts and honey"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Sarajevo",
+        "country": "Bosnia and Herzegovina",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€5-€10",
+            "operator": "Centrotrans Eurolines",
+            "notes": "Direct buses from Mostar bus station to Sarajevo main bus station"
+          },
+          {
+            "type": "train",
+            "duration": "3h 15m",
+            "frequency": "daily",
+            "price_range": "€6-€12",
+            "operator": "ŽFBH (Railways of the Federation of Bosnia and Herzegovina)",
+            "notes": "Scenic route, limited daily departures"
+          }
+        ]
+      },
+      {
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€8-€15",
+            "operator": "FlixBus",
+            "notes": "Crosses international border; passport required"
+          }
+        ]
+      },
+      {
+        "city": "Zagreb",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct buses, comfortable coaches"
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "weekly",
+            "price_range": "€50-€120",
+            "operator": "Croatia Airlines",
+            "notes": "Limited direct flights from Mostar Airport"
+          }
+        ]
+      },
+      {
+        "city": "Split",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "2h 45m",
+            "frequency": "multiple daily",
+            "price_range": "€7-€12",
+            "operator": "Autotrans",
+            "notes": "Frequent connections, good for coastal access"
+          },
+          {
+            "type": "ferry",
+            "duration": "not applicable",
+            "frequency": "not applicable",
+            "price_range": "not applicable",
+            "operator": "none",
+            "notes": "No ferry connection from Mostar; nearest ferry from Split"
+          }
+        ]
+      },
+      {
+        "city": "Belgrade",
+        "country": "Serbia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€35",
+            "operator": "Lasta",
+            "notes": "Direct routes available from Mostar"
+          },
+          {
+            "type": "train",
+            "duration": "8h",
+            "frequency": "limited",
+            "price_range": "€18-€30",
+            "operator": "Serbian Railways",
+            "notes": "Indirect routes with transfers; less frequent"
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "weekly",
+            "price_range": "€70-€140",
+            "operator": "Austrian Airlines",
+            "notes": "Flights from Mostar Airport; limited schedule"
+          },
+          {
+            "type": "bus",
+            "duration": "12h",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "FlixBus",
+            "notes": "Overnight buses available"
+          }
+        ]
+      },
+      {
+        "city": "Zadar",
+        "country": "Croatia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 15m",
+            "frequency": "daily",
+            "price_range": "€10-€18",
+            "operator": "Autotrans",
+            "notes": "Direct bus routes; scenic Dalmatian coast"
+          }
+        ]
+      },
+      {
+        "city": "Podgorica",
+        "country": "Montenegro",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€8-€15",
+            "operator": "Centrotrans",
+            "notes": "Crosses border; several departures daily"
+          }
+        ]
+      },
+      {
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "9h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Overnight and daytime connections available"
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "weekly",
+            "price_range": "€60-€130",
+            "operator": "Wizz Air",
+            "notes": "Direct flights from Mostar Airport; limited frequency"
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Stari Most (Old Bridge) Walk and Photography",
+        "type": "outdoor",
+        "description": "Enjoy mild weather while exploring and photographing the iconic 16th-century Ottoman bridge and surrounding historic district.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Old Town Mostar",
+        "price": "Free"
+      },
+      {
+        "name": "Mostar Spring Festival",
+        "type": "festival",
+        "description": "A local celebration featuring traditional music, dance, and crafts that welcomes the arrival of spring in Mostar.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Various venues in Mostar city center",
+        "price": "Free"
+      },
+      {
+        "name": "River Neretva Kayaking",
+        "type": "sport",
+        "description": "Experience the cool spring waters of the Neretva River by taking a guided kayak tour through scenic spots around Mostar.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Neretva River near Mostar",
+        "price": "Moderate"
+      },
+      {
+        "name": "Sampling Seasonal Bosnian Cuisine",
+        "type": "food",
+        "description": "Taste fresh spring vegetables and traditional dishes like dolma and pita in local restaurants.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Restaurants in Mostar Old Town",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Mostar Bridge Diving Competition",
+        "type": "sport",
+        "description": "Watch skilled divers leap from the historic Stari Most into the Neretva River during this thrilling annual event.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Stari Most Bridge",
+        "price": "Free"
+      },
+      {
+        "name": "Neretva River Swimming and Sunbathing",
+        "type": "outdoor",
+        "description": "Cool off by swimming in the crystal-clear Neretva River or relax on its pebbled banks under the summer sun.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Neretva River near Mostar",
+        "price": "Free"
+      },
+      {
+        "name": "Mostar Summer Festival",
+        "type": "festival",
+        "description": "An open-air festival presenting concerts, theater performances, and local art exhibitions in the heart of the city.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Old Town and city squares",
+        "price": "Moderate"
+      },
+      {
+        "name": "Outdoor Dining with Grilled Ćevapi",
+        "type": "food",
+        "description": "Enjoy Bosnia’s famous grilled minced meat sausages, best savored at outdoor cafes during warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Restaurants and street vendors in Mostar",
+        "price": "Budget"
+      },
+      {
+        "name": "Hiking in Blagaj and Buna River Spring",
+        "type": "outdoor",
+        "description": "Take a day trip to nearby Blagaj to hike and explore the stunning Buna River spring and historic Dervish monastery.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Blagaj, 12 km from Mostar",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Herzegovina Wine Tasting Tours",
+        "type": "food",
+        "description": "Explore local vineyards and taste freshly harvested wines from the Herzegovina region during the harvest season.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Vineyards around Mostar",
+        "price": "Moderate"
+      },
+      {
+        "name": "Mostar Old Town Walking Tours",
+        "type": "cultural",
+        "description": "Enjoy cooler autumn weather while learning about Mostar’s rich history and multicultural heritage through guided tours.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Mostar Old Town",
+        "price": "Budget"
+      },
+      {
+        "name": "Autumn Harvest Food Festival",
+        "type": "festival",
+        "description": "Celebrate seasonal produce with tastings of chestnuts, mushrooms, and local Bosnian dishes in a festive market setting.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Mostar city center",
+        "price": "Free"
+      },
+      {
+        "name": "Photography of Autumn Foliage Along the Neretva",
+        "type": "outdoor",
+        "description": "Capture the vibrant autumn colors of trees lining the Neretva River, a favorite season for photographers.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Neretva River banks",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Winter Visit to Koski Mehmed-Pasha Mosque",
+        "type": "cultural",
+        "description": "Explore this historic mosque’s interior and enjoy panoramic views of Mostar dusted in winter snow from its minaret.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Old Town Mostar",
+        "price": "Budget"
+      },
+      {
+        "name": "Bosnian Coffee and Burek Experience",
+        "type": "food",
+        "description": "Warm up with a traditional Bosnian coffee and freshly baked burek pastry in cozy local cafes during chilly winter days.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Cafes in Mostar Old Town",
+        "price": "Budget"
+      },
+      {
+        "name": "Mostar Winter Lights and Holiday Markets",
+        "type": "festival",
+        "description": "Enjoy festive lights, local crafts, and seasonal treats at holiday markets held in the city center during December.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Mostar city center",
+        "price": "Free"
+      },
+      {
+        "name": "Hiking in Nearby Mountains",
+        "type": "sport",
+        "description": "For the adventurous, winter hiking in the surrounding mountainous areas offers crisp air and beautiful snowy landscapes.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Mountains around Mostar",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year & Orthodox Christmas",
+            "notes": "Cold weather with temperatures often near freezing; snow is possible. Very low tourist crowds. Local Orthodox Christmas on Jan 7th is celebrated with some traditional events but limited tourist activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Still very cold and often wet or snowy. Many tourist facilities may have limited hours. Low daylight hours and quiet atmosphere make it unattractive for most travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 1,
+              "budget": 3,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold winter continues, but days start to lengthen slightly. Occasional snow and rain may occur. Low tourism activity. Some cultural events indoors but overall slow season.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              29
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late February brings a slight warming trend. Some early signs of spring. Moderate tourist activity as prices remain low and crowds stay minimal. Good for budget travelers seeking quiet exploration.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with cool temperatures; some rainy days. Tourist numbers begin to rise slowly. Good time for sightseeing without large crowds. Nature starts blossoming around the Neretva river.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer and sunnier days, pleasant for outdoor activities including visiting the Old Bridge and nearby waterfalls. Moderate crowds and improving weather make this a good travel period.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Full spring in Mostar with blooming flowers and mild temperatures (12-18°C). Good for sightseeing and outdoor activities. Moderate crowds with pleasant weather and longer days.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter (Eastern Orthodox and Catholic dates vary)",
+            "notes": "Easter celebrations bring local cultural events and some increased visitor numbers. Weather is pleasant, ideal for exploring historical sites. Crowds increase slightly around Easter Sunday.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "One of the best months to visit Mostar: warm temperatures (18-25°C), low rainfall, and blooming nature. Outdoor cafes open, river activities start. Tourist crowds grow but not overwhelming.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Mostar Summer Festival (pre-festival events begin late May)",
+            "notes": "Pre-festival cultural events begin, increasing local vibrancy. Excellent weather and lively atmosphere. Great for travelers interested in music, art, and local culture.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Mostar Summer Festival (begins early June)",
+            "notes": "Start of the high tourist season with warm weather (25-30°C) and many cultural events and concerts. Very lively city with increasing crowds. Ideal for culture seekers and summer travelers.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and dry weather continues. Swimming and river activities are popular. Tourist numbers are high but manageable. Perfect for outdoor exploration and nightlife.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Mostar Summer Festival & Diving Competition",
+            "notes": "Peak summer with hot temperatures (often 30-35°C). The Old Bridge diving competition (late July) draws large crowds. High tourist numbers and busy streets. Great for festival-goers but can be crowded and hot.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Still hot and dry with temperatures often above 30°C. Tourist crowds remain high but start to taper off mid-month. Good for swimming in the Neretva river and enjoying festivals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Temperatures remain warm but some locals begin to leave for holidays. Crowds start to decrease, making sightseeing more comfortable. Occasional summer storms possible.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with warm days (22-28°C) and cooler nights. Popular time for cultural events and outdoor activities. Tourist crowds moderate. Ideal weather for hiking and river excursions.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Slight cooling and occasional rain showers. Tourist numbers drop more significantly. Good for travelers seeking quiet and local culture without large crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures (12-18°C) and autumn foliage. Increasing rainfall and shorter days. Lower tourist numbers make this a quiet time for exploring local life.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chilly evenings and higher chance of rain. Many outdoor attractions close or reduce hours. Not ideal for outdoor activities, but very low crowds and low prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              30
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold, wet, and often gloomy weather with short daylight hours. Tourist facilities may close for the low season. Not recommended for general tourism except budget travelers or those seeking solitude.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 1,
+              "budget": 5,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              15
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather returns with occasional snow. Christmas markets start appearing late in the month. Low tourist numbers, but some festive charm especially near Christmas.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas & New Year",
+            "notes": "Local Christmas and New Year celebrations with festive atmosphere. Cold and sometimes snowy weather. Moderate crowds mostly locals and some tourists. Good for cultural experience and winter photography.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

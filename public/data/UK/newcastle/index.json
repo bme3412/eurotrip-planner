@@ -1,1 +1,3577 @@
-{"city":"newcastle","country":"UK","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "newcastle",
+  "country": "UK",
+  "overview": {
+    "city_name": "Newcastle",
+    "country": "UK",
+    "brief_description": "Newcastle upon Tyne, commonly known as Newcastle, is a vibrant city in northeast England famed for its rich industrial heritage, stunning architecture, and lively cultural scene. Sitting on the north bank of the River Tyne, it offers a dynamic mix of historic landmarks and modern attractions, making it a captivating destination for visitors.",
+    "nickname": "The Toon",
+    "region": "North East England",
+    "population": "approx. 300,000",
+    "why_visit": [
+      "Explore iconic landmarks like the Tyne Bridge and the medieval Newcastle Castle",
+      "Experience a thriving nightlife scene renowned across the UK",
+      "Discover world-class museums and galleries such as the Baltic Centre for Contemporary Art",
+      "Enjoy beautiful riverside walks and green spaces along the River Tyne"
+    ],
+    "best_time_to_visit": "May to September, when the weather is mild and many outdoor festivals and events take place",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks, perfect for walking and exploring city gardens.",
+      "summer": "Warmest season with numerous festivals, bustling outdoor markets, and lively nightlife.",
+      "autumn": "Crisp air and colorful foliage, ideal for scenic riverside strolls and cultural events indoors.",
+      "winter": "Cool and occasionally snowy, with festive Christmas markets and cozy pubs to enjoy."
+    },
+    "practical_info": {
+      "currency": "British Pound Sterling (GBP)",
+      "language": "English",
+      "visit_duration": "3-4 days recommended to experience key attractions and nightlife",
+      "getting_around": "Extensive bus and metro network, taxis, and walkable city center",
+      "safety": "Generally safe with typical precautions; busy nightlife areas can be lively but stay aware of surroundings."
+    },
+    "coordinates": {
+      "latitude": 54.9784,
+      "longitude": -1.6174
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Walk across the iconic Tyne Bridge and snap photos of the Quayside",
+        "Visit the historic Newcastle Castle to learn about the city's origins",
+        "Experience nightlife on the Bigg Market and Collingwood Street",
+        "Explore the Baltic Centre for Contemporary Art located on the south bank",
+        "Stroll through Grey Street and appreciate its Georgian architecture"
+      ],
+      "worth_doing": [
+        "Tour the Victoria Tunnel, a preserved WWII air raid shelter",
+        "Relax in Exhibition Park and visit the nearby Great North Museum",
+        "Catch a football match at St James’ Park, home of Newcastle United",
+        "Browse independent shops and cafes in the Ouseburn Valley",
+        "Take a ferry cruise along the River Tyne for unique city views"
+      ],
+      "hidden_gems": [
+        "Discover the charming Jesmond Dene park with its woodland trails",
+        "Visit the Lit & Phil Library, the largest independent library in the UK",
+        "Explore the quirky Grainger Market for local foods and crafts",
+        "Check out the street art in the Byker area",
+        "Stop by the Victoria Tunnel’s less-known guided tours focusing on local stories"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Newcastle Castle",
+        "type": "Historic Site",
+        "description": "Newcastle Castle is a medieval fortification that gave the city its name. Dating back to the 12th century, it offers visitors a glimpse into the city's Norman past with well-preserved stone walls, a gatehouse, and panoramic views from the battlements.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round with some reduced hours in winter",
+        "booking_tips": "Book tickets online in advance during summer weekends to avoid queues",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 54.9671,
+        "longitude": -1.6159,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Christmas and Boxing Day"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Central Station",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "1",
+            "12",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Explore indoor exhibitions within the castle"
+        },
+        "official_url": "https://www.english-heritage.org.uk/visit/places/newcastle-castle/",
+        "website": null
+      },
+      {
+        "name": "BALTIC Centre for Contemporary Art",
+        "type": "Gallery",
+        "description": "Situated on the south bank of the River Tyne, the BALTIC Centre is one of the UK's leading contemporary art spaces. Housed in a converted flour mill, it hosts dynamic exhibitions from international artists, workshops, and events.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Special exhibitions may have entry fees; check website",
+        "booking_tips": "Free entry but book special exhibition tickets in advance online",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9687,
+        "longitude": -1.6005,
+        "neighborhood": "Gateshead Quays",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays except during school holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Green Line",
+              "station": "Gateshead",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "21",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Perfect indoor option on rainy days"
+        },
+        "official_url": "https://baltic.art/",
+        "website": null
+      },
+      {
+        "name": "Grey Street",
+        "type": "Historic Street",
+        "description": "Known for its stunning Georgian architecture, Grey Street is often cited as one of the most beautiful streets in the UK. Lined with theatres, cafes, and boutique shops, it is a hub of culture and nightlife in Newcastle.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Bustling especially during festivals and Christmas markets",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9693,
+        "longitude": -1.6153,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Central Station",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "1",
+            "12",
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby indoor theatres or cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Quayside",
+        "type": "Viewpoint",
+        "description": "The Quayside stretches along the River Tyne and offers some of the best views in Newcastle, including the iconic Tyne Bridge and the Sage Gateshead. It’s a lively area with riverside bars, restaurants, and weekend markets.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Popular in summer for outdoor dining and festivals",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 54.9699,
+        "longitude": -1.6016,
+        "neighborhood": "Gateshead Quays / City Centre",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Green Line",
+              "station": "Gateshead",
+              "walk_minutes": 4
+            }
+          ],
+          "bus_routes": [
+            "21",
+            "30",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby BALTIC Centre for Contemporary Art"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "St Nicholas' Cathedral",
+        "type": "Church",
+        "description": "The medieval cathedral of Newcastle, St Nicholas' Cathedral dates to the 14th century and features an impressive lantern spire visible across the city. Inside, visitors can admire stained glass windows and a peaceful atmosphere.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Special services held at Christmas and Easter",
+        "booking_tips": "Open for public visits; donations appreciated",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9711,
+        "longitude": -1.6112,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "11:00-15:00",
+          "notes": "Check for special events or services"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Central Station",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "12",
+            "21",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Ideal indoor visit on rainy days"
+        },
+        "official_url": "https://www.newcastlecathedral.org.uk/",
+        "website": null
+      },
+      {
+        "name": "The Great North Museum: Hancock",
+        "type": "Museum",
+        "description": "This natural history and ancient civilizations museum offers fascinating exhibits including dinosaur skeletons, Egyptian artifacts, and live animals in its wildlife garden. It's family-friendly and free to enter, making it a cultural gem.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Special exhibitions and events throughout the year",
+        "booking_tips": "No booking needed for general admission; book special events online",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9784,
+        "longitude": -1.6174,
+        "neighborhood": "Haymarket",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "10:00-16:00",
+          "notes": "Closed on Mondays except during school holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Haymarket",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "1",
+            "12",
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Excellent indoor attraction during bad weather"
+        },
+        "official_url": "https://greatnorthmuseum.org.uk/",
+        "website": null
+      },
+      {
+        "name": "Jesmond Dene Park",
+        "type": "Park",
+        "description": "Jesmond Dene is a beautiful wooded valley park featuring winding streams, waterfalls, and charming stone bridges. It’s a peaceful green oasis ideal for walking, picnics, and spotting local wildlife just minutes from the city centre.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and summer are best for wildflowers and birdwatching",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 54.9787,
+        "longitude": -1.5957,
+        "neighborhood": "Jesmond",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Jesmond",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "24",
+            "34",
+            "36"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Jesmond Dene can be muddy in rain; consider nearby cafes or the Great North Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Theatre Royal Newcastle",
+        "type": "Theatre",
+        "description": "An iconic Victorian theatre hosting a wide range of performances from dramas and musicals to opera and ballet. Its lavish interiors provide a glimpse into 19th-century theatre architecture and culture.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Special holiday productions and summer shows",
+        "booking_tips": "Book tickets well in advance for popular shows",
+        "ratings": {
+          "cost_estimate": 25,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 5
+        },
+        "latitude": 54.9733,
+        "longitude": -1.6135,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Varies by showtime",
+          "weekend": "Varies by showtime",
+          "notes": "Box office open 10:00-18:00 weekdays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Central Station",
+              "walk_minutes": 6
+            }
+          ],
+          "bus_routes": [
+            "12",
+            "21",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor cultural experience regardless of weather"
+        },
+        "official_url": "https://www.theatreroyal.co.uk/",
+        "website": null
+      },
+      {
+        "name": "Ouseburn Valley",
+        "type": "Neighborhood",
+        "description": "Ouseburn Valley is a creative and cultural quarter known for its indie music venues, art studios, quirky pubs, and craft breweries. It’s a vibrant area for nightlife and discovering Newcastle’s alternative scene.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Lively during summer festivals and weekend events",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9741,
+        "longitude": -1.5981,
+        "neighborhood": "Ouseburn",
+        "opening_hours": {
+          "weekday": "Varies by venue",
+          "weekend": "Varies by venue",
+          "notes": "Most venues open late into the night"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Manors",
+              "walk_minutes": 12
+            }
+          ],
+          "bus_routes": [
+            "21",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit indoor music venues and galleries"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Lit & Phil (Literary and Philosophical Society)",
+        "type": "Historic Library",
+        "description": "Founded in 1793, The Lit & Phil is the largest independent library outside London. Its magnificent Victorian reading room and extensive collection offer a unique cultural experience in Newcastle’s city centre.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Open to the public; guided tours available on request",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9717,
+        "longitude": -1.6158,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "09:30-17:00",
+          "weekend": "Closed",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Central Station",
+              "walk_minutes": 7
+            }
+          ],
+          "bus_routes": [
+            "1",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "An excellent indoor cultural spot"
+        },
+        "official_url": "https://www.litandphil.org.uk/",
+        "website": null
+      },
+      {
+        "name": "Victoria Tunnel",
+        "type": "Historic Site",
+        "description": "A preserved 19th-century waggonway tunnel running beneath Newcastle, the Victoria Tunnel was used as an air-raid shelter in WWII. Guided tours reveal fascinating industrial and wartime history beneath the city streets.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Tours run seasonally; check availability",
+        "booking_tips": "Book tours well in advance online due to limited spaces",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9761,
+        "longitude": -1.6222,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Tours by appointment only",
+          "weekend": "Tours by appointment only",
+          "notes": "Limited tour days and times"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Monument",
+              "walk_minutes": 10
+            }
+          ],
+          "bus_routes": [
+            "12",
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor tour ideal for rainy days"
+        },
+        "official_url": "https://www.victoriatunnelnewcastle.org.uk/",
+        "website": null
+      },
+      {
+        "name": "Grey's Monument",
+        "type": "Monument",
+        "description": "Erected in 1838, Grey's Monument honors Charles Grey, the 2nd Earl Grey and former Prime Minister who helped abolish slavery. The towering column is a central meeting point and offers panoramic views from its balcony after climbing 164 steps.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Surrounded by shops and cafes, lively year-round",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 54.971,
+        "longitude": -1.6157,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "Monument base open 09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Climb access subject to weather and maintenance"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Monument",
+              "walk_minutes": 1
+            }
+          ],
+          "bus_routes": [
+            "1",
+            "12",
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Nearby indoor museums if weather is poor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Jesmond Old Cemetery",
+        "type": "Historic Site",
+        "description": "This Victorian-era cemetery is a tranquil spot rich with history, notable monuments, and sculptures. It offers peaceful walks and insights into Newcastle’s past, with well-maintained grounds and heritage plaques.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in autumn with changing foliage",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 54.9825,
+        "longitude": -1.5982,
+        "neighborhood": "Jesmond",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Jesmond",
+              "walk_minutes": 15
+            }
+          ],
+          "bus_routes": [
+            "24",
+            "34"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby indoor cafes or The Great North Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Discovery Museum",
+        "type": "Museum",
+        "description": "Showcasing Newcastle’s industrial and scientific heritage, the Discovery Museum features interactive exhibits on the city’s shipbuilding, engineering, and technological innovations. It’s a family-friendly and educational attraction.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Special workshops during school holidays",
+        "booking_tips": "Free entry; book workshops in advance",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9719,
+        "longitude": -1.6136,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Christmas Day"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Monument",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "12",
+            "21",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Ideal indoor cultural visit on rainy days"
+        },
+        "official_url": "https://discoverymuseum.org.uk/",
+        "website": null
+      },
+      {
+        "name": "Leazes Park",
+        "type": "Park",
+        "description": "Leazes Park is a historic green space offering wide lawns, tree-lined pathways, and a boating pond. It’s perfect for leisurely strolls and family outings, located close to Newcastle University and the city centre.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring bloom and summer events enhance the park’s appeal",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 54.9763,
+        "longitude": -1.6161,
+        "neighborhood": "City Centre / Spital Tongues",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "St. James",
+              "walk_minutes": 8
+            }
+          ],
+          "bus_routes": [
+            "12",
+            "21",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby Great North Museum or cafes"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Tyne Bridge",
+        "type": "Monument|Viewpoint",
+        "description": "An iconic symbol of Newcastle, the Tyne Bridge spans the River Tyne connecting Newcastle and Gateshead. Completed in 1928, it’s an engineering marvel and popular spot for photographers and riverwalks.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Stunning illuminated at night, especially during winter festivals",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 5
+        },
+        "latitude": 54.9695,
+        "longitude": -1.6014,
+        "neighborhood": "Quayside",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Green Line",
+              "station": "Gateshead",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "21",
+            "30",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Nearby indoor options include BALTIC Centre and The Sage"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "The Sage Gateshead",
+        "type": "Concert Hall|Gallery",
+        "description": "The Sage Gateshead is a renowned concert venue with striking modern architecture, hosting classical music, jazz, and contemporary performances. It also features a public gallery space and riverside cafes.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Hosts annual music festivals and special seasonal concerts",
+        "booking_tips": "Book concert tickets well in advance online",
+        "ratings": {
+          "cost_estimate": 30,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 54.9681,
+        "longitude": -1.6001,
+        "neighborhood": "Gateshead Quays",
+        "opening_hours": {
+          "weekday": "10:00-22:00",
+          "weekend": "10:00-22:00",
+          "notes": "Hours vary on performance days"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Green Line",
+              "station": "Gateshead",
+              "walk_minutes": 5
+            }
+          ],
+          "bus_routes": [
+            "21",
+            "50"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor cultural experience regardless of weather"
+        },
+        "official_url": "https://thesagegateshead.org/",
+        "website": null
+      },
+      {
+        "name": "Grainger Market",
+        "type": "Market",
+        "description": "A historic indoor market operating since 1835, Grainger Market offers a vibrant mix of fresh produce, street food, and independent shops. The market’s Victorian ironwork and lively atmosphere make it a must-visit spot for foodies and shoppers.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Busy during weekends and holiday seasons",
+        "booking_tips": "No booking needed; arrive early for best selections",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 54.9735,
+        "longitude": -1.6151,
+        "neighborhood": "City Centre",
+        "opening_hours": {
+          "weekday": "08:00-17:00",
+          "weekend": "08:00-17:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [
+            {
+              "line": "Yellow Line",
+              "station": "Monument",
+              "walk_minutes": 3
+            }
+          ],
+          "bus_routes": [
+            "1",
+            "12",
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market perfect for rainy days"
+        },
+        "official_url": "https://www.graingermarket.co.uk/",
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Quayside",
+        "alternate_names": [],
+        "character": "Quayside is a vibrant waterfront area blending modern architecture with historic charm, bustling with lively bars and cultural venues. Its scenic riverside promenade offers stunning views of the iconic Tyne Bridge and Gateshead Millennium Bridge.",
+        "location": {
+          "central": true,
+          "description": "Located along the south bank of the River Tyne, adjacent to the city center",
+          "borders": [
+            "City Centre",
+            "Gateshead",
+            "Ouseburn"
+          ],
+          "landmarks": [
+            "Tyne Bridge",
+            "Gateshead Millennium Bridge",
+            "Baltic Centre for Contemporary Art"
+          ]
+        },
+        "history": {
+          "overview": "Once a busy industrial dock area, Quayside has transformed into a cultural and leisure hub in recent decades.",
+          "significance": "It reflects Newcastle’s regeneration and commitment to blending heritage with modern urban life.",
+          "notable_events": [
+            "Opening of the Gateshead Millennium Bridge in 2001",
+            "Baltic Centre conversion in 2002"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Newcastle Central Station (nearby)",
+            "Quayside bus stops"
+          ],
+          "safety": "Generally safe, busy in evenings with nightlife",
+          "best_time_to_visit": "Late spring to early autumn for pleasant riverside walks and outdoor events",
+          "walkability": "Highly walkable with flat riverside paths and pedestrian areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Riverside nightlife",
+            "Contemporary art galleries",
+            "Scenic bridges",
+            "Weekend markets"
+          ],
+          "atmosphere": [
+            "lively",
+            "picturesque",
+            "modern"
+          ],
+          "best_for": [
+            "couples",
+            "art lovers",
+            "nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 5,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Baltic Centre for Contemporary Art",
+              "type": "Art Gallery",
+              "description": "A converted flour mill showcasing cutting-edge contemporary art exhibitions.",
+              "appeal": "World-class modern art in a unique industrial setting overlooking the river."
+            },
+            {
+              "name": "Gateshead Millennium Bridge",
+              "type": "Architectural Landmark",
+              "description": "A striking tilting pedestrian and cyclist bridge connecting Newcastle and Gateshead.",
+              "appeal": "Iconic design and beautiful river views, especially when the bridge tilts."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Botanist",
+              "cuisine": "British/European",
+              "price_range": "€€",
+              "known_for": "Cocktails and rooftop views",
+              "atmosphere": "Trendy, vibrant, scenic"
+            },
+            {
+              "name": "Pitcher & Piano Quayside",
+              "cuisine": "British pub fare",
+              "price_range": "€€",
+              "known_for": "Riverside dining and live music",
+              "atmosphere": "Lively, casual, social"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Baltic’s viewing platform for panoramic city views.",
+          "Walk across the Millennium Bridge at night to see it lit up beautifully.",
+          "Try visiting during the Sunday Quayside Market for local crafts and food."
+        ]
+      },
+      {
+        "name": "Jesmond",
+        "alternate_names": [],
+        "character": "Jesmond is a leafy, upscale neighborhood favored by young professionals and students, known for its vibrant social scene and boutique shopping. It combines relaxed residential streets with buzzing bars and cafes along its main thoroughfares.",
+        "location": {
+          "central": false,
+          "description": "Approximately 2 km north of the city center",
+          "borders": [
+            "Heaton",
+            "Ouseburn",
+            "City Centre"
+          ],
+          "landmarks": [
+            "Jesmond Dene Park",
+            "St George's Church"
+          ]
+        },
+        "history": {
+          "overview": "Originally a rural village, Jesmond grew into a desirable suburb during the Victorian era.",
+          "significance": "It became a fashionable residential area with strong ties to Newcastle University students.",
+          "notable_events": [
+            "Development as a commuter suburb in the 19th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Jesmond Metro Station",
+            "Frequent bus routes to city center"
+          ],
+          "safety": "Generally safe with an active community presence",
+          "best_time_to_visit": "Spring and summer for outdoor dining and Jesmond Dene walks",
+          "walkability": "Highly walkable with pedestrian-friendly streets and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Nightlife and pubs",
+            "Boutique shops",
+            "Green spaces",
+            "Student population"
+          ],
+          "atmosphere": [
+            "trendy",
+            "friendly",
+            "relaxed"
+          ],
+          "best_for": [
+            "young adults",
+            "students",
+            "social travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Jesmond Dene",
+              "type": "Park/Nature",
+              "description": "A picturesque wooded valley with walking trails and a waterfall.",
+              "appeal": "Peaceful natural retreat within walking distance of Jesmond’s lively streets."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Patricia",
+              "cuisine": "Modern British",
+              "price_range": "€€",
+              "known_for": "Craft beers and creative pub food",
+              "atmosphere": "Hip, casual, welcoming"
+            },
+            {
+              "name": "Peace & Loaf",
+              "cuisine": "Contemporary British",
+              "price_range": "€€€",
+              "known_for": "Innovative dishes and tasting menus",
+              "atmosphere": "Trendy, intimate, refined"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit on a Thursday or Friday night to experience Jesmond’s vibrant pub scene.",
+          "Stroll through Jesmond Dene early morning for a serene start to your day.",
+          "Try the craft cocktails at The Botanist on weekends."
+        ]
+      },
+      {
+        "name": "Grainger Town",
+        "alternate_names": [
+          "Newcastle City Centre"
+        ],
+        "character": "Grainger Town is the historic heart of Newcastle, packed with grand Georgian architecture and bustling pedestrian streets full of shops and cafes. It buzzes with a mix of tourists, shoppers, and city workers.",
+        "location": {
+          "central": true,
+          "description": "The core city center area around Grey Street and Grainger Street",
+          "borders": [
+            "Quayside",
+            "Haymarket",
+            "Clayton"
+          ],
+          "landmarks": [
+            "Grey Street",
+            "Newcastle Cathedral",
+            "Theatre Royal"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the 19th century by Richard Grainger, this area showcases Newcastle’s Victorian boom.",
+          "significance": "It represents Newcastle’s architectural and commercial golden age.",
+          "notable_events": [
+            "Richard Grainger’s urban development in the 1830s",
+            "Restoration projects in late 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Newcastle Central Station",
+            "Haymarket Metro Station",
+            "Multiple bus lines"
+          ],
+          "safety": "Safe but busy, especially during evenings and weekends",
+          "best_time_to_visit": "Year-round, particularly summer and during Christmas markets",
+          "walkability": "Extremely walkable with pedestrianized streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Historic architecture",
+            "Theatre and arts",
+            "Dining options"
+          ],
+          "atmosphere": [
+            "bustling",
+            "historic",
+            "commercial"
+          ],
+          "best_for": [
+            "shoppers",
+            "history buffs",
+            "theatre-goers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Grey Street",
+              "type": "Street/Architecture",
+              "description": "Famous for its elegant Georgian architecture and considered one of the UK's finest streets.",
+              "appeal": "Photogenic and home to many historic buildings and theatres."
+            },
+            {
+              "name": "Theatre Royal",
+              "type": "Theatre",
+              "description": "A grand Victorian theatre hosting plays, musicals, and comedy shows.",
+              "appeal": "Cultural hub with a rich history and excellent performances."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Blackfriars Restaurant",
+              "cuisine": "British",
+              "price_range": "€€€",
+              "known_for": "Historic setting with locally sourced dishes",
+              "atmosphere": "Historic, cozy, elegant"
+            },
+            {
+              "name": "Dabbawal",
+              "cuisine": "Indian street food",
+              "price_range": "€€",
+              "known_for": "Creative Indian small plates",
+              "atmosphere": "Casual, vibrant, modern"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk the length of Grey Street for the best photo opportunities.",
+          "Book Theatre Royal tickets in advance for popular shows.",
+          "Explore the nearby Grainger Market for local food and crafts."
+        ]
+      },
+      {
+        "name": "Heaton",
+        "alternate_names": [],
+        "character": "Heaton is a diverse, residential neighborhood favored by families and students, known for its relaxed vibe and community parks. It feels authentic and local, with a mix of independent shops and traditional pubs.",
+        "location": {
+          "central": false,
+          "description": "About 3 km east of the city center",
+          "borders": [
+            "Jesmond",
+            "Byker",
+            "City Centre"
+          ],
+          "landmarks": [
+            "Heaton Park",
+            "Heaton Road"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class suburb, Heaton expanded rapidly during the industrial revolution.",
+          "significance": "It reflects the city’s social history and working-class roots.",
+          "notable_events": [
+            "Growth tied to railway and coal industry in 19th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Chillingham Road Metro Station",
+            "Frequent bus routes"
+          ],
+          "safety": "Generally safe with a strong community presence",
+          "best_time_to_visit": "Spring and summer for parks and outdoor cafés",
+          "walkability": "Moderately walkable with good pedestrian routes"
+        },
+        "appeal": {
+          "known_for": [
+            "Community parks",
+            "Affordable eating spots",
+            "Local pubs",
+            "Student housing"
+          ],
+          "atmosphere": [
+            "friendly",
+            "laid-back",
+            "authentic"
+          ],
+          "best_for": [
+            "families",
+            "budget travelers",
+            "students"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Heaton Park",
+              "type": "Park",
+              "description": "Large green space with playgrounds, sports fields, and picnic areas.",
+              "appeal": "Ideal for family outings and outdoor recreation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "The Bridge Tavern",
+              "cuisine": "Pub Food",
+              "price_range": "€",
+              "known_for": "Traditional ales and hearty British dishes",
+              "atmosphere": "Casual, welcoming, local"
+            },
+            {
+              "name": "Ouseburn Coffee Company",
+              "cuisine": "Cafe",
+              "price_range": "€",
+              "known_for": "Specialty coffees and light bites",
+              "atmosphere": "Cosy, trendy, relaxed"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit Heaton Park on weekends for community events and markets.",
+          "Try a traditional pub lunch at The Bridge Tavern for local flavor.",
+          "Use the Chillingham Road Metro for quick access to the city center."
+        ]
+      },
+      {
+        "name": "The Bigg Market",
+        "alternate_names": [],
+        "character": "The Bigg Market is Newcastle’s historic food and nightlife district, known for its energetic atmosphere and concentration of bars and eateries. It’s a hotspot for students and night owls seeking a lively, social scene.",
+        "location": {
+          "central": true,
+          "description": "Just north of the city center, near the Central Station",
+          "borders": [
+            "City Centre",
+            "Gosforth",
+            "Quayside"
+          ],
+          "landmarks": [
+            "The Bigg Market Square",
+            "Central Station"
+          ]
+        },
+        "history": {
+          "overview": "Historically a medieval marketplace, it evolved into an entertainment quarter in modern times.",
+          "significance": "It is emblematic of Newcastle’s reputation for nightlife and social culture.",
+          "notable_events": [
+            "Medieval market origins",
+            "Recent urban regeneration efforts"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Newcastle Central Station",
+            "Multiple bus stops"
+          ],
+          "safety": "Busy and lively with occasional late-night disturbances; standard city caution advised",
+          "best_time_to_visit": "Evenings and weekends for nightlife",
+          "walkability": "Very walkable, compact area"
+        },
+        "appeal": {
+          "known_for": [
+            "Nightclubs",
+            "Pubs",
+            "Late-night food",
+            "Student gatherings"
+          ],
+          "atmosphere": [
+            "energetic",
+            "rowdy",
+            "social"
+          ],
+          "best_for": [
+            "young travelers",
+            "nightlife lovers",
+            "groups"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 1,
+          "green_spaces": 1,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 5,
+          "cultural": 2,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "The Bigg Market Square",
+              "type": "Public Square",
+              "description": "Historic square surrounded by pubs and clubs, central to Newcastle’s nightlife.",
+              "appeal": "The heartbeat of the city's evening entertainment."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Revolution Bigg Market",
+              "cuisine": "Bar & Grill",
+              "price_range": "€€",
+              "known_for": "Cocktails and casual dining",
+              "atmosphere": "Lively, youthful, energetic"
+            },
+            {
+              "name": "Pitcher & Piano Bigg Market",
+              "cuisine": "British pub food",
+              "price_range": "€€",
+              "known_for": "Extensive drinks menu and live sports",
+              "atmosphere": "Casual, social, buzzy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit on a Thursday to Saturday night for the best nightlife experience.",
+          "Keep an eye on your belongings in crowded venues.",
+          "Try the late-night food stalls nearby for a quick snack after drinks."
+        ]
+      },
+      {
+        "name": "Ouseburn Valley",
+        "alternate_names": [
+          "Ouseburn"
+        ],
+        "character": "Ouseburn Valley is an artsy, creative quarter known for its independent galleries, live music venues, and craft breweries. It has a gritty yet charming industrial vibe, popular with creatives and alternative culture enthusiasts.",
+        "location": {
+          "central": false,
+          "description": "East of the Quayside, running along the Ouseburn River",
+          "borders": [
+            "Quayside",
+            "Jesmond",
+            "Heaton"
+          ],
+          "landmarks": [
+            "Ouseburn Farm",
+            "The Cluny",
+            "Seven Stories"
+          ]
+        },
+        "history": {
+          "overview": "Once an industrial hub, Ouseburn has been revitalized as a cultural hotspot since the late 20th century.",
+          "significance": "It represents Newcastle’s creative regeneration and community spirit.",
+          "notable_events": [
+            "Revitalization in the 1990s",
+            "Opening of the Seven Stories National Centre"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Byker Metro Station",
+            "Bus routes along Shields Road"
+          ],
+          "safety": "Generally safe but less busy late at night",
+          "best_time_to_visit": "Spring through autumn for outdoor events and festivals",
+          "walkability": "Walkable with some uneven terrain due to industrial heritage"
+        },
+        "appeal": {
+          "known_for": [
+            "Live music",
+            "Independent art galleries",
+            "Craft breweries",
+            "Creative workshops"
+          ],
+          "atmosphere": [
+            "artistic",
+            "bohemian",
+            "edgy"
+          ],
+          "best_for": [
+            "art lovers",
+            "music fans",
+            "young travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Seven Stories",
+              "type": "Museum",
+              "description": "The National Centre for Children’s Books with engaging exhibitions.",
+              "appeal": "Unique cultural attraction celebrating literature and creativity."
+            },
+            {
+              "name": "The Cluny",
+              "type": "Live Music Venue",
+              "description": "Popular venue hosting live bands and DJs in an industrial setting.",
+              "appeal": "Vibrant nightlife for music lovers."
+            }
+          ],
+          "dining": [
+            {
+              "name": "By The River Brew Co.",
+              "cuisine": "Brewery and pub food",
+              "price_range": "€€",
+              "known_for": "Craft beers brewed on site and hearty meals",
+              "atmosphere": "Relaxed, friendly, rustic"
+            },
+            {
+              "name": "The Tyne Bar",
+              "cuisine": "Bar snacks and drinks",
+              "price_range": "€",
+              "known_for": "Live music and excellent beer selection",
+              "atmosphere": "Casual, lively, artsy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check the schedule for live music nights at The Cluny.",
+          "Visit during the Ouseburn Festival in summer for art, music, and food.",
+          "Explore the street art and independent shops scattered through the valley."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "House of Tides",
+          "cuisine_type": "Modern British",
+          "description": "Set in a beautifully restored 16th-century merchant’s house, House of Tides offers a Michelin-starred tasting menu using local, seasonal ingredients.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant, intimate, historic",
+          "neighborhood": "Quayside",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 54.9738,
+          "longitude": -1.6104,
+          "reservation_needed": true,
+          "local_tips": "Book well in advance and try the tasting menu paired with local wines."
+        },
+        {
+          "name": "Dabbawal",
+          "cuisine_type": "Indian Street Food",
+          "description": "A vibrant spot blending authentic Indian street flavors with a modern twist, offering small plates and bold flavors.",
+          "price_range": "€€",
+          "atmosphere": "Lively, colorful, casual",
+          "neighborhood": "Central Station",
+          "best_for": [
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 54.9731,
+          "longitude": -1.6137,
+          "reservation_needed": true,
+          "local_tips": "Try the signature Masala Dosa and share a selection of small plates."
+        },
+        {
+          "name": "Peace & Loaf",
+          "cuisine_type": "Contemporary British",
+          "description": "Innovative British dishes with creative twists, emphasizing local produce and playful presentation.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy, fun, relaxed",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "date night",
+            "foodies"
+          ],
+          "latitude": 54.9782,
+          "longitude": -1.615,
+          "reservation_needed": true,
+          "local_tips": "The tasting menu is a great way to experience the chef’s creativity."
+        },
+        {
+          "name": "21",
+          "cuisine_type": "Modern European",
+          "description": "A stylish restaurant focusing on seasonal, locally sourced ingredients with an emphasis on modern European dishes.",
+          "price_range": "€€€",
+          "atmosphere": "Chic, contemporary, intimate",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "date night",
+            "celebrations"
+          ],
+          "latitude": 54.979,
+          "longitude": -1.6096,
+          "reservation_needed": true,
+          "local_tips": "Try the tasting menu with wine pairing for a full experience."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "The Broad Chare",
+          "cuisine_type": "British Gastropub",
+          "description": "A lively, award-winning gastropub serving classic British dishes with a modern touch and an excellent selection of ales.",
+          "price_range": "€€",
+          "atmosphere": "Casual, warm, friendly",
+          "neighborhood": "Quayside",
+          "best_for": [
+            "groups",
+            "pub lovers"
+          ],
+          "latitude": 54.969,
+          "longitude": -1.6052,
+          "reservation_needed": false,
+          "local_tips": "Try the signature steak and ale pie and enjoy the riverside views."
+        },
+        {
+          "name": "Blackfriars Restaurant",
+          "cuisine_type": "British",
+          "description": "Housed in a historic friary, this restaurant offers traditional British food with locally sourced ingredients in a unique setting.",
+          "price_range": "€€",
+          "atmosphere": "Historic, cozy, authentic",
+          "neighborhood": "Central Newcastle",
+          "best_for": [
+            "families",
+            "history enthusiasts"
+          ],
+          "latitude": 54.9707,
+          "longitude": -1.6083,
+          "reservation_needed": true,
+          "local_tips": "The Blackfriars Ale Battered Fish is a must-try."
+        },
+        {
+          "name": "The French Quarter",
+          "cuisine_type": "European Bistro",
+          "description": "A charming bistro serving French and European-inspired dishes with a focus on fresh, seasonal produce.",
+          "price_range": "€€",
+          "atmosphere": "Quaint, cozy, romantic",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "date night",
+            "small groups"
+          ],
+          "latitude": 54.9789,
+          "longitude": -1.61,
+          "reservation_needed": true,
+          "local_tips": "Enjoy the set lunch menu for great value."
+        },
+        {
+          "name": "Barras Bridge Social",
+          "cuisine_type": "Modern British",
+          "description": "A social dining spot offering a wide range of small plates and sharing dishes with a focus on local ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Casual, vibrant, social",
+          "neighborhood": "Ouseburn",
+          "best_for": [
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 54.978,
+          "longitude": -1.5975,
+          "reservation_needed": false,
+          "local_tips": "Visit on market days for extra street food options nearby."
+        },
+        {
+          "name": "The Patricia",
+          "cuisine_type": "Gastropub",
+          "description": "Known for its craft beers and elevated pub fare, it’s a popular spot for casual dining with a local vibe.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, friendly",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "groups",
+            "beer lovers"
+          ],
+          "latitude": 54.9784,
+          "longitude": -1.613,
+          "reservation_needed": false,
+          "local_tips": "Try the rotating craft beer taps along with a burger."
+        },
+        {
+          "name": "The Botanist",
+          "cuisine_type": "British Bar & Grill",
+          "description": "A stylish venue offering a wide range of British grill dishes alongside creative cocktails and panoramic city views.",
+          "price_range": "€€",
+          "atmosphere": "Trendy, bustling, scenic",
+          "neighborhood": "Central Station",
+          "best_for": [
+            "groups",
+            "cocktail lovers"
+          ],
+          "latitude": 54.9715,
+          "longitude": -1.61,
+          "reservation_needed": true,
+          "local_tips": "Go for a sunset drink on the rooftop terrace."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Grainger Market",
+          "cuisine_type": "Various",
+          "description": "Historic indoor market offering a wide range of street food stalls featuring local and international cuisines.",
+          "price_range": "€",
+          "atmosphere": "Bustling, authentic, lively",
+          "neighborhood": "Central Newcastle",
+          "best_for": [
+            "quick bites",
+            "variety seekers"
+          ],
+          "latitude": 54.97,
+          "longitude": -1.6105,
+          "reservation_needed": false,
+          "local_tips": "Try the famous pease pudding and stottie from the market stalls."
+        },
+        {
+          "name": "Ouseburn Street Food Market",
+          "cuisine_type": "Various",
+          "description": "Weekend street food market in the creative Ouseburn Valley area featuring local food vendors and craft drinks.",
+          "price_range": "€",
+          "atmosphere": "Creative, outdoor, lively",
+          "neighborhood": "Ouseburn",
+          "best_for": [
+            "weekend outings",
+            "foodies"
+          ],
+          "latitude": 54.9781,
+          "longitude": -1.597,
+          "reservation_needed": false,
+          "local_tips": "Arrive early for the best selection of artisan foods."
+        },
+        {
+          "name": "The Stand Comedy Club Food Stalls",
+          "cuisine_type": "Various",
+          "description": "Adjacent street food vendors serving quick bites and snacks during comedy night events.",
+          "price_range": "€",
+          "atmosphere": "Casual, fun, vibrant",
+          "neighborhood": "Central Newcastle",
+          "best_for": [
+            "nightlife",
+            "casual snacks"
+          ],
+          "latitude": 54.9703,
+          "longitude": -1.609,
+          "reservation_needed": false,
+          "local_tips": "Try the local award-winning pies from the nearby bakery stall."
+        },
+        {
+          "name": "Newcastle Food Market (Seasonal pop-ups)",
+          "cuisine_type": "Various",
+          "description": "Pop-up street food markets occurring seasonally with diverse offerings from local producers and chefs.",
+          "price_range": "€",
+          "atmosphere": "Festive, diverse, community-driven",
+          "neighborhood": "Various - check schedule",
+          "best_for": [
+            "seasonal visits",
+            "food lovers"
+          ],
+          "latitude": 54.97,
+          "longitude": -1.61,
+          "reservation_needed": false,
+          "local_tips": "Follow local event listings for dates and featured vendors."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "The Botanist",
+          "cuisine_type": "Bar & Grill",
+          "description": "Known for its botanical cocktails and stunning rooftop views over Newcastle.",
+          "price_range": "€€",
+          "atmosphere": "Trendy, lively, scenic",
+          "neighborhood": "Central Station",
+          "best_for": [
+            "cocktail lovers",
+            "groups"
+          ],
+          "latitude": 54.9715,
+          "longitude": -1.61,
+          "reservation_needed": true,
+          "local_tips": "Visit at sunset for unbeatable views and photo opportunities."
+        },
+        {
+          "name": "The Town Mouse",
+          "cuisine_type": "Craft Beer & Cocktails",
+          "description": "A quirky bar with an extensive list of craft beers, cocktails, and a cozy atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Quirky, intimate, casual",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "date night",
+            "craft beer lovers"
+          ],
+          "latitude": 54.9778,
+          "longitude": -1.6105,
+          "reservation_needed": false,
+          "local_tips": "Try their local ale flights to sample regional brews."
+        },
+        {
+          "name": "The Bridge Tavern",
+          "cuisine_type": "Traditional Pub",
+          "description": "Historic riverside pub offering a large range of ales, craft beers, and hearty British pub food.",
+          "price_range": "€",
+          "atmosphere": "Traditional, friendly, lively",
+          "neighborhood": "Quayside",
+          "best_for": [
+            "groups",
+            "locals"
+          ],
+          "latitude": 54.9695,
+          "longitude": -1.6057,
+          "reservation_needed": false,
+          "local_tips": "Sit outside in summer to enjoy the Quayside atmosphere."
+        },
+        {
+          "name": "The Free Trade Inn",
+          "cuisine_type": "Craft Beer Pub",
+          "description": "A small, independent pub known for its rotating selection of craft beers and great live music.",
+          "price_range": "€",
+          "atmosphere": "Indie, cozy, vibrant",
+          "neighborhood": "Quayside",
+          "best_for": [
+            "live music",
+            "beer enthusiasts"
+          ],
+          "latitude": 54.97,
+          "longitude": -1.606,
+          "reservation_needed": false,
+          "local_tips": "Check their live music schedule for an authentic local night out."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Flat Caps Coffee",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Award-winning independent coffee roaster and café known for expertly brewed coffee and relaxed vibe.",
+          "price_range": "€",
+          "atmosphere": "Hip, relaxed, community-focused",
+          "neighborhood": "Ouseburn",
+          "best_for": [
+            "coffee lovers",
+            "work/study"
+          ],
+          "latitude": 54.9784,
+          "longitude": -1.5958,
+          "reservation_needed": false,
+          "local_tips": "Try their single origin pour-over for a rich coffee experience."
+        },
+        {
+          "name": "The Journey Cafe",
+          "cuisine_type": "Cafe",
+          "description": "Community-focused café offering great coffee, homemade cakes, and a welcoming space with an ethical ethos.",
+          "price_range": "€",
+          "atmosphere": "Cozy, friendly, inclusive",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "brunch",
+            "relaxing"
+          ],
+          "latitude": 54.9775,
+          "longitude": -1.612,
+          "reservation_needed": false,
+          "local_tips": "Visit on weekends for their popular brunch menu."
+        },
+        {
+          "name": "Blackfriars Coffee Shop",
+          "cuisine_type": "Cafe",
+          "description": "Located within the historic Blackfriars building, this cafe offers excellent coffee and light bites in an atmospheric setting.",
+          "price_range": "€",
+          "atmosphere": "Historic, cozy, charming",
+          "neighborhood": "Central Newcastle",
+          "best_for": [
+            "quiet coffee",
+            "history lovers"
+          ],
+          "latitude": 54.9707,
+          "longitude": -1.6085,
+          "reservation_needed": false,
+          "local_tips": "Combine a coffee visit with exploring the historic site."
+        },
+        {
+          "name": "Olive & Bean",
+          "cuisine_type": "Cafe",
+          "description": "Popular independent café known for specialty coffee and fresh, wholesome food options.",
+          "price_range": "€",
+          "atmosphere": "Bright, welcoming, modern",
+          "neighborhood": "Jesmond",
+          "best_for": [
+            "healthy eating",
+            "coffee lovers"
+          ],
+          "latitude": 54.98,
+          "longitude": -1.6095,
+          "reservation_needed": false,
+          "local_tips": "Try their vegan-friendly cakes and artisan coffee."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Newcastle Food Tour",
+        "description": "Guided walking tours exploring the city's rich culinary heritage, local markets, and iconic dishes such as pease pudding and stotties.",
+        "duration_minutes": 180,
+        "price_range": "€€",
+        "location": "Starts Central Newcastle",
+        "reservation_needed": true,
+        "latitude": 54.971,
+        "longitude": -1.61,
+        "local_tips": "Wear comfortable shoes and come hungry to sample a variety of local specialties."
+      },
+      {
+        "name": "Cooking Class at The Cookery School at Jesmond Dene House",
+        "description": "Hands-on cooking classes focusing on British and European cuisine with seasonal local ingredients.",
+        "duration_minutes": 180,
+        "price_range": "€€€",
+        "location": "Jesmond",
+        "reservation_needed": true,
+        "latitude": 54.9805,
+        "longitude": -1.6092,
+        "local_tips": "Book well in advance and try the British classics class to learn regional specialties."
+      },
+      {
+        "name": "Grainger Market Food Exploration",
+        "description": "Self-guided or group visits to explore fresh local produce, traditional stalls, and sample Geordie delicacies.",
+        "duration_minutes": 90,
+        "price_range": "€",
+        "location": "Grainger Market, Central Newcastle",
+        "reservation_needed": false,
+        "latitude": 54.97,
+        "longitude": -1.6105,
+        "local_tips": "Visit early morning for the freshest produce and best market atmosphere."
+      },
+      {
+        "name": "Ouseburn Food & Drink Trail",
+        "description": "Discover the creative Ouseburn Valley with tastings at breweries, artisan food producers, and street food vendors.",
+        "duration_minutes": 120,
+        "price_range": "€€",
+        "location": "Ouseburn",
+        "reservation_needed": false,
+        "latitude": 54.978,
+        "longitude": -1.597,
+        "local_tips": "Combine with a visit to nearby galleries and music venues for a full cultural day."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Newcastle Brown Ale (seasonal brews)",
+        "Fresh asparagus dishes at local restaurants",
+        "Lamb dishes featuring local Northumberland lamb"
+      ],
+      "summer": [
+        "Geordie stotties with cold cuts and salads",
+        "Seafood platters featuring North Sea crab and prawns",
+        "Outdoor barbecues and street food festivals at Ouseburn"
+      ],
+      "autumn": [
+        "Game dishes such as venison and pheasant",
+        "Wild mushrooms harvested from nearby woodlands",
+        "Seasonal pies and stews made with root vegetables"
+      ],
+      "winter": [
+        "Hearty pease pudding and ham sandwiches",
+        "Traditional British roast dinners with local beef",
+        "Mulled cider and warming ales in cozy pubs"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 15m",
+            "frequency": "hourly",
+            "price_range": "€40-€120",
+            "operator": "LNER",
+            "notes": "Direct high-speed trains from Newcastle Central to London King's Cross."
+          },
+          {
+            "type": "bus",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€40",
+            "operator": "National Express",
+            "notes": "Economical option with several stops en route."
+          }
+        ]
+      },
+      {
+        "city": "Edinburgh",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€15-€50",
+            "operator": "LNER",
+            "notes": "Direct trains from Newcastle to Edinburgh Waverley."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€25",
+            "operator": "Megabus",
+            "notes": "Budget-friendly option with multiple departures."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "KLM, easyJet",
+            "notes": "Direct flights from Newcastle Airport (NCL) to Amsterdam Schiphol."
+          },
+          {
+            "type": "train",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "LNER + Eurostar + NS Dutch Railways",
+            "notes": "Train route via London St Pancras and Eurostar to Amsterdam Centraal."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€160",
+            "operator": "easyJet, Air France",
+            "notes": "Direct flights from Newcastle to Paris Charles de Gaulle."
+          },
+          {
+            "type": "train",
+            "duration": "8h 0m",
+            "frequency": "daily",
+            "price_range": "€80-€180",
+            "operator": "LNER + Eurostar",
+            "notes": "Train via London St Pancras connecting to Eurostar to Paris Gare du Nord."
+          }
+        ]
+      },
+      {
+        "city": "Dublin",
+        "country": "Ireland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 0m",
+            "frequency": "daily",
+            "price_range": "€40-€120",
+            "operator": "Ryanair, Aer Lingus",
+            "notes": "Direct flights from Newcastle to Dublin Airport."
+          },
+          {
+            "type": "ferry",
+            "duration": "8h 0m",
+            "frequency": "daily",
+            "price_range": "€30-€80",
+            "operator": "Port of Tyne + Irish Ferries",
+            "notes": "Ferry from Newcastle to Dublin Port via overnight routes requiring prior bus/train transfer to ferry port."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€140",
+            "operator": "Brussels Airlines",
+            "notes": "Direct flights from Newcastle to Brussels Airport."
+          },
+          {
+            "type": "train",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€80-€160",
+            "operator": "LNER + Eurostar + SNCB",
+            "notes": "Train via London St Pancras and Eurostar to Brussels Midi."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€180",
+            "operator": "easyJet, Ryanair",
+            "notes": "Direct flights from Newcastle to Berlin Brandenburg Airport."
+          }
+        ]
+      },
+      {
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€70-€160",
+            "operator": "SAS, easyJet",
+            "notes": "Direct flights from Newcastle to Copenhagen Airport."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "KLM, easyJet",
+            "notes": "Direct flights from Newcastle Airport (NCL) to Amsterdam Schiphol."
+          }
+        ]
+      },
+      {
+        "city": "Calais",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "10h 0m",
+            "frequency": "daily",
+            "price_range": "€35-€70",
+            "operator": "FlixBus",
+            "notes": "Bus via London and ferry crossing; requires transfer in London."
+          },
+          {
+            "type": "train",
+            "duration": "7h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€140",
+            "operator": "LNER + Eurostar",
+            "notes": "Train via London St Pancras connecting to Calais-Fréthun station."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Newcastle Science Festival",
+        "type": "cultural",
+        "description": "A week-long celebration of science with interactive exhibits, talks, and workshops suitable for all ages.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Various venues across Newcastle city centre",
+        "price": "Free"
+      },
+      {
+        "name": "Jesmond Dene Walks",
+        "type": "outdoor",
+        "description": "Explore the beautiful woodland and gardens of Jesmond Dene as spring blossoms bring vivid colors and wildlife activity.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Jesmond Dene Park",
+        "price": "Free"
+      },
+      {
+        "name": "Springtime Food Market at Grey Street",
+        "type": "food",
+        "description": "Sample seasonal local produce including fresh asparagus, lamb, and spring greens from vendors on Grey Street.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Grey Street Market",
+        "price": "Budget"
+      },
+      {
+        "name": "Tyne Bridge Run",
+        "type": "sport",
+        "description": "Participate in or watch this popular 10K road race across the iconic Tyne Bridge, welcoming runners of all levels.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Tyne Bridge and Quayside",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Newcastle International Film Festival",
+        "type": "cultural",
+        "description": "Enjoy screenings of independent films, documentaries, and world cinema at multiple venues throughout the city.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Tyneside Cinema and other locations",
+        "price": "Moderate"
+      },
+      {
+        "name": "Summer at the Quayside",
+        "type": "outdoor",
+        "description": "Relax by the River Tyne with street performances, food stalls, and boat tours during warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Quayside",
+        "price": "Free"
+      },
+      {
+        "name": "Newcastle Food Festival",
+        "type": "food",
+        "description": "Taste the best of local and international cuisine, including fresh seafood and summer fruits, in this lively outdoor festival.",
+        "best_months": [
+          "August"
+        ],
+        "location": "Leazes Park",
+        "price": "Budget to Moderate"
+      },
+      {
+        "name": "Heaton Park Summer Sports",
+        "type": "sport",
+        "description": "Join or watch cricket matches, football games, and outdoor fitness sessions in one of Newcastle’s largest parks.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Heaton Park",
+        "price": "Free"
+      },
+      {
+        "name": "Outdoor Cinema at Exhibition Park",
+        "type": "cultural",
+        "description": "Watch classic and contemporary films under the stars in a relaxed outdoor setting.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Exhibition Park",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Newcastle Halloween Festival",
+        "type": "festival",
+        "description": "Join spooky events including ghost walks, costume parties, and themed performances throughout the city.",
+        "best_months": [
+          "October"
+        ],
+        "location": "City Centre and historic venues",
+        "price": "Budget"
+      },
+      {
+        "name": "Jesmond Autumn Nature Walks",
+        "type": "outdoor",
+        "description": "Experience the changing colors of the trees and spot migrating birds on guided walks through Jesmond Dene.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Jesmond Dene Park",
+        "price": "Free"
+      },
+      {
+        "name": "Newcastle Beer Festival",
+        "type": "festival",
+        "description": "Sample a wide variety of local and regional craft beers and ciders, perfect for crisp autumn evenings.",
+        "best_months": [
+          "September"
+        ],
+        "location": "The Cluny, Ouseburn",
+        "price": "Moderate"
+      },
+      {
+        "name": "Seasonal Market at Grainger Market",
+        "type": "food",
+        "description": "Shop for autumnal produce including root vegetables, game meats, and seasonal baked goods.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Grainger Market",
+        "price": "Budget"
+      },
+      {
+        "name": "Hadrian's Wall Autumn Hikes",
+        "type": "outdoor",
+        "description": "Take day trips from Newcastle to explore the historic Hadrian’s Wall area, enjoying crisp weather and autumn landscapes.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Hadrian’s Wall, Northumberland (near Newcastle)",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Winter Wonderland at Newcastle Quayside",
+        "type": "festival",
+        "description": "Enjoy festive markets, ice skating, and light displays along the scenic Quayside riverfront.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Newcastle Quayside",
+        "price": "Budget"
+      },
+      {
+        "name": "Newcastle Christmas Market",
+        "type": "festival",
+        "description": "Browse traditional crafts, seasonal foods, and warm drinks at this charming open-air market in the city centre.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Grey Street and surrounding streets",
+        "price": "Budget"
+      },
+      {
+        "name": "Theatre Royal Christmas Pantomime",
+        "type": "cultural",
+        "description": "Experience a classic British pantomime with family-friendly humor and festive music.",
+        "best_months": [
+          "December",
+          "January"
+        ],
+        "location": "Theatre Royal Newcastle",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Walks in Town Moor",
+        "type": "outdoor",
+        "description": "Take brisk walks through the expansive Town Moor, enjoying winter birdwatching and fresh air.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Town Moor",
+        "price": "Free"
+      },
+      {
+        "name": "Seasonal Pub Food Tasting",
+        "type": "food",
+        "description": "Warm up with hearty North East specialties such as stottie cakes, pease pudding, and mulled wine at local pubs.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Various traditional pubs across Newcastle",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year & Epiphany",
+            "notes": "Cold and often wet weather, quiet tourist scene post-holiday; some local festivities around New Year and Epiphany.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, damp winter weather continues; limited outdoor activities; low tourist traffic.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Typical winter weather with short daylight; museums and indoor attractions recommended; low crowds.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather remains cold but some clear days possible; quieter city, good for budget travelers and cultural visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter continues with cold, often wet weather but slightly longer daylight; fewer tourists—good for museums and indoor events.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Valentine's Day (anticipation)",
+            "notes": "Some romantic events start mid-month; cold but manageable weather; restaurants and theaters prepare for Valentine's Day.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 5,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Valentine's Day (14th Feb)",
+            "notes": "Valentine’s Day events attract couples; cozy indoor venues popular; still cold but city ambiance is charming.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 5,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late winter; weather still cold with occasional rain; fewer tourists, good value accommodation.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring brings slightly warmer weather; rain still common; fewer tourists; good deals on hotels.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "St Patrick’s Day (17th March - local celebrations)",
+            "notes": "Some Irish-themed celebrations in pubs; weather improving slightly; moderate visitor interest.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-March sees better weather and longer days; outdoor walks along the Quayside become more pleasant; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring bloom begins; temperatures rise; good time for outdoor photography and sightseeing; fewer tourists than summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring weather improves with mild temperatures; gardens and parks start blooming; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Easter period can bring more visitors depending on holiday timing; good for family visits and outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Holidays (variable dates, mid-April some years)",
+            "notes": "High family and leisure traveler interest; festive events and longer daylight hours; weather can vary between mild to rainy.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late April is pleasant with blooming gardens; good for walking along the Tyne river; moderate visitor numbers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day Bank Holidays",
+            "notes": "Mild weather, longer daylight, and public holidays attract visitors; many outdoor festivals and events start.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Typically some of the best spring weather; great for exploring Newcastle’s historic sites and outdoor spaces; growing crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Newcastle International Film Festival (usually mid-late May)",
+            "notes": "Cultural events increase appeal; pleasant weather; popular among culture seekers and tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May is warm and sunny often; ideal for outdoor dining and river walks; crowds begin to build ahead of summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer; warm, generally dry; outdoor events and nightlife vibrant; good for all traveler types.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Newcastle Pride (usually early June)",
+            "notes": "Major cultural event attracting diverse crowds; vibrant atmosphere; warm weather enhances enjoyment.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Long daylight hours for sightseeing; mild to warm weather; ideal for outdoor activities and festivals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer weather with warm temperatures; busy tourist season; book accommodation early.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather; vibrant outdoor events and nightlife; Newcastle Festival often starts in July.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Newcastle Festival (mid-July)",
+            "notes": "Major city-wide arts and music festival; attracts large crowds; excellent cultural experiences; warm weather.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer continues; good for beach day trips nearby; busy but lively city atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and mostly dry; great for outdoor dining and river cruises; busy tourist season continues.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Newcastle Mela (usually early August)",
+            "notes": "Cultural festival celebrating South Asian heritage; warm weather; busy but festive atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "High summer weather persists; great for sightseeing and day trips to nearby coastlines; busy with tourists.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August begins to quieten slightly; weather still warm but occasional rain; good deals start to appear.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of summer with warm weather; fewer tourists than peak July; good for budget travelers and cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild weather; fewer tourists; good for cultural events and river walks.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Temperatures start to cool but still pleasant; local food festivals often take place; good crowd levels.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Newcastle Science Festival (mid September some years)",
+            "notes": "Indoor events attract families and curious travelers; weather can be variable; moderate to low crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler, wetter weather begins; fewer tourists; good for indoor attractions and budget travel.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Autumn weather cool and often rainy; fewer tourists; ideal for indoor cultural sites and museums.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Halloween events (last week of October)",
+            "notes": "Some local Halloween festivities and themed tours; cooler weather limits outdoor activities; modest crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Weather turns colder and wetter; fewer events; low tourist numbers; less attractive for outdoor sightseeing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late October is chilly and damp; indoor attractions best; low crowds but limited daylight.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, damp and short days; city quieter; few events; good for budget travelers seeking deals.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Bonfire Night (5th November, local events)",
+            "notes": "Fireworks and bonfire celebrations bring local energy; weather cold but manageable; short daylight.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cold and wet; indoor activities recommended; quiet tourist scene.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Approaching Christmas season; shopping and early festive events begin; weather cold and often wet.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Festive decorations up; markets begin; cold weather; moderate crowds especially on weekends.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Events",
+            "notes": "Christmas markets in full swing; festive atmosphere; cold but enjoyable; popular with families and couples.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Pre-Christmas shopping rush; festive shows and concerts; cold weather; busy city center.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas Eve (24th December)",
+            "notes": "City quieter in evening; cold weather; many shops and attractions close early; festive spirit high.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas Day and New Year’s Eve",
+            "notes": "Christmas Day is very quiet with many businesses closed; Boxing Day sales and New Year's Eve events attract crowds; cold weather.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

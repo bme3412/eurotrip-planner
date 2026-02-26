@@ -369,6 +369,24 @@ export async function getCitiesByCountry(country) {
 }
 
 /**
+ * Load the visit-calendar JSON for a city (weather, events, scores).
+ */
+export async function getCityVisitCalendar(cityId) {
+  const cityPath = await findCityPath(cityId);
+  if (!cityPath) return null;
+  return loadCityFile(cityPath, 'visit-calendar');
+}
+
+/**
+ * Load experiences data for a city (curated activities with scores).
+ */
+export async function getCityExperiences(cityId) {
+  const cityPath = await findCityPath(cityId);
+  if (!cityPath) return null;
+  return loadCityFile(cityPath, 'experiences');
+}
+
+/**
  * Clear the data cache (useful for development)
  */
 export function clearCache() {

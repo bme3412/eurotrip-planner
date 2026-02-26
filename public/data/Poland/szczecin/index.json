@@ -1,1 +1,3338 @@
-{"city":"szczecin","country":"Poland","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "szczecin",
+  "country": "Poland",
+  "overview": {
+    "city_name": "Szczecin",
+    "country": "Poland",
+    "brief_description": "Szczecin is a vibrant port city located on the Oder River near the Baltic Sea, blending rich maritime heritage with lush parks and stunning architecture. Known for its unique urban layout inspired by Paris, it offers a captivating mix of history, culture, and green spaces.",
+    "nickname": "The Gateway to the Baltic",
+    "region": "West Pomerania",
+    "population": "approximately 400,000",
+    "why_visit": [
+      "Explore the impressive Pomeranian Dukes' Castle and its historical exhibitions",
+      "Stroll through Jasne Błonia Park and the nearby rose garden for serene green escapes",
+      "Discover the city's maritime history at the National Museum in Szczecin",
+      "Enjoy panoramic views from the Cathedral Basilica of St. James with its towering spire"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and outdoor festivals and events are in full swing",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks make it perfect for walking tours and cycling along the Oder riverbanks.",
+      "summer": "Warmest season with numerous outdoor concerts, festivals, and lively terraces; ideal for exploring the harbor area and beaches nearby.",
+      "autumn": "Crisp air and colorful foliage highlight Szczecin’s parks and gardens, creating picturesque cityscapes.",
+      "winter": "Chilly and often snowy, offering a quiet atmosphere; Christmas markets add festive charm despite shorter daylight."
+    },
+    "practical_info": {
+      "currency": "Polish Złoty (PLN)",
+      "language": "Polish",
+      "visit_duration": "2 to 3 days to cover main attractions comfortably",
+      "getting_around": "Efficient tram and bus network complemented by bike rentals and walkable city center",
+      "safety": "Generally safe with usual urban precautions; well-lit streets and tourist areas are secure even at night"
+    },
+    "coordinates": {
+      "latitude": 53.4285,
+      "longitude": 14.5528
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit the Pomeranian Dukes' Castle and explore its museum exhibits",
+        "Climb the tower of the Cathedral Basilica of St. James for city views",
+        "Walk along the Wały Chrobrego Promenade overlooking the Oder River",
+        "Relax in Jasne Błonia Park and adjacent rose garden",
+        "Tour the National Museum in Szczecin focusing on maritime history"
+      ],
+      "worth_doing": [
+        "Explore the underground Szczecin tunnels from World War II",
+        "Take a boat cruise on the Oder River to see the city from the water",
+        "Visit Szczecin Philharmonic Hall for its modern architecture and concerts",
+        "Shop and dine at Kaskada shopping center in the city center",
+        "Discover the vibrant street art scene in the Sołacz district"
+      ],
+      "hidden_gems": [
+        "Relax at Arkonka Park with its lakes and forest trails slightly outside the city center",
+        "Visit the Museum of Technology and Transport for a unique industrial heritage experience",
+        "Explore the quiet, historic district of Łasztownia with its reclaimed waterfront spaces"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Pomeranian Dukes' Castle",
+        "type": "Palace",
+        "description": "This historic Renaissance castle, dating back to the 14th century, served as the residence of the Dukes of Pomerania. Restored after WWII, it now hosts cultural events, concerts, and exhibitions, offering visitors insight into Szczecin's medieval past and architectural heritage.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be purchased on-site; book in advance for concerts or special exhibitions.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 53.4283,
+        "longitude": 14.5559,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Explore the castle's indoor exhibitions and concert halls"
+        },
+        "official_url": "https://zamek.szczecin.pl/",
+        "website": "https://zamek.szczecin.pl/"
+      },
+      {
+        "name": "Wały Chrobrego (Chrobry Embankment)",
+        "type": "Viewpoint",
+        "description": "A stunning terrace overlooking the Oder River, featuring impressive early 20th-century architecture and panoramic views of Szczecin's harbor and waterways. It’s a perfect spot for photography, leisurely walks, and admiring the city’s maritime history.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and summer for river views; winter can be chilly but atmospheric.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 53.4294,
+        "longitude": 14.5571,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75",
+            "81"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby indoor cafés or the National Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "National Museum in Szczecin",
+        "type": "Museum",
+        "description": "Housing a rich collection of regional art, archaeology, and ethnography, the National Museum offers a deep dive into Pomerania’s cultural history. The exhibits include medieval artifacts, paintings, and unique maritime displays.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended for guided tours.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 53.4299,
+        "longitude": 14.5553,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum is ideal for rainy days"
+        },
+        "official_url": "https://muzeum.szczecin.pl/",
+        "website": "https://muzeum.szczecin.pl/"
+      },
+      {
+        "name": "Jasne Błonia Park",
+        "type": "Park",
+        "description": "A large green space in the city center, Jasne Błonia is known for its wide alleys, flower beds, and the iconic Monument to Pope John Paul II. It is a favorite spot for locals to relax, jog, and enjoy open-air concerts during summer.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring and summer when flowers bloom.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 53.4378,
+        "longitude": 14.5648,
+        "neighborhood": "Niebuszewo",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby indoor galleries or cafés"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "St. James Cathedral (Bazylika św. Jakuba)",
+        "type": "Church",
+        "description": "This Gothic-style cathedral is one of the tallest brick churches in the world, featuring a soaring tower with observation decks offering panoramic city views. The interior houses historic altars, stained glass, and religious art dating back centuries.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Climbing the tower may require a small fee; check opening times.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 53.4286,
+        "longitude": 14.5534,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "07:00-19:00",
+          "weekend": "07:00-19:00",
+          "notes": "Tower access varies seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "The cathedral interior is a perfect refuge on rainy days"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Głębokie Lake and Park",
+        "type": "Park",
+        "description": "A beautiful natural area surrounding the Głębokie Lake, popular for walking, cycling, and picnics. The park includes playgrounds, a small beach, and boat rentals in warmer months, making it an excellent spot for outdoor recreation.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Boats and beach access available May-September.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 53.4587,
+        "longitude": 14.5489,
+        "neighborhood": "Pogodno",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "87"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit the nearby indoor Planetarium if weather is poor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Szczecin Philharmonic Hall",
+        "type": "Concert Hall",
+        "description": "This award-winning contemporary building is famous for its striking, crystalline architecture and excellent acoustics. It hosts classical music concerts, theater performances, and cultural events, making it a cultural jewel of Szczecin.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Check schedule for seasonal performances and festivals.",
+        "booking_tips": "Book tickets well in advance for popular concerts.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 53.429,
+        "longitude": 14.5589,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue ideal for any weather"
+        },
+        "official_url": "https://filharmonia.szczecin.pl/",
+        "website": "https://filharmonia.szczecin.pl/"
+      },
+      {
+        "name": "Old Town Market Square (Rynek Sienny)",
+        "type": "Market",
+        "description": "A charming historic square at the heart of Szczecin’s Old Town, lined with colorful townhouses, cafés, and shops. It offers a lively atmosphere with seasonal markets, street performances, and is a great place to experience local life.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Christmas markets in December are especially festive.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 53.4274,
+        "longitude": 14.5528,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Nearby indoor cafés and shops"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Technology and Transport",
+        "type": "Museum",
+        "description": "Showcasing historic vehicles, machinery, and technological innovations, this museum offers interactive exhibits on Szczecin’s industrial heritage. It is especially popular with families and enthusiasts of engineering and transport history.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Group visits require prior arrangement.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 53.446,
+        "longitude": 14.5575,
+        "neighborhood": "Arkońskie-Niemierzyn",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "10:00-16:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "60",
+            "87"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum perfect for rainy days"
+        },
+        "official_url": "http://muzeumtechniki.szczecin.pl/",
+        "website": "http://muzeumtechniki.szczecin.pl/"
+      },
+      {
+        "name": "Książąt Pomorskich Park",
+        "type": "Park",
+        "description": "A peaceful city park featuring walking paths, sculptures, and a small pond. It is ideal for a quiet stroll or a break from urban sightseeing and is located near the Pomeranian Dukes' Castle and the National Museum.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Lovely in spring and autumn with colorful foliage.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 53.4289,
+        "longitude": 14.5555,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby museums if weather is poor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Baszta Panieńska (Maiden's Tower)",
+        "type": "Historic Site",
+        "description": "One of the oldest medieval defensive towers in Szczecin, the Maiden's Tower is a symbol of the city's rich history. It now houses exhibitions and offers a glimpse into the city's fortifications and architecture during the Middle Ages.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small entrance fee; check seasonal opening hours.",
+        "ratings": {
+          "cost_estimate": 2,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 53.4277,
+        "longitude": 14.5557,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "10:00-16:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor exhibitions provide shelter from bad weather"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Grodzka Gate – Theatre and Dialogue Centre",
+        "type": "Museum",
+        "description": "This unique cultural center focuses on the history of Szczecin’s Jewish community and promotes intercultural dialogue. Housed in a historic gate building, it offers exhibitions, workshops, and performances.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Check for special events and exhibitions in advance.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 53.4281,
+        "longitude": 14.5544,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "11:00-18:00",
+          "weekend": "11:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cultural center ideal for rainy days"
+        },
+        "official_url": "https://teatr-dialogu.pl/",
+        "website": "https://teatr-dialogu.pl/"
+      },
+      {
+        "name": "Turzyn Market Hall",
+        "type": "Market",
+        "description": "An indoor market offering fresh local produce, meats, cheeses, and traditional Polish foods. This lively market is great for tasting regional specialties and experiencing daily life in Szczecin.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Seasonal produce varies throughout the year.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 53.4321,
+        "longitude": 14.5723,
+        "neighborhood": "Turzyn",
+        "opening_hours": {
+          "weekday": "06:00-14:00",
+          "weekend": "06:00-14:00",
+          "notes": "Closed Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "60",
+            "81"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market suitable for all weather"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Hakenterrasse",
+        "type": "Viewpoint",
+        "description": "Also known as Chrobry Embankment’s other name, this historic riverside promenade features grand staircases and sculptures overlooking the Oder River. It’s a favorite spot for sunset views and relaxing by the water.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in warmer months for pleasant river breezes.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 53.4293,
+        "longitude": 14.5569,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Visit nearby museums or cafés"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Planetarium and Astronomical Observatory",
+        "type": "Museum|Planetarium",
+        "description": "Offering immersive astronomy shows and educational exhibits, this planetarium provides a fascinating journey through space and the cosmos. The observatory features telescopes for night sky viewing on clear evenings.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget",
+        "seasonal_notes": "Night sky observation dependent on weather and season.",
+        "booking_tips": "Book planetarium shows in advance; check observatory open nights.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 53.4609,
+        "longitude": 14.5531,
+        "neighborhood": "Pogodno",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Evening events scheduled separately"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "60",
+            "87"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor planetarium shows ideal for bad weather"
+        },
+        "official_url": "https://planetarium.szczecin.pl/",
+        "website": "https://planetarium.szczecin.pl/"
+      },
+      {
+        "name": "Hakenterrasse Marina",
+        "type": "Marina",
+        "description": "A lively marina area adjacent to the Chrobry Embankment, offering boat tours, waterside dining, and opportunities to rent kayaks or pedal boats. It is a great place to experience Szczecin’s maritime culture up close.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Boat rentals available from late spring to early autumn.",
+        "booking_tips": "Reserve boat tours in advance during peak season.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 53.429,
+        "longitude": 14.5583,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "09:00-19:00",
+          "weekend": "09:00-19:00",
+          "notes": "Seasonal opening hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor cafés or museums"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Teatr Współczesny (Contemporary Theatre)",
+        "type": "Theatre",
+        "description": "Szczecin’s leading venue for modern theatre productions, showcasing contemporary Polish and international plays. The theatre is known for its innovative performances and engagement with current social themes.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Performance schedule varies throughout the year.",
+        "booking_tips": "Advance ticket purchase strongly recommended.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 53.4277,
+        "longitude": 14.556,
+        "neighborhood": "Śródmieście",
+        "opening_hours": {
+          "weekday": "Varies by show",
+          "weekend": "Varies by show",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "53",
+            "60",
+            "75"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor theatre ideal for any weather"
+        },
+        "official_url": "https://teatrwspolczesny.pl/",
+        "website": "https://teatrwspolczesny.pl/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Śródmieście",
+        "alternate_names": [
+          "City Centre"
+        ],
+        "character": "Śródmieście is the bustling heart of Szczecin, blending historic charm with modern amenities. It buzzes with activity day and night, offering a dynamic urban experience.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of Szczecin, encompassing the main city square and riverfront.",
+          "borders": [
+            "Niebuszewo",
+            "Turzyn",
+            "Pomorzany"
+          ],
+          "landmarks": [
+            "Pomeranian Dukes' Castle",
+            "Wały Chrobrego Promenade",
+            "Cathedral Basilica of St. James"
+          ]
+        },
+        "history": {
+          "overview": "Śródmieście has been the historical and administrative center since medieval times, witnessing the city's evolution through wars and reconstructions.",
+          "significance": "It houses Szczecin's most iconic landmarks and serves as the cultural and economic hub of the city.",
+          "notable_events": [
+            "Post-WWII rebuilding",
+            "2000 European Capital of Culture celebrations"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Plac Rodła Tram Stop",
+            "Wały Chrobrego Bus Station"
+          ],
+          "safety": "Generally safe with active police presence and tourist patrols.",
+          "best_time_to_visit": "Spring through early autumn for outdoor events and riverfront walks.",
+          "walkability": "Highly walkable with pedestrian zones and well-maintained sidewalks."
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Riverfront promenade",
+            "Museums and theaters"
+          ],
+          "atmosphere": [
+            "vibrant",
+            "historic",
+            "cosmopolitan"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "history lovers",
+            "urban explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Pomeranian Dukes' Castle",
+              "type": "Historic landmark",
+              "description": "A Renaissance castle complex with museums and panoramic views over Szczecin.",
+              "appeal": "Discover regional history and enjoy cultural events in a striking setting."
+            },
+            {
+              "name": "Wały Chrobrego Promenade",
+              "type": "Riverside promenade",
+              "description": "A scenic walkway along the Oder River lined with gardens and monumental buildings.",
+              "appeal": "Perfect for leisurely strolls and river views."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restauracja Rint",
+              "cuisine": "Polish & European",
+              "price_range": "€€",
+              "known_for": "Traditional Polish dishes with a modern twist",
+              "atmosphere": "Elegant and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the castle’s observation tower at sunset for stunning city views.",
+          "Explore the underground routes beneath the castle for a unique historical experience.",
+          "Try the local pastries in cafes around Plac Lotników."
+        ]
+      },
+      {
+        "name": "Niebuszewo",
+        "alternate_names": [],
+        "character": "Niebuszewo is a hip, up-and-coming neighborhood known for its youthful energy and creative spirit. It features colorful street art, indie cafes, and a growing number of galleries and cultural spaces.",
+        "location": {
+          "central": false,
+          "description": "Northwest of the city center, adjacent to Śródmieście and Turzyn.",
+          "borders": [
+            "Śródmieście",
+            "Turzyn",
+            "Zawadzkiego-Klonowica"
+          ],
+          "landmarks": [
+            "Niebuszewo Park",
+            "Galeria Kaskada (nearby)"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class district, it has transformed into a trendy area attracting artists and students.",
+          "significance": "Its revival mirrors Szczecin’s cultural renaissance and urban regeneration efforts.",
+          "notable_events": [
+            "2010s cultural revitalization",
+            "Annual street art festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Niebuszewo Tram Stop",
+            "Politechnika Bus Stop"
+          ],
+          "safety": "Generally safe with some areas better visited during day.",
+          "best_time_to_visit": "Late spring to early autumn for outdoor events and cafes.",
+          "walkability": "Walkable with some parts more residential and quiet."
+        },
+        "appeal": {
+          "known_for": [
+            "Street art",
+            "Indie cafes",
+            "Local music scene"
+          ],
+          "atmosphere": [
+            "trendy",
+            "artsy",
+            "laid-back"
+          ],
+          "best_for": [
+            "young travelers",
+            "art enthusiasts",
+            "nightlife seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Niebuszewo Park",
+              "type": "Urban park",
+              "description": "A small green oasis popular with locals for relaxation and outdoor gatherings.",
+              "appeal": "Offers a peaceful break amidst the lively neighborhood."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Cafe Bema",
+              "cuisine": "Coffee and light meals",
+              "price_range": "€",
+              "known_for": "Specialty coffee and vegan snacks",
+              "atmosphere": "Cozy and artsy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check out local galleries hosting free exhibitions on weekends.",
+          "Visit during the Szczecin Street Art Festival to see vibrant murals.",
+          "Explore small boutique shops and vintage stores scattered around."
+        ]
+      },
+      {
+        "name": "Turzyn",
+        "alternate_names": [],
+        "character": "Turzyn is a lively district blending residential calm with bustling commercial streets. It’s known for its excellent food markets and diverse dining options.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, bordering Śródmieście and Pomorzany.",
+          "borders": [
+            "Śródmieście",
+            "Pomorzany",
+            "Niebuszewo"
+          ],
+          "landmarks": [
+            "Turzyn Market Hall",
+            "Galeria Turzyn Shopping Center"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly in the 20th century, Turzyn grew as a residential and commercial district.",
+          "significance": "It remains a key local hub for shopping and daily living needs.",
+          "notable_events": [
+            "Post-war urban development",
+            "Modern commercial expansion"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Turzyn Bus and Tram Stop"
+          ],
+          "safety": "Safe and family-friendly.",
+          "best_time_to_visit": "Year-round, with markets busiest in mornings and weekends.",
+          "walkability": "Moderately walkable; some areas better accessed by public transport."
+        },
+        "appeal": {
+          "known_for": [
+            "Food markets",
+            "Shopping centers",
+            "Local eateries"
+          ],
+          "atmosphere": [
+            "bustling",
+            "community-oriented",
+            "practical"
+          ],
+          "best_for": [
+            "food lovers",
+            "families",
+            "long-term visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Turzyn Market Hall",
+              "type": "Indoor market",
+              "description": "A vibrant market offering fresh produce, local specialties, and artisanal goods.",
+              "appeal": "Ideal for sampling authentic Polish ingredients and street food."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Turystów",
+              "cuisine": "Traditional Polish",
+              "price_range": "€",
+              "known_for": "Classic pierogi and soups",
+              "atmosphere": "Casual and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the market early morning for the freshest produce and best deals.",
+          "Try seasonal street food stalls near the market entrance.",
+          "Explore side streets for small bakeries and family-run diners."
+        ]
+      },
+      {
+        "name": "Podjuchy",
+        "alternate_names": [],
+        "character": "Podjuchy offers a peaceful, suburban feel with abundant green spaces and a strong community vibe. It’s favored by families and those seeking respite from urban hustle.",
+        "location": {
+          "central": false,
+          "description": "Located in the southern outskirts of Szczecin, near the Oder riverbank.",
+          "borders": [
+            "Dąbie",
+            "Pomorzany",
+            "Głębokie-Piaski"
+          ],
+          "landmarks": [
+            "Podjuchy Forest Park",
+            "Oder river access points"
+          ]
+        },
+        "history": {
+          "overview": "Once a separate village, Podjuchy was incorporated into Szczecin and retains much of its village character.",
+          "significance": "It represents the city’s connection to its natural surroundings and rural past.",
+          "notable_events": [
+            "Incorporation into city limits in mid-20th century",
+            "Preservation of natural parks"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Podjuchy Bus Stop"
+          ],
+          "safety": "Very safe and family-friendly.",
+          "best_time_to_visit": "Late spring to early autumn for park activities.",
+          "walkability": "Walkable within the neighborhood but requires transit for city center."
+        },
+        "appeal": {
+          "known_for": [
+            "Green parks",
+            "Quiet residential streets",
+            "Outdoor recreation"
+          ],
+          "atmosphere": [
+            "tranquil",
+            "community-focused",
+            "nature-oriented"
+          ],
+          "best_for": [
+            "families",
+            "nature lovers",
+            "long-term residents"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Podjuchy Forest Park",
+              "type": "Nature park",
+              "description": "Extensive green area ideal for hiking, cycling, and picnics.",
+              "appeal": "A natural retreat just outside the urban core."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Karczma Pod Jeleniem",
+              "cuisine": "Polish traditional",
+              "price_range": "€€",
+              "known_for": "Game dishes and hearty local cuisine",
+              "atmosphere": "Rustic and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike and explore the forest trails on weekends.",
+          "Visit local farmers’ markets for fresh produce and homemade goods.",
+          "Bring a picnic to enjoy along the Oder riverbanks."
+        ]
+      },
+      {
+        "name": "Stare Miasto",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Stare Miasto is the historic core of Szczecin, where cobblestone streets and Gothic architecture tell centuries-old stories. It exudes an old-world charm with quaint squares and hidden courtyards.",
+        "location": {
+          "central": true,
+          "description": "Situated directly within Śródmieście, centered around the Old Town Square.",
+          "borders": [
+            "Śródmieście",
+            "Niebuszewo"
+          ],
+          "landmarks": [
+            "Old Town Market Square",
+            "Cathedral Basilica of St. James",
+            "Chrobry Embankment"
+          ]
+        },
+        "history": {
+          "overview": "Dating back to the Middle Ages, Stare Miasto was the medieval nucleus of Szczecin, heavily bombed during WWII but partially restored.",
+          "significance": "It preserves the city's medieval heritage and architectural roots.",
+          "notable_events": [
+            "Medieval trade hub",
+            "WWII destruction and post-war reconstruction"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Plac Zgody Tram Stop"
+          ],
+          "safety": "Very safe, heavily frequented by tourists and locals.",
+          "best_time_to_visit": "Spring and summer for open-air markets and festivals.",
+          "walkability": "Extremely walkable with pedestrian-only zones."
+        },
+        "appeal": {
+          "known_for": [
+            "Medieval architecture",
+            "Historic squares",
+            "Museums and galleries"
+          ],
+          "atmosphere": [
+            "historic",
+            "picturesque",
+            "romantic"
+          ],
+          "best_for": [
+            "history buffs",
+            "photographers",
+            "romantic getaways"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Old Town Market Square",
+              "type": "Historic square",
+              "description": "A charming square surrounded by historic townhouses and cafes.",
+              "appeal": "Central spot for cultural events and people watching."
+            },
+            {
+              "name": "Cathedral Basilica of St. James",
+              "type": "Religious landmark",
+              "description": "Gothic cathedral with stunning interiors and a tall bell tower offering city views.",
+              "appeal": "A must-see for architecture and history enthusiasts."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Pod Złotą Pipą",
+              "cuisine": "Polish and European",
+              "price_range": "€€",
+              "known_for": "Traditional dishes served in a historic cellar setting",
+              "atmosphere": "Cozy and atmospheric"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Attend the summer open-air concerts held in the Old Town Square.",
+          "Visit the cathedral’s tower early morning to avoid crowds.",
+          "Try the local craft beers at pubs hidden in side alleys."
+        ]
+      },
+      {
+        "name": "Pomorzany",
+        "alternate_names": [],
+        "character": "Pomorzany is a primarily residential district with a calm atmosphere and convenient access to city amenities. It offers a mix of Soviet-era blocks and modern housing developments.",
+        "location": {
+          "central": false,
+          "description": "South of the city center, neighboring Turzyn and Podjuchy.",
+          "borders": [
+            "Turzyn",
+            "Podjuchy",
+            "Głębokie-Piaski"
+          ],
+          "landmarks": [
+            "Pomorzany Hospital",
+            "Park Kasprowicza (nearby)"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly in the 20th century as a residential area for workers and families.",
+          "significance": "Represents post-war urban expansion and housing development in Szczecin.",
+          "notable_events": [
+            "1960s housing projects",
+            "Recent modernization efforts"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Pomorzany Tram Stop",
+            "Pomorzany Bus Station"
+          ],
+          "safety": "Safe, typical urban residential environment.",
+          "best_time_to_visit": "Year-round, quieter outside tourist seasons.",
+          "walkability": "Moderate walkability with some reliance on public transit."
+        },
+        "appeal": {
+          "known_for": [
+            "Residential calm",
+            "Local shops",
+            "Proximity to parks"
+          ],
+          "atmosphere": [
+            "quiet",
+            "family-friendly",
+            "everyday"
+          ],
+          "best_for": [
+            "long-term stays",
+            "families",
+            "budget travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Park Kasprowicza",
+              "type": "Large city park",
+              "description": "Sprawling green space with sports facilities and walking paths near Pomorzany.",
+              "appeal": "Popular for outdoor activities and relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Mleczny Pomorzany",
+              "cuisine": "Polish traditional",
+              "price_range": "€",
+              "known_for": "Affordable homestyle meals",
+              "atmosphere": "Casual and no-frills"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Use Pomorzany as a budget-friendly base to explore Szczecin.",
+          "Visit local bakeries for fresh bread and pastries.",
+          "Explore nearby parks for weekend picnics and jogging."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Restauracja Rint",
+          "cuisine_type": "Polish Contemporary",
+          "description": "Elegant restaurant offering modern takes on traditional Polish cuisine, with a focus on local ingredients and seasonal menus.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated and intimate with minimalist decor",
+          "neighborhood": "Śródmieście",
+          "best_for": [
+            "date night",
+            "business dinners"
+          ],
+          "latitude": 53.4285,
+          "longitude": 14.5528,
+          "reservation_needed": true,
+          "local_tips": "Try their signature wild boar dish when in season for a true taste of regional flavors."
+        },
+        {
+          "name": "Papryka",
+          "cuisine_type": "Polish & European Fusion",
+          "description": "Chic dining spot blending Polish classics with Mediterranean influences, praised for its creative plating and fresh ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and cozy with artistic touches",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "special occasions",
+            "food enthusiasts"
+          ],
+          "latitude": 53.429,
+          "longitude": 14.5535,
+          "reservation_needed": true,
+          "local_tips": "Reserve in advance and try the carpaccio of local fish from the Oder river."
+        },
+        {
+          "name": "Weranda Lunch & Wine",
+          "cuisine_type": "Modern European",
+          "description": "Upscale restaurant known for its extensive wine list and refined, seasonal dishes blending European culinary traditions.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant yet relaxed with a bright interior",
+          "neighborhood": "Śródmieście",
+          "best_for": [
+            "romantic dinners",
+            "wine lovers"
+          ],
+          "latitude": 53.4292,
+          "longitude": 14.5551,
+          "reservation_needed": true,
+          "local_tips": "Ask for the sommelier's pairing suggestions to complement your meal perfectly."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Bar Pierogarnia",
+          "cuisine_type": "Polish Traditional",
+          "description": "Casual spot specializing in pierogi, Poland’s iconic stuffed dumplings with a variety of sweet and savory fillings.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly, great for quick bites",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "families",
+            "budget travelers"
+          ],
+          "latitude": 53.428,
+          "longitude": 14.555,
+          "reservation_needed": false,
+          "local_tips": "Try the pierogi ruskie (potato and cheese) – a local favorite."
+        },
+        {
+          "name": "Szczecińska Zagroda",
+          "cuisine_type": "Polish Home Cooking",
+          "description": "Comfort food restaurant serving hearty, traditional dishes like bigos and żurek in a warm, rustic setting.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and welcoming with folk decor",
+          "neighborhood": "Łasztownia",
+          "best_for": [
+            "groups",
+            "families"
+          ],
+          "latitude": 53.4331,
+          "longitude": 14.5603,
+          "reservation_needed": false,
+          "local_tips": "Order the hunter’s stew (bigos) paired with locally brewed beer."
+        },
+        {
+          "name": "Zielona Gęś",
+          "cuisine_type": "Polish & International",
+          "description": "Popular casual dining offering a mix of Polish classics and European dishes with a modern twist.",
+          "price_range": "€€",
+          "atmosphere": "Lively and informal with a spacious interior",
+          "neighborhood": "Niebuszewo",
+          "best_for": [
+            "groups",
+            "casual meals"
+          ],
+          "latitude": 53.4412,
+          "longitude": 14.5609,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal menus for dishes highlighting fresh local produce."
+        },
+        {
+          "name": "Green Way",
+          "cuisine_type": "Vegetarian & Vegan",
+          "description": "Casual vegetarian restaurant serving fresh, healthy dishes inspired by Polish and international cuisines.",
+          "price_range": "€€",
+          "atmosphere": "Bright, modern, and relaxed",
+          "neighborhood": "Śródmieście",
+          "best_for": [
+            "vegetarians",
+            "health-conscious diners"
+          ],
+          "latitude": 53.431,
+          "longitude": 14.5548,
+          "reservation_needed": false,
+          "local_tips": "Try the vegan pierogi and their daily fresh juices."
+        },
+        {
+          "name": "Pierożek u Vincenta",
+          "cuisine_type": "Polish Dumplings",
+          "description": "Cozy casual spot specializing in a wide range of pierogi, from traditional to creative fillings.",
+          "price_range": "€",
+          "atmosphere": "Homey and informal",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "quick meals",
+            "pierogi lovers"
+          ],
+          "latitude": 53.4279,
+          "longitude": 14.5538,
+          "reservation_needed": false,
+          "local_tips": "Try the sweet pierogi with blueberries for dessert."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Szczecin Food Market",
+          "cuisine_type": "Various Street Foods",
+          "description": "Vibrant weekend market offering a variety of street foods including Polish sausages, zapiekanka, and fresh pastries.",
+          "price_range": "€",
+          "atmosphere": "Energetic and bustling outdoor market",
+          "neighborhood": "Plac Lotników",
+          "best_for": [
+            "casual snacks",
+            "groups"
+          ],
+          "latitude": 53.4297,
+          "longitude": 14.5533,
+          "reservation_needed": false,
+          "local_tips": "Try zapiekanka, a Polish-style open-faced baguette pizza, a local street food staple."
+        },
+        {
+          "name": "Zapiekanki u Staszka",
+          "cuisine_type": "Polish Street Food",
+          "description": "Iconic food stall famous for zapiekanka, topped with mushrooms, cheese, and other fresh toppings.",
+          "price_range": "€",
+          "atmosphere": "Casual, quick service",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "quick bites",
+            "late night snack"
+          ],
+          "latitude": 53.4283,
+          "longitude": 14.553,
+          "reservation_needed": false,
+          "local_tips": "Add the garlic sauce for an authentic experience."
+        },
+        {
+          "name": "Food Truck Festival Szczecin",
+          "cuisine_type": "Various",
+          "description": "Seasonal event featuring a rotating selection of food trucks offering both local and international street food.",
+          "price_range": "€",
+          "atmosphere": "Festive and casual outdoor gathering",
+          "neighborhood": "Wały Chrobrego",
+          "best_for": [
+            "groups",
+            "food adventurers"
+          ],
+          "latitude": 53.434,
+          "longitude": 14.564,
+          "reservation_needed": false,
+          "local_tips": "Check event dates in summer for the best variety."
+        },
+        {
+          "name": "Rynek Sienny Food Stalls",
+          "cuisine_type": "Traditional Polish Snacks",
+          "description": "Cluster of stalls in the old town square serving traditional Polish snacks like kiełbasa and placki ziemniaczane (potato pancakes).",
+          "price_range": "€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "tourists",
+            "snacking on the go"
+          ],
+          "latitude": 53.4284,
+          "longitude": 14.5537,
+          "reservation_needed": false,
+          "local_tips": "Sample the potato pancakes with sour cream and sugar for a sweet-savory treat."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Klub Storrady 24",
+          "cuisine_type": "Bar & Lounge",
+          "description": "Trendy bar known for inventive cocktails and a relaxed vibe, popular with locals and visitors alike.",
+          "price_range": "€€",
+          "atmosphere": "Hip and energetic with modern decor",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "cocktail lovers",
+            "evening hangouts"
+          ],
+          "latitude": 53.4291,
+          "longitude": 14.5539,
+          "reservation_needed": false,
+          "local_tips": "Try their seasonal cocktail menu to experience creative mixes."
+        },
+        {
+          "name": "Browar Stara Komenda",
+          "cuisine_type": "Craft Beer & Pub",
+          "description": "Craft brewery and pub offering a wide selection of local beers brewed on site with hearty pub fare.",
+          "price_range": "€€",
+          "atmosphere": "Casual, rustic, and lively",
+          "neighborhood": "Śródmieście",
+          "best_for": [
+            "beer enthusiasts",
+            "groups"
+          ],
+          "latitude": 53.43,
+          "longitude": 14.5555,
+          "reservation_needed": false,
+          "local_tips": "Sample their seasonal brews and ask for tasting flights."
+        },
+        {
+          "name": "Zawiasy",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Cozy bar with a focus on quality cocktails and intimate ambiance, ideal for relaxed evenings.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and stylish",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "date night",
+            "small groups"
+          ],
+          "latitude": 53.4287,
+          "longitude": 14.5542,
+          "reservation_needed": true,
+          "local_tips": "Ask the bartenders for personalized cocktail recommendations."
+        },
+        {
+          "name": "Piano Bar 99",
+          "cuisine_type": "Lounge & Live Music",
+          "description": "Elegant bar offering live piano music alongside a fine selection of drinks in a sophisticated setting.",
+          "price_range": "€€€",
+          "atmosphere": "Classy and intimate with live music",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "romantic evenings",
+            "music lovers"
+          ],
+          "latitude": 53.4288,
+          "longitude": 14.5536,
+          "reservation_needed": true,
+          "local_tips": "Visit on weekends for live jazz and piano performances."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Stara Rzeźnia Cafe",
+          "cuisine_type": "Cafe & Bakery",
+          "description": "Popular cafe known for its artisan coffee, fresh pastries, and cozy atmosphere in a historic building.",
+          "price_range": "€",
+          "atmosphere": "Warm and inviting with rustic charm",
+          "neighborhood": "Łasztownia",
+          "best_for": [
+            "coffee lovers",
+            "casual meetups"
+          ],
+          "latitude": 53.4325,
+          "longitude": 14.5593,
+          "reservation_needed": false,
+          "local_tips": "Try the homemade cakes paired with a single-origin espresso."
+        },
+        {
+          "name": "Cafe 22",
+          "cuisine_type": "Cafe & Light Meals",
+          "description": "Modern cafe offering specialty coffee, light meals, and a stylish interior with a relaxed vibe.",
+          "price_range": "€",
+          "atmosphere": "Contemporary and bright",
+          "neighborhood": "Stare Miasto",
+          "best_for": [
+            "work sessions",
+            "brunch"
+          ],
+          "latitude": 53.4275,
+          "longitude": 14.5534,
+          "reservation_needed": false,
+          "local_tips": "Visit in the morning for freshly brewed pour-over coffee."
+        },
+        {
+          "name": "Mielżyński Wine & Coffee Bar",
+          "cuisine_type": "Cafe & Wine Bar",
+          "description": "Elegant spot combining specialty coffee by day and fine wines by night, with a curated selection of pastries and snacks.",
+          "price_range": "€€",
+          "atmosphere": "Chic and relaxed",
+          "neighborhood": "Śródmieście",
+          "best_for": [
+            "wine and coffee lovers",
+            "afternoon breaks"
+          ],
+          "latitude": 53.4304,
+          "longitude": 14.5541,
+          "reservation_needed": false,
+          "local_tips": "Try their coffee flights and sample local Polish wines in the evening."
+        },
+        {
+          "name": "Cafe Zielona",
+          "cuisine_type": "Organic Cafe",
+          "description": "Eco-conscious cafe offering organic coffee, vegan treats, and healthy bowls in a calming atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Relaxed and green-inspired",
+          "neighborhood": "Niebuszewo",
+          "best_for": [
+            "health-conscious",
+            "quiet work sessions"
+          ],
+          "latitude": 53.4405,
+          "longitude": 14.5625,
+          "reservation_needed": false,
+          "local_tips": "Try the turmeric latte and vegan carrot cake."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Szczecin Food Walk",
+        "description": "Guided walking tour through Szczecin’s Old Town, sampling traditional Polish snacks, street food, and local specialties.",
+        "price_range": "€€",
+        "atmosphere": "Educational and fun",
+        "location": "Stare Miasto",
+        "latitude": 53.428,
+        "longitude": 14.553,
+        "reservation_needed": true,
+        "local_tips": "Book in spring or autumn to enjoy seasonal specialties like fresh asparagus or game meats."
+      },
+      {
+        "name": "Polish Cooking Class at Kuchnia u Doroty",
+        "description": "Hands-on cooking class teaching traditional Polish dishes such as pierogi, żurek, and bigos in a friendly home kitchen setting.",
+        "price_range": "€€€",
+        "atmosphere": "Interactive and homey",
+        "location": "Śródmieście",
+        "latitude": 53.4295,
+        "longitude": 14.5545,
+        "reservation_needed": true,
+        "local_tips": "Perfect for foodies wanting to bring authentic Polish recipes home."
+      },
+      {
+        "name": "Visit to Szczecin Fish Market",
+        "description": "Morning tour and tasting at the local fish market focusing on fresh Oder river fish and seafood specialties unique to the region.",
+        "price_range": "€",
+        "atmosphere": "Lively and authentic",
+        "location": "Rynek Rybny",
+        "latitude": 53.4308,
+        "longitude": 14.558,
+        "reservation_needed": false,
+        "local_tips": "Try the smoked eel and herring prepared in traditional styles."
+      },
+      {
+        "name": "Seasonal Mushroom Foraging and Cooking",
+        "description": "Guided forest mushroom foraging trip followed by a cooking workshop to prepare traditional mushroom dishes, popular in autumn.",
+        "price_range": "€€€",
+        "atmosphere": "Nature-focused and educational",
+        "location": "Near Szczecin forests",
+        "latitude": 53.45,
+        "longitude": 14.58,
+        "reservation_needed": true,
+        "local_tips": "Best booked in late September to October for the richest mushroom variety."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh white asparagus dishes often served with hollandaise sauce",
+        "Rhubarb desserts and compotes",
+        "Smoked fish from the Oder River"
+      ],
+      "summer": [
+        "Cold beetroot soup (chłodnik) ideal for warm days",
+        "Fresh berries in cakes and pierogi fillings",
+        "Grilled river fish and seasonal vegetables"
+      ],
+      "autumn": [
+        "Wild mushroom soups and pierogi with mushroom fillings",
+        "Game meats such as venison and wild boar stews",
+        "Apple and plum pastries"
+      ],
+      "winter": [
+        "Hearty hunter’s stew (bigos) with sauerkraut and smoked meats",
+        "Traditional Christmas dishes like carp and makowiec (poppy seed cake)",
+        "Warm potato pancakes with sour cream"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€20-€50",
+            "operator": "Deutsche Bahn",
+            "notes": "Direct regional and intercity trains available daily."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 45m",
+            "frequency": "hourly",
+            "price_range": "€10-€25",
+            "operator": "FlixBus",
+            "notes": "Multiple daily departures from Szczecin bus station."
+          }
+        ]
+      },
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€60",
+            "operator": "PKP Intercity",
+            "notes": "Direct and indirect trains; some routes require change."
+          },
+          {
+            "type": "bus",
+            "duration": "7h",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Comfortable coaches with onboard Wi-Fi."
+          }
+        ]
+      },
+      {
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€35-€70",
+            "operator": "Deutsche Bahn / DSB",
+            "notes": "Route involves train and ferry crossing via Rostock to Gedser."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "SAS / LOT",
+            "notes": "Direct flights from Szczecin-Goleniów Airport."
+          }
+        ]
+      },
+      {
+        "city": "Hamburg",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€55",
+            "operator": "Deutsche Bahn",
+            "notes": "One or two changes usually required via Berlin or Schwerin."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 45m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Direct coaches with multiple daily departures."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses available; comfortable overnight options."
+          },
+          {
+            "type": "train",
+            "duration": "9h",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "PKP Intercity / České dráhy",
+            "notes": "Requires changes, usually via Wrocław and Dresden."
+          }
+        ]
+      },
+      {
+        "city": "Stockholm",
+        "country": "Sweden",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€60-€150",
+            "operator": "SAS / Ryanair",
+            "notes": "Direct flights from Szczecin-Goleniów Airport."
+          },
+          {
+            "type": "ferry",
+            "duration": "overnight ferry + train 10h",
+            "frequency": "daily",
+            "price_range": "€70-€130",
+            "operator": "TT-Line / SJ",
+            "notes": "Ferry from Świnoujście to Trelleborg, then train to Stockholm."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "12h",
+            "frequency": "daily",
+            "price_range": "€35-€70",
+            "operator": "FlixBus",
+            "notes": "Long-distance direct buses with stops en route."
+          },
+          {
+            "type": "train",
+            "duration": "10-11h",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "PKP Intercity / Deutsche Bahn / NS",
+            "notes": "Requires multiple changes via Berlin and Hannover."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "PKP Intercity / Deutsche Bahn / SNCB",
+            "notes": "Multiple changes, typically in Berlin and Cologne."
+          },
+          {
+            "type": "bus",
+            "duration": "11h",
+            "frequency": "daily",
+            "price_range": "€30-€65",
+            "operator": "FlixBus",
+            "notes": "Direct and indirect routes available."
+          }
+        ]
+      },
+      {
+        "city": "Vilnius",
+        "country": "Lithuania",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "Ecolines / Lux Express",
+            "notes": "Direct routes with comfortable coaches."
+          }
+        ]
+      },
+      {
+        "city": "Gdansk",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h",
+            "frequency": "hourly",
+            "price_range": "€10-€25",
+            "operator": "PKP Intercity / Polregio",
+            "notes": "Direct regional and intercity trains daily."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 30m",
+            "frequency": "hourly",
+            "price_range": "€8-€20",
+            "operator": "FlixBus / local providers",
+            "notes": "Multiple daily options with frequent departures."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Szczecin Music Fest",
+        "type": "cultural",
+        "description": "A vibrant festival showcasing classical and contemporary music performances across the city, attracting both local and international artists.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Various venues including Szczecin Philharmonic",
+        "price": "Moderate"
+      },
+      {
+        "name": "Pomeranian Dukes' Castle Gardens Walk",
+        "type": "outdoor",
+        "description": "Enjoy a leisurely stroll through the blooming gardens surrounding the historic Pomeranian Dukes' Castle, perfect for nature and history enthusiasts.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Pomeranian Dukes' Castle",
+        "price": "Free"
+      },
+      {
+        "name": "Truffle Festival",
+        "type": "food",
+        "description": "Celebrate the season with tastings and workshops centered on truffles and local delicacies at various eateries and markets.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "City markets and select restaurants",
+        "price": "Budget"
+      },
+      {
+        "name": "Bike Tours Along Oder River",
+        "type": "sport",
+        "description": "Take advantage of mild spring weather to explore scenic bike routes along the Oder River, suitable for all skill levels.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Oder River bike paths",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Days of European Film Festival",
+        "type": "cultural",
+        "description": "An annual open-air film festival featuring European cinema, workshops, and discussions held at various open-air venues.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Open-air stages around the city center",
+        "price": "Budget"
+      },
+      {
+        "name": "Wały Chrobrego Promenade Picnic",
+        "type": "outdoor",
+        "description": "Enjoy a picnic or casual gathering along this iconic riverside promenade, a perfect spot for sunbathing and socializing in summer.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Wały Chrobrego Promenade",
+        "price": "Free"
+      },
+      {
+        "name": "Szczecin Lagoon Sailing",
+        "type": "sport",
+        "description": "Experience sailing or boat tours on the Szczecin Lagoon, ideal for water sports enthusiasts and nature lovers.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Szczecin Lagoon marinas",
+        "price": "Moderate"
+      },
+      {
+        "name": "Fresh Strawberry Markets",
+        "type": "food",
+        "description": "Taste the freshest local strawberries at city markets, often accompanied by homemade jams and desserts.",
+        "best_months": [
+          "June"
+        ],
+        "location": "Central Market Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Summer Jazz Concerts",
+        "type": "cultural",
+        "description": "Live jazz performances in parks and open-air venues, creating a lively and relaxed atmosphere throughout summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Various parks and squares",
+        "price": "Free to Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Szczecin Pumpkin Festival",
+        "type": "food",
+        "description": "Celebrate autumn with pumpkin tastings, cooking workshops, and family-friendly activities centered around this seasonal favorite.",
+        "best_months": [
+          "October"
+        ],
+        "location": "City Market and cultural centers",
+        "price": "Budget"
+      },
+      {
+        "name": "Autumn Leaf Walk in Kasprowicz Park",
+        "type": "outdoor",
+        "description": "Enjoy the vibrant colors of fall foliage with a peaceful walk through one of Szczecin’s largest parks.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Kasprowicz Park",
+        "price": "Free"
+      },
+      {
+        "name": "Sea and River Maritime Festival",
+        "type": "cultural",
+        "description": "An event honoring Szczecin’s maritime heritage with exhibitions, boat displays, and cultural performances.",
+        "best_months": [
+          "September"
+        ],
+        "location": "Harbor area and Maritime Museum",
+        "price": "Free to Budget"
+      },
+      {
+        "name": "Wild Mushroom Foraging Tours",
+        "type": "outdoor",
+        "description": "Guided tours in nearby forests to discover and learn about edible wild mushrooms, a popular autumn activity.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Nearby forests around Szczecin",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hearty Polish Cuisine Tastings",
+        "type": "food",
+        "description": "Warm up with traditional autumnal dishes like pierogi with mushrooms, served in local eateries focusing on seasonal ingredients.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Old Town restaurants",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market at Castle Square",
+        "type": "festival",
+        "description": "Experience festive stalls selling crafts, traditional food, and mulled wine set against the backdrop of the Pomeranian Dukes' Castle.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Castle Square",
+        "price": "Free to Budget"
+      },
+      {
+        "name": "Ice Skating at Jasne Błonia",
+        "type": "sport",
+        "description": "Seasonal ice rink opens for locals and visitors to enjoy skating in a charming park setting during winter months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Jasne Błonia Park",
+        "price": "Budget"
+      },
+      {
+        "name": "Szczecin Winter Film Festival",
+        "type": "cultural",
+        "description": "A cozy film festival presenting international and Polish cinema, often highlighting winter themes and stories.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Local cinemas",
+        "price": "Moderate"
+      },
+      {
+        "name": "Traditional Polish Soup Sampling",
+        "type": "food",
+        "description": "Warm up with hearty soups like barszcz and żurek offered at local cafés and eateries during the cold season.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "City center restaurants",
+        "price": "Budget"
+      },
+      {
+        "name": "Winter Walks Along Odra River",
+        "type": "outdoor",
+        "description": "Brisk winter walks along the river offer crisp air and scenic views, ideal for those enjoying quiet nature experiences in the city.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Odra River banks",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "New Year's Day and Epiphany",
+            "notes": "Very cold weather, short daylight hours; low tourism but local celebrations on Jan 1 and 6 bring some local crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often damp weather; minimal tourist activity; many attractions indoors but limited events.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 5,
+              "luxury": 1
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Slightly better weather but still cold; cultural events indoors increase; suitable for budget travelers due to low prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold winter persists; good for indoor museum visits; few tourists keep prices low; days slowly lengthening.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold with occasional snow; some cultural events such as the Pomeranian Film Festival; good for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Valentine's Day (Feb 14)",
+            "notes": "Romantic ambiance builds; some restaurants and events offer special programs; weather still chilly but improving daylight.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 5,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold but with increasing daylight; cultural and music events start picking up; good for exploring museums and cafes.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Transitioning towards spring; weather still cold but more manageable; suitable for cultural tourism and budget stays.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early signs of spring; still chilly but more outdoor activities possible; moderate tourist flow.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "International Women's Day (Mar 8)",
+            "notes": "Mild weather improving; events and cultural activities increase; popular with couples and solo travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring blossoms start; weather improves significantly; good for outdoor sightseeing and walking tours.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warmer days and longer daylight; ideal for city parks and riverfront strolls; moderate crowds with increasing tourism.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Period (variable; often April)",
+            "notes": "Easter celebrations include markets and church events; spring flowers bloom; comfortable weather for outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring fully underway; mild temperatures and increasing sunshine; good for walking tours and river cruises.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Pleasant weather attracts more visitors but crowds remain manageable; outdoor cafes and parks popular.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Last part of April is ideal for outdoor sightseeing; moderate visitor numbers; good value accommodations.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day (May 1) and Constitution Day (May 3)",
+            "notes": "Public holidays with festive events and parades; very pleasant weather; start of high tourist season.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and sunny; excellent for outdoor activities, sightseeing, and festivals; increasing crowds but not overwhelming.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Ideal weather; long daylight hours; many outdoor events and cultural activities; perfect for all traveler types.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Szczecin Days (end-May annual local festival)",
+            "notes": "Local festivals with concerts, food fairs, and cultural events; excellent weather; high tourist interest.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm days and mild nights; perfect for river cruises, outdoor dining, and festivals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Days of the Sea Festival",
+            "notes": "One of Szczecin’s largest maritime festivals with parades and concerts; warm weather; attracts many visitors.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Excellent summer weather; ideal for beach trips nearby and exploring parks; moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Long days and warm weather maximize sightseeing opportunities; popular time for international visitors.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer; warmest month with many open-air concerts and festivals; busy but vibrant atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistent warm weather; perfect for outdoor dining, boat tours, and nightlife; high accommodation demand.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Very active tourist season; warm evenings and festivals; recommended to book accommodations well in advance.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and lively with many cultural events; perfect for families and young travelers; expect busy venues and higher prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer continues; popular time for outdoor festivals and river events; high visitor numbers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Ideal for beach trips nearby and city tours; many cultural and music events; high demand for accommodations.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of peak season; still warm but some tourists start to leave; slightly less crowded and better pricing.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm but quieter; good for travelers seeking fewer crowds; still good weather for outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild and comfortable weather; fewer tourists; excellent for cultural events and outdoor dining.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Sea Festival (some years early September)",
+            "notes": "Maritime-themed celebrations with local participation; pleasant weather; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Comfortable temperatures and fewer tourists; ideal for sightseeing and visiting museums; good value stays.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather begins to cool and rain increases; tourist numbers drop; good for budget travelers and cultural tourism.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooling weather with fall colors; occasional rain; fewer tourists; good for indoor attractions and local cuisine experiences.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Similar weather pattern; cultural events indoors pick up; good for solo travelers and couples who enjoy quieter visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chillier weather and shorter daylight; decreased tourist activity; some museums may reduce hours.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cold and rainy; indoor activities recommended; low prices but limited outdoor options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": true,
+            "event": "All Saints' Day (Nov 1)",
+            "notes": "Cold and often gloomy; local holiday with cultural significance; low tourism but some local crowds at cemeteries and churches.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold, dark, and rainy; very low tourist numbers; many outdoor attractions closed or less enjoyable.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 4,
+              "budget": 5,
+              "luxury": 1
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Similar conditions; indoor cultural offerings like theaters and museums remain options; very quiet city.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and approaching winter; good deals on lodging; limited outdoor activities due to weather and daylight.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Advent and Christmas Markets start",
+            "notes": "Festive atmosphere with Christmas markets opening; cold but charming city; moderate crowds from locals and tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Christmas markets in full swing; festive concerts and events; chilly weather but magical ambiance.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Peak festive season before Christmas; many events and vibrant city life; cold weather but good for cultural tourism.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Christmas and New Year's celebrations bring local and some tourist crowds; cold weather; limited daylight but festive spirit.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

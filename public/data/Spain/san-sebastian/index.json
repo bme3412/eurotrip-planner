@@ -1,1 +1,3013 @@
-{"city":"san-sebastian","country":"Spain","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "san-sebastian",
+  "country": "Spain",
+  "overview": {
+    "city_name": "san-sebastian",
+    "country": "Spain",
+    "brief_description": "San Sebastián is a stunning coastal city in Spain’s Basque Country, renowned for its beautiful beaches, vibrant culinary scene, and rich cultural heritage. Its elegant Belle Époque architecture blends seamlessly with the dramatic backdrop of the Bay of Biscay, making it a captivating destination for travelers seeking both relaxation and sophistication.",
+    "nickname": "La Bella Easo",
+    "region": "Basque Country, Northern Spain",
+    "population": "approximately 187,000",
+    "why_visit": [
+      "World-class gastronomy, including numerous Michelin-starred restaurants",
+      "Beautiful urban beaches like La Concha and Ondarreta",
+      "Rich Basque culture and historic Old Town",
+      "International film and jazz festivals"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and festivals are in full swing",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming gardens create a pleasant atmosphere, ideal for sightseeing and outdoor dining.",
+      "summer": "Warm and sunny with lively beaches and numerous cultural events, but can be crowded with tourists.",
+      "autumn": "Cooler weather with fewer crowds; perfect for exploring the city’s culinary delights and hiking nearby trails.",
+      "winter": "Generally mild and quieter, offering a peaceful experience with cozy pintxo bars and fewer tourists."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Spanish and Basque (Euskara)",
+      "visit_duration": "3 to 4 days recommended",
+      "getting_around": "Walkable city center, supplemented by local buses and taxis",
+      "safety": "Generally very safe, with usual precautions for urban areas"
+    },
+    "coordinates": {
+      "latitude": 43.318334,
+      "longitude": -1.981231
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Stroll along La Concha Beach and enjoy panoramic bay views",
+        "Explore the Old Town (Parte Vieja) and sample traditional pintxos",
+        "Visit Monte Igueldo for stunning city and coastline vistas",
+        "Dine at a Michelin-starred restaurant like Arzak or Akelarre",
+        "Attend the San Sebastián International Film Festival if visiting in September"
+      ],
+      "worth_doing": [
+        "Discover the Basque Culinary Center and learn about local cuisine",
+        "Relax at Ondarreta Beach and visit the nearby Peine del Viento sculptures",
+        "Take a boat trip across the bay to Santa Clara Island",
+        "Visit the San Telmo Museoa to explore Basque history and art",
+        "Cycle or walk the scenic Paseo Nuevo along the coast"
+      ],
+      "hidden_gems": [
+        "Hike up to Mount Urgull and explore the lesser-known historical fortifications",
+        "Explore the tranquil neighborhood of Gros with its surf culture and local cafés",
+        "Visit the Mercado de la Bretxa for a genuine local market experience",
+        "Discover the small but charming Cristina Enea Park away from tourist crowds",
+        "Attend a Basque pelota match for a unique cultural sporting experience"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "La Concha Beach",
+        "type": "Beach",
+        "description": "La Concha Beach is one of Europe's most famous urban beaches, known for its golden sand and calm bay waters framed by the iconic shell-shaped bay. It's perfect for swimming, sunbathing, and scenic strolls along the promenade with views of Santa Clara Island.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in late spring to early autumn for warm weather and swimming",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3183,
+        "longitude": -1.9761,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "16",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Parte Vieja (Old Town)",
+        "type": "Historic Site/Neighborhood",
+        "description": "Parte Vieja is the vibrant historic quarter of San Sebastián, featuring narrow streets lined with pintxo bars, traditional shops, and historic buildings like the Basilica of Saint Mary of the Chorus. It's the heart of the city's culinary and nightlife scene.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Lively year-round; especially busy during festivals like Semana Grande",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 43.3204,
+        "longitude": -1.9851,
+        "neighborhood": "Parte Vieja",
+        "opening_hours": {
+          "weekday": "Shops 10:00–20:00, bars from 12:00",
+          "weekend": "Shops 10:00–20:00, bars from 12:00",
+          "notes": "Bars open late"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25",
+            "28"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 4,
+          "ideal_time_block": "evening",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Monte Urgull",
+        "type": "Viewpoint/Historic Site",
+        "description": "Monte Urgull is a historic hill offering panoramic views over San Sebastián and the Bay of Biscay. The summit hosts the Castillo de la Mota fortress and the iconic Christ statue, blending natural beauty with centuries of history dating back to the 12th century.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Lush greenery in spring and summer enhances the experience",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3222,
+        "longitude": -1.9835,
+        "neighborhood": "Parte Vieja",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "San Telmo Museoa",
+        "type": "Museum",
+        "description": "Housed in a 16th-century former convent, San Telmo Museoa is the main Basque museum showcasing regional history, art, and culture with a modern extension blending historic and contemporary architecture. Exhibits range from archaeological finds to contemporary Basque art.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Booking online is recommended during weekends and holidays",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.3191,
+        "longitude": -1.9849,
+        "neighborhood": "Parte Vieja",
+        "opening_hours": {
+          "weekday": "10:00–20:00",
+          "weekend": "10:00–20:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Ideal for rainy days"
+        },
+        "official_url": "https://www.santelmomuseoa.eus/en/",
+        "website": "https://www.santelmomuseoa.eus/en/"
+      },
+      {
+        "name": "Peine del Viento (Comb of the Wind)",
+        "type": "Monument/Sculpture",
+        "description": "Peine del Viento is a famous set of three steel sculptures by Eduardo Chillida embedded into the rocks at the western end of Ondarreta Beach. The site offers dramatic views of the waves crashing against the sculptures, blending art with nature.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Best experienced during high tide or stormy weather for dramatic wave action",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3123,
+        "longitude": -1.9995,
+        "neighborhood": "Ondarreta",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "any",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Miramar Palace",
+        "type": "Palace/Garden",
+        "description": "Miramar Palace is a 19th-century royal summer residence set on a hill overlooking La Concha Bay. Visitors can explore its beautiful English-style gardens and enjoy spectacular views of the bay and city.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Gardens are best visited in spring and summer when flowers bloom",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3169,
+        "longitude": -1.9788,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Aquarium Donostia-San Sebastián",
+        "type": "Museum/Aquarium",
+        "description": "The Aquarium is a family-friendly attraction featuring marine life native to the Bay of Biscay and beyond. It includes a large oceanarium, interactive exhibits, and a glass tunnel offering immersive underwater views.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Buy tickets online to avoid queues, especially in summer",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3216,
+        "longitude": -1.9865,
+        "neighborhood": "Port Area",
+        "opening_hours": {
+          "weekday": "10:00–20:00",
+          "weekend": "10:00–20:00",
+          "notes": "Last entry 1 hour before closing"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor attraction"
+        },
+        "official_url": "https://www.aquariumss.com/en/",
+        "website": "https://www.aquariumss.com/en/"
+      },
+      {
+        "name": "Mercado de la Bretxa",
+        "type": "Market",
+        "description": "Mercado de la Bretxa is a bustling traditional market located near the Old Town, offering fresh local produce, seafood, and Basque specialties. It's a great place to experience the local food culture and buy gourmet ingredients.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Seasonal seafood and produce vary throughout the year",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3193,
+        "longitude": -1.984,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "08:00–14:30",
+          "weekend": "Closed Sundays",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Basilica of Saint Mary of the Chorus",
+        "type": "Church",
+        "description": "This 18th-century baroque church is a stunning architectural jewel in the Old Town, featuring an ornate façade and richly decorated interiors. It holds an important place in San Sebastián's religious and cultural history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check for mass times if interested in attending",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 4
+        },
+        "latitude": 43.32,
+        "longitude": -1.9855,
+        "neighborhood": "Parte Vieja",
+        "opening_hours": {
+          "weekday": "10:00–13:00, 17:00–19:00",
+          "weekend": "10:00–13:00, 17:00–19:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Tabakalera",
+        "type": "Cultural Center/Gallery",
+        "description": "Tabakalera is a contemporary culture center housed in a former tobacco factory, hosting art exhibitions, film screenings, and creative workshops. It is a hub for modern Basque and international culture and creativity.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free to Moderate",
+        "seasonal_notes": "Special exhibitions change seasonally",
+        "booking_tips": "Check website for current exhibitions and events",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3215,
+        "longitude": -1.9838,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "11:00–20:00",
+          "weekend": "11:00–20:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor attraction"
+        },
+        "official_url": "https://www.tabakalera.eus/en/",
+        "website": "https://www.tabakalera.eus/en/"
+      },
+      {
+        "name": "Ondarreta Beach",
+        "type": "Beach",
+        "description": "Ondarreta Beach is a family-friendly urban beach west of La Concha, known for its fine sand and calm waters, ideal for swimming and sunbathing. It offers a quieter alternative with views of Monte Igueldo and the iconic Peine del Viento sculptures nearby.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Peak season from June to September",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3131,
+        "longitude": -1.9943,
+        "neighborhood": "Ondarreta",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Monte Igueldo",
+        "type": "Viewpoint/Amusement Park",
+        "description": "Monte Igueldo offers some of the best views over San Sebastián and its coastline. At the summit is a nostalgic amusement park with vintage rides and a historic funicular railway, making it a charming excursion spot.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget to Moderate (for funicular and park entrance)",
+        "seasonal_notes": "Amusement park open mainly from spring to early autumn",
+        "booking_tips": "Buy funicular tickets onsite; queues can form on weekends",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3029,
+        "longitude": -2.0055,
+        "neighborhood": "Igeldo",
+        "opening_hours": {
+          "weekday": "Funicular 10:00–19:00",
+          "weekend": "Funicular 10:00–19:00",
+          "notes": "Park hours vary seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "San Telmo Museum or Aquarium"
+        },
+        "official_url": "https://www.monteigueldo.es/en/",
+        "website": "https://www.monteigueldo.es/en/"
+      },
+      {
+        "name": "Cristina Enea Park",
+        "type": "Park",
+        "description": "Cristina Enea Park is a peaceful green oasis in the city, featuring walking paths, ponds, and diverse tree species. It’s ideal for a relaxing stroll or picnic and is home to the Cristina Enea Foundation which promotes environmental education.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and autumn with colorful foliage",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.322,
+        "longitude": -1.9825,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "25",
+            "28"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo Chillida-Leku",
+        "type": "Museum/Garden",
+        "description": "Located just outside San Sebastián, Museo Chillida-Leku is dedicated to the works of Eduardo Chillida, one of Spain’s greatest sculptors. The museum integrates large-scale sculptures with natural landscapes, creating a unique outdoor and indoor art experience.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open seasonally, check opening times in winter",
+        "booking_tips": "Advance booking recommended, shuttle buses available from San Sebastián",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 43.2781,
+        "longitude": -2.0013,
+        "neighborhood": "Hernani (suburb)",
+        "opening_hours": {
+          "weekday": "10:00–18:00",
+          "weekend": "10:00–18:00",
+          "notes": "Closed Mondays and holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "E21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "San Telmo Museum"
+        },
+        "official_url": "https://chillidaleku.com/en/",
+        "website": "https://chillidaleku.com/en/"
+      },
+      {
+        "name": "Tabakalera Rooftop Terrace",
+        "type": "Viewpoint",
+        "description": "The rooftop terrace of Tabakalera offers a fantastic panoramic view of San Sebastián’s cityscape, including the bay, beaches, and mountains. It's a quiet spot to relax and take photos, often overlooked by tourists.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round, best at sunset",
+        "booking_tips": "Access included with Tabakalera entry; check opening hours",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.3215,
+        "longitude": -1.9838,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "11:00–20:00",
+          "weekend": "11:00–20:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor exhibitions at Tabakalera"
+        },
+        "official_url": "https://www.tabakalera.eus/en/",
+        "website": "https://www.tabakalera.eus/en/"
+      },
+      {
+        "name": "Kursaal Congress Centre and Auditorium",
+        "type": "Modern Architecture/Concert Hall",
+        "description": "Designed by architect Rafael Moneo, the Kursaal is an iconic modern building on the waterfront that hosts concerts, film festivals, and cultural events. Its striking glass cubes contrast with the historic city and provide great photo opportunities.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Budget to Premium (depending on event)",
+        "seasonal_notes": "Hosts San Sebastián International Film Festival every September",
+        "booking_tips": "Book event tickets in advance especially during festivals",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.3171,
+        "longitude": -1.9832,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Varies by event",
+          "weekend": "Varies by event",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "17",
+            "25"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue"
+        },
+        "official_url": "https://www.kursaal.eus/en/",
+        "website": "https://www.kursaal.eus/en/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Parte Vieja",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "Bustling and vibrant, Parte Vieja is the historic heart of San Sebastián, alive with pintxo bars and narrow medieval streets. The neighborhood pulses with energy day and night, blending tradition with lively social scenes.",
+        "location": {
+          "central": true,
+          "description": "Located at the western edge of the city center along the bay",
+          "borders": [
+            "Centro",
+            "Gros"
+          ],
+          "landmarks": [
+            "Plaza de la Constitución",
+            "San Vicente Church",
+            "La Bretxa Market"
+          ]
+        },
+        "history": {
+          "overview": "Parte Vieja is the original medieval core of San Sebastián, dating back to the 12th century.",
+          "significance": "It preserves the city's historic layout and is the birthplace of its renowned culinary culture.",
+          "notable_events": [
+            "Siege of San Sebastián (1813)",
+            "Annual Tamborrada drum festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Buses 5, 16, 17",
+            "Close to city center bus stops"
+          ],
+          "safety": "Generally safe but crowded at night; stay alert",
+          "best_time_to_visit": "Late afternoon through evening for pintxos and nightlife",
+          "walkability": "Highly walkable with pedestrian-only streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Pintxo bars",
+            "Historic architecture",
+            "Festivals",
+            "Nightlife",
+            "Shops"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Authentic",
+            "Historic"
+          ],
+          "best_for": [
+            "Food lovers",
+            "Nightlife seekers",
+            "History enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 5,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Plaza de la Constitución",
+              "type": "Public Square",
+              "description": "A lively square that once served as the bullfighting ring in the 19th century.",
+              "appeal": "Experience local festivals and vibrant street life."
+            },
+            {
+              "name": "La Bretxa Market",
+              "type": "Market",
+              "description": "Traditional market offering fresh produce, seafood, and local delicacies.",
+              "appeal": "Ideal for tasting local ingredients and shopping."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Nestor",
+              "cuisine": "Basque",
+              "price_range": "€€€",
+              "known_for": "Famous for its steak and tomato salad",
+              "atmosphere": "Cozy and authentic"
+            },
+            {
+              "name": "Borda Berri",
+              "cuisine": "Basque Pintxos",
+              "price_range": "€€",
+              "known_for": "Creative pintxos with a modern twist",
+              "atmosphere": "Casual and bustling"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Arrive early evening to beat the crowds at popular pintxo bars.",
+          "Explore side streets for quieter bars with local flavor.",
+          "Try the anchovies and tortilla pintxos at different bars."
+        ]
+      },
+      {
+        "name": "Gros",
+        "alternate_names": [
+          "Gros District"
+        ],
+        "character": "A trendy and youthful neighborhood, Gros is known for its surf culture and vibrant street art. It blends a laid-back beach vibe with urban energy, attracting creatives and young crowds.",
+        "location": {
+          "central": true,
+          "description": "East of the city center, adjacent to Zurriola Beach",
+          "borders": [
+            "Centro",
+            "Amara",
+            "Egia"
+          ],
+          "landmarks": [
+            "Zurriola Beach",
+            "Tabakalera Cultural Center"
+          ]
+        },
+        "history": {
+          "overview": "Once a working-class area, Gros has transformed into a cultural hotspot since the 2000s.",
+          "significance": "It represents modern San Sebastián’s youthful and artistic side.",
+          "notable_events": [
+            "Rise in surf tourism",
+            "Opening of Tabakalera (2015)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Buses 1, 12, 16",
+            "Close to city center stops"
+          ],
+          "safety": "Safe with occasional nightlife crowds",
+          "best_time_to_visit": "Spring through autumn for beach and festivals",
+          "walkability": "Very walkable with flat streets and bike lanes"
+        },
+        "appeal": {
+          "known_for": [
+            "Surfing",
+            "Street art",
+            "Contemporary culture",
+            "Nightlife",
+            "Cafes"
+          ],
+          "atmosphere": [
+            "Trendy",
+            "Creative",
+            "Relaxed"
+          ],
+          "best_for": [
+            "Young travelers",
+            "Artists",
+            "Beach lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Zurriola Beach",
+              "type": "Beach",
+              "description": "Popular surf beach with consistent waves and a youthful crowd.",
+              "appeal": "A hub for surfing and beach activities."
+            },
+            {
+              "name": "Tabakalera",
+              "type": "Cultural Center",
+              "description": "International contemporary culture center housed in a former tobacco factory.",
+              "appeal": "Spot for exhibitions, film screenings, and events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Atari",
+              "cuisine": "Basque",
+              "price_range": "€€",
+              "known_for": "Delicious pintxos and lively atmosphere",
+              "atmosphere": "Casual and hip"
+            },
+            {
+              "name": "Surf House",
+              "cuisine": "International, Healthy",
+              "price_range": "€€",
+              "known_for": "Smoothie bowls and surfer-friendly menu",
+              "atmosphere": "Bright and relaxed"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a surfboard or take a lesson at Zurriola Beach.",
+          "Visit Tabakalera on Wednesdays for local art markets.",
+          "Explore the side streets for street murals and independent shops."
+        ]
+      },
+      {
+        "name": "Centro",
+        "alternate_names": [
+          "City Center"
+        ],
+        "character": "The bustling commercial and administrative core of San Sebastián, Centro is where elegant boulevards meet high-end shops and historic theaters. It balances modern urban life with refined Belle Époque charm.",
+        "location": {
+          "central": true,
+          "description": "Heart of the city, between Parte Vieja and Amara",
+          "borders": [
+            "Parte Vieja",
+            "Amara",
+            "Egian",
+            "Antiguo"
+          ],
+          "landmarks": [
+            "Boulevard",
+            "Victoria Eugenia Theatre",
+            "Kursaal Congress Center"
+          ]
+        },
+        "history": {
+          "overview": "Developed extensively in the 19th century to accommodate the city's growth and tourism boom.",
+          "significance": "It represents the city’s expansion beyond its medieval core into a modern European city.",
+          "notable_events": [
+            "Belle Époque development",
+            "International film festival hub"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Main bus lines 5, 16, 25",
+            "Taxi stands"
+          ],
+          "safety": "Very safe and well-patrolled",
+          "best_time_to_visit": "Year-round, especially during the San Sebastián Film Festival (September)",
+          "walkability": "Extremely walkable with wide streets and promenades"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Historic architecture",
+            "Theatres",
+            "Cafes",
+            "Festivals"
+          ],
+          "atmosphere": [
+            "Elegant",
+            "Cosmopolitan",
+            "Energetic"
+          ],
+          "best_for": [
+            "Shoppers",
+            "Culture seekers",
+            "Event attendees"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Victoria Eugenia Theatre",
+              "type": "Theatre",
+              "description": "A Belle Époque venue hosting opera, concerts, and cultural events.",
+              "appeal": "Architectural beauty and rich cultural programming."
+            },
+            {
+              "name": "Boulevard",
+              "type": "Street",
+              "description": "Elegant shopping street lined with boutiques and cafes.",
+              "appeal": "Ideal for strolling and upscale shopping."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café de la Concha",
+              "cuisine": "Spanish, Cafe",
+              "price_range": "€€",
+              "known_for": "Coffee and pastries with views of La Concha Bay",
+              "atmosphere": "Classic and relaxed"
+            },
+            {
+              "name": "Gandarias Jatetxea",
+              "cuisine": "Basque Grill",
+              "price_range": "€€€",
+              "known_for": "Steak and traditional Basque dishes",
+              "atmosphere": "Refined and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy quiet streets and fresh pastries.",
+          "Check event schedules at Victoria Eugenia for unique cultural experiences.",
+          "Explore side alleys for hidden boutique shops."
+        ]
+      },
+      {
+        "name": "Amara",
+        "alternate_names": [],
+        "character": "A primarily residential and family-oriented neighborhood, Amara offers a peaceful atmosphere with parks and local markets. It provides a glimpse into everyday life away from the tourist crowds.",
+        "location": {
+          "central": false,
+          "description": "South and slightly west of the city center, inland from the bay",
+          "borders": [
+            "Centro",
+            "Egian",
+            "Loiola"
+          ],
+          "landmarks": [
+            "Amara Park",
+            "Anoeta Stadium"
+          ]
+        },
+        "history": {
+          "overview": "Developed mostly in the 20th century as the city expanded beyond its historic core.",
+          "significance": "Key residential area supporting the city’s working and middle class.",
+          "notable_events": [
+            "Growth during post-war urbanization",
+            "Home to local sports teams"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 17, 18, 28",
+            "Anoeta train station nearby"
+          ],
+          "safety": "Very safe, family-friendly",
+          "best_time_to_visit": "Spring and summer for park activities and sports events",
+          "walkability": "Moderately walkable; some areas suited to biking"
+        },
+        "appeal": {
+          "known_for": [
+            "Parks",
+            "Local markets",
+            "Sports venues",
+            "Residential calm"
+          ],
+          "atmosphere": [
+            "Calm",
+            "Community-focused",
+            "Green"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term stays",
+            "Sports fans"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Anoeta Stadium",
+              "type": "Sports Venue",
+              "description": "Home stadium of Real Sociedad football club.",
+              "appeal": "Catch a lively local football match."
+            },
+            {
+              "name": "Amara Park",
+              "type": "Park",
+              "description": "A green space with playgrounds and walking paths.",
+              "appeal": "A peaceful spot for relaxation and family outings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Txapela",
+              "cuisine": "Basque",
+              "price_range": "€€",
+              "known_for": "Traditional pintxos and local dishes",
+              "atmosphere": "Friendly and unpretentious"
+            },
+            {
+              "name": "Sidrería Petritegi",
+              "cuisine": "Traditional Basque Cider House",
+              "price_range": "€€",
+              "known_for": "Cider and hearty Basque fare",
+              "atmosphere": "Rustic and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit on market days to experience local shopping.",
+          "Attend a football match for an authentic local experience.",
+          "Stroll through Amara Park in the late afternoon."
+        ]
+      },
+      {
+        "name": "Antiguo",
+        "alternate_names": [
+          "El Antiguo"
+        ],
+        "character": "A charming neighborhood that mixes seaside elegance with residential tranquility, Antiguo is perfect for leisurely strolls and beach access. It offers a more refined, quiet vibe compared to the bustling center.",
+        "location": {
+          "central": false,
+          "description": "West of the city center along Ondarreta Beach",
+          "borders": [
+            "Centro",
+            "Loiola",
+            "Egian"
+          ],
+          "landmarks": [
+            "Ondarreta Beach",
+            "Cristina Enea Park",
+            "Miramar Palace"
+          ]
+        },
+        "history": {
+          "overview": "Historically a seaside resort area favored by San Sebastián’s aristocracy in the 19th century.",
+          "significance": "Preserves Belle Époque villas and green spaces emblematic of the city’s leisure culture.",
+          "notable_events": [
+            "Construction of Miramar Palace (1893)",
+            "Development as a beach resort"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 16, 28",
+            "Easy access to city center by bus or bike"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Summer for beach activities and gardens",
+          "walkability": "Highly walkable with scenic routes"
+        },
+        "appeal": {
+          "known_for": [
+            "Beaches",
+            "Parks",
+            "Historic villas",
+            "Scenic walks",
+            "Quiet atmosphere"
+          ],
+          "atmosphere": [
+            "Elegant",
+            "Relaxed",
+            "Picturesque"
+          ],
+          "best_for": [
+            "Couples",
+            "Families",
+            "Nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 5,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Miramar Palace",
+              "type": "Historic Building",
+              "description": "Former royal summer residence with beautiful gardens and bay views.",
+              "appeal": "Offers cultural events and panoramic scenery."
+            },
+            {
+              "name": "Cristina Enea Park",
+              "type": "Park",
+              "description": "A lush urban park with walking trails and botanical diversity.",
+              "appeal": "Perfect for nature walks and picnics."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurante Elkano",
+              "cuisine": "Seafood",
+              "price_range": "€€€€",
+              "known_for": "World-renowned grilled fish and seafood",
+              "atmosphere": "Sophisticated and intimate"
+            },
+            {
+              "name": "La Perla",
+              "cuisine": "Basque",
+              "price_range": "€€",
+              "known_for": "Traditional Basque dishes near the beach",
+              "atmosphere": "Casual and welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk the coastal path from Ondarreta to La Concha beach for stunning views.",
+          "Visit Miramar Palace gardens early morning for tranquility.",
+          "Try seafood specialties at Elkano with advance reservation."
+        ]
+      },
+      {
+        "name": "Egia",
+        "alternate_names": [],
+        "character": "An up-and-coming neighborhood with a creative spirit, Egia blends old industrial roots with modern cultural venues and cafes. It appeals to locals and visitors seeking a less touristy, authentic urban experience.",
+        "location": {
+          "central": false,
+          "description": "South of the city center, along the Urumea River",
+          "borders": [
+            "Centro",
+            "Gros",
+            "Amara"
+          ],
+          "landmarks": [
+            "Tabakalera",
+            "Egia Park"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class district with factories and warehouses, now undergoing cultural revitalization.",
+          "significance": "Represents San Sebastián’s evolving urban identity and creative economy.",
+          "notable_events": [
+            "Transformation of Tabakalera",
+            "Growth of arts spaces since 2010"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 5, 28",
+            "Close to train station"
+          ],
+          "safety": "Safe with increasing daytime activity",
+          "best_time_to_visit": "Spring and autumn for cultural events",
+          "walkability": "Walkable with some hilly terrain"
+        },
+        "appeal": {
+          "known_for": [
+            "Contemporary art",
+            "Local cafes",
+            "Creative spaces",
+            "Riverside walks"
+          ],
+          "atmosphere": [
+            "Bohemian",
+            "Authentic",
+            "Artistic"
+          ],
+          "best_for": [
+            "Artists",
+            "Young professionals",
+            "Culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 3,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Tabakalera",
+              "type": "Cultural Center",
+              "description": "A hub for contemporary arts, including exhibitions and film screenings.",
+              "appeal": "Cutting-edge cultural programming in a former tobacco factory."
+            },
+            {
+              "name": "Egia Park",
+              "type": "Park",
+              "description": "Small green space with playgrounds and seating areas.",
+              "appeal": "A quiet spot popular with locals."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Casa 887",
+              "cuisine": "Basque",
+              "price_range": "€€",
+              "known_for": "Innovative pintxos and craft beers",
+              "atmosphere": "Trendy and casual"
+            },
+            {
+              "name": "Café de la Concha",
+              "cuisine": "Cafe",
+              "price_range": "€",
+              "known_for": "Coffee and pastries",
+              "atmosphere": "Cozy and artsy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check Tabakalera’s calendar for unique exhibitions and workshops.",
+          "Explore local street art on quieter side streets.",
+          "Try craft beers paired with creative pintxos at Casa 887."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Arzak",
+          "cuisine_type": "Modern Basque",
+          "description": "A three-Michelin-starred temple of innovative Basque cuisine led by Juan Mari Arzak and daughter Elena.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant, cutting-edge, refined",
+          "neighborhood": "Centro",
+          "best_for": [
+            "special occasions",
+            "gastronomy enthusiasts",
+            "date night"
+          ],
+          "latitude": 43.3206,
+          "longitude": -1.9847,
+          "reservation_needed": true,
+          "local_tips": "Book months in advance and try the tasting menu to experience the full creativity."
+        },
+        {
+          "name": "Mugaritz",
+          "cuisine_type": "Avant-garde Basque",
+          "description": "Renowned for its experimental dishes and artful presentation, Mugaritz offers a sensory culinary journey.",
+          "price_range": "€€€€",
+          "atmosphere": "Modern, artistic, intimate",
+          "neighborhood": "Errenteria (near San Sebastián)",
+          "best_for": [
+            "food adventurers",
+            "special occasions"
+          ],
+          "latitude": 43.2729,
+          "longitude": -1.9767,
+          "reservation_needed": true,
+          "local_tips": "Allow plenty of time; multi-course tasting menus can last over 3 hours."
+        },
+        {
+          "name": "Akelaŕe",
+          "cuisine_type": "Contemporary Basque",
+          "description": "Three Michelin stars and spectacular views over La Concha Bay complement Chef Pedro Subijana’s refined Basque dishes.",
+          "price_range": "€€€€",
+          "atmosphere": "Chic, panoramic, sophisticated",
+          "neighborhood": "Igeldo",
+          "best_for": [
+            "romantic dinners",
+            "culinary celebrations"
+          ],
+          "latitude": 43.3174,
+          "longitude": -2.0011,
+          "reservation_needed": true,
+          "local_tips": "Try the tasting menu paired with local txakoli wine."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Bodegón Alejandro",
+          "cuisine_type": "Traditional Basque",
+          "description": "Family-run restaurant serving classic Basque dishes with fresh, seasonal ingredients in a cozy setting.",
+          "price_range": "€€",
+          "atmosphere": "Warm, authentic, unpretentious",
+          "neighborhood": "Centro",
+          "best_for": [
+            "families",
+            "locals",
+            "casual dinners"
+          ],
+          "latitude": 43.3209,
+          "longitude": -1.9862,
+          "reservation_needed": true,
+          "local_tips": "Try the lamb shoulder and the local cider."
+        },
+        {
+          "name": "La Cuchara de San Telmo",
+          "cuisine_type": "Basque Tapas",
+          "description": "Popular spot for innovative pintxos combining traditional flavors with modern twists.",
+          "price_range": "€€",
+          "atmosphere": "Bustling, lively, casual",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "groups",
+            "after work",
+            "casual dining"
+          ],
+          "latitude": 43.3223,
+          "longitude": -1.985,
+          "reservation_needed": false,
+          "local_tips": "Arrive early or late to avoid long waits; great for sharing small dishes."
+        },
+        {
+          "name": "Gandarias Jatetxea",
+          "cuisine_type": "Basque Grill & Pintxos",
+          "description": "Classic Basque grill house known for excellent steaks and a wide pintxos selection.",
+          "price_range": "€€",
+          "atmosphere": "Traditional, lively, friendly",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "groups",
+            "meat lovers",
+            "casual dining"
+          ],
+          "latitude": 43.3225,
+          "longitude": -1.9845,
+          "reservation_needed": true,
+          "local_tips": "Try the chuleta (steak) and reserve ahead for dinner."
+        },
+        {
+          "name": "Bar Nestor",
+          "cuisine_type": "Basque",
+          "description": "Small and famous for its tomato salad, chuleta steak, and tortilla de patatas.",
+          "price_range": "€€",
+          "atmosphere": "Simple, bustling, authentic",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "fans of classic Basque dishes",
+            "small groups"
+          ],
+          "latitude": 43.3221,
+          "longitude": -1.9852,
+          "reservation_needed": false,
+          "local_tips": "Only open for lunch; get there early before they sell out."
+        },
+        {
+          "name": "Kokotxa",
+          "cuisine_type": "Contemporary Basque",
+          "description": "Michelin-starred restaurant offering creative takes on Basque classics in a relaxed environment.",
+          "price_range": "€€€",
+          "atmosphere": "Modern, intimate, refined",
+          "neighborhood": "Centro",
+          "best_for": [
+            "date night",
+            "foodies"
+          ],
+          "latitude": 43.3229,
+          "longitude": -1.9815,
+          "reservation_needed": true,
+          "local_tips": "Opt for the tasting menu with wine pairings."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "La Bretxa Market",
+          "cuisine_type": "Market / Local produce",
+          "description": "Historic market offering fresh seafood, local produce, and pintxos stalls for quick bites.",
+          "price_range": "€",
+          "atmosphere": "Lively, authentic, bustling",
+          "neighborhood": "Centro",
+          "best_for": [
+            "quick bites",
+            "food shopping"
+          ],
+          "latitude": 43.3202,
+          "longitude": -1.9857,
+          "reservation_needed": false,
+          "local_tips": "Try fresh anchovies and local cheeses from vendors."
+        },
+        {
+          "name": "Pintxos at Calle 31 de Agosto",
+          "cuisine_type": "Basque Pintxos",
+          "description": "Famous street lined with pintxos bars offering a variety of bite-sized Basque delicacies.",
+          "price_range": "€",
+          "atmosphere": "Casual, vibrant, social",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "bar hopping",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 43.322,
+          "longitude": -1.985,
+          "reservation_needed": false,
+          "local_tips": "Try a variety of pintxos and pair with local cider or txakoli wine."
+        },
+        {
+          "name": "Mercado de San Martín",
+          "cuisine_type": "Market / Street food",
+          "description": "Cozy market with stalls selling fresh produce and local snacks, ideal for sampling Basque flavors.",
+          "price_range": "€",
+          "atmosphere": "Traditional, bustling",
+          "neighborhood": "Centro",
+          "best_for": [
+            "snacking",
+            "local products"
+          ],
+          "latitude": 43.3185,
+          "longitude": -1.9875,
+          "reservation_needed": false,
+          "local_tips": "Sample local olives and freshly baked txistorra sausages."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Bar Txepetxa",
+          "cuisine_type": "Anchovy Pintxos and Tapas",
+          "description": "Specializes in anchovy-based pintxos with unique sauces and toppings.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, local favorite",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "pintxos lovers",
+            "casual outings"
+          ],
+          "latitude": 43.3224,
+          "longitude": -1.9855,
+          "reservation_needed": false,
+          "local_tips": "Try the anchovy with green pepper and walnut sauce."
+        },
+        {
+          "name": "Dabadaba",
+          "cuisine_type": "Bar with Live Music",
+          "description": "Hip bar known for live music, craft beers, and a youthful atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Trendy, energetic, social",
+          "neighborhood": "Centro",
+          "best_for": [
+            "live music",
+            "nightlife"
+          ],
+          "latitude": 43.3179,
+          "longitude": -1.9832,
+          "reservation_needed": false,
+          "local_tips": "Check their event schedule for local bands."
+        },
+        {
+          "name": "La Gintonería",
+          "cuisine_type": "Gin & Cocktails",
+          "description": "Elegant bar offering a wide selection of gins and expertly crafted cocktails.",
+          "price_range": "€€€",
+          "atmosphere": "Chic, intimate, stylish",
+          "neighborhood": "Centro",
+          "best_for": [
+            "date night",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 43.321,
+          "longitude": -1.9829,
+          "reservation_needed": true,
+          "local_tips": "Try their signature gin cocktails infused with local herbs."
+        },
+        {
+          "name": "Borda Berri",
+          "cuisine_type": "Tapas and Wine Bar",
+          "description": "Popular spot for innovative pintxos paired with local wines and sidra.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, bustling, friendly",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "casual dining",
+            "groups"
+          ],
+          "latitude": 43.3228,
+          "longitude": -1.9848,
+          "reservation_needed": false,
+          "local_tips": "Try the risotto with Idiazabal cheese."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café de la Concha",
+          "cuisine_type": "Cafe / Pastries",
+          "description": "Classic café with stunning views of La Concha beach, perfect for coffee and pastries.",
+          "price_range": "€",
+          "atmosphere": "Relaxed, scenic, traditional",
+          "neighborhood": "Centro",
+          "best_for": [
+            "breakfast",
+            "afternoon coffee"
+          ],
+          "latitude": 43.32,
+          "longitude": -1.985,
+          "reservation_needed": false,
+          "local_tips": "Try the Basque cheesecake with your coffee."
+        },
+        {
+          "name": "Pastelería Otaegui",
+          "cuisine_type": "Bakery / Pastries",
+          "description": "Historic bakery known for traditional Basque cakes and pastries, including pantxineta.",
+          "price_range": "€",
+          "atmosphere": "Cozy, casual, authentic",
+          "neighborhood": "Centro",
+          "best_for": [
+            "pastry lovers",
+            "snacks"
+          ],
+          "latitude": 43.3212,
+          "longitude": -1.9838,
+          "reservation_needed": false,
+          "local_tips": "Try the pantxineta, a puff pastry dessert filled with custard."
+        },
+        {
+          "name": "Old Town Coffee",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Modern café focusing on quality beans and artisanal brewing techniques.",
+          "price_range": "€",
+          "atmosphere": "Trendy, cozy, minimalist",
+          "neighborhood": "Parte Vieja",
+          "best_for": [
+            "coffee aficionados",
+            "work/study spot"
+          ],
+          "latitude": 43.3222,
+          "longitude": -1.9853,
+          "reservation_needed": false,
+          "local_tips": "Ask for single-origin pour-over coffee."
+        },
+        {
+          "name": "Bergara",
+          "cuisine_type": "Cafe / Brunch",
+          "description": "Charming café offering brunch, cakes, and excellent coffee with a local vibe.",
+          "price_range": "€€",
+          "atmosphere": "Warm, inviting, neighborhood feel",
+          "neighborhood": "Centro",
+          "best_for": [
+            "breakfast",
+            "brunch",
+            "casual meetups"
+          ],
+          "latitude": 43.3198,
+          "longitude": -1.9825,
+          "reservation_needed": false,
+          "local_tips": "Try the homemade carrot cake and freshly squeezed juices."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "San Sebastián Pintxos Tour",
+        "description": "Guided walking tour exploring the best pintxos bars in the Old Town with tastings at multiple stops.",
+        "price_range": "€€",
+        "location": "Parte Vieja",
+        "duration_minutes": 180,
+        "local_tips": "Wear comfortable shoes and bring an appetite; pacing is relaxed but you’ll sample a lot."
+      },
+      {
+        "name": "Basque Cooking Class",
+        "description": "Hands-on class to learn traditional Basque recipes like marmitako and bacalao pil-pil.",
+        "price_range": "€€€",
+        "location": "Centro",
+        "duration_minutes": 240,
+        "local_tips": "Ideal for home chefs wanting a deep dive into Basque culinary culture."
+      },
+      {
+        "name": "La Bretxa Market Visit with Chef",
+        "description": "Morning tour of La Bretxa market with a local chef, followed by a cooking demonstration.",
+        "price_range": "€€",
+        "location": "Centro",
+        "duration_minutes": 150,
+        "local_tips": "Great for understanding ingredient sourcing and seasonal produce."
+      },
+      {
+        "name": "Txakoli Wine Tasting Experience",
+        "description": "Visit nearby Txakoli wineries with tastings of this crisp, local Basque white wine paired with pintxos.",
+        "price_range": "€€",
+        "location": "Hondarribia / Local vineyards",
+        "duration_minutes": 180,
+        "local_tips": "Combine with a scenic drive along the Basque coast."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Asparagus from Navarra – fresh, tender, often served grilled or in omelets",
+        "Mushrooms – wild varieties appear in markets and restaurants",
+        "Txangurro – spider crab dishes are popular as the crab season peaks"
+      ],
+      "summer": [
+        "Txakoli – young, crisp Basque white wine ideal for hot days",
+        "Piquillo Peppers – roasted and stuffed, a light seasonal treat",
+        "Seafood – fresh anchovies, sardines, and shellfish at their peak"
+      ],
+      "autumn": [
+        "Mushrooms – chanterelles and other wild fungi feature prominently",
+        "Game meats – venison and wild boar appear on menus",
+        "Chestnuts – roasted and used in desserts and savory dishes"
+      ],
+      "winter": [
+        "Marmitako – hearty tuna and potato stew, perfect for cold days",
+        "Idiazabal Cheese – smoked sheep’s milk cheese often enjoyed with cider",
+        "Cider (Sagardoa) – traditional Basque cider houses open for tastings"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Madrid",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€35-€80",
+            "operator": "Renfe",
+            "notes": "Direct Alvia trains from San Sebastian to Madrid Chamartín station."
+          },
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "ALSA",
+            "notes": "Comfortable direct buses departing multiple times daily."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 0m",
+            "frequency": "daily",
+            "price_range": "€40-€90",
+            "operator": "Renfe",
+            "notes": "One transfer typically in Zaragoza; fast connections available."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 0m",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "ALSA",
+            "notes": "Direct buses available; overnight options possible."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "Renfe-SNCF",
+            "notes": "High-speed TGV from San Sebastian to Paris Gare de Lyon via Hendaye."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€150",
+            "operator": "Air France / Vueling",
+            "notes": "Flights depart from San Sebastian Airport to Paris Charles de Gaulle or Orly."
+          }
+        ]
+      },
+      {
+        "city": "Bilbao",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€10-€20",
+            "operator": "Renfe Cercanías",
+            "notes": "Frequent regional trains linking San Sebastian and Bilbao."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€8-€15",
+            "operator": "PESA",
+            "notes": "Regular bus services complement train connections."
+          }
+        ]
+      },
+      {
+        "city": "Bordeaux",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 15m",
+            "frequency": "daily",
+            "price_range": "€25-€60",
+            "operator": "SNCF",
+            "notes": "Direct regional trains via Hendaye; connects with TGV services."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 45m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "FlixBus",
+            "notes": "Affordable bus options with several departures daily."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€180",
+            "operator": "Brussels Airlines / Vueling",
+            "notes": "Connecting flights via Madrid or Barcelona common; some direct charters."
+          }
+        ]
+      },
+      {
+        "city": "Lisbon",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€60-€140",
+            "operator": "TAP Air Portugal",
+            "notes": "Direct flights from San Sebastian Airport; limited daily frequency."
+          },
+          {
+            "type": "bus",
+            "duration": "10h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€70",
+            "operator": "ALSA",
+            "notes": "Overnight buses available; economical option."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€80-€200",
+            "operator": "British Airways / Vueling",
+            "notes": "Flights to London Heathrow and Gatwick from San Sebastian Airport."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€90-€220",
+            "operator": "Vueling / ITA Airways",
+            "notes": "Usually requires connection in Barcelona or Madrid; no direct flights."
+          }
+        ]
+      },
+      {
+        "city": "Geneva",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€70-€170",
+            "operator": "EasyJet",
+            "notes": "Connecting flights via Barcelona or Madrid; no direct flights."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Tamborrada Festival",
+        "type": "festival",
+        "description": "A vibrant 24-hour drum parade celebrating San Sebastián’s patron saint with locals dressed in traditional costumes.",
+        "best_months": [
+          "January"
+        ],
+        "location": "City center",
+        "price": "Free"
+      },
+      {
+        "name": "Pintxo Tasting in Old Town",
+        "type": "food",
+        "description": "Enjoy sampling a variety of pintxos, the local Basque tapas, in the historic Parte Vieja area.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Parte Vieja",
+        "price": "Budget"
+      },
+      {
+        "name": "Stroll Along La Concha Beach",
+        "type": "outdoor",
+        "description": "Take a refreshing walk on the famous crescent-shaped beach as spring temperatures begin to rise.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "La Concha Beach",
+        "price": "Free"
+      },
+      {
+        "name": "San Telmo Museoa Visit",
+        "type": "cultural",
+        "description": "Explore Basque history, art, and culture in this museum housed in a 16th-century convent.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "San Telmo Museoa",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "San Sebastián International Film Festival",
+        "type": "cultural",
+        "description": "Attend screenings and events at one of Europe’s most prestigious film festivals held annually in September.",
+        "best_months": [
+          "September"
+        ],
+        "location": "Various theaters, city center",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Surfing at Zurriola Beach",
+        "type": "sport",
+        "description": "Catch waves or take lessons at this popular surf spot known for its consistent breaks.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Zurriola Beach",
+        "price": "Budget (lessons extra)"
+      },
+      {
+        "name": "Open-Air Jazzaldia Festival",
+        "type": "festival",
+        "description": "Enjoy free and ticketed jazz concerts on stages throughout the city during this renowned summer festival.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Various outdoor venues",
+        "price": "Free to Moderate"
+      },
+      {
+        "name": "Boat Trip to Santa Clara Island",
+        "type": "outdoor",
+        "description": "Take a short ferry ride to this small island for swimming, sunbathing, and picnicking.",
+        "best_months": [
+          "June",
+          "July",
+          "August",
+          "September"
+        ],
+        "location": "Harbor near La Concha Beach",
+        "price": "Budget"
+      },
+      {
+        "name": "Sampling Txakoli Wine",
+        "type": "food",
+        "description": "Taste the local slightly sparkling white wine from nearby vineyards, perfect for summer refreshment.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Local bars and wineries",
+        "price": "Budget to Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Cider House Visits (Sagardotegiak)",
+        "type": "food",
+        "description": "Experience traditional Basque cider houses with tastings and hearty seasonal meals.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Nearby Basque cider houses",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking Monte Urgull",
+        "type": "outdoor",
+        "description": "Enjoy cooler weather while hiking this historic hill offering panoramic views over the city and bay.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Monte Urgull",
+        "price": "Free"
+      },
+      {
+        "name": "San Sebastián Gastronomika Conference",
+        "type": "food",
+        "description": "Attend one of the world’s leading gastronomic congresses featuring top chefs and culinary innovations.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Kursaal Congress Centre",
+        "price": "Premium"
+      },
+      {
+        "name": "Visit Aquarium and Sealife Centre",
+        "type": "cultural",
+        "description": "Explore marine biodiversity through interactive exhibits suitable for all ages.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "San Sebastián Aquarium",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Pintxo Routes",
+        "type": "food",
+        "description": "Try seasonal pintxos featuring autumn ingredients like mushrooms and chestnuts in local bars.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Parte Vieja",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market at Plaza de la Constitución",
+        "type": "festival",
+        "description": "Browse festive stalls offering crafts, gifts, and seasonal treats in the historic city square.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza de la Constitución",
+        "price": "Free"
+      },
+      {
+        "name": "Enjoy Basque Hot Chocolate and Churros",
+        "type": "food",
+        "description": "Warm up with traditional thick hot chocolate served with crispy churros at local cafés.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Local cafés throughout city",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit the San Telmo Museoa",
+        "type": "cultural",
+        "description": "Escape the cold by exploring Basque arts and history inside this atmospheric museum.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "San Telmo Museoa",
+        "price": "Moderate"
+      },
+      {
+        "name": "Winter Walks on Ondarreta Beach",
+        "type": "outdoor",
+        "description": "Take brisk walks along this quieter beach, enjoying the fresh sea air and views of Mount Igueldo.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Ondarreta Beach",
+        "price": "Free"
+      },
+      {
+        "name": "Kursaal Auditorium Concerts",
+        "type": "cultural",
+        "description": "Attend winter concerts ranging from classical music to jazz at this iconic modern venue.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Kursaal Auditorium",
+        "price": "Moderate to Premium"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Three Kings Day (Epiphany)",
+            "notes": "Cool and wet weather, low tourist crowds except for Epiphany celebrations on Jan 6, a charming local festival.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, often rainy weather with low tourist activity; good for budget travelers seeking deals but limited outdoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Mid to late January continues cold, damp weather; very low crowds and off-season prices but limited daylight and outdoor options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and rainy with some wind; low tourist numbers and good prices, but outdoor activities are limited and daylight is short.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "San Sebastián Carnival",
+            "notes": "Carnival week brings vibrant street events and cultural activities; weather still cool but crowds increase moderately during celebrations.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival low season with fewer tourists; weather remains cool but signs of spring appear; good for walking and city exploration.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early March sees improving weather with occasional rain; low tourist density; ideal for budget travelers and those seeking quiet visits.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Tamborrada de San Sebastián (Jan 20 postponed celebrations or local events in March sometimes)",
+            "notes": "In some years, local events or cultural exhibitions occur; weather starts warming; moderate crowds as tourism picks up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late March offers mild weather, increasing sunshine, and fewer crowds before Easter; great for outdoor activities and cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring weather brings moderate temperatures and occasional showers; crowds growing but still manageable; good for sightseeing and gastronomy.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa (Holy Week)",
+            "notes": "Easter week features religious processions and local festivities; weather is mild; crowds increase especially around holidays.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Post-Easter, pleasant temperatures and blooming landscapes; moderate crowds; perfect for beach walks and city exploration.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "May offers some of the best weather with warm temperatures, low rainfall, and blossoming nature; perfect for beach and outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May is ideal with longer days, pleasant sea temperatures, and vibrant city life; crowd levels increase but remain comfortable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early June continues excellent weather with warm, sunny days and cool evenings; great for beach time and outdoor festivals beginning.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "San Sebastián International Film Festival (late June some years)",
+            "notes": "Festival attracts many visitors; excellent weather; expect higher crowds and prices but unique cultural experiences.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "July is warm with long sunny days; beach season is in full swing; high crowds and prices but vibrant city atmosphere.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid to late July maintains hot weather and crowded beaches; festivals and nightlife lively; good for social and luxury travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "August is peak summer with hot weather and maximum crowds; beach activities dominate; expect high prices and busy restaurants.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Semana Grande (Aste Nagusia) Festival",
+            "notes": "San Sebastián's largest festival with fireworks, concerts, and cultural events; extremely crowded but unique vibrant experience; warm and sunny weather.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early September enjoys warm weather with less humidity and smaller crowds than August; ideal for beach and city tours.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late September sees gradual cooling and increasing rainfall; fewer tourists; good for cultural visits and gastronomy.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "October brings cooler, wetter weather; off-peak season with lower prices but less ideal for beach; good for museum visits and culinary tourism.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid to late October has variable weather with rain and winds; low tourist numbers and affordable rates; good for quiet city vacations.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "November is cool, rainy, and windy; low season with very few tourists; some indoor cultural events but limited outdoor appeal.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late November continues cold and wet patterns; very quiet city with discounted accommodation but limited events and outdoor options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early December has cool weather and increasing festive decorations; moderate crowds for holiday shopping and cultural events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Festivities",
+            "notes": "Christmas markets and festive atmosphere pick up; cold but charming; increased visitors but manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Holiday celebrations with special events and dinners; cold weather; high demand for accommodation; festive and lively but crowded.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

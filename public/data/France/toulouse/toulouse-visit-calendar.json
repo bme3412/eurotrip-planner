@@ -4,16 +4,67 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 2,
           "special": true,
           "event": "New Year's Day",
-          "notes": "Holiday atmosphere, most shops and attractions closed"
+          "notes": "Holiday atmosphere, most shops and attractions closed",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 2
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 2,
-          "notes": "Winter sales season (soldes d'hiver), quiet tourist period with authentic local atmosphere and discounted shopping"
+          "notes": "Winter sales season (soldes d'hiver), quiet tourist period with authentic local atmosphere and discounted shopping",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 5,
+            "luxury": 2
+          }
         }
       ],
       "weatherHighC": 10,
@@ -24,23 +75,81 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 3,
-          "notes": "Mild winter conditions, museums and cultural venues less crowded than high season"
+          "notes": "Mild winter conditions, museums and cultural venues less crowded than high season",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 3,
           "special": true,
           "event": "Valentine's Day",
-          "notes": "Special menus at restaurants, romantic packages at hotels"
+          "notes": "Special menus at restaurants, romantic packages at hotels",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 3,
           "special": true,
           "event": "Carnival of Toulouse",
-          "notes": "Traditional carnival celebrations with parades, costumes, and street performances"
+          "notes": "Traditional carnival celebrations with parades, costumes, and street performances",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 12,
@@ -51,16 +160,67 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 4,
-          "notes": "Early spring weather begins, Japanese Garden cherry blossoms, pleasant temperatures"
+          "notes": "Early spring weather begins, Japanese Garden cherry blossoms, pleasant temperatures",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Cinélatino Film Festival",
-          "notes": "Latin American film festival bringing international visitors and cultural events across the city"
+          "notes": "Latin American film festival bringing international visitors and cultural events across the city",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 15,
@@ -71,16 +231,66 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
           "score": 5,
-          "notes": "Spring in full bloom, pleasant temperatures, parks and gardens at their best"
+          "notes": "Spring in full bloom, pleasant temperatures, parks and gardens at their best",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Marathon International de Toulouse Métropole",
-          "notes": "Major running event through the city streets with various race distances"
+          "notes": "Major running event through the city streets with various race distances",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 17,
@@ -91,23 +301,84 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday, many businesses closed but festive atmosphere"
+          "notes": "Public holiday, many businesses closed but festive atmosphere",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
           "score": 4,
           "special": true,
           "event": "Victory in Europe Day (May 8)",
-          "notes": "Commemorative events, some businesses closed"
+          "notes": "Commemorative events, some businesses closed",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
-          "notes": "Perfect weather, outdoor café culture thriving, ideal conditions for sightseeing"
+          "notes": "Perfect weather, outdoor café culture thriving, ideal conditions for sightseeing",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 21,
@@ -118,23 +389,83 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 5,
-          "notes": "Excellent weather, outdoor cafés and parks full of activity"
+          "notes": "Excellent weather, outdoor cafés and parks full of activity",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [21],
+          "days": [
+            21
+          ],
           "score": 5,
           "special": true,
           "event": "Fête de la Musique",
-          "notes": "Streets filled with free concerts and performances celebrating summer solstice"
+          "notes": "Streets filled with free concerts and performances celebrating summer solstice",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Rio Loco Festival",
-          "notes": "Major world music festival held along the banks of the Garonne River"
+          "notes": "Major world music festival held along the banks of the Garonne River",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 25,
@@ -145,23 +476,84 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 4,
           "special": true,
           "event": "Toulouse Plages begins",
-          "notes": "Urban beach installations appear along the Garonne River"
+          "notes": "Urban beach installations appear along the Garonne River",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 5,
           "special": true,
           "event": "Bastille Day",
-          "notes": "National holiday with military parade, fireworks over the Garonne, and public celebrations"
+          "notes": "National holiday with military parade, fireworks over the Garonne, and public celebrations",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
-          "notes": "Hot summer weather, outdoor cultural events and activities, evening concerts at Toulouse Plages"
+          "notes": "Hot summer weather, outdoor cultural events and activities, evening concerts at Toulouse Plages",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 28,
@@ -172,21 +564,82 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 3,
-          "notes": "Peak heat, many locals on vacation, some small businesses closed"
+          "notes": "Peak heat, many locals on vacation, some small businesses closed",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Assumption Day",
-          "notes": "Public holiday, many businesses closed, quieter city atmosphere"
+          "notes": "Public holiday, many businesses closed, quieter city atmosphere",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
-          "notes": "Hot summer continuing, Toulouse Plages activities, city quieter as many residents away on vacation"
+          "notes": "Hot summer continuing, Toulouse Plages activities, city quieter as many residents away on vacation",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 28,
@@ -197,23 +650,83 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 5,
-          "notes": "Perfect late summer weather, locals returning from vacation, city vibrant again"
+          "notes": "Perfect late summer weather, locals returning from vacation, city vibrant again",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 5,
           "special": true,
           "event": "Piano aux Jacobins",
-          "notes": "Prestigious piano festival held in the historic Jacobins Convent with excellent acoustics"
+          "notes": "Prestigious piano festival held in the historic Jacobins Convent with excellent acoustics",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Cartoon Forum",
-          "notes": "European animation industry event with public screenings and exhibitions"
+          "notes": "European animation industry event with public screenings and exhibitions",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 5,
+            "business": 4,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 25,
@@ -224,18 +737,69 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 4,
           "special": true,
           "event": "Festival Toulouse les Orgues",
-          "notes": "Organ music festival utilizing historic instruments in churches throughout the city"
+          "notes": "Organ music festival utilizing historic instruments in churches throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Festival Occitania",
-          "notes": "Celebration of regional Occitan culture with music, dance, and traditions"
+          "notes": "Celebration of regional Occitan culture with music, dance, and traditions",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 20,
@@ -246,30 +810,100 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day",
-          "notes": "Public holiday, many businesses closed"
+          "notes": "Public holiday, many businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 3,
-          "notes": "Autumn colors, cooler temperatures, quieter tourist season"
+          "notes": "Autumn colors, cooler temperatures, quieter tourist season",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [11],
+          "days": [
+            11
+          ],
           "score": 3,
           "special": true,
           "event": "Armistice Day",
-          "notes": "Commemorative events, some businesses closed"
+          "notes": "Commemorative events, some businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
           "special": true,
           "event": "Toulouse Game Show",
-          "notes": "Major pop culture convention attracting fans of gaming, manga, anime and science fiction"
+          "notes": "Major pop culture convention attracting fans of gaming, manga, anime and science fiction",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 14,
@@ -280,32 +914,103 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Marché de Noël du Capitole",
-          "notes": "Festive Christmas Market in Place du Capitole with wooden chalets, ice skating rink, and holiday decorations throughout the city"
+          "notes": "Festive Christmas Market in Place du Capitole with wooden chalets, ice skating rink, and holiday decorations throughout the city",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 2,
           "special": true,
           "event": "Christmas",
-          "notes": "Many closures, limited dining options, quiet atmosphere"
+          "notes": "Many closures, limited dining options, quiet atmosphere",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 2
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
           "special": true,
           "event": "Festival des Lanternes",
-          "notes": "Spectacular Chinese lantern festival in the region with hundreds of illuminated silk sculptures"
+          "notes": "Spectacular Chinese lantern festival in the region with hundreds of illuminated silk sculptures",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "New Year's Eve",
-          "notes": "Celebrations throughout the city, special events and dinners"
+          "notes": "Celebrations throughout the city, special events and dinners",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 11,
@@ -353,10 +1058,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
 }

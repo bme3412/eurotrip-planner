@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
-import { Heart, Check, Clock, MapPin, Star } from 'lucide-react';
+import { Heart, Check, Clock, MapPin, Star, ExternalLink } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import GooglePlacePhoto from '@/components/common/GooglePlacePhoto';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { fetchCityDataUrl } from '@/lib/city-data';
 
@@ -95,6 +96,10 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [sortOption] = useState('score-desc');
   const [activeCategories, setActiveCategories] = useState([]);
   const [curatedFilter, setCuratedFilter] = useState('all');
+
+  // Google Places enriched data — fetched lazily when this tab mounts
+  const [enrichedAttractions, setEnrichedAttractions] = useState(null);
+  const [googleLoading, setGoogleLoading] = useState(false);
   
   // New state for UI improvements
   const [showFilters, setShowFilters] = useState(false);
@@ -149,7 +154,56 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     
     loadFavorites();
   }, [cityName, user, isSupabaseConfigured]);
-  
+
+  // Stores name→GoogleData map so it can be applied to whichever data source is active
+  const googleMapRef = useRef(null);
+
+  // Lazy-load Google Places enrichment when this tab mounts
+  useEffect(() => {
+    if (!cityName) return;
+    let cancelled = false;
+    setGoogleLoading(true);
+    fetch(`/api/cities/${encodeURIComponent(cityName.toLowerCase())}?enrich=true`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (cancelled || !data?.attractions?.sites?.length) return;
+        googleMapRef.current = new Map(
+          data.attractions.sites
+            .filter(s => s.googlePlaceId)
+            .map(s => [s.name, s])
+        );
+        // Trigger a re-render so dataSource picks up the new map
+        setEnrichedAttractions([]);
+      })
+      .catch(() => {})
+      .finally(() => { if (!cancelled) setGoogleLoading(false); });
+    return () => { cancelled = true; };
+  }, [cityName]);
+
+  // Helper: merge Google fields into any array of attraction-like objects by name
+  const applyGoogleData = useCallback((items) => {
+    const gMap = googleMapRef.current;
+    if (!gMap || !items?.length) return items;
+    return items.map(a => {
+      const g = gMap.get(a.name);
+      if (!g) return a;
+      return {
+        ...a,
+        googlePlaceId: g.googlePlaceId,
+        googleRating: g.googleRating,
+        googleReviewCount: g.googleReviewCount,
+        googlePhotos: g.googlePhotos,
+        currentlyOpen: g.currentlyOpen,
+        googleOpeningHours: g.googleOpeningHours,
+        googleUrl: g.googleUrl,
+        googleEditorialSummary: g.googleEditorialSummary,
+      };
+    });
+  }, []);
+
+  // Use attractions prop as fallback (enriched via applyGoogleData in dataSource)
+  const effectiveAttractions = attractions;
+
   // Save/remove favorite - uses Supabase if logged in, localStorage otherwise
   const toggleFavorite = async (item) => {
     const itemId = item.name || item.activity || item.title;
@@ -351,8 +405,11 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   }, [experiencesUrl, limit, computeAggregateFactors]);
 
   const dataSource = useMemo(() => {
-    return Array.isArray(experiences) && experiences.length > 0 ? experiences : attractions;
-  }, [experiences, attractions]);
+    const base = Array.isArray(experiences) && experiences.length > 0
+      ? experiences
+      : effectiveAttractions;
+    return applyGoogleData(base) ?? base;
+  }, [experiences, effectiveAttractions, applyGoogleData, enrichedAttractions]); // enrichedAttractions triggers re-compute when Google data arrives
 
   const categoryFilters = useMemo(() => {
     const collected = new Set();
@@ -992,6 +1049,47 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     </div>
   );
   
+  // Google Places data badges
+  const GoogleBadges = ({ attraction }) => {
+    const hasGoogleData = attraction.googleRating || attraction.currentlyOpen !== undefined || attraction.googleUrl;
+    if (!hasGoogleData) return null;
+
+    return (
+      <div className="flex flex-wrap items-center gap-2">
+        {attraction.googleRating && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-800">
+            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+            {attraction.googleRating.toFixed(1)}
+            {attraction.googleReviewCount && (
+              <span className="text-amber-600 ml-0.5">({attraction.googleReviewCount.toLocaleString()})</span>
+            )}
+          </span>
+        )}
+        {attraction.currentlyOpen !== undefined && (
+          <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
+            attraction.currentlyOpen
+              ? 'bg-green-50 text-green-700'
+              : 'bg-red-50 text-red-700'
+          }`}>
+            <span className={`h-1.5 w-1.5 rounded-full ${attraction.currentlyOpen ? 'bg-green-500' : 'bg-red-500'}`} />
+            {attraction.currentlyOpen ? 'Open now' : 'Closed'}
+          </span>
+        )}
+        {attraction.googleUrl && (
+          <a
+            href={attraction.googleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700 hover:bg-blue-100 transition-colors"
+          >
+            <ExternalLink className="h-3 w-3" />
+            Google Maps
+          </a>
+        )}
+      </div>
+    );
+  };
+
   // Tips overlay component - shows on photo hover
   const TipsOverlay = ({ tips }) => {
     if (!tips || tips.length === 0) return null;
@@ -1077,7 +1175,19 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
       >
         {/* Image Section - Tall format for maximum photo visibility */}
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
-          {attraction.image ? (
+          {attraction.googlePhotos?.[0]?.name ? (
+            <GooglePlacePhoto
+              photoName={attraction.googlePhotos[0].name}
+              maxWidth={800}
+              alt={attraction.name}
+              fill
+              sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+              fallback={attraction.image ? (
+                <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
+              ) : null}
+            />
+          ) : attraction.image ? (
             <Image
               src={attraction.image}
               alt={attraction.name}
@@ -1125,6 +1235,9 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
           {attraction.description && (
             <p className="text-sm text-gray-600">{attraction.description}</p>
           )}
+
+          {/* Google Places badges */}
+          <GoogleBadges attraction={attraction} />
 
           {/* Info Row - without redundant location */}
           <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
@@ -1177,7 +1290,19 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         <div className="flex flex-col sm:flex-row">
           {/* Image - Large tall format for maximum photo visibility */}
           <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 sm:w-80 shrink-0">
-            {attraction.image ? (
+            {attraction.googlePhotos?.[0]?.name ? (
+              <GooglePlacePhoto
+                photoName={attraction.googlePhotos[0].name}
+                maxWidth={640}
+                alt={attraction.name}
+                fill
+                sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                fallback={attraction.image ? (
+                  <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw" className="object-cover object-center" />
+                ) : null}
+              />
+            ) : attraction.image ? (
               <Image
                 src={attraction.image}
                 alt={attraction.name}
@@ -1222,6 +1347,9 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             {attraction.description && (
               <p className="text-sm text-gray-700 leading-relaxed">{attraction.description}</p>
             )}
+
+            {/* Google Places badges */}
+            <GoogleBadges attraction={attraction} />
 
             {/* Info Row - without redundant location */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
@@ -1383,6 +1511,12 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <h2 className="text-xl font-semibold text-slate-900">All curated experiences</h2>
             <div className="flex flex-wrap gap-2 text-xs text-slate-500 md:text-sm">
+              {googleLoading && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-600 animate-pulse">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+                  Loading live ratings &amp; photos...
+                </span>
+              )}
               <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
                 {filteredAttractions.length} total
               </span>

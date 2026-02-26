@@ -1,1 +1,2971 @@
-{"city":"riga","country":"Latvia","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "riga",
+  "country": "Latvia",
+  "overview": {
+    "city_name": "Riga",
+    "country": "Latvia",
+    "brief_description": "Riga, the vibrant capital of Latvia, is a captivating blend of medieval charm and Art Nouveau elegance nestled along the Baltic Sea. Known for its rich history and dynamic cultural scene, Riga offers visitors a unique glimpse into Northern Europe’s past and present.",
+    "nickname": "The Pearl of the Baltics",
+    "region": "Baltic States, Northern Europe",
+    "population": "approximately 630,000",
+    "why_visit": [
+      "Explore one of the largest collections of Art Nouveau architecture in Europe",
+      "Experience the lively atmosphere of the historic Old Town, a UNESCO World Heritage Site",
+      "Discover rich cultural offerings including museums, theaters, and music festivals",
+      "Enjoy vibrant markets and delicious Latvian cuisine in bustling local spots"
+    ],
+    "best_time_to_visit": "May to September, when the weather is mild and outdoor festivals abound",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming parks make it perfect for walking tours and outdoor cafés.",
+      "summer": "Warm and long daylight hours ideal for exploring the city’s markets, rooftop bars, and river cruises.",
+      "autumn": "Cooler weather with colorful foliage provides a picturesque backdrop for cultural events and cozy dining.",
+      "winter": "Cold and occasionally snowy, featuring festive Christmas markets and charming winter landscapes."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Latvian",
+      "visit_duration": "3 to 4 days to experience key highlights and local culture",
+      "getting_around": "Efficient public transport includes buses, trams, and trolleybuses; walking is excellent in the compact city center.",
+      "safety": "Generally very safe with low crime rates; standard precautions recommended, especially in crowded areas."
+    },
+    "coordinates": {
+      "latitude": 56.9496,
+      "longitude": 24.1052
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Stroll through the UNESCO-listed Old Town and admire the medieval architecture",
+        "Visit the Riga Central Market, one of Europe’s largest and most vibrant markets",
+        "Explore the Art Nouveau district along Alberta iela and Elizabetes iela",
+        "Climb the St. Peter’s Church tower for panoramic city views",
+        "Tour the Museum of the Occupation of Latvia to understand the country’s history"
+      ],
+      "worth_doing": [
+        "Relax in the expansive Bastejkalna Park along the city canal",
+        "Discover Latvian art at the Latvian National Museum of Art",
+        "Take a boat trip on the Daugava River for a different perspective of Riga",
+        "Sample local craft beers in trendy bars in the Miera iela neighborhood",
+        "Attend a performance at the Latvian National Opera"
+      ],
+      "hidden_gems": [
+        "Visit the quirky and colorful Kalnciema Quarter market on weekends for artisanal crafts",
+        "Explore the peaceful Kipsala island, home to wooden architecture and quiet riverside walks",
+        "Discover Soviet-era architecture and street art in the Pārdaugava district",
+        "Check out the Riga Motor Museum for vintage automobile enthusiasts",
+        "Wander through the serene Vērmanes Garden, the city’s oldest public park"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "House of the Blackheads",
+        "type": "Historic Site",
+        "description": "An iconic symbol of Riga's Old Town, the House of the Blackheads was originally built in the 14th century for the Brotherhood of Blackheads, a guild for unmarried merchants. The building's ornate façade was restored after WWII and showcases stunning Gothic and Renaissance architecture.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Book tickets online to avoid queues, especially in summer.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 56.949397,
+        "longitude": 24.106785,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "23"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museum of the History of Riga and Navigation"
+        },
+        "official_url": "https://www.blackheads.lv/en/",
+        "website": "https://www.blackheads.lv/en/"
+      },
+      {
+        "name": "Riga Cathedral",
+        "type": "Church",
+        "description": "The largest medieval church in the Baltic states, Riga Cathedral is famous for its massive organ, historical architecture, and its role as a center of religious life since the early 13th century. The church blends Gothic, Baroque, and Romanesque styles.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Guided tours available; attend an organ concert if possible.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 56.951015,
+        "longitude": 24.113866,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "12:00-18:00",
+          "notes": "Concerts typically in the evening"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": "https://www.doms.lv/",
+        "website": "https://www.doms.lv/"
+      },
+      {
+        "name": "Latvian National Museum of Art",
+        "type": "Museum",
+        "description": "Home to the richest collection of Latvian art, this museum features works from the 18th century to modern times. The neo-classical building itself is a cultural landmark, and the museum hosts temporary exhibitions showcasing international and Latvian artists.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Special exhibitions in spring and autumn",
+        "booking_tips": "Tickets can be purchased online; check for exhibition previews.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 56.95236,
+        "longitude": 24.12087,
+        "neighborhood": "Centrs",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "11:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://lnmm.lv/en/",
+        "website": "https://lnmm.lv/en/"
+      },
+      {
+        "name": "Central Market (Centrāltirgus)",
+        "type": "Market",
+        "description": "One of Europe's largest and most vibrant markets, Riga's Central Market is housed in old Zeppelin hangars and offers fresh produce, local delicacies, crafts, and more. It's a great place to sample Latvian food and soak up the lively atmosphere.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Some stalls close during winter months",
+        "booking_tips": "Arrive early for the freshest products and fewer crowds.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 56.949129,
+        "longitude": 24.103637,
+        "neighborhood": "Maskavas Forštate",
+        "opening_hours": {
+          "weekday": "7:00-18:00",
+          "weekend": "7:00-17:00",
+          "notes": "Closed on Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24",
+            "26",
+            "30"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Riga Motor Museum"
+        },
+        "official_url": "https://www.rct.lv/en/",
+        "website": "https://www.rct.lv/en/"
+      },
+      {
+        "name": "Freedom Monument",
+        "type": "Monument",
+        "description": "Erected in 1935, the Freedom Monument honors soldiers killed during the Latvian War of Independence. It is a beloved national symbol standing 42 meters tall in the heart of Riga, featuring sculpted figures representing Latvian culture and history.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 5
+        },
+        "latitude": 56.951576,
+        "longitude": 24.111417,
+        "neighborhood": "Centrs",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "St. Peter's Church and Observation Tower",
+        "type": "Church|Viewpoint",
+        "description": "Dating back to the 13th century, St. Peter's Church is known for its towering spire that offers panoramic views of Riga's Old Town and beyond. Visitors can take an elevator up the tower for breathtaking city vistas and explore the church’s beautiful interiors.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Observation tower open only April to October",
+        "booking_tips": "Buy combined tickets for tower and church to save money.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 56.949328,
+        "longitude": 24.10985,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Tower closed in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Museum of the History of Riga and Navigation"
+        },
+        "official_url": "https://www.peterbaznica.lv/en/",
+        "website": "https://www.peterbaznica.lv/en/"
+      },
+      {
+        "name": "Ethnographic Open-Air Museum of Latvia",
+        "type": "Museum|Historic Site|Park",
+        "description": "Located just outside Riga, this sprawling open-air museum showcases traditional Latvian rural life with authentic farmhouses, windmills, and churches from different regions. Visitors can learn about folk traditions, crafts, and seasonal festivals in a natural forest setting.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Special events during midsummer and Christmas",
+        "booking_tips": "Check the website for event schedules; guided tours available.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 5
+        },
+        "latitude": 56.99197,
+        "longitude": 24.040644,
+        "neighborhood": "Riga outskirts",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "322",
+            "320"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 4,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": "https://www.brivdabasmuzejs.lv/en/",
+        "website": "https://www.brivdabasmuzejs.lv/en/"
+      },
+      {
+        "name": "Latvian National Opera and Ballet",
+        "type": "Theater",
+        "description": "A magnificent neo-Renaissance building hosting world-class opera and ballet performances. The Latvian National Opera is a cultural jewel offering a rich program of classical and contemporary works, as well as guided tours of its lavish interiors.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Premium",
+        "seasonal_notes": "Season runs from September to June",
+        "booking_tips": "Buy tickets in advance online especially for popular productions.",
+        "ratings": {
+          "cost_estimate": 25,
+          "suggested_duration_hours": 2.5,
+          "cultural_significance": 5
+        },
+        "latitude": 56.949886,
+        "longitude": 24.111468,
+        "neighborhood": "Centrs",
+        "opening_hours": {
+          "weekday": "Varies by performance",
+          "weekend": "Varies by performance",
+          "notes": "Box office open daily 11:00-19:00"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.opera.lv/en/",
+        "website": "https://www.opera.lv/en/"
+      },
+      {
+        "name": "Bastejkalna Park",
+        "type": "Park",
+        "description": "Situated in the city center, Bastejkalna Park is a peaceful green oasis with tree-lined paths, ornamental bridges, and a canal. It often hosts open-air cultural events and is a popular spot for locals and tourists to relax in all seasons.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring with blooming flowers and in autumn for foliage colors",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 56.95145,
+        "longitude": 24.113,
+        "neighborhood": "Centrs",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Art Nouveau District (Alberta iela)",
+        "type": "Historic Site|Neighborhood",
+        "description": "Riga boasts one of the world’s finest collections of Art Nouveau architecture, centered around Alberta Street and its surroundings. The richly decorated facades feature intricate floral motifs, masks, and sculptural details from the early 20th century.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Guided walking tours available; self-guided maps can be downloaded online.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 56.9548,
+        "longitude": 24.1352,
+        "neighborhood": "Centrs",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "24",
+            "26"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Riga Motor Museum",
+        "type": "Museum",
+        "description": "This museum features one of the largest collections of antique cars and motorcycles in the Baltics, including Soviet-era vehicles and legendary international models. It offers interactive exhibits and detailed histories of automotive development.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Group and family discounts available; check opening hours in winter.",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 56.967336,
+        "longitude": 24.089028,
+        "neighborhood": "Pārdaugava",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "22",
+            "44"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://motormuzejs.lv/en/",
+        "website": "https://motormuzejs.lv/en/"
+      },
+      {
+        "name": "Museum of the History of Riga and Navigation",
+        "type": "Museum",
+        "description": "Located in a medieval building near the Daugava River, this museum traces Riga’s development from a trading outpost to a vibrant city. It features archaeological finds, old maps, and maritime artifacts showcasing Riga’s nautical heritage.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Visit early to avoid crowds; guided tours available in English.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 56.9487,
+        "longitude": 24.109,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.rigamuzejs.lv/en/",
+        "website": "https://www.rigamuzejs.lv/en/"
+      },
+      {
+        "name": "Latvian Ethnographic Open-Air Museum",
+        "type": "Museum|Historic Site|Park",
+        "description": "Spanning over 87 hectares, this outdoor museum exhibits traditional Latvian rural architecture and crafts with more than 100 historic buildings relocated here. Visitors can explore farmsteads, churches, and windmills while experiencing folk traditions throughout the year.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Especially vibrant during Midsummer festival in June",
+        "booking_tips": "Check event calendar; guided tours recommended for full experience.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 5
+        },
+        "latitude": 56.992,
+        "longitude": 24.041,
+        "neighborhood": "Priedaine",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "322",
+            "320"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2,
+          "max_duration_hours": 4,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": "https://www.brivdabasmuzejs.lv/en/",
+        "website": "https://www.brivdabasmuzejs.lv/en/"
+      },
+      {
+        "name": "Vecrīga (Old Town)",
+        "type": "Neighborhood|Historic Site",
+        "description": "Riga’s UNESCO-listed Old Town is a maze of cobblestone streets lined with colorful medieval buildings, cozy cafes, and lively squares. Highlights include the Town Hall Square, medieval gates, and numerous historic churches, making it a must-visit area.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Festive Christmas market in December",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 56.949,
+        "longitude": 24.106,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 4,
+          "ideal_time_block": "any",
+          "weather_fallback": "House of the Blackheads"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Riga Ghetto and Latvian Holocaust Museum",
+        "type": "Museum",
+        "description": "This museum is dedicated to the history of the Riga Ghetto during WWII and the tragic fate of Latvian Jews. Located in a former synagogue, it features personal stories, photographs, and artifacts, providing a sobering but essential perspective on Latvian history.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small venue; booking in advance recommended for groups.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 56.9502,
+        "longitude": 24.1133,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "Closed",
+          "notes": "Closed on Sundays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://holokausts.lv/en/",
+        "website": "https://holokausts.lv/en/"
+      },
+      {
+        "name": "KGB Building (Corner House Museum)",
+        "type": "Museum",
+        "description": "Once the headquarters of the Soviet KGB in Latvia, this building is now a museum dedicated to Latvia’s Soviet occupation and the repression experienced by its citizens. Visitors can see preserved prison cells and exhibits detailing the history of Soviet surveillance.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Visit early in the day; English tours available on request.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 56.9516,
+        "longitude": 24.1029,
+        "neighborhood": "Old Town",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.kgbmuseum.lv/en/",
+        "website": "https://www.kgbmuseum.lv/en/"
+      },
+      {
+        "name": "Kalnciema Quarter",
+        "type": "Neighborhood|Market|Gallery",
+        "description": "This lively cultural quarter is known for its wooden architecture, weekend artisan markets, galleries, and cozy cafes. It offers a modern twist on traditional Latvian crafts and cuisine, often featuring live music and events in a relaxed atmosphere.",
+        "indoor": false,
+        "best_time": "Weekend Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Outdoor markets run April to October; indoor events year-round",
+        "booking_tips": "Visit on Saturdays for the popular farmer's and craft market.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 56.9509,
+        "longitude": 24.103,
+        "neighborhood": "Kipsala",
+        "opening_hours": {
+          "weekday": "Varies by venue",
+          "weekend": "10:00-16:00 (market)",
+          "notes": "Check calendar for events"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": "https://kalnciemaiela.lv/en/",
+        "website": "https://kalnciemaiela.lv/en/"
+      },
+      {
+        "name": "Jugenda Stila Nams (Art Nouveau Museum)",
+        "type": "Museum|Historic Site",
+        "description": "Housed in an authentic Art Nouveau apartment building, this museum explores the life and work of Riga’s famous Art Nouveau architects and artists. Visitors see period interiors and learn about the city’s rich architectural heritage.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small museum; pre-booking recommended in summer months.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 56.954,
+        "longitude": 24.1365,
+        "neighborhood": "Centrs",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "11:00-17:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "24"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Latvian National Museum of Art"
+        },
+        "official_url": "https://www.jugendamuseum.lv/en/",
+        "website": "https://www.jugendamuseum.lv/en/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Vecrīga",
+        "alternate_names": [
+          "Old Town Riga"
+        ],
+        "character": "Vecrīga is the historic heart of Riga, bustling with medieval charm, cobbled streets, and lively squares. It offers a vibrant mix of tourists, street performers, and locals enjoying centuries-old architecture and cultural landmarks.",
+        "location": {
+          "central": true,
+          "description": "Situated at the core of Riga along the Daugava River",
+          "borders": [
+            "Centrs",
+            "Maskavas Forštate"
+          ],
+          "landmarks": [
+            "House of the Blackheads",
+            "Riga Cathedral",
+            "St. Peter's Church"
+          ]
+        },
+        "history": {
+          "overview": "Dating back to the 13th century, Vecrīga has been the medieval trading and administrative center of Riga.",
+          "significance": "It represents the historic and cultural origins of the city, preserved as a UNESCO World Heritage Site.",
+          "notable_events": [
+            "Medieval Hanseatic League trade hub",
+            "Repeated reconstructions post-WWII bombing"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Rīgas Centrāltirgus tram stop",
+            "Vecrīga bus lines"
+          ],
+          "safety": "Generally safe but watch for pickpockets in crowded tourist spots",
+          "best_time_to_visit": "Late spring to early autumn for pleasant weather and festivals",
+          "walkability": "Highly walkable with narrow pedestrian streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Medieval architecture",
+            "Historic churches",
+            "Museums",
+            "Souvenir shops"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Touristy",
+            "Lively"
+          ],
+          "best_for": [
+            "History buffs",
+            "First-time visitors",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "House of the Blackheads",
+              "type": "Historic building",
+              "description": "A stunning Gothic-style building once home to the Brotherhood of Blackheads.",
+              "appeal": "Iconic symbol of Riga's medieval mercantile heritage."
+            },
+            {
+              "name": "Riga Cathedral",
+              "type": "Religious site",
+              "description": "The largest medieval church in the Baltics, famous for its organ concerts.",
+              "appeal": "Architectural beauty and cultural events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Rozengrāls",
+              "cuisine": "Medieval Latvian",
+              "price_range": "€€€",
+              "known_for": "Authentic medieval dining experience",
+              "atmosphere": "Historic, cozy, theatrical"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to avoid crowds and enjoy peaceful streets.",
+          "Climb St. Peter’s Church tower for panoramic city views.",
+          "Try traditional Latvian rye bread in local bakeries."
+        ]
+      },
+      {
+        "name": "Centrs",
+        "alternate_names": [
+          "Central District"
+        ],
+        "character": "Centrs is Riga’s vibrant commercial and cultural hub, filled with Art Nouveau architecture, boutique shops, and bustling cafes. It blends business, leisure, and urban living in a stylish and lively atmosphere.",
+        "location": {
+          "central": true,
+          "description": "Directly east and northeast of Vecrīga, extending inland",
+          "borders": [
+            "Vecrīga",
+            "Agenskalns",
+            "Maskavas Forštate"
+          ],
+          "landmarks": [
+            "Freedom Monument",
+            "Latvian National Opera",
+            "Alberta Street"
+          ]
+        },
+        "history": {
+          "overview": "Developed mainly in the late 19th and early 20th centuries, Centrs showcases Riga’s Art Nouveau golden age.",
+          "significance": "Houses the highest concentration of Art Nouveau buildings in Europe.",
+          "notable_events": [
+            "Early 20th century urban expansion",
+            "Cultural revival post-Soviet era"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Freedom Monument tram stop",
+            "Central Railway Station nearby"
+          ],
+          "safety": "Safe with active police presence",
+          "best_time_to_visit": "Spring to autumn for outdoor cafe culture",
+          "walkability": "Very walkable with wide boulevards and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Art Nouveau architecture",
+            "Cafes and shops",
+            "Opera and theaters",
+            "Freedom Monument"
+          ],
+          "atmosphere": [
+            "Trendy",
+            "Chic",
+            "Energetic"
+          ],
+          "best_for": [
+            "Architecture lovers",
+            "Shoppers",
+            "Cultural tourists"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Alberta Street",
+              "type": "Architectural street",
+              "description": "World-renowned street lined with Art Nouveau masterpieces.",
+              "appeal": "A must-see for design and history enthusiasts."
+            },
+            {
+              "name": "Latvian National Opera",
+              "type": "Performance venue",
+              "description": "Center for opera and ballet performances in a grand historic building.",
+              "appeal": "Experience high-caliber cultural shows."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Folkklubs Ala Pagrabs",
+              "cuisine": "Latvian traditional",
+              "price_range": "€€",
+              "known_for": "Local beers and hearty Latvian dishes",
+              "atmosphere": "Rustic, lively, authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore Alberta Street’s side alleys for hidden Art Nouveau gems.",
+          "Attend a live opera night for a culturally immersive experience.",
+          "Visit the Central Market for fresh local produce and street food."
+        ]
+      },
+      {
+        "name": "Miera Iela",
+        "alternate_names": [
+          "Peace Street District"
+        ],
+        "character": "Miera Iela is Riga’s bohemian and hipster hotspot, dotted with quirky cafes, independent galleries, and artisan shops. It exudes a relaxed, creative vibe that draws young locals and visitors seeking alternative culture.",
+        "location": {
+          "central": false,
+          "description": "Located northeast of Centrs, just beyond the railway tracks",
+          "borders": [
+            "Centrs",
+            "Teika"
+          ],
+          "landmarks": [
+            "Miera Street itself",
+            "Various independent art galleries"
+          ]
+        }
+      },
+      {
+        "name": "Maskavas Forštate",
+        "alternate_names": [
+          "Moscow Suburb"
+        ],
+        "character": "Maskavas Forštate is an eclectic neighborhood blending gritty post-industrial charm with emerging creative spaces. It’s a diverse and evolving district favored by artists and those seeking an authentic local vibe away from tourist crowds.",
+        "location": {
+          "central": false,
+          "description": "South of Vecrīga, along the Daugava riverbank",
+          "borders": [
+            "Vecrīga",
+            "Centrs",
+            "Grīziņkalns"
+          ],
+          "landmarks": [
+            "Latvian Railway History Museum",
+            "Central Market nearby"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class suburb inhabited by Russian-speaking communities with industrial roots.",
+          "significance": "Its multicultural legacy provides a contrasting perspective to central Riga’s architecture and culture.",
+          "notable_events": [
+            "19th century industrialization",
+            "Soviet-era urban development"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Maskavas Forštate tram stops"
+          ],
+          "safety": "Moderate, exercise typical urban caution",
+          "best_time_to_visit": "Summer for riverside walks and markets",
+          "walkability": "Moderately walkable with some industrial areas"
+        },
+        "appeal": {
+          "known_for": [
+            "Industrial heritage",
+            "Multicultural atmosphere",
+            "Emerging art spaces"
+          ],
+          "atmosphere": [
+            "Authentic",
+            "Edgy",
+            "Diverse"
+          ],
+          "best_for": [
+            "Urban explorers",
+            "Cultural adventurers",
+            "Budget travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Latvian Railway History Museum",
+              "type": "Museum",
+              "description": "Showcases Latvia’s railway history with vintage locomotives and artifacts.",
+              "appeal": "Unique insight into industrial heritage."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kaļķu Vārti",
+              "cuisine": "Latvian and Russian fusion",
+              "price_range": "€€",
+              "known_for": "Hearty traditional dishes with a modern twist",
+              "atmosphere": "Casual, cozy, local"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore the street art scattered around the district.",
+          "Visit the Central Market across the river for fresh local foods.",
+          "Take a riverside walk to see the industrial skyline at sunset."
+        ]
+      },
+      {
+        "name": "Āgenskalns",
+        "alternate_names": [],
+        "character": "Āgenskalns offers a leafy, relaxed residential vibe with beautiful wooden architecture and a growing café culture. It’s favored by families and those seeking a quieter, green escape within Riga’s city limits.",
+        "location": {
+          "central": false,
+          "description": "Southwest of Vecrīga, across the Daugava river",
+          "borders": [
+            "Pārdaugava",
+            "Centrs"
+          ],
+          "landmarks": [
+            "Āgenskalns Market",
+            "Kronvalda Park"
+          ]
+        },
+        "history": {
+          "overview": "Originally a suburb developed in the 19th century with wooden villas and gardens.",
+          "significance": "Preserves Riga’s historic wooden architecture and offers a glimpse of pre-industrial city life.",
+          "notable_events": [
+            "19th-century suburban development",
+            "Restoration of historic buildings in recent decades"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Āgenskalns tram and bus stops"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Late spring and summer for markets and parks",
+          "walkability": "Walkable with tree-lined streets and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Wooden architecture",
+            "Local markets",
+            "Green spaces"
+          ],
+          "atmosphere": [
+            "Quiet",
+            "Charming",
+            "Residential"
+          ],
+          "best_for": [
+            "Families",
+            "Nature lovers",
+            "Slow travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Āgenskalns Market",
+              "type": "Market",
+              "description": "Historic market hall offering fresh produce and local delicacies.",
+              "appeal": "Great place to experience local flavors and daily life."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Milda",
+              "cuisine": "Latvian contemporary",
+              "price_range": "€€",
+              "known_for": "Seasonal dishes using local ingredients",
+              "atmosphere": "Warm, inviting, local"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Stroll through the wooden villa neighborhoods for charming photo ops.",
+          "Visit the market on weekends for artisanal products.",
+          "Relax in nearby Kronvalda Park away from city bustle."
+        ]
+      },
+      {
+        "name": "Central Market Area",
+        "alternate_names": [
+          "Rīgas Centrāltirgus"
+        ],
+        "character": "The Central Market area is the bustling food district of Riga, alive with vendors selling fresh local produce, meats, fish, and artisanal goods. It’s a sensory experience full of vibrant colors, smells, and local interactions.",
+        "location": {
+          "central": true,
+          "description": "South of Vecrīga, adjacent to Centrs and Maskavas Forštate",
+          "borders": [
+            "Vecrīga",
+            "Maskavas Forštate",
+            "Centrs"
+          ],
+          "landmarks": [
+            "Riga Central Market",
+            "Nākotnes Parks"
+          ]
+        },
+        "history": {
+          "overview": "Established in the 1930s in converted Zeppelin hangars, it is one of Europe’s largest markets.",
+          "significance": "A key hub for local commerce and everyday life in Riga.",
+          "notable_events": [
+            "Opening in 1930",
+            "Preservation as a national cultural monument"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Centrāltirgus tram and bus stops"
+          ],
+          "safety": "Generally safe during the day, use caution at night",
+          "best_time_to_visit": "Morning for freshest produce",
+          "walkability": "Highly walkable within the market and surrounding streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Fresh food stalls",
+            "Local crafts",
+            "Street food",
+            "Bustling atmosphere"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Authentic",
+            "Energetic"
+          ],
+          "best_for": [
+            "Foodies",
+            "Market lovers",
+            "Budget travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Riga Central Market",
+              "type": "Market",
+              "description": "Massive market housed in historic Zeppelin hangars selling everything from fresh fish to spices.",
+              "appeal": "A must-visit for an authentic taste of Latvian food culture."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Lido Atpūtas Centrs",
+              "cuisine": "Latvian buffet",
+              "price_range": "€",
+              "known_for": "Traditional Latvian dishes in a casual setting",
+              "atmosphere": "Family-friendly, bustling, informal"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Arrive early to see the market at its liveliest and get the best picks.",
+          "Try grey peas with speck, a Latvian delicacy sold here.",
+          "Don’t miss the smoked fish stalls along the river edge."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Vincents",
+          "cuisine_type": "Modern European",
+          "description": "Renowned for its innovative dishes using local Latvian ingredients, Vincents offers a refined tasting menu in an elegant setting.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant, intimate, perfect for special occasions",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "date night",
+            "celebrations",
+            "food connoisseurs"
+          ],
+          "latitude": 56.9489,
+          "longitude": 24.1276,
+          "reservation_needed": true,
+          "local_tips": "Try their seasonal tasting menu paired with Latvian wines or craft beers."
+        },
+        {
+          "name": "Restaurant 3",
+          "cuisine_type": "Contemporary European",
+          "description": "A modern culinary destination focusing on seasonal and locally sourced produce with artistic plating.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy, artistic, minimalist",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "foodies",
+            "small groups",
+            "date night"
+          ],
+          "latitude": 56.9499,
+          "longitude": 24.1131,
+          "reservation_needed": true,
+          "local_tips": "Reserve in advance for weekend evenings and ask for wine pairings."
+        },
+        {
+          "name": "Bibliotēka No1",
+          "cuisine_type": "Latvian & International",
+          "description": "A stylish restaurant offering refined Latvian cuisine with a modern twist, using fresh local ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated yet relaxed",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "business dinners",
+            "date night",
+            "groups"
+          ],
+          "latitude": 56.9496,
+          "longitude": 24.1118,
+          "reservation_needed": true,
+          "local_tips": "Try the grey peas with speck, a Latvian classic."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Folkklubs Ala Pagrabs",
+          "cuisine_type": "Traditional Latvian",
+          "description": "A lively cellar pub serving hearty Latvian dishes and a broad selection of local beers in a rustic atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, lively, authentic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "casual dining",
+            "beer lovers"
+          ],
+          "latitude": 56.9467,
+          "longitude": 24.1051,
+          "reservation_needed": false,
+          "local_tips": "Try the grey peas with pork and their homemade dark beer."
+        },
+        {
+          "name": "Street Fries",
+          "cuisine_type": "Fast Casual / Belgian Fries",
+          "description": "Popular for its perfectly cooked fries with a variety of homemade sauces, perfect for a quick bite.",
+          "price_range": "€",
+          "atmosphere": "Casual, fast-paced, vibrant",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "quick snack",
+            "families",
+            "groups"
+          ],
+          "latitude": 56.9475,
+          "longitude": 24.1042,
+          "reservation_needed": false,
+          "local_tips": "Try the ‘Ala Pagrabs’ sauce for a local flavor twist."
+        },
+        {
+          "name": "Milda",
+          "cuisine_type": "Latvian",
+          "description": "Traditional Latvian cuisine served in a cozy, homely environment with focus on local flavors and recipes.",
+          "price_range": "€€",
+          "atmosphere": "Warm, welcoming, authentic",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "families",
+            "groups",
+            "traditional food lovers"
+          ],
+          "latitude": 56.948,
+          "longitude": 24.105,
+          "reservation_needed": false,
+          "local_tips": "Order the grey peas and rye bread soup."
+        },
+        {
+          "name": "Lido Atpūtas Centrs",
+          "cuisine_type": "Latvian Buffet",
+          "description": "A popular chain offering a wide array of Latvian dishes in a cafeteria-style setting, perfect for trying many local specialties.",
+          "price_range": "€",
+          "atmosphere": "Casual, family-friendly",
+          "neighborhood": "Multiple locations (e.g. near Central Market)",
+          "best_for": [
+            "families",
+            "groups",
+            "budget travelers"
+          ],
+          "latitude": 56.9488,
+          "longitude": 24.1203,
+          "reservation_needed": false,
+          "local_tips": "Try the smoked fish and salted herring."
+        },
+        {
+          "name": "Street Burgers",
+          "cuisine_type": "Burgers",
+          "description": "Casual spot known for juicy burgers made from fresh ingredients with creative toppings.",
+          "price_range": "€€",
+          "atmosphere": "Casual, youthful, modern",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "groups",
+            "casual dining",
+            "burger lovers"
+          ],
+          "latitude": 56.949,
+          "longitude": 24.115,
+          "reservation_needed": false,
+          "local_tips": "Try their signature Riga burger with local cheese."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Riga Central Market",
+          "cuisine_type": "Various / Local Produce",
+          "description": "One of Europe's largest and most vibrant markets offering fresh produce, smoked fish, local cheeses, and traditional snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling, lively, authentic",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "market exploration",
+            "local snacks",
+            "photography"
+          ],
+          "latitude": 56.9475,
+          "longitude": 24.1067,
+          "reservation_needed": false,
+          "local_tips": "Try smoked fish and rye bread sandwiches from the vendors."
+        },
+        {
+          "name": "Spikeri Quarter Food Trucks",
+          "cuisine_type": "Various Street Food",
+          "description": "A collection of food trucks offering everything from Latvian street snacks to international flavors in a trendy waterfront neighborhood.",
+          "price_range": "€",
+          "atmosphere": "Casual, outdoor, social",
+          "neighborhood": "Spikeri",
+          "best_for": [
+            "groups",
+            "casual dining",
+            "outdoor eating"
+          ],
+          "latitude": 56.949,
+          "longitude": 24.122,
+          "reservation_needed": false,
+          "local_tips": "Visit on weekends for live music and a great atmosphere."
+        },
+        {
+          "name": "Lido Alus Sēta (Beer Yard)",
+          "cuisine_type": "Latvian Street Food & Beer",
+          "description": "Seasonal outdoor beer garden serving traditional Latvian snacks like fried bread with garlic and sausages alongside craft beers.",
+          "price_range": "€€",
+          "atmosphere": "Festive, outdoor, communal",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "groups",
+            "beer lovers",
+            "casual dining"
+          ],
+          "latitude": 56.9495,
+          "longitude": 24.1155,
+          "reservation_needed": false,
+          "local_tips": "Try the fried rye bread with garlic sauce paired with a Latvian lager."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Skyline Bar",
+          "cuisine_type": "Cocktails & Drinks",
+          "description": "Located on the 26th floor of the Radisson Blu, Skyline Bar offers panoramic views of Riga and expertly crafted cocktails.",
+          "price_range": "€€€",
+          "atmosphere": "Chic, upscale, romantic",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 56.9505,
+          "longitude": 24.1077,
+          "reservation_needed": true,
+          "local_tips": "Visit at sunset for breathtaking city views."
+        },
+        {
+          "name": "Aussie Pub",
+          "cuisine_type": "Pub & International Beers",
+          "description": "A lively pub popular among locals and tourists for its friendly vibe and extensive beer selection.",
+          "price_range": "€€",
+          "atmosphere": "Casual, lively, social",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "groups",
+            "sports fans",
+            "casual nights out"
+          ],
+          "latitude": 56.9469,
+          "longitude": 24.1145,
+          "reservation_needed": false,
+          "local_tips": "Check out their beer tasting events on weekends."
+        },
+        {
+          "name": "Nabaklab",
+          "cuisine_type": "Cocktails & Craft Beer",
+          "description": "Trendy bar with a creative cocktail menu and a rotating selection of local craft beers in an industrial-style setting.",
+          "price_range": "€€",
+          "atmosphere": "Hip, energetic, modern",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "young crowd",
+            "cocktail lovers",
+            "nightlife"
+          ],
+          "latitude": 56.9483,
+          "longitude": 24.1199,
+          "reservation_needed": false,
+          "local_tips": "Try their signature ‘Black Rye’ cocktail."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "MiiT Coffee",
+          "cuisine_type": "Specialty Coffee",
+          "description": "Specialty coffee roasters and cafe known for expertly brewed espresso and pour-over coffee made from carefully sourced beans.",
+          "price_range": "€",
+          "atmosphere": "Modern, cozy, minimalist",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "coffee lovers",
+            "remote working",
+            "breakfast"
+          ],
+          "latitude": 56.951,
+          "longitude": 24.116,
+          "reservation_needed": false,
+          "local_tips": "Try their cold brew during summer months."
+        },
+        {
+          "name": "Rocket Bean Roastery",
+          "cuisine_type": "Specialty Coffee",
+          "description": "A local roastery and cafe offering fresh artisan coffee and light pastries in a relaxed environment.",
+          "price_range": "€",
+          "atmosphere": "Casual, hip, friendly",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "coffee aficionados",
+            "casual meetups"
+          ],
+          "latitude": 56.9492,
+          "longitude": 24.1125,
+          "reservation_needed": false,
+          "local_tips": "Sample their single origin coffees paired with Latvian rye bread cookies."
+        },
+        {
+          "name": "Coffee Plant",
+          "cuisine_type": "Specialty Coffee & Light Bites",
+          "description": "Known for great coffee, fresh juices, and healthy snacks, Coffee Plant is perfect for a light meal or coffee break.",
+          "price_range": "€",
+          "atmosphere": "Bright, welcoming, modern",
+          "neighborhood": "Centrs",
+          "best_for": [
+            "healthy eaters",
+            "coffee breaks",
+            "brunch"
+          ],
+          "latitude": 56.9485,
+          "longitude": 24.1178,
+          "reservation_needed": false,
+          "local_tips": "Try their avocado toast and matcha latte."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Riga Central Market Food Tour",
+        "description": "Guided tour through one of Europe’s largest markets focusing on traditional Latvian ingredients, snacks, and local delicacies.",
+        "price_range": "€€",
+        "location": "Riga Central Market",
+        "latitude": 56.9475,
+        "longitude": 24.1067,
+        "reservation_needed": true,
+        "local_tips": "Book in the morning to see the market at its liveliest."
+      },
+      {
+        "name": "Latvian Cooking Class at Baltic Cooking Studio",
+        "description": "Hands-on experience learning to prepare traditional Latvian dishes like grey peas with speck and rye bread.",
+        "price_range": "€€€",
+        "location": "Centrs",
+        "latitude": 56.949,
+        "longitude": 24.114,
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable clothes and come hungry!"
+      },
+      {
+        "name": "Craft Beer Tasting Tour",
+        "description": "Explore several of Riga’s best microbreweries and bars sampling a variety of Latvian craft beers guided by a local expert.",
+        "price_range": "€€",
+        "location": "Various bars in Centrs",
+        "latitude": 56.9489,
+        "longitude": 24.115,
+        "reservation_needed": true,
+        "local_tips": "Perfect for beer lovers wanting to discover local brews."
+      },
+      {
+        "name": "Seasonal Mushroom Foraging & Cooking Experience",
+        "description": "Participate in a guided mushroom foraging walk in the Latvian countryside followed by a cooking session of traditional dishes.",
+        "price_range": "€€€",
+        "location": "Outside Riga, countryside",
+        "latitude": 56.95,
+        "longitude": 24.13,
+        "reservation_needed": true,
+        "local_tips": "Best booked in late summer or autumn during mushroom season."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh nettle soup",
+        "Smoked fish with fresh spring herbs",
+        "Asparagus dishes"
+      ],
+      "summer": [
+        "Fresh berries (raspberries, strawberries) desserts",
+        "Cold beetroot soup (aukstā zupa)",
+        "Grilled freshwater fish"
+      ],
+      "autumn": [
+        "Wild mushroom dishes",
+        "Game meat specialties",
+        "Pumpkin soup and baked pumpkin dishes"
+      ],
+      "winter": [
+        "Grey peas with speck (Latvia’s national dish)",
+        "Rye bread soup with smoked meat",
+        "Honey and spice gingerbread cookies"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Tallinn",
+        "country": "Estonia",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Lux Express",
+            "notes": "Direct buses available multiple times daily; comfortable and affordable."
+          },
+          {
+            "type": "ferry",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "Tallink Silja",
+            "notes": "Ferry departs from Riga passenger port to Tallinn; scenic Baltic Sea route."
+          }
+        ]
+      },
+      {
+        "city": "Vilnius",
+        "country": "Lithuania",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€8-€18",
+            "operator": "Ecolines",
+            "notes": "Several daily departures; direct and budget-friendly option."
+          },
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€12-€25",
+            "operator": "Latvian Railways / Lithuanian Railways",
+            "notes": "One transfer in Daugavpils; scenic but slower than bus."
+          }
+        ]
+      },
+      {
+        "city": "Moscow",
+        "country": "Russia",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Aeroflot, airBaltic",
+            "notes": "Direct flights from Riga International Airport; visa required."
+          },
+          {
+            "type": "train",
+            "duration": "16h",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "Russian Railways",
+            "notes": "Overnight sleeper trains available; scenic countryside views."
+          }
+        ]
+      },
+      {
+        "city": "Warsaw",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "LOT Polish Airlines, Ryanair",
+            "notes": "Frequent direct flights; best for quick travel."
+          },
+          {
+            "type": "bus",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Overnight routes available; economical but longer travel time."
+          }
+        ]
+      },
+      {
+        "city": "Helsinki",
+        "country": "Finland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€40-€100",
+            "operator": "Finnair, airBaltic",
+            "notes": "Direct flights with multiple daily departures."
+          },
+          {
+            "type": "ferry",
+            "duration": "12h",
+            "frequency": "weekly",
+            "price_range": "€30-€70",
+            "operator": "Tallink Silja",
+            "notes": "Night ferry from Riga to Helsinki; includes cabins and amenities."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€60-€130",
+            "operator": "Lufthansa, Ryanair",
+            "notes": "Multiple flights daily to Berlin Brandenburg Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "14h",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "FlixBus",
+            "notes": "Overnight buses with stops in Poland; budget option."
+          }
+        ]
+      },
+      {
+        "city": "Stockholm",
+        "country": "Sweden",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€110",
+            "operator": "SAS, airBaltic",
+            "notes": "Direct flights to Stockholm Arlanda Airport."
+          },
+          {
+            "type": "ferry",
+            "duration": "18h",
+            "frequency": "weekly",
+            "price_range": "€40-€80",
+            "operator": "Tallink Silja",
+            "notes": "Scenic overnight ferry via Tallinn; includes cabins and restaurants."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h",
+            "frequency": "daily",
+            "price_range": "€70-€140",
+            "operator": "Czech Airlines, Ryanair",
+            "notes": "Direct flights available; best option for time-saving."
+          },
+          {
+            "type": "bus",
+            "duration": "15h",
+            "frequency": "daily",
+            "price_range": "€35-€70",
+            "operator": "FlixBus",
+            "notes": "Economical overnight buses; may include transfers."
+          }
+        ]
+      },
+      {
+        "city": "Krakow",
+        "country": "Poland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€60-€130",
+            "operator": "Ryanair, LOT",
+            "notes": "Direct flights to Kraków John Paul II International Airport."
+          },
+          {
+            "type": "bus",
+            "duration": "11h",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Overnight buses with comfortable seating; budget option."
+          }
+        ]
+      },
+      {
+        "city": "Minsk",
+        "country": "Belarus",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Ecolines",
+            "notes": "Direct buses from Riga; check visa requirements."
+          },
+          {
+            "type": "train",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Belarusian Railways",
+            "notes": "Direct trains available; comfortable and scenic."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Latvian Song and Dance Festival",
+        "type": "cultural",
+        "description": "A grand celebration of Latvian choral music and folk dance held every five years, with smaller related events in spring showcasing traditional performances.",
+        "best_months": [
+          "May",
+          "June"
+        ],
+        "location": "Song Festival Grounds, Riga",
+        "price": "Moderate"
+      },
+      {
+        "name": "Mezaparks Nature Walks",
+        "type": "outdoor",
+        "description": "Enjoy the awakening of nature with scenic walking trails and birdwatching in Mezaparks, one of Riga’s largest green spaces.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Mezaparks, Riga",
+        "price": "Free"
+      },
+      {
+        "name": "Spring Food Tasting at Riga Central Market",
+        "type": "food",
+        "description": "Sample fresh seasonal produce including wild asparagus and fresh dairy products at this historic market.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Riga Central Market",
+        "price": "Budget"
+      },
+      {
+        "name": "Riga International Film Festival (2nd half of spring)",
+        "type": "cultural",
+        "description": "Showcasing a diverse selection of international and Latvian films in various venues across the city.",
+        "best_months": [
+          "May",
+          "June"
+        ],
+        "location": "Various cinemas, Riga",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Riga City Festival",
+        "type": "festival",
+        "description": "A lively event featuring concerts, street performances, and family activities celebrating Riga’s culture and history.",
+        "best_months": [
+          "August"
+        ],
+        "location": "Old Town and Daugava River embankment",
+        "price": "Free"
+      },
+      {
+        "name": "Daugava River Cruises",
+        "type": "outdoor",
+        "description": "Take scenic boat tours along the river to admire Riga’s skyline and natural surroundings during warm summer days.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Daugava River, Riga",
+        "price": "Moderate"
+      },
+      {
+        "name": "Open-Air Jazz Festival 'Summertime'",
+        "type": "festival",
+        "description": "Enjoy live jazz performances in parks and open-air venues across Riga during warm summer evenings.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Various parks, Riga",
+        "price": "Free"
+      },
+      {
+        "name": "Lido Alus Fest",
+        "type": "food",
+        "description": "A popular beer festival featuring Latvian craft beers paired with traditional Latvian cuisine.",
+        "best_months": [
+          "June"
+        ],
+        "location": "Lido Recreation Complex, Riga",
+        "price": "Budget"
+      },
+      {
+        "name": "Biking along the Riga Seaside Park",
+        "type": "sport",
+        "description": "Enjoy cycling on well-maintained trails along the Baltic coast with beautiful sea views and fresh air.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Seaside Park, Riga",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Riga Fashion Week",
+        "type": "cultural",
+        "description": "Showcases the latest collections from Latvian and Baltic designers in stylish venues around the city.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Various venues, Riga",
+        "price": "Moderate"
+      },
+      {
+        "name": "Mushroom Foraging Tours",
+        "type": "outdoor",
+        "description": "Guided excursions into Latvian forests to hunt for wild mushrooms, a beloved autumn tradition.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Forests near Riga",
+        "price": "Budget"
+      },
+      {
+        "name": "Riga Black Balsam Tastings",
+        "type": "food",
+        "description": "Sample Latvia’s famous herbal liqueur in cozy bars and learn about its centuries-old recipe.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Bars in Old Town, Riga",
+        "price": "Budget"
+      },
+      {
+        "name": "Latvian National Opera Performances",
+        "type": "cultural",
+        "description": "Experience world-class opera and ballet performances in the beautifully restored National Opera House.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Latvian National Opera, Riga",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Harvest Markets",
+        "type": "food",
+        "description": "Explore markets offering fresh apples, pumpkins, honey, and other local autumn produce.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Kalnciema Quarter Market, Riga",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Riga Christmas Market",
+        "type": "festival",
+        "description": "Festive market held in the Old Town with artisan crafts, traditional foods, and a large Christmas tree.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Dome Square, Old Town Riga",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating at the Town Hall Square",
+        "type": "sport",
+        "description": "Popular outdoor ice rink set up in the heart of Riga’s Old Town, perfect for winter fun.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Town Hall Square, Riga",
+        "price": "Budget"
+      },
+      {
+        "name": "Winter Wellness Spas",
+        "type": "outdoor",
+        "description": "Relax in heated pools and saunas at spa complexes around Riga, a great way to warm up during cold months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Multiple spa locations, Riga",
+        "price": "Moderate"
+      },
+      {
+        "name": "New Year’s Eve Celebrations",
+        "type": "festival",
+        "description": "Join lively public celebrations with fireworks and concerts in the city center to welcome the new year.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Dome Square and surrounding areas, Riga",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Latvian Winter Dishes",
+        "type": "food",
+        "description": "Warm up with hearty dishes like grey peas with speck and rye bread served in local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Restaurants throughout Riga",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Latvian Christmas and New Year",
+            "notes": "Cold winter weather with snow, festive atmosphere with Christmas and New Year celebrations, moderate crowds mostly locals and some tourists enjoying traditional events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Post-holiday quieter period, very cold with short daylight hours, limited outdoor activities, low tourist presence but good prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continuing cold winter, often snowy and icy conditions, few tourists but good for winter photography and quiet city exploration.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold and snowy, winter conditions persist; limited outdoor events but indoor cultural venues are open. Low tourist numbers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Mardi Gras / Carnival Events",
+            "notes": "Local carnival events bring color and festivities despite cold weather, moderate tourist interest, good for cultural experience.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter starts to ease slightly, early signs of spring, good for quiet sightseeing and enjoying museums and cafes.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather begins to improve but still chilly with occasional snow or rain; fewer tourists, good for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "International Women's Day (March 8)",
+            "notes": "City hosts events celebrating women; mild increase in visitors; spring starts to bloom, making city parks more attractive.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring is clearer with longer daylight and milder temperatures, good for walking tours and outdoor cafes; crowds start rising.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early spring weather with blooming parks, occasional rain; pleasant for sightseeing and outdoor activities; moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter Celebrations",
+            "notes": "Easter often falls in April, with traditional Latvian festivities and markets; vibrant atmosphere, very popular with tourists and locals.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Spring is in full bloom, mild weather ideal for exploring Riga’s parks, riverside, and outdoor cafes; tourist season picks up but manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labour Day (May 1) and Restoration of Independence Day (May 4)",
+            "notes": "Public holidays with parades and cultural events; pleasant late spring weather; high tourist interest and lively city atmosphere.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and pleasant weather, ideal for outdoor activities, walking tours, and boat trips on the Daugava River; tourist season is in full swing.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Start of summer with long daylight hours (White Nights), warm weather, making it perfect for festivals and outdoor dining; high tourist activity.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Riga City Festival",
+            "notes": "One of Riga’s largest events with concerts, markets, and cultural programs; vibrant atmosphere but can be crowded; warm and pleasant weather.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer with warmest temperatures, ideal for beaches near Riga and outdoor events; highest tourist season, expect busy sites.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Continued warm weather and long days, perfect for festivals, outdoor dining and exploring the city’s historic center; busy but lively.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Jāņi (Midsummer Festival, June 23 but celebrations linger)",
+            "notes": "Warm and pleasant weather with lingering summer festivities, outdoor concerts, and markets; high tourist volume.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late summer with slightly cooler temperatures but still pleasant; crowds start to thin towards the end of the month; good for exploring.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild temperatures and colorful foliage; fewer tourists, pleasant conditions for sightseeing and cultural events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Riga International Film Festival",
+            "notes": "Cultural highlight of the month; comfortable weather and moderate tourist volumes; good for culture-focused travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures with autumn colors fading; fewer tourists, some rainy days; good for museums and indoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly chilly weather, early nights, low tourist presence; ideal for quiet city exploration and budget travel.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often wet weather, short daylight hours; few tourists, some indoor cultural events but overall low activity.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cold and dark conditions, limited outdoor activities; very low tourist volume, good for budget travelers and business visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold and dark early December, but Christmas markets start opening; growing festive atmosphere towards mid-month.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Advent",
+            "notes": "Popular Christmas markets with traditional crafts, food, and music; cold weather but festive and lively; increasing crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year Celebrations",
+            "notes": "Festive period with local traditions and events; cold and possibly snowy weather; lively atmosphere with both locals and tourists.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

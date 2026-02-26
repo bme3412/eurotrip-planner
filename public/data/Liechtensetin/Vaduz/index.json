@@ -1,1 +1,3138 @@
-{"city":"vaduz","country":"Liechtensetin","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "vaduz",
+  "country": "Liechtensetin",
+  "overview": {
+    "city_name": "Vaduz",
+    "country": "Liechtenstein",
+    "brief_description": "Vaduz, the charming capital of Liechtenstein, is nestled in the picturesque Rhine Valley surrounded by the majestic Alps. Known for its rich history, vibrant cultural scene, and stunning mountain views, Vaduz offers a unique blend of small-town charm and cosmopolitan flair.",
+    "nickname": "The Capital of Liechtenstein",
+    "region": "Central Europe",
+    "population": "approximately 5,500",
+    "why_visit": [
+      "Explore the iconic Vaduz Castle perched on a hilltop overlooking the city",
+      "Discover world-class art at the Liechtenstein National Museum and the Kunstmuseum",
+      "Enjoy hiking and outdoor activities in the nearby Alps",
+      "Experience the unique blend of Germanic and Alpine culture in a peaceful setting"
+    ],
+    "best_time_to_visit": "May to September for mild weather and outdoor activities",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming landscapes make it perfect for hiking and sightseeing.",
+      "summer": "Warmest months with numerous festivals and ideal conditions for outdoor sports.",
+      "autumn": "Colorful foliage and harvest festivals create a cozy atmosphere for cultural exploration.",
+      "winter": "Chilly and snowy, suitable for winter sports in nearby alpine resorts."
+    },
+    "practical_info": {
+      "currency": "Swiss Franc (CHF)",
+      "language": "German",
+      "visit_duration": "2-3 days recommended",
+      "getting_around": "Walkable city center complemented by local buses and taxis",
+      "safety": "Very safe with low crime rates; standard European precautions advised"
+    },
+    "coordinates": {
+      "latitude": 47.1417,
+      "longitude": 9.5215
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit Vaduz Castle and enjoy panoramic views",
+        "Explore the Kunstmuseum Liechtenstein for modern art",
+        "Tour the Liechtenstein National Museum to learn local history",
+        "Stroll the pedestrian-friendly main street with shops and cafes",
+        "Hike the nearby Fürstensteig trail for stunning alpine scenery"
+      ],
+      "worth_doing": [
+        "Visit the Cathedral of St. Florin with its neo-Gothic architecture",
+        "Discover the wine museum and sample local vintages",
+        "Relax in the Stadtpark with its sculptures and greenery",
+        "Attend a concert or event at the Vaduz Cultural Centre",
+        "Explore the nearby town of Balzers and its Gutenberg Castle"
+      ],
+      "hidden_gems": [
+        "Walk the quiet Malbun valley trails less frequented by tourists",
+        "Visit the Postage Stamp Museum showcasing Liechtenstein's philatelic history",
+        "Explore the tiny but charming Chapel of St. Mamerten on the outskirts"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Vaduz Castle (Schloss Vaduz)",
+        "type": "Palace",
+        "description": "Perched on a hill overlooking Vaduz, Vaduz Castle is the official residence of the Prince of Liechtenstein. Built originally in the 12th century, it has undergone several expansions and restorations, providing a stunning example of medieval fortification architecture. While the castle itself is not open to the public, the surrounding hiking trails offer panoramic views of the Rhine Valley.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in spring to autumn for clear views and hiking conditions.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 47.1417,
+        "longitude": 9.5217,
+        "neighborhood": "Vaduz Hill",
+        "opening_hours": {
+          "weekday": "Access to grounds open 24h",
+          "weekend": "Access to grounds open 24h",
+          "notes": "Castle interior closed to public"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Liechtenstein National Museum"
+        },
+        "official_url": null,
+        "website": "https://www.liechtenstein.li/en/country-and-people/castles/vaduz-castle/"
+      },
+      {
+        "name": "Liechtenstein National Museum",
+        "type": "Museum",
+        "description": "This museum offers a comprehensive look at the history, culture, and nature of Liechtenstein. Exhibits include archaeological finds, traditional costumes, and modern art installations. The building itself is a historic former princely brewery, blending cultural heritage with modern museology.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be purchased onsite; guided tours available on request.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 47.1412,
+        "longitude": 9.5161,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed on Mondays from November to March"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A - fully indoor"
+        },
+        "official_url": "https://www.landesmuseum.li",
+        "website": "https://www.landesmuseum.li"
+      },
+      {
+        "name": "Kunstmuseum Liechtenstein",
+        "type": "Gallery",
+        "description": "The Kunstmuseum Liechtenstein is the principality’s modern and contemporary art museum, showcasing international works from the 20th and 21st centuries. The minimalist black cube building is a landmark in Vaduz and hosts rotating exhibitions alongside a permanent collection emphasizing modernism and abstract art.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended for special exhibitions.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.142,
+        "longitude": 9.5185,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A - indoor"
+        },
+        "official_url": "https://www.kunstmuseum.li",
+        "website": "https://www.kunstmuseum.li"
+      },
+      {
+        "name": "St. Florin Cathedral (Vaduz Cathedral)",
+        "type": "Church",
+        "description": "Built between 1869 and 1873 in neo-Gothic style, St. Florin Cathedral is the main Catholic church of Vaduz. Its towering spire and intricate stained glass windows are highlights, and inside visitors can admire the detailed wood carvings and historic altars. The cathedral is an active place of worship and cultural events.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Special masses and concerts during Christmas and Easter.",
+        "booking_tips": "Visitors should be respectful during service times; guided tours available on request.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 47.1413,
+        "longitude": 9.5189,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "Closed during special ceremonies"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A - indoor"
+        },
+        "official_url": null,
+        "website": "https://www.kath-vaduz.li"
+      },
+      {
+        "name": "Rotes Haus (Red House)",
+        "type": "Historic Site",
+        "description": "The Rotes Haus is a striking red-painted historic building dating back to the 19th century. Once a customs house, it now serves as a cultural venue hosting exhibitions and events. Its vibrant color and traditional architecture make it a popular photo spot in Vaduz.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor area best enjoyed in warm months.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.141,
+        "longitude": 9.5193,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "Open access",
+          "weekend": "Open access",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Hofkellerei des Fürsten von Liechtenstein (Princely Wine Cellar)",
+        "type": "Historic Site|Winery",
+        "description": "The Hofkellerei is the princely wine cellar producing award-winning wines from vineyards around Liechtenstein. Visitors can book tours to explore the cellar’s historic cellars and enjoy tastings of their signature Grüner Veltliner and Pinot Noir varieties, learning about centuries-old winemaking traditions.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Premium",
+        "seasonal_notes": "Best visited during the grape harvest season in September-October.",
+        "booking_tips": "Advance booking required for tours and tastings.",
+        "ratings": {
+          "cost_estimate": 40,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.1405,
+        "longitude": 9.514,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "By appointment only",
+          "notes": "Closed during major holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.hofkellerei.li",
+        "website": "https://www.hofkellerei.li"
+      },
+      {
+        "name": "Liechtenstein Center",
+        "type": "Cultural Center|Museum",
+        "description": "The Liechtenstein Center serves as an informative exhibition space introducing visitors to the history, culture, and politics of the principality. Interactive displays and multimedia presentations offer engaging experiences, making it a great starting point for first-time visitors.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.141,
+        "longitude": 9.52,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Closed public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A - fully indoor"
+        },
+        "official_url": "https://www.liechtenstein.li/en/country-and-people/liechtenstein-center/",
+        "website": "https://www.liechtenstein.li/en/country-and-people/liechtenstein-center/"
+      },
+      {
+        "name": "Städtle – Old Town Vaduz",
+        "type": "Historic Site|Neighborhood",
+        "description": "The charming pedestrian zone known as Städtle is Vaduz’s historic old town, featuring quaint shops, cafes, and traditional architecture. It’s perfect for a relaxed stroll to soak in local life, browse artisan goods, and enjoy Liechtenstein’s culinary specialties.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Festivals and markets held here during summer and Christmas seasons.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 47.1411,
+        "longitude": 9.518,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes and galleries nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Rheinpark Stadion",
+        "type": "Sports Venue",
+        "description": "The Rheinpark Stadion is Liechtenstein’s largest stadium and home to the national football team. Beyond matches, it hosts concerts and community events. Visitors can admire the modern architecture and walk around the stadium grounds during off-event days.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free to visit grounds; event tickets vary",
+        "seasonal_notes": "Football season runs from late summer to spring.",
+        "booking_tips": "Purchase event tickets in advance if attending games or concerts.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 47.1348,
+        "longitude": 9.5116,
+        "neighborhood": "Vaduz South",
+        "opening_hours": {
+          "weekday": "Grounds open daylight hours",
+          "weekend": "Grounds open daylight hours",
+          "notes": "Event dependent"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": "https://www.rheinparkstadion.li",
+        "website": "https://www.rheinparkstadion.li"
+      },
+      {
+        "name": "Karrenfeld Park",
+        "type": "Park",
+        "description": "A peaceful green space in Vaduz, Karrenfeld Park offers walking paths, picnic areas, and playgrounds. Its well-maintained gardens provide a serene escape in the city with views of the surrounding Alps. The park is popular with families and locals for outdoor recreation.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful blooming flowers in spring and summer.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 47.1435,
+        "longitude": 9.5221,
+        "neighborhood": "Vaduz North",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Liechtenstein National Museum if rain"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Postage Stamp Museum (Briefmarkenmuseum)",
+        "type": "Museum",
+        "description": "Dedicated to philately, the Postage Stamp Museum showcases an extensive collection of Liechtenstein’s stamps and postal history. It is a niche but fascinating spot for collectors and those interested in postal heritage, illustrating the principality’s unique position in European communications.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Small museum; check opening times before visiting.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.1416,
+        "longitude": 9.5177,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "10:00-16:00",
+          "weekend": "Closed",
+          "notes": "Closed Sundays and public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A - indoor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Liechtenstein Art Society (Kunstgesellschaft Liechtenstein)",
+        "type": "Gallery",
+        "description": "The Liechtenstein Art Society promotes contemporary art through exhibitions, lectures, and events. It supports local and international artists, offering visitors a chance to explore innovative art in an intimate setting. The gallery space is modern and frequently updated with new shows.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check exhibition schedules before visiting.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.1418,
+        "longitude": 9.519,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "13:00-18:00",
+          "weekend": "Closed",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A - indoor"
+        },
+        "official_url": null,
+        "website": "https://www.kunstgesellschaft.li"
+      },
+      {
+        "name": "Liechtenstein Center for Contemporary Art (Kunstmuseum)",
+        "type": "Museum|Gallery",
+        "description": "This institution focuses on contemporary art from Liechtenstein and the region, hosting exhibitions of avant-garde and experimental artists. It is a dynamic cultural hub offering workshops, talks, and educational programs all year round.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Check website for current exhibitions and events.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 47.1419,
+        "longitude": 9.5183,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A - indoor"
+        },
+        "official_url": "https://www.kunstmuseum.li",
+        "website": "https://www.kunstmuseum.li"
+      },
+      {
+        "name": "Mendelssonplatz Park",
+        "type": "Park",
+        "description": "Mendelssonplatz is a small urban park located near Vaduz’s center, ideal for relaxation and people-watching. The park features benches, flowerbeds, and sculptures, providing a quiet green respite amidst the city buzz.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Lovely cherry blossoms in spring.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 2
+        },
+        "latitude": 47.1414,
+        "longitude": 9.517,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "Open 24h",
+          "weekend": "Open 24h",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.3,
+          "max_duration_hours": 0.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Liechtenstein Center Marketplace",
+        "type": "Market",
+        "description": "Located in the heart of Vaduz, this marketplace features local vendors selling crafts, fresh produce, and regional delicacies. It’s especially lively during weekend mornings and holiday seasons, offering visitors a taste of local culture and cuisine.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Christmas market held annually in December.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.1415,
+        "longitude": 9.5181,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "Closed",
+          "weekend": "08:00-13:00",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Treffpunkt Kunst - Art Meeting Point",
+        "type": "Gallery",
+        "description": "This small gallery promotes contemporary local artists and offers a creative space for exhibitions and art workshops. It is a lesser-known gem in Vaduz, often hosting themed exhibits and artist talks.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Check event calendar before visiting.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 47.1419,
+        "longitude": 9.5195,
+        "neighborhood": "Vaduz Center",
+        "opening_hours": {
+          "weekday": "12:00-18:00",
+          "weekend": "Closed",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "N/A - indoor"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Malbun Ski Resort",
+        "type": "Ski Resort|Outdoor Recreation",
+        "description": "Located about 15 km from Vaduz, Malbun is Liechtenstein’s only ski resort, offering alpine skiing, snowboarding, and winter hiking trails. Surrounded by pristine alpine scenery, it’s a favorite winter destination for locals and visitors alike.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate to Premium",
+        "seasonal_notes": "Open December to March depending on snow conditions.",
+        "booking_tips": "Book ski passes and rentals in advance during peak winter season.",
+        "ratings": {
+          "cost_estimate": 50,
+          "suggested_duration_hours": 4,
+          "cultural_significance": 3
+        },
+        "latitude": 47.1176,
+        "longitude": 9.5824,
+        "neighborhood": "Malbun",
+        "opening_hours": {
+          "weekday": "08:00-16:00",
+          "weekend": "08:00-16:00",
+          "notes": "Weather dependent"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 3,
+          "max_duration_hours": 6,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Liechtenstein National Museum in Vaduz"
+        },
+        "official_url": "https://www.malbun.li",
+        "website": "https://www.malbun.li"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "alternate_names": [
+          "Vaduz Downtown"
+        ],
+        "character": "The bustling heart of Vaduz, City Center blends modern urban life with historic charm. It is lively, pedestrian-friendly, and the primary hub for shopping, dining, and cultural activities.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of Vaduz, surrounding the main plaza and government buildings.",
+          "borders": [
+            "Oberstadt",
+            "Mittelstadt"
+          ],
+          "landmarks": [
+            "Liechtenstein National Museum",
+            "Vaduz Cathedral",
+            "Government Building"
+          ]
+        },
+        "history": {
+          "overview": "Developed as Vaduz expanded in the 20th century, the City Center grew around the historic old town core.",
+          "significance": "It serves as the commercial and administrative heart of Vaduz and the capital of Liechtenstein.",
+          "notable_events": [
+            "Establishment of the Vaduz pedestrian zone (1990s)",
+            "Annual Vaduz Art Days"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Vaduz Post bus station",
+            "Central Vaduz bus stop"
+          ],
+          "safety": "Very safe with active street presence",
+          "best_time_to_visit": "Spring through early autumn for outdoor cafes and street events",
+          "walkability": "Highly walkable with pedestrian zones and compact streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping boutiques",
+            "Cultural institutions",
+            "Government and royal buildings",
+            "Outdoor cafes",
+            "Public art displays"
+          ],
+          "atmosphere": [
+            "vibrant",
+            "cosmopolitan",
+            "welcoming"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "shoppers",
+            "culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Liechtenstein National Museum",
+              "type": "Museum",
+              "description": "Showcases the cultural and natural history of the principality.",
+              "appeal": "Offers comprehensive insight into Liechtenstein's heritage."
+            },
+            {
+              "name": "Vaduz Cathedral (St. Florin)",
+              "type": "Religious Landmark",
+              "description": "Neo-Gothic style cathedral dating from the late 19th century.",
+              "appeal": "Architectural beauty and spiritual ambiance."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Torkel Restaurant",
+              "cuisine": "Traditional Liechtenstein and European",
+              "price_range": "€€€",
+              "known_for": "Local specialties and elegant setting",
+              "atmosphere": "Classic, refined"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the pedestrian zone on Saturdays for the local market.",
+          "Check out the public art installations scattered throughout the area.",
+          "Stop by the tourist info center near the main plaza for event schedules."
+        ]
+      },
+      {
+        "name": "Oberstadt",
+        "alternate_names": [
+          "Upper Town"
+        ],
+        "character": "Oberstadt offers a tranquil, hillside residential vibe with stunning views overlooking Vaduz and the Rhine valley. It is known for its leafy streets and proximity to the castle.",
+        "location": {
+          "central": false,
+          "description": "Directly north and uphill from the City Center.",
+          "borders": [
+            "City Center",
+            "Mittelstadt",
+            "Schaanwald"
+          ],
+          "landmarks": [
+            "Vaduz Castle",
+            "Liechtenstein Art Museum"
+          ]
+        },
+        "history": {
+          "overview": "Historically the seat of the princely family, Oberstadt has been a prestigious residential area for centuries.",
+          "significance": "Home to Vaduz Castle, the symbol of Liechtenstein's monarchy.",
+          "notable_events": [
+            "Construction of Vaduz Castle (12th century)",
+            "Art Museum opening (2000s)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stop Oberstadt"
+          ],
+          "safety": "Extremely safe and quiet",
+          "best_time_to_visit": "Spring and autumn for clear views and pleasant walks",
+          "walkability": "Moderate; hilly terrain requires some fitness"
+        },
+        "appeal": {
+          "known_for": [
+            "Castle views",
+            "Art museum",
+            "Scenic walking paths",
+            "Exclusive residences"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "scenic",
+            "upscale"
+          ],
+          "best_for": [
+            "history buffs",
+            "photographers",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Vaduz Castle",
+              "type": "Castle",
+              "description": "Medieval hilltop castle and residence of the princely family.",
+              "appeal": "Iconic landmark offering panoramic views and royal prestige."
+            },
+            {
+              "name": "Liechtenstein Art Museum",
+              "type": "Art Museum",
+              "description": "Modern art museum showcasing contemporary and classic works.",
+              "appeal": "Cultural hub with rotating exhibitions."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Schlosswirtschaft",
+              "cuisine": "European fine dining",
+              "price_range": "€€€€",
+              "known_for": "Exquisite dishes with castle views",
+              "atmosphere": "Elegant and serene"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk the trails around the castle for breathtaking views.",
+          "Book ahead if dining at Schlosswirtschaft to secure a window seat.",
+          "Visit the Art Museum on Wednesday afternoons for guided tours."
+        ]
+      },
+      {
+        "name": "Mittelstadt",
+        "alternate_names": [],
+        "character": "Mittelstadt is a charming midtown neighborhood known for its mix of traditional homes and newer developments. It offers a relaxed environment with local shops and eateries favored by residents.",
+        "location": {
+          "central": false,
+          "description": "South of the City Center, bridging downtown and residential zones.",
+          "borders": [
+            "City Center",
+            "Oberstadt",
+            "Neudorf"
+          ],
+          "landmarks": [
+            "Liechtenstein National Library",
+            "Parish Church of St. Nikolaus"
+          ]
+        },
+        "history": {
+          "overview": "Formed as Vaduz expanded in the early 20th century, Mittelstadt developed as a residential area for middle-class families.",
+          "significance": "Represents the city’s growth beyond its historic core.",
+          "notable_events": [
+            "Construction of National Library (20th century)",
+            "Community festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Mittelstadt bus stops"
+          ],
+          "safety": "Very safe, family-friendly",
+          "best_time_to_visit": "Year-round for local community events",
+          "walkability": "Highly walkable with flat streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local shops",
+            "Quiet streets",
+            "Community parks"
+          ],
+          "atmosphere": [
+            "friendly",
+            "laid-back",
+            "authentic"
+          ],
+          "best_for": [
+            "families",
+            "longer stays",
+            "travelers seeking local life"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Liechtenstein National Library",
+              "type": "Library",
+              "description": "Repository of national literature and archives.",
+              "appeal": "Resource for cultural and historical research."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Gasthaus zur Krone",
+              "cuisine": "Traditional Liechtenstein cuisine",
+              "price_range": "€€",
+              "known_for": "Hearty local dishes and welcoming service",
+              "atmosphere": "Cozy and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Try the local pastries at the Mittelstadt bakery.",
+          "Visit during the summer for open-air community markets.",
+          "Use this neighborhood as a peaceful base to explore Vaduz."
+        ]
+      },
+      {
+        "name": "Neudorf",
+        "alternate_names": [
+          "New Village"
+        ],
+        "character": "Neudorf is a quiet, residential neighborhood with a village feel, featuring family homes, green spaces, and a growing number of small cafes. It is less touristy and favored by locals seeking calm outside the city center.",
+        "location": {
+          "central": false,
+          "description": "Located southeast of Mittelstadt, on the outskirts of Vaduz.",
+          "borders": [
+            "Mittelstadt",
+            "Ruggell"
+          ],
+          "landmarks": [
+            "Neudorf Community Park"
+          ]
+        },
+        "history": {
+          "overview": "Established as a suburban development in the late 20th century to accommodate Vaduz’s growing population.",
+          "significance": "Represents modern residential expansion in the capital region.",
+          "notable_events": [
+            "Development of community park (1990s)",
+            "Annual neighborhood festival"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Neudorf bus stops"
+          ],
+          "safety": "Very safe with low crime rates",
+          "best_time_to_visit": "Spring and summer for park activities",
+          "walkability": "Moderate; some parts pedestrian-friendly"
+        },
+        "appeal": {
+          "known_for": [
+            "Family-friendly parks",
+            "Quiet streets",
+            "Local cafes"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "community-oriented",
+            "relaxed"
+          ],
+          "best_for": [
+            "families",
+            "nature walks",
+            "travelers seeking local lifestyle"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Neudorf Community Park",
+              "type": "Park",
+              "description": "Green space with playgrounds and picnic areas.",
+              "appeal": "Ideal for family outings and outdoor relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Cafe Neudorf",
+              "cuisine": "Coffee and light snacks",
+              "price_range": "€",
+              "known_for": "Friendly service and homemade cakes",
+              "atmosphere": "Casual and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike to explore the quiet residential streets and parks.",
+          "Visit the local cafe for an authentic neighborhood experience.",
+          "Combine a visit here with a walk towards the Rhine for scenic views."
+        ]
+      },
+      {
+        "name": "Bahnhofviertel",
+        "alternate_names": [
+          "Train Station District"
+        ],
+        "character": "Bahnhofviertel is a compact neighborhood centered around Vaduz's main bus and train connections, featuring practical amenities and some modern eateries. It has a functional vibe with steady commuter flow.",
+        "location": {
+          "central": false,
+          "description": "Southwest edge of Vaduz near the border with Schaan.",
+          "borders": [
+            "City Center",
+            "Neudorf",
+            "Schaan"
+          ],
+          "landmarks": [
+            "Vaduz Bus Terminal",
+            "Post Office"
+          ]
+        },
+        "history": {
+          "overview": "Developed around the transportation hub to support regional connectivity.",
+          "significance": "Key transit gateway connecting Vaduz to neighboring towns and countries.",
+          "notable_events": [
+            "Opening of Vaduz Bus Terminal (late 20th century)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Vaduz Bus Terminal",
+            "Vaduz Bahnhof train station nearby"
+          ],
+          "safety": "Safe but busy during peak transit hours",
+          "best_time_to_visit": "Anytime for transit access",
+          "walkability": "Good walkability near transit hubs"
+        },
+        "appeal": {
+          "known_for": [
+            "Transit connections",
+            "Convenience stores",
+            "Casual dining spots"
+          ],
+          "atmosphere": [
+            "functional",
+            "busy",
+            "practical"
+          ],
+          "best_for": [
+            "business travelers",
+            "commuters",
+            "short stay visitors"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [],
+          "dining": [
+            {
+              "name": "Bistro Bahnhof",
+              "cuisine": "International casual",
+              "price_range": "€€",
+              "known_for": "Quick meals and coffee for travelers",
+              "atmosphere": "Modern and efficient"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Use this area as your base if traveling by bus or train.",
+          "Grab a quick bite at Bistro Bahnhof before heading out.",
+          "Check transit schedules ahead for smooth connections."
+        ]
+      },
+      {
+        "name": "Altstadt",
+        "alternate_names": [
+          "Historic Old Town"
+        ],
+        "character": "Altstadt is Vaduz’s historic core with narrow cobbled streets, traditional architecture, and a quiet, timeless atmosphere. It offers a glimpse into the principality’s medieval past.",
+        "location": {
+          "central": true,
+          "description": "Nestled within the City Center, slightly to the east near the cathedral.",
+          "borders": [
+            "City Center",
+            "Oberstadt"
+          ],
+          "landmarks": [
+            "St. Florin Cathedral",
+            "Town Hall",
+            "Old Post Office"
+          ]
+        },
+        "history": {
+          "overview": "The oldest part of Vaduz, dating back to medieval times, preserving original street layouts and buildings.",
+          "significance": "Cultural and historical heart reflecting Vaduz’s origins.",
+          "notable_events": [
+            "Medieval market fairs",
+            "Restoration projects (1990s)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "City Center bus stops nearby"
+          ],
+          "safety": "Very safe, low traffic area",
+          "best_time_to_visit": "Spring and summer for outdoor charm",
+          "walkability": "Extremely walkable with pedestrian-only streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "Quiet streets",
+            "Boutique shops",
+            "Local crafts"
+          ],
+          "atmosphere": [
+            "charming",
+            "historic",
+            "intimate"
+          ],
+          "best_for": [
+            "history enthusiasts",
+            "romantic strolls",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 1,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Vaduz Town Hall",
+              "type": "Historic Building",
+              "description": "Traditional building hosting local government with historic architecture.",
+              "appeal": "Architectural beauty and civic importance."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Cafe Meier",
+              "cuisine": "European cafe fare",
+              "price_range": "€€",
+              "known_for": "Delicate pastries and cozy ambiance",
+              "atmosphere": "Warm and inviting"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy quiet cobbled streets.",
+          "Look for small artisan shops tucked away on side streets.",
+          "Attend the summer medieval market for authentic local crafts."
+        ]
+      },
+      {
+        "name": "Ruggell",
+        "alternate_names": [],
+        "character": "Ruggell is a peaceful village-like northern neighborhood known for its green landscapes and agricultural roots. It offers a rural contrast to Vaduz’s urban core.",
+        "location": {
+          "central": false,
+          "description": "Northernmost district of Vaduz, bordering the Rhine river.",
+          "borders": [
+            "Neudorf",
+            "Schaanwald"
+          ],
+          "landmarks": [
+            "Ruggell Church",
+            "Rhine River promenade"
+          ]
+        },
+        "history": {
+          "overview": "Originally an agricultural settlement, Ruggell has retained much of its rural character despite city expansion.",
+          "significance": "Represents Liechtenstein’s agrarian heritage and natural environment.",
+          "notable_events": [
+            "Annual Ruggell agricultural fair"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Ruggell bus stop"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Late spring to early autumn for river walks",
+          "walkability": "Good for walking with flat terrain and river paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Agricultural heritage",
+            "River promenade",
+            "Outdoor recreation"
+          ],
+          "atmosphere": [
+            "tranquil",
+            "natural",
+            "rural"
+          ],
+          "best_for": [
+            "nature lovers",
+            "outdoor enthusiasts",
+            "travelers seeking quiet"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 4,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 1,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Rhine River Promenade",
+              "type": "Nature",
+              "description": "Scenic walking and cycling path along the Rhine river.",
+              "appeal": "Ideal for peaceful outdoor activities and birdwatching."
+            }
+          ],
+          "dining": []
+        },
+        "insider_tips": [
+          "Bring comfortable shoes for long riverside walks.",
+          "Visit during the agricultural fair for local food and crafts.",
+          "Use Ruggell as a quiet getaway from the city bustle."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Restaurant Torkel",
+          "cuisine_type": "Modern European, Liechtenstein cuisine",
+          "description": "Located in a historic wine cellar, Torkel offers refined dishes using local seasonal ingredients with a focus on Liechtenstein culinary traditions.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant yet cozy with rustic charm",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "fine dining enthusiasts"
+          ],
+          "latitude": 47.1415,
+          "longitude": 9.5213,
+          "reservation_needed": true,
+          "local_tips": "Try their signature Liechtenstein trout with herb butter."
+        },
+        {
+          "name": "Gasthof Löwen",
+          "cuisine_type": "Traditional Swiss and Liechtenstein",
+          "description": "A family-run inn offering authentic regional dishes like Käsknöpfle (cheese noodles) and venison specialties.",
+          "price_range": "€€",
+          "atmosphere": "Warm, traditional, and rustic",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "families",
+            "groups",
+            "local cuisine lovers"
+          ],
+          "latitude": 47.1419,
+          "longitude": 9.5164,
+          "reservation_needed": false,
+          "local_tips": "Order the game dishes in autumn and winter for a true local experience."
+        },
+        {
+          "name": "Marée",
+          "cuisine_type": "French-inspired, Mediterranean",
+          "description": "Sophisticated dining with fresh seafood and Mediterranean flavors, complemented by an extensive wine list.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and intimate",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "date night",
+            "business dinners"
+          ],
+          "latitude": 47.1411,
+          "longitude": 9.5201,
+          "reservation_needed": true,
+          "local_tips": "The sea bass and lobster dishes are highly recommended."
+        },
+        {
+          "name": "Parkhotel Sonnenhof - Restaurant",
+          "cuisine_type": "Contemporary European",
+          "description": "Fine dining with panoramic views of the Rhine Valley, featuring seasonal and locally sourced ingredients.",
+          "price_range": "€€€€",
+          "atmosphere": "Luxurious and scenic",
+          "neighborhood": "Vaduz outskirts",
+          "best_for": [
+            "romantic dinners",
+            "celebrations"
+          ],
+          "latitude": 47.1398,
+          "longitude": 9.5225,
+          "reservation_needed": true,
+          "local_tips": "Reserve a window seat at sunset for breathtaking views."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Café Beck",
+          "cuisine_type": "Bakery, casual European",
+          "description": "Popular local bakery and café known for fresh pastries, sandwiches, and Liechtenstein specialties like Zigerkrapfen.",
+          "price_range": "€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "breakfast",
+            "light lunch",
+            "coffee breaks"
+          ],
+          "latitude": 47.1417,
+          "longitude": 9.5178,
+          "reservation_needed": false,
+          "local_tips": "Try their freshly baked apricot Zigerkrapfen with a cappuccino."
+        },
+        {
+          "name": "Restaurant Adler",
+          "cuisine_type": "Liechtenstein and Swiss",
+          "description": "Traditional dishes served in a cozy setting, featuring regional specialties like Ribel (corn porridge) and freshly caught fish.",
+          "price_range": "€€",
+          "atmosphere": "Warm and welcoming",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "families",
+            "casual dinners"
+          ],
+          "latitude": 47.1413,
+          "longitude": 9.5194,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade desserts after a hearty meal."
+        },
+        {
+          "name": "Vino Vino",
+          "cuisine_type": "Italian and Mediterranean",
+          "description": "Casual but stylish restaurant serving pizzas, pasta, and a curated wine selection.",
+          "price_range": "€€",
+          "atmosphere": "Lively and modern",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 47.1409,
+          "longitude": 9.5182,
+          "reservation_needed": true,
+          "local_tips": "Book ahead on weekends; their truffle pasta is a local favorite."
+        },
+        {
+          "name": "Restaurant Marée",
+          "cuisine_type": "Mediterranean Casual",
+          "description": "Offers a relaxed dining atmosphere with Mediterranean dishes and daily specials.",
+          "price_range": "€€",
+          "atmosphere": "Casual and comfortable",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "date night",
+            "casual dining"
+          ],
+          "latitude": 47.1411,
+          "longitude": 9.5201,
+          "reservation_needed": false,
+          "local_tips": "Check their daily fish specials for fresh catches."
+        },
+        {
+          "name": "Il Teatro",
+          "cuisine_type": "Italian",
+          "description": "Cozy Italian trattoria offering authentic pasta and pizza dishes with fresh ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Casual and family-friendly",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "families",
+            "groups"
+          ],
+          "latitude": 47.142,
+          "longitude": 9.5167,
+          "reservation_needed": false,
+          "local_tips": "Great place for a relaxed dinner after sightseeing."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Vaduz Weekly Market",
+          "cuisine_type": "Local produce and street snacks",
+          "description": "Held every Saturday morning, offering fresh local produce, cheeses, breads, and seasonal street snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic",
+          "neighborhood": "Vaduz center, Rathausplatz",
+          "best_for": [
+            "market visits",
+            "snacking",
+            "local culture"
+          ],
+          "latitude": 47.141,
+          "longitude": 9.5197,
+          "reservation_needed": false,
+          "local_tips": "Sample local cheeses and freshly baked rye bread."
+        },
+        {
+          "name": "Food Truck Liechtenstein",
+          "cuisine_type": "International street food",
+          "description": "Rotating food truck offering everything from gourmet burgers to vegan wraps, often found near Vaduz events.",
+          "price_range": "€",
+          "atmosphere": "Casual and lively",
+          "neighborhood": "Vaduz event spaces and parks",
+          "best_for": [
+            "quick bites",
+            "casual dining"
+          ],
+          "latitude": 47.1415,
+          "longitude": 9.52,
+          "reservation_needed": false,
+          "local_tips": "Follow their social media for current location and menu."
+        },
+        {
+          "name": "Liechtenstein Cheese Festival Stalls",
+          "cuisine_type": "Local cheese delicacies",
+          "description": "Pop-up stalls during the annual cheese festival offering traditional cheeses and raclette bites.",
+          "price_range": "€",
+          "atmosphere": "Festive and communal",
+          "neighborhood": "Vaduz center during festival season",
+          "best_for": [
+            "food festivals",
+            "cheese lovers"
+          ],
+          "latitude": 47.1413,
+          "longitude": 9.5189,
+          "reservation_needed": false,
+          "local_tips": "Try the raclette with fresh bread; the festival usually happens in late summer."
+        },
+        {
+          "name": "Bäckerei Konditorei Mall",
+          "cuisine_type": "Pastries and light snacks",
+          "description": "Local bakery with take-away sweet and savory pastries ideal for a quick bite on the go.",
+          "price_range": "€",
+          "atmosphere": "Casual and quick",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "breakfast",
+            "snacks"
+          ],
+          "latitude": 47.1416,
+          "longitude": 9.518,
+          "reservation_needed": false,
+          "local_tips": "Try the nut-filled Zigerkrapfen, a Liechtenstein specialty."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "The English Pub Vaduz",
+          "cuisine_type": "Bar with international drinks",
+          "description": "Classic English-style pub serving a wide range of beers, whiskies, and cocktails in a cozy atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and sociable",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "casual drinks",
+            "groups",
+            "sports viewing"
+          ],
+          "latitude": 47.1414,
+          "longitude": 9.5175,
+          "reservation_needed": false,
+          "local_tips": "Try their local craft beers on tap."
+        },
+        {
+          "name": "Bar 21",
+          "cuisine_type": "Cocktail bar",
+          "description": "Trendy cocktail bar with expert mixologists and a lively crowd, perfect for evenings out.",
+          "price_range": "€€€",
+          "atmosphere": "Modern and chic",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "date night",
+            "nightlife",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 47.141,
+          "longitude": 9.5205,
+          "reservation_needed": true,
+          "local_tips": "Ask for their seasonal cocktail specials."
+        },
+        {
+          "name": "Weinstube Quader",
+          "cuisine_type": "Wine bar",
+          "description": "Cozy wine bar offering a curated selection of local and international wines with light bites.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and relaxed",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "wine lovers",
+            "quiet evenings"
+          ],
+          "latitude": 47.1412,
+          "longitude": 9.5188,
+          "reservation_needed": false,
+          "local_tips": "Try the local Liechtenstein vintages paired with cheese platters."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Kunstmuseum",
+          "cuisine_type": "Café, pastries, coffee",
+          "description": "Set within the Kunstmuseum, this café offers great coffee, cakes, and a quiet atmosphere for art lovers.",
+          "price_range": "€",
+          "atmosphere": "Quiet and cultured",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "coffee breaks",
+            "art lovers",
+            "light snacks"
+          ],
+          "latitude": 47.1407,
+          "longitude": 9.5183,
+          "reservation_needed": false,
+          "local_tips": "Combine your visit with the museum exhibitions."
+        },
+        {
+          "name": "Café Steig",
+          "cuisine_type": "Coffee and light bites",
+          "description": "Popular café known for excellent espresso, homemade cakes, and a friendly local crowd.",
+          "price_range": "€",
+          "atmosphere": "Casual and cozy",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "breakfast",
+            "casual meetings"
+          ],
+          "latitude": 47.1418,
+          "longitude": 9.5172,
+          "reservation_needed": false,
+          "local_tips": "Try the apple strudel with fresh cream."
+        },
+        {
+          "name": "Café Gmeiner",
+          "cuisine_type": "Traditional café",
+          "description": "A longstanding café offering a variety of coffees, teas, and classic pastries in a traditional setting.",
+          "price_range": "€",
+          "atmosphere": "Traditional and welcoming",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "afternoon coffee",
+            "quiet time"
+          ],
+          "latitude": 47.1415,
+          "longitude": 9.5169,
+          "reservation_needed": false,
+          "local_tips": "Their homemade cakes change daily, ask for recommendations."
+        },
+        {
+          "name": "Café Beck",
+          "cuisine_type": "Bakery café",
+          "description": "A local favorite for fresh baked goods, coffee, and light meals in a comfortable setting.",
+          "price_range": "€",
+          "atmosphere": "Casual and bustling",
+          "neighborhood": "Vaduz center",
+          "best_for": [
+            "breakfast",
+            "snacks"
+          ],
+          "latitude": 47.1417,
+          "longitude": 9.5178,
+          "reservation_needed": false,
+          "local_tips": "Try the apricot-filled Zigerkrapfen with coffee."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Liechtenstein Culinary Walking Tour",
+        "description": "Guided walking tour through Vaduz's best eateries, sampling local specialties and learning about Liechtenstein food culture.",
+        "price_range": "€€",
+        "best_for": [
+          "foodies",
+          "culture enthusiasts"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Book in advance especially during summer months."
+      },
+      {
+        "name": "Cooking Class at Parkhotel Sonnenhof",
+        "description": "Hands-on cooking classes focusing on traditional Liechtenstein and Alpine recipes with local chefs.",
+        "price_range": "€€€",
+        "best_for": [
+          "cooking enthusiasts",
+          "small groups"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Ideal to learn about seasonal ingredients and traditional techniques."
+      },
+      {
+        "name": "Visit to Vaduz Weekly Market",
+        "description": "Explore the vibrant Saturday market to discover fresh local produce, cheeses, and baked goods directly from producers.",
+        "price_range": "€",
+        "best_for": [
+          "market lovers",
+          "local culture immersion"
+        ],
+        "reservation_needed": false,
+        "local_tips": "Come early for the best selection of fresh goods."
+      },
+      {
+        "name": "Wine Tasting at Herrschaft Winery",
+        "description": "Guided tastings of Liechtenstein's native grape varieties paired with local snacks in a historic winery setting.",
+        "price_range": "€€",
+        "best_for": [
+          "wine lovers",
+          "couples"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Try the Pinot Noir; Liechtenstein wines are a hidden gem."
+      },
+      {
+        "name": "Seasonal Game Dinner Experience",
+        "description": "Special dinners hosted in select Vaduz restaurants featuring regional game meats and traditional recipes during autumn and winter.",
+        "price_range": "€€€",
+        "best_for": [
+          "food adventurers",
+          "seasonal dining"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Book early during hunting season for the freshest dishes."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes",
+        "Wild garlic soups",
+        "Strawberry desserts from local farms"
+      ],
+      "summer": [
+        "Light trout and char preparations",
+        "Fresh salads with local herbs",
+        "Seasonal berries and cream pastries"
+      ],
+      "autumn": [
+        "Game meats: venison, wild boar",
+        "Mushroom risottos and soups",
+        "Chestnut desserts and breads"
+      ],
+      "winter": [
+        "Hearty stews with root vegetables",
+        "Käsknöpfle (cheese noodles)",
+        "Glühwein (mulled wine) and raclette"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€20-€40",
+            "operator": "SBB (Swiss Federal Railways)",
+            "notes": "Direct trains available from Sargans, near Vaduz."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Liechtenstein Bus",
+            "notes": "Several daily bus connections via Sargans."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€80",
+            "operator": "Deutsche Bahn",
+            "notes": "Requires transfer at Zurich or Sargans."
+          },
+          {
+            "type": "bus",
+            "duration": "5h",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses available from Vaduz to Munich."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "8h",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "ÖBB and Deutsche Bahn",
+            "notes": "Multiple transfers, typically via Zurich and Munich."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€80-€150",
+            "operator": "Austrian Airlines",
+            "notes": "Flights depart from Zurich Airport, about 1h from Vaduz."
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€70",
+            "operator": "Trenitalia and SBB",
+            "notes": "Route via Zurich or Sargans with one transfer."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Direct buses available but limited frequency."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "TGV and SBB",
+            "notes": "High-speed connections via Zurich or Basel."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 15m",
+            "frequency": "daily",
+            "price_range": "€90-€180",
+            "operator": "Air France",
+            "notes": "Flights via Zurich Airport."
+          }
+        ]
+      },
+      {
+        "city": "Frankfurt",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "Deutsche Bahn",
+            "notes": "Routes via Zurich or Basel."
+          },
+          {
+            "type": "flight",
+            "duration": "1h",
+            "frequency": "daily",
+            "price_range": "€70-€130",
+            "operator": "Lufthansa",
+            "notes": "Depart from Zurich Airport."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€45-€90",
+            "operator": "Trenitalia and SBB",
+            "notes": "Multiple transfers, typically via Milan."
+          },
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "weekly",
+            "price_range": "€30-€55",
+            "operator": "FlixBus",
+            "notes": "Limited weekly service."
+          }
+        ]
+      },
+      {
+        "city": "Geneva",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€75",
+            "operator": "SBB",
+            "notes": "Transfer in Zurich required."
+          },
+          {
+            "type": "bus",
+            "duration": "5h",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "FlixBus",
+            "notes": "Direct buses available."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "8h",
+            "frequency": "daily",
+            "price_range": "€70-€140",
+            "operator": "NS International and SBB",
+            "notes": "Transfers in Zurich and Frankfurt."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€90-€160",
+            "operator": "KLM",
+            "notes": "Flights from Zurich Airport."
+          }
+        ]
+      },
+      {
+        "city": "Strasbourg",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "SNCF and SBB",
+            "notes": "Transfers through Basel."
+          },
+          {
+            "type": "bus",
+            "duration": "4h",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses available."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Vaduz Wine Festival",
+        "type": "festival",
+        "description": "Celebrate the local wine culture with tastings and vineyard tours showcasing Liechtenstein's unique wine varieties.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Vaduz vineyards and town center",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking the Fürstensteig Trail",
+        "type": "outdoor",
+        "description": "Experience breathtaking views of the Rhine Valley on this popular spring hiking trail near Vaduz, suitable for moderate hikers.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Start near Vaduz city limits",
+        "price": "Free"
+      },
+      {
+        "name": "Liechtenstein Museum of Fine Arts",
+        "type": "cultural",
+        "description": "Visit the museum to explore seasonal exhibitions highlighting local and European art in a modern setting.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Städtle 37, Vaduz",
+        "price": "Budget"
+      },
+      {
+        "name": "Spring Asparagus Tasting",
+        "type": "food",
+        "description": "Savor fresh white asparagus dishes at local restaurants, a seasonal specialty in Liechtenstein during spring.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Various restaurants in Vaduz",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Vaduz Castle Visit",
+        "type": "cultural",
+        "description": "Explore the exterior of the iconic Vaduz Castle, the prince’s residence, and enjoy panoramic views over the city and Rhine Valley.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Vaduz Castle",
+        "price": "Free"
+      },
+      {
+        "name": "Rhine River Kayaking",
+        "type": "sport",
+        "description": "Enjoy guided kayaking tours on the Rhine River, offering a refreshing way to explore the region's natural beauty during summer.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Rhine River near Vaduz",
+        "price": "Moderate"
+      },
+      {
+        "name": "Vaduz Open-Air Concerts",
+        "type": "festival",
+        "description": "Attend open-air concerts in the town square featuring local and international artists, perfect for warm summer evenings.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Vaduz Town Square",
+        "price": "Free"
+      },
+      {
+        "name": "Mountain Biking in Malbun",
+        "type": "sport",
+        "description": "Explore extensive mountain biking trails in the scenic Malbun area, ideal for all skill levels during summer months.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Malbun, near Vaduz",
+        "price": "Free"
+      },
+      {
+        "name": "Seasonal Alpine Cheese Tasting",
+        "type": "food",
+        "description": "Sample traditional alpine cheeses made from fresh summer milk at local markets and specialty shops.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Vaduz markets and cheese shops",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Vaduz Autumn Wine Tasting",
+        "type": "festival",
+        "description": "Join the autumn harvest celebrations with wine tastings highlighting the latest vintage of local wines.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Vaduz vineyards and town center",
+        "price": "Moderate"
+      },
+      {
+        "name": "Hiking in the Rätikon Mountains",
+        "type": "outdoor",
+        "description": "Enjoy colorful fall foliage and crisp mountain air on scenic hiking routes around Vaduz and the Rätikon range.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Rätikon Mountains near Vaduz",
+        "price": "Free"
+      },
+      {
+        "name": "Harvest Food Markets",
+        "type": "food",
+        "description": "Taste regional autumn produce such as chestnuts, mushrooms, and game meats at local markets and restaurants.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Vaduz local markets",
+        "price": "Budget"
+      },
+      {
+        "name": "Kunstmuseum Liechtenstein Exhibitions",
+        "type": "cultural",
+        "description": "Visit the Kunstmuseum to see contemporary art exhibitions that often open in the autumn season.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Städtle 37, Vaduz",
+        "price": "Moderate"
+      },
+      {
+        "name": "Vaduz Autumn Trail Run",
+        "type": "sport",
+        "description": "Participate in or watch this popular trail running event set against the picturesque autumn landscape.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Trails around Vaduz",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Malbun Ski Resort",
+        "type": "sport",
+        "description": "Enjoy skiing, snowboarding, and winter hiking at Liechtenstein’s main ski area just a short drive from Vaduz.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Malbun",
+        "price": "Moderate"
+      },
+      {
+        "name": "Vaduz Christmas Market",
+        "type": "festival",
+        "description": "Experience the festive atmosphere with local crafts, seasonal foods, and mulled wine at the charming Christmas market.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Vaduz Town Square",
+        "price": "Free"
+      },
+      {
+        "name": "Winter Hiking Trails",
+        "type": "outdoor",
+        "description": "Explore snow-covered hiking trails around Vaduz and Malbun with well-marked winter routes suitable for all levels.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Vaduz and Malbun trails",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Liechtenstein Fondue",
+        "type": "food",
+        "description": "Warm up with a traditional cheese fondue meal, a winter culinary staple in local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Restaurants in Vaduz",
+        "price": "Moderate"
+      },
+      {
+        "name": "Vaduz Museum of History Visit",
+        "type": "cultural",
+        "description": "Discover Liechtenstein’s rich history and heritage in this well-curated museum, ideal for colder winter days.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Städtle 37, Vaduz",
+        "price": "Budget"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "New Year's and Epiphany",
+            "notes": "Winter season with cold weather and snow; New Year's celebrations and Epiphany on 6th bring local festivities but also fewer tourists.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often snowy; fewer tourists and some attractions may have reduced hours; good for budget travelers and winter sports nearby.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cold winter weather, low daylight; ideal for travelers seeking quiet and low prices; limited outdoor activities in town.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 2,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold winter continues but daylight increases; skiing and winter sports popular nearby; low tourist presence in Vaduz itself.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Vaduz Carnival (Fasnacht)",
+            "notes": "Carnival celebrations bring vibrant cultural events and local traditions; mild crowds increase atmosphere but not overwhelming; weather still cold.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival period with cold but improving weather; low tourism, good for quiet exploration and budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Transition from winter to spring; weather gradually milder though still chilly; low crowds, good for hiking in lower elevations.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring flowers start to bloom; generally pleasant weather; moderate visitors; good for cultural visits and outdoor walks.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Liechtenstein National Day Preparations",
+            "notes": "Increasingly pleasant weather and build-up to National Day celebrations in August; good time for exploring museums and castle without crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Unpredictable spring weather with occasional rain; some attractions start extended hours; low to moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter Celebrations",
+            "notes": "Easter brings cultural events, markets, and festivities; spring weather improves; ideal for families and cultural travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Generally mild and increasingly sunny; great for hiking, cycling, and sightseeing; low to moderate tourist presence.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labor Day and Spring Festivals",
+            "notes": "Pleasant spring weather with many outdoor festivals; flowers in full bloom; excellent for outdoor activities and cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Mild temperatures and long daylight; ideal for hiking, sightseeing, and enjoying local outdoor cafes; moderate crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late spring offers warm and pleasant weather perfect for exploring vineyards, hiking the Alps, and city tours; low crowd levels compared to summer.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm, sunny weather; perfect for outdoor activities, hiking, and cultural events; moderate crowds begin to build.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm days and long evenings ideal for sightseeing and festivals; increased tourist numbers but still manageable; vibrant atmosphere.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High summer temperatures with occasional heat; popular tourist season leading to higher prices and crowds especially on weekends.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Continued warm weather; busy tourist season with many outdoor events but some overcrowding in popular sites; good for luxury travelers.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm summer weather continues; approaching National Day celebrations; popular with tourists, some crowding at major sites.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Liechtenstein National Day (August 15)",
+            "notes": "Major national celebration with parades, fireworks, and cultural events; festive atmosphere; high crowds but unique cultural experience.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm weather persists; post-National Day crowds reduce but still busy; good time for hiking and cultural tours.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with mild temperatures and beautiful fall colors; lower crowds and excellent conditions for outdoor activities and wine tasting.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Continued pleasant weather and low crowds; ideal for hiking, cultural visits, and enjoying local cuisine; prices start to drop after summer peak.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with cooler temperatures and vibrant fall foliage; fewer tourists; some attractions may start closing for winter.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Weather becomes cooler and wetter; some tourist services reduce hours; good for budget travelers and those preferring quiet visits.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often damp weather with limited daylight; low tourist numbers; some attractions closed or reduced hours; best for off-season budget travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Pre-winter cold sets in; very low visitor levels; some Christmas markets start late in the month, adding festive charm.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold weather with early winter snow possible; Christmas markets start mid-month; festive atmosphere begins to build.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Christmas Markets & Holiday Festivities",
+            "notes": "Major cultural events with Christmas markets, concerts, and festive decorations; cold but atmospheric; popular with families and couples.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Festive period with holiday celebrations and New Year's Eve events; cold winter weather; high demand for accommodations.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -4,23 +4,84 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 2,
           "special": true,
           "event": "New Year's Day",
-          "notes": "Holiday atmosphere lingering, many businesses closed"
+          "notes": "Holiday atmosphere lingering, many businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 2
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 3,
-          "notes": "Winter sales (soldes) begin, good shopping opportunities in the old town and around Place des Lices"
+          "notes": "Winter sales (soldes) begin, good shopping opportunities in the old town and around Place des Lices",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Winter Cultural Season",
-          "notes": "Museums and cultural venues offer special winter programming, including Les Champs Libres and Musée des Beaux-Arts"
+          "notes": "Museums and cultural venues offer special winter programming, including Les Champs Libres and Musée des Beaux-Arts",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 8,
@@ -31,16 +92,64 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 3,
-          "notes": "Winter atmosphere, fewer tourists, excellent cathedral and museum opportunities in the historic center"
+          "notes": "Winter atmosphere, fewer tourists, excellent cathedral and museum opportunities in the historic center",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 4,
           "special": true,
           "event": "Winter School Holidays",
-          "notes": "French school vacation period, increased family tourism, special activities at cultural venues"
+          "notes": "French school vacation period, increased family tourism, special activities at cultural venues",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 9,
@@ -51,16 +160,67 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 4,
-          "notes": "Early spring weather, café terraces begin to open along Place des Lices, pleasant time for exploring the old town"
+          "notes": "Early spring weather, café terraces begin to open along Place des Lices, pleasant time for exploring the old town",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Spring Cultural Season Begins",
-          "notes": "New exhibitions open at museums, outdoor activities resume in Parc du Thabor"
+          "notes": "New exhibitions open at museums, outdoor activities resume in Parc du Thabor",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 13,
@@ -71,16 +231,66 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
-          "notes": "Spring in full bloom, ideal weather for exploring Parc du Thabor gardens and the historic monuments"
+          "notes": "Spring in full bloom, ideal weather for exploring Parc du Thabor gardens and the historic monuments",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Easter holidays and Spring Break",
-          "notes": "Family-oriented activities at cultural venues, spring flowers in bloom at Parc du Thabor"
+          "notes": "Family-oriented activities at cultural venues, spring flowers in bloom at Parc du Thabor",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 16,
@@ -91,25 +301,86 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "Labor Day",
-          "notes": "Public holiday, many businesses closed but festive gatherings and demonstrations"
+          "notes": "Public holiday, many businesses closed but festive gatherings and demonstrations",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
           "score": 4,
           "special": true,
           "event": "Multiple Public Holidays",
-          "notes": "Victory Day (May 8) and often Ascension create long weekends, increased domestic tourism"
+          "notes": "Victory Day (May 8) and often Ascension create long weekends, increased domestic tourism",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Spring Festival Season",
-          "notes": "Cultural events, outdoor performances, and the beginning of the tourist season in the Breton capital"
+          "notes": "Cultural events, outdoor performances, and the beginning of the tourist season in the Breton capital",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 19,
@@ -120,16 +391,66 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 5,
-          "notes": "Perfect weather, outdoor activities in full swing, pre-summer atmosphere in the Brittany region"
+          "notes": "Perfect weather, outdoor activities in full swing, pre-summer atmosphere in the Brittany region",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Breton Cultural Festival Season Begins",
-          "notes": "Annual Breton heritage celebrations with traditional music, dance, and cultural events throughout the city"
+          "notes": "Annual Breton heritage celebrations with traditional music, dance, and cultural events throughout the city",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 22,
@@ -140,23 +461,84 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
           "score": 5,
           "special": true,
           "event": "Summer Cultural Season",
-          "notes": "The city's cultural venues host special summer programming, outdoor events, and Breton heritage tours"
+          "notes": "The city's cultural venues host special summer programming, outdoor events, and Breton heritage tours",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [14],
+          "days": [
+            14
+          ],
           "score": 5,
           "special": true,
           "event": "Bastille Day",
-          "notes": "National holiday with military parade, fireworks over the cathedral, and festive atmosphere"
+          "notes": "National holiday with military parade, fireworks over the cathedral, and festive atmosphere",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
-          "notes": "Peak summer season, outdoor dining in the old town, Breton lifestyle in full swing"
+          "notes": "Peak summer season, outdoor dining in the old town, Breton lifestyle in full swing",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 24,
@@ -167,30 +549,101 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 5,
           "special": true,
           "event": "Summer Festival Season",
-          "notes": "Cultural events, outdoor performances, and the peak of Breton summer atmosphere"
+          "notes": "Cultural events, outdoor performances, and the peak of Breton summer atmosphere",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Assumption Day",
-          "notes": "Public holiday, significant business closures throughout the city"
+          "notes": "Public holiday, significant business closures throughout the city",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Continued summer activities, good weather for exploring the city and surrounding Brittany countryside"
+          "notes": "Continued summer activities, good weather for exploring the city and surrounding Brittany countryside",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Late Summer Cultural Events",
-          "notes": "Outdoor concerts, theater performances, and cultural activities in the Breton capital"
+          "notes": "Outdoor concerts, theater performances, and cultural activities in the Breton capital",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 24,
@@ -201,23 +654,83 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4],
+          "days": [
+            1,
+            2,
+            3,
+            4
+          ],
           "score": 5,
           "special": true,
           "event": "Late Summer Cultural Season",
-          "notes": "Outdoor performances and cultural events continue in the pleasant September weather"
+          "notes": "Outdoor performances and cultural events continue in the pleasant September weather",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
         },
         {
-          "days": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 5,
-          "notes": "Perfect late summer weather, locals return, city reawakens with cultural season"
+          "notes": "Perfect late summer weather, locals return, city reawakens with cultural season",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Breton Heritage Month Begins",
-          "notes": "Special tours and experiences celebrating Breton culture, language, and traditions"
+          "notes": "Special tours and experiences celebrating Breton culture, language, and traditions",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 20,
@@ -228,16 +741,67 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
           "score": 4,
-          "notes": "Beautiful autumn colors in the Brittany countryside, pleasant temperatures, ideal for walking tours"
+          "notes": "Beautiful autumn colors in the Brittany countryside, pleasant temperatures, ideal for walking tours",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Breton Cultural Festival Season",
-          "notes": "Local Breton cultural celebrations, traditional markets throughout the region"
+          "notes": "Local Breton cultural celebrations, traditional markets throughout the region",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 16,
@@ -248,30 +812,100 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day",
-          "notes": "Public holiday, many businesses closed"
+          "notes": "Public holiday, many businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
           "score": 3,
-          "notes": "Autumn atmosphere, fewer tourists, excellent museum-going weather at Les Champs Libres"
+          "notes": "Autumn atmosphere, fewer tourists, excellent museum-going weather at Les Champs Libres",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [11],
+          "days": [
+            11
+          ],
           "score": 3,
           "special": true,
           "event": "Armistice Day",
-          "notes": "Commemorative events, some businesses closed"
+          "notes": "Commemorative events, some businesses closed",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
           "special": true,
           "event": "Autumn Cultural Season",
-          "notes": "New museum exhibitions, indoor cultural events, and the beginning of the winter cultural calendar"
+          "notes": "New museum exhibitions, indoor cultural events, and the beginning of the winter cultural calendar",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 11,
@@ -282,30 +916,101 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets",
-          "notes": "Holiday markets around the cathedral and Place des Lices, special illuminations of the historic monuments"
+          "notes": "Holiday markets around the cathedral and Place des Lices, special illuminations of the historic monuments",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 2,
           "special": true,
           "event": "Christmas",
-          "notes": "Many closures, limited dining options, quieter atmosphere"
+          "notes": "Many closures, limited dining options, quieter atmosphere",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 2,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 2
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
-          "notes": "Between Christmas and New Year's, winter activities at museums and cultural venues"
+          "notes": "Between Christmas and New Year's, winter activities at museums and cultural venues",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "New Year's Eve",
-          "notes": "Celebrations and special menus at restaurants, festive atmosphere around the cathedral"
+          "notes": "Celebrations and special menus at restaurants, festive atmosphere around the cathedral",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 8,
@@ -356,10 +1061,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds",
-    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
-    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities",
     "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds",
-    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities"
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds",
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds"
   }
 }

@@ -6,6 +6,7 @@ import { useRouter, useParams } from 'next/navigation';
 import DateRangePopover from '@/components/common/DateRangePopover';
 import { useTripDates } from '@/hooks/useTripDates';
 import { TRAVEL_STYLE_OPTIONS, getTravelStyleForPace } from '@/lib/planning/travelStyles';
+import { useAuth } from '@/contexts/AuthContext';
 
 const INTEREST_OPTIONS = [
   'Culture & History',
@@ -32,6 +33,7 @@ function capitalize(s) {
 export default function PlanCityPage() {
   const params = useParams();
   const router = useRouter();
+  const { user } = useAuth();
   const citySlug = params.city;
   const cityDisplay = capitalize(citySlug);
 
@@ -279,6 +281,7 @@ export default function PlanCityPage() {
       must_see: mustSee,
       hotel_location: null,
       prebookings: {},
+      user_id: user?.id || null,
     };
 
     try {

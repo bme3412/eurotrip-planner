@@ -4,30 +4,101 @@
       "name": "January",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "New Year's Day (Capodanno)",
-          "notes": "Public holiday, many businesses closed, quiet start to the year."
+          "notes": "Public holiday, many businesses closed, quiet start to the year.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5],
+          "days": [
+            2,
+            3,
+            4,
+            5
+          ],
           "score": 3,
-          "notes": "Winter low season, fewer tourists, good time for museums."
+          "notes": "Winter low season, fewer tourists, good time for museums.",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
         },
         {
-          "days": [6],
+          "days": [
+            6
+          ],
           "score": 3,
           "special": true,
           "event": "Epiphany (La Befana)",
-          "notes": "Public holiday marking the end of Christmas festivities."
+          "notes": "Public holiday marking the end of Christmas festivities.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
           "special": true,
           "event": "Winter Sales (Saldi)",
-          "notes": "Shopping discounts begin. Cool weather, fewest crowds."
+          "notes": "Shopping discounts begin. Cool weather, fewest crowds.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 2,
+            "budget": 5,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 15,
@@ -38,11 +109,49 @@
       "name": "February",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
           "score": 3,
           "special": true,
           "event": "Carnival (Carnevale) period (variable dates)",
-          "notes": "Possibility of local Carnevale events, especially in the lead-up to Lent. Generally cool weather, low tourism."
+          "notes": "Possibility of local Carnevale events, especially in the lead-up to Lent. Generally cool weather, low tourism.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 15,
@@ -53,23 +162,84 @@
       "name": "March",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
           "score": 4,
-          "notes": "Weather starts to warm up, early spring flowers. Tourism still moderate."
+          "notes": "Weather starts to warm up, early spring flowers. Tourism still moderate.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [19],
+          "days": [
+            19
+          ],
           "score": 4,
           "special": true,
           "event": "Feast of St. Joseph (San Giuseppe)",
-          "notes": "Traditional day, look for special pastries ('sfince di San Giuseppe')."
+          "notes": "Traditional day, look for special pastries ('sfince di San Giuseppe').",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "Lead-up to Easter (if applicable)",
-          "notes": "Increasingly pleasant weather. Potential for early Holy Week events if Easter is early."
+          "notes": "Increasingly pleasant weather. Potential for early Holy Week events if Easter is early.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 16,
@@ -80,23 +250,83 @@
       "name": "April",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
           "score": 5,
           "special": true,
           "event": "Holy Week & Easter (Settimana Santa - variable dates)",
-          "notes": "Major religious processions (especially Good Friday), peak spring atmosphere. Can be crowded."
+          "notes": "Major religious processions (especially Good Friday), peak spring atmosphere. Can be crowded.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [25],
+          "days": [
+            25
+          ],
           "score": 4,
           "special": true,
           "event": "Liberation Day",
-          "notes": "National holiday, potential for local events, some closures."
+          "notes": "National holiday, potential for local events, some closures.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [26, 27, 28, 29, 30],
+          "days": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Excellent spring weather, ideal for sightseeing, visiting gardens and Monreale."
+          "notes": "Excellent spring weather, ideal for sightseeing, visiting gardens and Monreale.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 19,
@@ -107,18 +337,69 @@
       "name": "May",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 4,
           "special": true,
           "event": "Labor Day (Primo Maggio)",
-          "notes": "Public holiday, many shops closed, locals may picnic or head to Mondello."
+          "notes": "Public holiday, many shops closed, locals may picnic or head to Mondello.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "Start of Beach Season / Potential World Festival on the Beach",
-          "notes": "Beautiful weather, perfect for exploring everything. Mondello gets busier. Check dates for World Festival on the Beach."
+          "notes": "Beautiful weather, perfect for exploring everything. Mondello gets busier. Check dates for World Festival on the Beach.",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 23,
@@ -129,21 +410,81 @@
       "name": "June",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 5,
-          "notes": "Start of summer, long sunny days, warm sea temperatures."
+          "notes": "Start of summer, long sunny days, warm sea temperatures.",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [2],
+          "days": [
+            2
+          ],
           "score": 4,
           "special": true,
           "event": "Festa della Repubblica",
-          "notes": "National holiday, potential parades or ceremonies, some closures."
+          "notes": "National holiday, potential parades or ceremonies, some closures.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 3,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
-          "notes": "Excellent summer weather, ideal for Mondello beach, boat trips, outdoor dining. Tourism high."
+          "notes": "Excellent summer weather, ideal for Mondello beach, boat trips, outdoor dining. Tourism high.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 27,
@@ -154,21 +495,82 @@
       "name": "July",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
           "score": 4,
-          "notes": "Hot summer weather, peak beach season, start of Sicilian Jazz Festival (check dates)."
+          "notes": "Hot summer weather, peak beach season, start of Sicilian Jazz Festival (check dates).",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         },
         {
-          "days": [10, 11, 12, 13, 14, 15],
+          "days": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 5,
           "special": true,
           "event": "Festino di Santa Rosalia",
-          "notes": "Palermo's biggest festival! Huge procession (14th), fireworks, street food. Very crowded but unforgettable."
+          "notes": "Palermo's biggest festival! Huge procession (14th), fireworks, street food. Very crowded but unforgettable.",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 2,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 4,
-          "notes": "Peak heat and peak tourism. Focus on beach, evening activities, indoor sights during midday. Sicilian Jazz Festival continues."
+          "notes": "Peak heat and peak tourism. Focus on beach, evening activities, indoor sights during midday. Sicilian Jazz Festival continues.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 4
+          }
         }
       ],
       "weatherHighC": 30,
@@ -179,21 +581,82 @@
       "name": "August",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
           "score": 3,
-          "notes": "Hottest month, very high humidity, peak holiday time for Italians. Many locals leave the city. Some smaller shops/restaurants might close."
+          "notes": "Hottest month, very high humidity, peak holiday time for Italians. Many locals leave the city. Some smaller shops/restaurants might close.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [15],
+          "days": [
+            15
+          ],
           "score": 3,
           "special": true,
           "event": "Ferragosto (Assumption Day)",
-          "notes": "Major national holiday, widespread closures. Locals head to the beach (Mondello extremely crowded)."
+          "notes": "Major national holiday, widespread closures. Locals head to the beach (Mondello extremely crowded).",
+          "crowdLevel": "Extreme",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 3,
-          "notes": "Continued heat, high tourism, focus on coastal activities and evening strolls."
+          "notes": "Continued heat, high tourism, focus on coastal activities and evening strolls.",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 31,
@@ -204,16 +667,66 @@
       "name": "September",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
           "score": 5,
-          "notes": "Excellent weather, still warm enough for beach, sea is warm, crowds start to lessen slightly."
+          "notes": "Excellent weather, still warm enough for beach, sea is warm, crowds start to lessen slightly.",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         },
         {
-          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 5,
           "special": true,
           "event": "Potential start of 'Le Vie dei Tesori' (check dates)",
-          "notes": "Ideal month for sightseeing. Check for start of cultural festival opening hidden sites."
+          "notes": "Ideal month for sightseeing. Check for start of cultural festival opening hidden sites.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 28,
@@ -224,11 +737,52 @@
       "name": "October",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
           "score": 5,
           "special": true,
           "event": "'Le Vie dei Tesori' cultural festival (typically weekends)",
-          "notes": "Pleasant weather, good for exploring. Main month for 'Le Vie dei Tesori', opening numerous sites. Tourism moderate."
+          "notes": "Pleasant weather, good for exploring. Main month for 'Le Vie dei Tesori', opening numerous sites. Tourism moderate.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 24,
@@ -239,23 +793,83 @@
       "name": "November",
       "ranges": [
         {
-          "days": [1],
+          "days": [
+            1
+          ],
           "score": 3,
           "special": true,
           "event": "All Saints' Day (Ognissanti)",
-          "notes": "Public holiday, some closures. Traditionally time for visiting cemeteries."
+          "notes": "Public holiday, some closures. Traditionally time for visiting cemeteries.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [2],
+          "days": [
+            2
+          ],
           "score": 3,
           "special": true,
           "event": "All Souls' Day (Giorno dei Morti)",
-          "notes": "Not a public holiday but culturally important. Look for special 'Frutta Martorana' (marzipan sweets)."
+          "notes": "Not a public holiday but culturally important. Look for special 'Frutta Martorana' (marzipan sweets).",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 3,
-          "notes": "Cooler, potentially rainy weather. Low season, ideal for museums and indoor sights without crowds."
+          "notes": "Cooler, potentially rainy weather. Low season, ideal for museums and indoor sights without crowds.",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
         }
       ],
       "weatherHighC": 19,
@@ -266,49 +880,150 @@
       "name": "December",
       "ranges": [
         {
-          "days": [1, 2, 3, 4, 5, 6, 7],
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
           "score": 3,
-          "notes": "Cool weather, start of festive season decorations."
+          "notes": "Cool weather, start of festive season decorations.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          }
         },
         {
-          "days": [8],
+          "days": [
+            8
+          ],
           "score": 4,
           "special": true,
           "event": "Immaculate Conception (Immacolata)",
-          "notes": "Public holiday, official start of Christmas season, markets often open."
+          "notes": "Public holiday, official start of Christmas season, markets often open.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "days": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
           "score": 4,
           "special": true,
           "event": "Christmas Markets & Festivities",
-          "notes": "Markets (e.g., Politeama area), lights, festive atmosphere. Look for 'Presepi' (nativity scenes)."
+          "notes": "Markets (e.g., Politeama area), lights, festive atmosphere. Look for 'Presepi' (nativity scenes).",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [24, 25],
+          "days": [
+            24,
+            25
+          ],
           "score": 3,
           "special": true,
           "event": "Christmas Eve & Day (Vigilia & Natale)",
-          "notes": "Family time, many closures on 25th. Midnight Mass options."
+          "notes": "Family time, many closures on 25th. Midnight Mass options.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 4,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [26],
+          "days": [
+            26
+          ],
           "score": 3,
           "special": true,
           "event": "Santo Stefano",
-          "notes": "Public holiday, closures continue, quiet day."
+          "notes": "Public holiday, closures continue, quiet day.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 3,
+            "solo": 2,
+            "business": 1,
+            "budget": 3,
+            "luxury": 3
+          }
         },
         {
-          "days": [27, 28, 29, 30],
+          "days": [
+            27,
+            28,
+            29,
+            30
+          ],
           "score": 4,
-          "notes": "Festive period between Christmas and New Year."
+          "notes": "Festive period between Christmas and New Year.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 4
+          }
         },
         {
-          "days": [31],
+          "days": [
+            31
+          ],
           "score": 4,
           "special": true,
           "event": "New Year's Eve (San Silvestro)",
-          "notes": "Public concert/celebrations often in Piazza Politeama. Restaurants offer special dinners (book way ahead)."
+          "notes": "Public concert/celebrations often in Piazza Politeama. Restaurants offer special dinners (book way ahead).",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 5,
+            "solo": 4,
+            "business": 2,
+            "budget": 3,
+            "luxury": 5
+          }
         }
       ],
       "weatherHighC": 16,
@@ -356,10 +1071,10 @@
     ]
   },
   "scoreDescription": {
-    "5": "Excellent: Ideal conditions, significant positive events, pleasant weather, potentially moderate crowds",
-    "4": "Good: Favorable conditions, good weather, possibly some key events, manageable or festive crowds",
-    "3": "Average: Standard conditions, typical weather, potential for heat/closures (summer) or cool/rain (winter), moderate tourism or holiday peaks",
+    "1": "Poor: Generally unfavorable conditions for typical tourism (not generally applicable to Palermo)",
     "2": "Below Average: Less ideal conditions, potential for closures (August), heat (August), or consistent cool/wet weather",
-    "1": "Poor: Generally unfavorable conditions for typical tourism (not generally applicable to Palermo)"
+    "3": "Average: Standard conditions, typical weather, potential for heat/closures (summer) or cool/rain (winter), moderate tourism or holiday peaks",
+    "4": "Good: Favorable conditions, good weather, possibly some key events, manageable or festive crowds",
+    "5": "Excellent: Ideal conditions, significant positive events, pleasant weather, potentially moderate crowds"
   }
-} 
+}

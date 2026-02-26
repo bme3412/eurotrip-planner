@@ -1,1 +1,2881 @@
-{"city":"san-marino","country":"San-Marino","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "san-marino",
+  "country": "San-Marino",
+  "overview": {
+    "city_name": "san-marino",
+    "country": "San Marino",
+    "brief_description": "San Marino, perched atop Mount Titano, is one of the world's oldest republics and a stunning medieval enclave surrounded by Italy. Its well-preserved historic architecture and panoramic views offer a unique blend of culture and natural beauty.",
+    "nickname": "The Most Serene Republic",
+    "region": "Southern Europe",
+    "population": "approximately 34,000",
+    "why_visit": [
+      "Explore medieval fortresses with breathtaking views",
+      "Discover rich history as one of the world's oldest republics",
+      "Enjoy tax-free shopping and local culinary delights",
+      "Experience charming cobblestone streets and vibrant festivals"
+    ],
+    "best_time_to_visit": "May to September, for pleasant weather and lively outdoor events",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming landscapes make it ideal for sightseeing.",
+      "summer": "Warm and dry, perfect for exploring the historic sites and enjoying outdoor cafes.",
+      "autumn": "Cooler weather with fewer tourists and beautiful fall colors.",
+      "winter": "Chilly and quieter, with occasional snowfall adding a magical touch to the medieval ambiance."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Italian",
+      "visit_duration": "1 to 2 days",
+      "getting_around": "Walking is preferred within the city; buses and taxis available for surrounding areas.",
+      "safety": "San Marino is very safe with low crime rates, but standard travel precautions apply."
+    },
+    "coordinates": {
+      "latitude": 43.9333,
+      "longitude": 12.45
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Visit the Three Towers of San Marino (Guaita, Cesta, Montale)",
+        "Explore the Palazzo Pubblico and Piazza della Libertà",
+        "Walk along the historic city walls for panoramic views",
+        "Tour the State Museum for insights into San Marino's history",
+        "Enjoy local cuisine at traditional trattorias"
+      ],
+      "worth_doing": [
+        "Visit the Basilica di San Marino",
+        "Shop for duty-free goods in the city center",
+        "Explore the Museum of Emigration",
+        "Attend local festivals and cultural events",
+        "Take a scenic hike on Mount Titano trails"
+      ],
+      "hidden_gems": [
+        "Discover the ancient frescoes at the Church of San Francesco",
+        "Visit the Monastery of Santa Chiara for peaceful surroundings",
+        "Explore the small village of Borgo Maggiore and its lively market"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Guaita Tower (First Tower)",
+        "type": "Monument",
+        "description": "The oldest and most famous of San Marino's three towers, Guaita Tower dates back to the 11th century. Perched on Monte Titano's peak, it offers panoramic views of the republic and surrounding Italian countryside. Historically a fortress and prison, its medieval walls and battlements attract history enthusiasts and photographers alike.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Best visited in spring and autumn to avoid summer crowds and heat",
+        "booking_tips": "Buy tickets onsite; early morning visits help avoid peak crowds",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.9367,
+        "longitude": 12.4489,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Extended hours in summer"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museo di Stato"
+        },
+        "official_url": null,
+        "website": "https://www.visitsanmarino.com/en/places-to-visit/guaita-tower/"
+      },
+      {
+        "name": "Cesta Tower (Second Tower)",
+        "type": "Monument|Museum",
+        "description": "Located on the highest peak of Monte Titano, the Cesta Tower houses the Museum of Ancient Arms, showcasing an impressive collection of medieval weapons and armor. The tower itself is a symbol of San Marino's defense and freedom, offering breathtaking 360-degree views of the landscape.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Museum is open year-round; outside views best in clear weather",
+        "booking_tips": "Tickets can be combined with Guaita Tower for savings",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.9373,
+        "longitude": 12.4474,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-19:00",
+          "weekend": "9:00-19:00",
+          "notes": "Open later in summer months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Museo di Stato"
+        },
+        "official_url": null,
+        "website": "https://www.visitsanmarino.com/en/places-to-visit/cesta-tower/"
+      },
+      {
+        "name": "Montale Tower (Third Tower)",
+        "type": "Monument",
+        "description": "The smallest and least accessible of the three towers, Montale Tower stands on the eastern side of Monte Titano. Though not open inside to the public, it can be admired from the surrounding trails and offers a quieter, less crowded viewpoint with peaceful natural surroundings.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Accessible year-round; trails may be slippery in winter",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.9361,
+        "longitude": 12.4515,
+        "neighborhood": "Monte Titano",
+        "opening_hours": {
+          "weekday": "Always open",
+          "weekend": "Always open",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Cesta Tower Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Basilica di San Marino",
+        "type": "Church",
+        "description": "This neoclassical basilica, constructed in the 19th century, is dedicated to Saint Marinus, the founder of the republic. Its grand facade and spacious interior with beautiful frescoes and altars make it an important religious and architectural landmark in the city.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; attend morning mass for a local experience",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.936,
+        "longitude": 12.446,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "7:30-12:00, 16:00-18:30",
+          "weekend": "7:30-12:00, 16:00-18:30",
+          "notes": "Mass times vary on holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "http://www.basilicadisanmarino.com"
+      },
+      {
+        "name": "Palazzo Pubblico (Public Palace)",
+        "type": "Palace|Historic Site",
+        "description": "Built in the late 19th century in a Gothic Revival style, the Palazzo Pubblico serves as the town hall and seat of San Marino's government. Visitors can tour its ornate council chambers, admire frescoed walls, and watch the daily changing of the guard ceremony in the adjacent Piazza della Libertà.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Changing of the guard ceremony held daily; best in good weather",
+        "booking_tips": "Guided tours available on request; check schedule in advance",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 43.9365,
+        "longitude": 12.4455,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed on some public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": "http://www.palazzopubblico.sm",
+        "website": "http://www.palazzopubblico.sm"
+      },
+      {
+        "name": "Museo di Stato (State Museum)",
+        "type": "Museum",
+        "description": "San Marino's premier museum, Museo di Stato, showcases artifacts from prehistoric times through the modern era, including coins, manuscripts, and artwork that narrate the republic’s rich history. The museum is located in an elegant historic building within the city walls.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round with some holiday closures",
+        "booking_tips": "Tickets can be combined with tower entries for a discount",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.9363,
+        "longitude": 12.4467,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-18:00",
+          "weekend": "9:00-18:00",
+          "notes": "Closed on January 1 and December 25"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://www.musei.sm/museo-di-stato"
+      },
+      {
+        "name": "Piazza della Libertà",
+        "type": "Historic Site|Viewpoint",
+        "description": "This central square is home to the Palazzo Pubblico and the Statue of Liberty, symbolizing San Marino’s independence. The piazza offers a lively atmosphere with cafes and stunning views over the valleys below, making it a perfect place to relax and soak up local life.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Bustling during festivals, especially in summer",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.9364,
+        "longitude": 12.4457,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "Always open",
+          "weekend": "Always open",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo delle Curiosità",
+        "type": "Museum",
+        "description": "A quirky museum featuring oddities, optical illusions, and interactive exhibits designed to entertain and intrigue all ages. It offers a light-hearted break from traditional museums and is perfect for families or curious travelers looking for something different.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; ideal rainy day activity",
+        "booking_tips": "Tickets can be purchased on site; group discounts available",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 43.9355,
+        "longitude": 12.447,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "http://www.museodellecuriosita.sm"
+      },
+      {
+        "name": "Parco Titano",
+        "type": "Park",
+        "description": "A peaceful green space on the slopes of Monte Titano featuring walking paths, picnic areas, and panoramic viewpoints. It’s ideal for a leisurely stroll or a break from sightseeing, with seasonal flowers and local birds enhancing the natural ambiance.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and autumn; some paths may be muddy after rain",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.937,
+        "longitude": 12.445,
+        "neighborhood": "Monte Titano",
+        "opening_hours": {
+          "weekday": "Always open",
+          "weekend": "Always open",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "10",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museo di Stato"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo di Storia Naturale",
+        "type": "Museum",
+        "description": "This natural history museum explores the flora, fauna, and geology of San Marino and the surrounding region. Exhibits include fossils, minerals, and taxidermy specimens, offering insight into the area's natural environment and biodiversity.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; good indoor option on rainy days",
+        "booking_tips": "Entry included in some combined ticket packages",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.9358,
+        "longitude": 12.4443,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "9:00-17:00",
+          "notes": "Closed on major holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://www.museodistorianaturale.sm"
+      },
+      {
+        "name": "Via della Fratta",
+        "type": "Historic Street|Market",
+        "description": "A charming cobblestone street lined with artisan shops, souvenir boutiques, and traditional cafes. Via della Fratta is perfect for leisurely shopping and sampling local delicacies while soaking in the medieval atmosphere of San Marino's old town.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Street markets often held on weekends and holidays",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.9356,
+        "longitude": 12.4458,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "Shops 9:00-19:00",
+          "weekend": "Shops 9:00-19:00",
+          "notes": "Market days vary seasonally"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museo delle Curiosità"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo di Arte Moderna e Contemporanea (M.A.C.)",
+        "type": "Gallery",
+        "description": "This modern and contemporary art museum features rotating exhibitions of local and international artists. Its sleek architecture contrasts with San Marino’s medieval surroundings, providing a fresh cultural experience for art lovers.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Exhibitions change regularly; check website before visiting",
+        "booking_tips": "Advance booking recommended for special exhibitions",
+        "ratings": {
+          "cost_estimate": 7,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.935,
+        "longitude": 12.444,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": "https://www.mac.sm"
+      },
+      {
+        "name": "Piazzale Lo Stradone",
+        "type": "Viewpoint|Historic Site",
+        "description": "A large panoramic terrace offering sweeping views over the Adriatic coast and Italian plains. It is a popular spot for sunset watching and photography, especially during clear weather. The piazzale also hosts open-air events and concerts in summer.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited during late spring to early autumn for sunsets",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.9378,
+        "longitude": 12.4449,
+        "neighborhood": "Monte Titano",
+        "opening_hours": {
+          "weekday": "Always open",
+          "weekend": "Always open",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Museo di Stato"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "San Marino Cable Car",
+        "type": "Transport|Viewpoint",
+        "description": "Connecting the city of Borgo Maggiore to the historic center of San Marino, this cable car ride offers spectacular views over the valleys and town below. It’s both a practical means of transport and a scenic experience, especially beautiful at sunset.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Budget",
+        "seasonal_notes": "Operates year-round except during maintenance periods; check schedule",
+        "booking_tips": "Tickets can be purchased at stations; queues form on weekends",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.9369,
+        "longitude": 12.458,
+        "neighborhood": "Borgo Maggiore",
+        "opening_hours": {
+          "weekday": "7:00-19:00",
+          "weekend": "7:00-19:00",
+          "notes": "Reduced hours on holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Museo di Stato"
+        },
+        "official_url": null,
+        "website": "https://www.funivia.sm"
+      },
+      {
+        "name": "Borgo Maggiore Market",
+        "type": "Market",
+        "description": "Held twice weekly, this vibrant market in Borgo Maggiore offers fresh local produce, crafts, clothing, and souvenirs. It is the largest market in San Marino and gives a glimpse into local daily life and traditions.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Market days: Wednesday and Saturday; weather-dependent",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.9393,
+        "longitude": 12.4579,
+        "neighborhood": "Borgo Maggiore",
+        "opening_hours": {
+          "weekday": "Market days 7:00-13:00",
+          "weekend": "Market days 7:00-13:00",
+          "notes": "Closed on public holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "19"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museo di Stato"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Emigration",
+        "type": "Museum",
+        "description": "This museum documents the history of San Marino citizens who emigrated abroad, highlighting their cultural impact and stories. It offers multimedia exhibits and personal artifacts that shed light on this unique aspect of the republic’s social history.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; great rainy day activity",
+        "booking_tips": "Check opening days ahead; some exhibits require guided tours",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.9352,
+        "longitude": 12.4465,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-17:00",
+          "weekend": "9:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Chiesa di San Francesco",
+        "type": "Church",
+        "description": "A Gothic-style church built in the 14th century, dedicated to Saint Francis of Assisi. It features an austere exterior and a richly decorated interior with frescoes and religious artworks, reflecting the spiritual heritage of San Marino.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open year-round; quietest early mornings",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 43.9371,
+        "longitude": 12.4471,
+        "neighborhood": "Historic Centre",
+        "opening_hours": {
+          "weekday": "9:00-12:00, 15:30-18:30",
+          "weekend": "9:00-12:00, 15:30-18:30",
+          "notes": "Mass times vary"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": null
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "alternate_names": [
+          "Centro Storico"
+        ],
+        "character": "The vibrant heart of San Marino, bustling with tourists and locals alike, offering a perfect blend of historic charm and modern amenities. Narrow cobblestone streets wind through lively squares filled with cafes and shops.",
+        "location": {
+          "central": true,
+          "description": "Located at the core of San Marino, encompassing the main squares and markets.",
+          "borders": [
+            "Borgo Maggiore",
+            "Guaita"
+          ],
+          "landmarks": [
+            "Piazza della Libertà",
+            "Palazzo Pubblico",
+            "Basilica di San Marino"
+          ]
+        },
+        "history": {
+          "overview": "This area has been the historic and administrative heart of the republic since medieval times.",
+          "significance": "It houses the primary government buildings and cultural institutions symbolizing San Marino's independence.",
+          "notable_events": [
+            "Declaration of San Marino's independence",
+            "Annual medieval festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "San Marino Bus Terminal"
+          ],
+          "safety": "Very safe, well-patrolled due to high tourist presence",
+          "best_time_to_visit": "Spring through early autumn for pleasant weather and events",
+          "walkability": "Excellent walkability with pedestrian-only zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic landmarks",
+            "Shopping boutiques",
+            "Street performances",
+            "Local artisan shops"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Historic",
+            "Inviting"
+          ],
+          "best_for": [
+            "Sightseers",
+            "History enthusiasts",
+            "Families"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Palazzo Pubblico",
+              "type": "Government building",
+              "description": "The iconic town hall and seat of government with neo-Gothic architecture.",
+              "appeal": "Offers guided tours revealing San Marino’s political history."
+            },
+            {
+              "name": "Piazza della Libertà",
+              "type": "Public square",
+              "description": "The central square hosting the daily changing of the guard ceremony.",
+              "appeal": "A lively spot perfect for people-watching and photo opportunities."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ristorante La Terrazza",
+              "cuisine": "Traditional Sammarinese and Italian",
+              "price_range": "€€",
+              "known_for": "Local cured meats and pasta dishes",
+              "atmosphere": "Cozy with panoramic views over the valley"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to avoid crowds at major landmarks.",
+          "Try local pastries at the bakery near Piazza della Libertà.",
+          "Attend the evening light show at Palazzo Pubblico during summer."
+        ]
+      },
+      {
+        "name": "Borgo Maggiore",
+        "alternate_names": [
+          "The Market District"
+        ],
+        "character": "A lively and traditional neighborhood, known for its bustling open-air market and vibrant community life. It combines a local residential feel with a constant flow of shoppers and visitors.",
+        "location": {
+          "central": false,
+          "description": "To the northwest of the city center, on the hill's lower slopes.",
+          "borders": [
+            "City Center",
+            "Cailungo",
+            "Domagnano"
+          ],
+          "landmarks": [
+            "Borgo Maggiore Market",
+            "Funivia San Marino–Borgo Maggiore"
+          ]
+        },
+        "history": {
+          "overview": "Historically a primary trading hub, this neighborhood grew around its famous weekly market.",
+          "significance": "It remains the commercial heart for residents and tourists alike.",
+          "notable_events": [
+            "Annual market festivals",
+            "Connection establishment via cable car in 1959"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Borgo Maggiore Cable Car Station",
+            "Local bus stops"
+          ],
+          "safety": "Generally safe with active community presence",
+          "best_time_to_visit": "Wednesday mornings for the market",
+          "walkability": "Good walkability with pedestrian streets near the market"
+        },
+        "appeal": {
+          "known_for": [
+            "Weekly market",
+            "Local crafts",
+            "Fresh produce stalls",
+            "Cable car access"
+          ],
+          "atmosphere": [
+            "Bustling",
+            "Authentic",
+            "Welcoming"
+          ],
+          "best_for": [
+            "Shoppers",
+            "Food lovers",
+            "Cultural explorers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 5,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Borgo Maggiore Market",
+              "type": "Open-air market",
+              "description": "A lively market offering local produce, crafts, and antiques every Wednesday.",
+              "appeal": "Ideal for authentic souvenir shopping and experiencing local life."
+            },
+            {
+              "name": "Funivia San Marino–Borgo Maggiore",
+              "type": "Cable car",
+              "description": "A scenic cable car connecting Borgo Maggiore to the city center atop Mount Titano.",
+              "appeal": "Provides spectacular views and quick access between neighborhoods."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria da Piero",
+              "cuisine": "Traditional Sammarinese",
+              "price_range": "€-€€",
+              "known_for": "Hearty local dishes and homemade desserts",
+              "atmosphere": "Casual and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Shop early on market day for the best selection of fresh goods.",
+          "Take the cable car for a picturesque and quick ride to the city center.",
+          "Try the locally made honey and cheeses from market vendors."
+        ]
+      },
+      {
+        "name": "Cailungo",
+        "alternate_names": [],
+        "character": "A quiet residential neighborhood with a suburban feel, offering leafy streets and family homes. It is favored by locals for its peaceful atmosphere away from tourist crowds.",
+        "location": {
+          "central": false,
+          "description": "Situated southeast of Borgo Maggiore, slightly outside the main tourist zones.",
+          "borders": [
+            "Borgo Maggiore",
+            "Domagnano"
+          ],
+          "landmarks": [
+            "Church of San Giovanni Battista"
+          ]
+        },
+        "history": {
+          "overview": "Developed primarily during the 20th century as San Marino expanded its residential areas.",
+          "significance": "Important as a stable community hub supporting the city’s workforce.",
+          "notable_events": [
+            "Modern infrastructure developments in the late 1900s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Local bus stops"
+          ],
+          "safety": "Very safe and family-oriented",
+          "best_time_to_visit": "Year-round for quiet strolls",
+          "walkability": "Moderate walkability with sidewalks and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Residential calm",
+            "Local churches",
+            "Community parks"
+          ],
+          "atmosphere": [
+            "Peaceful",
+            "Suburban",
+            "Friendly"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term visitors",
+            "Those seeking tranquility"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Church of San Giovanni Battista",
+              "type": "Religious site",
+              "description": "A simple but charming parish church serving the local community.",
+              "appeal": "A peaceful spot reflecting local religious traditions."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Cailungo",
+              "cuisine": "Coffee and light snacks",
+              "price_range": "€",
+              "known_for": "Freshly brewed coffee and homemade pastries",
+              "atmosphere": "Relaxed and neighborhood-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Explore local parks for a quiet afternoon away from crowds.",
+          "Visit the church during Sunday services for an authentic experience.",
+          "Try the small family-run cafés for genuine local flavors."
+        ]
+      },
+      {
+        "name": "Historic Center",
+        "alternate_names": [
+          "Centro Storico di San Marino"
+        ],
+        "character": "San Marino’s ancient core, encircled by medieval walls and dotted with defensive towers. This area exudes timeless charm with its stone streets, fortress views, and centuries-old architecture.",
+        "location": {
+          "central": true,
+          "description": "Perched atop Mount Titano, forming the oldest part of the city.",
+          "borders": [
+            "City Center",
+            "Guaita",
+            "Montale"
+          ],
+          "landmarks": [
+            "Guaita Tower",
+            "Montale Tower",
+            "Third Tower (Cesta)"
+          ]
+        },
+        "history": {
+          "overview": "Dating back to the 11th century, this area reflects San Marino’s origins and defensive heritage.",
+          "significance": "The fortress towers here symbolize the republic’s independence and resilience.",
+          "notable_events": [
+            "Sieges during medieval conflicts",
+            "Preservation of independence through centuries"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Walking access from City Center"
+          ],
+          "safety": "Extremely safe; popular tourist area",
+          "best_time_to_visit": "Late spring and early autumn for mild weather",
+          "walkability": "Challenging due to steep climbs and cobblestones but manageable"
+        },
+        "appeal": {
+          "known_for": [
+            "Medieval fortifications",
+            "Panoramic views",
+            "Historical museums"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Majestic",
+            "Scenic"
+          ],
+          "best_for": [
+            "History buffs",
+            "Photographers",
+            "Hikers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 1,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Guaita Tower",
+              "type": "Medieval fortress",
+              "description": "The oldest and most famous of San Marino’s three towers, offering sweeping views.",
+              "appeal": "Iconic symbol of the city’s defense and heritage."
+            },
+            {
+              "name": "Museo di Stato",
+              "type": "Museum",
+              "description": "Displays artifacts chronicling San Marino’s history and culture.",
+              "appeal": "A must-visit for understanding the republic’s unique story."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Ristorante La Fratta",
+              "cuisine": "Local and Mediterranean",
+              "price_range": "€€€",
+              "known_for": "Fine dining with historic ambiance",
+              "atmosphere": "Elegant and intimate"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Wear comfortable shoes to navigate the steep cobblestone streets.",
+          "Arrive early to beat the crowds at the towers.",
+          "Visit the museum for comprehensive insights into San Marino’s past."
+        ]
+      },
+      {
+        "name": "Murata",
+        "alternate_names": [],
+        "character": "A charming suburban neighborhood blending modern residential blocks with traditional homes, known for its peaceful streets and local shops. It offers a quieter alternative to the busy city center.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the historic center, near the border with the Italian region of Emilia-Romagna.",
+          "borders": [
+            "San Marino City",
+            "Acquaviva"
+          ],
+          "landmarks": [
+            "Chiesa di Murata"
+          ]
+        },
+        "history": {
+          "overview": "Murata grew as a residential area in the 20th century with steady development.",
+          "significance": "It represents the modern expansion of the republic beyond its medieval core.",
+          "notable_events": [
+            "Recent urban development projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Local bus lines"
+          ],
+          "safety": "Quiet and safe residential area",
+          "best_time_to_visit": "Any season for a relaxed experience",
+          "walkability": "Good walkability with sidewalks and local amenities"
+        },
+        "appeal": {
+          "known_for": [
+            "Residential calm",
+            "Local markets",
+            "Community events"
+          ],
+          "atmosphere": [
+            "Calm",
+            "Community-oriented",
+            "Pleasant"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term stays",
+            "Visitors seeking off-the-beaten-path"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Chiesa di Murata",
+              "type": "Parish church",
+              "description": "A community church serving the local population with regular services.",
+              "appeal": "Reflects the neighborhood’s close-knit atmosphere."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Pizzeria Murata",
+              "cuisine": "Italian, Pizza",
+              "price_range": "€-€€",
+              "known_for": "Wood-fired pizzas and casual dining",
+              "atmosphere": "Relaxed and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit local grocery shops for authentic regional products.",
+          "Attend small community festivals for a taste of local culture.",
+          "Try the neighborhood bakery’s fresh focaccia."
+        ]
+      },
+      {
+        "name": "Poggio",
+        "alternate_names": [],
+        "character": "A small hilltop neighborhood offering tranquil streets and stunning panoramic views over the surrounding countryside. It is less frequented by tourists, providing an authentic glimpse of daily life in San Marino.",
+        "location": {
+          "central": false,
+          "description": "Northeast outskirts of San Marino city, elevated on a small hill.",
+          "borders": [
+            "Montale",
+            "Domagnano"
+          ],
+          "landmarks": []
+        },
+        "history": {
+          "overview": "A traditionally agricultural area that has slowly integrated residential developments.",
+          "significance": "Represents the rural roots and natural beauty surrounding San Marino’s urban core.",
+          "notable_events": []
+        },
+        "practical_info": {
+          "transit": [
+            "Limited bus service"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Spring and autumn for best weather and views",
+          "walkability": "Moderate; some steep roads"
+        },
+        "appeal": {
+          "known_for": [
+            "Hilltop views",
+            "Peaceful environment",
+            "Local farming traditions"
+          ],
+          "atmosphere": [
+            "Tranquil",
+            "Scenic",
+            "Authentic"
+          ],
+          "best_for": [
+            "Nature lovers",
+            "Photographers",
+            "Visitors seeking serenity"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 4,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 1,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Poggio Scenic Overlook",
+              "type": "Viewpoint",
+              "description": "A natural vantage point providing sweeping views over San Marino and the Italian plains.",
+              "appeal": "Perfect for photography and peaceful contemplation."
+            }
+          ],
+          "dining": []
+        },
+        "insider_tips": [
+          "Bring good walking shoes for the hill’s terrain.",
+          "Visit at sunset for breathtaking light on the landscape.",
+          "Ask locals about small family-run farms offering fresh products."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Ristorante Righi",
+          "cuisine_type": "Traditional Sammarinese / Italian",
+          "description": "Elegant restaurant perched with panoramic views, offering refined Sammarinese and Italian dishes made with local ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Romantic and sophisticated with stunning views over San Marino and the Adriatic",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 43.9332,
+          "longitude": 12.4501,
+          "reservation_needed": true,
+          "local_tips": "Try their homemade passatelli in broth, a Sammarinese specialty."
+        },
+        {
+          "name": "La Fratta",
+          "cuisine_type": "Sammarinese / Mediterranean",
+          "description": "An upscale dining spot known for its seasonal menus that highlight local produce and meats.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant yet cozy with a modern touch",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "business dinners",
+            "gourmet enthusiasts"
+          ],
+          "latitude": 43.9335,
+          "longitude": 12.4505,
+          "reservation_needed": true,
+          "local_tips": "Reserve a table on the terrace for a magical dining experience at sunset."
+        },
+        {
+          "name": "Ristorante Il Piccolo",
+          "cuisine_type": "Italian / Mediterranean",
+          "description": "Fine dining with an emphasis on fresh seafood and regional recipes from Emilia-Romagna and Marche.",
+          "price_range": "€€€",
+          "atmosphere": "Intimate and refined with attentive service",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "romantic dinners",
+            "food connoisseurs"
+          ],
+          "latitude": 43.9338,
+          "longitude": 12.4509,
+          "reservation_needed": true,
+          "local_tips": "Their fish risotto is a local favorite and pairs perfectly with a crisp white wine."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Osteria La Taverna",
+          "cuisine_type": "Sammarinese / Italian",
+          "description": "Friendly eatery serving hearty regional dishes like piada and handmade pastas in a rustic setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively with traditional decor",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "families",
+            "groups",
+            "casual meals"
+          ],
+          "latitude": 43.933,
+          "longitude": 12.4498,
+          "reservation_needed": false,
+          "local_tips": "Try the fagioli con le cotiche, a traditional bean and pork rind stew."
+        },
+        {
+          "name": "Trattoria da Cici",
+          "cuisine_type": "Italian",
+          "description": "Popular trattoria offering classic Italian comfort foods with generous portions and friendly service.",
+          "price_range": "€€",
+          "atmosphere": "Warm and welcoming, perfect for laid-back dining",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "groups",
+            "families"
+          ],
+          "latitude": 43.9325,
+          "longitude": 12.4489,
+          "reservation_needed": false,
+          "local_tips": "Their homemade desserts, especially the torta tre monti, are a must-try."
+        },
+        {
+          "name": "Ristorante Il Veliero",
+          "cuisine_type": "Mediterranean / Italian",
+          "description": "A casual spot with a variety of pizzas and local dishes, popular for quick and tasty meals.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and informal with friendly staff",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "casual meals",
+            "groups",
+            "families"
+          ],
+          "latitude": 43.9327,
+          "longitude": 12.4493,
+          "reservation_needed": false,
+          "local_tips": "Try their piadina romagnola with prosciutto and squacquerone cheese."
+        },
+        {
+          "name": "Ristorante Righi Lower",
+          "cuisine_type": "Italian / Sammarinese",
+          "description": "More casual branch of Ristorante Righi offering traditional dishes at accessible prices.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and casual with a local vibe",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "lunch",
+            "casual dinners"
+          ],
+          "latitude": 43.9331,
+          "longitude": 12.4499,
+          "reservation_needed": false,
+          "local_tips": "The passatelli pasta is excellent here as well."
+        },
+        {
+          "name": "Pizzeria La Fratta",
+          "cuisine_type": "Pizza / Italian",
+          "description": "Casual pizzeria known for its wood-fired pizzas and fresh ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Lively and informal, perfect for a casual meal",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "groups",
+            "families",
+            "casual dining"
+          ],
+          "latitude": 43.9336,
+          "longitude": 12.4506,
+          "reservation_needed": false,
+          "local_tips": "Popular with locals on weekends; come early or be prepared to wait."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercato di San Marino",
+          "cuisine_type": "Local Produce / Street Food",
+          "description": "Weekly market where vendors sell local cheeses, cured meats, and traditional snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling and authentic market experience",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "snacking",
+            "food exploration"
+          ],
+          "latitude": 43.9333,
+          "longitude": 12.45,
+          "reservation_needed": false,
+          "local_tips": "Visit on Wednesday mornings for the freshest local goods."
+        },
+        {
+          "name": "Piada Stand near Piazza della Libertà",
+          "cuisine_type": "Street Food / Piada",
+          "description": "Popular street vendor specializing in traditional piadina wraps stuffed with local meats and cheeses.",
+          "price_range": "€",
+          "atmosphere": "Casual, grab-and-go",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "quick bites",
+            "casual snacking"
+          ],
+          "latitude": 43.9334,
+          "longitude": 12.4502,
+          "reservation_needed": false,
+          "local_tips": "Try the piadina with squacquerone cheese and prosciutto."
+        },
+        {
+          "name": "Gelateria La Perla",
+          "cuisine_type": "Gelato / Street Food",
+          "description": "Famous gelato spot offering artisanal ice cream made with local ingredients.",
+          "price_range": "€",
+          "atmosphere": "Relaxed, perfect for a sweet treat while exploring",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "dessert",
+            "families",
+            "couples"
+          ],
+          "latitude": 43.9337,
+          "longitude": 12.4507,
+          "reservation_needed": false,
+          "local_tips": "Try the pistachio or hazelnut flavors, made with regional nuts."
+        },
+        {
+          "name": "Chiosco del Centro",
+          "cuisine_type": "Street Food / Snacks",
+          "description": "Small kiosk serving quick snacks such as sandwiches and local pastries.",
+          "price_range": "€",
+          "atmosphere": "Casual and convenient",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "snacks",
+            "quick bites"
+          ],
+          "latitude": 43.9331,
+          "longitude": 12.4496,
+          "reservation_needed": false,
+          "local_tips": "Ideal spot to grab a quick panino before sightseeing."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Caffè delle Scuderie",
+          "cuisine_type": "Bar / Cocktails",
+          "description": "Chic bar offering a wide selection of cocktails and local wines in a historic setting.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and vibrant with a sophisticated crowd",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "evening drinks",
+            "date night",
+            "socializing"
+          ],
+          "latitude": 43.9336,
+          "longitude": 12.4504,
+          "reservation_needed": false,
+          "local_tips": "Try their signature cocktail made with local spirits."
+        },
+        {
+          "name": "Bar Cava dei Balestrieri",
+          "cuisine_type": "Bar",
+          "description": "Cozy bar popular among locals, known for its friendly atmosphere and good selection of beers and wines.",
+          "price_range": "€",
+          "atmosphere": "Casual and relaxed",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "casual drinks",
+            "meeting locals"
+          ],
+          "latitude": 43.9332,
+          "longitude": 12.4499,
+          "reservation_needed": false,
+          "local_tips": "Great spot to try some local craft beers."
+        },
+        {
+          "name": "Kafè San Marino",
+          "cuisine_type": "Bar / Lounge",
+          "description": "Modern bar with a stylish interior serving cocktails, aperitifs, and light snacks.",
+          "price_range": "€€",
+          "atmosphere": "Contemporary and lively",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "after dinner drinks",
+            "social gatherings"
+          ],
+          "latitude": 43.9339,
+          "longitude": 12.451,
+          "reservation_needed": false,
+          "local_tips": "Happy hour offers great deals on cocktails."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Caffè Titano",
+          "cuisine_type": "Cafe / Coffee",
+          "description": "Historic café serving excellent espresso, pastries, and light breakfast options.",
+          "price_range": "€",
+          "atmosphere": "Classic and charming with outdoor seating",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "breakfast",
+            "coffee breaks"
+          ],
+          "latitude": 43.9333,
+          "longitude": 12.4501,
+          "reservation_needed": false,
+          "local_tips": "Try the local torta di San Marino with your coffee."
+        },
+        {
+          "name": "Pasticceria Focaccia",
+          "cuisine_type": "Pastry / Cafe",
+          "description": "Popular pastry shop and café famous for traditional sweets and freshly brewed coffee.",
+          "price_range": "€",
+          "atmosphere": "Warm and inviting",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "desserts",
+            "coffee"
+          ],
+          "latitude": 43.9335,
+          "longitude": 12.4503,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade ciambella cake."
+        },
+        {
+          "name": "Bar San Francesco",
+          "cuisine_type": "Cafe / Coffee",
+          "description": "Cozy cafe known for its friendly service and excellent cappuccinos.",
+          "price_range": "€",
+          "atmosphere": "Relaxed and casual",
+          "neighborhood": "Centro Storico",
+          "best_for": [
+            "coffee breaks",
+            "light snacks"
+          ],
+          "latitude": 43.9331,
+          "longitude": 12.4497,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot for a mid-morning espresso while exploring."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "San Marino Food Walking Tour",
+        "description": "Guided walking tour through the historic center sampling traditional Sammarinese dishes and local wines.",
+        "price_range": "€€",
+        "duration_minutes": 180,
+        "best_for": [
+          "foodies",
+          "first-time visitors"
+        ]
+      },
+      {
+        "name": "Cooking Class: Traditional Sammarinese Cuisine",
+        "description": "Hands-on cooking experience where you learn to make signature dishes like passatelli and torta tre monti.",
+        "price_range": "€€€",
+        "duration_minutes": 240,
+        "best_for": [
+          "culinary enthusiasts",
+          "groups"
+        ]
+      },
+      {
+        "name": "Visit to Mercato di San Marino",
+        "description": "Explore the weekly market with a local guide to discover fresh produce, cheeses, and artisanal products.",
+        "price_range": "€",
+        "duration_minutes": 90,
+        "best_for": [
+          "market lovers",
+          "culture seekers"
+        ]
+      },
+      {
+        "name": "Wine Tasting at Cantina di San Marino",
+        "description": "Sample a variety of local wines paired with regional cheeses and cured meats in an intimate cellar setting.",
+        "price_range": "€€",
+        "duration_minutes": 120,
+        "best_for": [
+          "wine lovers",
+          "couples"
+        ]
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Asparagus risotto showcasing fresh local asparagus",
+        "Wild herbs frittata featuring seasonal greens",
+        "Fresh ricotta and honey desserts"
+      ],
+      "summer": [
+        "Cold piadina wraps with summer vegetables and prosciutto",
+        "Grilled fish from the Adriatic coast",
+        "Gelato made with seasonal fruits like figs and cherries"
+      ],
+      "autumn": [
+        "Mushroom and truffle dishes highlighting local forest produce",
+        "Chestnut-based sweets and torta di castagne",
+        "Roast pork with polenta"
+      ],
+      "winter": [
+        "Hearty bean and pork rind stew (fagioli con le cotiche)",
+        "Rich meat stews paired with local red wines",
+        "Traditional Christmas desserts like panettone and nougat"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Rimini",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "0h 40m",
+            "frequency": "hourly",
+            "price_range": "€3-€6",
+            "operator": "Bonelli Bus",
+            "notes": "Direct buses connecting San Marino to Rimini central train station; frequent service ideal for onward travel."
+          }
+        ]
+      },
+      {
+        "city": "Bologna",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Bonelli Bus + Trenitalia",
+            "notes": "Bus from San Marino to Rimini, then train to Bologna; efficient connections with several departures daily."
+          }
+        ]
+      },
+      {
+        "city": "Florence",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "3h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Bonelli Bus + Trenitalia",
+            "notes": "Travel via Rimini by bus then train to Florence; multiple daily departures."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "4h 15m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "Bonelli Bus + Trenitalia",
+            "notes": "Bus to Rimini followed by train to Venice Santa Lucia station; convenient for tourists."
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "Bonelli Bus + Trenitalia",
+            "notes": "Bus to Rimini then high-speed train connections to Milan; ideal for business and leisure travelers."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "4h 45m",
+            "frequency": "daily",
+            "price_range": "€20-€45",
+            "operator": "Bonelli Bus + Trenitalia",
+            "notes": "Bus to Rimini then train to Rome Termini; multiple options including high-speed trains."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "8h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "Bonelli Bus + Deutsche Bahn",
+            "notes": "Bus to Rimini then train connections via Bologna and Verona to Munich; requires at least one transfer."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "7h 45m",
+            "frequency": "daily",
+            "price_range": "€45-€90",
+            "operator": "Bonelli Bus + SBB",
+            "notes": "Bus to Rimini then train via Milan to Zurich; convenient for cross-border travelers."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "bus + train + flight",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Bonelli Bus + Trenitalia + Air France",
+            "notes": "Bus to Rimini, train to Milan Malpensa Airport, then direct flight to Paris Charles de Gaulle; fastest option."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "bus + train + flight",
+            "duration": "8h 0m",
+            "frequency": "daily",
+            "price_range": "€80-€160",
+            "operator": "Bonelli Bus + Trenitalia + Vueling Airlines",
+            "notes": "Bus to Rimini, train to Milan Malpensa, then flight to Barcelona; convenient for leisure travelers."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "bus + train",
+            "duration": "8h 0m",
+            "frequency": "daily",
+            "price_range": "€50-€100",
+            "operator": "Bonelli Bus + ÖBB",
+            "notes": "Bus to Rimini, train via Bologna and Venice to Vienna; multiple transfer points."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Medieval Days Festival",
+        "type": "cultural",
+        "description": "Experience San Marino's rich history with medieval reenactments, traditional music, and artisan markets throughout the historic center.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Historic Center, San Marino City",
+        "price": "Budget"
+      },
+      {
+        "name": "Hiking Monte Titano",
+        "type": "outdoor",
+        "description": "Enjoy pleasant spring temperatures for hiking the trails around Monte Titano offering stunning views over San Marino and the Adriatic coast.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Monte Titano",
+        "price": "Free"
+      },
+      {
+        "name": "Local Wine Tasting",
+        "type": "food",
+        "description": "Sample San Marino’s native wines during spring harvest celebrations at local vineyards and enotecas.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Various wineries near San Marino City",
+        "price": "Moderate"
+      },
+      {
+        "name": "San Marino Marathon",
+        "type": "sport",
+        "description": "Participate or spectate in this scenic marathon that winds through historic streets and countryside.",
+        "best_months": [
+          "April"
+        ],
+        "location": "San Marino City and surroundings",
+        "price": "Budget"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Estate Romantica Festival",
+        "type": "cultural",
+        "description": "A summer-long festival featuring open-air concerts, theater performances, and art exhibitions in picturesque settings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Various venues in San Marino City",
+        "price": "Moderate"
+      },
+      {
+        "name": "Beach Day Trips to Rimini",
+        "type": "outdoor",
+        "description": "Enjoy a short trip to the nearby Adriatic beaches of Rimini for sunbathing and water sports.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Rimini, Italy (approx. 15 km from San Marino)",
+        "price": "Budget"
+      },
+      {
+        "name": "San Marino National Day Celebrations",
+        "type": "festival",
+        "description": "Celebrate the Republic’s founding with parades, flag-throwing displays, and fireworks on September 3rd.",
+        "best_months": [
+          "September"
+        ],
+        "location": "San Marino City",
+        "price": "Free"
+      },
+      {
+        "name": "Outdoor Dining and Local Cuisine",
+        "type": "food",
+        "description": "Relish seasonal dishes like piadina and fresh seafood at alfresco restaurants during warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "San Marino City restaurants",
+        "price": "Moderate"
+      },
+      {
+        "name": "Mountain Biking Trails",
+        "type": "sport",
+        "description": "Explore rugged mountain biking routes on Monte Titano and surrounding hills in warm weather.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Monte Titano area",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Chestnut Festival",
+        "type": "festival",
+        "description": "Celebrate the chestnut harvest with tastings, food stalls, and folk music in local villages around San Marino.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Surrounding villages near San Marino",
+        "price": "Budget"
+      },
+      {
+        "name": "Harvest Wine Tours",
+        "type": "food",
+        "description": "Join guided tours of vineyards to see grape harvesting and enjoy seasonal wine tastings.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Wineries near San Marino City",
+        "price": "Moderate"
+      },
+      {
+        "name": "San Marino International Motorcycle Rally",
+        "type": "festival",
+        "description": "A popular event drawing motorcycle enthusiasts for rides and exhibitions often held in early autumn.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "San Marino City and surroundings",
+        "price": "Budget"
+      },
+      {
+        "name": "Walking Tours of Historic San Marino",
+        "type": "cultural",
+        "description": "Enjoy cooler weather while exploring the UNESCO-listed old town with expert guides.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "San Marino City",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market and Festivities",
+        "type": "festival",
+        "description": "Browse traditional Christmas markets offering crafts, gifts, and seasonal treats in the historic center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "San Marino City",
+        "price": "Free"
+      },
+      {
+        "name": "New Year’s Eve Celebration",
+        "type": "festival",
+        "description": "Join lively public celebrations with live music and fireworks welcoming the new year in San Marino’s main squares.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Piazza della Libertà, San Marino City",
+        "price": "Free"
+      },
+      {
+        "name": "Winter Hiking on Monte Titano",
+        "type": "outdoor",
+        "description": "Brave the crisp winter air on Monte Titano’s trails, enjoying peaceful landscapes and occasional snow dusting.",
+        "best_months": [
+          "January",
+          "February"
+        ],
+        "location": "Monte Titano",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Winter Cuisine",
+        "type": "food",
+        "description": "Warm up with hearty dishes such as polenta and truffle-based specialties served in cozy local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "San Marino City restaurants",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Epiphany Celebrations",
+            "notes": "Cool winter weather averaging 5°C, limited tourists after New Year's. Epiphany on Jan 6 brings local festivities and moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and quiet with occasional rain, low tourist activity. Ideal for budget travelers but limited outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 2,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Very cold temperatures around 3-5°C, quiet period with mostly indoor attractions open. Low prices but limited daylight hours.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Similar cold weather as January, occasional snow possible. Quiet tourist season, suitable for budget-conscious travelers.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "San Marino Carnival",
+            "notes": "San Marino's Carnival features parades and cultural events, attracting more visitors. Weather remains cold but festivities offer unique experiences.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival quiet period with cold weather and low crowds. Best for travelers seeking solitude and budget options.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with gradually warming weather around 10°C. Increasing daylight and fewer tourists, good for sightseeing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter Preparations (variable date)",
+            "notes": "Depending on Easter date, religious events and processions start. Mild weather and increased cultural activities raise appeal.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring blooms start, temperatures 12-15°C, ideal for hiking and outdoor activities. Moderate crowds as tourist season begins to ramp up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Easter (variable date)",
+            "notes": "Easter festivities bring vibrant local culture and moderate crowds. Pleasant weather around 15°C, good for sightseeing and outdoor events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Spring at its best with mild weather (15-18°C), low chance of rain, and blooming landscapes. Low to moderate crowds, ideal for all traveler types.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "May Day (Labor Day) - May 1",
+            "notes": "Public holiday with local celebrations. Pleasant warm weather (~20°C) and blossoming nature make it a top visiting period.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm and dry with temperatures 18-22°C. Ideal for outdoor activities, hiking, and exploring medieval towns. Tourist numbers start growing but still comfortable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer, temperatures around 22-25°C with longer daylight. Great for sightseeing and outdoor festivals starting to appear.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Festa della Repubblica - June 3",
+            "notes": "National holiday with parades, ceremonies, and celebrations attracting many visitors. Warm weather and festive atmosphere make it an excellent time to visit.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High summer with temperatures 25-28°C. Popular with tourists, some heat and increased crowding at outdoor sites. Great festivals and nightlife.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Peak tourist season with warm weather and lively events but crowded sites and higher prices. Good for travelers seeking vibrant atmosphere and nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Feast of the Assumption - August 15",
+            "notes": "Very hot weather often 28-32°C. The Assumption holiday brings local religious events and increased visitors. Many locals are on holiday, some businesses close.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat and high crowds continue. Some attractions close mid-month for holidays. Good if you enjoy summer festivals and warm weather but be prepared for crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late August brings slightly cooler temperatures but still warm. Crowds start to thin as locals return from holidays. Prices begin to stabilize.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early autumn with pleasant temperatures around 22-25°C and fewer tourists. Excellent for outdoor activities and cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Medieval Days Festival (early September)",
+            "notes": "One of the most famous cultural events with medieval reenactments, attracting many visitors. Weather is still warm and comfortable, making it an excellent time to visit.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild autumn weather 15-20°C and beautiful fall colors. Tourist crowds lessen, good for hiking and exploring nature.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cooler and wetter weather toward the end of the month. Reduced visitor numbers and quieter atmosphere. Some attractions may have shorter hours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late autumn with colder temperatures averaging 10°C and frequent rain. Low tourist activity; good for travelers who prefer solitude and low prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Chilly and damp weather with short daylight hours. Most outdoor attractions are less appealing. Best for off-season travelers with flexible schedules.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early December cool and quiet with festive decorations starting. Cooler temperatures around 7°C and light rain possible.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Festivities",
+            "notes": "Christmas markets and holiday events bring charm and moderate crowds. Cool weather with festive atmosphere makes it a good time to visit.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Festive period with celebrations, but also colder weather and some closures. Crowds increase mainly around Christmas and New Year's Eve.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

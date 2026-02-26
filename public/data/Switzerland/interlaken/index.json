@@ -1,1 +1,3458 @@
-{"city":"interlaken","country":"Switzerland","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "interlaken",
+  "country": "Switzerland",
+  "overview": {
+    "city_name": "Interlaken",
+    "country": "Switzerland",
+    "brief_description": "Nestled between the serene Lake Thun and Lake Brienz, Interlaken is a gateway to the majestic Swiss Alps and a hub for adventure seekers. This charming town offers breathtaking panoramic views, vibrant alpine culture, and year-round outdoor activities.",
+    "nickname": "Adventure Capital of Switzerland",
+    "region": "Bernese Oberland",
+    "population": "approximately 5,500",
+    "why_visit": [
+      "Stunning alpine scenery with panoramic views of Eiger, Mönch, and Jungfrau mountains",
+      "A wide range of outdoor activities including hiking, paragliding, and skiing",
+      "Gateway to the Jungfrau region and the famous Jungfraujoch railway",
+      "Charming lakeside promenades and Swiss hospitality"
+    ],
+    "best_time_to_visit": "May to September, when the weather is mild and outdoor activities are in full swing",
+    "seasonal_notes": {
+      "spring": "Wildflowers bloom and hiking trails open up, with fewer crowds and pleasant temperatures.",
+      "summer": "Peak season for outdoor adventures like paragliding, boat trips, and mountain excursions.",
+      "autumn": "Vibrant foliage colors, quieter trails, and ideal weather for sightseeing and photography.",
+      "winter": "Snow sports dominate with nearby ski resorts; the town becomes a cozy alpine retreat."
+    },
+    "practical_info": {
+      "currency": "Swiss Franc (CHF)",
+      "language": "German (Swiss German dialect), with English widely spoken",
+      "visit_duration": "3 to 5 days to fully enjoy outdoor activities and nearby excursions",
+      "getting_around": "Efficient local buses, funiculars, trains, and well-marked hiking trails",
+      "safety": "Very safe with low crime rates; standard travel precautions recommended in adventure sports"
+    },
+    "coordinates": {
+      "latitude": 46.6863,
+      "longitude": 7.8632
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Take the Jungfraujoch 'Top of Europe' train to Europe’s highest railway station",
+        "Paraglide over Interlaken for unbeatable views of lakes and mountains",
+        "Hike the Harder Kulm trail and enjoy the panoramic viewpoint restaurant",
+        "Boat cruise on Lake Thun or Lake Brienz to soak in alpine vistas",
+        "Explore Höhematte Park and the charming town center with Swiss shops and cafes"
+      ],
+      "worth_doing": [
+        "Visit St. Beatus Caves near Lake Thun for fascinating underground tours",
+        "Experience canyoning or white-water rafting on nearby mountain rivers",
+        "Ride the Schynige Platte cogwheel train for alpine gardens and classic views",
+        "Cycle along scenic lakeside routes with bike rentals available",
+        "Explore the nearby villages of Lauterbrunnen and Grindelwald for more alpine charm"
+      ],
+      "hidden_gems": [
+        "Discover the lesser-known Giessbach Falls and historic Grandhotel Giessbach by Lake Brienz",
+        "Take a quiet forest walk to the tranquil Oeschinensee, a stunning mountain lake",
+        "Visit the local Swiss chocolate factory to learn about traditional chocolate making"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Harder Kulm",
+        "type": "Viewpoint",
+        "description": "Harder Kulm is Interlaken's famous viewpoint located 1,322 meters above sea level. Accessible by a funicular railway, it offers breathtaking panoramic views of the Eiger, Mönch, and Jungfrau mountains, as well as Lake Thun and Lake Brienz. The viewpoint features a restaurant with a glass panorama platform perfect for photos.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Funicular operates year-round but may have reduced hours in winter.",
+        "booking_tips": "Buy funicular tickets online in peak season to avoid queues.",
+        "ratings": {
+          "cost_estimate": 24,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.6865,
+        "longitude": 7.8622,
+        "neighborhood": "Harder",
+        "opening_hours": {
+          "weekday": "08:25-17:45",
+          "weekend": "08:25-17:45",
+          "notes": "Hours vary slightly by season"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "21",
+            "104"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Höhematte Park for open views on clear days"
+        },
+        "official_url": "https://www.jungfrau.ch/en-gb/harder-kulm/",
+        "website": "https://www.jungfrau.ch/en-gb/harder-kulm/"
+      },
+      {
+        "name": "Höhematte Park",
+        "type": "Park",
+        "description": "Located in the heart of Interlaken, Höhematte Park is a spacious green area surrounded by charming chalets and shops. It offers open lawns ideal for picnics and paragliding landings, and provides unobstructed views of the Jungfrau massif. The park is a central meeting point for locals and tourists alike.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Popular for paragliding landings especially in summer and autumn.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 46.688,
+        "longitude": 7.8629,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby Interlaken Museum for indoor history"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Schynige Platte Railway",
+        "type": "Historic Site",
+        "description": "The Schynige Platte Railway is a historic cogwheel train that climbs from Wilderswil to the Schynige Platte plateau. Famous for its vintage carriages and spectacular alpine views, the railway has been in operation since 1893. At the top, visitors can enjoy alpine gardens and hiking trails.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Railway operates late May to late October; closed in winter.",
+        "booking_tips": "Advance booking recommended during summer months and weekends.",
+        "ratings": {
+          "cost_estimate": 45,
+          "suggested_duration_hours": 3,
+          "cultural_significance": 4
+        },
+        "latitude": 46.6888,
+        "longitude": 7.8509,
+        "neighborhood": "Wilderswil",
+        "opening_hours": {
+          "weekday": "07:30-17:00",
+          "weekend": "07:30-17:00",
+          "notes": "Seasonal operation May-October"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "104",
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 2.5,
+          "max_duration_hours": 4,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Jungfrau Railway Museum in Interlaken"
+        },
+        "official_url": "https://www.schynige-platte.ch/en/",
+        "website": "https://www.schynige-platte.ch/en/"
+      },
+      {
+        "name": "Jungfrau Park",
+        "type": "Theme Park",
+        "description": "Jungfrau Park is a unique interactive theme park focused on mysteries of science, space, and the universe. It includes a range of exhibitions that explore scientific phenomena alongside Swiss folklore. This park offers an educational and entertaining experience for families and curious travelers.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round, with special events during holidays.",
+        "booking_tips": "Tickets can be purchased online for discounts.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 46.686,
+        "longitude": 7.861,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "102",
+            "105"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Ideal indoor activity for rainy days"
+        },
+        "official_url": "https://www.jungfraupark.ch/en/",
+        "website": "https://www.jungfraupark.ch/en/"
+      },
+      {
+        "name": "St. Beatus Caves",
+        "type": "Historic Site|Natural Attraction",
+        "description": "The St. Beatus Caves, located just outside Interlaken near Lake Thun, are a fascinating network of limestone caves steeped in legend. The caves were said to be the home of a dragon slain by St. Beatus in the 6th century. Visitors can explore illuminated caverns with dramatic stalactites and an underground waterfall.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open April to November; closed in winter due to cold temperatures inside caves.",
+        "booking_tips": "Tickets available onsite; guided tours recommended.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.7272,
+        "longitude": 7.8055,
+        "neighborhood": "Niederhorn Region",
+        "opening_hours": {
+          "weekday": "09:00-17:30",
+          "weekend": "09:00-17:30",
+          "notes": "Seasonal opening April-November"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "21",
+            "103"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Interlaken Museum if weather is poor"
+        },
+        "official_url": "https://www.beatushoehlen.swiss/en/",
+        "website": "https://www.beatushoehlen.swiss/en/"
+      },
+      {
+        "name": "Interlaken Museum",
+        "type": "Museum",
+        "description": "The Interlaken Museum offers a glimpse into the region's cultural heritage, showcasing artifacts related to local history, traditional costumes, and alpine farming. The museum is housed in a historic building and includes exhibits on tourism development and the natural environment of the Bernese Oberland.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round except some holidays.",
+        "booking_tips": "No advance booking required, but check opening hours in winter.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.6873,
+        "longitude": 7.8635,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Dec 24-26 and Jan 1"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Ideal activity for rainy or cold days"
+        },
+        "official_url": "https://www.interlaken.ch/en/culture/museums/interlaken-museum",
+        "website": "https://www.interlaken.ch/en/culture/museums/interlaken-museum"
+      },
+      {
+        "name": "Jungfrau Marathon Route",
+        "type": "Historic Site|Outdoor Trail",
+        "description": "The Jungfrau Marathon Route is a famous running route that passes through Interlaken and ascends into the mountains. Even for non-runners, parts of the trail offer scenic hiking opportunities with beautiful alpine views. The marathon itself is held annually in September and attracts runners worldwide.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Best accessed in summer and early autumn; snow covers higher sections in winter.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.686,
+        "longitude": 7.86,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": "Seasonal trail conditions vary"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Interlaken Sports Center for indoor fitness"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Casino Interlaken",
+        "type": "Entertainment",
+        "description": "Casino Interlaken, located in a historic building, offers a refined gaming experience with slot machines, poker, and table games. The casino also hosts live entertainment and fine dining, making it a popular evening destination for visitors looking to try their luck or enjoy nightlife.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round, special events on holidays.",
+        "booking_tips": "Entry is free but dress code applies; check event calendar for live shows.",
+        "ratings": {
+          "cost_estimate": 30,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 2
+        },
+        "latitude": 46.6837,
+        "longitude": 7.8565,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "12:00-04:00",
+          "weekend": "12:00-04:00",
+          "notes": "Open daily"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue"
+        },
+        "official_url": "https://www.casinointerlaken.ch/",
+        "website": "https://www.casinointerlaken.ch/"
+      },
+      {
+        "name": "Schloss Interlaken",
+        "type": "Historic Site|Castle",
+        "description": "Schloss Interlaken is a small historic castle dating back to the 12th century that once served as a monastery and administrative center. Although not open to the public for tours, the castle's exterior is a picturesque landmark on the outskirts of the town, offering a glimpse into Interlaken's medieval past.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.6913,
+        "longitude": 7.8689,
+        "neighborhood": "Oberried",
+        "opening_hours": {
+          "weekday": "Accessible outdoor area",
+          "weekend": "Accessible outdoor area",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Interlaken Museum for historical context"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Lake Thun Cruise",
+        "type": "Outdoor Activity",
+        "description": "Lake Thun cruises depart from Interlaken West and offer scenic boat rides across the turquoise lake surrounded by alpine peaks and charming villages. Cruises range from short trips to full-day excursions with stops at castles and lakeside towns, providing a relaxing way to experience the Bernese Oberland.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Operates from April to October, weather-dependent.",
+        "booking_tips": "Reserve tickets during summer weekends and holidays.",
+        "ratings": {
+          "cost_estimate": 35,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 46.6834,
+        "longitude": 7.8531,
+        "neighborhood": "Interlaken West",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Seasonal operation"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "104"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Jungfrau Park if weather is poor"
+        },
+        "official_url": "https://www.bls.ch/en/fahren/unterwegs-mit/binnenschifffahrt-thunersee",
+        "website": "https://www.bls.ch/en/fahren/unterwegs-mit/binnenschifffahrt-thunersee"
+      },
+      {
+        "name": "Paragliding Launch Sites",
+        "type": "Outdoor Activity",
+        "description": "Interlaken is world-renowned for paragliding, with several launch sites on surrounding hills like Beatenberg and Harder Kulm. Tandem flights provide unparalleled aerial views of the lakes and mountains, making it a must-try adventure for thrill-seekers. Flights typically last 15-30 minutes depending on conditions.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Premium",
+        "seasonal_notes": "Best from spring to autumn; limited in winter due to weather.",
+        "booking_tips": "Book tandem flights in advance, especially in summer.",
+        "ratings": {
+          "cost_estimate": 180,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 46.686,
+        "longitude": 7.865,
+        "neighborhood": "Harder",
+        "opening_hours": {
+          "weekday": "Dependent on weather",
+          "weekend": "Dependent on weather",
+          "notes": "Subject to weather conditions"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Interlaken Museum or Jungfrau Park"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Victoria Jungfrau Grand Hotel & Spa",
+        "type": "Historic Site|Luxury Hotel",
+        "description": "An iconic symbol of luxury in Interlaken, the Victoria Jungfrau Grand Hotel & Spa dates back to the 19th century and features historic Belle Époque architecture. Even if not staying, visitors can enjoy its elegant spa facilities, fine dining restaurants, and beautiful gardens with mountain views.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Premium",
+        "seasonal_notes": "Spa and dining open year-round; special holiday packages available.",
+        "booking_tips": "Reservations recommended for spa treatments and restaurants.",
+        "ratings": {
+          "cost_estimate": 150,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 46.6878,
+        "longitude": 7.8651,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "Spa: 09:00-20:00, Restaurant varies",
+          "weekend": "Spa: 09:00-20:00, Restaurant varies",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor luxury experience"
+        },
+        "official_url": "https://www.victoria-jungfrau.ch/en/",
+        "website": "https://www.victoria-jungfrau.ch/en/"
+      },
+      {
+        "name": "Aare Gorge (Aareschlucht)",
+        "type": "Natural Attraction",
+        "description": "A short drive from Interlaken, the Aare Gorge is a stunning natural canyon carved by the Aare River. Visitors walk through narrow pathways and tunnels along the cliff walls, witnessing dramatic rock formations and turquoise waters. The gorge is a spectacular example of alpine geology and is well-equipped for tourists.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open from spring to autumn; may close in heavy rain or winter.",
+        "booking_tips": "Tickets available onsite; arrive early to avoid crowds.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.6831,
+        "longitude": 7.8612,
+        "neighborhood": "Meiringen Area",
+        "opening_hours": {
+          "weekday": "08:30-18:00",
+          "weekend": "08:30-18:00",
+          "notes": "Seasonal operation"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "103",
+            "106"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Interlaken Museum for indoor cultural experience"
+        },
+        "official_url": "https://www.aareschlucht.ch/en/",
+        "website": "https://www.aareschlucht.ch/en/"
+      },
+      {
+        "name": "Bödeli Railway Station",
+        "type": "Historic Site|Railway",
+        "description": "Bödeli Railway Station is a charming historic train station serving Interlaken West and East, connecting passengers to regional and mountain railways. The station building dates back to the early 20th century and is a gateway to popular alpine excursions including the Jungfrau Railway.",
+        "indoor": true,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Operational year-round with varying schedules.",
+        "booking_tips": "Tickets should be purchased in advance for popular routes.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 3
+        },
+        "latitude": 46.6842,
+        "longitude": 7.8556,
+        "neighborhood": "Interlaken West",
+        "opening_hours": {
+          "weekday": "05:00-23:00",
+          "weekend": "05:00-23:00",
+          "notes": "Trains operate year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "104"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor waiting area"
+        },
+        "official_url": "https://www.sbb.ch/en/station-services/railway-stations/station.6200.interlaken-west.html",
+        "website": "https://www.sbb.ch/en"
+      },
+      {
+        "name": "Mystery Park",
+        "type": "Theme Park|Museum",
+        "description": "Mystery Park was a unique attraction featuring exhibits on ancient civilizations and unexplained phenomena, designed by Erich von Däniken. Though now closed, its legacy influences several nearby interactive museums and exhibitions about mysteries and the cosmos, which visitors can explore in Interlaken.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 46.6885,
+        "longitude": 7.859,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "Closed",
+          "weekend": "Closed",
+          "notes": "Park closed, check Jungfrau Park as alternative"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": []
+        },
+        "visit_profile": {
+          "min_duration_hours": 0,
+          "max_duration_hours": 0,
+          "ideal_time_block": "none",
+          "weather_fallback": "Visit Jungfrau Park for science-themed exhibits"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Ballenberg Open-Air Museum",
+        "type": "Museum|Historic Site",
+        "description": "Located about 30 minutes from Interlaken, Ballenberg is Switzerland’s largest open-air museum showcasing over 100 original buildings relocated from all over the country. The site offers an immersive experience of traditional Swiss rural life with crafts demonstrations, farm animals, and seasonal festivals.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open April to October; special events in summer.",
+        "booking_tips": "Buy tickets online to skip entrance lines during festivals.",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 4,
+          "cultural_significance": 5
+        },
+        "latitude": 46.87,
+        "longitude": 7.584,
+        "neighborhood": "Brünig Pass Region",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Seasonal operation"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "109 from Interlaken to Brienz, then local bus"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 3,
+          "max_duration_hours": 5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Most exhibits are outdoor; limited indoor options"
+        },
+        "official_url": "https://www.ballenberg.ch/en/",
+        "website": "https://www.ballenberg.ch/en/"
+      },
+      {
+        "name": "Unspunnen Castle Ruins",
+        "type": "Historic Site",
+        "description": "The ruins of Unspunnen Castle lie just above Interlaken and date back to the 12th century. The site offers a glimpse into medieval fortifications and stunning views over Interlaken and the surrounding lakes. The castle is famous for the traditional Swiss Unspunnen Festival celebrating folk culture.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Accessible year-round, but best in summer and early autumn.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 46.6867,
+        "longitude": 7.876,
+        "neighborhood": "Ringgenberg",
+        "opening_hours": {
+          "weekday": "Open all day",
+          "weekend": "Open all day",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "21"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit Interlaken Museum for regional history"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Casino Kursaal Interlaken",
+        "type": "Entertainment|Historic Site",
+        "description": "The Kursaal building in Interlaken houses a casino and event space with striking architecture from the early 20th century. It is a cultural hub hosting concerts, conferences, and exhibitions, offering an elegant atmosphere adjacent to Höhematte Park.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Events vary seasonally; casino open year-round.",
+        "booking_tips": "Check event schedules and book tickets in advance.",
+        "ratings": {
+          "cost_estimate": 20,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 46.6879,
+        "longitude": 7.8633,
+        "neighborhood": "Central Interlaken",
+        "opening_hours": {
+          "weekday": "10:00-02:00",
+          "weekend": "10:00-02:00",
+          "notes": "Casino hours; event hours vary"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "101",
+            "102"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue"
+        },
+        "official_url": "https://www.kursaal-interlaken.ch/",
+        "website": "https://www.kursaal-interlaken.ch/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Interlaken West",
+        "alternate_names": [
+          "West Interlaken"
+        ],
+        "character": "Bustling gateway to the town with a lively, tourist-friendly atmosphere dominated by hotels, shops, and transport hubs. It pulses with energy as visitors arrive and depart, yet retains charming Swiss alpine touches.",
+        "location": {
+          "central": true,
+          "description": "Directly west of Interlaken’s town center, near the Aare river.",
+          "borders": [
+            "Interlaken Center",
+            "Matten"
+          ],
+          "landmarks": [
+            "Interlaken West Train Station",
+            "Höhematte Park",
+            "Albert Heim Museum"
+          ]
+        },
+        "history": {
+          "overview": "Developed with the advent of the railway in the late 19th century, this area became a primary arrival point for tourists.",
+          "significance": "It serves as the main transit hub and introduction to Interlaken’s alpine charm.",
+          "notable_events": [
+            "Opening of Interlaken West railway station in 1890",
+            "Expansion of tourism infrastructure in early 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Interlaken West Train Station",
+            "Regional bus stops"
+          ],
+          "safety": "Very safe; busy tourist area with regular police presence",
+          "best_time_to_visit": "Year-round, especially summer and winter for outdoor activities",
+          "walkability": "Highly walkable with flat terrain and pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Train access",
+            "Hotels",
+            "Tourist shops",
+            "Proximity to Lake Thun"
+          ],
+          "atmosphere": [
+            "lively",
+            "welcoming",
+            "busy"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "families",
+            "transit users"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Interlaken West Train Station",
+              "type": "Transport hub",
+              "description": "Main railway station connecting Interlaken to major Swiss cities.",
+              "appeal": "Convenient access point for travelers arriving or departing."
+            },
+            {
+              "name": "Höhematte Park",
+              "type": "Park",
+              "description": "Large open green space popular for paragliding landings and relaxation.",
+              "appeal": "Offers panoramic mountain views and space for outdoor events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Taverne",
+              "cuisine": "Swiss, European",
+              "price_range": "€€",
+              "known_for": "Traditional Swiss dishes and local specialties",
+              "atmosphere": "Cozy and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Book train tickets in advance during peak season to avoid queues.",
+          "Visit Höhematte Park early morning for peaceful paragliding views.",
+          "Explore side streets near the station for quieter cafes."
+        ]
+      },
+      {
+        "name": "Interlaken Center",
+        "alternate_names": [
+          "Town Center",
+          "City Core"
+        ],
+        "character": "The vibrant heart of Interlaken filled with charming pedestrian streets, boutiques, and cafes. It blends historic architecture with modern amenities, creating a perfect hub for shopping and strolling.",
+        "location": {
+          "central": true,
+          "description": "Located between Interlaken West and Interlaken East stations, along Höheweg promenade.",
+          "borders": [
+            "Interlaken West",
+            "Interlaken East",
+            "Unterseen"
+          ],
+          "landmarks": [
+            "Höheweg Promenade",
+            "Casino Interlaken",
+            "Victoria-Jungfrau Grand Hotel"
+          ]
+        },
+        "history": {
+          "overview": "This area evolved from a small trading settlement to a bustling tourist center in the 19th century.",
+          "significance": "It remains the primary commercial and cultural hub of Interlaken.",
+          "notable_events": [
+            "Construction of the Victoria-Jungfrau Hotel in 1865",
+            "Development of Höhematte Park"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Interlaken Ost Train Station nearby",
+            "Bus stops on Höheweg"
+          ],
+          "safety": "Very safe with busy streets and tourist police patrols",
+          "best_time_to_visit": "Spring through autumn for outdoor dining and festivals",
+          "walkability": "Extremely walkable with pedestrian-only zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Hotels",
+            "Promenades",
+            "Cafes",
+            "Mountain views"
+          ],
+          "atmosphere": [
+            "elegant",
+            "bustling",
+            "picturesque"
+          ],
+          "best_for": [
+            "shoppers",
+            "couples",
+            "culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 4,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 3,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Höheweg Promenade",
+              "type": "Scenic walkway",
+              "description": "Main pedestrian street with shops, cafes, and stunning views of the Jungfrau.",
+              "appeal": "Iconic stroll to experience Interlaken’s charm and mountain panorama."
+            },
+            {
+              "name": "Victoria-Jungfrau Grand Hotel",
+              "type": "Historic hotel",
+              "description": "Luxury hotel landmark known for its Belle Époque architecture.",
+              "appeal": "Symbol of Interlaken’s historic grandeur and elegance."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Terrasse",
+              "cuisine": "Fine dining, Swiss/French",
+              "price_range": "€€€€",
+              "known_for": "Gourmet dishes with alpine ingredients",
+              "atmosphere": "Elegant and romantic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit shops early in the morning to avoid crowds.",
+          "Stop by the casino for a taste of local nightlife.",
+          "Take a sunset walk on Höheweg to capture stunning mountain colors."
+        ]
+      },
+      {
+        "name": "Matten",
+        "alternate_names": [
+          "Matten bei Interlaken"
+        ],
+        "character": "A laid-back, residential neighborhood with a friendly village feel, surrounded by fields and offering scenic views. It serves as a quiet retreat from the bustling center, popular with locals and nature lovers.",
+        "location": {
+          "central": false,
+          "description": "Just west of Interlaken West station, adjacent to the Aare river.",
+          "borders": [
+            "Interlaken West",
+            "Bönigen"
+          ],
+          "landmarks": [
+            "Seehotel Panorama",
+            "Matten Golf Course"
+          ]
+        },
+        "history": {
+          "overview": "Originally an agricultural area, Matten transformed into a residential suburb as tourism grew in Interlaken.",
+          "significance": "It provides a glimpse of local life away from the tourist crowds.",
+          "notable_events": [
+            "Development of residential housing post-1950",
+            "Establishment of recreational facilities"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Local bus lines",
+            "Walking distance from Interlaken West"
+          ],
+          "safety": "Very safe, quiet residential area",
+          "best_time_to_visit": "Spring to autumn for outdoor activities",
+          "walkability": "Moderate walkability; some parts require short transit"
+        },
+        "appeal": {
+          "known_for": [
+            "Quiet streets",
+            "Local homes",
+            "Parks",
+            "Golf"
+          ],
+          "atmosphere": [
+            "peaceful",
+            "green",
+            "authentic"
+          ],
+          "best_for": [
+            "families",
+            "long-term visitors",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Matten Golf Course",
+              "type": "Recreational",
+              "description": "Scenic 9-hole golf course surrounded by mountains.",
+              "appeal": "Perfect spot for outdoor recreation close to town."
+            },
+            {
+              "name": "Seehotel Panorama",
+              "type": "Hotel and dining",
+              "description": "Hotel with panoramic lake and mountain views.",
+              "appeal": "Relaxed atmosphere with excellent local dining."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Alpenblick",
+              "cuisine": "Swiss, European",
+              "price_range": "€€",
+              "known_for": "Casual dining with local specialties",
+              "atmosphere": "Cozy and family-friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a bike here to explore peaceful trails along the river.",
+          "Visit local bakeries in the morning for fresh Swiss pastries.",
+          "Matten’s golf course often has beginner-friendly offers."
+        ]
+      },
+      {
+        "name": "Unterseen",
+        "alternate_names": [
+          "Historic Unterseen"
+        ],
+        "character": "Charming, historic district with narrow streets, quaint shops, and traditional Swiss architecture that exudes old-world character. It contrasts the more tourist-heavy Interlaken center with a genuine village feel.",
+        "location": {
+          "central": true,
+          "description": "Southwest of Interlaken Center, across the Aare river.",
+          "borders": [
+            "Interlaken Center",
+            "Matten",
+            "Bönigen"
+          ],
+          "landmarks": [
+            "St. Michael’s Church",
+            "Old town square"
+          ]
+        },
+        "history": {
+          "overview": "Founded in the medieval period, Unterseen was once a separate town that merged with Interlaken.",
+          "significance": "It preserves much of Interlaken’s original historic core and traditional culture.",
+          "notable_events": [
+            "Medieval town charter establishment",
+            "Preservation of historic architecture through centuries"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops connecting to Interlaken Center",
+            "Walking access to center"
+          ],
+          "safety": "Very safe; peaceful historic neighborhood",
+          "best_time_to_visit": "Spring to autumn for exploring outdoor markets and festivals",
+          "walkability": "Highly walkable with cobblestone streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic buildings",
+            "Local markets",
+            "Churches",
+            "Authentic atmosphere"
+          ],
+          "atmosphere": [
+            "quaint",
+            "traditional",
+            "peaceful"
+          ],
+          "best_for": [
+            "history buffs",
+            "cultural travelers",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "St. Michael’s Church",
+              "type": "Historic church",
+              "description": "Medieval church with beautiful frescoes and traditional architecture.",
+              "appeal": "Insight into Interlaken’s religious and cultural history."
+            },
+            {
+              "name": "Unterseen Old Town Square",
+              "type": "Historic plaza",
+              "description": "Central square hosting local markets and events.",
+              "appeal": "Great place to experience local life and festivals."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Gasthof Hirschen",
+              "cuisine": "Traditional Swiss",
+              "price_range": "€€",
+              "known_for": "Classic Swiss comfort food in a rustic setting",
+              "atmosphere": "Warm and authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the local market on Saturdays for fresh produce and crafts.",
+          "Explore side streets early morning for charming photo opportunities.",
+          "Attend the summer folk festivals held in the old town square."
+        ]
+      },
+      {
+        "name": "Interlaken East",
+        "alternate_names": [
+          "Ost Interlaken"
+        ],
+        "character": "A practical transit and commercial area with a mix of hotels and transport links, it serves as a gateway to the Jungfrau region’s mountain excursions. It’s less touristy than the West but key for alpine adventure access.",
+        "location": {
+          "central": true,
+          "description": "East of the town center along the Aare river.",
+          "borders": [
+            "Interlaken Center",
+            "Bönigen"
+          ],
+          "landmarks": [
+            "Interlaken Ost Train Station",
+            "Harder Kulm funicular base"
+          ]
+        },
+        "history": {
+          "overview": "Developed as a transport hub to support mountain tourism in the early 20th century.",
+          "significance": "Primary departure point for excursions to Jungfraujoch and Harder Kulm.",
+          "notable_events": [
+            "Opening of Interlaken Ost station in 1872",
+            "Launch of Harderbahn funicular"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Interlaken Ost Train Station",
+            "Bus terminals"
+          ],
+          "safety": "Very safe; busy daytime but quieter at night",
+          "best_time_to_visit": "Year-round, especially summer and winter for excursions",
+          "walkability": "Moderate walkability; some slopes and transit needed"
+        },
+        "appeal": {
+          "known_for": [
+            "Mountain excursion departures",
+            "Hotels",
+            "Transport connections"
+          ],
+          "atmosphere": [
+            "functional",
+            "adventurous",
+            "convenient"
+          ],
+          "best_for": [
+            "mountain tourists",
+            "day trippers",
+            "adventure seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Interlaken Ost Train Station",
+              "type": "Transport hub",
+              "description": "Key railway station for journeys to mountain resorts.",
+              "appeal": "Essential starting point for alpine adventures."
+            },
+            {
+              "name": "Harder Kulm Funicular",
+              "type": "Transport and viewpoint",
+              "description": "Funicular railway offering spectacular views from Harder Kulm summit.",
+              "appeal": "Iconic viewpoint over Interlaken and surrounding peaks."
+            }
+          ],
+          "dining": [
+            {
+              "name": "At The Balcony",
+              "cuisine": "International, Swiss",
+              "price_range": "€€",
+              "known_for": "Casual dining with panoramic views",
+              "atmosphere": "Relaxed and scenic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Purchase mountain excursion tickets early at Interlaken Ost station.",
+          "Take the funicular to Harder Kulm for sunset views.",
+          "Use local buses to explore nearby Bönigen village."
+        ]
+      },
+      {
+        "name": "Bönigen",
+        "alternate_names": [],
+        "character": "A peaceful lakeside village neighborhood east of Interlaken, known for its stunning views of Lake Brienz and traditional Swiss charm. It offers a quiet respite with access to water-based activities and hiking trails.",
+        "location": {
+          "central": false,
+          "description": "East of Interlaken East, on the northern shore of Lake Brienz.",
+          "borders": [
+            "Interlaken East",
+            "Matten"
+          ],
+          "landmarks": [
+            "Lake Brienz waterfront",
+            "Bönigen Church"
+          ]
+        },
+        "history": {
+          "overview": "Historically a fishing and farming village, Bönigen has preserved much of its rural heritage.",
+          "significance": "It represents traditional lakeside Swiss village life within easy reach of Interlaken.",
+          "notable_events": [
+            "Preservation as a cultural heritage site",
+            "Development of lake tourism"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Local bus services",
+            "Boat connections on Lake Brienz"
+          ],
+          "safety": "Very safe; quiet residential area",
+          "best_time_to_visit": "Late spring to early autumn for lake activities",
+          "walkability": "Walkable with gentle lakeside paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Lake Brienz access",
+            "Traditional village atmosphere",
+            "Water sports",
+            "Hiking"
+          ],
+          "atmosphere": [
+            "tranquil",
+            "scenic",
+            "authentic"
+          ],
+          "best_for": [
+            "nature lovers",
+            "families",
+            "relaxation seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 5,
+          "shopping": 1,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Lake Brienz Waterfront",
+              "type": "Natural attraction",
+              "description": "Picturesque lakeside area perfect for boating and picnics.",
+              "appeal": "Peaceful environment with crystal-clear water and mountain views."
+            },
+            {
+              "name": "Bönigen Church",
+              "type": "Historic church",
+              "description": "Traditional Swiss village church with historic architecture.",
+              "appeal": "Cultural insight into the local community."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurant Seegarten",
+              "cuisine": "Swiss, seafood",
+              "price_range": "€€",
+              "known_for": "Fresh fish from Lake Brienz",
+              "atmosphere": "Casual, lakeside dining"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Rent a paddleboard or kayak to explore Lake Brienz from Bönigen.",
+          "Walk the lakeside trail to nearby Giessbach Falls.",
+          "Visit the local Sunday market for crafts and fresh produce."
+        ]
+      },
+      {
+        "name": "Neuhaus",
+        "alternate_names": [],
+        "character": "A small, quiet residential area perched slightly uphill offering panoramic views of Interlaken and the surrounding mountains. It feels removed from the tourist bustle with a tranquil, village-like vibe.",
+        "location": {
+          "central": false,
+          "description": "Northeast outskirts of Interlaken, above Interlaken East.",
+          "borders": [
+            "Interlaken East",
+            "Bönigen"
+          ],
+          "landmarks": [
+            "Neuhaus viewpoint"
+          ]
+        },
+        "history": {
+          "overview": "Developed as a residential suburb in the 20th century, maintaining a peaceful alpine community atmosphere.",
+          "significance": "Provides quiet residential living with stunning vistas close to town.",
+          "notable_events": [
+            "Expansion of residential housing post-WWII"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops with connections to Interlaken East"
+          ],
+          "safety": "Very safe; quiet neighborhood",
+          "best_time_to_visit": "Year-round for scenic views and tranquility",
+          "walkability": "Moderate; uphill terrain"
+        },
+        "appeal": {
+          "known_for": [
+            "Panoramic views",
+            "Quiet living",
+            "Proximity to nature"
+          ],
+          "atmosphere": [
+            "tranquil",
+            "scenic",
+            "residential"
+          ],
+          "best_for": [
+            "photographers",
+            "quiet travelers",
+            "families"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 1,
+          "dining": 1,
+          "nightlife": 1,
+          "cultural": 1,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Neuhaus Viewpoint",
+              "type": "Scenic viewpoint",
+              "description": "Offers sweeping views of Interlaken, Lake Thun, and the Jungfrau massif.",
+              "appeal": "Ideal spot for photography and peaceful contemplation."
+            }
+          ],
+          "dining": []
+        },
+        "insider_tips": [
+          "Bring comfortable shoes for uphill walks.",
+          "Visit at sunrise for the most magical views over the peaks.",
+          "Look for local guesthouses offering authentic Swiss hospitality."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Restaurant Spycher",
+          "cuisine_type": "Swiss, European",
+          "description": "A charming historic restaurant offering refined Swiss and European dishes with a focus on local ingredients.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant yet cozy with traditional alpine decor",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 46.6843,
+          "longitude": 7.8481,
+          "reservation_needed": true,
+          "local_tips": "Try their traditional Swiss fondue during colder months."
+        },
+        {
+          "name": "Restaurant Taverne",
+          "cuisine_type": "Swiss, International",
+          "description": "Located in Victoria Jungfrau Hotel, offering high-end Swiss and international cuisine with impeccable service.",
+          "price_range": "€€€€",
+          "atmosphere": "Luxurious and formal dining experience",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "fine dining",
+            "romantic dinners"
+          ],
+          "latitude": 46.686,
+          "longitude": 7.8554,
+          "reservation_needed": true,
+          "local_tips": "Reserve a table by the window for stunning views of the Jungfrau."
+        },
+        {
+          "name": "La Terrasse",
+          "cuisine_type": "French, Swiss",
+          "description": "Elegant French-Swiss fusion cuisine served in an intimate setting with a seasonal menu emphasizing local produce.",
+          "price_range": "€€€",
+          "atmosphere": "Quiet and sophisticated",
+          "neighborhood": "Matten bei Interlaken",
+          "best_for": [
+            "celebrations",
+            "food connoisseurs"
+          ],
+          "latitude": 46.683,
+          "longitude": 7.8515,
+          "reservation_needed": true,
+          "local_tips": "Their wild game dishes in autumn are exceptional."
+        },
+        {
+          "name": "Restaurant Laterne",
+          "cuisine_type": "Swiss",
+          "description": "Traditional Swiss cuisine with a modern twist in a warm alpine-style setting.",
+          "price_range": "€€€",
+          "atmosphere": "Rustic yet refined",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "authentic Swiss food",
+            "small groups"
+          ],
+          "latitude": 46.6837,
+          "longitude": 7.849,
+          "reservation_needed": true,
+          "local_tips": "Try the rösti with local cheese and smoked meats."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Husi Bierhaus",
+          "cuisine_type": "Swiss, Pub Food",
+          "description": "Casual pub atmosphere with a variety of Swiss and international comfort foods and local beers.",
+          "price_range": "€€",
+          "atmosphere": "Lively and friendly",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "groups",
+            "casual meals"
+          ],
+          "latitude": 46.6838,
+          "longitude": 7.8498,
+          "reservation_needed": false,
+          "local_tips": "Try the homemade sausages paired with a local craft beer."
+        },
+        {
+          "name": "Ox Restaurant & Grill",
+          "cuisine_type": "Steakhouse, European",
+          "description": "Known for its grilled meats and hearty European dishes in a relaxed setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual and comfortable",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "meat lovers",
+            "families"
+          ],
+          "latitude": 46.6862,
+          "longitude": 7.852,
+          "reservation_needed": false,
+          "local_tips": "Their burgers are a local favorite."
+        },
+        {
+          "name": "Bistro Memory",
+          "cuisine_type": "Swiss, European",
+          "description": "Small bistro serving traditional Swiss dishes with a cozy atmosphere and friendly service.",
+          "price_range": "€€",
+          "atmosphere": "Intimate and welcoming",
+          "neighborhood": "Interlaken East",
+          "best_for": [
+            "couples",
+            "quiet dinners"
+          ],
+          "latitude": 46.6865,
+          "longitude": 7.86,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot to try local cheese specialties."
+        },
+        {
+          "name": "Barracuda Café & Bar",
+          "cuisine_type": "International, Swiss",
+          "description": "Casual dining with a varied menu including Swiss classics and international dishes in a vibrant bar setting.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and upbeat",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "young crowd",
+            "after-ski meals"
+          ],
+          "latitude": 46.6856,
+          "longitude": 7.854,
+          "reservation_needed": false,
+          "local_tips": "Great spot for weekend brunch with mountain views."
+        },
+        {
+          "name": "Goldener Anker",
+          "cuisine_type": "Swiss, European",
+          "description": "Traditional Swiss dishes served in a charming setting with a focus on local seasonal ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and rustic",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "families",
+            "casual dining"
+          ],
+          "latitude": 46.684,
+          "longitude": 7.8475,
+          "reservation_needed": false,
+          "local_tips": "Their cheese fondue is a must-try in winter."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Interlaken Street Food Market",
+          "cuisine_type": "Various international and Swiss street foods",
+          "description": "Seasonal street food market featuring local and international vendors offering a variety of quick bites.",
+          "price_range": "€",
+          "atmosphere": "Casual, bustling open-air",
+          "neighborhood": "Central Interlaken, near Höheweg",
+          "best_for": [
+            "quick bites",
+            "foodies exploring local flavors"
+          ],
+          "latitude": 46.686,
+          "longitude": 7.8545,
+          "reservation_needed": false,
+          "local_tips": "Visit on weekends in summer to sample fresh raclette and local sausages."
+        },
+        {
+          "name": "Rosti Truck",
+          "cuisine_type": "Swiss street food",
+          "description": "Mobile food truck specializing in traditional Swiss rösti with various toppings.",
+          "price_range": "€",
+          "atmosphere": "Casual, on-the-go",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "quick snack",
+            "traditional Swiss street food"
+          ],
+          "latitude": 46.6825,
+          "longitude": 7.848,
+          "reservation_needed": false,
+          "local_tips": "Try the rösti with smoked bacon and melted cheese."
+        },
+        {
+          "name": "Churros Corner",
+          "cuisine_type": "Sweet street food",
+          "description": "Popular spot for freshly made churros with various dipping sauces, perfect for a sweet treat while exploring.",
+          "price_range": "€",
+          "atmosphere": "Casual, family-friendly",
+          "neighborhood": "Interlaken East",
+          "best_for": [
+            "dessert lovers",
+            "families"
+          ],
+          "latitude": 46.6868,
+          "longitude": 7.8605,
+          "reservation_needed": false,
+          "local_tips": "Best enjoyed hot with chocolate sauce after a day of sightseeing."
+        },
+        {
+          "name": "Bratwurst Stand",
+          "cuisine_type": "Swiss sausages",
+          "description": "Traditional Swiss bratwurst served in a bun with mustard, a classic quick snack favorite.",
+          "price_range": "€",
+          "atmosphere": "Casual, quick service",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "snack",
+            "on-the-go"
+          ],
+          "latitude": 46.685,
+          "longitude": 7.855,
+          "reservation_needed": false,
+          "local_tips": "Perfect paired with a local beer."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "The Three Tells Irish Pub",
+          "cuisine_type": "Pub",
+          "description": "Authentic Irish pub atmosphere with a great selection of beers and lively events.",
+          "price_range": "€€",
+          "atmosphere": "Lively, casual, social",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "groups",
+            "nightlife"
+          ],
+          "latitude": 46.6835,
+          "longitude": 7.8485,
+          "reservation_needed": false,
+          "local_tips": "Join quiz nights on Wednesdays for a fun local experience."
+        },
+        {
+          "name": "Baren Bar",
+          "cuisine_type": "Cocktails, Swiss",
+          "description": "Cozy bar known for creative cocktails and a good selection of local spirits.",
+          "price_range": "€€€",
+          "atmosphere": "Intimate, stylish",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "date night",
+            "cocktail enthusiasts"
+          ],
+          "latitude": 46.6859,
+          "longitude": 7.854,
+          "reservation_needed": false,
+          "local_tips": "Ask the bartender for a custom Jungfrau-inspired cocktail."
+        },
+        {
+          "name": "KäfigBar",
+          "cuisine_type": "Bar, music",
+          "description": "Trendy bar featuring live music and DJ sets with an energetic vibe.",
+          "price_range": "€€",
+          "atmosphere": "Vibrant and youthful",
+          "neighborhood": "Interlaken East",
+          "best_for": [
+            "nightlife",
+            "young crowd"
+          ],
+          "latitude": 46.6867,
+          "longitude": 7.859,
+          "reservation_needed": false,
+          "local_tips": "Check their event calendar for live music nights."
+        },
+        {
+          "name": "Velo Bar",
+          "cuisine_type": "Craft beers, cocktails",
+          "description": "Popular bar with a wide range of craft beers and a relaxed vibe popular among locals and tourists.",
+          "price_range": "€€",
+          "atmosphere": "Casual and friendly",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "craft beer lovers",
+            "relaxed evenings"
+          ],
+          "latitude": 46.6832,
+          "longitude": 7.847,
+          "reservation_needed": false,
+          "local_tips": "Try Swiss craft beers from the Bernese Oberland region."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café de Paris",
+          "cuisine_type": "Cafe, Swiss pastries",
+          "description": "Charming café serving freshly brewed coffee and traditional Swiss pastries in a relaxed setting.",
+          "price_range": "€",
+          "atmosphere": "Cozy and quaint",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "breakfast",
+            "coffee breaks"
+          ],
+          "latitude": 46.683,
+          "longitude": 7.8475,
+          "reservation_needed": false,
+          "local_tips": "Try their buttery croissants paired with a cappuccino."
+        },
+        {
+          "name": "Velo Café",
+          "cuisine_type": "Cafe, light meals",
+          "description": "Hip café known for quality coffee, light lunches, and a cycling-themed interior.",
+          "price_range": "€",
+          "atmosphere": "Modern and casual",
+          "neighborhood": "Interlaken West",
+          "best_for": [
+            "brunch",
+            "casual meetings"
+          ],
+          "latitude": 46.6833,
+          "longitude": 7.8472,
+          "reservation_needed": false,
+          "local_tips": "Their homemade granola is a local favorite."
+        },
+        {
+          "name": "Balmer's Café",
+          "cuisine_type": "Cafe, Swiss",
+          "description": "Popular café offering coffee, cakes, and light Swiss dishes in a lively atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Friendly and bustling",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "afternoon coffee",
+            "people watching"
+          ],
+          "latitude": 46.6858,
+          "longitude": 7.8542,
+          "reservation_needed": false,
+          "local_tips": "Great spot after hiking or sightseeing."
+        },
+        {
+          "name": "Mövenpick Café",
+          "cuisine_type": "Cafe, ice cream",
+          "description": "Well-known Swiss chain serving coffee, pastries, and Mövenpick ice cream in a comfortable setting.",
+          "price_range": "€",
+          "atmosphere": "Casual and family-friendly",
+          "neighborhood": "Central Interlaken",
+          "best_for": [
+            "dessert",
+            "families"
+          ],
+          "latitude": 46.6861,
+          "longitude": 7.8547,
+          "reservation_needed": false,
+          "local_tips": "Try their seasonal fruit sorbets."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Swiss Cheese Fondue Cooking Class",
+        "description": "Learn how to prepare authentic Swiss cheese fondue using local cheeses with a professional chef.",
+        "price_range": "€€",
+        "location": "Central Interlaken",
+        "duration": "3 hours",
+        "best_for": [
+          "food lovers",
+          "couples",
+          "small groups"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Book in advance, especially during winter."
+      },
+      {
+        "name": "Interlaken Food Walking Tour",
+        "description": "Guided tour sampling local Swiss dishes and delicacies while exploring Interlaken's historic streets.",
+        "price_range": "€€",
+        "location": "Interlaken Old Town",
+        "duration": "2.5 hours",
+        "best_for": [
+          "foodies",
+          "first-time visitors"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable shoes and come hungry!"
+      },
+      {
+        "name": "Visit to local alpine dairy farm",
+        "description": "Experience traditional cheese making and taste fresh alpine dairy products directly from local farms.",
+        "price_range": "€",
+        "location": "Surrounding Bernese Oberland",
+        "duration": "Half day",
+        "best_for": [
+          "families",
+          "food culture enthusiasts"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Combine with a scenic hike for a full day experience."
+      },
+      {
+        "name": "Seasonal Market Tour & Tasting",
+        "description": "Explore Interlaken's seasonal markets to sample fresh local produce, baked goods, and Swiss specialties.",
+        "price_range": "€",
+        "location": "Central Interlaken",
+        "duration": "2 hours",
+        "best_for": [
+          "foodies",
+          "culture seekers"
+        ],
+        "reservation_needed": false,
+        "local_tips": "Visit on Saturday mornings for the best variety."
+      },
+      {
+        "name": "Chocolate Tasting Workshop",
+        "description": "Discover Swiss chocolate history and sample premium chocolates with expert guidance.",
+        "price_range": "€€",
+        "location": "Interlaken",
+        "duration": "1.5 hours",
+        "best_for": [
+          "chocolate lovers",
+          "couples"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Perfect as a cozy indoor activity during colder months."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fresh asparagus dishes",
+        "Swiss lamb with fresh herbs",
+        "Rhubarb desserts"
+      ],
+      "summer": [
+        "Fresh alpine berries",
+        "Cold noodle salads",
+        "Light cheese platters with local wines"
+      ],
+      "autumn": [
+        "Wild game specialties",
+        "Chestnut dishes",
+        "Pumpkin soups and breads"
+      ],
+      "winter": [
+        "Cheese fondue",
+        "Raclette with boiled potatoes",
+        "Hearty rösti and sausages"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 10m",
+            "frequency": "hourly",
+            "price_range": "€30-€70",
+            "operator": "SBB",
+            "notes": "Direct trains available; scenic route via Bern."
+          },
+          {
+            "type": "bus",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Economical alternative to train; fewer departures."
+          }
+        ]
+      },
+      {
+        "city": "Geneva",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 10m",
+            "frequency": "hourly",
+            "price_range": "€40-€80",
+            "operator": "SBB",
+            "notes": "Usually requires one transfer, often at Bern."
+          }
+        ]
+      },
+      {
+        "city": "Milan",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 20m",
+            "frequency": "3-4 times daily",
+            "price_range": "€40-€90",
+            "operator": "Trenitalia / SBB",
+            "notes": "Direct EuroCity trains through scenic Swiss Alps."
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Cheaper but slower alternative to train."
+          }
+        ]
+      },
+      {
+        "city": "Bern",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 20m",
+            "frequency": "hourly",
+            "price_range": "€20-€50",
+            "operator": "SBB",
+            "notes": "Direct and frequent service."
+          }
+        ]
+      },
+      {
+        "city": "Lucerne",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€25-€55",
+            "operator": "SBB",
+            "notes": "Direct trains with picturesque lake views."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "3 times daily",
+            "price_range": "€70-€150",
+            "operator": "TGV Lyria / SBB",
+            "notes": "High-speed trains with one transfer, usually in Basel."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 15m",
+            "frequency": "4 times daily",
+            "price_range": "€60-€120",
+            "operator": "DB / SBB",
+            "notes": "Usually one transfer in Zurich or Bern."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "2 times daily",
+            "price_range": "€50-€110",
+            "operator": "Trenitalia / SBB",
+            "notes": "Requires one or two transfers, often in Milan and Verona."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 40m",
+            "frequency": "2 times daily",
+            "price_range": "€80-€160",
+            "operator": "Thalys / SBB",
+            "notes": "Transfers in Basel and Paris; high-speed connections."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "7h",
+            "frequency": "2 times daily",
+            "price_range": "€80-€170",
+            "operator": "NS International / SBB",
+            "notes": "One or two transfers; route via Basel and Cologne."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Harder Kulm Spring Hike",
+        "type": "outdoor",
+        "description": "Enjoy scenic hiking trails with blooming alpine flowers and panoramic views of Interlaken and the surrounding peaks from Harder Kulm.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Harder Kulm, Interlaken",
+        "price": "Moderate"
+      },
+      {
+        "name": "Sechseläuten Spring Festival",
+        "type": "cultural",
+        "description": "Experience traditional Swiss customs and festivities welcoming spring, including parades and bonfires in the Interlaken region.",
+        "best_months": [
+          "April"
+        ],
+        "location": "Interlaken Town Center",
+        "price": "Free"
+      },
+      {
+        "name": "Swiss Cheese Fondue Sampling",
+        "type": "food",
+        "description": "Savor authentic Swiss cheese fondue made with local Emmental and Gruyère cheeses in cozy Interlaken restaurants.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Various restaurants in Interlaken",
+        "price": "Moderate"
+      },
+      {
+        "name": "Lake Thun Boat Cruises",
+        "type": "outdoor",
+        "description": "Take a relaxing boat cruise on Lake Thun to witness the awakening nature and snow-capped mountains in spring.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Lake Thun, near Interlaken",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Paragliding over Interlaken",
+        "type": "sport",
+        "description": "Experience exhilarating paragliding flights with spectacular views of the Jungfrau region and lakes during summer’s clear skies.",
+        "best_months": [
+          "June",
+          "July",
+          "August",
+          "September"
+        ],
+        "location": "Takeoff from Beatenberg or Harder Kulm",
+        "price": "Premium"
+      },
+      {
+        "name": "Jungfrau Marathon",
+        "type": "sport",
+        "description": "Participate in or watch this challenging mountain marathon that attracts runners worldwide with routes through alpine scenery.",
+        "best_months": [
+          "September"
+        ],
+        "location": "Interlaken and surrounding Jungfrau region",
+        "price": "Moderate"
+      },
+      {
+        "name": "Alpine Festival Interlaken",
+        "type": "cultural",
+        "description": "Celebrate Swiss alpine culture with traditional music, dancing, and crafts in the heart of Interlaken.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Interlaken Town Center",
+        "price": "Free"
+      },
+      {
+        "name": "Stand-Up Paddleboarding on Lake Brienz",
+        "type": "sport",
+        "description": "Enjoy warm summer days paddleboarding on the turquoise waters of Lake Brienz surrounded by mountains.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Lake Brienz, Interlaken",
+        "price": "Moderate"
+      },
+      {
+        "name": "Taste Regional Summer Fruits",
+        "type": "food",
+        "description": "Sample fresh summer berries like strawberries and cherries at local markets and farm stands around Interlaken.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Interlaken Farmers’ Markets",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Autumn Hiking on Schynige Platte",
+        "type": "outdoor",
+        "description": "Explore hiking trails with stunning autumn foliage views over the lakes and mountains from Schynige Platte.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Schynige Platte, near Interlaken",
+        "price": "Moderate"
+      },
+      {
+        "name": "Swiss National Day Celebrations",
+        "type": "cultural",
+        "description": "Join festivities including bonfires, fireworks, and traditional music celebrating Switzerland’s National Day on August 1st (late summer/early autumn).",
+        "best_months": [
+          "August"
+        ],
+        "location": "Interlaken Town and surrounding villages",
+        "price": "Free"
+      },
+      {
+        "name": "Chestnut and Mushroom Foraging Tours",
+        "type": "outdoor",
+        "description": "Discover and gather wild chestnuts and mushrooms with expert guides in the forests around Interlaken.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Forests near Interlaken",
+        "price": "Moderate"
+      },
+      {
+        "name": "Autumn Wine and Cheese Tastings",
+        "type": "food",
+        "description": "Taste local Swiss wines paired with cheeses during seasonal tastings hosted by regional producers.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Wineries and restaurants in Interlaken",
+        "price": "Moderate"
+      },
+      {
+        "name": "Interlaken Autumn Market",
+        "type": "cultural",
+        "description": "Browse seasonal crafts, foods, and local products at this vibrant market celebrating autumn traditions.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Interlaken Town Square",
+        "price": "Free"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Skiing and Snowboarding in Jungfrau Region",
+        "type": "sport",
+        "description": "Hit the slopes at nearby resorts like Grindelwald and Wengen offering world-class alpine skiing and snowboarding.",
+        "best_months": [
+          "December",
+          "January",
+          "February",
+          "March"
+        ],
+        "location": "Jungfrau ski resorts near Interlaken",
+        "price": "Premium"
+      },
+      {
+        "name": "Christmas Markets in Interlaken",
+        "type": "cultural",
+        "description": "Experience magical Christmas markets with festive lights, handcrafted gifts, and traditional Swiss treats.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Interlaken Town Center",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating at Interlaken Ice Rink",
+        "type": "sport",
+        "description": "Enjoy outdoor ice skating in a festive atmosphere at the seasonal rink in the town center.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Interlaken Ice Rink, Town Center",
+        "price": "Budget"
+      },
+      {
+        "name": "Winter Hiking and Snowshoeing",
+        "type": "outdoor",
+        "description": "Explore peaceful winter trails with snowshoe rentals available to discover the snowy alpine landscape around Interlaken.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Trails around Interlaken and nearby mountains",
+        "price": "Moderate"
+      },
+      {
+        "name": "Swiss Hot Chocolate and Raclette Evenings",
+        "type": "food",
+        "description": "Warm up with rich Swiss hot chocolate or traditional raclette dinners in local cozy mountain restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February",
+          "March"
+        ],
+        "location": "Restaurants in Interlaken",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "New Year and Epiphany celebrations",
+            "notes": "Cold winter weather with snow-covered landscapes ideal for winter sports. Moderate crowds due to holiday season. Excellent for skiing and winter activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 1,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold and snowy, fewer tourists after holidays. Winter sports still available but some facilities may reduce operations. Quieter and more affordable.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 1,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cold with consistent snow, good for winter sports. Few tourists, peaceful atmosphere. Some hiking and indoor attractions available.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 1,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late January remains cold and snowy. Quiet period with low crowds. Winter activities still possible; good for travelers seeking solitude.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 1,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Cold winter weather with reliable snow. Good conditions for skiing and winter sports. Increasing crowds on weekends and school holidays.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 1,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "International Snow Festival (nearby in the region)",
+            "notes": "Peak winter season with vibrant snow festivals nearby. Excellent snow conditions and lively atmosphere. Higher prices and crowds especially around weekends.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 1,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Cold with consistent snow cover. Winter sports continue to be excellent. Slightly reduced crowds mid-month on weekdays.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 1,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of winter peak season, still good snow. Crowds start to thin especially on weekdays. Good value for winter lovers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 1,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Transition from winter to spring. Snow conditions good in early March for skiing. Increasing daylight and milder temperatures.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 1,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Snow begins to melt at lower elevations. Skiing possible mainly at higher altitudes. Weather variable; mix of rain and snow on some days.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 1,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring weather with cool temperatures. Hiking trails start to open but some snow patches remain. Lesser crowds and good value accommodations.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 1,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Spring still early, some cool rainy days. Hiking and outdoor activities increase. Quiet tourist presence with good pricing.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 1,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early April can be chilly with occasional snow or rain. Trails opening but some higher altitude areas still snow-covered. Low tourist numbers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 1,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasing spring warmth but variable weather. Some flowers bloom, good for early hikers. Quiet period with budget-friendly rates.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 1,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Sechseläuten (Zurich festival, regional interest)",
+            "notes": "Warmer days with blossoming landscapes. Hiking and outdoor activities improve. Crowds start to grow near Easter holidays and regional festivals.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 1,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late April offers mild weather and lush scenery. Good for hiking and sightseeing. Easter holiday crowds present early in the month but taper off.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 1,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Labour Day & early spring festivals",
+            "notes": "Generally pleasant weather with blooming flowers and longer days. Excellent for hiking, paragliding, and boat trips on lakes. Crowds rise but manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Stable spring weather, ideal for outdoor activities. Wildflowers abundant. Crowds remain moderate, good value compared to summer.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late spring warm and dry, perfect for hiking and sightseeing. Outdoor cafes and events begin. Lower crowds than peak summer months.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Approaching summer, weather is very good but some increase in weekend crowds. Great for outdoor activities and cultural events.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm days and cool nights. Ideal for hiking, lake activities, and outdoor festivals. Moderate to high crowds on weekends.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Unspunnen Festival (every 12 years, next 2029) - no major event in 2024",
+            "notes": "No major festival this year, but typical summer weather and activities. Perfect for outdoor adventures and sightseeing before peak July/August crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid June weather warm, but occasional rain showers possible. Crowds begin to increase especially on weekends and holidays.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late June warm and pleasant with longer daylight. Increasing tourist numbers, especially international visitors. Good time for festivals and outdoor dining.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Swiss National Day preparations",
+            "notes": "Peak summer season with warm weather and busy tourist crowds. Ideal for outdoor activities but expect high prices and crowded attractions.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High summer temperatures and heavy tourist presence. Great for lake swimming, hiking, and festivals but crowded and expensive.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid July very crowded; local infrastructure strained by tourists. Weather hot and sometimes humid. Prices at peak, some trails crowded.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 4,
+              "budget": 1,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of July equally busy with hot weather. Good festival season but expect crowds and high prices. Early booking required.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 4,
+              "budget": 1,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Swiss National Day (August 1)",
+            "notes": "National Day festivities create a lively atmosphere. Weather warm and sunny. Very busy tourist season continues with high prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Warm and sunny but very crowded. Good for festivals and outdoor sports but expect long waits and higher prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid August remains peak season. Weather is warm, occasional afternoon thunderstorms. Crowds remain very high especially weekends.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "End of August still warm with high visitor numbers. Good hiking weather but crowded trails. Prices remain at peak levels.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early fall brings mild weather and beautiful autumn colors. Crowds start to diminish. Excellent for hiking, sightseeing and outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Stable pleasant weather with fewer tourists. Ideal for outdoor adventures and cultural events. Good value compared to summer peak.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-September sees cooler temperatures and early autumn foliage. Crowds low, good hiking conditions. Some rain possible.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late September cooler but usually dry. Autumn colors peak. Quiet tourist season with lower prices and excellent outdoor conditions.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early October offers crisp autumn weather and colorful foliage. Great for hiking and photography. Tourist numbers remain low.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-October weather becomes more variable with rain and cooler temps. Some hiking trails close. Lower crowds and off-season pricing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 1,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures and increased rain. Many seasonal activities wind down. Quiet period with few tourists and low prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 1,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late October often cold with early snow possible. Many outdoor activities limited. Very low crowds but limited attractions open.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 1,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold, often wet or snowy weather. Many hiking trails closed. Low tourism activity and limited events. Good for very quiet trips or low-budget stays.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 2,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Weather cold and often gloomy. Winter sports mostly not started yet. Quiet period with low prices. Not ideal for general sightseeing.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 2,
+              "business": 2,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Late November cold and snowy at altitude. Winter sports facilities begin to open. Low visitor numbers except for winter sports enthusiasts.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Advent season begins late November",
+            "notes": "Advent markets start opening. Increasing winter sports activity. Cool weather but festive atmosphere grows. Crowds slowly increase.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Advent Christmas Markets",
+            "notes": "Winter weather with snow likely, festive Christmas markets open. Good for winter sports and holiday atmosphere. Moderate crowds early month.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Snowy and cold, ideal for skiing and winter sports. Christmas markets continue. Increasing crowds as holidays approach.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Christmas and pre-holiday events",
+            "notes": "Peak festive season with decorations, markets, and winter sports. Cold and snowy conditions create magical atmosphere. High prices and crowds.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Christmas and New Year’s Eve Celebrations",
+            "notes": "Festive peak with Christmas and New Year’s celebrations. Snow-covered scenery, winter sports at height. Very busy and expensive but unforgettable experience.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

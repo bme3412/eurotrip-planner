@@ -51,6 +51,7 @@ const GEN_PHOTOS = getFlag('photo-spots');
 const GEN_DAYTRIPS = getFlag('day-trips');
 const TOP_N = parseInt(getArg('top') || '50', 10);
 const BATCH_SIZE = parseInt(getArg('batch') || '5', 10);
+const CONCURRENCY = parseInt(getArg('concurrency') || '5', 10);
 
 // ── OpenAI setup ────────────────────────────────────────────────────
 
@@ -822,20 +823,37 @@ async function main() {
   }
 
   // ── Standard generation mode ──
-  console.log(`\nProcessing ${targets.length} cities...`);
+  const totalChunks = Math.ceil(targets.length / CONCURRENCY);
+  const estMinPerCity = 4; // ~7 sections × ~35s each
+  const estTotalMin = Math.ceil(targets.length / CONCURRENCY) * estMinPerCity;
+  console.log(`\nProcessing ${targets.length} cities in chunks of ${CONCURRENCY} (parallel)`);
+  console.log(`Estimated time: ~${estTotalMin} min\n`);
 
-  // Process in batches
-  for (let i = 0; i < targets.length; i += BATCH_SIZE) {
-    const batch = targets.slice(i, i + BATCH_SIZE);
-    console.log(`\n=== Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(targets.length / BATCH_SIZE)} ===`);
+  const startTime = Date.now();
 
-    for (const [slug, entry] of batch) {
+  for (let i = 0; i < targets.length; i += CONCURRENCY) {
+    const chunk = targets.slice(i, i + CONCURRENCY);
+    const chunkNum = Math.floor(i / CONCURRENCY) + 1;
+    const doneSoFar = results.length;
+    const elapsed = Math.round((Date.now() - startTime) / 1000);
+    const eta = doneSoFar > 0
+      ? Math.round(((Date.now() - startTime) / doneSoFar) * (targets.length - doneSoFar) / 1000)
+      : '?';
+
+    console.log(`\n═══ Chunk ${chunkNum}/${totalChunks} — cities: ${chunk.map(([s]) => s).join(', ')}`);
+    console.log(`    Progress: ${doneSoFar}/${targets.length} done | elapsed: ${elapsed}s | ETA: ${eta}s`);
+
+    const chunkResults = await Promise.all(chunk.map(async ([slug, entry]) => {
       const indexPath = path.join(getCityDir(entry), 'index.json');
       const idx = readJson(indexPath) || { city: slug, country: entry.country };
-      const result = await generateSectionsForCity(slug, entry, idx);
-      results.push(result);
-    }
+      return generateSectionsForCity(slug, entry, idx);
+    }));
+
+    results.push(...chunkResults);
   }
+
+  const totalSec = Math.round((Date.now() - startTime) / 1000);
+  console.log(`\nTotal generation time: ${Math.floor(totalSec/60)}m ${totalSec%60}s`);
 
   // ── Report ──
   console.log('\n\n=== GENERATION REPORT ===');

@@ -1,1 +1,3418 @@
-{"city":"wurzburg","country":"Germany","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "wurzburg",
+  "country": "Germany",
+  "overview": {
+    "city_name": "Würzburg",
+    "country": "Germany",
+    "brief_description": "Würzburg is a charming Bavarian city renowned for its stunning baroque architecture and vibrant wine culture. Situated on the banks of the Main River, it offers a perfect blend of historical landmarks and lively modern life, making it a captivating destination for travelers interested in culture and history.",
+    "nickname": "City of Baroque and Wine",
+    "region": "Franconia, Bavaria",
+    "population": "approximately 130,000",
+    "why_visit": [
+      "Explore the UNESCO-listed Würzburg Residence with its magnificent frescoes and gardens",
+      "Visit the historic Marienberg Fortress overlooking the city",
+      "Enjoy world-class Franconian wines in local wineries and taverns",
+      "Experience the charming old town with its picturesque markets and river views"
+    ],
+    "best_time_to_visit": "May to September, when the weather is warm and outdoor festivals take place",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming gardens make it ideal for sightseeing and wine tasting tours.",
+      "summer": "Warm and pleasant, perfect for river cruises and enjoying outdoor events like the Africa Festival.",
+      "autumn": "Harvest season brings vibrant fall colors and numerous wine festivals celebrating the local grape harvest.",
+      "winter": "Chilly but festive, with cozy Christmas markets and seasonal culinary delights."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "German",
+      "visit_duration": "2 to 3 days",
+      "getting_around": "Walking is ideal in the city center; buses and regional trains connect to nearby towns.",
+      "safety": "Würzburg is generally very safe for travelers, with low crime rates and welcoming locals."
+    },
+    "coordinates": {
+      "latitude": 49.7913,
+      "longitude": 9.9534
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Tour the Würzburg Residence and its Court Gardens",
+        "Climb up to Marienberg Fortress for panoramic city views",
+        "Stroll across the historic Alte Mainbrücke bridge",
+        "Visit the Würzburg Cathedral (St. Kilian's Cathedral)",
+        "Sample Franconian wine in a traditional Weinstube"
+      ],
+      "worth_doing": [
+        "Explore the Museum im Kulturspeicher for modern and contemporary art",
+        "Take a river cruise on the Main River",
+        "Relax in the Ringpark, a large urban park surrounding the old town",
+        "Attend the annual Africa Festival, Europe’s largest festival for African music and culture",
+        "Visit the Käppele pilgrimage church on a hill overlooking the city"
+      ],
+      "hidden_gems": [
+        "Discover the Vierröhrenbrunnen fountain, a baroque masterpiece in a quiet square",
+        "Visit the Juliusspital wine estate and its historic cellar",
+        "Explore the small but charming Botanical Garden of the University of Würzburg",
+        "Walk the lesser-known paths along the Main River for serene views",
+        "Check out the local street art in the Sanderau district"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Würzburg Residence (Würzburger Residenz)",
+        "type": "Palace",
+        "description": "This UNESCO World Heritage Site is a magnificent Baroque palace built in the 18th century, featuring grandiose frescoes by Giovanni Battista Tiepolo and extensive gardens. The Würzburg Residence is renowned for its ornate architecture and opulent interiors, reflecting the power of the Prince-Bishops of Würzburg.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Advance booking recommended to join guided tours that provide historical context.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 49.7913,
+        "longitude": 9.9322,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "09:00-18:00",
+          "notes": "Closes earlier in winter months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.residenz-wuerzburg.de/en/",
+        "website": "https://www.residenz-wuerzburg.de/en/"
+      },
+      {
+        "name": "Marienberg Fortress (Festung Marienberg)",
+        "type": "Historic Site",
+        "description": "Perched on a hill overlooking Würzburg, the Marienberg Fortress dates back to the medieval era and offers panoramic views of the city and the Main River. Visitors can explore the fortress walls, museum exhibitions on Franconian history, and the fortress chapel.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Some areas may close during winter; gardens best in spring to early autumn.",
+        "booking_tips": "Entry is free; guided tours available but not necessary.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 49.7955,
+        "longitude": 9.9226,
+        "neighborhood": "Marienberg",
+        "opening_hours": {
+          "weekday": "09:00-17:00",
+          "weekend": "09:00-17:00",
+          "notes": "Museum inside closes earlier"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Würzburg Museum indoors"
+        },
+        "official_url": "https://www.festung-marienberg.de/en/",
+        "website": "https://www.festung-marienberg.de/en/"
+      },
+      {
+        "name": "Würzburg Cathedral (Kiliansdom)",
+        "type": "Church",
+        "description": "Dedicated to Saint Kilian, this Romanesque cathedral built in the 11th century is one of the largest churches in Bavaria. It features stunning Romanesque architecture, medieval artworks, and a peaceful cloister.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "No booking required; guided tours available on site.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 49.7936,
+        "longitude": 9.9293,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "07:00-18:00",
+          "weekend": "07:00-18:00",
+          "notes": "Opening hours may vary on religious holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": "https://www.kiliansdom-wuerzburg.de/"
+      },
+      {
+        "name": "Juliusspital Weingut",
+        "type": "Historic Site|Winery",
+        "description": "Founded in 1576, Juliusspital is a historic winery and hospital complex that produces some of Franconia’s finest wines. Visitors can tour the wine cellars, taste local varieties, and learn about the site’s centuries-old winemaking tradition.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Wine tasting best in late spring through autumn.",
+        "booking_tips": "Reservations recommended for wine tastings and tours.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 49.7931,
+        "longitude": 9.9302,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "10:00-16:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor winery tour"
+        },
+        "official_url": "https://www.juliusspital.de/en/",
+        "website": "https://www.juliusspital.de/en/"
+      },
+      {
+        "name": "Old Main Bridge (Alte Mainbrücke)",
+        "type": "Historic Site|Viewpoint",
+        "description": "The iconic Old Main Bridge spans the Main River and is lined with statues of saints and historical figures. It offers lovely views of Würzburg’s skyline, Marienberg Fortress, and is a popular spot for sunset walks and local wine taverns.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Lovely year-round; especially beautiful in spring and autumn.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 49.7927,
+        "longitude": 9.9333,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum am Dom",
+        "type": "Museum",
+        "description": "This museum next to Würzburg Cathedral houses an impressive collection of medieval and Baroque religious art from the region, including sculptures, paintings, and liturgical objects. It offers rich insight into the ecclesiastical history of Franconia.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets can be bought on-site; quiet mornings recommended.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 49.7935,
+        "longitude": 9.929,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": "https://www.museum-am-dom.de/en/"
+      },
+      {
+        "name": "Hofgarten",
+        "type": "Park",
+        "description": "The Hofgarten is a beautifully maintained Renaissance garden behind the Würzburg Residence, featuring geometric flowerbeds, fountains, and shaded walking paths. It is a peaceful green space perfect for relaxation and photography.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited from spring through early autumn when flowers bloom.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 49.791,
+        "longitude": 9.933,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "Open dawn to dusk",
+          "weekend": "Open dawn to dusk",
+          "notes": "Seasonal flower displays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Museum indoors"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Juliusspital Park",
+        "type": "Park",
+        "description": "Surrounding the historic Juliusspital complex, this park features mature trees, walking paths, and a serene atmosphere ideal for a leisurely stroll or picnic after visiting the winery.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and autumn with colorful foliage.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 2
+        },
+        "latitude": 49.7929,
+        "longitude": 9.9315,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "Open dawn to dusk",
+          "weekend": "Open dawn to dusk",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "any",
+          "weather_fallback": "Indoor winery or museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Mainfränkisches Museum",
+        "type": "Museum",
+        "description": "Located in a former palace, the Mainfränkisches Museum showcases art and cultural history of Franconia from prehistoric times through the modern era, including medieval altarpieces and regional crafts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Tickets available onsite; guided tours offered seasonally.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 49.7918,
+        "longitude": 9.9337,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": "https://www.mainfraenkisches-museum.de/",
+        "website": "https://www.mainfraenkisches-museum.de/"
+      },
+      {
+        "name": "Market Square (Marktplatz)",
+        "type": "Market",
+        "description": "Würzburg’s vibrant Market Square is the historic heart of the city, featuring colorful buildings, the Falkenhaus Baroque facade, and a bustling daily market selling local produce, crafts, and specialties.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free to browse",
+        "seasonal_notes": "Christmas market is a major seasonal highlight in December.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 49.791,
+        "longitude": 9.9315,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "06:00-14:00",
+          "weekend": "06:00-14:00",
+          "notes": "Closed on Sundays except special markets"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market halls nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Neumünster Church",
+        "type": "Church",
+        "description": "This beautiful Baroque church located near the Old Main Bridge features an impressive dome and houses the tomb of the Prince-Bishop Johann Philipp Franz von Schönborn. The church is also known for its ornate interior and acoustics.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Open to visitors during daylight hours; check for services.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 49.7921,
+        "longitude": 9.9339,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "May close during special events"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Bürgerspital Weingut",
+        "type": "Winery",
+        "description": "The Bürgerspital is one of Würzburg’s oldest wine estates, with a history dating back to the 14th century. Visitors can enjoy tasting sessions, purchase local wines, and explore the historic cellars.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget to Moderate",
+        "seasonal_notes": "Wine tasting tours best from spring to autumn.",
+        "booking_tips": "Booking in advance is advised for groups and tastings.",
+        "ratings": {
+          "cost_estimate": 12,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 49.794,
+        "longitude": 9.934,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "10:00-16:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "4"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor winery"
+        },
+        "official_url": "https://www.buergerspital.de/en/",
+        "website": "https://www.buergerspital.de/en/"
+      },
+      {
+        "name": "Würzburg Botanical Garden (Botanischer Garten der Universität Würzburg)",
+        "type": "Park",
+        "description": "Managed by the University of Würzburg, this botanical garden offers a diverse collection of plants from various climate zones, greenhouses with tropical species, and educational exhibits. It’s ideal for nature lovers and families.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Greenhouses are a great year-round option, outdoor areas peak in spring and summer.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 49.792,
+        "longitude": 9.941,
+        "neighborhood": "Grombühl",
+        "opening_hours": {
+          "weekday": "09:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Greenhouses open during all hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "11"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor greenhouses"
+        },
+        "official_url": "https://www.botgarten.uni-wuerzburg.de/en/",
+        "website": "https://www.botgarten.uni-wuerzburg.de/en/"
+      },
+      {
+        "name": "Augustinerkirche",
+        "type": "Church",
+        "description": "A splendid example of Baroque architecture, the Augustinerkirche was built by Augustinian monks in the 17th century. Its lavish stucco work and frescoes make it a must-see for art and history enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": "Free entry; check for mass times.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 49.7915,
+        "longitude": 9.9299,
+        "neighborhood": "Altstadt",
+        "opening_hours": {
+          "weekday": "08:00-18:00",
+          "weekend": "08:00-18:00",
+          "notes": "May close for services"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "3",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Veitshöchheim Palace and Gardens",
+        "type": "Palace|Park",
+        "description": "Located just outside Würzburg, this 18th-century Rococo palace is famous for its grandiose gardens, including a botanical collection and ornamental fountains. It offers a peaceful retreat with rich historical context.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Gardens are spectacular in spring and summer; palace tours year-round.",
+        "booking_tips": "Advance booking advised for palace interior tours.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 49.8054,
+        "longitude": 9.8987,
+        "neighborhood": "Veitshöchheim",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "900",
+            "910"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Palace museum indoor"
+        },
+        "official_url": "https://www.veitshoechheim.de/en/tourism/veitshoechheim-palace",
+        "website": "https://www.veitshoechheim.de/en/tourism/veitshoechheim-palace"
+      },
+      {
+        "name": "Röntgen Memorial Site",
+        "type": "Historic Site|Museum",
+        "description": "Dedicated to Wilhelm Conrad Röntgen, the physicist who discovered X-rays, this small museum and memorial showcase his life and groundbreaking work. It’s an insightful visit for science enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Open during university hours; check ahead for guided visits.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 49.7858,
+        "longitude": 9.9369,
+        "neighborhood": "Grombühl",
+        "opening_hours": {
+          "weekday": "09:00-16:00",
+          "weekend": "Closed",
+          "notes": "Closed weekends and holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "8",
+            "10"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "N/A"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Stein Castle (Steinburg)",
+        "type": "Historic Site",
+        "description": "Located on the outskirts of Würzburg, Stein Castle is a medieval fortification that now hosts cultural events and offers scenic views of the Main River valley. The castle grounds are ideal for hiking and photography.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Access is best in spring to autumn; some facilities closed in winter.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 49.7774,
+        "longitude": 9.9241,
+        "neighborhood": "Stein",
+        "opening_hours": {
+          "weekday": "Open dawn to dusk",
+          "weekend": "Open dawn to dusk",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museums in city"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum für Franken",
+        "type": "Museum",
+        "description": "Located inside the Marienberg Fortress, the Museum für Franken offers extensive collections covering Franconian art, archaeology, and cultural history, featuring medieval armor, ceramics, and fine art.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Purchase combined tickets with fortress entrance.",
+        "ratings": {
+          "cost_estimate": 8,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 49.7957,
+        "longitude": 9.9228,
+        "neighborhood": "Marienberg",
+        "opening_hours": {
+          "weekday": "10:00-17:00",
+          "weekend": "10:00-17:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "6",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "https://museum-fuer-franken.de/",
+        "website": "https://museum-fuer-franken.de/"
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Altstadt",
+        "alternate_names": [
+          "Old Town"
+        ],
+        "character": "The historic heart of Würzburg pulses with baroque grandeur and vibrant street life, where medieval streets intertwine with lively squares. It combines a timeless charm with bustling cafes and shops, offering a quintessential city experience.",
+        "location": {
+          "central": true,
+          "description": "Located at the city center along the Main River's northern bank",
+          "borders": [
+            "Sanderau",
+            "Zellerau",
+            "Lindleinsmühle"
+          ],
+          "landmarks": [
+            "Würzburg Residence",
+            "Marienkapelle",
+            "Alte Mainbrücke"
+          ]
+        },
+        "history": {
+          "overview": "Altstadt dates back to medieval times and was heavily reconstructed after WWII bombings.",
+          "significance": "It showcases Würzburg’s rich baroque architecture and is a UNESCO World Heritage site.",
+          "notable_events": [
+            "Destruction during WWII 1945",
+            "Reconstruction post-war",
+            "Residence Palace designated UNESCO site 1981"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Würzburg Hauptbahnhof",
+            "Mainkai Tram Stop"
+          ],
+          "safety": "Very safe with high police presence and tourist-friendly environment",
+          "best_time_to_visit": "Spring to early autumn for pleasant walks and festivals",
+          "walkability": "Highly walkable with pedestrian-only zones and cobblestone streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Baroque architecture",
+            "Würzburg Residence",
+            "Historic churches",
+            "Wine taverns"
+          ],
+          "atmosphere": [
+            "historic",
+            "lively",
+            "picturesque"
+          ],
+          "best_for": [
+            "history enthusiasts",
+            "cultural tourists",
+            "photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 5,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Würzburg Residence",
+              "type": "Palace",
+              "description": "A stunning baroque palace with grand frescoes and landscaped gardens.",
+              "appeal": "World Heritage site showcasing exquisite architecture and art."
+            },
+            {
+              "name": "Alte Mainbrücke",
+              "type": "Bridge",
+              "description": "Old bridge lined with statues offering panoramic river views.",
+              "appeal": "Iconic spot for wine tasting and sunset views."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Weinstube Kachelofen",
+              "cuisine": "Franconian",
+              "price_range": "€€",
+              "known_for": "Traditional Franconian dishes paired with local wine",
+              "atmosphere": "Cozy, authentic, rustic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy empty streets and soft light on the Residence.",
+          "Try a glass of Silvaner wine at one of the riverfront taverns on Alte Mainbrücke.",
+          "Explore the narrow alleys behind Marienkapelle for quaint artisan shops."
+        ]
+      },
+      {
+        "name": "Sanderau",
+        "alternate_names": [],
+        "character": "Sanderau is a charming, vibrant neighborhood popular with students and young locals, featuring a mix of cafes, small boutiques, and vintage shops. It offers a relaxed, creative vibe with a growing scene of hip bars and cultural spaces.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, across the Main River",
+          "borders": [
+            "Altstadt",
+            "Heidingsfeld",
+            "Zell"
+          ],
+          "landmarks": [
+            "Sanderau Church",
+            "Main Riverbanks"
+          ]
+        },
+        "history": {
+          "overview": "Originally a working-class district, Sanderau has evolved into a trendy neighborhood over recent decades.",
+          "significance": "Known for its youthful energy and cultural diversity within Würzburg.",
+          "notable_events": [
+            "Development of student housing post-1960s",
+            "Cultural revitalization in 2000s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Sanderau Tram Stop",
+            "Bus Line 15"
+          ],
+          "safety": "Safe with a lively street presence at most hours",
+          "best_time_to_visit": "Late spring through early fall for outdoor events and festivals",
+          "walkability": "Highly walkable with pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Independent cafes",
+            "Street art",
+            "Live music venues",
+            "Vintage shops"
+          ],
+          "atmosphere": [
+            "hip",
+            "bohemian",
+            "laid-back"
+          ],
+          "best_for": [
+            "young travelers",
+            "students",
+            "creative types"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Sanderau Church",
+              "type": "Religious Site",
+              "description": "A neo-Gothic church serving as community cultural hub.",
+              "appeal": "Architectural interest and local events."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Kaffeekommune",
+              "cuisine": "Coffee & Light Bites",
+              "price_range": "€",
+              "known_for": "Specialty coffee and relaxed atmosphere",
+              "atmosphere": "Trendy, cozy, welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check out local art shows in the small galleries along Sanderstraße.",
+          "Visit on a weekend to experience the outdoor markets and pop-up events.",
+          "Try the craft beers at neighborhood bars favored by students."
+        ]
+      },
+      {
+        "name": "Zellerau",
+        "alternate_names": [],
+        "character": "Zellerau is a primarily residential district with a diverse population and a strong community feel, blending modern apartment complexes with traditional homes. It has family-friendly parks and quiet streets, making it a peaceful retreat from city bustle.",
+        "location": {
+          "central": false,
+          "description": "Northwest of Altstadt, along the Main River",
+          "borders": [
+            "Altstadt",
+            "Juliusspital",
+            "Grombühl"
+          ],
+          "landmarks": [
+            "Zellerau Park",
+            "Juliusspital Wine Estate"
+          ]
+        },
+        "history": {
+          "overview": "Historically a workers’ district, Zellerau has grown into a mixed-use neighborhood with an emphasis on community living.",
+          "significance": "Home to Würzburg’s Juliusspital, one of the oldest hospital and wine estates in Europe.",
+          "notable_events": [
+            "Establishment of Juliusspital in the 16th century",
+            "Post-war residential development"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Zellerau Tram Stop",
+            "Bus Lines 13, 15"
+          ],
+          "safety": "Generally safe and family-friendly",
+          "best_time_to_visit": "Spring and summer for park activities",
+          "walkability": "Moderately walkable with some residential streets requiring short bus rides"
+        },
+        "appeal": {
+          "known_for": [
+            "Juliusspital winery",
+            "Parks and playgrounds",
+            "Community markets"
+          ],
+          "atmosphere": [
+            "quiet",
+            "family-oriented",
+            "green"
+          ],
+          "best_for": [
+            "families",
+            "long-term residents",
+            "nature lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Juliusspital Wine Estate",
+              "type": "Winery/Hospital",
+              "description": "Historic estate combining medical care with renowned vineyards.",
+              "appeal": "Wine tasting and architectural heritage."
+            },
+            {
+              "name": "Zellerau Park",
+              "type": "Park",
+              "description": "Large green space perfect for families and outdoor activities.",
+              "appeal": "Relaxing nature escape within the city."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Weinstube Juliusspital",
+              "cuisine": "Franconian",
+              "price_range": "€€",
+              "known_for": "Local wines and traditional dishes",
+              "atmosphere": "Historic, warm, inviting"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Plan a wine tasting tour at the Juliusspital vineyard cellar.",
+          "Visit the community market on Saturdays for fresh local produce.",
+          "Walk along the riverbanks near Zellerau Park for tranquil views."
+        ]
+      },
+      {
+        "name": "Grombühl",
+        "alternate_names": [],
+        "character": "Grombühl is a mixed-use neighborhood combining quiet residential streets with pockets of office and educational institutions. It feels calm and practical, favored by families and professionals for its green spaces and amenities.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, beyond the Main River",
+          "borders": [
+            "Altstadt",
+            "Zellerau",
+            "Heidingsfeld"
+          ],
+          "landmarks": [
+            "Würzburg University Clinics",
+            "Grombühl Park"
+          ]
+        },
+        "history": {
+          "overview": "Originally farmland, Grombühl developed rapidly in the 20th century as Würzburg expanded.",
+          "significance": "Important for its medical institutions and residential growth.",
+          "notable_events": [
+            "Post-war urban development",
+            "Expansion of university hospital"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Grombühl Tram Stop",
+            "Bus Lines 11, 15"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Year-round, especially spring for park walks",
+          "walkability": "Walkable with good sidewalks and public transit"
+        },
+        "appeal": {
+          "known_for": [
+            "Medical centers",
+            "University facilities",
+            "Local parks"
+          ],
+          "atmosphere": [
+            "quiet",
+            "functional",
+            "green"
+          ],
+          "best_for": [
+            "medical visitors",
+            "families",
+            "students"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Würzburg University Clinics",
+              "type": "Medical Campus",
+              "description": "Major medical and research center serving the region.",
+              "appeal": "Key institution for medical visitors and conferences."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Pustet",
+              "cuisine": "Café and light meals",
+              "price_range": "€",
+              "known_for": "Casual coffee and pastries",
+              "atmosphere": "Relaxed, neighborhood-style"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Use the tram from Grombühl for quick access to the city center.",
+          "Enjoy quiet mornings at Grombühl Park with locals walking dogs and jogging.",
+          "Check out small local bakeries for traditional Würzburg pastries."
+        ]
+      },
+      {
+        "name": "Lindleinsmühle",
+        "alternate_names": [],
+        "character": "Lindleinsmühle is a small, upscale neighborhood nestled near the Main River, known for elegant villas and serene river views. It offers a quiet, exclusive atmosphere with proximity to cultural institutions and green spaces.",
+        "location": {
+          "central": true,
+          "description": "Just east of Altstadt along the southern riverbank",
+          "borders": [
+            "Altstadt",
+            "Grombühl"
+          ],
+          "landmarks": [
+            "Museum am Dom",
+            "Main River Promenade"
+          ]
+        },
+        "history": {
+          "overview": "Lindleinsmühle developed as a residential district for the city’s affluent in the 19th and early 20th centuries.",
+          "significance": "It preserves fine historic architecture and proximity to cultural sites.",
+          "notable_events": [
+            "19th-century villa constructions",
+            "Post-war preservation efforts"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Lindleinsmühle Tram Stop",
+            "Bus Lines 1, 10"
+          ],
+          "safety": "Very safe and quiet",
+          "best_time_to_visit": "Late spring and summer for riverside strolls",
+          "walkability": "Highly walkable with scenic riverside paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Elegant residences",
+            "Museum am Dom",
+            "River views"
+          ],
+          "atmosphere": [
+            "quiet",
+            "refined",
+            "picturesque"
+          ],
+          "best_for": [
+            "couples",
+            "culture seekers",
+            "walkers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 1,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Museum am Dom",
+              "type": "Art Museum",
+              "description": "Museum housing religious art and artifacts near the cathedral.",
+              "appeal": "Insightful cultural experience in a serene setting."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Vinothek Würzburg",
+              "cuisine": "Wine Bar and Light Fare",
+              "price_range": "€€",
+              "known_for": "Local wines and elegant snacks",
+              "atmosphere": "Intimate, sophisticated, quiet"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Walk the riverside promenade at sunset for beautiful photo opportunities.",
+          "Visit Museum am Dom on weekday afternoons to avoid crowds.",
+          "Try seasonal wines paired with regional cheese plates at local vinotheks."
+        ]
+      },
+      {
+        "name": "Innenstadt (City Center Shopping District)",
+        "alternate_names": [
+          "City Center",
+          "Shopping District"
+        ],
+        "character": "The Innenstadt buzzes with shoppers and urban energy, lined with boutiques, department stores, and bustling pedestrian streets. It blends modern commerce with historic charm, making it the go-to for retail and dining.",
+        "location": {
+          "central": true,
+          "description": "Heart of the city encompassing major shopping streets around the main square",
+          "borders": [
+            "Altstadt",
+            "Lindleinsmühle",
+            "Sanderau"
+          ],
+          "landmarks": [
+            "Juliuspromenade",
+            "Karmelitenstraße",
+            "Marktplatz"
+          ]
+        },
+        "history": {
+          "overview": "Developed as the commercial core over centuries, it was rebuilt after wartime destruction with a modern touch.",
+          "significance": "Key economic hub and social meeting place for locals and visitors.",
+          "notable_events": [
+            "Post-WWII reconstruction",
+            "Annual Christmas market tradition"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Hauptbahnhof",
+            "Tram stops: Hauptbahnhof, Barbarossaplatz"
+          ],
+          "safety": "Safe but stay alert for pickpockets during busy times",
+          "best_time_to_visit": "Holiday season for markets, spring and summer for shopping strolls",
+          "walkability": "Extremely walkable with pedestrian zones"
+        },
+        "appeal": {
+          "known_for": [
+            "Shopping",
+            "Cafés and restaurants",
+            "Street performers",
+            "Seasonal markets"
+          ],
+          "atmosphere": [
+            "bustling",
+            "modern",
+            "friendly"
+          ],
+          "best_for": [
+            "shoppers",
+            "families",
+            "casual tourists"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 2,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Marktplatz",
+              "type": "Public Square",
+              "description": "Central square hosting markets, festivals, and social gatherings.",
+              "appeal": "Lively atmosphere with historic buildings surrounding."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Michel",
+              "cuisine": "European Café",
+              "price_range": "€€",
+              "known_for": "Coffee, cakes, and people-watching on the square",
+              "atmosphere": "Lively, casual, welcoming"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Christmas market in December for a magical experience.",
+          "Shop early in the day to avoid crowds on weekends.",
+          "Explore side streets for unique local boutiques away from main thoroughfares."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Restaurant Würzhaus",
+          "cuisine_type": "Modern Franconian",
+          "description": "A contemporary take on traditional Franconian cuisine with a focus on local ingredients and seasonal menus.",
+          "price_range": "€€€",
+          "atmosphere": "Elegant, intimate with a modern rustic charm",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 49.7914,
+          "longitude": 9.9331,
+          "reservation_needed": true,
+          "local_tips": "Try the Franconian wine pairing menu for a true regional experience."
+        },
+        {
+          "name": "Weinstube Kachelofen",
+          "cuisine_type": "Franconian",
+          "description": "A historic wine tavern serving refined Franconian dishes paired with local wines in a cozy setting.",
+          "price_range": "€€€",
+          "atmosphere": "Traditional and warm with historic charm",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "wine lovers",
+            "food connoisseurs"
+          ],
+          "latitude": 49.7942,
+          "longitude": 9.9329,
+          "reservation_needed": true,
+          "local_tips": "Their Schäufele (pork shoulder) is a must-try classic."
+        },
+        {
+          "name": "Restaurant Alte Mainmühle",
+          "cuisine_type": "International with Franconian influence",
+          "description": "Set in a historic mill by the Main River, offering elegant dishes and a panoramic view of the city.",
+          "price_range": "€€€",
+          "atmosphere": "Romantic, scenic riverside dining",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "romantic dinners",
+            "celebrations"
+          ],
+          "latitude": 49.7916,
+          "longitude": 9.9349,
+          "reservation_needed": true,
+          "local_tips": "Reserve a table by the window for sunset views over the river."
+        },
+        {
+          "name": "Spitalgarten",
+          "cuisine_type": "Seasonal Franconian",
+          "description": "Upscale restaurant within the Spitalkellerei winery, combining local wines and refined seasonal dishes.",
+          "price_range": "€€€",
+          "atmosphere": "Sophisticated yet relaxed with a focus on wine culture",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "wine pairing",
+            "foodies"
+          ],
+          "latitude": 49.7951,
+          "longitude": 9.9335,
+          "reservation_needed": true,
+          "local_tips": "Try their tasting menu paired with Franconian Silvaner wines."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Gasthaus zum Stachel",
+          "cuisine_type": "Traditional Franconian",
+          "description": "One of Würzburg's oldest taverns, serving hearty regional specialties and an extensive local wine selection.",
+          "price_range": "€€",
+          "atmosphere": "Cozy, historic tavern vibe",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "groups",
+            "casual meals"
+          ],
+          "latitude": 49.794,
+          "longitude": 9.9323,
+          "reservation_needed": false,
+          "local_tips": "Order the bratwurst with sauerkraut paired with a glass of local wine."
+        },
+        {
+          "name": "Café MainHaus",
+          "cuisine_type": "German café cuisine",
+          "description": "A lively café and bistro offering light meals, cakes, and great coffee, right on the Main River promenade.",
+          "price_range": "€",
+          "atmosphere": "Casual, bright, riverfront",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "breakfast",
+            "casual lunch"
+          ],
+          "latitude": 49.7928,
+          "longitude": 9.9337,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade Apfelstrudel with a cup of Franconian coffee."
+        },
+        {
+          "name": "Vinothek am Markt",
+          "cuisine_type": "Wine bar with small plates",
+          "description": "A relaxed spot near the market offering a curated selection of Franconian wines and tasty small plates.",
+          "price_range": "€€",
+          "atmosphere": "Lively, social, wine-focused",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "wine tasting",
+            "groups"
+          ],
+          "latitude": 49.7917,
+          "longitude": 9.933,
+          "reservation_needed": false,
+          "local_tips": "Pair their house-made pretzels with a glass of Silvaner."
+        },
+        {
+          "name": "Ristorante Da Domenico",
+          "cuisine_type": "Italian",
+          "description": "Popular Italian restaurant with authentic dishes, perfect for casual dining in a warm atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Friendly, comfortable",
+          "neighborhood": "Zellerau",
+          "best_for": [
+            "families",
+            "casual dinners"
+          ],
+          "latitude": 49.799,
+          "longitude": 9.9274,
+          "reservation_needed": true,
+          "local_tips": "The house-made pasta dishes are always fresh and flavorful."
+        },
+        {
+          "name": "Café Michel",
+          "cuisine_type": "German café and bistro",
+          "description": "A neighborhood favorite offering daily specials, cakes, and a friendly atmosphere.",
+          "price_range": "€",
+          "atmosphere": "Casual and cozy",
+          "neighborhood": "Sanderau",
+          "best_for": [
+            "coffee breaks",
+            "light meals"
+          ],
+          "latitude": 49.7902,
+          "longitude": 9.9279,
+          "reservation_needed": false,
+          "local_tips": "Try the seasonal fruit tarts when available."
+        },
+        {
+          "name": "Trattoria Toscana",
+          "cuisine_type": "Italian",
+          "description": "Authentic Tuscan cuisine with a focus on fresh ingredients and traditional recipes.",
+          "price_range": "€€",
+          "atmosphere": "Warm and rustic",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "friends",
+            "family dinners"
+          ],
+          "latitude": 49.7935,
+          "longitude": 9.9298,
+          "reservation_needed": true,
+          "local_tips": "Pair your meal with a bottle of Tuscan wine from their extensive list."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Würzburg Wochenmarkt",
+          "cuisine_type": "Local produce and street eats",
+          "description": "A vibrant market held several days a week offering fresh local produce, Franconian specialties, and street food stalls.",
+          "price_range": "€",
+          "atmosphere": "Bustling, lively, authentic",
+          "neighborhood": "Marktplatz (Market Square)",
+          "best_for": [
+            "quick bites",
+            "local flavors"
+          ],
+          "latitude": 49.7911,
+          "longitude": 9.9335,
+          "reservation_needed": false,
+          "local_tips": "Visit on Saturday mornings for the best selection and try the freshly baked bread with local sausages."
+        },
+        {
+          "name": "Mainkai Street Food Stalls",
+          "cuisine_type": "Various international & local",
+          "description": "Seasonal street food vendors along the Main River promenade offering everything from bratwurst to falafel.",
+          "price_range": "€",
+          "atmosphere": "Casual, outdoor, scenic",
+          "neighborhood": "Mainkai",
+          "best_for": [
+            "snacks",
+            "outdoor dining"
+          ],
+          "latitude": 49.7923,
+          "longitude": 9.9339,
+          "reservation_needed": false,
+          "local_tips": "Perfect spot for a casual snack while enjoying river views."
+        },
+        {
+          "name": "Food Truck Festival Würzburg (seasonal)",
+          "cuisine_type": "Varied international",
+          "description": "A popular seasonal event where local and traveling food trucks serve diverse street food options.",
+          "price_range": "€",
+          "atmosphere": "Festive, family-friendly",
+          "neighborhood": "Various locations",
+          "best_for": [
+            "families",
+            "groups"
+          ],
+          "latitude": 49.791,
+          "longitude": 9.933,
+          "reservation_needed": false,
+          "local_tips": "Check local listings for event dates, usually held in spring and summer."
+        },
+        {
+          "name": "Kürschnerplatz Snack Stalls",
+          "cuisine_type": "German fast casual",
+          "description": "Small stands offering classic German street snacks like currywurst, pretzels, and grilled sausages.",
+          "price_range": "€",
+          "atmosphere": "Casual, quick service",
+          "neighborhood": "Kürschnerplatz",
+          "best_for": [
+            "quick lunch",
+            "on-the-go"
+          ],
+          "latitude": 49.793,
+          "longitude": 9.93,
+          "reservation_needed": false,
+          "local_tips": "Try a freshly grilled bratwurst with mustard and a local beer."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Barrique Weinbar",
+          "cuisine_type": "Wine bar",
+          "description": "A cozy bar specializing in Franconian and international wines with knowledgeable staff.",
+          "price_range": "€€",
+          "atmosphere": "Intimate, relaxed",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "wine tasting",
+            "date night"
+          ],
+          "latitude": 49.792,
+          "longitude": 9.9332,
+          "reservation_needed": false,
+          "local_tips": "Ask for their off-menu wine recommendations for unique finds."
+        },
+        {
+          "name": "The Duke Bar",
+          "cuisine_type": "Cocktails",
+          "description": "Elegant cocktail bar with a creative drink menu and stylish interior.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy, upscale",
+          "neighborhood": "Zellerau",
+          "best_for": [
+            "cocktail lovers",
+            "night out"
+          ],
+          "latitude": 49.7995,
+          "longitude": 9.927,
+          "reservation_needed": true,
+          "local_tips": "Try their signature Franconian herb-infused cocktails."
+        },
+        {
+          "name": "Brennessel Bar",
+          "cuisine_type": "Craft beers and cocktails",
+          "description": "Eclectic bar offering a wide range of craft beers and inventive cocktails in a lively setting.",
+          "price_range": "€€",
+          "atmosphere": "Casual, vibrant",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "groups",
+            "casual drinks"
+          ],
+          "latitude": 49.7915,
+          "longitude": 9.9315,
+          "reservation_needed": false,
+          "local_tips": "Sample the local craft beer selection on tap."
+        },
+        {
+          "name": "Kellerperle",
+          "cuisine_type": "Wine and beer bar",
+          "description": "Traditional wine cellar bar with a great selection of Franconian wines and local beers.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and historic",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "authentic experience",
+            "quiet evenings"
+          ],
+          "latitude": 49.7932,
+          "longitude": 9.934,
+          "reservation_needed": false,
+          "local_tips": "Visit during the wine harvest season for special tastings."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Zuckerfrei",
+          "cuisine_type": "Coffee and healthy snacks",
+          "description": "Popular café focusing on sugar-free and healthy options with excellent coffee.",
+          "price_range": "€",
+          "atmosphere": "Bright, modern, health-conscious",
+          "neighborhood": "Sanderau",
+          "best_for": [
+            "breakfast",
+            "health-conscious visitors"
+          ],
+          "latitude": 49.7895,
+          "longitude": 9.929,
+          "reservation_needed": false,
+          "local_tips": "Try their sugar-free cakes paired with a cappuccino."
+        },
+        {
+          "name": "Kaffeekommune Würzburg",
+          "cuisine_type": "Specialty coffee",
+          "description": "Artisan coffee roasters and café serving expertly brewed coffee and light bites.",
+          "price_range": "€",
+          "atmosphere": "Hip, minimalist",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "coffee enthusiasts",
+            "work-friendly"
+          ],
+          "latitude": 49.7923,
+          "longitude": 9.9325,
+          "reservation_needed": false,
+          "local_tips": "Ask the barista for single origin pour-over recommendations."
+        },
+        {
+          "name": "Café am Dom",
+          "cuisine_type": "Traditional café fare",
+          "description": "Classic café located near the Würzburg Cathedral, offering cakes, pastries, and light meals.",
+          "price_range": "€",
+          "atmosphere": "Traditional, relaxed",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "afternoon coffee",
+            "tourists"
+          ],
+          "latitude": 49.7925,
+          "longitude": 9.933,
+          "reservation_needed": false,
+          "local_tips": "Try their seasonal fruit cakes made fresh daily."
+        },
+        {
+          "name": "Café Glockenspiel",
+          "cuisine_type": "German café",
+          "description": "Charming café with a variety of breakfast options and homemade cakes in a historic setting.",
+          "price_range": "€",
+          "atmosphere": "Cozy, historic",
+          "neighborhood": "Altstadt (Old Town)",
+          "best_for": [
+            "breakfast",
+            "cozy gatherings"
+          ],
+          "latitude": 49.7918,
+          "longitude": 9.9342,
+          "reservation_needed": false,
+          "local_tips": "Arrive early on weekends to avoid the crowd."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Franconian Wine and Food Walking Tour",
+        "description": "Guided tour through Würzburg’s Old Town sampling regional wines and traditional Franconian dishes.",
+        "price_range": "€€",
+        "location": "Starts at Marktplatz",
+        "duration": "3 hours",
+        "local_tips": "Wear comfortable shoes and come hungry; the tour includes multiple tastings."
+      },
+      {
+        "name": "Cooking Class: Franconian Specialties",
+        "description": "Hands-on cooking workshop focusing on signature dishes like Schäufele and Kloß with local chefs.",
+        "price_range": "€€€",
+        "location": "Local cooking studio in Altstadt",
+        "duration": "4 hours",
+        "local_tips": "Book in advance, especially in peak tourist season."
+      },
+      {
+        "name": "Visit to Juliusspital Winery with Tasting",
+        "description": "Tour the historic Juliusspital winery followed by a tasting of their renowned Franconian wines paired with local snacks.",
+        "price_range": "€€",
+        "location": "Juliusspital, Altstadt",
+        "duration": "2 hours",
+        "local_tips": "Combine with a stroll through the Juliusspital gardens nearby."
+      },
+      {
+        "name": "Würzburg Wochenmarkt Culinary Exploration",
+        "description": "Explore the vibrant weekly market with a food expert highlighting seasonal produce and street food stalls.",
+        "price_range": "€",
+        "location": "Marktplatz",
+        "duration": "1.5 hours",
+        "local_tips": "Go early for the best selection and chat with local vendors."
+      },
+      {
+        "name": "Main River Dinner Cruise",
+        "description": "Enjoy a scenic boat dinner featuring regional cuisine and Franconian wines along the Main River.",
+        "price_range": "€€€",
+        "location": "Mainkai Boarding Point",
+        "duration": "2.5 hours",
+        "local_tips": "Reserve ahead and dress smart-casual for this special experience."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Spargel (white asparagus) dishes",
+        "Fresh herb salads with local greens",
+        "Early season Franconian white wines"
+      ],
+      "summer": [
+        "Grilled bratwurst and sausages at street markets",
+        "Cold Franconian wines like Silvaner and Müller-Thurgau",
+        "Fresh fruit tarts with seasonal berries"
+      ],
+      "autumn": [
+        "Schäufele (roasted pork shoulder)",
+        "Wild game dishes such as venison",
+        "New wine (Federweißer) and pumpkin specialties"
+      ],
+      "winter": [
+        "Hearty Franconian stews and soups",
+        "Mulled wine (Glühwein) at Christmas markets",
+        "Roasted chestnuts and gingerbread treats"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Frankfurt",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "1h 15m",
+            "frequency": "hourly",
+            "price_range": "€20-€50",
+            "operator": "Deutsche Bahn",
+            "notes": "High-speed ICE trains connect Würzburg to Frankfurt Hauptbahnhof frequently."
+          },
+          {
+            "type": "bus",
+            "duration": "1h 45m",
+            "frequency": "daily",
+            "price_range": "€10-€25",
+            "operator": "FlixBus",
+            "notes": "Comfortable intercity bus service with Wi-Fi onboard."
+          }
+        ]
+      },
+      {
+        "city": "Munich",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "2h 30m",
+            "frequency": "hourly",
+            "price_range": "€30-€70",
+            "operator": "Deutsche Bahn",
+            "notes": "Direct ICE and regional trains connect Würzburg and Munich."
+          },
+          {
+            "type": "bus",
+            "duration": "3h 15m",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Economical bus route with multiple departures."
+          }
+        ]
+      },
+      {
+        "city": "Berlin",
+        "country": "Germany",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 10m",
+            "frequency": "several daily",
+            "price_range": "€40-€90",
+            "operator": "Deutsche Bahn",
+            "notes": "Direct ICE trains available; advance booking recommended."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 10m",
+            "frequency": "daily",
+            "price_range": "€60-€120",
+            "operator": "Lufthansa, Eurowings",
+            "notes": "Flights depart from Frankfurt Airport reachable via train from Würzburg."
+          }
+        ]
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "several daily",
+            "price_range": "€40-€90",
+            "operator": "ÖBB / Deutsche Bahn",
+            "notes": "Connections typically require a change in Nuremberg or Munich."
+          },
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Direct buses with comfortable seating and onboard amenities."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Deutsche Bahn / SNCF",
+            "notes": "High-speed trains connecting via Frankfurt or Mannheim."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Air France, Lufthansa",
+            "notes": "Flights operate from Frankfurt Airport accessible by train."
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 0m",
+            "frequency": "daily",
+            "price_range": "€40-€100",
+            "operator": "Deutsche Bahn / NS",
+            "notes": "Direct and indirect trains with transfer in Frankfurt or Cologne."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 30m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "FlixBus",
+            "notes": "Overnight and daytime services available."
+          }
+        ]
+      },
+      {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "6h 0m",
+            "frequency": "daily",
+            "price_range": "€35-€80",
+            "operator": "Deutsche Bahn / Czech Railways",
+            "notes": "Routes usually require a transfer at Nuremberg or Dresden."
+          },
+          {
+            "type": "bus",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€35",
+            "operator": "FlixBus",
+            "notes": "Direct buses with multiple daily departures."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 0m",
+            "frequency": "several daily",
+            "price_range": "€40-€90",
+            "operator": "Deutsche Bahn / SBB",
+            "notes": "Direct and connecting trains via Stuttgart or Ulm."
+          },
+          {
+            "type": "bus",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€45",
+            "operator": "FlixBus",
+            "notes": "Comfortable coach service with free Wi-Fi."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 0m",
+            "frequency": "daily",
+            "price_range": "€50-€110",
+            "operator": "Deutsche Bahn / Thalys",
+            "notes": "High-speed train via Frankfurt and Cologne."
+          },
+          {
+            "type": "bus",
+            "duration": "7h 0m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "FlixBus",
+            "notes": "Economical option with multiple departures."
+          }
+        ]
+      },
+      {
+        "city": "Venice",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "7h 0m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Deutsche Bahn / Trenitalia",
+            "notes": "Connections via Munich or Verona with scenic routes."
+          },
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "several weekly",
+            "price_range": "€80-€150",
+            "operator": "Lufthansa, Eurowings",
+            "notes": "Flights from Frankfurt Airport accessible by train."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Würzburg Frühlingsfest",
+        "type": "festival",
+        "description": "A lively spring fair with rides, food stalls, and live music celebrating the arrival of warmer weather.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Talavera Main Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Würzburg Residenz Gardens Walk",
+        "type": "outdoor",
+        "description": "Explore the beautifully landscaped baroque gardens of the Würzburg Residence as flowers bloom and temperatures rise.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Würzburg Residence",
+        "price": "Moderate"
+      },
+      {
+        "name": "Asparagus Season Dining",
+        "type": "food",
+        "description": "Enjoy fresh Franconian white asparagus dishes served in local restaurants, a regional spring delicacy.",
+        "best_months": [
+          "April",
+          "May",
+          "June"
+        ],
+        "location": "Various local restaurants",
+        "price": "Moderate"
+      },
+      {
+        "name": "Main River Bike Touring",
+        "type": "sport",
+        "description": "Cycle along the scenic Main River paths surrounded by blossoming trees and mild spring weather.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Main River bike trails",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Africa Festival Würzburg",
+        "type": "festival",
+        "description": "Europe’s largest festival for African music and culture featuring concerts, workshops, and food stands.",
+        "best_months": [
+          "June",
+          "July"
+        ],
+        "location": "Talavera Main Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Outdoor Wine Tastings",
+        "type": "food",
+        "description": "Sample Franconian wines outdoors at vineyards and wine taverns, enjoying warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Würzburg vineyards and wine cellars",
+        "price": "Moderate"
+      },
+      {
+        "name": "Main River Boat Cruises",
+        "type": "outdoor",
+        "description": "Take a relaxing boat cruise on the Main River to admire Würzburg’s skyline and lush green surroundings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Main River docks",
+        "price": "Moderate"
+      },
+      {
+        "name": "Marienberg Fortress Evening Tours",
+        "type": "cultural",
+        "description": "Enjoy guided evening tours of the historic fortress with panoramic views of the city bathed in summer light.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Marienberg Fortress",
+        "price": "Moderate"
+      },
+      {
+        "name": "Open-Air Cinema at Würzburg Residence",
+        "type": "cultural",
+        "description": "Watch films under the stars in the courtyard of the Würzburg Residence during summer evenings.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Würzburg Residence Courtyard",
+        "price": "Budget"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Würzburger Weinfest (Wine Festival)",
+        "type": "festival",
+        "description": "Celebrate the grape harvest with wine tasting, traditional music, and regional culinary specialties in the city center.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Talavera Main Square",
+        "price": "Budget"
+      },
+      {
+        "name": "Harvest Walks in the Vineyards",
+        "type": "outdoor",
+        "description": "Join guided walks through colorful autumn vineyards to learn about grape harvesting and enjoy scenic views.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Würzburg vineyards",
+        "price": "Free"
+      },
+      {
+        "name": "Franconian Pumpkin Festival",
+        "type": "food",
+        "description": "Taste pumpkin-based dishes and buy local produce at seasonal markets celebrating autumn’s harvest.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Market Square Würzburg",
+        "price": "Budget"
+      },
+      {
+        "name": "Marienberg Fortress Autumn Photography",
+        "type": "outdoor",
+        "description": "Capture stunning photos of the fortress and city framed by vibrant autumn foliage on crisp days.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Marienberg Fortress and surrounding hills",
+        "price": "Free"
+      },
+      {
+        "name": "Mozartfest Würzburg",
+        "type": "cultural",
+        "description": "Classical music festival featuring performances of Mozart and other composers in historic venues.",
+        "best_months": [
+          "October"
+        ],
+        "location": "Various concert halls",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Würzburg Christmas Market",
+        "type": "festival",
+        "description": "Traditional Christmas market offering artisan crafts, mulled wine, and seasonal foods in a festive setting.",
+        "best_months": [
+          "November",
+          "December"
+        ],
+        "location": "Marktplatz and Mainkai",
+        "price": "Free"
+      },
+      {
+        "name": "Winter Wine Tastings",
+        "type": "food",
+        "description": "Warm up with tastings of local Franconian wines paired with hearty winter dishes in cozy wine cellars.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Würzburg wine taverns",
+        "price": "Moderate"
+      },
+      {
+        "name": "Ice Skating at Eisbahn am Dallenberg",
+        "type": "sport",
+        "description": "Enjoy outdoor ice skating on a seasonal rink suitable for families and beginners alike.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Dallenberg Ice Rink",
+        "price": "Budget"
+      },
+      {
+        "name": "Visit to Würzburg Residence Museum",
+        "type": "cultural",
+        "description": "Explore the UNESCO-listed palace and its ornate interiors, perfect for indoor cultural experiences during colder months.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Würzburg Residence",
+        "price": "Moderate"
+      },
+      {
+        "name": "Franconian Winter Hiking",
+        "type": "outdoor",
+        "description": "Take scenic winter hikes on trails around Würzburg with views of snow-covered vineyards and the Main River.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Franconian countryside surrounding Würzburg",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "Epiphany (Heilige Drei Könige)",
+            "notes": "Cold winter weather with temperatures often below freezing; very low tourist crowds after New Year’s. Quiet city atmosphere but limited outdoor activities.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still cold and often damp with short daylight hours; museums and indoor attractions are good options. Low crowds but less vibrant atmosphere.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-January sees slightly more stable weather; indoor cultural visits such as Würzburg Residence tours recommended. Crowds remain low, good for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late January can be cold but some days are crisp and sunny; good time for exploring wine cellars and local indoor gastronomy. Low crowds and off-season prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter persists with cold temps but often sunny days; good for wine tasting and visiting museums. Crowds remain low to moderate.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Würzburg Fasching (Carnival)",
+            "notes": "Carnival season brings lively parades and local festivities with increased crowds and vibrant atmosphere. Weather still cold but festivities warm the experience.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-carnival quieter days with cold weather; museums and wineries remain a draw. Good for budget travelers and those seeking fewer crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "End of February can feel more like early spring with occasional mild days, good for wine region excursions. Still low tourist density.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early March is transitional; weather can be chilly but days lengthen. Good for indoor and some outdoor sightseeing with fewer tourists.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Frühlingserwachen (Spring Awakening Festival)",
+            "notes": "Local spring festivals celebrate the season with outdoor events, mild weather starts to appear, making it a pleasant time to visit.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-March brings milder temperatures and blooming parks; ideal for walking tours and river cruises before the peak season.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late March sees spring in full swing with pleasant weather and increasing daylight; outdoor cafes and vineyards open up, attracting more visitors.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Early April can be rainy but temperatures rise; ideal for enjoying spring blooms and open-air wine tastings. Moderate crowds start to build.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Easter Celebrations",
+            "notes": "Easter brings religious events, traditional markets, and festive atmosphere. Spring weather is generally pleasant, attracting many visitors.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-April offers comfortable weather for vineyard walks and river cruises. Crowds moderate as tourist season ramps up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late April is ideal for outdoor dining and visiting historic sites with mild weather and blooming nature. Increasing tourist numbers but still manageable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Maifest (May Day celebrations)",
+            "notes": "Warm spring weather perfect for outdoor festivities, markets, and wine festivals. High visitor interest, lively atmosphere.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Consistently mild and pleasant weather; ideal for exploring vineyards, hiking, and city tours. Crowds increasing but still enjoyable.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Würzburg Wine Festival (Fränkisches Weinfest)",
+            "notes": "Major local wine festival with tastings, music, and cultural events. Warm weather and vibrant crowds make this an excellent time to visit.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May offers warm temperatures and long days, perfect for river cruises and outdoor cafes. Moderate to high crowds but excellent travel conditions.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with warm, sunny weather ideal for outdoor sightseeing and wine tours. Crowds rise as tourist season peaks.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm temperatures with often sunny skies; ideal for river cruises on the Main and exploring vineyards. Busy but vibrant city life.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Mozart Festival Würzburg (late June start some years)",
+            "notes": "Classical music festival attracts cultural tourists; warm weather continues, though crowds concentrate around festival venues.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late June weather is warm and often humid; good for outdoor activities but some may find crowds and heat less comfortable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "High summer with warm to hot weather; outdoor sights popular but high crowds and prices may deter budget travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "July stays hot with occasional thunderstorms; great for river activities but urban sightseeing can be tiring in heat.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-July heat peaks, sometimes uncomfortable; outdoor events prevail but some attractions may be crowded and expensive.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late July can be hot and humid; good for river activities but some visitors may avoid city center due to crowds and heat.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "August heat continues, sometimes oppressive; good for wine festivals but city can feel crowded and expensive.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Summer holiday period with high visitor numbers; hot weather favors river and vineyard visits but urban sightseeing less comfortable.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-August remains hot, some rainy days possible; crowds remain high with peak summer tourists. Good for festive events but less for quiet exploration.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late August sees gradual cooling and fewer crowds as summer holidays end; good balance of weather and visitor numbers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Würzburger Weindorf (Wine Village Festival)",
+            "notes": "Early September offers warm, pleasant weather and one of the city’s biggest wine festivals, drawing large but manageable crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Mild weather with sunny days ideal for vineyard hiking and river cruises. Tourist numbers are high but not overwhelming.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-September weather cools slightly but remains pleasant; fewer tourists as high season winds down, good for relaxed exploration.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Late September brings cooler weather and colorful foliage; excellent for outdoor walks and wine cellar visits with moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Erntedankfest (Harvest Festival)",
+            "notes": "Early October harvest celebrations with local food and wine; crisp autumn weather ideal for scenic views and cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Mid-October weather cools significantly with more rain; fewer tourists and quieter atmosphere but outdoor activities can be limited.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temps and occasional rain; good time for indoor cultural activities and wine cellar tours. Low tourist volumes and better prices.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late October sees autumn leaves and crisp air; fewer outdoor options but good for quiet sightseeing and local gastronomy. Limited daylight hours.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold and often rainy with short days; low tourist activity. Good for museum visits but many outdoor attractions are less inviting.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cold, grey weather; few tourists and some attractions may start winter closures. Quiet city with lower prices.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 3,
+            "special": true,
+            "event": "All Saints’ Day (November 1)",
+            "notes": "Religious holiday with local observances; cooler weather persists but indoor cultural experiences recommended.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 4,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Late November marks start of Christmas market setup; chilly but atmospheric evenings. Good for early holiday shopping and indoor events.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Würzburg Christmas Market",
+            "notes": "Festive market opens early December; cold weather but enchanting atmosphere with lights, crafts, and local food. Crowds grow closer to Christmas.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mid-December continues festive spirit with markets and concerts; cold but magical. Good for cultural travelers and families.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Advent and Christmas Week",
+            "notes": "Peak Christmas market days with festive concerts, cultural events, and joyful crowds; cold weather but warm atmosphere makes it excellent for holiday travelers.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 2,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Christmas and New Year's Eve",
+            "notes": "Christmas Day is quiet with many closures; New Year's Eve has celebrations but cold and often snowy weather. Crowds fluctuate with holiday travelers.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 3,
+              "business": 1,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      }
+    }
+  }
+}

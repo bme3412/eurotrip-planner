@@ -1,6 +1,10 @@
 "use server";
 
 import { NextResponse } from "next/server";
+import { getCityData } from "../../../lib/data-utils.js";
+import { buildItinerary } from "../../../lib/planning/buildItinerary.js";
+import { buildParisRecommendations } from "../../../lib/planning/buildParisRecommendations.js";
+import { createTripWithDays } from "../../../lib/trips/tripState.js";
 import { getSupabaseAdmin } from "../../../lib/supabase/server";
 
 function normalizeTripPayload(input) {
@@ -20,6 +24,10 @@ function normalizeTripPayload(input) {
     typeof input.user_email === "string" && input.user_email.trim().length > 0
       ? input.user_email.trim()
       : null;
+  const userId =
+    typeof input.user_id === "string" && input.user_id.trim().length > 0
+      ? input.user_id.trim()
+      : null;
 
   if (!city) errors.push("City is required.");
   if (!startDate) errors.push("Start date is required.");
@@ -38,6 +46,7 @@ function normalizeTripPayload(input) {
 
   const payload = {
     user_email: userEmail,
+    user_id: userId,
     city,
     start_date: startDate,
     end_date: endDate,
@@ -46,7 +55,6 @@ function normalizeTripPayload(input) {
     budget,
     hotel_location: hotelLocation,
     prebookings,
-    initial_plan: input.initial_plan ?? null,
   };
 
   return { payload };
@@ -68,22 +76,22 @@ export async function POST(request) {
   }
 
   try {
-    const supabase = await getSupabaseAdmin();
-    const { data, error } = await supabase
-      .from("trips")
-      .insert(payload)
-      .select()
-      .single();
+    const citySlug = payload.city.toLowerCase();
+    const cityData = await getCityData(citySlug);
 
-    if (error) {
-      throw error;
-    }
+    const isParisTrip = citySlug === 'paris';
+    const itinerary = isParisTrip
+      ? buildParisRecommendations(payload, cityData)
+      : buildItinerary(payload, cityData);
 
-    return NextResponse.json(data, { status: 201 });
+    // Store initial_plan as backup
+    payload.initial_plan = itinerary;
+
+    const trip = await createTripWithDays(payload, itinerary);
+    return NextResponse.json(trip, { status: 201 });
   } catch (error) {
     console.error("Failed to create trip", error);
 
-    // Provide a clearer message when Supabase isn't configured
     const isConfigError = error?.message?.includes('Missing') && error?.message?.includes('environment variable');
     const userMessage = isConfigError
       ? "Trip storage requires Supabase configuration. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local to enable trip saving."

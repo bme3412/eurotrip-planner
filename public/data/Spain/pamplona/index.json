@@ -1,1 +1,3117 @@
-{"city":"pamplona","country":"Spain","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "pamplona",
+  "country": "Spain",
+  "overview": {
+    "city_name": "Pamplona",
+    "country": "Spain",
+    "brief_description": "Pamplona, the vibrant capital of Navarre, is world-renowned for its exhilarating San Fermín festival featuring the famous Running of the Bulls. Beyond the adrenaline, the city offers a captivating blend of medieval architecture, lush parks, and rich Basque-influenced culture.",
+    "nickname": "La Ciudad del Encierro",
+    "region": "Northern Spain / Navarre",
+    "population": "approximately 200,000",
+    "why_visit": [
+      "Experience the legendary San Fermín festival and the Running of the Bulls",
+      "Explore the historic old town with its medieval walls and gothic cathedral",
+      "Enjoy the local Navarrese cuisine and vibrant tapas scene",
+      "Discover beautiful parks like Taconera Park and scenic walks along the city walls"
+    ],
+    "best_time_to_visit": "July, to witness the San Fermín festival, or late spring and early autumn for pleasant weather and fewer crowds",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blossoming parks make it ideal for outdoor exploration and early festivals.",
+      "summer": "Hot and lively, with the San Fermín festival in July drawing international visitors; expect large crowds.",
+      "autumn": "Cooler, quieter, and perfect for strolling through historic streets and enjoying seasonal gastronomy.",
+      "winter": "Chilly but peaceful, with fewer tourists and cozy local bars offering warmth and regional flavors."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Spanish (Navarrese Basque spoken in some areas)",
+      "visit_duration": "2-3 days to cover main attractions and festival experiences",
+      "getting_around": "Walkable city center; local buses and taxis available for longer distances",
+      "safety": "Generally safe; during festivals, stay alert in crowded areas and follow local guidance"
+    },
+    "coordinates": {
+      "latitude": 42.8125,
+      "longitude": -1.6458
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Run with the bulls or watch the event safely during the San Fermín festival",
+        "Visit Pamplona Cathedral and its cloisters",
+        "Walk the city walls and Taconera Park for scenic views",
+        "Explore Plaza del Castillo, the social heart of the city",
+        "Sample local pintxos and Navarrese wines in the Old Town"
+      ],
+      "worth_doing": [
+        "Tour the Museo de Navarra to learn about regional history",
+        "Visit the Citadel, a star-shaped Renaissance fortress",
+        "Attend a traditional Basque pelota game",
+        "Explore the Botanical Gardens for diverse plant species",
+        "Take a day trip to the nearby medieval town of Olite"
+      ],
+      "hidden_gems": [
+        "Discover the underground Roman baths beneath the city",
+        "Relax at the Parque Yamaguchi, a Japanese-style garden",
+        "Visit the lesser-known Church of San Saturnino with its unique architecture",
+        "Explore artisan shops and local markets away from tourist centers",
+        "Enjoy panoramic views from Monte San Cristóbal outside the city"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "Pamplona Cathedral (Catedral de Santa María la Real)",
+        "type": "Church",
+        "description": "This Gothic cathedral, built between the 14th and 16th centuries, features a stunning facade and a beautiful cloister with intricate medieval sculptures. It also houses the Museum of the Cathedral, showcasing religious art and artifacts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": null,
+        "booking_tips": "Buy tickets online to skip queues during peak tourist season.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 5
+        },
+        "latitude": 42.8167,
+        "longitude": -1.6474,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "10:00-18:30",
+          "weekend": "10:00-18:30",
+          "notes": "Reduced hours in winter months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "9",
+            "12",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum in the cathedral"
+        },
+        "official_url": "https://www.catedraldepamplona.com/en/",
+        "website": "https://www.catedraldepamplona.com/en/"
+      },
+      {
+        "name": "Plaza del Castillo",
+        "type": "Historic Site",
+        "description": "The vibrant heart of Pamplona, this historic square has been the city's social and cultural center since the 18th century. Surrounded by cafes and shops, it's the perfect place to experience local life and enjoy a coffee while people-watching.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Lively year-round, but especially vibrant during the San Fermín festival in July.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 42.816,
+        "longitude": -1.648,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "2",
+            "9",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Nearby cafes and covered arcades"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Parque de la Taconera",
+        "type": "Park",
+        "description": "Pamplona’s oldest and most elegant park, featuring beautifully landscaped gardens, statues, and a small deer enclosure. The park’s iron gates and historic walls create a charming atmosphere perfect for a leisurely stroll or picnic.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Spring and autumn offer the best foliage and mild weather.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 42.8165,
+        "longitude": -1.638,
+        "neighborhood": "San Nicolás",
+        "opening_hours": {
+          "weekday": "07:00-21:00",
+          "weekend": "07:00-21:00",
+          "notes": "Hours may vary in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit nearby Museo de Navarra"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museum of Navarra (Museo de Navarra)",
+        "type": "Museum",
+        "description": "Located in a former hospital building, this museum presents Navarra’s rich history from prehistoric times through Roman and medieval periods to modern art. Highlights include Roman mosaics, Gothic sculptures, and contemporary works.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Free entry on Sundays and some public holidays.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 42.8174,
+        "longitude": -1.6397,
+        "neighborhood": "San Nicolás",
+        "opening_hours": {
+          "weekday": "10:00-19:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Perfect indoor activity for rainy days"
+        },
+        "official_url": "https://museodenavarra.navarra.es/en",
+        "website": "https://museodenavarra.navarra.es/en"
+      },
+      {
+        "name": "San Fermín Route",
+        "type": "Historic Site",
+        "description": "This famous route traces the path of the Running of the Bulls during Pamplona's annual San Fermín festival. Walking the streets early in the day offers insight into this thrilling tradition and the city’s festive spirit.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best experienced in early July during the festival; off-season is quiet and atmospheric.",
+        "booking_tips": "Avoid crowds by visiting outside festival days.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 5
+        },
+        "latitude": 42.8172,
+        "longitude": -1.6478,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "9",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit the Bullfighting Museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Bullfighting Museum of Pamplona (Museo Taurino de Pamplona)",
+        "type": "Museum",
+        "description": "Dedicated to the history of bullfighting in Navarra, this museum showcases costumes, posters, photographs, and videos illustrating the culture behind this controversial tradition. It is located near the historic bullring.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": null,
+        "booking_tips": "Closed on Mondays; check ahead for festival closures.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.8185,
+        "longitude": -1.6387,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "10:00-14:00, 17:00-20:00",
+          "weekend": "10:00-14:00",
+          "notes": "Hours may vary during festivals"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "2",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Ciudadela de Pamplona",
+        "type": "Historic Site",
+        "description": "A star-shaped Renaissance fortress built in the 16th century, the Ciudadela is a remarkable example of military architecture. It now serves as a park and cultural venue hosting concerts and exhibitions, with walkways along the well-preserved ramparts.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Outdoor events and concerts take place mainly in summer.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 42.8189,
+        "longitude": -1.639,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "07:00-22:00",
+          "weekend": "07:00-22:00",
+          "notes": "Hours vary in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor cultural centers"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Planetario de Pamplona",
+        "type": "Museum",
+        "description": "Pamplona’s planetarium offers fascinating astronomy shows and interactive exhibits suitable for all ages. It’s a great educational stop that illuminates the night sky and the science behind the stars.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Special shows and workshops during school holidays.",
+        "booking_tips": "Advance booking recommended for popular shows.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.8121,
+        "longitude": -1.6447,
+        "neighborhood": "Azpilagaña",
+        "opening_hours": {
+          "weekday": "09:00-14:00, 17:00-20:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "4",
+            "6"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor attraction"
+        },
+        "official_url": "https://www.pamplonaplanetarium.com",
+        "website": "https://www.pamplonaplanetarium.com"
+      },
+      {
+        "name": "Mercado de Santo Domingo",
+        "type": "Market",
+        "description": "A lively indoor market offering fresh produce, local delicacies, and traditional Navarre products. It’s an excellent place to sample regional cheeses, wines, and cured meats while mingling with locals.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Special seasonal products available during holidays and festivals.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.8162,
+        "longitude": -1.646,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "08:00-14:30",
+          "weekend": "Closed",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Ciudadela Park Skatepark",
+        "type": "Park",
+        "description": "A modern skatepark located within the historic Ciudadela grounds, popular with locals and visitors who enjoy skateboarding and outdoor sports. It offers a unique blend of contemporary urban culture set against a Renaissance fortress backdrop.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Best used in dry weather; can be slippery when wet.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 42.819,
+        "longitude": -1.6387,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "07:00-22:00",
+          "weekend": "07:00-22:00",
+          "notes": "Open year-round"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Baluarte Congress and Exhibition Centre",
+        "type": "Cultural Venue",
+        "description": "A modern architectural landmark hosting concerts, exhibitions, conferences, and cultural events. Its glass facade and spacious interiors make it a hub for contemporary arts and social gatherings in Pamplona.",
+        "indoor": true,
+        "best_time": "Evening",
+        "price_range": "Moderate",
+        "seasonal_notes": "Events vary seasonally; check schedule online.",
+        "booking_tips": "Purchase event tickets in advance online.",
+        "ratings": {
+          "cost_estimate": 15,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 4
+        },
+        "latitude": 42.8205,
+        "longitude": -1.634,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "09:00-22:00",
+          "weekend": "Varies by event",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor venue"
+        },
+        "official_url": "https://baluarte.com/en/",
+        "website": "https://baluarte.com/en/"
+      },
+      {
+        "name": "Parque Yamaguchi",
+        "type": "Park",
+        "description": "A serene Japanese-style garden gifted by Pamplona’s sister city Yamaguchi, featuring traditional bridges, koi ponds, and cherry blossoms. It's a peaceful urban oasis ideal for contemplation and relaxation.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Cherry blossoms bloom spectacularly in spring.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.8131,
+        "longitude": -1.6416,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "07:00-21:00",
+          "weekend": "07:00-21:00",
+          "notes": "Lighting for evening walks in summer"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit the nearby Museum of Navarra"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Pamplona City Walls (Murallas de Pamplona)",
+        "type": "Historic Site",
+        "description": "The well-preserved city walls encircle the Old Town and offer scenic walking paths with views of the city and surrounding hills. Built mainly during the 16th century, the walls represent Pamplona’s strategic importance and rich history.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Pleasant to visit in spring and autumn to avoid summer heat.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 42.817,
+        "longitude": -1.645,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "9",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Iruña Vieja Archaeological Site",
+        "type": "Historic Site",
+        "description": "An archaeological site on the outskirts of Pamplona revealing remains from the Roman city of Pompaelo. Visitors can explore ancient walls, mosaics, and artifacts that shed light on the city’s Roman origins.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in mild weather due to open-air nature.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 42.812,
+        "longitude": -1.67,
+        "neighborhood": "Milagrosa",
+        "opening_hours": {
+          "weekday": "09:00-20:00",
+          "weekend": "09:00-20:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "7"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Visit Museum of Navarra for Roman artifacts"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Parque de la Media Luna",
+        "type": "Park",
+        "description": "Located near the train station, this spacious urban park is ideal for families and sports enthusiasts. It features playgrounds, walking paths, and green areas perfect for relaxation after exploring the city.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Great for picnics in summer and autumn.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 42.8199,
+        "longitude": -1.6346,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "07:00-22:00",
+          "weekend": "07:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Pamplona City Hall (Ayuntamiento de Pamplona)",
+        "type": "Historic Site",
+        "description": "This neoclassical building dating from the 19th century is the administrative heart of Pamplona and the traditional starting point for the San Fermín festival. Its grand facade and central location make it a key city landmark.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Festive during San Fermín in July with live events.",
+        "booking_tips": "Guided tours occasionally available; check local listings.",
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 4
+        },
+        "latitude": 42.8161,
+        "longitude": -1.6478,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "09:00-14:00",
+          "weekend": "Closed",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor visit"
+        },
+        "official_url": "https://www.pamplona.es/en",
+        "website": "https://www.pamplona.es/en"
+      },
+      {
+        "name": "San Miguel Church (Iglesia de San Miguel)",
+        "type": "Church",
+        "description": "One of Pamplona’s oldest churches, featuring a Baroque facade and an impressive interior with notable altarpieces and religious artworks. It’s located near the Plaza del Castillo and offers a peaceful retreat from busy streets.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": null,
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 42.8154,
+        "longitude": -1.649,
+        "neighborhood": "Old Town (Casco Antiguo)",
+        "opening_hours": {
+          "weekday": "10:00-13:30, 17:00-20:00",
+          "weekend": "10:00-13:30",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "9",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor church"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Parque de la Vuelta del Castillo",
+        "type": "Park",
+        "description": "A large green park located adjacent to the city walls, offering walking trails, playgrounds, and scenic views over Pamplona. It is a favorite spot for locals to relax and enjoy nature within the city.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Colorful in autumn; great for springtime walks.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 2
+        },
+        "latitude": 42.82,
+        "longitude": -1.644,
+        "neighborhood": "San Juan",
+        "opening_hours": {
+          "weekday": "07:00-22:00",
+          "weekend": "07:00-22:00",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "9"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Visit nearby indoor attractions"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "Casco Antiguo",
+        "alternate_names": [
+          "Old Town",
+          "Historic Center"
+        ],
+        "character": "Casco Antiguo is the beating heart of Pamplona, full of narrow medieval streets, bustling plazas, and centuries-old architecture. It offers an enchanting blend of history and lively urban life, immersing visitors in the city's rich past.",
+        "location": {
+          "central": true,
+          "description": "Situated at the core of Pamplona, it encompasses the original walled city area.",
+          "borders": [
+            "San Nicolás",
+            "San Juan",
+            "San Saturnino"
+          ],
+          "landmarks": [
+            "Pamplona Cathedral",
+            "Plaza del Castillo",
+            "City Walls (Murallas de Pamplona)"
+          ]
+        },
+        "history": {
+          "overview": "The Casco Antiguo dates back to medieval times and was the fortified nucleus of Pamplona.",
+          "significance": "It holds the historic identity of the city and hosts many of its most important cultural events.",
+          "notable_events": [
+            "Running of the Bulls during San Fermín",
+            "Medieval fortification developments",
+            "Key religious processions at the Cathedral"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Plaza del Castillo bus stops"
+          ],
+          "safety": "High safety with usual urban precautions",
+          "best_time_to_visit": "Summer during San Fermín festival or spring for pleasant weather",
+          "walkability": "Exceptional walkability with pedestrian-only streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic architecture",
+            "San Fermín festival",
+            "Cathedral",
+            "Plaza del Castillo",
+            "Traditional shops"
+          ],
+          "atmosphere": [
+            "Historic",
+            "Bustling",
+            "Cultural"
+          ],
+          "best_for": [
+            "History buffs",
+            "Festival-goers",
+            "Cultural travelers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Pamplona Cathedral",
+              "type": "Religious/Historic",
+              "description": "A magnificent Gothic cathedral with a stunning cloister and rich history.",
+              "appeal": "Architectural beauty and spiritual heritage."
+            },
+            {
+              "name": "Plaza del Castillo",
+              "type": "Public Square",
+              "description": "The lively central plaza surrounded by cafes and historic buildings.",
+              "appeal": "Social hub and perfect spot for people-watching."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Iruña",
+              "cuisine": "Basque/Spanish",
+              "price_range": "€€",
+              "known_for": "Traditional pintxos and elegant interiors",
+              "atmosphere": "Classic and vibrant"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the quiet streets and soft light on historic buildings.",
+          "Try local pintxos bars off the main plaza for authentic flavors.",
+          "Attend a guided night walk to hear stories about the city’s medieval past."
+        ]
+      },
+      {
+        "name": "San Juan",
+        "alternate_names": [],
+        "character": "San Juan is a trendy neighborhood mixing modern cafes, boutique shops, and creative spaces with a relaxed vibe. It attracts a youthful crowd and locals who appreciate art, culture, and urban leisure.",
+        "location": {
+          "central": true,
+          "description": "Just east of Casco Antiguo, connected by the Avenida de Carlos III corridor.",
+          "borders": [
+            "Casco Antiguo",
+            "San Jorge",
+            "San Roque"
+          ],
+          "landmarks": [
+            "Museum of Navarra",
+            "Parque de la Taconera (border area)"
+          ]
+        },
+        "history": {
+          "overview": "Originally a working-class district, San Juan has evolved into a vibrant cultural hub over recent decades.",
+          "significance": "It represents the modern, creative pulse of Pamplona while maintaining traditional roots.",
+          "notable_events": [
+            "Cultural festivals and open-air concerts",
+            "Urban renewal projects in the 21st century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 1, 3, and 4"
+          ],
+          "safety": "Very safe and family-friendly",
+          "best_time_to_visit": "Spring and autumn for outdoor cafes and festivals",
+          "walkability": "Highly walkable with wide sidewalks and bike lanes"
+        },
+        "appeal": {
+          "known_for": [
+            "Art galleries",
+            "Trendy cafes",
+            "Live music venues",
+            "Boutique shops"
+          ],
+          "atmosphere": [
+            "Hip",
+            "Creative",
+            "Relaxed"
+          ],
+          "best_for": [
+            "Young travelers",
+            "Art lovers",
+            "Foodies"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Museum of Navarra",
+              "type": "Museum",
+              "description": "Houses archaeological and art collections reflecting the region’s heritage.",
+              "appeal": "Insightful cultural experience in a modern setting."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Mandarra de la Ramos",
+              "cuisine": "Modern Spanish",
+              "price_range": "€€€",
+              "known_for": "Innovative pintxos with a contemporary twist",
+              "atmosphere": "Trendy and lively"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Stop by local art galleries on Calle San Juan for emerging Basque artists.",
+          "Visit on Thursday evenings for live music and tapas specials.",
+          "Rent a bike to explore the adjacent green corridors and parks."
+        ]
+      },
+      {
+        "name": "Ensanche",
+        "alternate_names": [
+          "El Ensanche"
+        ],
+        "character": "Ensanche is Pamplona’s food district, dotted with gourmet markets, tapas bars, and traditional bakeries. It’s a vibrant neighborhood where locals and visitors mingle over delicious Basque and Navarrese delicacies.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the Casco Antiguo, extending along Avenida de Bayona.",
+          "borders": [
+            "San Juan",
+            "San Jorge",
+            "San Pedro"
+          ],
+          "landmarks": [
+            "Mercado de Santo Domingo",
+            "Plaza de Toros de Pamplona"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the late 19th and early 20th centuries as a planned expansion of the city.",
+          "significance": "It transformed Pamplona’s culinary landscape and urban growth.",
+          "notable_events": [
+            "Opening of Mercado de Santo Domingo",
+            "Evolution as a gastronomic hotspot"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus stops along Avenida de Bayona"
+          ],
+          "safety": "Safe and well-patrolled",
+          "best_time_to_visit": "Evenings year-round for dining and nightlife",
+          "walkability": "Very walkable with pedestrian-friendly streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Gourmet markets",
+            "Tapas bars",
+            "Bakery shops",
+            "Wine bars",
+            "Local produce"
+          ],
+          "atmosphere": [
+            "Lively",
+            "Gastronomic",
+            "Welcoming"
+          ],
+          "best_for": [
+            "Food enthusiasts",
+            "Couples",
+            "Evening socializers"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 3,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Mercado de Santo Domingo",
+              "type": "Market",
+              "description": "A bustling market selling fresh local produce, meats, and cheeses.",
+              "appeal": "Experience authentic Navarrese flavors and ingredients."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Bar Gaucho",
+              "cuisine": "Basque/Spanish",
+              "price_range": "€€",
+              "known_for": "Award-winning pintxos and friendly atmosphere",
+              "atmosphere": "Casual and vibrant"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Arrive early at Mercado de Santo Domingo to see the freshest products and chat with vendors.",
+          "Try local specialties like chistorra and Idiazabal cheese at pintxos bars.",
+          "Reserve a table in advance at popular evening spots during weekends."
+        ]
+      },
+      {
+        "name": "La Rochapea",
+        "alternate_names": [],
+        "character": "La Rochapea is a primarily residential neighborhood with a strong community spirit, featuring parks, schools, and local shops. It provides a quiet retreat from the city center’s hustle, favored by families and long-term residents.",
+        "location": {
+          "central": false,
+          "description": "Northwest of the city center across the River Arga.",
+          "borders": [
+            "San Jorge",
+            "Milagrosa",
+            "San Juan"
+          ],
+          "landmarks": [
+            "Parque de la Media Luna",
+            "Rochapea Sports Complex"
+          ]
+        },
+        "history": {
+          "overview": "Historically a working-class district that expanded rapidly in the 20th century.",
+          "significance": "It reflects Pamplona’s social evolution and urban expansion.",
+          "notable_events": [
+            "Post-war residential development",
+            "Community cultural festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Several bus lines connecting to downtown"
+          ],
+          "safety": "Generally safe with normal urban vigilance",
+          "best_time_to_visit": "Spring and summer for park activities",
+          "walkability": "Moderate walkability with some green spaces"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Community parks",
+            "Sports facilities"
+          ],
+          "atmosphere": [
+            "Quiet",
+            "Family-friendly",
+            "Community-oriented"
+          ],
+          "best_for": [
+            "Families",
+            "Long-term visitors",
+            "Travelers seeking local life"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 2,
+          "dining": 2,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Parque de la Media Luna",
+              "type": "Park",
+              "description": "A spacious green park with playgrounds and walking paths.",
+              "appeal": "Ideal for families and outdoor relaxation."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sidrería La Rochapea",
+              "cuisine": "Basque cider house",
+              "price_range": "€€",
+              "known_for": "Traditional cider and hearty Basque fare",
+              "atmosphere": "Rustic and convivial"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the local markets on Saturdays for fresh produce and crafts.",
+          "Explore the nearby riverwalk paths for pleasant nature walks.",
+          "Try the seasonal cider tastings at neighborhood sidrerías."
+        ]
+      },
+      {
+        "name": "San Nicolás",
+        "alternate_names": [],
+        "character": "San Nicolás is a charming neighborhood noted for its historic churches and a peaceful residential feel, blending old Pamplona’s spirit with modern conveniences. It’s quieter than the Old Town but close enough for easy access.",
+        "location": {
+          "central": true,
+          "description": "Directly north of Casco Antiguo, bordering the city walls.",
+          "borders": [
+            "Casco Antiguo",
+            "San Saturnino",
+            "San Pedro"
+          ],
+          "landmarks": [
+            "Church of San Nicolás",
+            "Ciudadela Park"
+          ]
+        },
+        "history": {
+          "overview": "An old neighborhood that grew around the Church of San Nicolás, with roots in medieval times.",
+          "significance": "It acts as a transitional area from the historic core to more modern districts.",
+          "notable_events": [
+            "Restoration of the Ciudadela fortress",
+            "Annual religious festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines serving nearby avenues"
+          ],
+          "safety": "Safe with low crime rates",
+          "best_time_to_visit": "Year-round, especially during religious festivals",
+          "walkability": "Highly walkable with quiet streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic churches",
+            "Proximity to city walls",
+            "Quiet urban living"
+          ],
+          "atmosphere": [
+            "Peaceful",
+            "Historic",
+            "Residential"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Couples",
+            "Travelers seeking calm"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Church of San Nicolás",
+              "type": "Religious/Historic",
+              "description": "A beautiful Baroque-style church with intricate interior details.",
+              "appeal": "A serene spot reflecting local religious heritage."
+            },
+            {
+              "name": "Ciudadela Park",
+              "type": "Park/Historic Site",
+              "description": "A green space built within a 16th-century star-shaped fortress.",
+              "appeal": "Perfect for relaxation and exploring historic fortifications."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurante Europa",
+              "cuisine": "Navarrese/Spanish",
+              "price_range": "€€€",
+              "known_for": "Traditional dishes with modern presentation",
+              "atmosphere": "Elegant and cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the Ciudadela at sunset for beautiful views and fewer crowds.",
+          "Attend mass or a concert at the Church of San Nicolás to experience local culture.",
+          "Explore small artisan shops hidden along the side streets."
+        ]
+      },
+      {
+        "name": "San Jorge",
+        "alternate_names": [],
+        "character": "San Jorge is a vibrant neighborhood blending residential charm with lively nightlife and dining options. It appeals to both locals and visitors seeking a dynamic atmosphere without the tourist crowds.",
+        "location": {
+          "central": true,
+          "description": "East of Casco Antiguo and south of San Juan, adjacent to the River Arga.",
+          "borders": [
+            "San Juan",
+            "La Rochapea",
+            "Ensanche"
+          ],
+          "landmarks": [
+            "Baluarte Congress Centre",
+            "Parque Yamaguchi"
+          ]
+        },
+        "history": {
+          "overview": "Developed during the 20th century, San Jorge has grown into a mixed-use area combining culture, business, and residence.",
+          "significance": "It acts as a cultural and social bridge between older and newer parts of the city.",
+          "notable_events": [
+            "Opening of Baluarte Theatre",
+            "Annual local festivals in Parque Yamaguchi"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus routes 1, 5, and 7"
+          ],
+          "safety": "Generally safe with active community policing",
+          "best_time_to_visit": "Spring and summer for park events and evenings for nightlife",
+          "walkability": "Good walkability with pedestrian zones and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Live music venues",
+            "Cultural centers",
+            "Parks",
+            "Nightlife"
+          ],
+          "atmosphere": [
+            "Energetic",
+            "Social",
+            "Modern"
+          ],
+          "best_for": [
+            "Young adults",
+            "Culture seekers",
+            "Nightlife enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Baluarte Congress Centre",
+              "type": "Cultural Venue",
+              "description": "A modern facility hosting concerts, exhibitions, and conferences.",
+              "appeal": "Center for contemporary arts and events."
+            },
+            {
+              "name": "Parque Yamaguchi",
+              "type": "Park",
+              "description": "A scenic park dedicated to Pamplona’s sister city relationship with Yamaguchi, Japan.",
+              "appeal": "Peaceful gardens with Japanese-inspired landscaping."
+            }
+          ],
+          "dining": [
+            {
+              "name": "La Tasca de San Jorge",
+              "cuisine": "Spanish/International",
+              "price_range": "€€",
+              "known_for": "Tapas and creative cocktails",
+              "atmosphere": "Casual and friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check the Baluarte schedule for live shows and exhibitions during your visit.",
+          "Stroll through Parque Yamaguchi for a quiet break from urban life.",
+          "Try late-night pintxos hopping at bars popular with locals."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Europa",
+          "cuisine_type": "Contemporary European with Navarrese influences",
+          "description": "Michelin-starred restaurant offering refined dishes that celebrate local ingredients with a modern twist.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and intimate, perfect for a sophisticated dining experience.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "special occasions"
+          ],
+          "latitude": 42.8172,
+          "longitude": -1.644,
+          "reservation_needed": true,
+          "local_tips": "Try the seasonal tasting menu featuring local vegetables and lamb."
+        },
+        {
+          "name": "El Molino de Urdániz",
+          "cuisine_type": "Innovative Navarrese",
+          "description": "Creative haute cuisine with a strong focus on Navarrese tradition and local produce.",
+          "price_range": "€€€€",
+          "atmosphere": "Chic with a modern rustic flair.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "foodies",
+            "gourmet experience"
+          ],
+          "latitude": 42.8175,
+          "longitude": -1.6455,
+          "reservation_needed": true,
+          "local_tips": "Book well in advance; the tasting menu is a must-try."
+        },
+        {
+          "name": "Cascante",
+          "cuisine_type": "Modern Spanish",
+          "description": "Fine dining with innovative dishes highlighting local ingredients and creative presentation.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and welcoming with artistic decor.",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "date night",
+            "culinary exploration"
+          ],
+          "latitude": 42.8158,
+          "longitude": -1.641,
+          "reservation_needed": true,
+          "local_tips": "Pair dishes with Navarra wines from their extensive wine list."
+        },
+        {
+          "name": "Tándem",
+          "cuisine_type": "Basque-Navarrese fusion",
+          "description": "A Michelin-starred gem blending traditional Basque and Navarrese flavors with inventive techniques.",
+          "price_range": "€€€€",
+          "atmosphere": "Contemporary and intimate.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "food enthusiasts",
+            "celebrations"
+          ],
+          "latitude": 42.819,
+          "longitude": -1.6395,
+          "reservation_needed": true,
+          "local_tips": "Consider the tasting menu paired with local wines."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Bodegón Sarria",
+          "cuisine_type": "Traditional Navarrese",
+          "description": "Cozy spot serving hearty local dishes including the famous 'pochas' beans and grilled meats.",
+          "price_range": "€€",
+          "atmosphere": "Rustic and lively with a traditional vibe.",
+          "neighborhood": "Sarria",
+          "best_for": [
+            "families",
+            "groups",
+            "traditional food lovers"
+          ],
+          "latitude": 42.815,
+          "longitude": -1.632,
+          "reservation_needed": false,
+          "local_tips": "Try the 'pollo al chilindrón' for a true Navarrese experience."
+        },
+        {
+          "name": "La Mandarra de la Ramos",
+          "cuisine_type": "Spanish Mediterranean",
+          "description": "Popular for its creative tapas and vibrant atmosphere in the heart of the city.",
+          "price_range": "€€",
+          "atmosphere": "Bustling and casual, perfect for social dining.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "groups",
+            "tapas lovers"
+          ],
+          "latitude": 42.8185,
+          "longitude": -1.645,
+          "reservation_needed": false,
+          "local_tips": "Sit near the bar to watch the chefs at work."
+        },
+        {
+          "name": "Restaurante Baserri",
+          "cuisine_type": "Navarrese and Basque",
+          "description": "Family-run restaurant serving traditional dishes with fresh, local ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Warm and welcoming with a homely feel.",
+          "neighborhood": "Ensanche",
+          "best_for": [
+            "families",
+            "casual dining"
+          ],
+          "latitude": 42.8193,
+          "longitude": -1.638,
+          "reservation_needed": false,
+          "local_tips": "Order the 'cordero al chilindrón' (lamb stew)."
+        },
+        {
+          "name": "Restaurante Rincón de Esteban",
+          "cuisine_type": "Local Spanish",
+          "description": "Known for its excellent grilled meats and traditional Navarrese fare.",
+          "price_range": "€€",
+          "atmosphere": "Relaxed and authentic.",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "groups",
+            "meat lovers"
+          ],
+          "latitude": 42.8167,
+          "longitude": -1.6427,
+          "reservation_needed": false,
+          "local_tips": "Try the 'txistorra' sausage starters."
+        },
+        {
+          "name": "Café Iruña",
+          "cuisine_type": "Tapas and Navarrese",
+          "description": "Historic café offering traditional tapas and local dishes in an iconic setting.",
+          "price_range": "€€",
+          "atmosphere": "Classic and elegant with a vintage charm.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "casual dining",
+            "tourists"
+          ],
+          "latitude": 42.818,
+          "longitude": -1.6442,
+          "reservation_needed": false,
+          "local_tips": "Famous for its pintxos and the traditional 'chistorra' tapas."
+        },
+        {
+          "name": "La Olla",
+          "cuisine_type": "Navarrese",
+          "description": "Casual dining serving hearty regional stews and grilled specialties.",
+          "price_range": "€€",
+          "atmosphere": "Cozy and inviting with a local feel.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "families",
+            "comfort food"
+          ],
+          "latitude": 42.8177,
+          "longitude": -1.6418,
+          "reservation_needed": false,
+          "local_tips": "Perfect for trying seasonal 'pochas' beans dishes."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercado de Santo Domingo",
+          "cuisine_type": "Local Market",
+          "description": "Central market with stalls offering fresh produce, cheeses, cured meats and traditional snacks.",
+          "price_range": "€",
+          "atmosphere": "Bustling market vibe with locals shopping and sampling foods.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "food exploration",
+            "snacking"
+          ],
+          "latitude": 42.817,
+          "longitude": -1.6415,
+          "reservation_needed": false,
+          "local_tips": "Try fresh 'pintxos' at the market bars."
+        },
+        {
+          "name": "Plaza del Castillo Tapas Stalls",
+          "cuisine_type": "Tapas",
+          "description": "Open-air area with various tapas bars and street food vendors serving Navarrese specialties.",
+          "price_range": "€",
+          "atmosphere": "Lively and social, popular among locals and tourists alike.",
+          "neighborhood": "Plaza del Castillo",
+          "best_for": [
+            "socializing",
+            "quick bites"
+          ],
+          "latitude": 42.8183,
+          "longitude": -1.644,
+          "reservation_needed": false,
+          "local_tips": "Try a 'txistorra' sandwich from the street sellers."
+        },
+        {
+          "name": "Churrería San Fermín",
+          "cuisine_type": "Spanish pastries",
+          "description": "Famous spot for churros and hot chocolate, especially popular during festivals.",
+          "price_range": "€",
+          "atmosphere": "Casual and festive.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "snacks",
+            "breakfast"
+          ],
+          "latitude": 42.8178,
+          "longitude": -1.6435,
+          "reservation_needed": false,
+          "local_tips": "Enjoy churros fresh and warm, best on cool mornings."
+        },
+        {
+          "name": "Carpa de San Fermín (Seasonal)",
+          "cuisine_type": "Festival Street Food",
+          "description": "Temporary food stalls during the San Fermín festival offering local specialties and quick bites.",
+          "price_range": "€",
+          "atmosphere": "Festive, energetic, and crowded during July.",
+          "neighborhood": "Various central locations",
+          "best_for": [
+            "festival experience",
+            "street food"
+          ],
+          "latitude": 42.819,
+          "longitude": -1.64,
+          "reservation_needed": false,
+          "local_tips": "Try the 'pintxos' and local beer while enjoying the festivities."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "Txoko",
+          "cuisine_type": "Basque/Spanish Bar",
+          "description": "Popular bar known for its wide selection of local wines and traditional pintxos.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and lively with a young crowd.",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "nightlife",
+            "pintxos crawl"
+          ],
+          "latitude": 42.8169,
+          "longitude": -1.6418,
+          "reservation_needed": false,
+          "local_tips": "Arrive early to grab a spot at the bar."
+        },
+        {
+          "name": "La Terraza del Hotel Tres Reyes",
+          "cuisine_type": "Cocktail Bar",
+          "description": "Rooftop bar offering creative cocktails and stunning views of Pamplona's rooftops.",
+          "price_range": "€€€",
+          "atmosphere": "Chic and relaxed with panoramic city views.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "date night",
+            "sunset drinks"
+          ],
+          "latitude": 42.8182,
+          "longitude": -1.6425,
+          "reservation_needed": true,
+          "local_tips": "Reserve a seat for sunset to enjoy the best views."
+        },
+        {
+          "name": "Bodegón Sarria Bar",
+          "cuisine_type": "Traditional Spanish Bar",
+          "description": "Classic bar adjacent to the restaurant, perfect for sampling traditional wines and snacks.",
+          "price_range": "€€",
+          "atmosphere": "Casual and friendly with a local crowd.",
+          "neighborhood": "Sarria",
+          "best_for": [
+            "after work",
+            "relaxed evenings"
+          ],
+          "latitude": 42.815,
+          "longitude": -1.632,
+          "reservation_needed": false,
+          "local_tips": "Try their local Navarra wines by the glass."
+        },
+        {
+          "name": "Irish Pub O'Neill's",
+          "cuisine_type": "Irish Pub",
+          "description": "Lively pub offering a variety of beers and live music in a fun atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and social with international clientele.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "groups",
+            "live music"
+          ],
+          "latitude": 42.8175,
+          "longitude": -1.643,
+          "reservation_needed": false,
+          "local_tips": "Great spot for watching sports and meeting travelers."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Iruña",
+          "cuisine_type": "Traditional Spanish Café",
+          "description": "Historic café famous for its beautiful Moorish decor and excellent coffee and pastries.",
+          "price_range": "€€",
+          "atmosphere": "Elegant, classic, and bustling with locals and tourists.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "breakfast",
+            "afternoon coffee"
+          ],
+          "latitude": 42.818,
+          "longitude": -1.6442,
+          "reservation_needed": false,
+          "local_tips": "Try the 'napolitanas' (chocolate pastries) with your coffee."
+        },
+        {
+          "name": "La Mandarra de la Ramos Café",
+          "cuisine_type": "Contemporary Café",
+          "description": "Chic café and tapas bar known for its specialty coffees and creative small plates.",
+          "price_range": "€€",
+          "atmosphere": "Trendy and cozy with artistic touches.",
+          "neighborhood": "City Center",
+          "best_for": [
+            "light meals",
+            "coffee lovers"
+          ],
+          "latitude": 42.8185,
+          "longitude": -1.645,
+          "reservation_needed": false,
+          "local_tips": "Ideal for a relaxed brunch or afternoon break."
+        },
+        {
+          "name": "Café Delsol",
+          "cuisine_type": "Modern Café",
+          "description": "Contemporary café specializing in artisan coffee and fresh pastries.",
+          "price_range": "€",
+          "atmosphere": "Casual and bright, popular with locals.",
+          "neighborhood": "Ensanche",
+          "best_for": [
+            "coffee breaks",
+            "casual meetings"
+          ],
+          "latitude": 42.8192,
+          "longitude": -1.6378,
+          "reservation_needed": false,
+          "local_tips": "Try their homemade cakes and croissants."
+        },
+        {
+          "name": "Café Iruna",
+          "cuisine_type": "Classic Café",
+          "description": "Another classic spot serving coffee, pastries, and light meals in a historic setting.",
+          "price_range": "€€",
+          "atmosphere": "Traditional and charming.",
+          "neighborhood": "Old Town",
+          "best_for": [
+            "breakfast",
+            "people watching"
+          ],
+          "latitude": 42.8165,
+          "longitude": -1.6415,
+          "reservation_needed": false,
+          "local_tips": "Sit by the window for a view of the bustling streets."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Pamplona Pintxos Tour",
+        "description": "Guided walking tour sampling traditional Navarrese pintxos and local wines in the Old Town.",
+        "duration_minutes": 150,
+        "price_range": "€€",
+        "best_for": [
+          "food lovers",
+          "groups",
+          "first-time visitors"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Wear comfortable shoes and bring an appetite for diverse small plates."
+      },
+      {
+        "name": "Cooking Class: Navarrese Cuisine",
+        "description": "Hands-on cooking class focused on iconic Pamplona dishes like 'pochas' beans and lamb stews.",
+        "duration_minutes": 180,
+        "price_range": "€€€",
+        "best_for": [
+          "cooking enthusiasts",
+          "couples",
+          "small groups"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Book in advance; classes often include a market visit."
+      },
+      {
+        "name": "Mercado de Santo Domingo Market Visit",
+        "description": "Guided tour exploring local produce, cheeses, and cured meats, with tastings and vendor insights.",
+        "duration_minutes": 90,
+        "price_range": "€",
+        "best_for": [
+          "culture seekers",
+          "foodies"
+        ],
+        "reservation_needed": false,
+        "local_tips": "Go early in the morning when the market is most lively."
+      },
+      {
+        "name": "Wine Tasting in Navarra",
+        "description": "Day trip visiting nearby wineries with tastings focusing on the region's acclaimed rosés and reds.",
+        "duration_minutes": 360,
+        "price_range": "€€€",
+        "best_for": [
+          "wine enthusiasts",
+          "day trips"
+        ],
+        "reservation_needed": true,
+        "local_tips": "Combine with a visit to a local bodega for a full experience."
+      },
+      {
+        "name": "San Fermín Festival Food Experience",
+        "description": "Seasonal experience sampling festival street food, such as 'txistorra' sandwiches and churros.",
+        "duration_minutes": "Varies - festival dates in July",
+        "price_range": "€",
+        "best_for": [
+          "festival goers",
+          "street food lovers"
+        ],
+        "reservation_needed": false,
+        "local_tips": "Enjoy early to avoid crowds and catch the best food stalls."
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Pochas beans with fresh herbs",
+        "Asparagus dishes from Navarra",
+        "Fresh lamb stews"
+      ],
+      "summer": [
+        "Grilled vegetables with local olive oil",
+        "Navarra rosé wine",
+        "Gazpacho Navarra style"
+      ],
+      "autumn": [
+        "Wild mushrooms and truffles dishes",
+        "Roasted chestnuts",
+        "Game meats such as venison"
+      ],
+      "winter": [
+        "Hearty 'cordero al chilindrón' lamb stew",
+        "Warm 'txistorra' sausage dishes",
+        "Churros with hot chocolate"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Madrid",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "3h 10m",
+            "frequency": "daily",
+            "price_range": "€30-€70",
+            "operator": "Renfe",
+            "notes": "High-speed AVE trains connect Pamplona and Madrid multiple times a day."
+          },
+          {
+            "type": "bus",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "ALSA",
+            "notes": "Direct buses from Pamplona to Madrid with comfortable seating."
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€35-€80",
+            "operator": "Renfe",
+            "notes": "Direct trains available; AVE and regional services."
+          },
+          {
+            "type": "bus",
+            "duration": "6h",
+            "frequency": "daily",
+            "price_range": "€25-€45",
+            "operator": "ALSA",
+            "notes": "Direct and connecting bus routes available."
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "Air France, Iberia",
+            "notes": "Flights operate from Pamplona Airport to Paris Charles de Gaulle."
+          },
+          {
+            "type": "train",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Renfe, SNCF",
+            "notes": "Requires transfer in Barcelona or Hendaye; TGV and AVE trains."
+          }
+        ]
+      },
+      {
+        "city": "Bilbao",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "1h 30m",
+            "frequency": "hourly",
+            "price_range": "€10-€20",
+            "operator": "ALSA",
+            "notes": "Frequent buses connect Pamplona and Bilbao city centers."
+          },
+          {
+            "type": "train",
+            "duration": "2h",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "Renfe",
+            "notes": "Regional trains available but less frequent than buses."
+          }
+        ]
+      },
+      {
+        "city": "San Sebastián",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "1h 20m",
+            "frequency": "hourly",
+            "price_range": "€8-€15",
+            "operator": "ALSA",
+            "notes": "Frequent and convenient bus services."
+          },
+          {
+            "type": "train",
+            "duration": "1h 40m",
+            "frequency": "daily",
+            "price_range": "€10-€20",
+            "operator": "Renfe",
+            "notes": "Regional trains connect Pamplona and San Sebastián."
+          }
+        ]
+      },
+      {
+        "city": "Lisbon",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 45m",
+            "frequency": "weekly",
+            "price_range": "€60-€130",
+            "operator": "TAP Air Portugal",
+            "notes": "Limited direct flights; most routes require connection via Madrid or Barcelona."
+          },
+          {
+            "type": "bus",
+            "duration": "14h",
+            "frequency": "weekly",
+            "price_range": "€50-€80",
+            "operator": "FlixBus",
+            "notes": "Long-distance bus with overnight schedules."
+          }
+        ]
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "weekly",
+            "price_range": "€80-€150",
+            "operator": "SWISS, Iberia",
+            "notes": "Flights usually require connection via Madrid or Barcelona."
+          },
+          {
+            "type": "train",
+            "duration": "9h",
+            "frequency": "daily",
+            "price_range": "€90-€180",
+            "operator": "Renfe, SNCF, SBB",
+            "notes": "Multiple transfers via Barcelona and Geneva or Zurich."
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h",
+            "frequency": "weekly",
+            "price_range": "€70-€140",
+            "operator": "Brussels Airlines, Iberia",
+            "notes": "Mostly connecting flights via Madrid or Barcelona."
+          },
+          {
+            "type": "train",
+            "duration": "8h",
+            "frequency": "daily",
+            "price_range": "€80-€160",
+            "operator": "Renfe, SNCF, Thalys",
+            "notes": "Requires transfer, usually in Paris or Hendaye."
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h",
+            "frequency": "daily",
+            "price_range": "€60-€130",
+            "operator": "British Airways, Iberia",
+            "notes": "Direct flights to London Heathrow or Gatwick from Pamplona via Madrid."
+          },
+          {
+            "type": "train",
+            "duration": "10h",
+            "frequency": "daily",
+            "price_range": "€90-€200",
+            "operator": "Renfe, SNCF, Eurostar",
+            "notes": "Requires several transfers including Paris and London St Pancras."
+          }
+        ]
+      },
+      {
+        "city": "Rome",
+        "country": "Italy",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "weekly",
+            "price_range": "€70-€140",
+            "operator": "Alitalia, Iberia",
+            "notes": "Flights mostly with connections through Madrid or Barcelona."
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Semana Santa Processions",
+        "type": "cultural",
+        "description": "Experience the solemn and beautiful Holy Week processions with traditional music and religious ceremonies throughout Pamplona.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "Historic center, Pamplona",
+        "price": "Free"
+      },
+      {
+        "name": "Paseo por el Parque de la Taconera",
+        "type": "outdoor",
+        "description": "Stroll through the oldest park in Pamplona, enjoying blooming flowers, peacocks, and historical sculptures amid mild spring weather.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Parque de la Taconera",
+        "price": "Free"
+      },
+      {
+        "name": "Navarrese Asparagus Tasting",
+        "type": "food",
+        "description": "Savor fresh seasonal white asparagus, a regional delicacy often served in local markets and restaurants during spring.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Local markets and restaurants",
+        "price": "Moderate"
+      },
+      {
+        "name": "Biking the Arga River Trail",
+        "type": "sport",
+        "description": "Cycle along the scenic Arga River trail, enjoying spring blossoms and pleasant temperatures perfect for outdoor activities.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Arga River Trail",
+        "price": "Free"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "San Fermín Festival (Running of the Bulls)",
+        "type": "festival",
+        "description": "Join the world-famous San Fermín celebrations featuring the iconic running of the bulls, traditional music, and vibrant street parties.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Pamplona city center",
+        "price": "Free"
+      },
+      {
+        "name": "Outdoor Tapas Tours",
+        "type": "food",
+        "description": "Enjoy sampling a variety of traditional Navarrese tapas at open-air terraces across the city during warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Old Town, Pamplona",
+        "price": "Moderate"
+      },
+      {
+        "name": "Evening Concerts in Plaza del Castillo",
+        "type": "cultural",
+        "description": "Attend free live music performances and cultural events held in the central square against the backdrop of summer nights.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Plaza del Castillo",
+        "price": "Free"
+      },
+      {
+        "name": "Hiking in the Surrounding Navarra Countryside",
+        "type": "outdoor",
+        "description": "Explore nearby hills and natural parks with well-marked summer trails offering panoramic views and fresh air.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Sierra de Urbasa and surroundings",
+        "price": "Free"
+      },
+      {
+        "name": "Navarre Wine Tastings",
+        "type": "food",
+        "description": "Visit local wineries or wine bars to sample the region’s distinctive red and rosé wines at special summer events.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Pamplona and nearby vineyards",
+        "price": "Moderate"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Chistorra and Mushrooms Seasonal Cuisine",
+        "type": "food",
+        "description": "Taste traditional autumn dishes featuring chistorra sausage and wild mushrooms freshly harvested from Navarre’s forests.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Local taverns and markets",
+        "price": "Moderate"
+      },
+      {
+        "name": "Pamplona International Festival of Street Theater",
+        "type": "cultural",
+        "description": "Enjoy innovative street performances and theater acts staged throughout the city streets during early autumn.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Various outdoor venues in Pamplona",
+        "price": "Free to Budget"
+      },
+      {
+        "name": "Wine Harvest Celebrations",
+        "type": "festival",
+        "description": "Participate in grape harvesting festivals nearby, celebrating the new wine season with tastings, music, and local customs.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Navarre vineyards around Pamplona",
+        "price": "Moderate"
+      },
+      {
+        "name": "Walking the Camino de Santiago Section",
+        "type": "outdoor",
+        "description": "Take advantage of cooler weather to hike a scenic stretch of the famous pilgrimage route just outside Pamplona.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Camino de Santiago trail near Pamplona",
+        "price": "Free"
+      },
+      {
+        "name": "Visit the Museo de Navarra",
+        "type": "cultural",
+        "description": "Explore Navarre's rich history and art collections indoors as the temperatures drop and autumn rains begin.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Museo de Navarra, Pamplona",
+        "price": "Budget"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Pamplona Christmas Market",
+        "type": "festival",
+        "description": "Browse handcrafted gifts, festive foods, and seasonal decorations in the charming Christmas market held in the city center.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza del Castillo and surrounding streets",
+        "price": "Free"
+      },
+      {
+        "name": "Traditional Navarrese Winter Stews",
+        "type": "food",
+        "description": "Warm up with hearty local stews such as 'menestra' and 'cordero al chilindrón' served in cozy restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Pamplona restaurants",
+        "price": "Moderate"
+      },
+      {
+        "name": "Visit the Cathedral of Santa María la Real",
+        "type": "cultural",
+        "description": "Explore this gothic cathedral’s stunning architecture and museum in a peaceful indoor setting during winter days.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Cathedral of Santa María la Real",
+        "price": "Budget"
+      },
+      {
+        "name": "Thermal Spas near Pamplona",
+        "type": "outdoor",
+        "description": "Relax in nearby thermal baths and spas, ideal for chilly winter days and rejuvenation after exploring the city.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Thermal spa resorts near Pamplona",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Winter Walks in the Ciudadela Park",
+        "type": "outdoor",
+        "description": "Enjoy crisp winter air and quiet walks around the historic fortress park, beautifully lit during the holiday season.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Ciudadela Park, Pamplona",
+        "price": "Free"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 2,
+            "special": true,
+            "event": "Three Kings Day (Día de Reyes)",
+            "notes": "Cold weather with average highs around 9°C, but festive atmosphere on January 5-6 for the Epiphany parade. Sparse tourists otherwise.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 1,
+            "special": false,
+            "event": null,
+            "notes": "Cold and damp weather, limited events, low tourist infrastructure open. Best avoided unless on a budget or business trip.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 1,
+              "solo": 2,
+              "business": 3,
+              "budget": 5,
+              "luxury": 1
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Still chilly but gradually improving. Quiet city, good for budget travelers and those seeking solitude or off-season experiences.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cold with occasional rain, low tourist presence. Some local cultural events but limited international appeal.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Carnival (dates vary but often mid-February)",
+            "notes": "Carnival festivities bring lively street events and parades, increasing cultural interest despite cool weather (~10°C). Moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-Carnival calm with slowly improving weather. Good for those seeking fewer tourists and moderate weather.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool but increasingly pleasant weather (around 12°C). Early spring flowers and fewer tourists; good for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild temperatures and moderate crowds as spring tourism begins. Pleasant for sightseeing and outdoor activities.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa (Holy Week - dates vary, often late March or April)",
+            "notes": "Religious processions and cultural events create a meaningful local experience. Weather is improving; expect moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa (Holy Week continues into early April some years)",
+            "notes": "Continued religious and cultural festivities early month. Pleasant spring weather with occasional rain, average 14-16°C.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Mild and increasingly sunny weather. Good time for outdoor activities and visiting the old town with manageable crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Approaching warmer weather but occasional rain; fewer tourists than May onward. Good for budget or solo travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring in full bloom, temperatures averaging 18°C, ideal for outdoor sightseeing and walks. Crowds start to pick up.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 4,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Excellent weather, long daylight hours, and pleasant temperatures make May one of the best months to visit Pamplona. Moderate crowds but not overwhelming.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm weather (20-25°C), perfect for outdoor activities and festivals. Increasing tourist numbers but still manageable.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer with excellent weather and vibrant local life. Ideal month before the intense peak of July and August.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Hot weather (up to 30°C). Crowds increase as summer tourists arrive, making some sites busy but the atmosphere lively.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Peak summer heat and tourist crowds. Accommodation prices rise but the city's vibrant festivals and nightlife are in full swing.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 4,
+              "solo": 4,
+              "business": 2,
+              "budget": 1,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Very hot and dry, temperatures often exceed 30°C. Many locals leave city for holidays, some businesses close, and it can feel quieter despite tourists.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Continued heat and some tourist fatigue. Good for travelers who tolerate heat and want fewer crowds than July, but not optimal for families or budget.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 2,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early fall with warm, pleasant weather (20-25°C), fewer crowds than summer peak. Ideal for sightseeing and outdoor dining.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "San Fermín Festival (July 6-14) is over, but September hosts smaller local festivals",
+            "notes": "Warm weather continues, with lower crowds post-San Fermín. Excellent for cultural exploration and comfortable travel.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Cooler temperatures (13-18°C) and autumn foliage, good for walking tours and cultural events. Crowds are moderate to low.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Increasingly cooler and wetter weather, with fewer tourists and some rainy days. Good for budget travelers and cultural indoor activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool and rainy, average highs around 12°C. Low tourist activity, some attractions may have reduced hours.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Continued cold and damp conditions, very low tourist numbers. Suitable for budget travelers and those comfortable with cooler weather.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 1
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Chilly with average highs around 10°C, increasing festive decorations. Moderate crowds on weekends.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Holiday Festivities",
+            "notes": "Festive atmosphere with Christmas markets, lights, and events. Cold weather but joyful ambiance attracts moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 3,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "New Year's Eve (Nochevieja)",
+            "notes": "New Year's celebrations with parties and events in the city center. Cold weather but vibrant nightlife and cultural activities.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

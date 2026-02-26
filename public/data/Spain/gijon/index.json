@@ -1,1 +1,3126 @@
-{"city":"gijon","country":"Spain","overview":null,"attractions":null,"neighborhoods":null,"culinaryGuide":null,"connections":null,"seasonalActivities":null,"summary":null,"visitCalendar":null}
+{
+  "city": "gijon",
+  "country": "Spain",
+  "overview": {
+    "city_name": "Gijón",
+    "country": "Spain",
+    "brief_description": "Gijón is a vibrant coastal city in the Asturias region of northern Spain, known for its rich maritime heritage and lively cultural scene. It blends beautiful beaches, historic architecture, and a dynamic culinary landscape, making it a captivating destination for travelers seeking both relaxation and authentic local experiences.",
+    "nickname": "La Capital de la Costa Verde",
+    "region": "Asturias, Northern Spain",
+    "population": "approximately 270,000",
+    "why_visit": [
+      "Stunning beaches along the Bay of Biscay",
+      "Historic old town with charming plazas and architecture",
+      "Renowned cider culture and excellent Asturian cuisine",
+      "Vibrant cultural festivals and lively nightlife"
+    ],
+    "best_time_to_visit": "May to September, when the weather is mild and sunny, ideal for enjoying the beaches and outdoor festivals",
+    "seasonal_notes": {
+      "spring": "Mild temperatures and blooming landscapes make spring perfect for exploring parks and outdoor markets.",
+      "summer": "Warm and sunny with bustling beaches and numerous festivals, summer is peak tourist season in Gijón.",
+      "autumn": "Cooler weather and fewer crowds provide a peaceful atmosphere for cultural sightseeing and cider tasting.",
+      "winter": "Mild winters with occasional rain, quieter city life, and great opportunities to experience local traditions indoors."
+    },
+    "practical_info": {
+      "currency": "Euro (EUR)",
+      "language": "Spanish (Asturian language also spoken locally)",
+      "visit_duration": "3-4 days to fully enjoy beaches, culture, and gastronomy",
+      "getting_around": "Efficient local bus network, taxis, and walkable city center; bike rentals available",
+      "safety": "Gijón is generally safe with low crime rates; standard urban precautions are advised"
+    },
+    "coordinates": {
+      "latitude": 43.5322,
+      "longitude": -5.6611
+    },
+    "things_to_do_tiers": {
+      "must_do": [
+        "Relax on Playa de San Lorenzo, Gijón’s main urban beach",
+        "Explore Cimavilla, the historic old quarter with Roman and medieval sites",
+        "Visit the Museo del Ferrocarril de Asturias showcasing regional railway history",
+        "Taste traditional Asturian cider and local dishes in Sidrerías",
+        "Stroll along the scenic Paseo del Muro overlooking the Cantabrian Sea"
+      ],
+      "worth_doing": [
+        "Discover the Laboral Ciudad de la Cultura, a stunning cultural complex",
+        "Visit the Jardín Botánico Atlántico for unique Atlantic flora",
+        "Explore the Atlantic Aquarium featuring marine life from the Bay of Biscay",
+        "Attend a local festival such as Semana Negra or the Fiesta de la Sidra",
+        "Enjoy the street art and vibrant nightlife in the city center"
+      ],
+      "hidden_gems": [
+        "Hike to the nearby Santa Catalina viewpoint for panoramic coastal views",
+        "Explore the Roman baths and archaeological site beneath the city",
+        "Visit the Evaristo Valle Museum to see works by the famous Asturian painter",
+        "Take a quiet walk through the Parque de Isabel la Católica",
+        "Sample artisanal cheeses at local markets outside the main tourist areas"
+      ]
+    }
+  },
+  "attractions": {
+    "sites": [
+      {
+        "name": "San Lorenzo Beach (Playa de San Lorenzo)",
+        "type": "Beach",
+        "description": "San Lorenzo Beach is Gijón’s most famous urban beach, stretching nearly 2 kilometers along the city’s coastline. This sandy shore is popular for sunbathing, surfing, and scenic seaside walks, with beautiful views of the Cantabrian Sea and the city skyline.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Ideal in summer months (June to September) for swimming and beach activities.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.5344,
+        "longitude": -5.6615,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Lifeguard presence in summer months"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museo del Ferrocarril de Asturias"
+        },
+        "official_url": null,
+        "website": "https://www.gijon.info/playa-san-lorenzo"
+      },
+      {
+        "name": "Laboral Ciudad de la Cultura",
+        "type": "Cultural Complex",
+        "description": "The Laboral Ciudad de la Cultura is a monumental building originally constructed as a university in the 1950s, now a vibrant cultural center hosting exhibitions, theater, and workshops. Its impressive neoclassical architecture and large gardens make it a must-see landmark.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round with indoor exhibitions and events.",
+        "booking_tips": "Book guided tours in advance for enhanced experience.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 43.55,
+        "longitude": -5.6575,
+        "neighborhood": "Cabueñes",
+        "opening_hours": {
+          "weekday": "10:00-20:00",
+          "weekend": "10:00-20:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "14",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor exhibitions and cafes"
+        },
+        "official_url": "https://www.laboralciudaddecultura.com",
+        "website": "https://www.laboralciudaddecultura.com"
+      },
+      {
+        "name": "Jardín Botánico Atlántico",
+        "type": "Botanical Garden",
+        "description": "The Jardín Botánico Atlántico is a sprawling botanical garden showcasing the unique flora of the Atlantic region. Visitors can stroll through themed gardens and greenhouses, learning about native plant species in a peaceful setting just outside the city center.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Best visited in spring and summer when plants are in full bloom.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.5593,
+        "longitude": -5.6667,
+        "neighborhood": "Cabueñes",
+        "opening_hours": {
+          "weekday": "10:00-18:00",
+          "weekend": "10:00-18:00",
+          "notes": "Shorter hours in winter"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Laboral Ciudad de la Cultura indoor spaces"
+        },
+        "official_url": "https://www.jardinbotanicoatlántico.com",
+        "website": "https://www.jardinbotanicoatlántico.com"
+      },
+      {
+        "name": "Cimavilla Neighborhood",
+        "type": "Historic Neighborhood",
+        "description": "Cimavilla is the oldest district in Gijón, perched on a hill overlooking the sea. Its narrow cobbled streets, traditional fishermen's houses, and lively plazas offer visitors a charming glimpse of the city’s maritime heritage and vibrant local life.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Atmosphere especially lively during summer festivals.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 5
+        },
+        "latitude": 43.5357,
+        "longitude": -5.6601,
+        "neighborhood": "Cimavilla",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": "Shops and bars open late"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Museo del Ferrocarril de Asturias"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo del Ferrocarril de Asturias",
+        "type": "Museum",
+        "description": "This railway museum is dedicated to the history of trains in Asturias, featuring a large collection of locomotives, carriages, and railway memorabilia. It offers engaging exhibits and occasional train rides, ideal for families and train enthusiasts.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; check for special event schedules.",
+        "booking_tips": "Advance booking recommended for train rides.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.5321,
+        "longitude": -5.6644,
+        "neighborhood": "El Natahoyo",
+        "opening_hours": {
+          "weekday": "10:00-14:00, 16:00-19:00",
+          "weekend": "10:00-14:00, 16:00-19:00",
+          "notes": "Closed on Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://www.museoferrocarrilasturias.es",
+        "website": "http://www.museoferrocarrilasturias.es"
+      },
+      {
+        "name": "Elogio del Horizonte",
+        "type": "Monument",
+        "description": "Created by renowned sculptor Eduardo Chillida, this iconic concrete sculpture overlooks the sea atop Santa Catalina hill. The monument frames panoramic views of the Cantabrian coastline and is a symbolic tribute to the horizon and infinite space.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Sunset views particularly spectacular year-round.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.5,
+          "cultural_significance": 5
+        },
+        "latitude": 43.5374,
+        "longitude": -5.657,
+        "neighborhood": "Santa Catalina",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "12",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.25,
+          "max_duration_hours": 1,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Laboral Ciudad de la Cultura"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Revillagigedo Palace",
+        "type": "Palace",
+        "description": "This elegant 18th-century Baroque palace is located in the heart of Gijón’s old town. It hosts cultural events and art exhibitions in a beautifully restored setting, reflecting the aristocratic history of the region.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Exhibitions vary seasonally; check in advance.",
+        "booking_tips": "Tickets can be purchased on-site; guided tours available by appointment.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.5331,
+        "longitude": -5.6613,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "10:00-14:00, 16:00-20:00",
+          "weekend": "10:00-14:00, 16:00-20:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor art galleries"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Plaza Mayor de Gijón",
+        "type": "Plaza/Square",
+        "description": "The Plaza Mayor is the lively central square of Gijón, lined with historic buildings, cafes, and shops. It’s a great spot to experience local life, enjoy a coffee, and observe street performers or seasonal markets.",
+        "indoor": false,
+        "best_time": "Any",
+        "price_range": "Free",
+        "seasonal_notes": "Hosts Christmas markets and summer festivals.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.5335,
+        "longitude": -5.6617,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor cafés nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Iglesia de San Pedro",
+        "type": "Church",
+        "description": "Located near San Lorenzo Beach, this 19th-century church is notable for its neo-Gothic architecture and stained glass windows. It is an important spiritual and cultural landmark for Gijón’s coastal community.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Open daily; special masses during local festivals.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 0.75,
+          "cultural_significance": 3
+        },
+        "latitude": 43.535,
+        "longitude": -5.658,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "09:00-13:00, 17:00-20:00",
+          "weekend": "09:00-13:00, 17:00-20:00",
+          "notes": "Closed on some holidays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Museo Casa Natal de Jovellanos"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo Casa Natal de Jovellanos",
+        "type": "Museum",
+        "description": "This museum is the birthplace of Gaspar Melchor de Jovellanos, a prominent 18th-century Spanish statesman and writer. The museum features period furnishings and exhibits dedicated to his life and Asturias' Enlightenment era.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round except holidays.",
+        "booking_tips": "Small museum; no booking needed but check opening hours.",
+        "ratings": {
+          "cost_estimate": 3,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.536,
+        "longitude": -5.6602,
+        "neighborhood": "Cimavilla",
+        "opening_hours": {
+          "weekday": "10:00-14:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "12",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Parque de Isabel la Católica",
+        "type": "Park",
+        "description": "This central park in Gijón offers green spaces, fountains, and sculptures, providing a relaxing oasis for locals and visitors alike. The park also hosts cultural events and is a popular spot for afternoon strolls.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Beautiful in spring and summer with blooming flowers.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 3
+        },
+        "latitude": 43.5365,
+        "longitude": -5.661,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Laboral Ciudad de la Cultura indoor spaces"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "El Muro Promenade",
+        "type": "Seafront Promenade",
+        "description": "El Muro is a scenic promenade along San Lorenzo Beach, perfect for walking, jogging, or cycling while enjoying sea views. The area comes alive with street vendors and performers, especially during warmer months.",
+        "indoor": false,
+        "best_time": "Evening",
+        "price_range": "Free",
+        "seasonal_notes": "Popular in summer evenings; less crowded in winter.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 3
+        },
+        "latitude": 43.5353,
+        "longitude": -5.6606,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "evening",
+          "weather_fallback": "Indoor cafes nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Mercado de El Fontán",
+        "type": "Market",
+        "description": "El Fontán Market is a traditional covered market located in a historic square, offering fresh local produce, seafood, and artisan goods. It’s a lively place to experience Gijón’s culinary culture and vibrant local atmosphere.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; busiest on weekends.",
+        "booking_tips": "Best to visit early morning for freshest selections.",
+        "ratings": {
+          "cost_estimate": 5,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 4
+        },
+        "latitude": 43.5332,
+        "longitude": -5.6618,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "08:00-14:00",
+          "weekend": "08:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor market"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Aquarium of Gijón",
+        "type": "Aquarium",
+        "description": "The Aquarium of Gijón offers an immersive experience showcasing marine life from the Cantabrian Sea and around the world. Interactive exhibits and large tanks make it a fun and educational stop for families and marine enthusiasts.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Moderate",
+        "seasonal_notes": "Open year-round with special seasonal events.",
+        "booking_tips": "Purchase tickets online to avoid queues.",
+        "ratings": {
+          "cost_estimate": 10,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.5367,
+        "longitude": -5.6633,
+        "neighborhood": "El Natahoyo",
+        "opening_hours": {
+          "weekday": "10:00-19:00",
+          "weekend": "10:00-19:00",
+          "notes": "Reduced winter hours"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "5",
+            "12"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1.5,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor aquarium"
+        },
+        "official_url": "https://www.acuario.gijon.es",
+        "website": "https://www.acuario.gijon.es"
+      },
+      {
+        "name": "Parque de la Providencia",
+        "type": "Park",
+        "description": "A peaceful urban park with mature trees, playgrounds, and walking paths, Parque de la Providencia is perfect for a quiet break from the city bustle. It also features a small pond and areas for picnics.",
+        "indoor": false,
+        "best_time": "Afternoon",
+        "price_range": "Free",
+        "seasonal_notes": "Enjoyable year-round; colorful foliage in autumn.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 1,
+          "cultural_significance": 2
+        },
+        "latitude": 43.5337,
+        "longitude": -5.6645,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 0.5,
+          "max_duration_hours": 1.5,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor museums nearby"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Playón de Bayas",
+        "type": "Beach/Natural Area",
+        "description": "Located just west of Gijón, Playón de Bayas is a long natural beach favored by surfers and nature lovers. Its unspoiled sands and dunes offer a more tranquil alternative to the city beaches with stunning views of the coastline.",
+        "indoor": false,
+        "best_time": "Morning",
+        "price_range": "Free",
+        "seasonal_notes": "Best visited in warm months; strong waves year-round for surfing.",
+        "booking_tips": null,
+        "ratings": {
+          "cost_estimate": 0,
+          "suggested_duration_hours": 2,
+          "cultural_significance": 3
+        },
+        "latitude": 43.5249,
+        "longitude": -5.7153,
+        "neighborhood": "Bayas",
+        "opening_hours": {
+          "weekday": "Open 24 hours",
+          "weekend": "Open 24 hours",
+          "notes": null
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "16"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 3,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Laboral Ciudad de la Cultura"
+        },
+        "official_url": null,
+        "website": null
+      },
+      {
+        "name": "Museo Evaristo Valle",
+        "type": "Museum",
+        "description": "Dedicated to the Asturian painter Evaristo Valle, this museum houses an extensive collection of his works set within a charming villa surrounded by gardens. It offers insight into early 20th-century Spanish art and Valle’s impressionist style.",
+        "indoor": true,
+        "best_time": "Morning",
+        "price_range": "Budget",
+        "seasonal_notes": "Open year-round; gardens best in spring/summer.",
+        "booking_tips": "Small venue; confirm opening hours before visiting.",
+        "ratings": {
+          "cost_estimate": 4,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.5359,
+        "longitude": -5.6721,
+        "neighborhood": "La Calzada",
+        "opening_hours": {
+          "weekday": "10:00-14:00",
+          "weekend": "10:00-14:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "14"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "morning",
+          "weather_fallback": "Indoor museum"
+        },
+        "official_url": "http://museoevaristovalle.gijon.es",
+        "website": "http://museoevaristovalle.gijon.es"
+      },
+      {
+        "name": "Palacio de Revillagigedo",
+        "type": "Palace",
+        "description": "A grand 18th-century palace located in the old town, it is used for exhibitions and cultural events, showcasing fine art and historical artifacts. The palace's elegant architecture and frescoed ceilings reflect Gijón’s aristocratic past.",
+        "indoor": true,
+        "best_time": "Afternoon",
+        "price_range": "Moderate",
+        "seasonal_notes": "Exhibitions change regularly; check online.",
+        "booking_tips": "Guided tours recommended for detailed historical context.",
+        "ratings": {
+          "cost_estimate": 6,
+          "suggested_duration_hours": 1.5,
+          "cultural_significance": 4
+        },
+        "latitude": 43.533,
+        "longitude": -5.6617,
+        "neighborhood": "Centro",
+        "opening_hours": {
+          "weekday": "10:00-14:00, 16:00-20:00",
+          "weekend": "10:00-14:00, 16:00-20:00",
+          "notes": "Closed Mondays"
+        },
+        "transit": {
+          "closest_metro": [],
+          "bus_routes": [
+            "1",
+            "5"
+          ]
+        },
+        "visit_profile": {
+          "min_duration_hours": 1,
+          "max_duration_hours": 2,
+          "ideal_time_block": "afternoon",
+          "weather_fallback": "Indoor galleries"
+        },
+        "official_url": null,
+        "website": null
+      }
+    ]
+  },
+  "neighborhoods": {
+    "neighborhoods": [
+      {
+        "name": "El Centro",
+        "alternate_names": [
+          "City Center",
+          "Downtown Gijón"
+        ],
+        "character": "El Centro is the vibrant heart of Gijón, buzzing with a mix of locals and tourists amidst historic architecture and modern shops. This lively area pulses with energy day and night, offering a seamless blend of tradition and contemporary urban life.",
+        "location": {
+          "central": true,
+          "description": "Located immediately around the main Plaza Mayor, the core of Gijón's urban life.",
+          "borders": [
+            "La Arena",
+            "Cimavilla",
+            "Pumarín"
+          ],
+          "landmarks": [
+            "Plaza Mayor",
+            "Palacio Valdés Theatre",
+            "San Lorenzo Beach"
+          ]
+        },
+        "history": {
+          "overview": "El Centro developed around Gijón's medieval origins, expanding during the 19th century with commercial growth.",
+          "significance": "It remains the cultural and commercial nucleus, reflecting Gijón’s evolution from a fishing village to a modern city.",
+          "notable_events": [
+            "Annual Semana Negra literary festival",
+            "Historic market fairs",
+            "Restoration of Plaza Mayor in 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Gijón Bus Central Station",
+            "Numerous city bus lines"
+          ],
+          "safety": "Generally safe with active pedestrian zones",
+          "best_time_to_visit": "Spring through early autumn for festivals and outdoor cafes",
+          "walkability": "Highly walkable with pedestrian streets and plazas"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic plazas",
+            "Shops and boutiques",
+            "Cafés and terraces",
+            "Street performances",
+            "Cultural events"
+          ],
+          "atmosphere": [
+            "lively",
+            "historic",
+            "cosmopolitan"
+          ],
+          "best_for": [
+            "first-time visitors",
+            "shoppers",
+            "culture seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 5,
+          "residential": 3,
+          "green_spaces": 2,
+          "shopping": 5,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Plaza Mayor",
+              "type": "Public Square",
+              "description": "The central and historic plaza lined with shops, cafés, and notable architecture.",
+              "appeal": "A perfect place to soak up the city’s atmosphere and attend local events."
+            },
+            {
+              "name": "Palacio Valdés Theatre",
+              "type": "Theatre",
+              "description": "A grand 19th-century neoclassical theatre hosting plays and cultural shows.",
+              "appeal": "Cultural hub highlighting Gijón’s artistic scene."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café Dindurra",
+              "cuisine": "Spanish, Asturian",
+              "price_range": "€€",
+              "known_for": "Traditional Asturian cuisine and classic ambiance",
+              "atmosphere": "Elegant, historic, cozy"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit early morning to enjoy the plaza before the crowds arrive.",
+          "Try local cider poured traditionally at nearby sidrerías.",
+          "Check for live music or theater performances at Palacio Valdés."
+        ]
+      },
+      {
+        "name": "Cimavilla",
+        "alternate_names": [
+          "La Villa",
+          "Old Town"
+        ],
+        "character": "Cimavilla is Gijón’s atmospheric historic quarter perched on a hill overlooking the sea, with narrow winding streets and ancient buildings. It exudes a charming, timeless vibe blending maritime heritage and bohemian flair.",
+        "location": {
+          "central": true,
+          "description": "Located on a promontory facing the Bay of Biscay, just north of El Centro.",
+          "borders": [
+            "El Centro",
+            "La Arena"
+          ],
+          "landmarks": [
+            "Roman Baths",
+            "Elogio del Horizonte",
+            "San Pedro Church"
+          ]
+        },
+        "history": {
+          "overview": "The oldest neighborhood in Gijón, originally a fishing village and Roman settlement.",
+          "significance": "Preserves much of the city's maritime roots and historical architecture.",
+          "notable_events": [
+            "Roman occupation remains",
+            "19th-century port expansion",
+            "Restoration projects since 1990s"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines connecting to city center"
+          ],
+          "safety": "Safe, with some steep and uneven streets",
+          "best_time_to_visit": "Late spring to early autumn for sea views and festivals",
+          "walkability": "Walkable but involves hills and cobblestones"
+        },
+        "appeal": {
+          "known_for": [
+            "Historic charm",
+            "Seaside views",
+            "Art galleries",
+            "Cultural festivals",
+            "Nightlife bars"
+          ],
+          "atmosphere": [
+            "historic",
+            "bohemian",
+            "scenic"
+          ],
+          "best_for": [
+            "history buffs",
+            "photographers",
+            "nightlife lovers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Elogio del Horizonte",
+              "type": "Sculpture / Landmark",
+              "description": "Iconic concrete sculpture by Eduardo Chillida offering panoramic sea views.",
+              "appeal": "Symbolizes Gijón and provides breathtaking photo opportunities."
+            },
+            {
+              "name": "Roman Baths",
+              "type": "Archaeological Site",
+              "description": "Well-preserved remains of Roman thermal baths dating back to the 1st century.",
+              "appeal": "A glimpse into the ancient past of the city."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurante La Taberna del Zurdo",
+              "cuisine": "Asturian, Seafood",
+              "price_range": "€€€",
+              "known_for": "Fresh seafood and traditional Asturian dishes",
+              "atmosphere": "Intimate, rustic, authentic"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Wear comfortable shoes for cobblestone and uphill walking.",
+          "Visit the Elogio del Horizonte at sunset for spectacular views.",
+          "Explore small art galleries and craft shops hidden in side streets."
+        ]
+      },
+      {
+        "name": "La Arena",
+        "alternate_names": [],
+        "character": "La Arena is the bustling beachfront neighborhood known for its expansive sandy beach and lively promenade. It perfectly balances relaxed seaside vibes with a busy urban feel, popular with families and sunseekers.",
+        "location": {
+          "central": true,
+          "description": "Directly south of Cimavilla and El Centro along the coastline.",
+          "borders": [
+            "El Centro",
+            "Cimavilla",
+            "Natahoyo"
+          ],
+          "landmarks": [
+            "San Lorenzo Beach",
+            "Ribadesella Promenade"
+          ]
+        },
+        "history": {
+          "overview": "Developed in the 20th century as Gijón’s main beach area and leisure zone.",
+          "significance": "The prime spot for beach culture and summer tourism in the city.",
+          "notable_events": [
+            "Beach festivals",
+            "Annual surfing competitions"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Multiple bus lines to city center and suburbs"
+          ],
+          "safety": "Generally safe, with lifeguards on duty during summer",
+          "best_time_to_visit": "Summer months for beach activities and festivals",
+          "walkability": "Very walkable along the flat beachfront promenade"
+        },
+        "appeal": {
+          "known_for": [
+            "Beach access",
+            "Seaside promenade",
+            "Water sports",
+            "Outdoor cafes",
+            "Summer events"
+          ],
+          "atmosphere": [
+            "relaxed",
+            "sunny",
+            "family-friendly"
+          ],
+          "best_for": [
+            "beach lovers",
+            "families",
+            "outdoor enthusiasts"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 3,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "San Lorenzo Beach",
+              "type": "Beach",
+              "description": "Gijón’s main urban beach known for its golden sand and wide shore.",
+              "appeal": "Ideal for swimming, sunbathing, and beach sports."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Chiringuito La Playa",
+              "cuisine": "Spanish, Casual",
+              "price_range": "€-€€",
+              "known_for": "Beachside tapas and refreshing drinks",
+              "atmosphere": "Casual, lively, open-air"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Arrive early in summer to secure sunbeds on San Lorenzo Beach.",
+          "Stroll along the promenade at sunset for beautiful coastal views.",
+          "Try the local ice cream stands near the beach."
+        ]
+      },
+      {
+        "name": "La Calzada",
+        "alternate_names": [],
+        "character": "La Calzada offers a strong local vibe with a working-class history, now evolving into a family-oriented residential area with vibrant street life. It feels authentic and unpretentious, with traditional markets and neighborhood bars.",
+        "location": {
+          "central": false,
+          "description": "Southwest of the city center, about 2 km inland from the coast.",
+          "borders": [
+            "Pumarín",
+            "La Arena",
+            "Moreda"
+          ],
+          "landmarks": [
+            "La Calzada Market",
+            "Parque de Moreda"
+          ]
+        },
+        "history": {
+          "overview": "Historically a workers’ district tied to Gijón’s industrial expansion in the 20th century.",
+          "significance": "Represents the city’s socio-economic roots and community spirit.",
+          "notable_events": [
+            "Industrial workforce growth",
+            "Neighborhood festivals"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 1, 9, 17 serving the area"
+          ],
+          "safety": "Safe neighborhood with active community policing",
+          "best_time_to_visit": "Year-round for authentic local experience",
+          "walkability": "Moderately walkable with some busy streets"
+        },
+        "appeal": {
+          "known_for": [
+            "Local markets",
+            "Community festivals",
+            "Traditional taverns",
+            "Family-friendly parks"
+          ],
+          "atmosphere": [
+            "authentic",
+            "friendly",
+            "down-to-earth"
+          ],
+          "best_for": [
+            "cultural travelers",
+            "families",
+            "local experience seekers"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "La Calzada Market",
+              "type": "Market",
+              "description": "Traditional indoor market offering fresh produce and local delicacies.",
+              "appeal": "Great spot to experience local flavors and daily life."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Sidrería El Molín de la Calzada",
+              "cuisine": "Asturian",
+              "price_range": "€€",
+              "known_for": "Authentic cider and hearty regional dishes",
+              "atmosphere": "Rustic, lively, communal"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit the market in the morning for the freshest products.",
+          "Attend local festivals for traditional music and dance.",
+          "Try the house cider poured the traditional Asturian way."
+        ]
+      },
+      {
+        "name": "El Llano",
+        "alternate_names": [],
+        "character": "El Llano is a broad, primarily residential neighborhood with a modern feel, characterized by wide avenues, parks, and a strong community atmosphere. It offers a quieter alternative to the tourist-heavy center, beloved by locals for its amenities and green spaces.",
+        "location": {
+          "central": false,
+          "description": "East of the city center, extending towards the outskirts.",
+          "borders": [
+            "El Coto",
+            "Pumarín",
+            "Jove"
+          ],
+          "landmarks": [
+            "Parque de Los Pericones",
+            "El Llano Market"
+          ]
+        },
+        "history": {
+          "overview": "Developed mostly in the mid-20th century as Gijón expanded eastward.",
+          "significance": "Reflects Gijón’s post-war urban planning and residential growth.",
+          "notable_events": [
+            "Expansion of public housing",
+            "Community development projects"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 12, 14, 21"
+          ],
+          "safety": "Safe and family-friendly",
+          "best_time_to_visit": "Spring and autumn for pleasant park visits",
+          "walkability": "Walkable with broad sidewalks and parks"
+        },
+        "appeal": {
+          "known_for": [
+            "Parks and playgrounds",
+            "Local shopping centers",
+            "Community events"
+          ],
+          "atmosphere": [
+            "calm",
+            "friendly",
+            "suburban"
+          ],
+          "best_for": [
+            "families",
+            "long-term visitors",
+            "those seeking local life"
+          ]
+        },
+        "categories": {
+          "touristy": 1,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 2,
+          "historic": 1
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Parque de Los Pericones",
+              "type": "Park",
+              "description": "Large green space with playgrounds and walking paths popular with families.",
+              "appeal": "A peaceful urban oasis away from tourist crowds."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Restaurante Casa Gerardo",
+              "cuisine": "Asturian",
+              "price_range": "€€€",
+              "known_for": "Traditional dishes with modern touches",
+              "atmosphere": "Comfortable, welcoming, refined"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit local bakeries for traditional Asturian pastries.",
+          "Explore the park early morning for birdwatching opportunities.",
+          "Use this area as a quiet base to explore the city."
+        ]
+      },
+      {
+        "name": "Natahoyo",
+        "alternate_names": [],
+        "character": "Natahoyo is a coastal neighborhood blending residential calm with lively beach culture, popular with surfers and young locals. Its laid-back vibe and proximity to the sea make it a favorite spot for outdoor activities and weekend relaxation.",
+        "location": {
+          "central": false,
+          "description": "West of El Centro, along the coastline near the port.",
+          "borders": [
+            "La Arena",
+            "El Coto",
+            "Cimavilla"
+          ],
+          "landmarks": [
+            "Natahoyo Beach",
+            "Faro de Gijón (Gijón Lighthouse)"
+          ]
+        },
+        "history": {
+          "overview": "Originally a small fishing district, it evolved into a favored residential and recreational area.",
+          "significance": "Combines maritime heritage with modern coastal leisure culture.",
+          "notable_events": [
+            "Development of local surfing spots",
+            "Annual beach clean-up events"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 5, 6"
+          ],
+          "safety": "Safe, with family-friendly beach areas",
+          "best_time_to_visit": "Summer for beach and water sports",
+          "walkability": "Walkable along the promenade and beach paths"
+        },
+        "appeal": {
+          "known_for": [
+            "Surfing",
+            "Beach access",
+            "Seaside walking paths",
+            "Local seafood restaurants"
+          ],
+          "atmosphere": [
+            "relaxed",
+            "sporty",
+            "friendly"
+          ],
+          "best_for": [
+            "surfers",
+            "nature lovers",
+            "families"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 2,
+          "dining": 4,
+          "nightlife": 2,
+          "cultural": 2,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Natahoyo Beach",
+              "type": "Beach",
+              "description": "Popular beach for surfing and sunbathing with scenic views of the port.",
+              "appeal": "Great for water sports enthusiasts and casual beachgoers alike."
+            },
+            {
+              "name": "Faro de Gijón",
+              "type": "Lighthouse",
+              "description": "Historic lighthouse offering panoramic views over the bay.",
+              "appeal": "Ideal spot for photography and coastal walks."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Marisquería La Lonja",
+              "cuisine": "Seafood",
+              "price_range": "€€€",
+              "known_for": "Fresh shellfish and traditional seafood platters",
+              "atmosphere": "Casual, maritime, friendly"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Check surf conditions before heading to Natahoyo Beach.",
+          "Walk along the coast early in the morning for tranquility.",
+          "Try the local fabada Asturiana at nearby sidrerías."
+        ]
+      },
+      {
+        "name": "Pumarín",
+        "alternate_names": [],
+        "character": "Pumarín is a largely residential neighborhood with an emerging trendy scene fueled by local cafes, artisan shops, and community spaces. It offers a quiet retreat with an undercurrent of youthful creativity and neighborhood pride.",
+        "location": {
+          "central": false,
+          "description": "Southwest of El Centro, bordering La Calzada and El Llano.",
+          "borders": [
+            "El Centro",
+            "La Calzada",
+            "El Llano"
+          ],
+          "landmarks": [
+            "Parque Fluvial de Pumarín"
+          ]
+        },
+        "history": {
+          "overview": "Developed during the 20th century as a suburban district for workers.",
+          "significance": "Now gaining attention as a creative hub within Gijón.",
+          "notable_events": [
+            "Community art projects",
+            "Urban renewal initiatives"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Bus lines 8, 18"
+          ],
+          "safety": "Safe and welcoming",
+          "best_time_to_visit": "Spring and summer for outdoor events",
+          "walkability": "Moderately walkable with some green trails"
+        },
+        "appeal": {
+          "known_for": [
+            "Artisanal markets",
+            "Community gardens",
+            "Local cafés"
+          ],
+          "atmosphere": [
+            "creative",
+            "relaxed",
+            "authentic"
+          ],
+          "best_for": [
+            "young travelers",
+            "artists",
+            "those seeking local culture"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 4,
+          "green_spaces": 3,
+          "shopping": 3,
+          "dining": 3,
+          "nightlife": 2,
+          "cultural": 4,
+          "historic": 2
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Parque Fluvial de Pumarín",
+              "type": "Park",
+              "description": "Green riverside park with walking paths and recreational areas.",
+              "appeal": "Perfect for nature walks and community gatherings."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Café La Pumarada",
+              "cuisine": "International, Café",
+              "price_range": "€",
+              "known_for": "Specialty coffees and homemade pastries",
+              "atmosphere": "Cozy, creative, casual"
+            }
+          ]
+        },
+        "insider_tips": [
+          "Visit on weekends for local artisan markets.",
+          "Chat with baristas about upcoming cultural events.",
+          "Explore nearby street art and murals."
+        ]
+      }
+    ]
+  },
+  "culinaryGuide": {
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Auga",
+          "cuisine_type": "Modern Asturian",
+          "description": "A Michelin-starred restaurant offering innovative takes on traditional Asturian cuisine, emphasizing local ingredients like cider and seafood.",
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and contemporary with an intimate ambiance perfect for special occasions.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "date night",
+            "special occasions",
+            "food enthusiasts"
+          ],
+          "latitude": 43.5331,
+          "longitude": -5.6617,
+          "reservation_needed": true,
+          "local_tips": "Try the cider-infused dishes and pair your meal with local Asturian ciders."
+        },
+        {
+          "name": "La Taberna del Zurdo",
+          "cuisine_type": "Innovative Spanish",
+          "description": "Creative culinary fusion combining Asturian flavors with modern techniques, known for its tasting menus highlighting seasonal produce.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and artistic with an open kitchen concept.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "foodies",
+            "groups",
+            "date night"
+          ],
+          "latitude": 43.5325,
+          "longitude": -5.664,
+          "reservation_needed": true,
+          "local_tips": "Book in advance and ask for the seasonal tasting menu for the best experience."
+        },
+        {
+          "name": "El Restallu",
+          "cuisine_type": "Asturian Contemporary",
+          "description": "A refined restaurant focusing on traditional Asturian dishes with a modern twist, emphasizing local seafood and cider.",
+          "price_range": "€€€",
+          "atmosphere": "Cozy yet upscale with warm wooden interiors.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "date night",
+            "business dinners"
+          ],
+          "latitude": 43.535,
+          "longitude": -5.6622,
+          "reservation_needed": true,
+          "local_tips": "Don't miss the fabada asturiana, a signature hearty bean stew."
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Sidrería Tierra Astur",
+          "cuisine_type": "Traditional Asturian",
+          "description": "Classic cider house offering hearty Asturian staples like fabada, cachopo, and fresh seafood in a lively environment.",
+          "price_range": "€€",
+          "atmosphere": "Rustic and bustling, perfect for groups and families.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "groups",
+            "families",
+            "casual meals"
+          ],
+          "latitude": 43.5329,
+          "longitude": -5.6604,
+          "reservation_needed": false,
+          "local_tips": "Try the sidra (cider) poured traditionally from height for the full experience."
+        },
+        {
+          "name": "La Taberna de Ernesto",
+          "cuisine_type": "Spanish Tapas",
+          "description": "Popular tapas bar serving a wide range of traditional Spanish small plates with a focus on fresh local ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Casual and lively with a friendly local crowd.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "groups",
+            "friends",
+            "casual dining"
+          ],
+          "latitude": 43.5337,
+          "longitude": -5.6633,
+          "reservation_needed": false,
+          "local_tips": "Order the tortilla española and local cheeses paired with cider."
+        },
+        {
+          "name": "El Molín de Mingo",
+          "cuisine_type": "Asturian Cuisine",
+          "description": "A charming spot known for its traditional Asturian dishes served in a cozy, rustic setting near the beach.",
+          "price_range": "€€",
+          "atmosphere": "Warm and inviting, great for relaxed meals.",
+          "neighborhood": "San Lorenzo",
+          "best_for": [
+            "families",
+            "casual dining",
+            "tourists"
+          ],
+          "latitude": 43.5428,
+          "longitude": -5.6608,
+          "reservation_needed": false,
+          "local_tips": "Try the grilled seafood and the local cider on tap."
+        },
+        {
+          "name": "Restaurante La Taberna del Reloj",
+          "cuisine_type": "Seafood, Asturian",
+          "description": "Serving fresh seafood and traditional Asturian cuisine with generous portions and a relaxed atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Casual and friendly, ideal for groups and families.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "groups",
+            "families",
+            "seafood lovers"
+          ],
+          "latitude": 43.5315,
+          "longitude": -5.6627,
+          "reservation_needed": false,
+          "local_tips": "Go early for the best seafood choices and lively ambiance."
+        },
+        {
+          "name": "La Mar de Tapas",
+          "cuisine_type": "Tapas, Spanish",
+          "description": "A lively tapas bar with an extensive menu of traditional and modern Spanish tapas, perfect for sharing and casual dining.",
+          "price_range": "€€",
+          "atmosphere": "Energetic and social, great for groups and friends.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "friends",
+            "groups",
+            "casual dining"
+          ],
+          "latitude": 43.5339,
+          "longitude": -5.6645,
+          "reservation_needed": false,
+          "local_tips": "Try the pulpo a la gallega (octopus) and pair with local cider."
+        }
+      ],
+      "street_food": [
+        {
+          "name": "Mercado del Sur",
+          "cuisine_type": "Market with Local Foods",
+          "description": "A bustling market offering fresh Asturian products including cheeses, cured meats, and ready-to-eat street snacks.",
+          "price_range": "€",
+          "atmosphere": "Vibrant and casual with a local crowd.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "quick bites",
+            "sampling local flavors",
+            "casual"
+          ],
+          "latitude": 43.5334,
+          "longitude": -5.6613,
+          "reservation_needed": false,
+          "local_tips": "Sample the local cheeses and chorizo from different stalls."
+        },
+        {
+          "name": "El Molín de Mingo Food Truck",
+          "cuisine_type": "Asturian Street Food",
+          "description": "Food truck serving traditional Asturian snacks like empanadas and fried squid near popular beach areas.",
+          "price_range": "€",
+          "atmosphere": "Casual and beachside.",
+          "neighborhood": "San Lorenzo",
+          "best_for": [
+            "beachgoers",
+            "quick bites",
+            "casual"
+          ],
+          "latitude": 43.543,
+          "longitude": -5.661,
+          "reservation_needed": false,
+          "local_tips": "Great place for a quick snack after the beach or a walk on the promenade."
+        },
+        {
+          "name": "Plaza Mayor Food Stalls",
+          "cuisine_type": "Various Local Street Foods",
+          "description": "An array of stalls offering traditional Asturian street foods including chorizo sandwiches and freshly baked pastries.",
+          "price_range": "€",
+          "atmosphere": "Lively and social in the main square.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "tourists",
+            "quick snacks",
+            "casual"
+          ],
+          "latitude": 43.533,
+          "longitude": -5.663,
+          "reservation_needed": false,
+          "local_tips": "Try the local desserts like carbayones while people-watching in the plaza."
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "bars": [
+        {
+          "name": "El Molinón Sidrería",
+          "cuisine_type": "Cider Bar",
+          "description": "Traditional cider house where you can taste freshly poured Asturian cider straight from the barrel alongside local snacks.",
+          "price_range": "€€",
+          "atmosphere": "Lively and authentic, filled with locals enjoying the sidra culture.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "locals",
+            "groups",
+            "cider enthusiasts"
+          ],
+          "latitude": 43.5321,
+          "longitude": -5.6618,
+          "reservation_needed": false,
+          "local_tips": "Watch the sidrero pour cider from height for that signature aeration."
+        },
+        {
+          "name": "La Oficina",
+          "cuisine_type": "Cocktails, Wine Bar",
+          "description": "Chic cocktail bar offering an extensive selection of wines and creative cocktails in a stylish setting.",
+          "price_range": "€€€",
+          "atmosphere": "Trendy and intimate, ideal for evening drinks.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "date night",
+            "cocktail lovers"
+          ],
+          "latitude": 43.5332,
+          "longitude": -5.6635,
+          "reservation_needed": true,
+          "local_tips": "Try their signature cider-based cocktails."
+        },
+        {
+          "name": "Sidrería El Gaitero",
+          "cuisine_type": "Cider Bar",
+          "description": "Historic cider house associated with the famous El Gaitero brand, offering tastings and a lively atmosphere.",
+          "price_range": "€€",
+          "atmosphere": "Traditional and festive, perfect for experiencing local cider culture.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "cider tasting",
+            "groups",
+            "locals"
+          ],
+          "latitude": 43.5328,
+          "longitude": -5.6609,
+          "reservation_needed": false,
+          "local_tips": "Visit during cider pouring hours to see the traditional escanciado method."
+        }
+      ],
+      "cafes": [
+        {
+          "name": "Café Dindurra",
+          "cuisine_type": "Coffee, Pastries",
+          "description": "Historic café known for its classic pastries and excellent coffee, a favorite local meeting spot since the early 20th century.",
+          "price_range": "€",
+          "atmosphere": "Classic and elegant with a vintage charm.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "breakfast",
+            "coffee lovers",
+            "relaxing"
+          ],
+          "latitude": 43.5338,
+          "longitude": -5.6637,
+          "reservation_needed": false,
+          "local_tips": "Try the carbayones, a traditional Asturian almond pastry."
+        },
+        {
+          "name": "Cafe de la Plaza",
+          "cuisine_type": "Coffee, Light Bites",
+          "description": "Casual café with a pleasant outdoor terrace on Plaza Mayor, perfect for people-watching over coffee or tapas.",
+          "price_range": "€",
+          "atmosphere": "Relaxed and social, bustling plaza vibe.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "outdoor seating",
+            "casual coffee",
+            "tourists"
+          ],
+          "latitude": 43.5331,
+          "longitude": -5.6628,
+          "reservation_needed": false,
+          "local_tips": "Sit outside to enjoy the lively atmosphere of the main square."
+        },
+        {
+          "name": "La Finca Coffee & Brunch",
+          "cuisine_type": "Coffee, Brunch",
+          "description": "Modern café offering specialty coffees and fresh brunch options with a focus on quality and local ingredients.",
+          "price_range": "€€",
+          "atmosphere": "Bright, modern, and cozy.",
+          "neighborhood": "Centro",
+          "best_for": [
+            "brunch",
+            "coffee lovers",
+            "casual"
+          ],
+          "latitude": 43.534,
+          "longitude": -5.6642,
+          "reservation_needed": false,
+          "local_tips": "Their avocado toast and cold brews are local favorites."
+        }
+      ]
+    },
+    "food_experiences": [
+      {
+        "name": "Gijón Cider Route",
+        "description": "A guided tour through traditional cider houses where you learn about the cider-making process and enjoy tastings paired with local snacks.",
+        "location": "Various cider houses in Centro",
+        "price_range": "€€",
+        "duration": "3 hours",
+        "best_for": [
+          "cider lovers",
+          "cultural experiences",
+          "groups"
+        ]
+      },
+      {
+        "name": "Asturian Cooking Class",
+        "description": "Hands-on cooking experience where visitors prepare classic Asturian dishes such as fabada and cachopo under the guidance of local chefs.",
+        "location": "Centro Gijón Cooking Studios",
+        "price_range": "€€€",
+        "duration": "4 hours",
+        "best_for": [
+          "foodies",
+          "couples",
+          "small groups"
+        ]
+      },
+      {
+        "name": "Mercado del Sur Food Tour",
+        "description": "Explore the Mercado del Sur market with a local guide, sampling fresh cheeses, cured meats, seafood, and traditional pastries.",
+        "location": "Mercado del Sur, Centro",
+        "price_range": "€€",
+        "duration": "2 hours",
+        "best_for": [
+          "food lovers",
+          "tourists",
+          "families"
+        ]
+      },
+      {
+        "name": "Asturian Street Food Walking Tour",
+        "description": "A casual walking tour sampling popular street foods like empanadas, chorizo sandwiches, and pastries while exploring Gijón's historic streets.",
+        "location": "Centro and San Lorenzo neighborhoods",
+        "price_range": "€",
+        "duration": "2.5 hours",
+        "best_for": [
+          "casual eaters",
+          "tourists",
+          "groups"
+        ]
+      }
+    ],
+    "seasonal_specialties": {
+      "spring": [
+        "Fabes con almejas (bean stew with clams)",
+        "Fresh asparagus from Asturias",
+        "Seasonal shellfish such as razor clams"
+      ],
+      "summer": [
+        "Grilled sardines by the beach",
+        "Ensalada de pimientos asados (roasted pepper salad)",
+        "Cold cider and gazpacho variations"
+      ],
+      "autumn": [
+        "Mushroom dishes featuring local varieties",
+        "Chestnut desserts and pastries",
+        "Cider festivals featuring new cider (sidra natural)"
+      ],
+      "winter": [
+        "Fabada asturiana (hearty bean stew with pork)",
+        "Cachopo (breaded veal or beef stuffed with ham and cheese)",
+        "Warm cider and local stews"
+      ]
+    }
+  },
+  "connections": {
+    "destinations": [
+      {
+        "city": "Madrid",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€60",
+            "operator": "Renfe",
+            "notes": "Direct Alvia trains connecting Gijón to Madrid Chamartín station"
+          },
+          {
+            "type": "bus",
+            "duration": "6h 30m",
+            "frequency": "daily",
+            "price_range": "€20-€40",
+            "operator": "ALSA",
+            "notes": "Multiple daily ALSA buses, economical option"
+          }
+        ]
+      },
+      {
+        "city": "Barcelona",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 30m",
+            "frequency": "daily",
+            "price_range": "€40-€100",
+            "operator": "Vueling",
+            "notes": "Direct flights from Asturias Airport (OVD) to Barcelona-El Prat Airport"
+          },
+          {
+            "type": "bus",
+            "duration": "12h 30m",
+            "frequency": "daily",
+            "price_range": "€35-€60",
+            "operator": "ALSA",
+            "notes": "Overnight bus service available"
+          }
+        ]
+      },
+      {
+        "city": "Paris",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "Air France",
+            "notes": "Direct flights from Asturias Airport to Paris Charles de Gaulle"
+          },
+          {
+            "type": "train",
+            "duration": "12h 0m",
+            "frequency": "daily",
+            "price_range": "€80-€130",
+            "operator": "Renfe & SNCF",
+            "notes": "Combination of trains with connection in Madrid and Hendaye"
+          }
+        ]
+      },
+      {
+        "city": "Lisbon",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "1h 20m",
+            "frequency": "daily",
+            "price_range": "€50-€120",
+            "operator": "TAP Air Portugal",
+            "notes": "Direct flights from Asturias Airport to Lisbon Portela Airport"
+          },
+          {
+            "type": "bus",
+            "duration": "10h 30m",
+            "frequency": "daily",
+            "price_range": "€30-€50",
+            "operator": "ALSA & Rede Expressos",
+            "notes": "Bus service with a transfer in Salamanca"
+          }
+        ]
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 10m",
+            "frequency": "daily",
+            "price_range": "€60-€140",
+            "operator": "Ryanair",
+            "notes": "Direct flights from Asturias Airport to London Stansted Airport"
+          }
+        ]
+      },
+      {
+        "city": "Brussels",
+        "country": "Belgium",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 0m",
+            "frequency": "daily",
+            "price_range": "€70-€140",
+            "operator": "Brussels Airlines",
+            "notes": "Direct flights from Asturias Airport to Brussels Airport"
+          }
+        ]
+      },
+      {
+        "city": "Bilbao",
+        "country": "Spain",
+        "transport_types": [
+          {
+            "type": "train",
+            "duration": "5h 0m",
+            "frequency": "daily",
+            "price_range": "€25-€50",
+            "operator": "Renfe Feve",
+            "notes": "Scenic narrow-gauge train along the northern coast"
+          },
+          {
+            "type": "bus",
+            "duration": "4h 30m",
+            "frequency": "daily",
+            "price_range": "€15-€30",
+            "operator": "ALSA",
+            "notes": "Frequent bus service, often faster than train"
+          }
+        ]
+      },
+      {
+        "city": "Porto",
+        "country": "Portugal",
+        "transport_types": [
+          {
+            "type": "bus",
+            "duration": "11h 0m",
+            "frequency": "daily",
+            "price_range": "€30-€55",
+            "operator": "ALSA & Rede Expressos",
+            "notes": "Bus connection with transfer in Vigo or Salamanca"
+          }
+        ]
+      },
+      {
+        "city": "Marseille",
+        "country": "France",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 15m",
+            "frequency": "weekly",
+            "price_range": "€80-€160",
+            "operator": "Lufthansa",
+            "notes": "One-stop flights via Madrid or Barcelona, weekly frequency"
+          }
+        ]
+      },
+      {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "transport_types": [
+          {
+            "type": "flight",
+            "duration": "2h 30m",
+            "frequency": "daily",
+            "price_range": "€70-€150",
+            "operator": "KLM",
+            "notes": "Direct flights from Asturias Airport to Amsterdam Schiphol"
+          }
+        ]
+      }
+    ]
+  },
+  "seasonalActivities": {
+    "Spring": [
+      {
+        "name": "Semana Santa Processions",
+        "type": "cultural",
+        "description": "Experience the solemn and traditional Holy Week processions with religious floats and local music in the streets of Gijón.",
+        "best_months": [
+          "March",
+          "April"
+        ],
+        "location": "City center and churches",
+        "price": "Free"
+      },
+      {
+        "name": "La Playa de San Lorenzo Walks",
+        "type": "outdoor",
+        "description": "Enjoy scenic walks along the famous San Lorenzo beach promenade, perfect for mild spring weather and bird watching.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "San Lorenzo Beach",
+        "price": "Free"
+      },
+      {
+        "name": "Sidra Tasting",
+        "type": "food",
+        "description": "Sample traditional Asturian cider at local sidrerías, as spring is ideal for fresh cider production and tasting.",
+        "best_months": [
+          "April",
+          "May"
+        ],
+        "location": "Sidrerías in Cimavilla district",
+        "price": "Budget"
+      },
+      {
+        "name": "Botanical Garden Visits",
+        "type": "outdoor",
+        "description": "Visit the Atlantic Botanical Garden to see native flora bloom with pleasant spring temperatures.",
+        "best_months": [
+          "March",
+          "April",
+          "May"
+        ],
+        "location": "Atlantic Botanical Garden",
+        "price": "Moderate"
+      }
+    ],
+    "Summer": [
+      {
+        "name": "Semana Negra Festival",
+        "type": "festival",
+        "description": "A major cultural event combining literature, music, and street performances celebrating noir fiction and Asturian culture.",
+        "best_months": [
+          "July"
+        ],
+        "location": "Various venues in Gijón",
+        "price": "Free to Moderate"
+      },
+      {
+        "name": "Beach Activities at Playa de San Lorenzo",
+        "type": "outdoor",
+        "description": "Swimming, sunbathing, and water sports are popular at the city's main urban beach during warm summer months.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "San Lorenzo Beach",
+        "price": "Free"
+      },
+      {
+        "name": "Surfing at Playa de San Lorenzo",
+        "type": "sport",
+        "description": "Catch the waves or take surfing lessons at this popular beach known for consistent summer surf conditions.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "San Lorenzo Beach",
+        "price": "Moderate"
+      },
+      {
+        "name": "Gijón International Film Festival",
+        "type": "cultural",
+        "description": "Attend screenings and events showcasing innovative international cinema, typically held in late summer.",
+        "best_months": [
+          "July",
+          "August"
+        ],
+        "location": "Cinemas and cultural centers",
+        "price": "Moderate"
+      },
+      {
+        "name": "Outdoor Concerts in Paseo de Begoña",
+        "type": "cultural",
+        "description": "Enjoy free or low-cost live music concerts in the park area, perfect for warm summer evenings.",
+        "best_months": [
+          "June",
+          "July",
+          "August"
+        ],
+        "location": "Paseo de Begoña",
+        "price": "Free"
+      }
+    ],
+    "Autumn": [
+      {
+        "name": "Gijón International Jazz Festival",
+        "type": "festival",
+        "description": "A renowned jazz festival featuring local and international artists in various venues around the city.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Theaters and music halls",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Autumn Cider Festival",
+        "type": "food",
+        "description": "Celebrate the cider harvest season with tastings, traditional music, and food pairings across the city.",
+        "best_months": [
+          "September",
+          "October"
+        ],
+        "location": "Sidrerías and public squares",
+        "price": "Budget"
+      },
+      {
+        "name": "Hiking in the Surrounding Green Coast",
+        "type": "outdoor",
+        "description": "Explore nearby coastal trails with crisp autumn weather and spectacular fall foliage views.",
+        "best_months": [
+          "September",
+          "October",
+          "November"
+        ],
+        "location": "Green Coast trails near Gijón",
+        "price": "Free"
+      },
+      {
+        "name": "Visit to Laboral Ciudad de la Cultura",
+        "type": "cultural",
+        "description": "Enjoy art exhibitions, theater, and guided tours at this architectural landmark, ideal for cooler autumn days.",
+        "best_months": [
+          "October",
+          "November"
+        ],
+        "location": "Laboral Ciudad de la Cultura",
+        "price": "Moderate"
+      }
+    ],
+    "Winter": [
+      {
+        "name": "Christmas Market and Festivities",
+        "type": "festival",
+        "description": "The city center hosts a festive market with artisan crafts, seasonal foods, and holiday concerts throughout December.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza Mayor and surrounding streets",
+        "price": "Free to Budget"
+      },
+      {
+        "name": "New Year's Eve Celebrations",
+        "type": "festival",
+        "description": "Join locals in public squares to celebrate with fireworks, music, and traditional grape-eating at midnight.",
+        "best_months": [
+          "December"
+        ],
+        "location": "Plaza Mayor",
+        "price": "Free"
+      },
+      {
+        "name": "Visit the Museo del Ferrocarril de Asturias",
+        "type": "cultural",
+        "description": "Explore Asturias' railway history indoors, an excellent winter activity for families and history enthusiasts.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Gijón",
+        "price": "Budget"
+      },
+      {
+        "name": "Indoor Spa and Wellness",
+        "type": "outdoor",
+        "description": "Relax in local spa facilities offering thermal baths and wellness treatments to escape the winter chill.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Spas in Gijón city",
+        "price": "Moderate to Premium"
+      },
+      {
+        "name": "Try Winter Asturian Cuisine",
+        "type": "food",
+        "description": "Enjoy hearty traditional dishes like fabada asturiana and warm cider in cozy local restaurants.",
+        "best_months": [
+          "December",
+          "January",
+          "February"
+        ],
+        "location": "Restaurants across Gijón",
+        "price": "Moderate"
+      }
+    ]
+  },
+  "summary": null,
+  "visitCalendar": {
+    "months": {
+      "january": {
+        "name": "January",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "score": 3,
+            "special": true,
+            "event": "Cabalgata de Reyes (Epiphany Parade)",
+            "notes": "Cool, wet weather typical; the Epiphany parade on Jan 5 is a cultural highlight drawing local families and visitors, moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 3,
+              "business": 2,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Post-holiday low season; cold and rainy weather common, fewer tourists, quiet city atmosphere.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 3,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cool temperatures with occasional rain; good for budget travelers and those seeking quieter cultural experiences.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "february": {
+        "name": "February",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter continues with cool, wet weather; good for cultural visits and indoor attractions, low crowds.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Carnival Festivals",
+            "notes": "Carnival events bring vibrant parades and festivities; weather still cool but atmosphere lively, moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 2,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Post-Carnival calm, weather still chilly and rainy, low tourist numbers, good for budget travelers.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "march": {
+        "name": "March",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Early spring with gradually improving weather; some rain remains, crowds start increasing slightly.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa Preparations",
+            "notes": "Mild temperatures and beginning of Holy Week festivities; increasing visitor interest, good weather for exploring outdoors.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring arrives with more sunshine and moderate temperatures; ideal for beach walks and city sightseeing, moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "april": {
+        "name": "April",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Santa (Holy Week)",
+            "notes": "Holy Week processions bring cultural richness and local traditions; mild weather, some crowds but enriching experience.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Spring weather continues improving; ideal for outdoor activities and experiencing local cuisine, moderate crowds.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Fiestas de Abril (April Festival)",
+            "notes": "Peak spring conditions with pleasant temperatures; local festivals create a vibrant atmosphere, excellent for all traveler types, moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "may": {
+        "name": "May",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Dia de Asturias (Asturias Day, May 8)",
+            "notes": "Mild to warm weather with low rainfall; regional celebrations attract visitors, perfect for outdoor sightseeing and beach days.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Excellent spring weather with warm temperatures and sunny days; ideal for beach activities, hiking, and exploring Gijón’s cultural sites.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Late May offers stable spring weather and longer daylight; perfect for outdoor dining, beach visits, and cultural exploration.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "june": {
+        "name": "June",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early summer brings warm temperatures and low rain; ideal for beaches, outdoor festivals, and water sports; crowds start to increase.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Semana Negra de Gijón (Black Week Festival)",
+            "notes": "One of Gijón’s largest cultural festivals with literature, music, and gastronomy; warm weather and lively crowds, great for cultural travelers and nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warm, sunny weather continues; perfect for beachgoers and outdoor dining; busy but manageable crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "july": {
+        "name": "July",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "High summer with warm, pleasant temperatures ideal for beaches and outdoor activities; crowds increase significantly.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Peak tourist season with warmest weather; excellent for beach lovers and nightlife, but expect high prices and busy venues.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 5,
+            "special": true,
+            "event": "Festival de Jazz de Gijón (Jazz Festival)",
+            "notes": "Warm summer nights enriched by the Jazz Festival attract music lovers; lively atmosphere, high crowds, excellent for culture and nightlife.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "august": {
+        "name": "August",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Warmest month with peak summer crowds; excellent beach conditions and festivals but high accommodation prices.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Semana Grande de Gijón (Main Summer Festival)",
+            "notes": "Major city festival with fireworks, concerts, and events; very high crowds and prices but unmatched local culture and excitement.",
+            "crowdLevel": "Very High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 3,
+              "budget": 2,
+              "luxury": 5
+            }
+          }
+        ]
+      },
+      "september": {
+        "name": "September",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 5,
+            "special": false,
+            "event": null,
+            "notes": "Early September still summer-like with warm waters; slightly reduced crowds and prices; great for beach and city exploration.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 5,
+              "solo": 5,
+              "business": 4,
+              "budget": 4,
+              "luxury": 5
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 4,
+            "special": false,
+            "event": null,
+            "notes": "Temperatures cool down gradually; less crowded but still pleasant weather; good for active travelers and cultural visits.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 4,
+              "solo": 4,
+              "business": 4,
+              "budget": 4,
+              "luxury": 4
+            }
+          }
+        ]
+      },
+      "october": {
+        "name": "October",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Autumn begins with cooler weather and more rain; fewer tourists and lower prices; good for budget travelers and cultural activities.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Cooler, wetter conditions; ideal for museum visits and local cuisine exploration; low crowds and good value accommodations.",
+            "crowdLevel": "Low",
+            "travelerTypes": {
+              "families": 3,
+              "couples": 3,
+              "solo": 4,
+              "business": 4,
+              "budget": 5,
+              "luxury": 3
+            }
+          }
+        ]
+      },
+      "november": {
+        "name": "November",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "Cool, rainy weather dominates; low tourist numbers; not ideal for outdoor activities, best for indoor cultural experiences.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "score": 2,
+            "special": false,
+            "event": null,
+            "notes": "High rainfall and chilly temperatures; quiet city, good for budget travelers seeking low prices and fewer crowds.",
+            "crowdLevel": "Very Low",
+            "travelerTypes": {
+              "families": 2,
+              "couples": 2,
+              "solo": 3,
+              "business": 4,
+              "budget": 5,
+              "luxury": 2
+            }
+          }
+        ]
+      },
+      "december": {
+        "name": "December",
+        "ranges": [
+          {
+            "days": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "score": 3,
+            "special": false,
+            "event": null,
+            "notes": "Winter chill with occasional rain; Christmas markets begin; moderate crowds especially near holidays.",
+            "crowdLevel": "Moderate",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 3,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 3
+            }
+          },
+          {
+            "days": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "score": 4,
+            "special": true,
+            "event": "Christmas Markets and Festivities",
+            "notes": "Festive atmosphere with holiday markets and events; chilly but magical time to visit, moderate to high crowds.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 5,
+              "couples": 4,
+              "solo": 3,
+              "business": 3,
+              "budget": 4,
+              "luxury": 4
+            }
+          },
+          {
+            "days": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "score": 4,
+            "special": true,
+            "event": "New Year's Eve Celebrations",
+            "notes": "Cold weather but lively New Year events and fireworks; popular with locals and visitors, expect busy venues and festive mood.",
+            "crowdLevel": "High",
+            "travelerTypes": {
+              "families": 4,
+              "couples": 5,
+              "solo": 4,
+              "business": 3,
+              "budget": 3,
+              "luxury": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}
