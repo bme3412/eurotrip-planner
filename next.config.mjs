@@ -16,7 +16,6 @@ const baseConfig = {
   serverExternalPackages: ['mapbox-gl', 'react-map-gl', 'sharp'],
   outputFileTracingExcludes: {
     '**': [
-      './public/data/**/*',
       './public/images/**/*',
       './public/videos/**/*',
     ]
