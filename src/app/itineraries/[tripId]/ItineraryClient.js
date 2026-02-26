@@ -12,6 +12,11 @@ const ItineraryMap = dynamic(() => import('./ItineraryMap'), {
   loading: () => <div className="h-72 animate-pulse rounded-2xl bg-slate-200/50 md:h-[420px]" />,
 });
 
+const PlannerChat = dynamic(() => import('@/components/itinerary/PlannerChat'), {
+  ssr: false,
+  loading: () => null,
+});
+
 // ─── Config ─────────────────────────────────────────────────────────────
 
 const TIME_BLOCK = {
@@ -251,6 +256,9 @@ function GenericTimeBlock({ block, isLast, index, experienceScores }) {
               {timeRange && <span className="ml-1.5 font-normal normal-case tracking-normal">· {timeRange}</span>}
             </p>
             <div className="flex shrink-0 items-center gap-1.5">
+              {act._aiUpdated && (
+                <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-600 ring-1 ring-indigo-200">✦ AI Updated</span>
+              )}
               {badge && <QualityBadge badge={badge} />}
               {isFree && !badge && (
                 <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 ring-1 ring-emerald-200">Free</span>
@@ -516,6 +524,45 @@ export default function ItineraryClient({
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const dayRefs = useRef([]);
 
+  // Local mutable plan state — updated optimistically when agent swaps activities
+  const [localPlan, setLocalPlan] = useState(plan);
+
+  // Sync when server re-renders with a new plan prop
+  useEffect(() => { setLocalPlan(plan); }, [plan]);
+
+  // Called by PlannerChat when agent writes an activity_updated event
+  const handleActivityUpdate = useCallback((dayNumber, timeBlock, newActivity) => {
+    setLocalPlan((prev) => {
+      if (!prev?.days) return prev;
+      return {
+        ...prev,
+        days: prev.days.map((day) => {
+          if (day.dayNumber !== dayNumber && day.day_number !== dayNumber) return day;
+          // Replace the matching time block in generic format
+          if (day.timeBlocks) {
+            return {
+              ...day,
+              timeBlocks: day.timeBlocks.map((block) =>
+                block.time === timeBlock
+                  ? { ...block, activity: { ...block.activity, ...newActivity, _aiUpdated: true } }
+                  : block
+              ),
+            };
+          }
+          return day;
+        }),
+      };
+    });
+
+    // Pulse the day card to signal a change
+    const dayIdx = (dayNumber ?? 1) - 1;
+    const el = dayRefs.current[dayIdx];
+    if (el) {
+      el.classList.add('ring-2', 'ring-indigo-400', 'ring-offset-2');
+      setTimeout(() => el.classList.remove('ring-2', 'ring-indigo-400', 'ring-offset-2'), 2500);
+    }
+  }, []);
+
   // Track which day is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -533,7 +580,7 @@ export default function ItineraryClient({
       if (ref) observer.observe(ref);
     }
     return () => observer.disconnect();
-  }, [plan.days.length]);
+  }, [localPlan.days.length]);
 
   const handleDayClick = useCallback((idx) => {
     const el = dayRefs.current[idx];
@@ -542,7 +589,7 @@ export default function ItineraryClient({
 
   const mapMarkers = useMemo(() => {
     const out = [];
-    for (const day of plan.days) {
+    for (const day of localPlan.days) {
       const dayNum = day.dayNumber || 0;
       const color = DAY_COLORS[(dayNum - 1) % DAY_COLORS.length];
       for (const b of day.timeBlocks || []) {
@@ -558,7 +605,7 @@ export default function ItineraryClient({
       }
     }
     return out;
-  }, [plan.days]);
+  }, [localPlan.days]);
 
   const hasMap = mapMarkers.length > 0;
   const hasHero = thumbnail && thumbnail !== '/images/city-placeholder.svg';
@@ -577,7 +624,7 @@ export default function ItineraryClient({
             <h1 className="mt-1 text-2xl font-bold text-white drop-shadow-sm sm:text-3xl md:text-4xl">
               Your {cityDisplay} trip
             </h1>
-            <p className="mt-1 max-w-xl text-sm text-white/80">{plan.summary}</p>
+            <p className="mt-1 max-w-xl text-sm text-white/80">{localPlan.summary}</p>
           </div>
         </div>
       ) : (
@@ -585,7 +632,7 @@ export default function ItineraryClient({
           <div className="mx-auto max-w-5xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-indigo-500">{cityDisplay} Itinerary</p>
             <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Your {cityDisplay} trip</h1>
-            <p className="mt-2 text-sm text-slate-500">{plan.summary}</p>
+            <p className="mt-2 text-sm text-slate-500">{localPlan.summary}</p>
           </div>
         </div>
       )}
@@ -601,8 +648,8 @@ export default function ItineraryClient({
               </div>
               <div>
                 <dt className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Style</dt>
-                <dd className="mt-0.5 font-semibold text-slate-900">{plan.travelStyle.headline}</dd>
-                <p className="text-[11px] text-slate-400">{plan.travelStyle.description}</p>
+                <dd className="mt-0.5 font-semibold text-slate-900">{localPlan.travelStyle.headline}</dd>
+                <p className="text-[11px] text-slate-400">{localPlan.travelStyle.description}</p>
               </div>
               <div>
                 <dt className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Focus</dt>
@@ -651,11 +698,11 @@ export default function ItineraryClient({
         )}
 
         {/* ── Book immediately ── */}
-        {plan.bookImmediately?.length > 0 && (
+        {localPlan.bookImmediately?.length > 0 && (
           <section className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 shadow-sm">
             <h2 className="text-base font-bold text-amber-900">Reserve these first</h2>
             <div className="mt-3 grid gap-3 sm:grid-cols-3">
-              {plan.bookImmediately.map((item) => (
+              {localPlan.bookImmediately.map((item) => (
                 <div key={item.title} className="rounded-xl border border-amber-200 bg-white px-3 py-3 shadow-sm">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-500">{item.type}</p>
                   <p className="mt-1 text-sm font-semibold text-amber-900">{item.title}</p>
@@ -675,19 +722,34 @@ export default function ItineraryClient({
             </span>
           </div>
 
-          {plan.days.length > 3 && (
-            <DayNavigation days={plan.days} activeDayIndex={activeDayIndex} onDayClick={handleDayClick} />
+          {localPlan.days.length > 3 && (
+            <DayNavigation days={localPlan.days} activeDayIndex={activeDayIndex} onDayClick={handleDayClick} />
           )}
 
           <div className="flex flex-col gap-5">
-            {plan.days.map((day, i) => (
-              <div key={day.date || i} ref={el => { dayRefs.current[i] = el; }}>
+            {localPlan.days.map((day, i) => (
+              <div
+                key={day.date || i}
+                ref={el => { dayRefs.current[i] = el; }}
+                className="rounded-2xl transition-shadow duration-700"
+              >
                 <DayCard day={day} index={i} weather={weather} experienceScores={experienceScores} />
               </div>
             ))}
           </div>
         </section>
       </div>
+
+      {/* ── AI Planner Chat ── */}
+      {tripId && citySlug && (
+        <PlannerChat
+          tripId={tripId}
+          citySlug={citySlug}
+          cityDisplay={cityDisplay}
+          plan={localPlan}
+          onActivityUpdate={handleActivityUpdate}
+        />
+      )}
     </div>
   );
 }
