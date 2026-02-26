@@ -15,8 +15,10 @@ const baseConfig = {
   },
   serverExternalPackages: ['mapbox-gl', 'react-map-gl', 'sharp'],
   outputFileTracingExcludes: {
-    '/': [
-      './public/data/**/*'
+    '**': [
+      './public/data/**/*',
+      './public/images/**/*',
+      './public/videos/**/*',
     ]
   },
   images: {
@@ -111,5 +113,8 @@ export default withSentryConfig(withAnalyzer(baseConfig), {
   widenClientFileUpload: true,
   tunnelRoute: "/monitoring",
   hideSourceMaps: true,
+  sourcemaps: {
+    deleteSourcemapsAfterUpload: true,
+  },
   telemetry: false,
 });
