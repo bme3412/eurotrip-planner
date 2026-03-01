@@ -1,0 +1,236 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  EuroTrip Planner — Bedrock Agent Lambda action groups and supporting infra.
+
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, prod]
+  GooglePlacesApiKey:
+    Type: String
+    NoEcho: true
+    Description: Google Places API key
+  SupabaseUrl:
+    Type: String
+    Description: Supabase project URL
+  SupabaseServiceRoleKey:
+    Type: String
+    NoEcho: true
+    Description: Supabase service-role key
+  BedrockAgentId:
+    Type: String
+    Default: ''
+    Description: Bedrock Agent ID (for resource policy)
+  BedrockBriefingAgentId:
+    Type: String
+    Default: ''
+    Description: Bedrock Briefing Agent ID
+  BedrockBriefingAgentAliasId:
+    Type: String
+    Default: ''
+    Description: Bedrock Briefing Agent alias ID
+  OpenWeatherMapApiKey:
+    Type: String
+    NoEcho: true
+    Default: ''
+    Description: OpenWeatherMap API key for weather forecasts
+  ResendApiKey:
+    Type: String
+    NoEcho: true
+    Default: ''
+    Description: Resend API key for email delivery
+  FromEmail:
+    Type: String
+    Default: 'briefing@eurotrip-planner.com'
+    Description: Sender email address for briefings
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 30
+    MemorySize: 256
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        STAGE: !Ref Stage
+
+Resources:
+  # ── S3 bucket for city data (Lambda action groups) ────────────────
+  CityDataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub eurotrip-city-data-${Stage}
+      LifecycleConfiguration:
+        Rules:
+          - Id: CleanupOldVersions
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 30
+      VersioningConfiguration:
+        Status: Enabled
+
+  # ── S3 bucket for Knowledge Base data (RAG) ──────────────────────
+  KBDataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub eurotrip-kb-data-${Stage}
+      VersioningConfiguration:
+        Status: Enabled
+
+  # ── Lambda: CityData ──────────────────────────────────────────────
+  CityDataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub eurotrip-citydata-${Stage}
+      Handler: cityData.handler
+      CodeUri: handlers/
+      Description: get_city_attractions — reads curated city data from S3
+      Environment:
+        Variables:
+          CITY_DATA_BUCKET: !Ref CityDataBucket
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref CityDataBucket
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeAgent
+              Resource: '*'
+
+  CityDataFunctionBedrockPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt CityDataFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: bedrock.amazonaws.com
+      SourceArn: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:agent/${BedrockAgentId}
+
+  # ── Lambda: GooglePlaces ──────────────────────────────────────────
+  GooglePlacesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub eurotrip-googleplaces-${Stage}
+      Handler: googlePlaces.handler
+      CodeUri: handlers/
+      Description: get_place_details + search_nearby via Google Places API (New)
+      Environment:
+        Variables:
+          GOOGLE_PLACES_API_KEY: !Ref GooglePlacesApiKey
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeAgent
+              Resource: '*'
+
+  GooglePlacesFunctionBedrockPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt GooglePlacesFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: bedrock.amazonaws.com
+      SourceArn: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:agent/${BedrockAgentId}
+
+  # ── Lambda: Itinerary ─────────────────────────────────────────────
+  ItineraryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub eurotrip-itinerary-${Stage}
+      Handler: itinerary.handler
+      CodeUri: handlers/
+      Description: update_itinerary — swaps activities via Supabase
+      Environment:
+        Variables:
+          SUPABASE_URL: !Ref SupabaseUrl
+          SUPABASE_SERVICE_ROLE_KEY: !Ref SupabaseServiceRoleKey
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeAgent
+              Resource: '*'
+
+  ItineraryFunctionBedrockPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt ItineraryFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: bedrock.amazonaws.com
+      SourceArn: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:agent/${BedrockAgentId}
+
+  # ── Lambda: Weather ────────────────────────────────────────────────
+  WeatherFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub eurotrip-weather-${Stage}
+      Handler: weather.handler
+      CodeUri: handlers/
+      Description: get_weather_forecast — OpenWeatherMap 5-day forecast
+      Environment:
+        Variables:
+          OPENWEATHERMAP_API_KEY: !Ref OpenWeatherMapApiKey
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeAgent
+              Resource: '*'
+
+  WeatherFunctionBedrockPermission:
+    Type: AWS::Lambda::Permission
+    Condition: HasBriefingAgent
+    Properties:
+      FunctionName: !GetAtt WeatherFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: bedrock.amazonaws.com
+      SourceArn: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:agent/${BedrockBriefingAgentId}
+
+  # ── Lambda: Briefing Orchestrator ─────────────────────────────────
+  BriefingOrchestratorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub eurotrip-briefing-${Stage}
+      Handler: briefingOrchestrator.handler
+      CodeUri: handlers/
+      Timeout: 300
+      MemorySize: 512
+      Description: Nightly briefing — queries active trips, invokes briefing agent, sends email
+      Environment:
+        Variables:
+          SUPABASE_URL: !Ref SupabaseUrl
+          SUPABASE_SERVICE_ROLE_KEY: !Ref SupabaseServiceRoleKey
+          BEDROCK_BRIEFING_AGENT_ID: !Ref BedrockBriefingAgentId
+          BEDROCK_BRIEFING_AGENT_ALIAS_ID: !Ref BedrockBriefingAgentAliasId
+          RESEND_API_KEY: !Ref ResendApiKey
+          FROM_EMAIL: !Ref FromEmail
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeAgent
+              Resource: '*'
+      Events:
+        NightlySchedule:
+          Type: Schedule
+          Properties:
+            Schedule: "cron(0 19 * * ? *)"
+            Description: Run briefing at 7 PM UTC daily
+            Enabled: true
+
+Conditions:
+  HasBriefingAgent: !Not [!Equals [!Ref BedrockBriefingAgentId, '']]
+
+Outputs:
+  CityDataBucketName:
+    Value: !Ref CityDataBucket
+  CityDataFunctionArn:
+    Value: !GetAtt CityDataFunction.Arn
+  GooglePlacesFunctionArn:
+    Value: !GetAtt GooglePlacesFunction.Arn
+  ItineraryFunctionArn:
+    Value: !GetAtt ItineraryFunction.Arn
+  WeatherFunctionArn:
+    Value: !GetAtt WeatherFunction.Arn
+  BriefingOrchestratorFunctionArn:
+    Value: !GetAtt BriefingOrchestratorFunction.Arn
+  KBDataBucketName:
+    Value: !Ref KBDataBucket

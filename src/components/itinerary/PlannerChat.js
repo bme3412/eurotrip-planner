@@ -26,22 +26,22 @@ function ToolPill({ event }) {
 
   if (event.type === 'tool_call') {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs text-indigo-600">
+      <div className="flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-xs text-zinc-400">
         <Loader2 className="h-3 w-3 animate-spin" />
-        <span>{icons[event.name] || '⚙️'} {labels[event.name] || event.name}…</span>
+        <span>{labels[event.name] || event.name}…</span>
       </div>
     );
   }
   if (event.type === 'tool_result') {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1.5 text-xs text-emerald-700">
-        <span>{icons[event.name] || '⚙️'} {event.summary}</span>
+      <div className="flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-xs text-zinc-400">
+        <span>{event.summary}</span>
       </div>
     );
   }
   if (event.type === 'activity_updated') {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-medium text-amber-700">
+      <div className="flex items-center gap-2 rounded-full border border-[#c9963c40] bg-[#c9963c10] px-3 py-1.5 text-xs font-medium text-[#c9963c]">
         <RefreshCw className="h-3 w-3" />
         <span>Day {event.dayNumber} updated: {event.activity?.name}</span>
       </div>
@@ -64,15 +64,15 @@ function MessageBubble({ msg }) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       {!isUser && (
-        <div className="mr-2 mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-xs text-white">
+        <div className="mr-2 mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#c9963c] text-xs text-black">
           <Sparkles className="h-3 w-3" />
         </div>
       )}
       <div
         className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
           isUser
-            ? 'rounded-br-sm bg-indigo-600 text-white'
-            : 'rounded-bl-sm border border-slate-200 bg-white text-slate-800 shadow-sm'
+            ? 'rounded-br-sm bg-zinc-700 text-white'
+            : 'rounded-bl-sm border border-zinc-700 bg-[#1c1c1f] text-zinc-200'
         }`}
       >
         {msg.content}
@@ -84,15 +84,28 @@ function MessageBubble({ msg }) {
   );
 }
 
+const AGENT_ROUTES = {
+  'openai': '/api/plan/agent',
+  'bedrock-converse': '/api/plan/agent-bedrock',
+  'bedrock-agent': '/api/plan/agent-bedrock-rc',
+};
+
+function getAgentUrl() {
+  const provider = process.env.NEXT_PUBLIC_AGENT_PROVIDER || 'openai';
+  if (process.env.NEXT_PUBLIC_USE_BEDROCK_AGENT === 'true') return AGENT_ROUTES['bedrock-converse'];
+  return AGENT_ROUTES[provider] || AGENT_ROUTES['openai'];
+}
+
 export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onActivityUpdate }) {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([]); // { role, content } — user + assistant
-  const [displayMessages, setDisplayMessages] = useState([]); // what we render (includes tool_event rows)
+  const [messages, setMessages] = useState([]);
+  const [displayMessages, setDisplayMessages] = useState([]);
   const [input, setInput] = useState('');
   const [streaming, setStreaming] = useState(false);
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
   const abortRef = useRef(null);
+  const sessionIdRef = useRef(typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `s-${Date.now()}`);
 
   // Scroll to bottom on new message
   useEffect(() => {
@@ -153,13 +166,14 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
 
       try {
         abortRef.current = new AbortController();
-        const res = await fetch('/api/plan/agent', {
+        const res = await fetch(getAgentUrl(), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             tripId,
             citySlug,
             messages: nextMessages,
+            sessionId: sessionIdRef.current,
           }),
           signal: abortRef.current.signal,
         });
@@ -256,11 +270,12 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
 
   return (
     <>
-      {/* Floating trigger button */}
+      {/* Floating trigger */}
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-black shadow-xl transition hover:opacity-90 focus:outline-none"
+          style={{ backgroundColor: '#c9963c' }}
           aria-label="Refine your itinerary with AI"
         >
           <Sparkles className="h-4 w-4" />
@@ -270,16 +285,16 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
 
       {/* Slide-in panel */}
       {open && (
-        <div className="fixed bottom-0 right-0 z-50 flex h-[80vh] w-full max-w-md flex-col rounded-t-2xl border border-slate-200 bg-white shadow-2xl sm:bottom-6 sm:right-6 sm:h-[600px] sm:rounded-2xl">
+        <div className="fixed bottom-0 right-0 z-50 flex h-[80vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-700 bg-[#111113] shadow-2xl sm:bottom-6 sm:right-6 sm:h-[600px] sm:rounded-2xl">
           {/* Header */}
-          <div className="flex items-center justify-between rounded-t-2xl border-b border-slate-100 bg-indigo-600 px-4 py-3">
+          <div className="flex items-center justify-between rounded-t-2xl border-b border-zinc-800 px-4 py-3.5">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-white/80" />
-              <span className="font-semibold text-white">Refine your {cityDisplay} trip</span>
+              <Sparkles className="h-4 w-4" style={{ color: '#c9963c' }} />
+              <span className="text-sm font-semibold text-zinc-200">Refine your {cityDisplay} trip</span>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="rounded-lg p-1 text-white/70 transition hover:bg-white/10 hover:text-white"
+              className="rounded-lg p-1 text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-300"
               aria-label="Close chat"
             >
               <X className="h-4 w-4" />
@@ -290,12 +305,12 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
           <div className="flex-1 overflow-y-auto px-4 py-4">
             {isEmpty ? (
               <div className="flex h-full flex-col items-center justify-center gap-5 text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
-                  <Sparkles className="h-6 w-6 text-indigo-600" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full" style={{ backgroundColor: '#c9963c20' }}>
+                  <Sparkles className="h-6 w-6" style={{ color: '#c9963c' }} />
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-900">Your AI travel editor</p>
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="font-semibold text-zinc-200">Your AI travel editor</p>
+                  <p className="mt-1 text-sm text-zinc-500">
                     Tell me what to change and I'll update your plan instantly.
                   </p>
                 </div>
@@ -304,7 +319,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                     <button
                       key={prompt}
                       onClick={() => sendMessage(prompt)}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-left text-sm text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"
+                      className="w-full rounded-xl border border-zinc-800 bg-zinc-800/50 px-3 py-2.5 text-left text-sm text-zinc-400 transition hover:border-zinc-600 hover:text-zinc-200"
                     >
                       {prompt}
                     </button>
@@ -322,11 +337,8 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
           </div>
 
           {/* Input */}
-          <form
-            onSubmit={handleSubmit}
-            className="border-t border-slate-100 px-3 py-3"
-          >
-            <div className="flex items-end gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100">
+          <form onSubmit={handleSubmit} className="border-t border-zinc-800 px-3 py-3">
+            <div className="flex items-end gap-2 rounded-xl border border-zinc-700 bg-zinc-800/60 px-3 py-2 focus-within:border-zinc-500">
               <textarea
                 ref={inputRef}
                 value={input}
@@ -335,14 +347,14 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                 rows={1}
                 disabled={streaming}
                 placeholder="Ask me to change anything…"
-                className="flex-1 resize-none bg-transparent text-sm text-slate-800 placeholder-slate-400 focus:outline-none disabled:opacity-50"
+                className="flex-1 resize-none bg-transparent text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none disabled:opacity-50"
                 style={{ maxHeight: '96px' }}
               />
               {streaming ? (
                 <button
                   type="button"
                   onClick={handleAbort}
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-200 text-slate-600 transition hover:bg-slate-300"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-700 text-zinc-400 transition hover:bg-zinc-600"
                   title="Stop generating"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -351,15 +363,16 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-white transition hover:bg-indigo-700 disabled:opacity-40"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-black transition hover:opacity-90 disabled:opacity-30"
+                  style={{ backgroundColor: '#c9963c' }}
                   title="Send"
                 >
                   <Send className="h-3.5 w-3.5" />
                 </button>
               )}
             </div>
-            <p className="mt-1.5 text-center text-[10px] text-slate-400">
-              Changes save automatically · Powered by GPT-4.1
+            <p className="mt-1.5 text-center text-[10px] text-zinc-600">
+              Changes save automatically · AI-powered planner
             </p>
           </form>
         </div>

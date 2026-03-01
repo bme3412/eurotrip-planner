@@ -9,7 +9,7 @@ import ShareButton from './ShareButton';
 
 const ItineraryMap = dynamic(() => import('./ItineraryMap'), {
   ssr: false,
-  loading: () => <div className="h-72 animate-pulse rounded-2xl bg-slate-200/50 md:h-[420px]" />,
+  loading: () => <div className="h-72 animate-pulse rounded-xl bg-zinc-800 md:h-[420px]" />,
 });
 
 const PlannerChat = dynamic(() => import('@/components/itinerary/PlannerChat'), {
@@ -17,20 +17,21 @@ const PlannerChat = dynamic(() => import('@/components/itinerary/PlannerChat'), 
   loading: () => null,
 });
 
-// ─── Config ─────────────────────────────────────────────────────────────
+// ─── Design tokens ───────────────────────────────────────────────────────
+const GOLD = '#c9963c';
+const GOLD_DIM = '#c9963c60';
 
+// Time block config — no emoji, clean labels, dark-mode accent colors
 const TIME_BLOCK = {
-  morning:   { icon: '☀️', label: 'Morning',   border: 'border-l-amber-400',  dot: 'bg-amber-100',  ring: 'ring-amber-200' },
-  lunch:     { icon: '🍽️', label: 'Lunch',      border: 'border-l-orange-400', dot: 'bg-orange-100', ring: 'ring-orange-200' },
-  afternoon: { icon: '🏛️', label: 'Afternoon',  border: 'border-l-sky-400',    dot: 'bg-sky-100',    ring: 'ring-sky-200' },
-  evening:   { icon: '🌆', label: 'Evening',    border: 'border-l-purple-400', dot: 'bg-purple-100', ring: 'ring-purple-200' },
-  night:     { icon: '🌙', label: 'Night',      border: 'border-l-indigo-400', dot: 'bg-indigo-100', ring: 'ring-indigo-200' },
+  early_morning: { label: 'Early Morning', accent: '#92400e', lineColor: '#92400e50' },
+  morning:       { label: 'Morning',       accent: '#b45309', lineColor: '#b4530950' },
+  late_morning:  { label: 'Late Morning',  accent: '#b45309', lineColor: '#b4530950' },
+  lunch:         { label: 'Lunch',         accent: '#9a3412', lineColor: '#9a341250' },
+  afternoon:     { label: 'Afternoon',     accent: '#1d4ed8', lineColor: '#1d4ed850' },
+  late_afternoon:{ label: 'Late Afternoon',accent: '#1d4ed8', lineColor: '#1d4ed850' },
+  evening:       { label: 'Evening',       accent: '#9f1239', lineColor: '#9f123950' },
+  night:         { label: 'Night',         accent: '#5b21b6', lineColor: '#5b21b650' },
 };
-
-const DAY_COLORS = [
-  '#4F46E5', '#0891B2', '#059669', '#D97706', '#DC2626',
-  '#7C3AED', '#DB2777', '#2563EB', '#65A30D', '#EA580C',
-];
 
 const INDOOR_KW = ['museum', 'gallery', 'church', 'cathedral', 'chapel', 'restaurant', 'cafe',
   'bistro', 'brasserie', 'bar', 'market hall', 'library', 'theater', 'theatre', 'opera',
@@ -39,7 +40,7 @@ const OUTDOOR_KW = ['park', 'garden', 'jardin', 'plaza', 'square', 'place', 'bea
   'plage', 'viewpoint', 'bridge', 'pont', 'river', 'seine', 'walk', 'promenade', 'trail',
   'canal', 'outdoor'];
 
-// ─── Helpers ────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────
 
 function parseDate(v) {
   if (!v) return null;
@@ -71,7 +72,7 @@ function renderRich(text) {
   if (!text) return null;
   return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
     i % 2 === 1
-      ? <strong key={i} className="font-semibold text-slate-800">{part}</strong>
+      ? <strong key={i} className="font-semibold text-zinc-200">{part}</strong>
       : <span key={i}>{part}</span>
   );
 }
@@ -93,43 +94,41 @@ function matchBadge(name, scores) {
     }
   }
   if (!match) return null;
-  if (match.score >= 8.5) return { label: 'Must-see', cls: 'bg-amber-50 text-amber-700 ring-1 ring-amber-200' };
-  if (match.score >= 7.0) return { label: 'Highly rated', cls: 'bg-sky-50 text-sky-700 ring-1 ring-sky-200' };
+  if (match.score >= 8.5) return { label: 'Must-see', cls: 'border border-[#c9963c60] text-[#c9963c]' };
+  if (match.score >= 7.0) return { label: 'Top-rated', cls: 'border border-sky-800 text-sky-400' };
   return null;
 }
 
-// ─── Animation ──────────────────────────────────────────────────────────
+// ─── Animation ────────────────────────────────────────────────────────────
 
 const cardV = {
-  hidden: { opacity: 0, y: 20 },
-  visible: i => ({ opacity: 1, y: 0, transition: { delay: i * 0.07, duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } }),
+  hidden: { opacity: 0, y: 16 },
+  visible: i => ({ opacity: 1, y: 0, transition: { delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] } }),
 };
 
 const blockV = {
-  hidden: { opacity: 0, x: -10 },
-  visible: i => ({ opacity: 1, x: 0, transition: { delay: i * 0.05, duration: 0.35 } }),
+  hidden: { opacity: 0, x: -6 },
+  visible: i => ({ opacity: 1, x: 0, transition: { delay: i * 0.04, duration: 0.3 } }),
 };
 
-// ─── Small Components ───────────────────────────────────────────────────
+// ─── Small components ─────────────────────────────────────────────────────
 
 function ActivityPhoto({ googlePlaceId, type, name }) {
   const [failed, setFailed] = useState(false);
 
   if (!googlePlaceId || failed) {
-    const gradients = {
-      museum: 'from-indigo-400 to-purple-500', gallery: 'from-indigo-400 to-purple-500',
-      church: 'from-amber-400 to-orange-500', chapel: 'from-amber-400 to-orange-500',
-      cathedral: 'from-amber-400 to-orange-500', basilica: 'from-amber-400 to-orange-500',
-      park: 'from-emerald-400 to-teal-500', garden: 'from-emerald-400 to-teal-500',
-      restaurant: 'from-orange-400 to-red-400', food: 'from-orange-400 to-red-400',
-      cafe: 'from-amber-300 to-orange-400', bistro: 'from-amber-300 to-orange-400',
-      monument: 'from-slate-400 to-slate-600', tower: 'from-slate-400 to-slate-600',
+    const grads = {
+      museum: 'from-zinc-800 to-zinc-900', gallery: 'from-zinc-800 to-zinc-900',
+      church: 'from-stone-800 to-stone-900', chapel: 'from-stone-800 to-stone-900',
+      cathedral: 'from-stone-800 to-stone-900', basilica: 'from-stone-800 to-stone-900',
+      park: 'from-zinc-800 to-zinc-900', garden: 'from-zinc-800 to-zinc-900',
+      restaurant: 'from-zinc-800 to-zinc-900', food: 'from-zinc-800 to-zinc-900',
     };
     const t = (type || '').toLowerCase();
-    const grad = Object.entries(gradients).find(([k]) => t.includes(k))?.[1] || 'from-slate-300 to-slate-400';
+    const grad = Object.entries(grads).find(([k]) => t.includes(k))?.[1] || 'from-zinc-800 to-zinc-900';
     return (
       <div className={`flex h-36 items-end bg-gradient-to-br ${grad} px-4 pb-3`}>
-        <span className="text-sm font-semibold text-white/90 drop-shadow-sm">{name}</span>
+        <span className="text-sm font-medium text-zinc-300">{name}</span>
       </div>
     );
   }
@@ -145,8 +144,8 @@ function ActivityPhoto({ googlePlaceId, type, name }) {
         onError={() => setFailed(true)}
         unoptimized
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-      <span className="absolute bottom-3 left-4 text-sm font-semibold text-white drop-shadow-sm">{name}</span>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+      <span className="absolute bottom-3 left-4 text-sm font-semibold text-white drop-shadow">{name}</span>
     </div>
   );
 }
@@ -163,16 +162,14 @@ function ExpandableText({ text }) {
 
   return (
     <div>
-      <div
-        ref={ref}
-        className={`text-sm leading-relaxed text-slate-600 ${expanded ? '' : 'line-clamp-3'}`}
-      >
+      <div ref={ref} className={`text-sm leading-relaxed text-zinc-400 ${expanded ? '' : 'line-clamp-3'}`}>
         {renderRich(text)}
       </div>
       {clamped && (
         <button
           onClick={() => setExpanded(e => !e)}
-          className="mt-1 text-xs font-medium text-indigo-500 transition-colors hover:text-indigo-700"
+          className="mt-1.5 text-xs font-medium transition-colors"
+          style={{ color: GOLD }}
         >
           {expanded ? 'Show less' : 'Read more'}
         </button>
@@ -184,8 +181,8 @@ function ExpandableText({ text }) {
 function WeatherBadge({ weather }) {
   if (!weather) return null;
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2.5 py-0.5 text-[11px] font-medium text-sky-700 ring-1 ring-sky-100">
-      ☁️ {weather.highC}°/{weather.lowC}°C · {weather.sunshineHours}h sun
+    <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-medium text-zinc-400 ring-1 ring-zinc-700">
+      {weather.highC}°/{weather.lowC}°C · {weather.sunshineHours}h sun
     </span>
   );
 }
@@ -193,9 +190,7 @@ function WeatherBadge({ weather }) {
 function IndoorBadge({ indoor }) {
   if (indoor === null || indoor === undefined) return null;
   return (
-    <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
-      indoor ? 'bg-sky-50 text-sky-600' : 'bg-emerald-50 text-emerald-600'
-    }`}>
+    <span className="rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-zinc-500 ring-1 ring-zinc-700">
       {indoor ? 'Indoor' : 'Outdoor'}
     </span>
   );
@@ -204,20 +199,21 @@ function IndoorBadge({ indoor }) {
 function QualityBadge({ badge }) {
   if (!badge) return null;
   return (
-    <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${badge.cls}`}>
+    <span className={`rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${badge.cls}`}>
       {badge.label}
     </span>
   );
 }
 
-// ─── GenericTimeBlock ───────────────────────────────────────────────────
+// ─── GenericTimeBlock ──────────────────────────────────────────────────────
 
 function GenericTimeBlock({ block, isLast, index, experienceScores }) {
   const act = block.activity;
   if (!act) return null;
 
-  const cfg = TIME_BLOCK[block.time?.toLowerCase()] || TIME_BLOCK.morning;
-  const timeRange = block.startTime && block.endTime ? `${block.startTime} – ${block.endTime}` : null;
+  const timeKey = block.time?.toLowerCase();
+  const cfg = TIME_BLOCK[timeKey] || TIME_BLOCK.morning;
+  const timeRange = block.startTime && block.endTime ? `${block.startTime}–${block.endTime}` : null;
   const typeLabel = fmtType(act.type);
   const showType = typeLabel && !['Food Recommendation', 'Food', 'Neighborhood'].includes(typeLabel);
   const indoor = inferIndoor(act.type, act.name);
@@ -235,83 +231,110 @@ function GenericTimeBlock({ block, isLast, index, experienceScores }) {
       viewport={{ once: true, margin: '-30px' }}
       custom={index}
     >
-      {/* Timeline dot + connector */}
-      <div className="flex flex-col items-center pt-1">
-        <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm ${cfg.dot} ring-2 ${cfg.ring}`}>
-          {cfg.icon}
-        </div>
-        {!isLast && <div className="mt-1 w-px flex-1 bg-gradient-to-b from-slate-200 to-transparent" />}
+      {/* Minimal timeline */}
+      <div className="flex flex-col items-center pt-3">
+        <div
+          className="h-1.5 w-1.5 shrink-0 rounded-full ring-2"
+          style={{ backgroundColor: cfg.accent + '40', ringColor: cfg.lineColor }}
+        />
+        {!isLast && (
+          <div className="mt-1.5 w-px flex-1 bg-zinc-800" />
+        )}
       </div>
 
-      {/* Card */}
-      <div className={`mb-5 flex-1 overflow-hidden rounded-2xl border-l-4 ${cfg.border} bg-white shadow-sm transition-shadow hover:shadow-md`}>
+      {/* Activity card */}
+      <div
+        className="mb-5 flex-1 overflow-hidden rounded-xl border border-zinc-800 bg-[#18181b] transition-colors duration-200 hover:border-zinc-700"
+        style={{ borderLeftColor: cfg.accent + '60', borderLeftWidth: '2px' }}
+      >
         {act.googlePlaceId && (
           <ActivityPhoto googlePlaceId={act.googlePlaceId} type={act.type} name={act.name} />
         )}
 
-        <div className="px-5 py-4">
+        <div className="px-4 py-3.5">
+          {/* Time label row */}
           <div className="flex items-start justify-between gap-2">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: cfg.accent }}>
               {cfg.label}
-              {timeRange && <span className="ml-1.5 font-normal normal-case tracking-normal">· {timeRange}</span>}
+              {timeRange && (
+                <span className="ml-2 font-normal normal-case tracking-normal text-zinc-600">· {timeRange}</span>
+              )}
             </p>
             <div className="flex shrink-0 items-center gap-1.5">
               {act._aiUpdated && (
-                <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-600 ring-1 ring-indigo-200">✦ AI Updated</span>
+                <span className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#c9963c] ring-1 ring-[#c9963c40]">
+                  ✦ AI
+                </span>
               )}
               {badge && <QualityBadge badge={badge} />}
               {isFree && !badge && (
-                <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 ring-1 ring-emerald-200">Free</span>
+                <span className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-500 ring-1 ring-emerald-900">
+                  Free
+                </span>
               )}
               <IndoorBadge indoor={indoor} />
             </div>
           </div>
 
+          {/* Name */}
           {!act.googlePlaceId && (
-            <h4 className="mt-2 text-base font-bold text-slate-900">{act.name}</h4>
+            <h4 className="mt-2 text-base font-semibold leading-snug text-white">{act.name}</h4>
           )}
           {act.googlePlaceId && (
-            <h4 className="mt-2 text-base font-bold text-slate-900 sr-only">{act.name}</h4>
+            <h4 className="sr-only">{act.name}</h4>
           )}
-          {showType && <p className="mt-0.5 text-xs font-medium text-indigo-500">{typeLabel}</p>}
+          {showType && (
+            <p className="mt-0.5 text-xs font-medium" style={{ color: GOLD + 'cc' }}>{typeLabel}</p>
+          )}
 
           {act.description && (
-            <div className="mt-2">
+            <div className="mt-2.5">
               <ExpandableText text={act.description} />
             </div>
           )}
 
-          <div className="mt-3 flex flex-wrap gap-2">
+          {/* Meta pills */}
+          <div className="mt-3 flex flex-wrap gap-1.5">
             {act.duration && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-200/60">
-                <svg className="h-3 w-3" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm.5 4v4.25l3.5 2.08-.75 1.23L7 9V4h1.5Z"/></svg>
+              <span className="inline-flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
+                <svg className="h-3 w-3 shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm.5 4v4.25l3.5 2.08-.75 1.23L7 9V4h1.5Z"/></svg>
                 {act.duration}
               </span>
             )}
             {act.price && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-200/60">
-                {isFree ? '🆓' : '💶'} {act.price}
+              <span className="inline-flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
+                {act.price}
               </span>
             )}
             {act.neighborhood && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-200/60">
-                📍 {act.neighborhood}
+              <span className="inline-flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
+                {act.neighborhood}
               </span>
             )}
           </div>
 
+          {/* CTAs */}
           {(act.bookingUrl || mapsUrl) && (
             <div className="mt-3 flex flex-wrap gap-2">
               {act.bookingUrl && (
-                <a href={act.bookingUrl} target="_blank" rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-indigo-600 px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-indigo-500">
-                  Book / Visit site <span aria-hidden="true">↗</span>
+                <a
+                  href={act.bookingUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold text-black transition hover:opacity-90"
+                  style={{ backgroundColor: GOLD }}
+                >
+                  Book / Visit ↗
                 </a>
               )}
               {mapsUrl && (
-                <a href={mapsUrl} target="_blank" rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-800">
-                  Map <span aria-hidden="true">↗</span>
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-zinc-700 bg-transparent px-3 py-1.5 text-xs font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"
+                >
+                  Map ↗
                 </a>
               )}
             </div>
@@ -322,7 +345,7 @@ function GenericTimeBlock({ block, isLast, index, experienceScores }) {
   );
 }
 
-// ─── ParisBlock ─────────────────────────────────────────────────────────
+// ─── ParisBlock ───────────────────────────────────────────────────────────
 
 function ParisBlock({ block, index }) {
   const { slot, slotType, item, transferMinutes, longTransfer, transferFrom, transferDistanceKm } = block;
@@ -335,64 +358,66 @@ function ParisBlock({ block, index }) {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index}
-      className="rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-4"
+      className="rounded-xl border border-zinc-800 bg-[#18181b] px-4 py-4"
     >
-      <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-600">
-        <span className="text-lg leading-none">{slotType === 'food' ? '🍽' : '📍'}</span> {slot}
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
+        {slotType === 'food' ? 'Dining' : 'Visit'} · {slot}
       </p>
-      <div className="mt-1 flex flex-col gap-1">
+      <div className="mt-1.5 flex flex-col gap-0.5">
         {item.url ? (
           <a href={item.url} target="_blank" rel="noreferrer"
-            className="text-sm font-semibold text-indigo-600 underline decoration-indigo-300 underline-offset-4 hover:decoration-indigo-500">
+            className="text-sm font-semibold text-white underline decoration-zinc-600 underline-offset-4 hover:decoration-[#c9963c] hover:text-[#c9963c] transition-colors">
             {item.name}
           </a>
         ) : (
-          <p className="text-sm font-semibold text-slate-900">{item.name}</p>
+          <p className="text-sm font-semibold text-white">{item.name}</p>
         )}
-        {item.subtitle && <p className="text-xs font-medium text-indigo-500">{item.subtitle}</p>}
-        {item.arrondissement && <p className="text-xs font-medium text-slate-500">Arr. {item.arrondissement}</p>}
+        {item.subtitle && <p className="text-xs font-medium text-[#c9963c]">{item.subtitle}</p>}
+        {item.arrondissement && <p className="text-xs text-zinc-500">Arr. {item.arrondissement}</p>}
       </div>
       {item.friendlyDetails?.length > 0 && (
-        <div className="mt-3 space-y-2 text-sm leading-relaxed text-slate-700">
+        <div className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-400">
           {item.friendlyDetails.map((line, idx) => (
             <p key={idx}>{renderRich(line)}</p>
           ))}
         </div>
       )}
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-3 flex flex-wrap gap-1.5">
         {item.bestTime && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">🕒 {item.bestTime}</span>
+          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">{item.bestTime}</span>
         )}
         {item.durationHours && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">⏳ {item.durationHours}h</span>
+          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">{item.durationHours}h</span>
         )}
         {item.price && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">💶 {item.price}</span>
+          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">{item.price}</span>
         )}
         {item.transit?.closest_metro?.[0] && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">
-            🚇 L{item.transit.closest_metro[0].line} · {item.transit.closest_metro[0].station}
+          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
+            M{item.transit.closest_metro[0].line} · {item.transit.closest_metro[0].station}
           </span>
         )}
       </div>
       {transferMinutes != null && (
-        <p className={`mt-3 text-xs ${longTransfer ? 'text-amber-600' : 'text-slate-500'}`}>
+        <p className={`mt-3 text-xs ${longTransfer ? 'text-amber-500' : 'text-zinc-600'}`}>
           {longTransfer
-            ? `Plan about ${transferMinutes} min${transferDistanceKm ? ` (~${transferDistanceKm} km)` : ''} from ${transferFrom || 'the previous stop'}`
-            : `Quick hop: ~${transferMinutes} min${transferDistanceKm ? ` (~${transferDistanceKm} km)` : ''} from ${transferFrom || 'the previous stop'}`}
+            ? `~${transferMinutes} min${transferDistanceKm ? ` · ${transferDistanceKm} km` : ''} from ${transferFrom || 'previous stop'}`
+            : `~${transferMinutes} min from ${transferFrom || 'previous stop'}`}
         </p>
       )}
       {item.url && (
         <a href={item.url} target="_blank" rel="noreferrer"
-          className="mt-3 inline-flex w-max items-center gap-2 rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-indigo-500">
-          Book tickets online <span aria-hidden="true">↗︎</span>
+          className="mt-3 inline-flex w-max items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold text-black transition hover:opacity-90"
+          style={{ backgroundColor: GOLD }}
+        >
+          Book tickets ↗
         </a>
       )}
     </motion.div>
   );
 }
 
-// ─── DayCard ────────────────────────────────────────────────────────────
+// ─── DayCard ──────────────────────────────────────────────────────────────
 
 function DayCard({ day, index, weather, experienceScores }) {
   const hasGenericBlocks = day.timeBlocks && !day.blocks;
@@ -400,39 +425,43 @@ function DayCard({ day, index, weather, experienceScores }) {
     ? [...new Set(day.timeBlocks.map(b => b.activity?.neighborhood).filter(Boolean))]
     : [];
   const zoneSummary = day.zones?.length ? [...new Set(day.zones)].join(' → ') : null;
+  const dayNum = day.dayNumber || index + 1;
 
   return (
     <motion.article
-      id={`day-${day.dayNumber || index + 1}`}
-      className="rounded-3xl border border-slate-200 bg-white shadow-sm"
+      id={`day-${dayNum}`}
+      className="overflow-hidden rounded-2xl border border-zinc-800 bg-[#111113]"
       variants={cardV}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
       custom={index}
     >
-      <header className="flex items-start gap-4 border-b border-slate-100 px-6 py-5">
-        {day.dayNumber != null && (
-          <div
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-bold text-white shadow-sm"
-            style={{ backgroundColor: DAY_COLORS[(day.dayNumber - 1) % DAY_COLORS.length] }}
+      {/* Day header */}
+      <header className="flex items-start gap-5 border-b border-zinc-800/80 px-6 py-5">
+        {/* Large serif day number */}
+        <div className="shrink-0 pt-0.5">
+          <span
+            className="font-serif text-5xl font-light leading-none tabular-nums select-none"
+            style={{ color: GOLD, letterSpacing: '-0.03em' }}
           >
-            {day.dayNumber}
-          </div>
-        )}
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <h3 className="text-lg font-bold text-slate-900 sm:text-xl">{formatDayDate(day.date) || day.date}</h3>
+            {dayNum}
+          </span>
+        </div>
+
+        <div className="min-w-0 flex-1 pt-1.5">
+          <div className="flex flex-wrap items-baseline gap-2.5">
+            <h3 className="text-base font-semibold text-white">
+              {formatDayDate(day.date) || day.date}
+            </h3>
             {day.theme && (
-              <span className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-[11px] font-semibold text-indigo-600">
-                {day.theme}
-              </span>
+              <span className="text-[11px] font-medium text-zinc-500 uppercase tracking-wide">{day.theme}</span>
             )}
             {weather && <WeatherBadge weather={weather} />}
           </div>
           {(zoneSummary || neighborhoods.length > 0) && (
-            <p className="mt-1 truncate text-xs text-slate-500">
-              📍 {zoneSummary || neighborhoods.join(' → ')}
+            <p className="mt-1 truncate text-xs text-zinc-600">
+              {zoneSummary || neighborhoods.join(' → ')}
             </p>
           )}
         </div>
@@ -453,18 +482,20 @@ function DayCard({ day, index, weather, experienceScores }) {
       )}
 
       {day.blocks && (
-        <div className="space-y-5 px-6 py-5">
+        <div className="space-y-4 px-6 py-5">
           {day.blocks.map((block, i) => (
             <ParisBlock key={`${block.slot}-${i}`} block={block} index={i} />
           ))}
           {day.supporting?.length > 0 && (
-            <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 px-4 py-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-600">Evening wind-down</p>
+            <div className="rounded-xl border border-[#c9963c30] bg-[#c9963c08] px-4 py-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em]" style={{ color: GOLD }}>
+                Evening wind-down
+              </p>
               {day.supporting.map((item) => (
-                <div key={item.title} className="mt-2 space-y-1">
-                  <p className="text-sm font-semibold text-indigo-900">{item.title}</p>
-                  {item.subtitle && <p className="text-xs font-medium text-indigo-600">{item.subtitle}</p>}
-                  {item.description && <p className="text-sm text-indigo-700">{item.description}</p>}
+                <div key={item.title} className="mt-2.5 space-y-0.5">
+                  <p className="text-sm font-semibold text-zinc-200">{item.title}</p>
+                  {item.subtitle && <p className="text-xs font-medium" style={{ color: GOLD + 'cc' }}>{item.subtitle}</p>}
+                  {item.description && <p className="text-sm text-zinc-400">{item.description}</p>}
                 </div>
               ))}
             </div>
@@ -475,13 +506,13 @@ function DayCard({ day, index, weather, experienceScores }) {
   );
 }
 
-// ─── DayNavigation ──────────────────────────────────────────────────────
+// ─── DayNavigation ────────────────────────────────────────────────────────
 
 function DayNavigation({ days, activeDayIndex, onDayClick }) {
   return (
-    <div className="sticky top-[64px] z-30 -mx-4 overflow-x-auto border-b border-slate-100 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-lg">
+    <div className="sticky top-[64px] z-30 -mx-4 overflow-x-auto border-b border-zinc-800 bg-[#0c0c0e]/95 px-4 py-3 shadow-lg backdrop-blur-lg">
       <div className="flex items-center gap-2">
-        <span className="mr-2 shrink-0 text-[10px] font-semibold uppercase tracking-widest text-slate-400">
+        <span className="mr-2 shrink-0 text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-600">
           Jump to
         </span>
         {days.map((day, i) => {
@@ -491,12 +522,11 @@ function DayNavigation({ days, activeDayIndex, onDayClick }) {
             <button
               key={day.date || i}
               onClick={() => onDayClick(i)}
-              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-bold transition-all ${
-                active
-                  ? 'scale-110 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600'
-              }`}
-              style={active ? { backgroundColor: DAY_COLORS[(num - 1) % DAY_COLORS.length] } : undefined}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-sm font-bold transition-all"
+              style={active
+                ? { backgroundColor: GOLD, color: '#000' }
+                : { backgroundColor: '#27272a', color: '#71717a' }
+              }
             >
               {num}
             </button>
@@ -507,7 +537,7 @@ function DayNavigation({ days, activeDayIndex, onDayClick }) {
   );
 }
 
-// ─── Main ───────────────────────────────────────────────────────────────
+// ─── Main ─────────────────────────────────────────────────────────────────
 
 export default function ItineraryClient({
   plan,
@@ -524,13 +554,9 @@ export default function ItineraryClient({
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const dayRefs = useRef([]);
 
-  // Local mutable plan state — updated optimistically when agent swaps activities
   const [localPlan, setLocalPlan] = useState(plan);
-
-  // Sync when server re-renders with a new plan prop
   useEffect(() => { setLocalPlan(plan); }, [plan]);
 
-  // Called by PlannerChat when agent writes an activity_updated event
   const handleActivityUpdate = useCallback((dayNumber, timeBlock, newActivity) => {
     setLocalPlan((prev) => {
       if (!prev?.days) return prev;
@@ -538,7 +564,6 @@ export default function ItineraryClient({
         ...prev,
         days: prev.days.map((day) => {
           if (day.dayNumber !== dayNumber && day.day_number !== dayNumber) return day;
-          // Replace the matching time block in generic format
           if (day.timeBlocks) {
             return {
               ...day,
@@ -554,16 +579,14 @@ export default function ItineraryClient({
       };
     });
 
-    // Pulse the day card to signal a change
     const dayIdx = (dayNumber ?? 1) - 1;
     const el = dayRefs.current[dayIdx];
     if (el) {
-      el.classList.add('ring-2', 'ring-indigo-400', 'ring-offset-2');
-      setTimeout(() => el.classList.remove('ring-2', 'ring-indigo-400', 'ring-offset-2'), 2500);
+      el.classList.add('ring-2', 'ring-[#c9963c]', 'ring-offset-2', 'ring-offset-[#0c0c0e]');
+      setTimeout(() => el.classList.remove('ring-2', 'ring-[#c9963c]', 'ring-offset-2', 'ring-offset-[#0c0c0e]'), 2500);
     }
   }, []);
 
-  // Track which day is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -591,16 +614,15 @@ export default function ItineraryClient({
     const out = [];
     for (const day of localPlan.days) {
       const dayNum = day.dayNumber || 0;
-      const color = DAY_COLORS[(dayNum - 1) % DAY_COLORS.length];
       for (const b of day.timeBlocks || []) {
         const a = b.activity;
         if (a?.latitude && a?.longitude) {
-          out.push({ lat: a.latitude, lng: a.longitude, name: a.name, dayNum, color, timeBlock: b.time });
+          out.push({ lat: a.latitude, lng: a.longitude, name: a.name, dayNum, color: GOLD, timeBlock: b.time });
         }
       }
       for (const b of day.blocks || []) {
         if (b.item?.latitude && b.item?.longitude) {
-          out.push({ lat: b.item.latitude, lng: b.item.longitude, name: b.item.name, dayNum, color, timeBlock: b.slot });
+          out.push({ lat: b.item.latitude, lng: b.item.longitude, name: b.item.name, dayNum, color: GOLD, timeBlock: b.slot });
         }
       }
     }
@@ -611,49 +633,60 @@ export default function ItineraryClient({
   const hasHero = thumbnail && thumbnail !== '/images/city-placeholder.svg';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-100">
+    <div
+      className="min-h-screen"
+      style={{ background: 'radial-gradient(ellipse at 30% 0%, #1a1208 0%, #0c0c0e 55%)' }}
+    >
       {/* ── Hero ── */}
       {hasHero ? (
-        <div className="relative h-52 w-full overflow-hidden sm:h-60 md:h-72">
+        <div className="relative h-56 w-full overflow-hidden sm:h-64 md:h-[320px]">
           <Image src={thumbnail} alt={cityDisplay} fill className="object-cover" priority sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
-          <div className="absolute inset-x-0 bottom-0 px-6 pb-6 md:px-8 md:pb-8">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/70">
-              {cityDisplay} Itinerary
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-black/50 to-black/20" />
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-8 md:px-8 md:pb-10">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
+              {cityDisplay} — Itinerary
             </p>
-            <h1 className="mt-1 text-2xl font-bold text-white drop-shadow-sm sm:text-3xl md:text-4xl">
+            <h1 className="mt-1.5 font-serif text-3xl font-light text-white sm:text-4xl md:text-5xl" style={{ letterSpacing: '-0.01em' }}>
               Your {cityDisplay} trip
             </h1>
-            <p className="mt-1 max-w-xl text-sm text-white/80">{localPlan.summary}</p>
+            {localPlan.summary && (
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">{localPlan.summary}</p>
+            )}
           </div>
         </div>
       ) : (
-        <div className="px-6 pt-12 md:px-8">
+        <div className="border-b border-zinc-800/60 px-6 pb-8 pt-12 md:px-8">
           <div className="mx-auto max-w-5xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-indigo-500">{cityDisplay} Itinerary</p>
-            <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Your {cityDisplay} trip</h1>
-            <p className="mt-2 text-sm text-slate-500">{localPlan.summary}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">
+              {cityDisplay} — Itinerary
+            </p>
+            <h1 className="mt-2 font-serif text-4xl font-light text-white md:text-5xl" style={{ letterSpacing: '-0.01em' }}>
+              Your {cityDisplay} trip
+            </h1>
+            {localPlan.summary && (
+              <p className="mt-2 text-sm text-zinc-400">{localPlan.summary}</p>
+            )}
           </div>
         </div>
       )}
 
       <div className="mx-auto max-w-5xl px-4 py-8">
         {/* ── Info strip ── */}
-        <div className="mb-8 rounded-2xl border border-white/60 bg-white/95 p-5 shadow-sm backdrop-blur">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-8 overflow-hidden rounded-2xl border border-zinc-800 bg-[#111113]">
+          <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
             <dl className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
               <div>
-                <dt className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Dates</dt>
-                <dd className="mt-0.5 font-semibold text-slate-900">{dateRangeLabel}</dd>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">Dates</dt>
+                <dd className="mt-0.5 font-semibold text-zinc-200">{dateRangeLabel}</dd>
               </div>
               <div>
-                <dt className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Style</dt>
-                <dd className="mt-0.5 font-semibold text-slate-900">{localPlan.travelStyle.headline}</dd>
-                <p className="text-[11px] text-slate-400">{localPlan.travelStyle.description}</p>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">Style</dt>
+                <dd className="mt-0.5 font-semibold text-zinc-200">{localPlan.travelStyle.headline}</dd>
+                <p className="text-[11px] text-zinc-500">{localPlan.travelStyle.description}</p>
               </div>
               <div>
-                <dt className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Focus</dt>
-                <dd className="mt-0.5 font-semibold text-slate-900">{interestsList}</dd>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">Focus</dt>
+                <dd className="mt-0.5 font-semibold text-zinc-200">{interestsList}</dd>
               </div>
             </dl>
             <div className="flex flex-wrap gap-2">
@@ -661,13 +694,13 @@ export default function ItineraryClient({
               <a
                 href={`/api/trips/${tripId}/calendar`}
                 download
-                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-zinc-700 bg-transparent px-3.5 py-1.5 text-xs font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"
               >
-                📅 Calendar
+                Calendar
               </a>
               <Link
                 href={`/plan/${citySlug}`}
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600"
+                className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-transparent px-3.5 py-1.5 text-xs font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"
               >
                 ← Preferences
               </Link>
@@ -680,16 +713,16 @@ export default function ItineraryClient({
           <div className="mb-8">
             <button
               onClick={() => setShowMap(v => !v)}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-indigo-300 hover:text-indigo-600"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-transparent px-4 py-2 text-sm font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"
             >
-              🗺️ {showMap ? 'Hide trip map' : 'Show trip map'}
+              {showMap ? 'Hide map' : 'Show trip map'}
             </button>
             {showMap && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                className="mt-4 overflow-hidden rounded-2xl border border-slate-200 shadow-sm"
+                className="mt-4 overflow-hidden rounded-xl border border-zinc-800"
               >
                 <ItineraryMap markers={mapMarkers} />
               </motion.div>
@@ -699,14 +732,16 @@ export default function ItineraryClient({
 
         {/* ── Book immediately ── */}
         {localPlan.bookImmediately?.length > 0 && (
-          <section className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 shadow-sm">
-            <h2 className="text-base font-bold text-amber-900">Reserve these first</h2>
+          <section className="mb-8 overflow-hidden rounded-2xl border border-[#c9963c30] bg-[#c9963c08] px-5 py-4">
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: GOLD }}>
+              Reserve these first
+            </h2>
             <div className="mt-3 grid gap-3 sm:grid-cols-3">
               {localPlan.bookImmediately.map((item) => (
-                <div key={item.title} className="rounded-xl border border-amber-200 bg-white px-3 py-3 shadow-sm">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-500">{item.type}</p>
-                  <p className="mt-1 text-sm font-semibold text-amber-900">{item.title}</p>
-                  <p className="mt-1 text-xs text-amber-700">{item.note}</p>
+                <div key={item.title} className="rounded-xl border border-zinc-800 bg-[#111113] px-3 py-3">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">{item.type}</p>
+                  <p className="mt-1 text-sm font-semibold text-zinc-200">{item.title}</p>
+                  <p className="mt-1 text-xs text-zinc-500">{item.note}</p>
                 </div>
               ))}
             </div>
@@ -715,9 +750,11 @@ export default function ItineraryClient({
 
         {/* ── Day-by-day plan ── */}
         <section className="space-y-5">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-slate-900">Your day-by-day plan</h2>
-            <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-600 ring-1 ring-amber-200">
+          <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400">
+              Day-by-day plan
+            </h2>
+            <span className="rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#c9963c] ring-1 ring-[#c9963c40]">
               Draft
             </span>
           </div>
@@ -726,12 +763,12 @@ export default function ItineraryClient({
             <DayNavigation days={localPlan.days} activeDayIndex={activeDayIndex} onDayClick={handleDayClick} />
           )}
 
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             {localPlan.days.map((day, i) => (
               <div
                 key={day.date || i}
                 ref={el => { dayRefs.current[i] = el; }}
-                className="rounded-2xl transition-shadow duration-700"
+                className="rounded-2xl transition-all duration-700"
               >
                 <DayCard day={day} index={i} weather={weather} experienceScores={experienceScores} />
               </div>

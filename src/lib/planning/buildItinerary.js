@@ -159,7 +159,86 @@ function scoreAttraction(site, interests, mustSee) {
   return score;
 }
 
-// ── Geographic clustering ────────────────────────────────────────────
+// ── Geographic clustering & routing ─────────────────────────────────
+
+/**
+ * Reorder items within a day using nearest-neighbor traversal to minimize
+ * backtracking. Starts from the westernmost item (approximates hotel/arrival).
+ * Items without coordinates are appended at the end unchanged.
+ */
+function orderByProximity(items) {
+  const withCoords = items.filter(i => i._lat && i._lon);
+  if (withCoords.length <= 1) return items;
+
+  // Start from westernmost point (lowest longitude) as a proxy for hotel/arrival
+  const start = withCoords.reduce((a, b) => (b._lon < a._lon ? b : a));
+  const ordered = [start];
+  const remaining = new Set(withCoords.filter(i => i !== start));
+
+  while (remaining.size > 0) {
+    const last = ordered[ordered.length - 1];
+    let nearest = null;
+    let nearestDist = Infinity;
+    for (const item of remaining) {
+      const d = haversine(last._lat, last._lon, item._lat, item._lon);
+      if (d < nearestDist) {
+        nearestDist = d;
+        nearest = item;
+      }
+    }
+    ordered.push(nearest);
+    remaining.delete(nearest);
+  }
+
+  return [...ordered, ...items.filter(i => !i._lat || !i._lon)];
+}
+
+/**
+ * Parse opening hours from enriched Google data or static `hours` string.
+ * Returns { opensAt: number (hour), closesAt: number (hour) } or null.
+ *
+ * Google Places `openingHours.periods` format:
+ * [ { open: { day, hour, minute }, close: { day, hour, minute } }, ... ]
+ *
+ * Falls back to parsing a plain string like "9:00 AM – 5:00 PM".
+ */
+function parseOpeningHours(site, tripDate) {
+  // Try Google Places structured format
+  const periods = site.openingHours?.periods || site.opening_hours?.periods;
+  if (periods && Array.isArray(periods) && periods.length > 0) {
+    // Use day-of-week from tripDate if available, else day 0 (Sunday) as default
+    const dow = tripDate ? tripDate.getDay() : 1;
+    const period = periods.find(p => p.open?.day === dow) || periods[0];
+    if (period?.open?.hour != null) {
+      const opensAt = period.open.hour + (period.open.minute || 0) / 60;
+      const closesAt = period.close
+        ? period.close.hour + (period.close.minute || 0) / 60
+        : 22;
+      return { opensAt, closesAt };
+    }
+  }
+
+  // Try plain string (e.g. "9:00 AM – 5:00 PM" or "10:00-18:00")
+  const hoursStr = site.hours || site.opening_hours_text;
+  if (typeof hoursStr === 'string') {
+    // Match patterns like "9:00 AM", "9AM", "09:00", "9h"
+    const timeRe = /(\d{1,2})(?::(\d{2}))?\s*(AM|PM)?/gi;
+    const matches = [...hoursStr.matchAll(timeRe)];
+    if (matches.length >= 2) {
+      const toHour = (m) => {
+        let h = parseInt(m[1], 10);
+        const min = parseInt(m[2] || '0', 10);
+        const period = (m[3] || '').toUpperCase();
+        if (period === 'PM' && h < 12) h += 12;
+        if (period === 'AM' && h === 12) h = 0;
+        return h + min / 60;
+      };
+      return { opensAt: toHour(matches[0]), closesAt: toHour(matches[1]) };
+    }
+  }
+
+  return null;
+}
 
 function clusterByProximity(items, numGroups) {
   if (items.length === 0) return Array.from({ length: numGroups }, () => []);
@@ -267,12 +346,18 @@ export function buildItinerary(trip, cityData) {
   // ── Gather & score attractions ──
   const rawAttractions = getAttractions(cityData);
   const scored = rawAttractions
-    .map(site => ({
-      ...site,
-      _score: scoreAttraction(site, interests, mustSee),
-      _lat: site.latitude || null,
-      _lon: site.longitude || null,
-    }))
+    .map(site => {
+      const hours = parseOpeningHours(site, startDate);
+      return {
+        ...site,
+        _score: scoreAttraction(site, interests, mustSee),
+        _lat: site.latitude || null,
+        _lon: site.longitude || null,
+        // Flag sites that open late (skip early slots) or close early (skip late slots)
+        _opensLate: hours ? hours.opensAt > 10 : false,
+        _closesEarly: hours ? hours.closesAt < 16 : false,
+      };
+    })
     .filter(site => {
       // Budget filter: skip expensive for budget travelers
       if (budget === 'budget' && (site.price_range || '').toLowerCase().includes('expensive')) return false;
@@ -289,19 +374,37 @@ export function buildItinerary(trip, cityData) {
   const totalSlots = numDays * slotsPerDay;
   const selected = scored.slice(0, Math.min(totalSlots + 4, scored.length));
 
-  // ── Cluster geographically by day ──
-  const clusters = clusterByProximity(selected, numDays);
+  // ── Cluster geographically by day, then order within each day ──
+  const clusters = clusterByProximity(selected, numDays).map(orderByProximity);
 
   // ── Build days ──
   const timeSlots = TIME_SLOTS[paceLabel];
   const days = [];
 
+  /**
+   * Pick the best attraction for a time slot from the remaining pool,
+   * respecting opening hours flags while preserving geographic order.
+   * Falls back to the first available item if no ideal candidate exists.
+   */
+  function pickForSlot(pool, slotTime) {
+    const isEarlySlot = slotTime === 'early_morning' || slotTime === 'morning';
+    const isLateSlot = slotTime === 'late_afternoon';
+    for (let i = 0; i < pool.length; i++) {
+      const site = pool[i];
+      if (isEarlySlot && site._opensLate) continue;
+      if (isLateSlot && site._closesEarly) continue;
+      return pool.splice(i, 1)[0];
+    }
+    // No ideal match — fall back to first available (no hours data, or all restricted)
+    return pool.splice(0, 1)[0];
+  }
+
   for (let d = 0; d < numDays; d++) {
     const dayDate = startDate ? new Date(startDate.getTime() + d * MILLISECONDS_IN_DAY) : null;
-    const dayAttractions = clusters[d] || [];
+    // Mutable copy so pickForSlot can splice from it
+    const pool = [...(clusters[d] || [])];
 
     const timeBlocks = [];
-    let attractionIdx = 0;
 
     for (const slot of timeSlots) {
       if (slot.time === 'lunch') {
@@ -315,14 +418,13 @@ export function buildItinerary(trip, cityData) {
             name: food ? `Lunch: ${food.name}` : `Lunch break`,
             type: 'food_recommendation',
             description: food?.description || food?.atmosphere || `Explore local cuisine in ${cityName}`,
-            neighborhood: food?.neighborhood || dayAttractions[0]?.neighborhood || null,
+            neighborhood: food?.neighborhood || pool[0]?.neighborhood || null,
             suggestions: food ? [food.name] : [],
             price: food?.price_range || null,
           },
         });
-      } else if (attractionIdx < dayAttractions.length) {
-        const site = dayAttractions[attractionIdx];
-        attractionIdx++;
+      } else if (pool.length > 0) {
+        const site = pickForSlot(pool, slot.time);
 
         timeBlocks.push({
           time: slot.time,
@@ -359,7 +461,7 @@ export function buildItinerary(trip, cityData) {
       }
     }
 
-    const theme = generateDayTheme(dayAttractions, neighborhoods, d + 1);
+    const theme = generateDayTheme(clusters[d] || [], neighborhoods, d + 1);
 
     days.push({
       dayNumber: d + 1,

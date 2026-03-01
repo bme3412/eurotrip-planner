@@ -1,0 +1,15 @@
+{
+  "actionGroup": "ItineraryMgmt",
+  "function": "update_itinerary",
+  "parameters": [
+    { "name": "activity_id", "value": "test-activity-id" },
+    {
+      "name": "new_activity",
+      "value": "{\"name\": \"Park Güell\", \"type\": \"attraction\", \"description\": \"Gaudí's colorful mosaic park\"}"
+    },
+    { "name": "reason", "value": "User requested outdoor activity instead" }
+  ],
+  "sessionAttributes": {
+    "tripId": "test-trip-id"
+  }
+}

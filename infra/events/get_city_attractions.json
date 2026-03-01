@@ -1,0 +1,11 @@
+{
+  "actionGroup": "CityData",
+  "function": "get_city_attractions",
+  "parameters": [
+    { "name": "city", "value": "barcelona" },
+    { "name": "interests", "value": "[\"food\", \"history\"]" }
+  ],
+  "sessionAttributes": {
+    "tripId": "test-trip-id"
+  }
+}

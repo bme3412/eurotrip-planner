@@ -34,9 +34,9 @@ export default function ShareButton({ tripId, cityName }) {
   return (
     <button
       onClick={handleShare}
-      className="inline-flex items-center justify-center gap-2 rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-semibold text-indigo-600 transition hover:border-indigo-300 hover:text-indigo-700"
+      className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-3.5 py-1.5 text-xs font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"
     >
-      {copied ? '✓ Copied!' : '🔗 Share'}
+      {copied ? '✓ Copied' : 'Share'}
     </button>
   );
 }
