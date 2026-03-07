@@ -311,7 +311,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                 <div>
                   <p className="font-semibold text-zinc-200">Your AI travel editor</p>
                   <p className="mt-1 text-sm text-zinc-500">
-                    Tell me what to change and I'll update your plan instantly.
+                    Tell me what to change and I&apos;ll update your plan instantly.
                   </p>
                 </div>
                 <div className="flex w-full flex-col gap-2">

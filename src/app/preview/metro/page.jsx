@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import DateSelector from "../../../components/DateSelector";
+import QuickDatePicker from "../../../components/common/QuickDatePicker";
 
 export default function MetroPreview() {
   const [dates, setDates] = useState(null);
@@ -11,14 +11,20 @@ export default function MetroPreview() {
   const find = async () => {
     if (!dates) return;
     setLoading(true);
-    const r = await fetch("/api/suggestions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ dates }),
-    });
-    const data = await r.json();
-    setResults(data.items || []);
-    setLoading(false);
+    try {
+      const r = await fetch("/api/suggestions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dates }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const data = await r.json();
+      setResults(data.items || []);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -33,7 +39,7 @@ export default function MetroPreview() {
           <div className="mt-8 grid md:grid-cols-3 gap-4 items-end">
             <div className="md:col-span-2">
               <div className="rounded-2xl border-2 border-zinc-900 p-5">
-                <DateSelector onChange={setDates} />
+                <QuickDatePicker value={dates} onChange={setDates} />
               </div>
             </div>
             <div className="flex gap-3 md:justify-end">

@@ -1,6 +1,6 @@
 # EuroTrip Planner — Codebase Walkthrough
 
-*Generated: February 7, 2026*
+*Generated: February 7, 2026 | Updated: March 1, 2026*
 
 ---
 
@@ -16,21 +16,34 @@
 | Maps | Mapbox GL JS + react-map-gl | 3.11.0 / 8.0.2 |
 | Animation | Framer Motion | 12.4.10 |
 | Auth | NextAuth (Google) + Supabase Auth (Google, email/password) — **both coexist** | 4.24.11 / 2.75.0 |
-| AI | OpenAI (chat completions for Paris itinerary) | 6.3.0 |
+| AI | OpenAI (GPT-4.1 mini) + AWS Bedrock (Claude 3.5 Sonnet v2) — **multi-provider** | 6.3.0 / 3.1000.0 |
+| Places API | Google Places API (live attraction data, photos, reviews) | — |
 | Icons | Heroicons + Lucide React | 2.2.0 / 0.475.0 |
 | UI Primitives | Headless UI | 2.2.0 |
 | PDF Export | html2pdf.js | 0.12.1 |
 | Image Processing | Sharp (server-side) | 0.33.0 |
 | Analytics | Vercel Analytics | 1.5.0 |
+| Monitoring | Sentry | 10.39.0 |
 | Bundle Analysis | @next/bundle-analyzer | 15.3.1 |
 | Deployment | Vercel (standalone output mode) | — |
 | CDN | AWS CloudFront (`dknnqxb2tbc80.cloudfront.net`) | — |
-| Database | Supabase (PostgreSQL) — trips table only | — |
+| Database | Supabase (PostgreSQL) — trips, trip_days, trip_activities tables | — |
+| Infrastructure | AWS Lambda + EventBridge + OpenSearch Serverless (for Bedrock agents) | — |
 
 ### Project Structure
 
 ```
 bme-eurotrip-planner/
+├── infra/                             # AWS infrastructure (NEW)
+│   ├── template.yaml                  # CloudFormation/SAM template (236 lines)
+│   ├── samconfig.toml                 # SAM CLI configuration
+│   ├── sync-city-data.sh              # S3 city data upload script
+│   └── handlers/                      # Lambda action group handlers
+│       ├── cityData.js                # get_city_attractions (S3 lookup)
+│       ├── googlePlaces.js            # get_place_details, search_nearby
+│       ├── itinerary.js               # update_itinerary (Supabase)
+│       ├── weather.js                 # get_weather_forecast (OpenWeatherMap)
+│       └── briefingOrchestrator.js    # Nightly briefing generation
 ├── public/
 │   ├── data/                          # 220 city data directories (~3,200+ JSON files)
 │   │   ├── {Country}/{city}/          # Per-city data (overview, attractions, culinary, etc.)
@@ -49,11 +62,13 @@ bme-eurotrip-planner/
 │   │   └── tripConstants.js           # Route presets, seasonality
 │   ├── images/                        # City thumbnails, experience photos
 │   └── videos/                        # Background videos
-├── scripts/                           # Build & maintenance scripts (14 files)
+├── scripts/                           # Build & maintenance scripts (14+ files)
+│   └── exportCityDataForKB.mjs        # Export city data to markdown for RAG (NEW)
 ├── src/
 │   ├── app/                           # Next.js App Router pages
 │   │   ├── layout.js                  # Root layout with Providers
 │   │   ├── page.js                    # Homepage (client component)
+│   │   ├── sitemap.js                 # Dynamic sitemap.xml generation (NEW)
 │   │   ├── Providers.js               # Context provider stack
 │   │   ├── fonts.js                   # DM Sans + EB Garamond
 │   │   ├── globals.css                # Tailwind + custom styles (~775 lines)
@@ -61,14 +76,20 @@ bme-eurotrip-planner/
 │   │   │   ├── page.js                # City index with filtering (744 lines)
 │   │   │   └── [city]/page.js         # Dynamic city guide (server component)
 │   │   ├── explore/page.js            # Interactive map page
+│   │   ├── plan/[city]/page.js        # Generic city planner (378 lines) (NEW)
 │   │   ├── paris-trip/page.js         # Paris multi-step planner (660 lines)
-│   │   ├── itineraries/[tripId]/page.js # Trip itinerary display
+│   │   ├── itineraries/[tripId]/page.js # Trip itinerary display with AI chat
 │   │   ├── saved-trips/page.js        # Wishlist/saved items
 │   │   ├── start-planning/page.js     # Planner entry point
 │   │   ├── regions/page.js            # EMPTY FILE
 │   │   ├── preview/                   # 5 design theme previews (aurora, editorial, glass, metro, noir)
 │   │   ├── api/                       # API routes
 │   │   │   ├── ai/chat/route.js       # OpenAI Paris itinerary
+│   │   │   ├── plan/                  # Agentic itinerary refinement (NEW)
+│   │   │   │   ├── agent/route.js            # OpenAI streaming agent
+│   │   │   │   ├── agent-bedrock/route.js    # Bedrock Converse API agent
+│   │   │   │   ├── agent-bedrock-rc/route.js # Bedrock return control agent
+│   │   │   │   └── agent-invoke/route.js     # Bedrock managed agent
 │   │   │   ├── auth/[...nextauth]/route.js # NextAuth
 │   │   │   ├── cities/route.js        # City listing (edge)
 │   │   │   ├── cities/[city]/route.js # Individual city data
@@ -81,6 +102,9 @@ bme-eurotrip-planner/
 │   ├── components/
 │   │   ├── city-guides/               # ~35 components for city guide pages
 │   │   ├── common/                    # ~28 shared UI components
+│   │   ├── itinerary/                 # Itinerary components (NEW)
+│   │   │   ├── PlannerChat.js         # AI chat panel (369 lines)
+│   │   │   └── ItineraryClient.js     # Client-side itinerary rendering
 │   │   ├── map/                       # ~18 map-related modules
 │   │   ├── monthly-visit-guide/       # ~12 monthly guide components
 │   │   ├── planner/                   # 6 trip planner components
@@ -88,19 +112,32 @@ bme-eurotrip-planner/
 │   │   └── auth/                      # 1 auth button
 │   ├── context/                       # MapDataContext, TravelDataProvider
 │   ├── contexts/                      # AuthContext (Supabase)
-│   ├── hooks/                         # 9 custom hooks
+│   ├── hooks/                         # 9+ custom hooks
+│   │   └── useTripDates.js            # Trip date management (NEW)
 │   ├── lib/                           # Utilities, Supabase clients, planning engine
 │   │   ├── city-data/                 # TypeScript path/fetcher utilities
-│   │   ├── planning/                  # Paris recommendation engine (~800 lines)
+│   │   ├── planning/                  # Generic itinerary engine (refactored from Paris-only)
+│   │   │   ├── buildItinerary.js      # Generic city itinerary builder (NEW)
+│   │   │   └── buildParisRecommendations.js # Paris-specific logic (legacy)
+│   │   ├── google-places/             # Google Places API integration (NEW)
+│   │   │   ├── index.js               # Barrel export
+│   │   │   ├── client.js              # Raw API client
+│   │   │   ├── cache.js               # 24h caching layer
+│   │   │   └── enrichment.js          # Background enrichment
+│   │   ├── agent/                     # Agent infrastructure (NEW)
+│   │   │   ├── agentTools.js          # Tool definitions & executors (424 lines)
+│   │   │   └── tripState.js           # Trip/day/activity state management
 │   │   └── supabase/                  # Client + server Supabase instances
 │   ├── services/                      # cityDataService.js
-│   └── utils/                         # 8 utility modules
+│   └── utils/                         # 8+ utility modules
 ├── package.json
 ├── next.config.mjs
 ├── tailwind.config.mjs
 ├── jsconfig.json
 ├── eslint.config.mjs
 ├── postcss.config.mjs
+├── BEDROCK_CONSOLE_SETUP.md           # Step-by-step Bedrock setup (480 lines) (NEW)
+├── BEDROCK_AGENTS_LEARNING.md         # Architecture & philosophy (494 lines) (NEW)
 ├── MONETIZATION_PLAN.md
 ├── PARIS_MVP_PLAN.md
 ├── launch_PLAN.md                     # Duplicate of MONETIZATION_PLAN.md
@@ -127,6 +164,50 @@ bme-eurotrip-planner/
    - Map tab uses Mapbox GL with attractions from the server-provided data.
 
 4. **CDN layer**: When `NEXT_PUBLIC_CDN_URL` is set, `cdnUtils.js` rewrites image/video paths to CloudFront URLs. Otherwise falls back to local `/images/` paths.
+
+### Agentic Itinerary Refinement Flow (NEW — February 25-28, 2026)
+
+**The app now supports AI-powered itinerary refinement through a multi-provider agent system:**
+
+1. **Initial itinerary generation**: When a user creates a trip via `/plan/{city}` or `/paris-trip`, the server generates an initial day-by-day itinerary using `buildItinerary.js` (generic) or `buildParisRecommendations.js` (Paris legacy). This creates normalized records in `trip_days` and `trip_activities` tables.
+
+2. **Itinerary display**: The `/itineraries/[tripId]` page server-loads the trip from Supabase via `getTripWithDetails()`, which hydrates all days and activities in a single query. The data is passed to `ItineraryClient` (client component).
+
+3. **AI chat panel**: `ItineraryClient` lazy-loads `PlannerChat` component on mount. A floating "Refine with AI" button slides up a 600px chat panel from the bottom-right.
+
+4. **User message**: User types a request like "Replace the museum with something outdoors" → client sends POST to `/api/plan/agent` (or `/agent-bedrock` based on `NEXT_PUBLIC_AGENT_PROVIDER` env var).
+
+5. **Agent execution**: The API route:
+   - Builds context-aware system prompt from trip data (dates, pace, interests, current itinerary)
+   - Sends streaming request to OpenAI/Bedrock with 4 grounded tools available:
+     - `get_city_attractions` → Reads city JSON + filters by interests
+     - `get_place_details` → Live Google Places API lookup (hours, ratings, photos)
+     - `search_nearby` → Finds alternatives near coordinates
+     - `update_itinerary` → Swaps activity in Supabase, emits `activity_updated` SSE event
+   - Streams back Server-Sent Events: `delta` (text), `tool_call` (tool invocation), `tool_result` (tool output), `activity_updated` (DB mutation), `done`
+
+6. **UI update**: When client receives `activity_updated` event:
+   - Parses updated activity data from event payload
+   - Updates local plan state optimistically
+   - Pulses the affected day card with gold border
+   - Shows "✦ AI Updated: {activity name}" badge
+   - Auto-scrolls message thread
+
+**Multi-provider architecture**:
+- **OpenAI** (`/api/plan/agent`): Uses `gpt-4.1-mini`, synchronous tool execution, highest stability
+- **Bedrock Converse** (`/api/plan/agent-bedrock`): Uses `claude-3-5-sonnet-v2`, token streaming, exponential backoff retry, OpenAI fallback
+- **Bedrock Return Control** (`/api/plan/agent-bedrock-rc`): Bedrock manages orchestration loop, local tool execution, max 10 rounds
+- **Bedrock Invoke** (`/api/plan/agent-invoke`): Fully managed agent (requires deployed Lambda action groups)
+
+**Tool implementation** (`src/lib/agent/agentTools.js`):
+- Exports tool schemas for both OpenAI (JSON Schema) and Bedrock (different format)
+- Executors read city data from filesystem, call Google Places API, write to Supabase
+- Returns human-friendly summaries (e.g., "Found 7 restaurants matching 'Food' interest near Trastevere")
+
+**Database schema** (normalized trip state via `src/lib/agent/tripState.js`):
+- `trips` table (existing) — trip-level metadata
+- `trip_days` table (NEW) — one row per day with date, theme, notes
+- `trip_activities` table (NEW) — granular activities with time blocks, Google Place IDs, swap reasons
 
 ---
 
@@ -242,18 +323,40 @@ The `EnhancedVisitCalendar` component renders this as a color-coded heatmap cale
 - **Data**: All city data from `cityData.js` passed as `destinations`
 - **UX flow**: Full-screen interactive Mapbox map with filters (country, search, date, rating), city popups, and ranked list panel
 
-### Paris Trip Planner (`/paris-trip` — `src/app/paris-trip/page.js`)
+### Generic City Planner (`/plan/[city]` — `src/app/plan/[city]/page.js`) **[NEW]**
+- **Route**: `/plan/{city-slug}`
+- **Type**: Client component (378 lines)
+- **Steps**: 5-step wizard: Dates → Pace (Relaxed/Balanced/Active cards) → Interests (10 categories) → Must-See Attractions → Budget (Budget/Mid-Range/Premium)
+- **Data**: Fetches city attractions from `/api/cities/{city}`, uses `useTripDates` hook for date state
+- **UX flow**: Multi-step progression with validation → "Create Itinerary" button → POSTs to `/api/trips` → redirects to `/itineraries/[tripId]`
+- **Styling**: Dark mode with gold accents (`#c9963c`)
+- **Status**: Replaces Paris-specific planner, works for all 220 cities
+
+### Paris Trip Planner (`/paris-trip` — `src/app/paris-trip/page.js`) **[LEGACY]**
 - **Route**: `/paris-trip`
 - **Type**: Client component (660 lines)
 - **Steps**: 7-step wizard: Dates → Hotel Location → Prebookings → Pace → Interests → Budget → Summary
 - **Data**: Creates trip payload, POSTs to `/api/trips`, then redirects to `/itineraries/[tripId]`
-- **Issues**: Paris-only — no generalization to other cities
+- **Status**: Legacy Paris-only flow, now superseded by `/plan/paris` but kept for backward compatibility
 
-### Trip Itinerary (`/itineraries/[tripId]` — `src/app/itineraries/[tripId]/page.js`)
+### Trip Itinerary (`/itineraries/[tripId]` — `src/app/itineraries/[tripId]/page.js`) **[UPDATED]**
 - **Route**: `/itineraries/{tripId}`
-- **Type**: Server component
-- **Data**: Fetches trip from Supabase, loads Paris attractions/culinary/neighborhood data from filesystem, runs `buildParisRecommendations()` to generate day-by-day itinerary
-- **UX flow**: Trip summary → day cards with time blocks (morning anchor, lunch, afternoon discovery, etc.) → transfer times between locations → booking reminders
+- **Type**: Server component with client-side AI chat
+- **Data**: Server-side `getTripWithDetails()` hydrates trip from Supabase (trips → trip_days → trip_activities). For Paris trips, loads additional data from filesystem and runs `buildParisRecommendations()` if needed. For other cities, uses generic `buildItinerary()`.
+- **Key components**: `ItineraryClient` (client component) → day cards + lazy-loaded `PlannerChat` (AI refinement panel)
+- **UX flow**:
+  - Trip summary (title, dates, city, preferences)
+  - Day-by-day cards with time blocks (morning=orange, afternoon=blue, evening=red, night=purple)
+  - Each activity shows: name, duration, price range, neighborhood, photo (from Google Place ID or gradient fallback)
+  - Floating "Refine with AI" button (bottom-right) → slides up chat panel
+  - User can request activity swaps via natural language
+  - Real-time activity updates with pulsing animation + "✦ AI Updated" badge
+  - Booking reminders, transfer time calculations
+- **New features (Feb 25-28)**:
+  - AI-powered itinerary refinement via streaming agents
+  - Live Google Places data integration (photos, ratings, hours)
+  - Optimistic UI updates on activity swaps
+  - Multi-provider agent support (OpenAI/Bedrock selectable via env var)
 
 ### Saved Trips (`/saved-trips` — `src/app/saved-trips/page.js`)
 - **Route**: `/saved-trips`
@@ -387,6 +490,29 @@ Well-organized sub-module with `index.js` barrel:
 
 6 components for the trip planning flow: `InterestCategories`, `PaginatedRow`, `RouteFilters`, `SeasonalRecommendations`, `SelectedCitiesList`, `TripRouteDisplay`
 
+### Itinerary (`src/components/itinerary/`) **[NEW]**
+
+| File | Purpose | Lines | Notes |
+|------|---------|-------|-------|
+| `ItineraryClient.js` | Client-side itinerary renderer with AI chat integration | ~500 | Lazy-loads PlannerChat, manages local plan state, optimistic updates |
+| `PlannerChat.js` | AI chat panel for itinerary refinement | 369 | SSE streaming, tool result pills, starter prompts, auto-scroll |
+
+### Agent Infrastructure (`src/lib/agent/`) **[NEW]**
+
+| File | Purpose | Lines | Notes |
+|------|---------|-------|-------|
+| `agentTools.js` | Tool definitions & executors for both OpenAI and Bedrock | 424 | 4 tools: get_city_attractions, get_place_details, search_nearby, update_itinerary |
+| `tripState.js` | Normalized trip state management (trips/days/activities) | ~300 | `createTripWithDays()`, `getTripWithDetails()`, `swapActivity()` |
+
+### Google Places Integration (`src/lib/google-places/`) **[NEW]**
+
+| File | Purpose | Notes |
+|------|---------|-------|
+| `index.js` | Barrel export with caching layer | — |
+| `client.js` | Raw Google Places API client | Field masks for performance |
+| `cache.js` | 24-hour TTL cache for place details + photo URLs | — |
+| `enrichment.js` | Background enrichment of city attractions with Google Place IDs | — |
+
 ---
 
 ## 5. Engineering Assessment
@@ -493,7 +619,7 @@ export async function generateMetadata({ params }) {
 }
 ```
 
-**Sitemap: 0/10** — No sitemap.xml generation. No `robots.txt`. This should be implemented immediately.
+**Sitemap: 8/10** **[✅ IMPLEMENTED — Feb 2026]** — `src/app/sitemap.js` dynamically generates sitemap.xml with all 220 city pages. Includes homepage, city guides index, explore map, and start planning routes. Uses Next.js 13+ native sitemap generation. **Missing**: robots.txt file, lastModified dates based on actual content updates (currently uses `new Date()`), changeFrequency optimization based on page type.
 
 **Canonical URLs: 0/10** — None set.
 
@@ -553,24 +679,16 @@ export async function generateMetadata({ params }) {
 }
 ```
 
-**2. Add sitemap.xml (1 hour)**
-Create `src/app/sitemap.js`:
-```javascript
-export default async function sitemap() {
-  const manifest = JSON.parse(fs.readFileSync('public/data/manifest.json', 'utf-8'));
-  const cityEntries = Object.keys(manifest.cities).map(city => ({
-    url: `https://eurotrip-planner.vercel.app/city-guides/${city}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
-  return [
-    { url: 'https://eurotrip-planner.vercel.app', priority: 1.0 },
-    { url: 'https://eurotrip-planner.vercel.app/city-guides', priority: 0.9 },
-    { url: 'https://eurotrip-planner.vercel.app/explore', priority: 0.7 },
-    ...cityEntries,
-  ];
-}
+**2. Add sitemap.xml (1 hour)** **[✅ COMPLETE]**
+~~Create `src/app/sitemap.js`~~ — Already implemented. The sitemap dynamically generates all 220 city pages plus static routes.
+
+**2b. Add robots.txt (5 minutes)** **[NEW]**
+Create `public/robots.txt`:
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://eurotrip-planner.vercel.app/sitemap.xml
 ```
 
 **3. Rotate compromised API keys (30 minutes)**
@@ -668,23 +786,64 @@ Instead of hardcoding 20 city coordinates in `CityPageClient.js`, extract lat/lo
 
 ### Tier 3: Architectural Changes (1+ weeks)
 
-**1. Implement proper database schema (1-2 weeks)**
-Currently only a `trips` table exists in Supabase. Need:
+**1. Implement proper database schema (1-2 weeks)** **[PARTIALLY COMPLETE]**
+
+**✅ IMPLEMENTED (Feb 25-28, 2026):**
 ```sql
--- Users (managed by Supabase Auth)
--- Trips
+-- Trips table (existing, enhanced)
 CREATE TABLE trips (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES auth.users(id),
   title TEXT,
   start_date DATE,
   end_date DATE,
-  cities JSONB,
-  preferences JSONB,
+  city TEXT,
+  country TEXT,
+  preferences JSONB,  -- pace, interests, budget
   status TEXT DEFAULT 'planning',
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
+-- Trip days (NEW)
+CREATE TABLE trip_days (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  trip_id UUID REFERENCES trips(id) ON DELETE CASCADE,
+  day_number INTEGER NOT NULL,
+  date DATE NOT NULL,
+  theme TEXT,
+  notes TEXT,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Trip activities (NEW)
+CREATE TABLE trip_activities (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  trip_day_id UUID REFERENCES trip_days(id) ON DELETE CASCADE,
+  time_block TEXT NOT NULL,  -- 'morning', 'lunch', 'afternoon', 'evening', 'night'
+  sort_order INTEGER DEFAULT 0,
+  start_time TIME,
+  end_time TIME,
+  name TEXT NOT NULL,
+  type TEXT,  -- 'attraction', 'restaurant', 'experience', 'transfer'
+  description TEXT,
+  duration_minutes INTEGER,
+  price_range TEXT,
+  latitude DECIMAL(10, 8),
+  longitude DECIMAL(11, 8),
+  neighborhood TEXT,
+  address TEXT,
+  google_place_id TEXT,  -- For photo/review lookup
+  indoor BOOLEAN DEFAULT false,
+  booking_required BOOLEAN DEFAULT false,
+  booking_url TEXT,
+  status TEXT DEFAULT 'planned',  -- 'planned', 'completed', 'cancelled'
+  swap_reason TEXT,  -- AI-driven swap notes
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+```
+
+**❌ STILL NEEDED:**
+```sql
 -- Saved items (wishlist)
 CREATE TABLE saved_items (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -707,12 +866,17 @@ CREATE TABLE user_preferences (
 );
 ```
 
-**2. Generalize itinerary engine beyond Paris (2-3 weeks)**
-`buildParisRecommendations.js` (796 lines) is entirely Paris-specific. Refactor to:
-- Accept any city's data as input
-- Generate zone/travel matrix data for each city with coordinates
-- Remove Paris-specific URL overrides and hardcoded references
-- Create a generic `buildCityRecommendations(trip, cityData)` function
+**2. Generalize itinerary engine beyond Paris (2-3 weeks)** **[✅ COMPLETE — Feb 25-28, 2026]**
+`buildItinerary.js` now provides generic city itinerary generation:
+- ✅ Accepts any city's data as input
+- ✅ Interest-based activity matching (8+ categories)
+- ✅ Time block scheduling (morning, lunch, afternoon, evening, night)
+- ✅ Fallback logic for sparse city data
+- ✅ Travel style mapping (pace → recommendation density)
+- ❌ Still missing: Zone/travel matrix generation for non-Paris cities
+- ❌ Still missing: Dynamic transport time calculations
+
+**Legacy**: `buildParisRecommendations.js` (796 lines) kept for backward compatibility with existing Paris trips but no longer used for new trips.
 
 **3. Migrate city data to a CMS or database (2+ weeks)**
 3,200+ JSON files in `public/data/` is unsustainable:
@@ -805,11 +969,31 @@ CREATE TABLE user_preferences (
 
 ## 9. Preparation for Lifecycle Features
 
-### 1. Agentic Itinerary Planning
-**What exists**: `buildParisRecommendations.js` — a rule-based recommendation engine with zone awareness, travel matrix, and pace-based scheduling. OpenAI integration in `/api/ai/chat/route.js`.
-**What's missing**: Only works for Paris. No conversational interface. No branching/alternative generation. No user feedback loop.
-**What needs to change**: Generalize the recommendation engine. Add a chat UI component. Implement streaming responses. Store conversation state.
-**Suggested additions**: Anthropic Claude API (or continue with OpenAI), Vercel AI SDK for streaming, a `conversations` table in Supabase.
+### 1. Agentic Itinerary Planning **[✅ IMPLEMENTED — Feb 25-28, 2026]**
+**What exists NOW**:
+- Multi-provider agent system: OpenAI (GPT-4.1 mini) + 3 Bedrock variants (Claude 3.5 Sonnet v2)
+- 4 grounded tools: `get_city_attractions`, `get_place_details`, `search_nearby`, `update_itinerary`
+- `PlannerChat.js` component (369 lines) — conversational UI with SSE streaming
+- Generic `buildItinerary.js` — works for all 220 cities (refactored from Paris-only)
+- Live Google Places API integration (photos, hours, ratings, reviews)
+- Normalized database schema: `trips` → `trip_days` → `trip_activities`
+- Real-time activity swaps with optimistic UI updates
+- Tool execution routes: `/api/plan/agent` (OpenAI), `/api/plan/agent-bedrock` (Bedrock Converse), `/api/plan/agent-bedrock-rc` (return control), `/api/plan/agent-invoke` (fully managed)
+- AWS infrastructure templates for Lambda action groups + OpenSearch knowledge base (RAG)
+
+**What's complete**:
+- ✅ Generalized itinerary engine beyond Paris
+- ✅ Conversational chat interface
+- ✅ Streaming responses (SSE)
+- ✅ Activity replacement with user feedback
+- ✅ Multi-provider flexibility (switchable via env var)
+
+**What's still missing**:
+- ❌ Branching/alternative itinerary generation (A/B options)
+- ❌ Conversation state persistence in database (currently ephemeral per session)
+- ❌ Multi-turn optimization (agent can swap one activity per turn, but not reoptimize entire day)
+- ❌ Knowledge Base RAG integration (infrastructure ready, not yet deployed)
+- ❌ Fully managed Bedrock agent deployment (handlers exist, agent not yet configured in AWS console)
 
 ### 2. Pre-Trip Drip Email Sequence
 **What exists**: Nothing.
@@ -888,28 +1072,43 @@ CREATE TABLE user_preferences (
 
 ## 11. Priority Roadmap
 
-| # | Task | Impact | Effort | Dependencies |
-|---|------|--------|--------|--------------|
-| 1 | **Rotate compromised API keys** | Security | S | None |
-| 2 | **Add SEO metadata to all city pages** | Growth (organic traffic) | S | None |
-| 3 | **Add sitemap.xml + robots.txt** | Growth (search indexing) | S | None |
-| 4 | **Fix copy-paste data contamination (10 cities)** | Content quality | S | None |
-| 5 | **Remove NextAuth, consolidate on Supabase Auth** | Architecture clarity | M | None |
-| 6 | **Replace hardcoded `cityData.js` with build-generated JSON** | Performance (-100KB bundle) | M | None |
-| 7 | **Add persistent global navigation** | UX | M | None |
-| 8 | **Make suggestions API real (use visit calendar scores)** | Core feature | M | #4 |
-| 9 | **Add TypeScript types for data schemas** | Code quality | M | None |
-| 10 | **Implement proper Supabase database schema** | Foundation for all features | L | #5 |
-| 11 | **Generalize itinerary engine beyond Paris** | Core feature | L | #10 |
-| 12 | **Add user profiles and saved trip persistence** | Retention | M | #10 |
-| 13 | **Implement search with typo tolerance** | UX | M | None |
-| 14 | **Add testing framework + critical path tests** | Engineering quality | M | None |
-| 15 | **Integrate affiliate links (GetYourGuide, Booking.com)** | Revenue | M | #10 |
-| 16 | **Build experiences scoring for top 20 cities** | Content depth | L | #4 |
-| 17 | **Implement Stripe subscription for Pro tier** | Revenue | L | #10, #12 |
-| 18 | **Add email infrastructure (Resend + drip sequences)** | Engagement/Revenue | L | #10, #12 |
-| 19 | **Build conversational itinerary planner** | Differentiation | XL | #11, #12 |
-| 20 | **Provider marketplace MVP** | Revenue | XL | #10, #12, #17 |
+**Legend**: ✅ Complete | 🟡 In Progress | ❌ Not Started | S=Small (<1 day), M=Medium (1-3 days), L=Large (1-2 weeks), XL=Extra Large (2+ weeks)
+
+| # | Task | Status | Impact | Effort | Dependencies | Notes |
+|---|------|--------|--------|--------|--------------|-------|
+| 1 | **Rotate compromised API keys** | ❌ | Security | S | None | CRITICAL — still needed |
+| 2 | **Add SEO metadata to all city pages** | ❌ | Growth (organic traffic) | S | None | Sitemap done, but no per-city generateMetadata() |
+| 3 | **Add sitemap.xml + robots.txt** | 🟡 | Growth (search indexing) | S | None | Sitemap ✅ done, robots.txt ❌ missing |
+| 4 | **Fix copy-paste data contamination (10 cities)** | ❌ | Content quality | S | None | Still needed |
+| 5 | **Remove NextAuth, consolidate on Supabase Auth** | ❌ | Architecture clarity | M | None | Both still coexist |
+| 6 | **Replace hardcoded `cityData.js` with build-generated JSON** | ❌ | Performance (-100KB bundle) | M | None | Still 2,283 lines |
+| 7 | **Add persistent global navigation** | ❌ | UX | M | None | — |
+| 8 | **Make suggestions API real (use visit calendar scores)** | ❌ | Core feature | M | #4 | Still returns mock data |
+| 9 | **Add TypeScript types for data schemas** | ❌ | Code quality | M | None | agentTools.js could be .ts |
+| 10 | **Implement proper Supabase database schema** | 🟡 | Foundation for all features | L | #5 | trips/trip_days/trip_activities ✅, saved_items/user_preferences ❌ |
+| 11 | **Generalize itinerary engine beyond Paris** | ✅ | Core feature | L | #10 | buildItinerary.js now generic |
+| 12 | **Add user profiles and saved trip persistence** | ❌ | Retention | M | #10 | SaveToTrips uses localStorage |
+| 13 | **Implement search with typo tolerance** | ❌ | UX | M | None | — |
+| 14 | **Add testing framework + critical path tests** | ❌ | Engineering quality | M | None | Zero tests exist |
+| 15 | **Integrate affiliate links (GetYourGuide, Booking.com)** | ❌ | Revenue | M | #10 | — |
+| 16 | **Build experiences scoring for top 20 cities** | ❌ | Content depth | L | #4 | Only Paris has scoring |
+| 17 | **Implement Stripe subscription for Pro tier** | ❌ | Revenue | L | #10, #12 | — |
+| 18 | **Add email infrastructure (Resend + drip sequences)** | ❌ | Engagement/Revenue | L | #10, #12 | briefingOrchestrator.js exists but not deployed |
+| 19 | **Build conversational itinerary planner** | ✅ | Differentiation | XL | #11, #12 | Multi-provider agent system complete |
+| 20 | **Provider marketplace MVP** | ❌ | Revenue | XL | #10, #12, #17 | — |
+| 21 | **Deploy Bedrock Agent + Knowledge Base (RAG)** | 🟡 | AI quality | L | #19 | Infrastructure ready, not deployed |
+| 22 | **Add robots.txt** | ❌ | SEO | S | None | Missing |
+| 23 | **Consolidate duplicate components** | ❌ | Code quality | M | None | 4 date pickers, 2 AuthButtons, etc. |
+| 24 | **Deploy nightly briefing Lambda** | ❌ | User engagement | M | #18, #21 | Handler exists, EventBridge not configured |
+
+**Recent completions (Feb 25-28, 2026)**:
+- ✅ Multi-provider agent system (OpenAI + 3 Bedrock variants)
+- ✅ PlannerChat UI component with SSE streaming
+- ✅ Normalized trip database schema (trip_days, trip_activities)
+- ✅ Generic city itinerary planner (/plan/[city])
+- ✅ Google Places API integration
+- ✅ AWS infrastructure templates (Lambda action groups, OpenSearch)
+- ✅ Sitemap.xml generation
 
 ---
 
@@ -981,3 +1180,103 @@ Sunday (6 hours):
 - Wire up "Plan this trip" CTAs on city pages to a generalized planning entry point
 
 This weekend sprint turns the app from "impressive static content" to "actually useful trip discovery tool" and starts driving organic search traffic. The combination of proper SEO for 220 city pages plus a working date-based recommendation engine is the highest-leverage improvement possible.
+
+---
+
+## 12. Major Changes Since February 7, 2026
+
+**This section documents significant updates between the original walkthrough (Feb 7) and this update (Mar 1).**
+
+### 🎯 Biggest Wins
+
+**1. Agentic Itinerary Planner (Feb 25-28)**
+- Multi-provider agent system: OpenAI GPT-4.1 mini + AWS Bedrock Claude 3.5 Sonnet v2
+- 4 grounded tools for context-aware itinerary refinement
+- PlannerChat UI component (369 lines) with SSE streaming
+- Real-time activity swaps with optimistic UI updates
+- Google Places API integration for live data (photos, hours, ratings)
+
+**2. Generic City Planner (Feb 25)**
+- New route: `/plan/[city]` works for all 220 cities
+- Replaces Paris-only flow with 5-step wizard
+- Dark mode styling with gold accents
+- `buildItinerary.js` — generic recommendation engine
+
+**3. Normalized Database Schema (Feb 25)**
+- New tables: `trip_days` (one row per day) + `trip_activities` (granular activities)
+- Google Place ID linking for photo/review enrichment
+- Activity swap tracking with AI-driven reasons
+- Replaces flat trip JSONB approach
+
+**4. AWS Infrastructure (Feb 28)**
+- CloudFormation/SAM templates for Lambda action groups
+- 5 Lambda handlers: cityData, googlePlaces, itinerary, weather, briefingOrchestrator
+- OpenSearch Serverless for RAG knowledge base
+- EventBridge rule for nightly briefing (7 PM UTC)
+- Documentation: `BEDROCK_CONSOLE_SETUP.md` (480 lines), `BEDROCK_AGENTS_LEARNING.md` (494 lines)
+
+**5. SEO Progress (Feb 2026)**
+- ✅ Sitemap.xml implemented (`src/app/sitemap.js`)
+- Covers all 220 city pages + static routes
+- ❌ Still missing: per-city `generateMetadata()`, robots.txt, canonical URLs
+
+### 📦 New Dependencies
+- `@aws-sdk/client-bedrock-runtime` (3.1000.0) — Bedrock Converse API
+- `@aws-sdk/client-bedrock-agent-runtime` (3.1000.0) — Agent invocation
+- `@sentry/nextjs` (10.39.0) — Error tracking
+
+### 🗂️ New Files & Directories
+- `infra/` — AWS infrastructure templates + Lambda handlers (10+ files)
+- `src/app/plan/[city]/page.js` — Generic city planner (378 lines)
+- `src/app/sitemap.js` — Dynamic sitemap generation (36 lines)
+- `src/app/api/plan/` — 4 agent route variants (OpenAI + 3 Bedrock)
+- `src/components/itinerary/` — PlannerChat + ItineraryClient
+- `src/lib/agent/` — agentTools.js (424 lines) + tripState.js
+- `src/lib/google-places/` — Google Places API integration (4 files)
+- `src/lib/planning/buildItinerary.js` — Generic itinerary builder
+- `scripts/exportCityDataForKB.mjs` — RAG knowledge base export (252 lines)
+- `BEDROCK_CONSOLE_SETUP.md`, `BEDROCK_AGENTS_LEARNING.md` — Documentation
+
+### 🔄 Updated Files
+- `src/app/itineraries/[tripId]/page.js` — Now supports AI chat refinement
+- `src/components/itinerary/ItineraryClient.js` — Lazy-loads PlannerChat, optimistic updates
+- `package.json` — Added Bedrock SDKs + Sentry
+
+### ❌ Still Outstanding
+- **TypeScript adoption**: Still ~0% (only 3 TS files)
+- **Per-city SEO metadata**: No `generateMetadata()` on city guide pages
+- **Duplicate components**: 4 date pickers, 2 AuthButtons, etc. still exist
+- **NextAuth removal**: Both NextAuth + Supabase Auth still coexist
+- **Hardcoded cityData.js**: Still 2,283 lines in client bundle
+- **Copy-paste data contamination**: 10 cities still have `tirana_*` files
+- **Mock suggestions API**: Still returns hardcoded data with 450ms delay
+- **robots.txt**: Not yet added
+
+### 🎯 Updated Assessment Scores
+
+| Category | Before (Feb 7) | After (Mar 1) | Change |
+|----------|----------------|---------------|--------|
+| **SEO — Sitemap** | 0/10 | 8/10 | +8 ✅ |
+| **Database Schema** | 2/10 (trips only) | 6/10 (trips+days+activities) | +4 ✅ |
+| **Agentic Features** | 2/10 (Paris-only prototype) | 9/10 (multi-provider, generic) | +7 ✅ |
+| **TypeScript Usage** | 2/10 | 2/10 | No change ❌ |
+| **Code Consistency** | 4/10 | 4/10 | No change ❌ |
+| **Testing** | 0/10 | 0/10 | No change ❌ |
+
+### 🚀 What This Unlocks
+
+**Before (Feb 7)**: Paris-only trip planner with static rule-based itinerary generation. No user refinement. No live data integration.
+
+**After (Mar 1)**: Multi-city AI-powered itinerary planner with:
+- Conversational refinement ("Replace this museum with something outdoors")
+- Live Google Places data (photos, hours, ratings)
+- Multi-provider flexibility (OpenAI/Bedrock switchable)
+- Real-time activity swaps with database persistence
+- Foundation for RAG knowledge base + nightly briefings
+
+**Next critical priorities**:
+1. Add per-city SEO metadata (2 hours) — unlock organic search for 220 pages
+2. Add robots.txt (5 min)
+3. Deploy Bedrock Agent + Knowledge Base to AWS (1-2 days)
+4. Remove NextAuth, consolidate on Supabase Auth (1 day)
+5. Add testing framework (Vitest + Playwright) (2-3 days)

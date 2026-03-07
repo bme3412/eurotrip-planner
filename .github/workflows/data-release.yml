@@ -1,0 +1,161 @@
+name: Monthly Data Release
+
+on:
+  schedule:
+    # Run at midnight on the 1st of each month
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'Version bump type'
+        required: false
+        default: 'minor'
+        type: choice
+        options:
+          - patch
+          - minor
+      skip_backfill:
+        description: 'Skip backfill step'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  validate:
+    name: Validate Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run validation
+        run: npm run pipeline:validate
+
+  audit:
+    name: Quality Audit
+    runs-on: ubuntu-latest
+    needs: validate
+    outputs:
+      quality_score: ${{ steps.audit.outputs.quality_score }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run audit
+        id: audit
+        run: |
+          npm run pipeline:audit -- --json --output audit-report.json
+          QUALITY=$(cat audit-report.json | jq '.stats.avg')
+          echo "quality_score=$QUALITY" >> $GITHUB_OUTPUT
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: audit-report.json
+
+  generate-manifest:
+    name: Generate Manifest
+    runs-on: ubuntu-latest
+    needs: audit
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate manifest
+        run: npm run pipeline:manifest -- --with-hashes
+
+      - name: Upload manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest
+          path: public/data/manifest.json
+
+  create-release-pr:
+    name: Create Release PR
+    runs-on: ubuntu-latest
+    needs: [audit, generate-manifest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: manifest
+          path: public/data/
+
+      - name: Get version
+        id: version
+        run: |
+          CURRENT=$(date +%Y.%m)
+          echo "version=$CURRENT" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'data: Monthly release ${{ steps.version.outputs.version }}'
+          title: '📊 Data Release ${{ steps.version.outputs.version }}'
+          body: |
+            ## Monthly Data Release
+
+            **Version:** ${{ steps.version.outputs.version }}
+            **Quality Score:** ${{ needs.audit.outputs.quality_score }}/100
+
+            ### Changes
+            - Updated manifest with content hashes
+            - Quality audit completed
+
+            ### Checklist
+            - [ ] Review quality score
+            - [ ] Check for any regressions
+            - [ ] Verify manifest changes
+
+            ---
+            *Generated automatically by the data release workflow*
+          branch: data-release/${{ steps.version.outputs.version }}
+          delete-branch: true
+          labels: |
+            data
+            automated

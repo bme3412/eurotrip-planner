@@ -1,0 +1,97 @@
+{
+  "version": "4.0.0",
+  "description": "Simplified 6-factor scoring system for date-specific city ranking",
+  "outputScale": {
+    "factor": { "min": 0, "max": 10 },
+    "final": { "min": 0, "max": 100 }
+  },
+  "tiers": {
+    "tier1": { "label": "Top Picks", "min": 80, "max": 100 },
+    "tier2": { "label": "Great Options", "min": 70, "max": 79 },
+    "tier3": { "label": "Good Options", "min": 60, "max": 69 },
+    "tier4": { "label": "Consider", "min": 0, "max": 59 }
+  },
+  "factors": {
+    "culture": {
+      "weight": 0.20,
+      "enabled": true,
+      "fallbackScore": 5,
+      "description": "Museums, history, art, architecture richness",
+      "categories": ["Museums", "Historical", "Art & Architecture", "UNESCO Sites", "Cultural Heritage"]
+    },
+    "beach": {
+      "weight": 0.10,
+      "enabled": true,
+      "fallbackScore": 0,
+      "description": "Beach/coastal appeal for the dates",
+      "traits": ["beachDestination", "coastalCity", "islandCity"],
+      "categories": ["Beach & Coastal", "Seaside", "Islands"]
+    },
+    "timing": {
+      "weight": 0.25,
+      "enabled": true,
+      "fallbackScore": 5,
+      "description": "How good are the dates for visiting (weather + events + seasonality)",
+      "components": {
+        "weather": 0.40,
+        "events": 0.25,
+        "seasonality": 0.35
+      }
+    },
+    "crowds": {
+      "weight": 0.15,
+      "enabled": true,
+      "fallbackScore": 5,
+      "description": "Tourist crowd levels (higher = fewer crowds)",
+      "levels": {
+        "very low": 10,
+        "low": 8,
+        "moderate": 6,
+        "high": 4,
+        "very high": 2,
+        "extreme": 1
+      }
+    },
+    "value": {
+      "weight": 0.15,
+      "enabled": true,
+      "fallbackScore": 5,
+      "description": "Value for money (higher = better value)",
+      "priceLevels": {
+        "budget": 9,
+        "moderate": 7,
+        "expensive": 4,
+        "luxury": 2
+      }
+    },
+    "logistics": {
+      "weight": 0.15,
+      "enabled": true,
+      "fallbackScore": 5,
+      "description": "Ease of getting there and around",
+      "durationScores": {
+        "under1h": 10,
+        "1to2h": 9,
+        "2to3h": 8,
+        "3to4h": 7,
+        "4to6h": 5,
+        "6to8h": 3,
+        "over8h": 2
+      }
+    }
+  },
+  "countryFlags": {
+    "Albania": "AL", "Austria": "AT", "Belgium": "BE", "Bosnia-and-Herzegovina": "BA",
+    "Bulgaria": "BG", "Croatia": "HR", "Cyprus": "CY", "Czechia": "CZ", "Denmark": "DK",
+    "Estonia": "EE", "Finland": "FI", "France": "FR", "Germany": "DE", "Greece": "GR",
+    "Hungary": "HU", "Iceland": "IS", "Ireland": "IE", "Italy": "IT", "Kosovo": "XK",
+    "Latvia": "LV", "Liechtenstein": "LI", "Lithuania": "LT", "Luxembourg": "LU",
+    "Malta": "MT", "Monaco": "MC", "Montenegro": "ME", "Netherlands": "NL",
+    "North-Macedonia": "MK", "Norway": "NO", "Poland": "PL", "Portugal": "PT",
+    "Romania": "RO", "San-Marino": "SM", "Serbia": "RS", "Slovakia": "SK", "Slovenia": "SI",
+    "Spain": "ES", "Sweden": "SE", "Switzerland": "CH", "UK": "GB"
+  },
+  "degradation": {
+    "minConfidenceThreshold": 0.3
+  }
+}

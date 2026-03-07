@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Trip Roulette shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Global design tokens */
 :root {
   /* Font variables are now set by Next.js font optimization */
@@ -780,6 +790,146 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* -------- Route Timeline (Trip Roulette) -------- */
+
+@keyframes route-draw {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes route-node-arrive {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes route-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+}
+
+.route-node-locked {
+  animation: route-pulse 2s ease-in-out infinite;
+}
+
+/* City Spinner drum animations */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: #34d399;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4);
+  }
+  50% {
+    border-color: #6ee7b7;
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 0.35s ease 3;
+}
+
+@keyframes drum-spin {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Spin button pulse glow when ready */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4), 0 0 0 0 rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.5), 0 0 0 4px rgba(99, 102, 241, 0.1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
+/* Sparkle celebration animation for City Spinner */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.sparkle-container {
+  position: relative;
+}
+
+.sparkle-container::before,
+.sparkle-container::after {
+  content: '✦';
+  position: absolute;
+  font-size: 14px;
+  color: #fbbf24;
+  pointer-events: none;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.sparkle-container::before {
+  top: -8px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sparkle-container::after {
+  top: -8px;
+  right: 10%;
+  animation-delay: 0.5s;
+}
+
+.sparkle-container .sparkle-1,
+.sparkle-container .sparkle-2,
+.sparkle-container .sparkle-3 {
+  position: absolute;
+  font-size: 12px;
+  color: #818cf8;
+  pointer-events: none;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.sparkle-container .sparkle-1 {
+  top: 50%;
+  left: -12px;
+  animation-delay: 0.25s;
+}
+
+.sparkle-container .sparkle-2 {
+  top: 50%;
+  right: -12px;
+  animation-delay: 0.75s;
+}
+
+.sparkle-container .sparkle-3 {
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 1s;
 }
 
 

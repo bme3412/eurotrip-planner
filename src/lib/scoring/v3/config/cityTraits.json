@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-03-05T00:00:00Z",
+  "source": "Derived from tourismCategories in generated/cities.json",
+  "traits": {
+    "romantic": {
+      "description": "Cities known for romance and couples experiences",
+      "derivedFrom": ["Romance"],
+      "cities": [
+        "bruges", "cannes", "dresden", "florence", "granada", "heidelberg",
+        "nice", "paris", "salzburg", "seville", "venice", "verona", "vienna"
+      ]
+    },
+    "familyFriendly": {
+      "description": "Cities with family-oriented attractions and activities",
+      "derivedFrom": ["Family"],
+      "cities": [
+        "bremen", "copenhagen", "graz", "innsbruck", "linz", "nantes",
+        "nuremberg", "salzburg", "stuttgart", "vienna"
+      ]
+    },
+    "hubCity": {
+      "description": "Well-connected cities ideal for hub-and-spoke travel",
+      "derivedFrom": ["Urban Exploration"],
+      "minConnections": 15,
+      "cities": [
+        "amsterdam", "barcelona", "berlin", "bratislava", "bruges", "budapest",
+        "cesky-krumlov", "dusseldorf", "dublin", "eindhoven", "galway",
+        "ghent", "groningen", "hamburg", "hannover", "helsinki", "krakow",
+        "leipzig", "lisbon", "ljubljana", "madrid", "milan", "montpellier",
+        "oslo", "prague", "rome", "rotterdam", "stockholm", "tallinn",
+        "thessaloniki", "toulouse", "venice", "verona", "vienna", "warsaw",
+        "wroclaw", "zurich"
+      ]
+    },
+    "budgetFriendly": {
+      "description": "Affordable destinations with good value",
+      "derivedFrom": ["Budget-Friendly", "Off The Beaten Path"],
+      "cities": [
+        "bratislava", "bucharest", "budapest", "durres", "krakow", "mostar",
+        "plovdiv", "poznan", "prague", "riga", "sarajevo", "sofia", "tallinn",
+        "tirana", "vilnius", "warsaw"
+      ]
+    },
+    "luxuryDestination": {
+      "description": "Premium destinations for luxury travelers",
+      "derivedFrom": ["Luxury Coastlines", "Shopping"],
+      "cities": [
+        "antwerp", "cannes", "delft", "dusseldorf", "milan", "paris", "vienna"
+      ]
+    },
+    "cultural": {
+      "description": "Cities rich in cultural attractions and history",
+      "derivedFrom": ["Cultural", "Cultural Tourism Hubs", "Historical Landmarks"],
+      "cities": [
+        "amsterdam", "antwerp", "barcelona", "berlin", "bilbao", "bologna",
+        "bordeaux", "bremen", "brno", "bruges", "brussels", "cologne",
+        "copenhagen", "delft", "dresden", "dusseldorf", "eindhoven",
+        "florence", "frankfurt", "ghent", "granada", "graz", "groningen",
+        "haarlem", "hamburg", "hannover", "heidelberg", "hradec-kralove",
+        "leipzig", "liege", "lille", "linz", "lyon", "maastricht", "madrid",
+        "malaga", "marseille", "milan", "montpellier", "mostar", "munich",
+        "nantes", "naples", "nuremberg", "olomouc", "ostrava", "palermo",
+        "paris", "plovdiv", "rome", "salzburg", "sarajevo", "seville",
+        "sofia", "strasbourg", "stuttgart", "tirana", "toledo", "toulouse",
+        "turin", "utrecht", "valencia", "venice", "verona", "vienna"
+      ]
+    },
+    "foodie": {
+      "description": "Destinations known for culinary experiences",
+      "derivedFrom": ["Gastronomic Destinations", "Food & Wine"],
+      "cities": [
+        "antwerp", "barcelona", "bologna", "bordeaux", "brno", "brussels",
+        "copenhagen", "graz", "lille", "lyon", "maastricht", "madrid",
+        "milan", "munich", "naples", "nice", "palermo", "paris", "porto",
+        "rome", "sarajevo", "strasbourg", "turin", "valencia", "vienna"
+      ]
+    },
+    "adventure": {
+      "description": "Cities offering adventure and outdoor activities",
+      "derivedFrom": ["Adventure", "Adventure Travel", "Natural Landscapes"],
+      "cities": [
+        "bergen", "bern", "bilbao", "eindhoven", "funchal", "heidelberg",
+        "innsbruck", "lausanne", "liberec", "liege", "linz", "lucerne",
+        "marseille", "naples", "reykjavik", "rotterdam", "rovaniemi",
+        "stavanger"
+      ]
+    },
+    "nightlife": {
+      "description": "Cities with vibrant nightlife scenes",
+      "derivedFrom": ["Nightlife"],
+      "cities": [
+        "amsterdam", "barcelona", "berlin", "cologne", "dusseldorf", "ghent",
+        "groningen", "hamburg", "linz", "madrid", "montpellier", "munich",
+        "ostrava", "utrecht", "vienna"
+      ]
+    },
+    "beachDestination": {
+      "description": "Coastal cities with beach access",
+      "derivedFrom": ["Beach Destinations", "Beach & Coastal"],
+      "cities": [
+        "bari", "cannes", "dubrovnik", "durres", "faro", "malaga", "nice",
+        "santorini", "valencia", "varna"
+      ]
+    },
+    "relaxation": {
+      "description": "Cities ideal for relaxation and wellness",
+      "derivedFrom": ["Relaxation", "Wellness & Spa"],
+      "cities": [
+        "cannes", "haarlem", "innsbruck", "malaga", "nice", "reykjavik",
+        "salzburg", "valencia"
+      ]
+    }
+  },
+  "travelerTypeMapping": {
+    "couples": ["romantic", "cultural", "foodie"],
+    "families": ["familyFriendly", "cultural", "adventure"],
+    "solo": ["hubCity", "cultural", "nightlife"],
+    "budget": ["budgetFriendly", "cultural"],
+    "luxury": ["luxuryDestination", "foodie", "relaxation"],
+    "culture": ["cultural", "foodie"],
+    "foodie": ["foodie", "cultural"],
+    "adventure": ["adventure", "beachDestination"],
+    "everyone": []
+  }
+}

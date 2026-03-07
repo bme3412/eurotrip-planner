@@ -137,10 +137,10 @@ export default function ResultCard({ item, index, dates }) {
           </div>
         )}
 
-        {/* When no events — fall back to season/crowd reason */}
-        {!primaryEvent && (item.why || nonEventHighlight) && (
+        {/* When no events — show why this city, this time */}
+        {!primaryEvent && item.why && (
           <p className="text-xs text-gray-600 bg-blue-50 rounded-lg px-3 py-2 leading-snug border border-blue-100">
-            {nonEventHighlight?.description || item.why}
+            {item.why}
           </p>
         )}
 

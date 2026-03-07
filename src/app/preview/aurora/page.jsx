@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import DateSelector from "../../../components/DateSelector";
+import QuickDatePicker from "../../../components/common/QuickDatePicker";
 
 export default function AuroraPreview() {
   const [dates, setDates] = useState(null);
@@ -11,14 +11,20 @@ export default function AuroraPreview() {
   const find = async () => {
     if (!dates) return;
     setLoading(true);
-    const r = await fetch("/api/suggestions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ dates }),
-    });
-    const data = await r.json();
-    setResults(data.items || []);
-    setLoading(false);
+    try {
+      const r = await fetch("/api/suggestions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dates }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const data = await r.json();
+      setResults(data.items || []);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -31,7 +37,7 @@ export default function AuroraPreview() {
           <p className="mt-3 text-zinc-300">Vivid gradients, crisp cards — effortless choices.</p>
 
           <div className="mt-8 rounded-3xl bg-white/5 backdrop-blur ring-1 ring-white/10 p-6">
-            <DateSelector onChange={setDates} />
+            <QuickDatePicker value={dates} onChange={setDates} />
             <div className="mt-6 flex justify-center gap-3">
               <button
                 onClick={find}

@@ -2,7 +2,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import DateSelector from "../components/DateSelector";
+import QuickDatePicker from "../components/common/QuickDatePicker";
 import ResultsGrid from "../components/ResultsGrid";
 import { useTripDates } from "../hooks/useTripDates";
 import ScoringDemoSection from "../components/home/ScoringDemoSection";
@@ -178,8 +178,11 @@ export default function Page() {
       const res = await fetch("/api/suggestions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ dates: d, interests, weights }),
+        body: JSON.stringify({ dates: d, interests, weights, v: 4 }),
       });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
       setResults(data.items ?? []);
     } catch (e) {
@@ -271,8 +274,8 @@ export default function Page() {
                 </p>
               </div>
 
-              <div className="flex justify-center lg:justify-start">
-                <DateSelector onChange={setDates} />
+              <div className="flex justify-center lg:justify-start w-full max-w-xl">
+                <QuickDatePicker value={dates} onChange={setDates} />
               </div>
 
               {/* Rank button below date selector — visible once dates chosen */}

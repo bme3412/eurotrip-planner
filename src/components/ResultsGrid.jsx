@@ -1,6 +1,28 @@
-import dynamic from "next/dynamic";
-import { useMemo, useRef } from "react";
-const ResultCard = dynamic(() => import("./ResultCard"));
+'use client';
+
+import { useMemo, useState, useRef } from 'react';
+import { List, BarChart3, GitCompare } from 'lucide-react';
+import CityListRow from './discover/CityListRow';
+import CityScatterPlot from './discover/CityScatterPlot';
+
+/**
+ * Sort options
+ */
+const SORT_OPTIONS = [
+  { id: 'score', label: 'Best match' },
+  { id: 'warmest', label: 'Warmest' },
+  { id: 'quietest', label: 'Quietest' },
+  { id: 'daylight', label: 'Most daylight' },
+];
+
+/**
+ * View mode tabs
+ */
+const VIEW_MODES = [
+  { id: 'list', label: 'List', icon: List },
+  { id: 'plot', label: 'Plot', icon: BarChart3 },
+  { id: 'compare', label: 'Compare', icon: GitCompare },
+];
 
 function formatDateRange(dates) {
   if (!dates?.start || !dates?.end) return null;
@@ -25,13 +47,11 @@ function CalendarIcon({ className = 'w-3.5 h-3.5' }) {
 }
 
 /**
- * Aggregates all event highlights from the results into a horizontally
- * scrollable strip. Each pill scrolls to that city's card.
+ * Event strip showing what's happening during the trip
  */
 function EventStrip({ results, dateRange }) {
   const scrollRef = useRef(null);
 
-  // Collect all event-type highlights, tag with city, deduplicate by name
   const seen = new Set();
   const pills = [];
   for (const r of results) {
@@ -40,11 +60,10 @@ function EventStrip({ results, dateRange }) {
       const key = `${h.name}-${r.cityId}`;
       if (seen.has(key)) continue;
       seen.add(key);
-      pills.push({ ...h, cityName: r.cityName, cityId: r.cityId });
+      pills.push({ ...h, cityName: r.cityName || r.title, cityId: r.cityId });
     }
   }
 
-  // Sort chronologically using sortKey
   pills.sort((a, b) => (a.sortKey ?? 999) - (b.sortKey ?? 999));
 
   if (pills.length === 0) return null;
@@ -83,104 +102,226 @@ function EventStrip({ results, dateRange }) {
   );
 }
 
-export default function ResultsGrid({ results, sortBy, setSortBy, dates, onChangeDates, hideHeader = false }) {
-  const sorted = useMemo(() => [...results].sort((a, b) => {
-    if (sortBy === "score") return b.score - a.score;
-    if (sortBy === "popularity") return (b.popularity ?? 0) - (a.popularity ?? 0);
-    if (sortBy === "value") return (b.value ?? 0) - (a.value ?? 0);
-    return 0;
-  }), [results, sortBy]);
+/**
+ * Crowd level to numeric value for sorting
+ */
+function crowdLevelToNumber(level) {
+  const map = {
+    'Very Low': 1, 'very low': 1,
+    'Low': 2, 'low': 2,
+    'Moderate': 3, 'moderate': 3,
+    'High': 4, 'high': 4,
+    'Very High': 5, 'very high': 5,
+    'Extreme': 6, 'extreme': 6,
+  };
+  return map[level] || 3;
+}
+
+/**
+ * Get temperature from city data
+ */
+function getTemperature(city) {
+  const weatherHighlight = city.highlights?.find(h => h.type === 'weather');
+  if (weatherHighlight?.name) {
+    const match = weatherHighlight.name.match(/(\d+)/);
+    if (match) return parseInt(match[1], 10);
+  }
+  return null;
+}
+
+export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy: externalSetSortBy, dates, onChangeDates, hideHeader = false, onCityClick }) {
+  const [viewMode, setViewMode] = useState('list');
+  const [internalSortBy, setInternalSortBy] = useState('score');
+
+  // Use external sort state if provided, otherwise use internal
+  const sortBy = externalSortBy || internalSortBy;
+  const setSortBy = externalSetSortBy || setInternalSortBy;
+
+  const sorted = useMemo(() => {
+    const items = [...results];
+
+    switch (sortBy) {
+      case 'warmest':
+        return items.sort((a, b) => {
+          const tempA = getTemperature(a) ?? -100;
+          const tempB = getTemperature(b) ?? -100;
+          return tempB - tempA;
+        });
+
+      case 'quietest':
+        return items.sort((a, b) => {
+          const crowdA = crowdLevelToNumber(a.crowdLevel);
+          const crowdB = crowdLevelToNumber(b.crowdLevel);
+          return crowdA - crowdB;
+        });
+
+      case 'daylight':
+        return items.sort((a, b) => {
+          const northernCountries = ['Norway', 'Sweden', 'Finland', 'Iceland', 'Estonia', 'Latvia', 'Lithuania', 'Denmark', 'UK', 'Ireland'];
+          const scoreA = northernCountries.includes(a.country) ? 1 : 0;
+          const scoreB = northernCountries.includes(b.country) ? 1 : 0;
+          return scoreB - scoreA;
+        });
+
+      case 'score':
+      case 'popularity':
+      case 'value':
+      default:
+        return items.sort((a, b) => {
+          const scoreA = a.v4?.finalScore ?? (a.score || 0) * 20;
+          const scoreB = b.v4?.finalScore ?? (b.score || 0) * 20;
+          return scoreB - scoreA;
+        });
+    }
+  }, [results, sortBy]);
 
   const dateRange = formatDateRange(dates);
   const nights = getNights(dates);
 
-  return (
-    <section className="mx-auto max-w-6xl">
-      <div className="mb-6">
-        {!hideHeader && (
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-            <div>
-              {dateRange ? (
-                <>
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    {results.length} best cities for {dateRange}
-                    {nights ? <span className="text-gray-400 font-normal text-lg"> · {nights} nights</span> : null}
-                  </h2>
-                  <p className="text-sm text-gray-500 mt-0.5">
-                    Ranked by weather, crowd levels, seasonal events, and value for your exact dates.
-                  </p>
-                </>
-              ) : (
-                <h2 className="text-xl font-semibold text-gray-900">Your curated picks</h2>
-              )}
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              {onChangeDates && dateRange && (
-                <button
-                  onClick={onChangeDates}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-800 underline underline-offset-2 transition-colors"
-                >
-                  Change dates
-                </button>
-              )}
-              <div className="flex items-center gap-2">
-                <label className="text-sm text-zinc-600">Sort by</label>
-                <select
-                  className="input rounded-full"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                >
-                  <option value="score">Best Match</option>
-                  <option value="popularity">Popularity</option>
-                  <option value="value">Best Value</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        )}
+  const handleCityClick = (cityId) => {
+    if (onCityClick) {
+      onCityClick(cityId);
+    } else {
+      window.location.href = `/city-guides/${cityId}`;
+    }
+  };
 
-        {/* Sort bar inside modal (when header hidden) */}
-        {hideHeader && (
-          <div className="flex items-center justify-between mb-4">
-            {onChangeDates && (
+  return (
+    <section className="mx-auto max-w-5xl">
+      {/* View mode toggle */}
+      <div className="flex justify-center mb-6">
+        <div className="inline-flex bg-gray-100 rounded-full p-1">
+          {VIEW_MODES.map((mode) => {
+            const Icon = mode.icon;
+            const isActive = viewMode === mode.id;
+            return (
+              <button
+                key={mode.id}
+                onClick={() => setViewMode(mode.id)}
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  isActive
+                    ? 'bg-gray-800 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                {mode.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Header */}
+      {!hideHeader && (
+        <div className="mb-6">
+          <div className="space-y-1 mb-4">
+            {dateRange ? (
+              <>
+                <h2 className="text-3xl font-bold text-gray-900">
+                  {results.length} cities for{' '}
+                  <span className="text-amber-600">{dateRange}</span>
+                </h2>
+                <p className="text-gray-500">
+                  {nights} nights · ranked by weather, crowds & events across Europe
+                </p>
+              </>
+            ) : (
+              <h2 className="text-2xl font-bold text-gray-900">Your curated picks</h2>
+            )}
+          </div>
+
+          {/* Sort filter pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            {SORT_OPTIONS.map((option) => (
+              <button
+                key={option.id}
+                onClick={() => setSortBy(option.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  sortBy === option.id
+                    ? 'bg-gray-800 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+
+            {onChangeDates && dateRange && (
               <button
                 onClick={onChangeDates}
-                className="text-sm font-medium text-blue-600 hover:text-blue-800 underline underline-offset-2 transition-colors"
+                className="ml-auto text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
               >
                 ← Change dates
               </button>
             )}
-            <div className="flex items-center gap-2 ml-auto">
-              <label className="text-sm text-zinc-600">Sort by</label>
-              <select
-                className="input rounded-full"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                <option value="score">Best Match</option>
-                <option value="popularity">Popularity</option>
-                <option value="value">Best Value</option>
-              </select>
-            </div>
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Event strip — "What's happening during your trip" */}
-        {dateRange && <EventStrip results={results} dateRange={dateRange} />}
-      </div>
+      {/* Modal header (when hideHeader) */}
+      {hideHeader && (
+        <div className="flex items-center justify-between mb-4">
+          {onChangeDates && (
+            <button
+              onClick={onChangeDates}
+              className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              ← Change dates
+            </button>
+          )}
+          <div className="flex flex-wrap gap-2 ml-auto">
+            {SORT_OPTIONS.map((option) => (
+              <button
+                key={option.id}
+                onClick={() => setSortBy(option.id)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  sortBy === option.id
+                    ? 'bg-gray-800 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
-      <VirtualizedGrid items={sorted} dates={dates} />
+      {/* Event strip */}
+      {dateRange && <EventStrip results={results} dateRange={dateRange} />}
+
+      {/* List view */}
+      {viewMode === 'list' && (
+        <div className="space-y-3">
+          {sorted.slice(0, 30).map((city, index) => (
+            <CityListRow
+              key={city.id || city.cityId || index}
+              city={city}
+              rank={index}
+              onClick={handleCityClick}
+              startDate={dates?.start}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Plot view - Scatter plot */}
+      {viewMode === 'plot' && (
+        <CityScatterPlot
+          cities={sorted.slice(0, 30)}
+          onCityClick={handleCityClick}
+        />
+      )}
+
+      {/* Compare view placeholder */}
+      {viewMode === 'compare' && (
+        <div className="bg-gray-50 rounded-2xl p-12 text-center">
+          <GitCompare className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-gray-700 mb-2">Compare View Coming Soon</h3>
+          <p className="text-gray-500">Side-by-side comparison of your top picks</p>
+        </div>
+      )}
     </section>
-  );
-}
-
-function VirtualizedGrid({ items, dates }) {
-  const slice = items.slice(0, 30);
-  return (
-    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {slice.map((item, idx) => (
-        <ResultCard key={item.id ?? idx} item={item} index={idx} dates={dates} />
-      ))}
-    </div>
   );
 }

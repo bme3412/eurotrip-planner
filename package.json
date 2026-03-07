@@ -17,7 +17,12 @@
     "convert-png-to-jpeg": "node scripts/convertPngToJpeg.mjs",
     "move-thumbnails": "node scripts/moveThumbnails.mjs",
     "replace-thumbnails": "node scripts/replaceThumbnails.mjs",
-    "validate-data": "node scripts/validateCityData.mjs"
+    "validate-data": "node scripts/validateCityData.mjs",
+    "pipeline:validate": "node scripts/pipeline/validate.mjs",
+    "pipeline:validate:ci": "node scripts/pipeline/validate.mjs --ci --fail-on-warning",
+    "pipeline:manifest": "node scripts/pipeline/manifest.mjs",
+    "pipeline:audit": "node scripts/pipeline/audit.mjs",
+    "pipeline:quality-check": "node scripts/pipeline/audit.mjs --threshold 40"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-agent-runtime": "^3.1000.0",
@@ -27,6 +32,7 @@
     "@sentry/nextjs": "^10.39.0",
     "@supabase/supabase-js": "^2.75.0",
     "@vercel/analytics": "^1.5.0",
+    "date-fns": "^4.1.0",
     "dotenv": "^17.2.4",
     "framer-motion": "^12.4.10",
     "html2pdf.js": "^0.12.1",

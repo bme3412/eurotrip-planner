@@ -17,8 +17,11 @@ export function useCityData(cityId = null) {
     
     try {
       const response = await fetch(`/api/cities/${id}`);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       const result = await response.json();
-      
+
       if (result.success) {
         setData(result.data);
       } else {
@@ -65,8 +68,11 @@ export function useCities(options = {}) {
       if (params.limit) searchParams.set('limit', params.limit.toString());
       
       const response = await fetch(`/api/cities?${searchParams}`);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       const result = await response.json();
-      
+
       if (result.success) {
         setCities(result.data);
       } else {
@@ -111,8 +117,11 @@ export function useSearchCities(query, delay = 300) {
       
       try {
         const response = await fetch(`/api/cities?search=${encodeURIComponent(query)}&limit=10`);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
         const result = await response.json();
-        
+
         if (result.success) {
           setResults(result.data);
         } else {
