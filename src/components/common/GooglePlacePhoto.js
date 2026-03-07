@@ -6,9 +6,14 @@ import Image from 'next/image';
 /**
  * Renders a Google Place photo via server proxy to keep API key private.
  * Falls back to a placeholder or existing thumbnail on error.
+ *
+ * Can be used with either:
+ * - photoName: full photo resource path (e.g., "places/ChIJ.../photos/AUac...")
+ * - placeId: Google Place ID (will auto-resolve to first photo)
  */
 export default function GooglePlacePhoto({
   photoName,
+  placeId,
   maxWidth = 800,
   maxHeight,
   alt = '',
@@ -19,9 +24,21 @@ export default function GooglePlacePhoto({
   fallback = null,
   sizes,
 }) {
-  const [src, setSrc] = useState(
-    `/api/google-photos?name=${encodeURIComponent(photoName)}&w=${maxWidth}${maxHeight ? `&h=${maxHeight}` : ''}`
-  );
+  // Build URL based on whether we have photoName or placeId
+  const buildPhotoUrl = () => {
+    const params = new URLSearchParams();
+    params.set('w', String(maxWidth));
+    if (maxHeight) params.set('h', String(maxHeight));
+
+    if (photoName) {
+      params.set('name', photoName);
+    } else if (placeId) {
+      params.set('placeId', placeId);
+    }
+    return `/api/google-photos?${params.toString()}`;
+  };
+
+  const [src, setSrc] = useState(buildPhotoUrl());
   const [failed, setFailed] = useState(false);
 
   if (failed) {

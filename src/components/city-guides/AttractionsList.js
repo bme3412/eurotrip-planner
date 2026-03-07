@@ -347,10 +347,22 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         return;
       }
       try {
-        const json = await fetchCityDataUrl(experiencesUrl, { cache: 'no-store' }); // Changed from force-cache to no-store to pick up JSON changes
+        // Load experiences and place IDs in parallel
+        const [json, placeIdsData] = await Promise.all([
+          fetchCityDataUrl(experiencesUrl, { cache: 'no-store' }),
+          fetch('/data/google-place-ids.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+        ]);
+
         const cats = json?.categories || {};
         const out = [];
         const slugify = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+        // Get experience-specific place IDs (e.g., "paris-experiences")
+        const citySlug = cityName?.toLowerCase() || '';
+        const experiencePlaceIds = placeIdsData[`${citySlug}-experiences`] || {};
+        // Also check regular city place IDs as fallback
+        const cityPlaceIds = placeIdsData[citySlug] || {};
+
         Object.keys(cats).forEach((key) => {
           const arr = Array.isArray(cats[key]) ? cats[key] : [];
           arr.forEach((item, idx) => {
@@ -358,6 +370,14 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             const { total_score, ...factors } = item?.scores || {};
             const factorScores = factors;
             const themes = Array.isArray(item?.themes) ? item.themes.filter(Boolean).map((t) => String(t).toLowerCase()) : [];
+
+            // Look up Google Place ID from googlePlaceKey
+            let googlePlaceId = null;
+            if (item?.googlePlaceKey) {
+              const placeData = experiencePlaceIds[item.googlePlaceKey] || cityPlaceIds[item.googlePlaceKey];
+              googlePlaceId = placeData?.placeId || null;
+            }
+
             out.push({
               id: `${slugify(item?.name)}-${idx}`,
               name: item?.name,
@@ -376,6 +396,8 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               pricing_tier: item?.pricing_tier || null,
               arrondissement: item?.arrondissement || null,
               duration_minutes: item?.duration_minutes || null,
+              googlePlaceKey: item?.googlePlaceKey || null,
+              googlePlaceId,
               ratings: {
                 cultural_significance: item?.scores?.cultural_historical_significance || null,
                 suggested_duration_hours: item?.duration_minutes ? item.duration_minutes / 60 : null,
@@ -402,7 +424,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     return () => {
       cancelled = true;
     };
-  }, [experiencesUrl, limit, computeAggregateFactors]);
+  }, [experiencesUrl, limit, computeAggregateFactors, cityName]);
 
   const dataSource = useMemo(() => {
     const base = Array.isArray(experiences) && experiences.length > 0
@@ -1187,6 +1209,18 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
               ) : null}
             />
+          ) : attraction.googlePlaceId ? (
+            <GooglePlacePhoto
+              placeId={attraction.googlePlaceId}
+              maxWidth={800}
+              alt={attraction.name}
+              fill
+              sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+              fallback={attraction.image ? (
+                <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
+              ) : null}
+            />
           ) : attraction.image ? (
             <Image
               src={attraction.image}
@@ -1293,6 +1327,18 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             {attraction.googlePhotos?.[0]?.name ? (
               <GooglePlacePhoto
                 photoName={attraction.googlePhotos[0].name}
+                maxWidth={640}
+                alt={attraction.name}
+                fill
+                sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                fallback={attraction.image ? (
+                  <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw" className="object-cover object-center" />
+                ) : null}
+              />
+            ) : attraction.googlePlaceId ? (
+              <GooglePlacePhoto
+                placeId={attraction.googlePlaceId}
                 maxWidth={640}
                 alt={attraction.name}
                 fill
