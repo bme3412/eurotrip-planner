@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, MapPin, X } from 'lucide-react';
 import { getAllCities } from '@/lib/planning/easeScoreCalculator';
@@ -38,12 +38,14 @@ export default function AnchorSelector({ value, onChange }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const filtered = query.length > 0
-    ? allCities.filter(c =>
-        c.name.toLowerCase().includes(query.toLowerCase()) ||
-        c.country.toLowerCase().includes(query.toLowerCase())
-      ).slice(0, 8)
-    : [];
+  const filtered = useMemo(() => {
+    return query.length > 0
+      ? allCities.filter(c =>
+          c.name.toLowerCase().includes(query.toLowerCase()) ||
+          c.country.toLowerCase().includes(query.toLowerCase())
+        ).slice(0, 8)
+      : [];
+  }, [query, allCities]);
 
   const selectedCity = allCities.find(c => c.id === value) ||
     POPULAR_CITIES.find(c => c.id === value) ||

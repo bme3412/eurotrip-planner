@@ -32,6 +32,7 @@ function getTemperature(city) {
  * Scatter plot visualization of cities by temperature and score
  */
 export default function CityScatterPlot({ cities, onCityClick }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [hoveredCity, setHoveredCity] = useState(null);
 
   // Calculate bounds

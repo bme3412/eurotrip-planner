@@ -51,11 +51,15 @@ export default function StopCard({
   const [candidates, setCandidates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Memoize excludeIds key for dependency tracking
+  const excludeIdsKey = excludeIds.join(',');
+  const fromCityId = fromCity?.id;
+
   // Load candidates when in active or editing state
   useEffect(() => {
-    if ((state === 'active' || state === 'editing') && fromCity) {
+    if ((state === 'active' || state === 'editing') && fromCityId) {
       setIsLoading(true);
-      rankDestinations(fromCity.id, tripStyle, excludeIds, 8)
+      rankDestinations(fromCityId, tripStyle, excludeIds, 8)
         .then(results => {
           setCandidates(results);
           setIsLoading(false);
@@ -65,7 +69,7 @@ export default function StopCard({
           setIsLoading(false);
         });
     }
-  }, [state, fromCity?.id, tripStyle, excludeIds.join(',')]);
+  }, [state, fromCityId, tripStyle, excludeIds, excludeIdsKey]);
 
   // FRONTIER state - ghost card for adding new stop
   if (state === 'frontier') {

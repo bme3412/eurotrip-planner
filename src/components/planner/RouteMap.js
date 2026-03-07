@@ -70,6 +70,9 @@ export default function RouteMap({ cities = [], stops = [], editingStopIndex = n
     ];
   }, [validCities]);
 
+  // Track whether we have cities for map initialization
+  const hasCities = validCities.length > 0;
+
   // Initialize map
   useEffect(() => {
     if (map.current) return;
@@ -122,7 +125,7 @@ export default function RouteMap({ cities = [], stops = [], editingStopIndex = n
         map.current = null;
       }
     };
-  }, [validCities.length > 0]);
+  }, [hasCities]);
 
   // Render route segments and markers
   useEffect(() => {
