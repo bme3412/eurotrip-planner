@@ -9,8 +9,10 @@ import { loadMonthlyDataCached } from '@/utils/monthlyDataLoader';
  */
 export const useMonthlyData = (country, cityName, options = {}) => {
   const { initialData = null, autoLoad = true } = options;
-  const [monthlyData, setMonthlyData] = useState(initialData || {});
-  const [isLoading, setIsLoading] = useState(!initialData);
+  // Check if initialData has actual content (not just an empty object)
+  const hasInitialData = initialData && typeof initialData === 'object' && Object.keys(initialData).length > 0;
+  const [monthlyData, setMonthlyData] = useState(hasInitialData ? initialData : {});
+  const [isLoading, setIsLoading] = useState(!hasInitialData);
   const [error, setError] = useState(null);
 
   const loadMonthlyData = useCallback(async () => {
@@ -37,10 +39,11 @@ export const useMonthlyData = (country, cityName, options = {}) => {
 
   useEffect(() => {
     if (!autoLoad) return;
-    if (country && cityName && !initialData) {
+    // Only fetch if we don't already have data
+    if (country && cityName && !hasInitialData) {
       loadMonthlyData();
     }
-  }, [loadMonthlyData, country, cityName, autoLoad, initialData]);
+  }, [loadMonthlyData, country, cityName, autoLoad, hasInitialData]);
 
   // Memoized derived data
   const processedData = useMemo(() => {

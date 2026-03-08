@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getImageUrl, isCDNEnabled } from '../utils/cdnUtils';
+import { getManifest, getCityMeta, getCityPath as getManifestCityPath } from './manifest';
 
 /**
  * Unified city data structure interface
@@ -245,26 +246,37 @@ export async function getCityData(cityId) {
 }
 
 /**
- * Find the file system path for a city
+ * Find the file system path for a city using O(1) manifest lookup
  */
 async function findCityPath(cityId) {
-  const dataPath = path.join(process.cwd(), 'public/data');
-  const countries = await fs.promises.readdir(dataPath, { withFileTypes: true });
-  
-  for (const country of countries) {
-    if (!country.isDirectory()) continue;
-    
-    const countryPath = path.join(dataPath, country.name);
-    const cityPath = path.join(countryPath, cityId);
-    
-    try {
-      await fs.promises.access(cityPath);
-      return cityPath;
-    } catch {
-      // City not found in this country, continue
-    }
+  // Fast path: Use manifest for O(1) lookup
+  const manifestPath = getManifestCityPath(cityId);
+  if (manifestPath) {
+    return manifestPath;
   }
-  
+
+  // Fallback: Scan directories (for cities not in manifest)
+  const dataPath = path.join(process.cwd(), 'public/data');
+  try {
+    const countries = await fs.promises.readdir(dataPath, { withFileTypes: true });
+
+    for (const country of countries) {
+      if (!country.isDirectory()) continue;
+
+      const countryPath = path.join(dataPath, country.name);
+      const cityPath = path.join(countryPath, cityId);
+
+      try {
+        await fs.promises.access(cityPath);
+        return cityPath;
+      } catch {
+        // City not found in this country, continue
+      }
+    }
+  } catch {
+    // Directory read failed
+  }
+
   return null;
 }
 
@@ -293,31 +305,31 @@ async function loadCityFile(cityPath, fileType) {
 }
 
 /**
- * Load monthly data from the monthly directory
+ * Load monthly data from the monthly directory (parallelized)
  */
 async function loadMonthlyData(cityPath) {
   const monthlyPath = path.join(cityPath, 'monthly');
-  
+
   try {
-    await fs.promises.access(monthlyPath);
     const monthFiles = await fs.promises.readdir(monthlyPath);
-    const monthData = {};
-    
-    for (const file of monthFiles) {
-      if (!file.endsWith('.json')) continue;
-      
-      const monthName = file.replace('.json', '');
-      const filePath = path.join(monthlyPath, file);
-      
-      try {
-        const data = await fs.promises.readFile(filePath, 'utf8');
-        monthData[monthName] = JSON.parse(data);
-      } catch (error) {
-        console.warn(`Error loading monthly data for ${monthName}:`, error.message);
-      }
-    }
-    
-    return monthData;
+    const jsonFiles = monthFiles.filter(f => f.endsWith('.json'));
+
+    // Load all months in parallel
+    const results = await Promise.all(
+      jsonFiles.map(async (file) => {
+        const monthName = file.replace('.json', '');
+        const filePath = path.join(monthlyPath, file);
+        try {
+          const data = await fs.promises.readFile(filePath, 'utf8');
+          return [monthName, JSON.parse(data)];
+        } catch {
+          return null;
+        }
+      })
+    );
+
+    // Convert to object, filtering out failed reads
+    return Object.fromEntries(results.filter(Boolean));
   } catch {
     return {};
   }

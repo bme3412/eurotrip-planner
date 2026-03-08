@@ -24,34 +24,70 @@ async function readWithFallbacks(baseDir, citySlug, names) {
   return null;
 }
 
+async function loadMonthlyData(baseDir) {
+  const monthlyDir = path.join(baseDir, 'monthly');
+  if (!(await pathExists(monthlyDir))) return null;
+
+  try {
+    const monthFiles = await fs.promises.readdir(monthlyDir);
+    const jsonFiles = monthFiles.filter(f => f.endsWith('.json') && f !== 'index.json');
+
+    if (jsonFiles.length === 0) return null;
+
+    // Load all months in parallel
+    const results = await Promise.all(
+      jsonFiles.map(async (file) => {
+        const monthName = file.replace('.json', '').toLowerCase();
+        const data = await readJsonIfExists(path.join(monthlyDir, file));
+        if (!data) return null;
+        // Handle nested month data structure (e.g., { "January": {...} })
+        const monthKey = Object.keys(data)[0];
+        if (monthKey && data[monthKey]) {
+          return [monthName, data[monthKey]];
+        }
+        return [monthName, data];
+      })
+    );
+
+    const monthlyObj = Object.fromEntries(results.filter(Boolean));
+    return Object.keys(monthlyObj).length > 0 ? monthlyObj : null;
+  } catch {
+    return null;
+  }
+}
+
 async function buildCityIndex(country, cityDir) {
   const baseDir = path.join(dataRoot, country, cityDir);
   if (!(await pathExists(baseDir))) return false;
   const citySlug = cityDir.toLowerCase();
 
-  const overview = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}-overview.json`, `${citySlug}_overview.json`, 'overview.json', 'city_overview.json'
-  ]);
-  const attractions = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}_attractions.json`, 'attractions.json', 'sites.json'
-  ]);
-  const neighborhoods = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}_neighborhoods.json`, 'neighborhoods.json', 'areas.json'
-  ]);
-  const culinaryGuide = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}_culinary_guide.json`, 'culinary_guide.json', 'food.json'
-  ]);
-  const connections = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}_connections.json`, 'connections.json', 'transport.json'
-  ]);
-  const seasonalActivities = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json'
-  ]);
-  const summary = await readWithFallbacks(baseDir, citySlug, [
-    'summary.json', 'visit_summary.json'
-  ]);
-  const visitCalendar = await readWithFallbacks(baseDir, citySlug, [
-    `${citySlug}-visit-calendar.json`, 'visit-calendar.json'
+  // Load all data types in parallel for faster builds
+  const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, summary, visitCalendar, monthly] = await Promise.all([
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}-overview.json`, `${citySlug}_overview.json`, 'overview.json', 'city_overview.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}_attractions.json`, 'attractions.json', 'sites.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}_neighborhoods.json`, 'neighborhoods.json', 'areas.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}_culinary_guide.json`, 'culinary_guide.json', 'food.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}_connections.json`, 'connections.json', 'transport.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      'summary.json', 'visit_summary.json'
+    ]),
+    readWithFallbacks(baseDir, citySlug, [
+      `${citySlug}-visit-calendar.json`, 'visit-calendar.json'
+    ]),
+    loadMonthlyData(baseDir)
   ]);
 
   const indexObj = {
@@ -64,7 +100,8 @@ async function buildCityIndex(country, cityDir) {
     connections,
     seasonalActivities,
     summary,
-    visitCalendar
+    visitCalendar,
+    monthly
   };
 
   const outPath = path.join(baseDir, 'index.json');

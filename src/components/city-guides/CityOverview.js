@@ -7,6 +7,29 @@ import Link from 'next/link';
 import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2, Bookmark, Plus, Eye, Sunrise, Sunset, X, Check, ExternalLink } from 'lucide-react';
 import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
 
+// City-specific seasonal narratives for "Season by Season" section
+const CITY_SEASONAL_NARRATIVES = {
+  paris: {
+    springFall: `<strong>April through June</strong> and <strong>September through October</strong> deliver the quintessential Paris experience. Temperatures settle into a comfortable 15–20°C, café terraces fill with conversation, and the city's gardens reach peak beauty—cherry blossoms in spring, golden leaves in autumn. Crowds exist but remain manageable. Light lingers late into evening. If you're planning your first visit, aim for <strong>May or September</strong>—they consistently offer the best balance of weather, crowds, and atmosphere.`,
+    summer: `<strong>July and August</strong> bring the longest days—golden evenings stretching past 10pm, Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema under the stars. The trade-off? Peak crowds at every major attraction, the year's highest hotel rates, and many beloved neighborhood restaurants closing for the traditional August holiday. Book popular museums weeks ahead and expect to share the city with the world.`,
+    winter: `<strong>November through February</strong> reveals Paris at its most intimate. Twinkling lights transform the Champs-Élysées, Christmas markets appear across the city, and you can linger over legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. Temperatures hover between 3–8°C—cold but manageable with layers. Hotel rates drop significantly. If you don't mind bundling up, this is the <strong>best season for budget-conscious travelers</strong> and those who prefer a quieter, more local experience.`,
+    march: `The city's gentle awakening. Temperatures climb toward 12°C, the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening. Pack layers and an umbrella—spring showers are part of the charm. This <strong>shoulder season offers excellent value</strong> before crowds arrive in earnest. A perfect time for travelers who want the romance of Paris without fighting for space.`
+  },
+  london: {
+    springFall: `<strong>April through June</strong> and <strong>September through October</strong> deliver London at its finest. Temperatures settle between 14–20°C, pub gardens fill with after-work pints, and the royal parks burst with daffodils then golden leaves. Chelsea Flower Show in May marks the social calendar; Open House London in September opens normally closed buildings for free. Light lingers past 9pm. If planning your first visit, aim for <strong>May or September</strong>—the sweet spot before summer crowds descend.`,
+    summer: `<strong>July and August</strong> bring Wimbledon queues (bring strawberries), Proms at the Royal Albert Hall, and Notting Hill Carnival's Caribbean explosion. Daylight stretches past 10pm, rooftop bars thrive, and Hyde Park hosts outdoor cinema. The trade-off? Peak crowds at every attraction, accommodation at its most expensive, and the Tube becoming genuinely tropical (no air conditioning on older lines). Book museums ahead and embrace the glorious chaos.`,
+    winter: `<strong>November through February</strong> reveals London at its most atmospheric. Christmas lights transform Oxford Street and Regent Street, ice rinks appear at Somerset House and the Tower, and cosy pubs become essential refuges serving warming ales and hearty pies. Temperatures hover 3–8°C—cold but manageable with layers. Hotel rates drop significantly. Theatre tickets are easier to find. If you don't mind bundling up, this is the <strong>best season for budget-conscious travelers</strong> who prefer a more local experience—and pantomime season is genuinely delightful.`,
+    march: `London's tentative awakening. Temperatures climb toward 12°C, daffodils carpet the royal parks, and outdoor terraces cautiously reopen (Londoners treating 15°C as positively tropical). Pack layers—April showers are not merely a suggestion. This <strong>shoulder season offers excellent value</strong> before summer crowds arrive, and Londoners emerge blinking from hibernation with genuine optimism about the weather. It won't last, but enjoy it.`
+  }
+};
+
+const DEFAULT_SEASONAL_NARRATIVE = {
+  springFall: `<strong>April through June</strong> and <strong>September through October</strong> typically offer the most pleasant weather for exploring. Temperatures are comfortable, crowds are manageable, and you'll enjoy longer days without peak-season prices.`,
+  summer: `<strong>July and August</strong> bring the warmest weather and longest days, perfect for outdoor activities. Expect peak tourist crowds and higher prices. Book popular attractions in advance.`,
+  winter: `<strong>November through February</strong> offers a quieter experience with lower prices. While weather can be challenging, you'll find shorter queues and a more authentic local atmosphere.`,
+  march: `<strong>March</strong> marks the transition to spring. Weather can be unpredictable, but this shoulder season offers good value and fewer crowds.`
+};
+
 const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntroHero = false }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [activeTier, setActiveTier] = useState('All');
@@ -103,8 +126,14 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
 
   const cityIcon = getCityIcon(cityName);
   
-  // Load rich Things-to-Do data from public JSON, if available
+  // Check if things-to-do data is already in monthlyData (from SSR), otherwise fetch
   useEffect(() => {
+    // Already have it from SSR?
+    if (monthlyData?.['things-to-do']?.categories) {
+      setThingsToDo(monthlyData['things-to-do']);
+      return;
+    }
+    // Fallback: fetch if not in monthlyData
     const loadThingsToDo = async () => {
       try {
         const url = cityPaths.monthlyThingsToDo;
@@ -117,10 +146,17 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       }
     };
     loadThingsToDo();
-  }, [cityPaths.monthlyThingsToDo]);
+  }, [cityPaths.monthlyThingsToDo, monthlyData]);
 
-  // Load monthly overview paragraph (author-provided) if available
+  // Check if taglines data is already in monthlyData (from SSR), otherwise fetch
   useEffect(() => {
+    // Already have it from SSR?
+    const taglines = monthlyData?.['monthly-taglines'] || monthlyData?.['taglines'];
+    if (taglines?.overview_paragraph) {
+      setOverviewParagraph(taglines.overview_paragraph);
+      return;
+    }
+    // Fallback: fetch if not in monthlyData
     const loadOverviewParagraph = async () => {
       try {
         const url = cityPaths.monthlyTaglines;
@@ -131,7 +167,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       } catch (_) {}
     };
     loadOverviewParagraph();
-  }, [cityPaths.monthlyTaglines]);
+  }, [cityPaths.monthlyTaglines, monthlyData]);
 
   // Reset pagination when filters change
   useEffect(() => {
@@ -347,10 +383,87 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   const avoidMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.avoid || [];
   
   // Enhanced description with more engaging content
-  const enhancedDescription = overview?.brief_description 
+  const enhancedDescription = overview?.brief_description
     ? overview.brief_description
     : `${cityName} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
-  
+
+  // Memoize calendar data computation to avoid recalculating on every render
+  const calendarData = useMemo(() => {
+    if (!visitCalendar?.months) return null;
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'];
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+
+    const RATING_COLORS = {
+      5: '#10b981', 4: '#34d399', 3: '#fbbf24', 2: '#fb923c', 1: '#ef4444'
+    };
+
+    const getDayDetails = (day, monthData, filter) => {
+      if (!monthData?.ranges) return null;
+      const range = monthData.ranges.find(r => r.days.includes(day));
+      if (!range) return null;
+
+      let weather = null;
+      if (monthData.weatherDetails) {
+        weather = `${monthData.weatherDetails.lowC}-${monthData.weatherDetails.highC}°C`;
+      } else if (monthData.weatherHighC && monthData.weatherLowC) {
+        weather = `${monthData.weatherLowC}-${monthData.weatherHighC}°C`;
+      }
+
+      let adjustedScore = range.score;
+      if (filter !== 'all' && range.travelerTypes?.[filter] !== undefined) {
+        adjustedScore = Math.round((range.score + range.travelerTypes[filter]) / 2);
+      }
+
+      return {
+        score: adjustedScore,
+        special: range.special || false,
+        event: range.event || null,
+        notes: range.notes || '',
+        weather,
+        crowdLevel: range.crowdLevel || null,
+        price: range.price || null,
+        considerations: range.considerations || []
+      };
+    };
+
+    return months.map((monthName, monthIndex) => {
+      const monthData = visitCalendar.months[monthName.toLowerCase()];
+      const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
+      const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
+      const isCurrentMonth = monthIndex === currentMonth;
+
+      const days = [];
+      for (let i = 0; i < firstDayOfMonth; i++) {
+        days.push({ type: 'empty' });
+      }
+
+      let specialEventsCount = 0;
+      for (let i = 1; i <= daysInMonth; i++) {
+        const details = monthData ? getDayDetails(i, monthData, travelerTypeFilter) : null;
+        const rating = details?.score || 3;
+        if (details?.special) specialEventsCount++;
+        days.push({
+          type: 'day',
+          dayOfMonth: i,
+          rating,
+          color: RATING_COLORS[rating],
+          special: details?.special,
+          event: details?.event,
+          notes: details?.notes,
+          weather: details?.weather,
+          crowdLevel: details?.crowdLevel,
+          price: details?.price,
+          isPlaceholder: !details
+        });
+      }
+
+      return { monthName, monthIndex, days, isCurrentMonth, specialEventsCount };
+    });
+  }, [visitCalendar, travelerTypeFilter]);
+
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Optional intro header (hidden when a page-level hero is present) */}
@@ -892,42 +1005,62 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
             )}
 
             {/* Seasonal Details - Narrative Prose matching Start Here style */}
-            <div className="mt-6 pt-6 border-t border-gray-100">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Season by Season</h3>
-              <div className="grid lg:grid-cols-2 gap-x-10 gap-y-6">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1.5">Spring & Early Fall</h4>
-                    <p className="text-[17px] leading-relaxed text-gray-700">
-                      <strong className="text-gray-900">April through June</strong> and <strong className="text-gray-900">September through October</strong> deliver the quintessential Paris experience. Temperatures settle into a comfortable 15–20°C, café terraces fill with conversation, and the city&apos;s gardens reach peak beauty—cherry blossoms in spring, golden leaves in autumn. Crowds exist but remain manageable. Light lingers late into evening. If you&apos;re planning your first visit, aim for <strong className="text-gray-900">May or September</strong>—they consistently offer the best balance of weather, crowds, and atmosphere.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1.5">Summer</h4>
-                    <p className="text-[17px] leading-relaxed text-gray-700">
-                      <strong className="text-gray-900">July and August</strong> bring the longest days—golden evenings stretching past 10pm, Bastille Day fireworks over the Eiffel Tower, Paris Plages pop-up beaches along the Seine, and open-air cinema under the stars. The trade-off? Peak crowds at every major attraction, the year&apos;s highest hotel rates, and many beloved neighborhood restaurants closing for the traditional August holiday. Book popular museums weeks ahead and expect to share the city with the world.
-                    </p>
+            {(() => {
+              const cityKey = cityName?.toLowerCase() || '';
+              const seasonalContent = CITY_SEASONAL_NARRATIVES[cityKey] || DEFAULT_SEASONAL_NARRATIVE;
+
+              // Helper to render HTML string with strong tags
+              const renderSeasonalText = (htmlString) => {
+                // Split by <strong> tags and render appropriately
+                const parts = htmlString.split(/(<strong>.*?<\/strong>)/g);
+                return parts.map((part, i) => {
+                  if (part.startsWith('<strong>') && part.endsWith('</strong>')) {
+                    const text = part.replace(/<\/?strong>/g, '');
+                    return <strong key={i} className="text-gray-900">{text}</strong>;
+                  }
+                  return part;
+                });
+              };
+
+              return (
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Season by Season</h3>
+                  <div className="grid lg:grid-cols-2 gap-x-10 gap-y-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1.5">Spring & Early Fall</h4>
+                        <p className="text-[17px] leading-relaxed text-gray-700">
+                          {renderSeasonalText(seasonalContent.springFall)}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1.5">Summer</h4>
+                        <p className="text-[17px] leading-relaxed text-gray-700">
+                          {renderSeasonalText(seasonalContent.summer)}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1.5">Winter</h4>
+                        <p className="text-[17px] leading-relaxed text-gray-700">
+                          {renderSeasonalText(seasonalContent.winter)}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1.5">March</h4>
+                        <p className="text-[17px] leading-relaxed text-gray-700">
+                          {renderSeasonalText(seasonalContent.march)}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1.5">Winter</h4>
-                    <p className="text-[17px] leading-relaxed text-gray-700">
-                      <strong className="text-gray-900">November through February</strong> reveals Paris at its most intimate. Twinkling lights transform the Champs-Élysées, Christmas markets appear across the city, and you can linger over legendary hot chocolate at Angelina without the queues. Museum galleries feel nearly private. Temperatures hover between 3–8°C—cold but manageable with layers. Hotel rates drop significantly. If you don&apos;t mind bundling up, this is the <strong className="text-gray-900">best season for budget-conscious travelers</strong> and those who prefer a quieter, more local experience.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1.5">March</h4>
-                    <p className="text-[17px] leading-relaxed text-gray-700">
-                      The city&apos;s gentle awakening. Temperatures climb toward 12°C, the first flowers appear in the Tuileries and Luxembourg Gardens, and outdoor terraces begin reopening. Pack layers and an umbrella—spring showers are part of the charm. This <strong className="text-gray-900">shoulder season offers excellent value</strong> before crowds arrive in earnest. A perfect time for travelers who want the romance of Paris without fighting for space.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })()}
           </div>
         </div>
       )}

@@ -216,6 +216,46 @@ public/data/
 
 6. Test at `http://localhost:3000/city-guides/yourcity`
 
+## Performance Optimizations
+
+The city guide pages are optimized for fast load times through several techniques:
+
+### Build-time Data Consolidation
+
+City data is consolidated into a single `index.json` per city at build time:
+
+```bash
+node scripts/generateCityIndex.mjs
+```
+
+This combines all JSON files (overview, attractions, neighborhoods, monthly data, etc.) into one file, reducing SSR file operations from 10-15 down to 1-2.
+
+### Manifest-based O(1) Lookups
+
+The `src/lib/manifest.js` module provides cached, O(1) city lookups:
+
+```javascript
+import { getCityMeta, getCityPath } from '@/lib/manifest';
+
+const meta = getCityMeta('paris'); // { country: 'France', directoryName: 'paris' }
+const path = getCityPath('paris'); // /path/to/public/data/France/paris
+```
+
+### Client-side Optimizations
+
+- **Throttled scroll handlers** - Uses `requestAnimationFrame` to avoid excessive re-renders
+- **Memoized calendar data** - Pre-computes 365 days of visit calendar data once
+- **Smart data loading** - Checks if SSR data exists before making client fetches
+- **Eager component preloading** - Preloads StartHere and CityOverview on mount
+
+### Key Performance Files
+
+| File | Purpose |
+|------|---------|
+| `src/lib/manifest.js` | Cached manifest utilities for O(1) city lookups |
+| `src/hooks/useMonthlyData.js` | Smart monthly data loading with SSR check |
+| `scripts/generateCityIndex.mjs` | Build script for data consolidation |
+
 ## Tech Stack
 
 - **Framework**: Next.js 15 (App Router)

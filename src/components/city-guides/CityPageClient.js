@@ -82,11 +82,12 @@ function CityPageClient({ cityData, cityName }) {
   const [componentLoaded, setComponentLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showBreadcrumb, setShowBreadcrumb] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isTabBarSticky, setIsTabBarSticky] = useState(false);
   const [slideDirection, setSlideDirection] = useState('right');
   const tabBarRef = useRef(null);
   const tabBarOriginalTop = useRef(null);
+  const lastScrollY = useRef(0);
+  const scrollTicking = useRef(false);
   
   const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError, refetch: loadAllMonthly } = useMonthlyData(
     cityData?.country || 'Unknown',
@@ -152,40 +153,56 @@ function CityPageClient({ cityData, cityName }) {
 
   useEffect(() => {
     setComponentLoaded(true);
+    // Eager preload the default tab component to reduce perceived latency
+    import('@/components/city-guides/StartHere');
+    // Also preload CityOverview since it's commonly accessed
+    import('@/components/city-guides/CityOverview');
   }, []);
 
-  // Breadcrumb & sticky tab bar scroll behavior
+  // Breadcrumb & sticky tab bar scroll behavior (throttled with requestAnimationFrame)
   useEffect(() => {
     // Capture the original position of the tab bar on mount
     if (tabBarRef.current && tabBarOriginalTop.current === null) {
       tabBarOriginalTop.current = tabBarRef.current.getBoundingClientRect().top + window.scrollY;
     }
-    
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const heroHeight = 400; // Approximate hero height
-      
-      // Breadcrumb visibility
-      if (currentScrollY < heroHeight) {
-        setShowBreadcrumb(true);
-      } else if (currentScrollY < lastScrollY) {
-        setShowBreadcrumb(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > heroHeight) {
-        setShowBreadcrumb(false);
-      }
-      
-      // Sticky tab bar - stick when scrolled past original position
-      if (tabBarOriginalTop.current !== null) {
-        const shouldBeSticky = currentScrollY > tabBarOriginalTop.current - 60; // 60px offset for header
-        setIsTabBarSticky(shouldBeSticky);
-      }
-      
-      setLastScrollY(currentScrollY);
+      if (scrollTicking.current) return;
+
+      scrollTicking.current = true;
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const heroHeight = 400;
+        const prevScrollY = lastScrollY.current;
+
+        // Breadcrumb visibility - only update if changed
+        let newShowBreadcrumb;
+        if (currentScrollY < heroHeight) {
+          newShowBreadcrumb = true;
+        } else if (currentScrollY < prevScrollY) {
+          newShowBreadcrumb = true;
+        } else if (currentScrollY > prevScrollY && currentScrollY > heroHeight) {
+          newShowBreadcrumb = false;
+        }
+
+        if (newShowBreadcrumb !== undefined) {
+          setShowBreadcrumb(prev => prev !== newShowBreadcrumb ? newShowBreadcrumb : prev);
+        }
+
+        // Sticky tab bar - only update if changed
+        if (tabBarOriginalTop.current !== null) {
+          const shouldBeSticky = currentScrollY > tabBarOriginalTop.current - 60;
+          setIsTabBarSticky(prev => prev !== shouldBeSticky ? shouldBeSticky : prev);
+        }
+
+        lastScrollY.current = currentScrollY;
+        scrollTicking.current = false;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const handleTabSwitch = useCallback((tabId) => {
     if (tabId === activeTab) return;
