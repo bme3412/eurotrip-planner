@@ -6,6 +6,87 @@ import { ChevronDown, ChevronRight, MapPin, Clock, Star, Utensils, Wine, Coffee,
 
 // City-specific food & drink data (narrative prose)
 const CITY_FOOD_DATA = {
+  prague: {
+    intro: `Czech cuisine is built for cold winters and long beer sessions—hearty, meaty, and unapologetically rich. Dumplings, roast pork, and sauces you'll dream about. But Prague has evolved beyond grandma's cooking: modern Czech chefs are doing creative things with traditional ingredients, and the city's beer culture remains unmatched anywhere in the world. Here's how to eat and drink like a local.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Start your day with **káva** (coffee) at a traditional kavárna (café)—Café Louvre and Café Slavia are historic institutions. Czech breakfast isn't elaborate; a pastry or chlebíčky (open-faced sandwiches) will do.
+
+**Lunch** is the main meal for working Czechs. Look for **denní menu** (daily menu) at local restaurants—a soup, main course, and often a drink for 150-200 CZK. This is incredible value for a full meal. Served roughly 11am-2pm.
+
+**Dinner** is lighter traditionally, but tourist restaurants serve full meals all evening. Reservations helpful at popular spots on weekends. Kitchens typically close by 9:30-10pm at traditional places.
+
+**Beer is constant.** Czechs drink more beer per capita than anyone on earth. A half-liter (velké pivo) costs 40-60 CZK at local pubs, 80-120 CZK in tourist areas. You'll be asked repeatedly if you want another—they'll just bring it unless you say no.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Svíčková na smetaně** — The national dish: beef sirloin in a creamy vegetable sauce, served with bread dumplings (knedlíky), cranberries, and a dollop of whipped cream. Yes, cream on meat. Trust us.
+
+**Vepřo-knedlo-zelo** — Roast pork with dumplings and sauerkraut. The holy trinity of Czech cuisine. Simple, satisfying, and goes perfectly with beer.
+
+**Smažený sýr** — Fried cheese. Usually Edam, breaded and deep-fried, served with tartar sauce and fries. Czech comfort food at its finest. Better than it sounds.
+
+**Kulajda** — Creamy potato soup with dill, mushrooms, and a poached egg. The best Czech soup, especially on cold days.
+
+**Trdelník** — The spiral pastry you'll see everywhere. Originally Slovak/Hungarian, now a tourist symbol. Good warm with cinnamon sugar; the ice cream versions are extra.
+
+**Chlebíčky** — Open-faced sandwiches, usually from deli counters. Egg salad, ham, cheese, and mysterious but delicious mayonnaise-based concoctions.`
+      },
+      {
+        title: "Where to Drink",
+        content: `**Pivnice (Beer Halls)** — This is why you came. Traditional pubs serve Czech lagers on tap at prices that make other cities weep. U Zlatého Tygra, U Fleků (touristy but historic), and Lokál (modern but authentic) are institutions. The waiter marks your tab on a paper slip; don't lose it.
+
+**Czech Beer** — Pilsner Urquell invented the pilsner style. Staropramen is the local Prague brew. Kozel, Budvar (the original Budweiser), and Gambrinus are reliable. Craft beer has arrived—look for Matuška and Dva Kohouti.
+
+**Tankové Pivo** — Tank beer, unpasteurized and delivered fresh in tanks to the pub. Smoother and better than bottled. Lokál pioneered this; look for "tankové" on menus.
+
+**Wine** — Moravia (southeastern Czechia) produces decent wine. Try it at a vinárna (wine bar). Grüner Veltliner and local reds surprise people.
+
+**Becherovka** — The Czech herbal liqueur. Tastes like Christmas. Often served as a digestif. The Becherovka & tonic (beton) is popular.
+
+**Slivovice** — Plum brandy. Strong (50%+), traditional, and offered with alarming frequency. One shot is cultural; three is a commitment.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Vinohrady** — The best eating neighborhood. Locals' favorite—tree-lined streets, excellent restaurants ranging from traditional to modern, and pubs where you're the only tourist. Worth the metro ride.
+
+**Žižkov** — Gritty, authentic, and packed with old-school pubs. Less polished than Vinohrady but cheaper and more local. Great for a genuine Czech beer experience.
+
+**Malá Strana** — Beautiful but touristy. Still some gems hidden on side streets, especially for wine bars and upscale dining. Prices higher than average.
+
+**Old Town (Staré Město)** — Avoid the square itself. Walk 5 minutes in any direction for dramatically better value. Týnská ulička and the streets near Dlouhá have some good options.
+
+**Karlín** — Emerging neighborhood across the river. Modern restaurants, great brunch spots, and a less touristy vibe. Worth exploring.
+
+**Náplavka** — Riverside embankment with Saturday farmers' market. Good for daytime grazing and sunset drinks at the boat bars.`
+      },
+      {
+        title: "Practical Tips",
+        content: `**Tipping:** 10% is standard. Don't leave money on the table—tell the waiter the total you want to pay ("280" for a 250 CZK bill) when they bring the check.
+
+**Beer etiquette:** The waiter will keep bringing beers until you say stop (or cover your glass). Check marks on your tab track consumption. Pay when leaving.
+
+**Denní menu:** The daily lunch menu is the best value anywhere. Available at local restaurants 11am-2pm on weekdays. Three courses for ~150-200 CZK.
+
+**Reservations:** Helpful on weekends at popular spots, otherwise usually fine to walk in.
+
+**Old Town trap:** Any restaurant with pictures on the menu, a guy beckoning outside, or menus in 10 languages is a tourist trap. Walk further.
+
+**Service pace:** Czech service can feel slow by American standards. This is normal—you're renting the table. Wave for the check when ready.`
+      }
+    ],
+
+    highlights: [
+      { name: "Svíčková at a Local Restaurant", type: "Meal", neighborhood: "Vinohrady", time: "Lunch or dinner" },
+      { name: "Beer Hall Session", type: "Drink", neighborhood: "Žižkov / Old Town", time: "Evening" },
+      { name: "Denní Menu Lunch", type: "Meal", neighborhood: "Any local spot", time: "11am-2pm" },
+      { name: "Tank Beer at Lokál", type: "Drink", neighborhood: "Various locations", time: "Evening" },
+      { name: "Náplavka Farmers Market", type: "Experience", neighborhood: "Riverside", time: "Saturday morning" },
+      { name: "Coffee at Café Louvre", type: "Experience", neighborhood: "New Town", time: "Afternoon" }
+    ]
+  },
   amsterdam: {
     intro: `Dutch cuisine has a reputation problem—stamppot and raw herring don't exactly set hearts racing. But modern Amsterdam has evolved into a serious food city, blending colonial influences (Indonesian rijsttafel is a national treasure), global immigration, and a new generation of chefs doing creative things with local ingredients. Here's how to eat and drink like an Amsterdammer.`,
 
