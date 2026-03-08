@@ -30,7 +30,14 @@ export async function GET(request) {
 
   try {
     const photoUrl = await getPlacePhotoUrl(photoName, width, height);
-    return NextResponse.redirect(photoUrl, 302);
+    // Add cache headers - browser cache 24h, CDN cache 7d
+    return new Response(null, {
+      status: 302,
+      headers: {
+        'Location': photoUrl,
+        'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+      },
+    });
   } catch (err) {
     console.error('[google-photos]', err.message);
     return NextResponse.json({ error: 'Photo fetch failed' }, { status: 502 });

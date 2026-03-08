@@ -2,6 +2,13 @@ import { NextResponse } from 'next/server';
 import { scoreCitiesForDates } from '@/lib/scoring/cityScorer';
 import { scoreCitiesV2 } from '@/lib/scoring/cityScoreV2';
 import { scoreCities as scoreCitiesV3, toV2Format } from '@/lib/scoring/v3/index.js';
+import {
+  getPrecomputedMonthlyScores,
+  getCachedSuggestions,
+  setCachedSuggestions,
+  buildCacheKey,
+  isSingleMonthQuery,
+} from '@/lib/cache/suggestions';
 
 export const runtime = 'nodejs';
 
@@ -30,6 +37,8 @@ export async function GET(request) {
   const originCity = searchParams.get('originCity');
   const limit = parseInt(searchParams.get('limit') || '20', 10);
   const debug = searchParams.get('debug') === 'true';
+  const flat = searchParams.get('flat') === 'true'; // For backwards compat
+  const useLLM = searchParams.get('llm') !== 'false'; // Enable LLM by default, disable with llm=false
 
   // Determine scoring version
   const vParam = searchParams.get('v');
@@ -54,14 +63,16 @@ export async function GET(request) {
     { travelerType, budget, originCity },
     limit,
     version,
-    debug
+    debug,
+    flat,
+    useLLM
   );
 }
 
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { dates, travelerType, budget, originCity, v, v2, debug } = body;
+    const { dates, travelerType, budget, originCity, v, v2, debug, flat, llm } = body;
 
     if (!dates?.start || !dates?.end) {
       return NextResponse.json(
@@ -74,13 +85,18 @@ export async function POST(request) {
     let version = v || (v2 ? 2 : 2);
     if (typeof version === 'string') version = parseInt(version, 10);
 
+    // LLM is enabled by default for V4
+    const useLLM = llm !== false;
+
     return scoreAndRespond(
       dates.start,
       dates.end,
       { travelerType, budget, originCity },
       body.limit || 20,
       version,
-      debug
+      debug,
+      flat || false,
+      useLLM
     );
   } catch {
     return NextResponse.json(
@@ -90,7 +106,7 @@ export async function POST(request) {
   }
 }
 
-async function scoreAndRespond(startDate, endDate, preferences, limit, version = 2, debug = false) {
+async function scoreAndRespond(startDate, endDate, preferences, limit, version = 2, debug = false, flat = false, useLLM = true) {
   const start = new Date(startDate);
   const end = new Date(endDate);
 
@@ -113,28 +129,127 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
     let scoringVersion;
 
     if (version === 4) {
-      // V4: Simplified 6-factor scoring with ResultCard compatibility
-      results = await scoreWithV4(
+      // V4: Simplified 6-factor scoring with tiered results
+      // `flat` parameter allows backwards compatibility with flat list response
+
+      // Check for pre-computed monthly scores first (fastest path)
+      if (!flat && !debug && isSingleMonthQuery(startDate, endDate)) {
+        const precomputed = await getPrecomputedMonthlyScores(startDate, endDate);
+        if (precomputed) {
+          // Calculate total cities across all tiers
+          const totalScored = Object.values(precomputed.tiers).reduce(
+            (sum, tier) => sum + (tier.cities?.length || 0),
+            0
+          );
+
+          return NextResponse.json({
+            tiers: precomputed.tiers,
+            meta: {
+              startDate,
+              endDate,
+              travelerType: preferences.travelerType,
+              budget: preferences.budget,
+              originCity: preferences.originCity,
+              totalScored,
+              scoringVersion: 'v4.1-precomputed',
+              cached: true,
+              cacheSource: 'precomputed',
+              month: precomputed.month,
+            },
+          }, {
+            headers: {
+              'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+              'Vary': 'Accept-Encoding',
+              'X-Cache': 'HIT-PRECOMPUTED',
+            }
+          });
+        }
+      }
+
+      // Check Redis cache for custom queries
+      const cacheKey = buildCacheKey({ startDate, endDate, ...preferences, version: 'v4' });
+      const cachedResult = await getCachedSuggestions(cacheKey);
+      if (cachedResult && !debug) {
+        return NextResponse.json(cachedResult.data, {
+          headers: {
+            'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+            'Vary': 'Accept-Encoding',
+            'X-Cache': 'HIT-REDIS',
+          }
+        });
+      }
+
+      // Fall back to live computation
+      const tieredResults = await scoreWithV4(
         start,
         end,
         preferences,
         limit,
-        debug
+        debug,
+        flat,
+        useLLM
       );
-      scoringVersion = 'v4';
+      scoringVersion = 'v4.1';
 
-      // Return V4 response (ResultCard compatible with v4 additions)
-      return NextResponse.json({
-        items: results,
+      // If flat list requested, return in old format with CDN caching
+      if (flat) {
+        return NextResponse.json({
+          items: tieredResults,
+          meta: {
+            startDate,
+            endDate,
+            travelerType: preferences.travelerType,
+            budget: preferences.budget,
+            originCity: preferences.originCity,
+            totalScored: tieredResults.length,
+            scoringVersion,
+          },
+        }, {
+          headers: {
+            'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+            'Vary': 'Accept-Encoding'
+          }
+        });
+      }
+
+      // Extract meta info and remove from response
+      const llmUsed = tieredResults._meta?.llmUsed || false;
+      delete tieredResults._meta;
+
+      // Calculate total cities across all tiers
+      const totalScored = Object.values(tieredResults).reduce(
+        (sum, tier) => sum + (tier.cities?.length || 0),
+        0
+      );
+
+      // Build the response
+      const responseData = {
+        tiers: tieredResults,
         meta: {
           startDate,
           endDate,
           travelerType: preferences.travelerType,
           budget: preferences.budget,
           originCity: preferences.originCity,
-          totalScored: results.length,
+          totalScored,
           scoringVersion,
+          llmDescriptions: llmUsed,
         },
+      };
+
+      // Cache the result in Redis for future requests (async, don't wait)
+      if (!debug) {
+        setCachedSuggestions(cacheKey, responseData).catch(() => {});
+      }
+
+      // Return V4 tiered response with CDN caching
+      return NextResponse.json(responseData, {
+        headers: {
+          // CDN cache for 1 hour, serve stale while revalidating for up to 24 hours
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+          'Vary': 'Accept-Encoding',
+          'X-Cache': 'MISS',
+        }
       });
     } else if (version === 3) {
       // V3: New unified scoring with transparency
@@ -148,7 +263,7 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
       results = v3Results.items;
       scoringVersion = 'v3';
 
-      // Return enhanced response for V3
+      // Return enhanced response for V3 with CDN caching
       return NextResponse.json({
         items: results,
         meta: {
@@ -160,6 +275,11 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
           totalScored: results.length,
           scoringVersion,
         },
+      }, {
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+          'Vary': 'Accept-Encoding'
+        }
       });
     } else if (version === 2) {
       // V2: Weighted multi-factor scoring with enrichment
@@ -185,7 +305,7 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
       scoringVersion = 'v1';
     }
 
-    // Return in the shape the homepage ResultsGrid / ResultCard expects
+    // Return in the shape the homepage ResultsGrid / ResultCard expects with CDN caching
     return NextResponse.json({
       items: results,
       meta: {
@@ -196,6 +316,11 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
         totalScored: results.length,
         scoringVersion,
       },
+    }, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        'Vary': 'Accept-Encoding'
+      }
     });
   } catch (error) {
     console.error('Suggestions API error:', error);
@@ -293,10 +418,19 @@ function getCityDataFromManifest(manifest, cityId) {
 
 /**
  * Score cities using V4 simplified 6-factor system.
+ * Returns tiered results with contextual labels.
+ *
+ * @param {Date} startDate - Trip start date
+ * @param {Date} endDate - Trip end date
+ * @param {Object} preferences - User preferences
+ * @param {number} limit - Max cities to return
+ * @param {boolean} debug - Include debug info
+ * @param {boolean} flatList - Return flat list instead of tiers (backwards compat)
+ * @param {boolean} useLLM - Use LLM for generating descriptions
+ * @returns {Object} - Tiered results or flat list
  */
-async function scoreWithV4(startDate, endDate, preferences, limit, debug) {
+async function scoreWithV4(startDate, endDate, preferences, limit, debug, flatList = false, useLLM = true) {
   // Dynamically import V4 scoring
-  const { createV4Engine } = await import('@/lib/scoring/v4/core/ScoreEngine.js');
   const { getFactorClasses } = await import('@/lib/scoring/v4/factors/index.js');
 
   // Create engine with all factors
@@ -319,6 +453,9 @@ async function scoreWithV4(startDate, endDate, preferences, limit, debug) {
       return loadFullCityData(manifest, cityId);
     },
     limit,
+    includeDebug: debug,
+    flatList,
+    useLLM,
   });
 
   return results;

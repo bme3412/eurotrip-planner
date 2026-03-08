@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, List, BarChart3, GitCompare } from 'lucide-react';
 import CityListRow from './CityListRow';
 import CityScatterPlot from './CityScatterPlot';
+import { TierSection } from '../common/TierBadge';
 
 /**
  * Sort options for city results
@@ -92,11 +93,32 @@ export default function DiscoverResults({ results, onCityClick, startDate, endDa
   const [viewMode, setViewMode] = useState('list');
   const [sortBy, setSortBy] = useState('best');
 
-  // Sort items based on selected sort option
-  const sortedItems = useMemo(() => {
-    if (!results?.items) return [];
+  // Handle both tiered and flat list formats
+  const { isTiered, tiers, flatItems } = useMemo(() => {
+    // New tiered format: results.tiers
+    if (results?.tiers) {
+      return {
+        isTiered: true,
+        tiers: results.tiers,
+        flatItems: Object.values(results.tiers).flatMap(tier => tier.cities || []),
+      };
+    }
+    // Legacy flat format: results.items
+    if (results?.items) {
+      return {
+        isTiered: false,
+        tiers: null,
+        flatItems: results.items,
+      };
+    }
+    return { isTiered: false, tiers: null, flatItems: [] };
+  }, [results]);
 
-    const items = [...results.items];
+  // Sort items based on selected sort option (for non-tier views or custom sorting)
+  const sortedItems = useMemo(() => {
+    if (!flatItems.length) return [];
+
+    const items = [...flatItems];
 
     switch (sortBy) {
       case 'warmest':
@@ -114,8 +136,6 @@ export default function DiscoverResults({ results, onCityClick, startDate, endDa
         });
 
       case 'daylight':
-        // For now, sort by latitude approximation (northern = more daylight in summer)
-        // This is a simplified approach
         return items.sort((a, b) => {
           const northernCountries = ['Norway', 'Sweden', 'Finland', 'Iceland', 'Estonia', 'Latvia', 'Lithuania', 'Denmark', 'UK', 'Ireland'];
           const scoreA = northernCountries.includes(a.country) ? 1 : 0;
@@ -125,16 +145,12 @@ export default function DiscoverResults({ results, onCityClick, startDate, endDa
 
       case 'best':
       default:
-        // Default sort by score (already sorted from API)
-        return items.sort((a, b) => {
-          const scoreA = a.v4?.finalScore ?? a.score * 20 ?? 0;
-          const scoreB = b.v4?.finalScore ?? b.score * 20 ?? 0;
-          return scoreB - scoreA;
-        });
+        // For "best", maintain tier grouping
+        return items;
     }
-  }, [results?.items, sortBy]);
+  }, [flatItems, sortBy]);
 
-  if (!results?.items || results.items.length === 0) {
+  if (flatItems.length === 0) {
     return (
       <div className="text-center py-16">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
@@ -180,7 +196,7 @@ export default function DiscoverResults({ results, onCityClick, startDate, endDa
       {/* Header with count and date range */}
       <div className="space-y-1">
         <h2 className="text-3xl font-bold text-gray-900">
-          {sortedItems.length} cities for{' '}
+          {flatItems.length} cities for{' '}
           <span className="text-amber-600">{dateRange}</span>
         </h2>
         <p className="text-gray-500">
@@ -207,26 +223,76 @@ export default function DiscoverResults({ results, onCityClick, startDate, endDa
 
       {/* Results list */}
       {viewMode === 'list' && (
-        <div className="space-y-3">
-          <AnimatePresence mode="popLayout">
-            {sortedItems.map((city, index) => (
-              <motion.div
-                key={city.id || city.cityId}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: index * 0.03, duration: 0.2 }}
-              >
-                <CityListRow
-                  city={city}
-                  rank={index}
-                  onClick={onCityClick}
-                  startDate={startDate}
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
+        <div className="space-y-6">
+          {/* Tiered view when using "best" sort and tiers are available */}
+          {isTiered && sortBy === 'best' ? (
+            <AnimatePresence mode="popLayout">
+              {Object.entries(tiers).map(([tierKey, tier]) => {
+                if (!tier.cities || tier.cities.length === 0) return null;
+                const tierNumber = parseInt(tierKey.slice(-1), 10);
+
+                return (
+                  <motion.div
+                    key={tierKey}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-3"
+                  >
+                    {/* Tier header */}
+                    <TierSection
+                      tier={tierNumber}
+                      label={tier.label}
+                      sublabel={tier.sublabel}
+                      paragraph={tier.paragraph}
+                      cityCount={tier.cities.length}
+                    />
+
+                    {/* Cities in this tier */}
+                    <div className="space-y-3 pl-2">
+                      {tier.cities.map((city, index) => (
+                        <motion.div
+                          key={city.id || city.cityId}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.03, duration: 0.2 }}
+                        >
+                          <CityListRow
+                            city={city}
+                            rank={index}
+                            onClick={onCityClick}
+                            startDate={startDate}
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          ) : (
+            /* Flat list for other sort options */
+            <div className="space-y-3">
+              <AnimatePresence mode="popLayout">
+                {sortedItems.map((city, index) => (
+                  <motion.div
+                    key={city.id || city.cityId}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ delay: index * 0.03, duration: 0.2 }}
+                  >
+                    <CityListRow
+                      city={city}
+                      rank={index}
+                      onClick={onCityClick}
+                      startDate={startDate}
+                    />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          )}
         </div>
       )}
 

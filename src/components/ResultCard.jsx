@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const scoreColor = (score) => {
-  if (score >= 4.5) return 'bg-emerald-100 text-emerald-800';
-  if (score >= 4) return 'bg-emerald-100 text-emerald-800';
-  if (score >= 3) return 'bg-amber-100 text-amber-800';
-  return 'bg-gray-100 text-gray-700';
-};
+import { TierBadge } from './common/TierBadge';
 
 function CalendarIcon({ className = 'w-3.5 h-3.5' }) {
   return (
@@ -86,15 +80,13 @@ export default function ResultCard({ item, index, dates }) {
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-        {/* Score + rank badge — top left */}
+        {/* Tier + rank badge — top left */}
         <div className="absolute left-3 top-3 flex items-center gap-1.5">
           <span className="badge bg-white/90 backdrop-blur font-semibold text-xs">
             #{index + 1}
           </span>
-          {typeof item.score === 'number' && (
-            <span className={`badge ${scoreColor(item.score)} font-bold text-xs`}>
-              {item.score.toFixed(1)}/5
-            </span>
+          {item.tier && (
+            <TierBadge tier={item.tier} size="xs" showLabel={true} />
           )}
           {/* Event indicator badge — shows there's something happening */}
           {primaryEvent && (

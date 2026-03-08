@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
+// Tiny blur placeholder - gray gradient
+const BLUR_DATA_URL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQRBQYSIRMxQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAECAAMRIf/aAAwDAQACEQMRAD8AqbZ3Dd2d5cW9zfyywyLyjDMSB9/K0qpSlVmGYxCLbQWBP//Z';
+
 /**
  * Renders a Google Place photo via server proxy to keep API key private.
  * Falls back to a placeholder or existing thumbnail on error.
@@ -23,6 +26,7 @@ export default function GooglePlacePhoto({
   className = '',
   fallback = null,
   sizes,
+  priority = false,
 }) {
   // Build URL based on whether we have photoName or placeId
   const buildPhotoUrl = () => {
@@ -60,7 +64,11 @@ export default function GooglePlacePhoto({
       {...imgProps}
       className={className}
       onError={() => setFailed(true)}
-      unoptimized
+      unoptimized // Required: API returns redirect to external URL
+      priority={priority}
+      loading={priority ? undefined : 'lazy'}
+      placeholder="blur"
+      blurDataURL={BLUR_DATA_URL}
     />
   );
 }

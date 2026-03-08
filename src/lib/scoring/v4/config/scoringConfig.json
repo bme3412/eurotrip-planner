@@ -1,15 +1,32 @@
 {
-  "version": "4.0.0",
-  "description": "Simplified 6-factor scoring system for date-specific city ranking",
+  "version": "4.1.0",
+  "description": "Dynamic 6-factor scoring system with contextual tier labels",
   "outputScale": {
     "factor": { "min": 0, "max": 10 },
     "final": { "min": 0, "max": 100 }
   },
   "tiers": {
-    "tier1": { "label": "Top Picks", "min": 80, "max": 100 },
-    "tier2": { "label": "Great Options", "min": 70, "max": 79 },
-    "tier3": { "label": "Good Options", "min": 60, "max": 69 },
-    "tier4": { "label": "Consider", "min": 0, "max": 59 }
+    "tier1": { "minScore": 80, "maxCities": 8, "fallbackLabel": "Top Picks" },
+    "tier2": { "minScore": 70, "maxCities": 10, "fallbackLabel": "Great Options" },
+    "tier3": { "minScore": 60, "maxCities": 12, "fallbackLabel": "Good Options" },
+    "tier4": { "minScore": 0, "maxCities": 15, "fallbackLabel": "Worth Considering" }
+  },
+  "dynamicWeights": {
+    "enabled": true,
+    "beachTempThresholds": {
+      "full": 25,
+      "good": 20,
+      "mild": 15,
+      "cold": 10
+    },
+    "baseWeights": {
+      "culture": 0.20,
+      "beach": 0.10,
+      "timing": 0.25,
+      "crowds": 0.15,
+      "value": 0.15,
+      "logistics": 0.15
+    }
   },
   "factors": {
     "culture": {

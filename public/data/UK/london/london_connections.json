@@ -89,10 +89,11 @@
                 "priceRange": "£35-180"
             },
             "ferry": {
-                "portsInLondon": "Liverpool, Holyhead",
-                "journeyTime": "3h15m-8h",
-                "frequency": "Multiple daily",
-                "priceRange": "£25-120"
+                "note": "No direct ferry from London; nearest ports are Holyhead (Wales) or Liverpool (Northwest England) requiring 3-5 hour train journey from London",
+                "connectingPorts": ["Holyhead (via train from Euston)", "Liverpool (via train from Euston)"],
+                "ferryJourneyTime": "3h15m-8h",
+                "frequency": "Multiple daily from connecting ports",
+                "priceRange": "£25-120 (ferry only, train extra)"
             }
         },
         {

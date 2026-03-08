@@ -2,8 +2,13 @@
 
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import LazyMapWithMapbox from './LazyMapWithMapbox';
+import dynamic from 'next/dynamic';
+
+// Dynamically import map component with no SSR to reduce initial bundle
+const LazyMapWithMapbox = dynamic(
+  () => import('./LazyMapWithMapbox'),
+  { ssr: false }
+);
 
 export default function MapSection({ 
   attractions = [], 

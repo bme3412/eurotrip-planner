@@ -50,9 +50,9 @@ const EnhancedVisitCalendar = ({ cityName, monthlyData }) => {
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [hoveredMonth, setHoveredMonth] = useState(null);
 
-  // Paris-specific monthly ratings based on real data
-  const getParisMonthlyRating = (month) => {
-    const ratings = {
+  // City-specific monthly ratings
+  const CITY_RATINGS = {
+    'paris': {
       'january': { rating: 2, events: ['Winter Sales', 'Fewer Tourists'], weather: 'Cold, 2-7°C', crowds: 'Low' },
       'february': { rating: 2, events: ['Valentine\'s Day', 'Fashion Week'], weather: 'Cold, 3-8°C', crowds: 'Low' },
       'march': { rating: 3, events: ['Spring Begins', 'Cherry Blossoms'], weather: 'Cool, 6-12°C', crowds: 'Moderate' },
@@ -65,8 +65,43 @@ const EnhancedVisitCalendar = ({ cityName, monthlyData }) => {
       'october': { rating: 4, events: ['Nuit Blanche', 'Autumn Colors'], weather: 'Cool, 9-16°C', crowds: 'Moderate' },
       'november': { rating: 3, events: ['Armistice Day', 'Christmas Prep'], weather: 'Cold, 5-11°C', crowds: 'Low' },
       'december': { rating: 3, events: ['Christmas Markets', 'New Year'], weather: 'Cold, 3-8°C', crowds: 'High' }
-    };
-    return ratings[month.toLowerCase()] || { rating: 3, events: [], weather: '', crowds: '' };
+    },
+    'london': {
+      'january': { rating: 2, events: ['January Sales', 'Fewer Tourists'], weather: 'Cold, 2-7°C', crowds: 'Low' },
+      'february': { rating: 2, events: ['Valentine\'s Day', 'Chinese New Year'], weather: 'Cold, 3-8°C', crowds: 'Low' },
+      'march': { rating: 3, events: ['St Patrick\'s Day', 'Spring Begins'], weather: 'Cool, 5-12°C', crowds: 'Moderate' },
+      'april': { rating: 4, events: ['Easter', 'London Marathon'], weather: 'Mild, 8-15°C', crowds: 'Moderate' },
+      'may': { rating: 5, events: ['Chelsea Flower Show', 'Bank Holidays'], weather: 'Pleasant, 11-18°C', crowds: 'High' },
+      'june': { rating: 5, events: ['Trooping the Colour', 'Wimbledon Starts'], weather: 'Warm, 14-21°C', crowds: 'High' },
+      'july': { rating: 4, events: ['Wimbledon', 'The Proms Begin'], weather: 'Warm, 15-23°C', crowds: 'Very High' },
+      'august': { rating: 3, events: ['Notting Hill Carnival', 'Summer Bank Holiday'], weather: 'Warm, 15-23°C', crowds: 'High' },
+      'september': { rating: 5, events: ['Open House London', 'Cultural Season'], weather: 'Pleasant, 12-19°C', crowds: 'Moderate' },
+      'october': { rating: 4, events: ['Frieze Art Fair', 'Halloween'], weather: 'Cool, 9-15°C', crowds: 'Moderate' },
+      'november': { rating: 3, events: ['Bonfire Night', 'Remembrance Sunday'], weather: 'Cold, 5-11°C', crowds: 'Low' },
+      'december': { rating: 3, events: ['Christmas Markets', 'New Year'], weather: 'Cold, 3-8°C', crowds: 'High' }
+    }
+  };
+
+  // Default ratings for cities without specific data
+  const DEFAULT_RATINGS = {
+    'january': { rating: 2, events: ['Winter Season'], weather: 'Cold', crowds: 'Low' },
+    'february': { rating: 2, events: ['Valentine\'s Day'], weather: 'Cold', crowds: 'Low' },
+    'march': { rating: 3, events: ['Spring Begins'], weather: 'Cool', crowds: 'Moderate' },
+    'april': { rating: 4, events: ['Easter'], weather: 'Mild', crowds: 'Moderate' },
+    'may': { rating: 5, events: ['Spring Festivals'], weather: 'Pleasant', crowds: 'High' },
+    'june': { rating: 4, events: ['Summer Begins'], weather: 'Warm', crowds: 'High' },
+    'july': { rating: 3, events: ['Peak Summer'], weather: 'Hot', crowds: 'Very High' },
+    'august': { rating: 2, events: ['Summer Holiday'], weather: 'Hot', crowds: 'High' },
+    'september': { rating: 5, events: ['Cultural Season'], weather: 'Pleasant', crowds: 'Moderate' },
+    'october': { rating: 4, events: ['Autumn Events'], weather: 'Cool', crowds: 'Moderate' },
+    'november': { rating: 3, events: ['Pre-Christmas'], weather: 'Cold', crowds: 'Low' },
+    'december': { rating: 3, events: ['Christmas Markets'], weather: 'Cold', crowds: 'High' }
+  };
+
+  const getMonthlyRating = (month) => {
+    const cityKey = cityName?.toLowerCase() || '';
+    const cityRatings = CITY_RATINGS[cityKey] || DEFAULT_RATINGS;
+    return cityRatings[month.toLowerCase()] || DEFAULT_RATINGS[month.toLowerCase()] || { rating: 3, events: [], weather: '', crowds: '' };
   };
 
   const months = [
@@ -84,7 +119,7 @@ const EnhancedVisitCalendar = ({ cityName, monthlyData }) => {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h3 className="text-2xl font-bold text-gray-800">Best Time to Visit {cityName}</h3>
-            <p className="text-gray-600 mt-1">Find the perfect time for your Paris adventure</p>
+            <p className="text-gray-600 mt-1">Find the perfect time for your {cityName} adventure</p>
           </div>
           <div className="hidden md:flex items-center space-x-2 text-sm text-gray-500">
             <span>💡</span>
@@ -119,7 +154,7 @@ const EnhancedVisitCalendar = ({ cityName, monthlyData }) => {
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0">
           {months.map((month, index) => {
-            const monthData = getParisMonthlyRating(month);
+            const monthData = getMonthlyRating(month);
             const rating = monthData.rating;
             const ratingData = VISIT_RATINGS[rating];
             const isCurrentMonth = month.toLowerCase() === currentMonthName;
@@ -259,7 +294,7 @@ const EnhancedVisitCalendar = ({ cityName, monthlyData }) => {
           </div>
 
           {(() => {
-            const monthData = getParisMonthlyRating(selectedMonth);
+            const monthData = getMonthlyRating(selectedMonth);
             const ratingData = VISIT_RATINGS[monthData.rating];
 
             return (

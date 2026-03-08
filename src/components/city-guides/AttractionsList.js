@@ -1205,6 +1205,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               fill
               sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
               className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+              priority={index < 4}
               fallback={attraction.image ? (
                 <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
               ) : null}
@@ -1217,6 +1218,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
               fill
               sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
               className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+              priority={index < 4}
               fallback={attraction.image ? (
                 <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
               ) : null}
@@ -1332,6 +1334,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 fill
                 sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
                 className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                priority={offset + index < 4}
                 fallback={attraction.image ? (
                   <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw" className="object-cover object-center" />
                 ) : null}
@@ -1344,6 +1347,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 fill
                 sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
                 className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                priority={offset + index < 4}
                 fallback={attraction.image ? (
                   <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw" className="object-cover object-center" />
                 ) : null}

@@ -39,6 +39,40 @@ const CITY_FAQS = {
       question: "What should I definitely not miss?",
       answer: "Beyond the obvious (Eiffel Tower, Louvre, Notre-Dame), don't skip: a morning at a neighborhood market, sunset drinks along the Seine or Canal Saint-Martin, the Musée de l'Orangerie's Monet room, and simply wandering through Le Marais or Montmartre."
     }
+  ],
+  london: [
+    {
+      question: "Is London safe for tourists?",
+      answer: "Very safe overall. The usual big-city advice applies: watch for pickpockets on the Tube and in crowded tourist areas, keep an eye on your belongings, and stay aware of your surroundings at night. The British Transport Police patrol the underground, and CCTV is everywhere."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "London's expensive—expect £120-180 per person daily for mid-range accommodation, meals, transport, and attractions. Budget travelers can manage £70-100 with hostels and careful spending. Luxury visitors should prepare for £300+. The weak pound helps non-UK visitors."
+    },
+    {
+      question: "Do I need to learn any British phrases?",
+      answer: "You already speak the language (sort of). 'Cheers' means thank you or goodbye. 'Sorry' is used constantly, even when someone else bumps into YOU. 'Queueing' means waiting in line—and it's sacred. 'Not bad' actually means quite good. 'Taking the piss' means joking around."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "Covent Garden/Soho (West End) is central for theatre and nightlife. Southwark/Borough puts you near the Tate and Borough Market. Shoreditch suits hipster vibes and street art. Kensington is elegant but touristy. King's Cross is transit-practical. Avoid anywhere too far from a Tube station."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Yes, for the big ones—Tower of London, Westminster Abbey, St Paul's, Warner Bros Studio Tour. Many major museums are FREE (British Museum, Tate, National Gallery, V&A)—no booking needed. For shows, TKTS in Leicester Square sells same-day discounted West End tickets."
+    },
+    {
+      question: "Is London tap water safe?",
+      answer: "Absolutely. London's tap water is excellent—it's hard (chalky) but perfectly safe. Restaurants must provide free tap water if asked. Bring a refillable bottle; there are water fountains across the city and you'll save on expensive bottled water."
+    },
+    {
+      question: "How do I get around at night?",
+      answer: "The Tube runs until around midnight (later on Friday/Saturday Night Tube lines: Victoria, Central, Jubilee, Northern, Piccadilly). Night buses (prefixed with 'N') run all night and cover most routes. Uber and black cabs are readily available. Black cabs can be pricey but are licensed and safe."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond the obvious (Big Ben, Tower Bridge, Buckingham Palace), don't skip: a pint in a historic pub, Borough Market on a weekday morning, a walk along the South Bank, free museums (seriously—world class), and a Sunday roast somewhere proper. Oh, and the view from Primrose Hill."
+    }
   ]
 };
 
@@ -117,13 +151,78 @@ Outlets: **Type C/E, 230V**. Most chargers are dual-voltage; check hair dryers.`
 
     quickWins: {
       title: "Insider Moves",
-      content: `**Water is free.** Ask for “une carafe d’eau, s’il vous plaît.”
+      content: `**Water is free.** Ask for "une carafe d'eau, s'il vous plaît."
 
 **Service is included.** Tip small only for standout service.
 
-**Always say bonjour/bonsoir.** It’s expected.
+**Always say bonjour/bonsoir.** It's expected.
 
 **Indoor voice.** Paris is discreet—keep volumes low on Metro and in cafés.`
+    }
+  },
+  london: {
+    intro: `You've arrived in London. Here's everything you need to navigate the city like a Londoner—efficient, unflustered, and possibly complaining about the weather.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**Heathrow → city:** The **Piccadilly Line** (Tube) runs every few minutes, £5.50 to central London in 50–60 min with Oyster/contactless. The **Heathrow Express** is faster (15 min to Paddington) but costs £25. Uber/taxi runs £50-80.
+
+**Gatwick:** **Gatwick Express** (£19.90, 30 min to Victoria) or Southern Rail (£15, 45 min). **Stansted:** Stansted Express to Liverpool Street (£19.40, 47 min). **Luton:** Train + bus combo, about an hour.
+
+**Black cabs:** Licensed, metered, and can be hailed on the street. Expect £60-90 from Heathrow. Only use official taxi ranks—ignore touts inside terminals.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**The Tube is king.** 11 lines, runs ~5am-midnight (Night Tube on some lines Fri/Sat). Get an **Oyster card** at any station or just use **contactless**—same prices, daily cap of ~£8.
+
+**Tap in AND tap out.** Forgetting costs you the maximum fare.
+
+**Buses** are cheaper (£1.75 flat fare, contactless only) and better for seeing the city. The **24, 11, and 9** pass major sights.
+
+**Black cabs** are safe but pricey. **Uber/Bolt** work fine. Tipping isn't expected but rounding up is appreciated.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Contactless everywhere.** London runs on tap-to-pay. Visa/Mastercard work universally; Amex is spottier. Cash is increasingly unnecessary—many places are actually cashless.
+
+Keep **£20-30** for markets and small vendors. Tipping: 10-12.5% at restaurants if service isn't included (check the bill), round up in taxis, nothing expected at pubs.
+
+ATMs are plentiful but avoid the independent ones in tourist areas—use bank ATMs for better rates.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is ubiquitous**—cafés, pubs, shops, and even the Tube stations (not in tunnels). Most is free with no catch.
+
+EU roaming ended with Brexit—check your provider. For extended stays, grab a **Three, Vodafone, or EE** SIM; £10-20 gets you plenty of data.
+
+Outlets: **Type G (three-prong)**. You'll need an adapter. 230V, so most chargers work—just not the plug shape.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Shops:** 10am-6pm Mon-Sat, 11am-5pm Sunday (Sunday Trading Laws). Oxford Street stays open later.
+
+**Pubs:** Open 11am-11pm. **Last orders** is called 10-15 min before closing—get to the bar sharpish. Many pubs close earlier Sunday.
+
+**Restaurants:** Lunch noon-2:30pm, dinner 6-10pm. Kitchen times matter—arriving at 9:30pm often means last orders.
+
+**Museums:** Most major ones are FREE. Check for late nights (V&A Fridays, National Gallery Fridays). Many close 5-6pm.`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Stand on the right.** On escalators, stand right, walk left. This is non-negotiable. Blocking will earn you tutting at minimum.
+
+**Mind the gap.** You'll hear it constantly. The gap is real on older stations.
+
+**Queuing is sacred.** Form an orderly line or face British passive-aggressive disappointment.
+
+**"Sorry" is reflexive.** You'll start saying it too. Someone steps on YOUR foot? "Sorry." It just happens.
+
+**The pint comes first.** In a pub, find your seat, go to the bar, order, pay immediately. Table service exists but isn't standard.`
     }
   }
 };

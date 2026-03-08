@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
+import { TierIndicator } from '../common/TierBadge';
 
 /**
  * Country code to flag emoji mapping
@@ -87,52 +88,7 @@ function CrowdBars({ level }) {
   );
 }
 
-/**
- * Circular score badge (0-100 scale)
- */
-function ScoreCircle({ score }) {
-  const circumference = 2 * Math.PI * 18;
-  const progress = (score / 100) * circumference;
-
-  // Color based on score
-  let strokeColor = 'stroke-amber-400';
-  if (score >= 85) strokeColor = 'stroke-emerald-400';
-  else if (score >= 75) strokeColor = 'stroke-green-400';
-  else if (score >= 65) strokeColor = 'stroke-amber-400';
-  else if (score >= 55) strokeColor = 'stroke-orange-400';
-  else strokeColor = 'stroke-red-400';
-
-  return (
-    <div className="relative w-11 h-11 flex-shrink-0">
-      <svg className="w-full h-full -rotate-90" viewBox="0 0 44 44">
-        {/* Background circle */}
-        <circle
-          cx="22"
-          cy="22"
-          r="18"
-          fill="none"
-          stroke="#e5e7eb"
-          strokeWidth="3"
-        />
-        {/* Progress circle */}
-        <circle
-          cx="22"
-          cy="22"
-          r="18"
-          fill="none"
-          className={strokeColor}
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={circumference - progress}
-        />
-      </svg>
-      <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-gray-800">
-        {score}
-      </span>
-    </div>
-  );
-}
+// ScoreCircle removed - using TierIndicator from TierBadge instead
 
 /**
  * Calculate approximate daylight hours based on month and latitude
@@ -181,26 +137,28 @@ export default function CityListRow({ city, rank, onClick, startDate }) {
   const cityName = city.title || city.cityName || city.cityId?.replace(/-/g, ' ');
   const country = city.country || '';
   const flag = COUNTRY_FLAGS[country] || '';
-  const score = city.v4?.finalScore || Math.round((city.score || 3.5) * 20) || 75;
+  // Note: score removed - using tier-based display instead
 
   // Get image
   const imageSrc = imgError || !city.image
     ? '/images/city-placeholder.svg'
     : city.image;
 
-  // Get temperature from highlights (format: "24°C") or V4 breakdown
-  const weatherHighlight = city.highlights?.find(h => h.type === 'weather');
-  let tempNum = null;
-  if (weatherHighlight?.name) {
-    const match = weatherHighlight.name.match(/(\d+)/);
-    if (match) tempNum = parseInt(match[1], 10);
+  // Get temperature from weather object, highlights, or V4 breakdown
+  let tempNum = city.weather?.highC || null;
+  if (!tempNum) {
+    const weatherHighlight = city.highlights?.find(h => h.type === 'weather');
+    if (weatherHighlight?.name) {
+      const match = weatherHighlight.name.match(/(\d+)/);
+      if (match) tempNum = parseInt(match[1], 10);
+    }
   }
 
   // Get crowd level
   const crowdLevel = city.crowdLevel || city.v4?.factors?.crowds?.details?.crowdLevel || 'Moderate';
 
-  // Get description/why text
-  const description = city.why || city.highlights?.[0]?.description || '';
+  // Get description/why text - prefer expanded description if available
+  const description = city.whyExpanded || city.why || city.highlights?.[0]?.description || '';
 
   // Calculate daylight hours based on travel date
   const travelMonth = startDate ? new Date(startDate).getMonth() : new Date().getMonth();
@@ -252,8 +210,8 @@ export default function CityListRow({ city, rank, onClick, startDate }) {
 
       {/* Main content area */}
       <div className="flex-1 p-4 flex items-center gap-4">
-        {/* Score circle */}
-        <ScoreCircle score={score} />
+        {/* Tier indicator */}
+        <TierIndicator tier={city.tier || 2} size="md" />
 
         {/* City info */}
         <div className="flex-1 min-w-0">
@@ -265,7 +223,7 @@ export default function CityListRow({ city, rank, onClick, startDate }) {
           </div>
 
           {description && (
-            <p className="text-sm text-gray-600 line-clamp-1">
+            <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
               {description}
             </p>
           )}

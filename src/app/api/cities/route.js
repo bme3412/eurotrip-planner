@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+
+// Revalidate manifest every hour (ISR-style for edge)
+export const revalidate = 3600;
 
 export async function GET(request) {
   try {
@@ -11,9 +13,9 @@ export async function GET(request) {
     const limitParam = searchParams.get('limit');
     const limit = limitParam && limitParam !== 'all' ? parseInt(limitParam, 10) : null;
 
-    // Fetch manifest from public assets (edge-safe) with no-store to avoid stale cache
+    // Fetch manifest from public assets (edge-safe) with force-cache for CDN caching
     const manifestUrl = new URL('/data/manifest.json', request.url).toString();
-    const resp = await fetch(manifestUrl, { cache: 'no-store' });
+    const resp = await fetch(manifestUrl, { cache: 'force-cache' });
     if (!resp.ok) {
       throw new Error(`Failed to fetch manifest: ${resp.status}`);
     }
@@ -47,7 +49,9 @@ export async function GET(request) {
       timestamp: new Date().toISOString()
     }, {
       headers: {
-        'Cache-Control': 'no-store'
+        // CDN cache for 1 hour, serve stale while revalidating for up to 24 hours
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        'Vary': 'Accept-Encoding'
       }
     });
   } catch (error) {

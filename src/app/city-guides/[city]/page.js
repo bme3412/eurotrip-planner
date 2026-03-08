@@ -4,6 +4,9 @@ import path from "path";
 import CityPageClient from "@/components/city-guides/CityPageClient";
 import TripDatesBanner from "@/components/common/TripDatesBanner";
 
+// ISR: Revalidate city pages every 24 hours
+export const revalidate = 86400;
+
 // Function to capitalize the first letter of each word
 const capitalize = (str) => {
   if (!str) return "";

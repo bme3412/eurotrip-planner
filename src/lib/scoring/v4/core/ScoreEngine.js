@@ -2,7 +2,10 @@
  * V4 Score Engine
  *
  * Main orchestrator for the simplified 6-factor scoring system.
- * Produces tiered output: Tier 1 (80+), Tier 2 (70-79), Tier 3 (60-69)
+ * Features:
+ * - Dynamic factor weights based on city type, dates, and weather
+ * - Contextual tier labels (e.g., "Best for Winter Sun", "Christmas Market Gems")
+ * - Hybrid tier logic with minimum score thresholds and count caps
  *
  * Output format:
  * Barcelona ES — 88 (culture 9, beach 8, timing 9, crowds 6, value 6, logistics 9)
@@ -10,12 +13,25 @@
 
 import config from '../config/scoringConfig.json' with { type: 'json' };
 import { getCountryFlag, clamp } from '../utils/index.js';
+import { DynamicWeightCalculator } from './DynamicWeightCalculator.js';
+import { TierLabelGenerator } from './TierLabelGenerator.js';
+import { generateDescriptions, applyDescriptions } from './LLMDescriptionGenerator.js';
 
 export class ScoreEngine {
   constructor(customConfig = null, factorClasses = {}) {
     this.config = customConfig || config;
     this.factorClasses = factorClasses;
     this.factors = {};
+
+    // Initialize dynamic weight calculator and tier label generator
+    this.weightCalculator = new DynamicWeightCalculator(
+      this.config.dynamicWeights || {}
+    );
+    this.tierLabelGenerator = new TierLabelGenerator();
+
+    // Track current date range for tier labeling
+    this.currentStartDate = null;
+    this.currentEndDate = null;
 
     if (Object.keys(factorClasses).length > 0) {
       this.initializeFactors();
@@ -42,10 +58,31 @@ export class ScoreEngine {
 
   /**
    * Calculate score for a single city.
+   * Uses dynamic weights based on city type, dates, and weather.
    */
   calculateScore(input) {
     const { cityId, cityData, startDate, endDate, originCity } = input;
     const breakdown = {};
+
+    // Get range data for timing factor (needed for weather info)
+    let rangeData = null;
+    if (this.factors.timing && startDate) {
+      try {
+        rangeData = this.factors.timing.getRangeForDate(cityData, startDate);
+      } catch (e) {
+        // Ignore if timing factor not available
+      }
+    }
+
+    // Calculate dynamic weights for this city/date combination
+    const dynamicWeightResult = this.weightCalculator.calculate({
+      cityData,
+      startDate,
+      endDate,
+      weatherData: rangeData?.monthData,
+      rangeData,
+    });
+    const dynamicWeights = dynamicWeightResult.weights;
 
     let weightedSum = 0;
     let totalWeight = 0;
@@ -67,8 +104,8 @@ export class ScoreEngine {
 
       breakdown[name] = result;
 
-      // Weighted average
-      const weight = this.config.factors[name].weight;
+      // Use dynamic weight instead of static weight
+      const weight = dynamicWeights[name] ?? this.config.factors[name]?.weight ?? 0;
       if (result.confidence >= this.config.degradation.minConfidenceThreshold) {
         weightedSum += result.score * weight * 10; // Convert 0-10 to weighted contribution
         totalWeight += weight;
@@ -85,6 +122,8 @@ export class ScoreEngine {
       country: cityData?.country || '',
       finalScore: clamp(finalScore, 0, 100),
       breakdown,
+      dynamicWeights: dynamicWeightResult, // Include for debugging
+      rangeData, // Include for expanded descriptions
       formatted: this.formatResult(cityId, cityData?.country, finalScore, breakdown),
     };
   }
@@ -157,6 +196,76 @@ export class ScoreEngine {
     }
 
     return breakdown.timing?.reason || 'good time to visit';
+  }
+
+  /**
+   * Build an expanded 2-3 sentence "why visit" description.
+   * Includes weather, daylight, events, attractions, and crowd context.
+   */
+  buildExpandedWhyString(breakdown, cityData, rangeData) {
+    const sentences = [];
+
+    const temp = breakdown.timing?.details?.weatherHighC;
+    // Daylight hours can be in monthData.daylightHours or monthData.weatherDetails.daylightHours
+    const daylightHours = rangeData?.monthData?.daylightHours ||
+                          rangeData?.monthData?.weatherDetails?.daylightHours;
+    const crowdLevel = breakdown.crowds?.details?.crowdLevel;
+    const event = breakdown.timing?.details?.event;
+    const topAttraction = this.getTopAttraction(cityData);
+
+    // Sentence 1: Weather + daylight
+    if (temp && daylightHours) {
+      const weatherDesc = this.getWeatherDescription(temp);
+      sentences.push(`${weatherDesc} at ${temp}°C with ${Math.round(daylightHours)} hours of daylight.`);
+    } else if (temp) {
+      const weatherDesc = this.getWeatherDescription(temp);
+      sentences.push(`${weatherDesc} at ${temp}°C.`);
+    }
+
+    // Sentence 2: Event or attraction
+    if (event) {
+      sentences.push(`${event} draws visitors.`);
+    } else if (topAttraction) {
+      sentences.push(`${topAttraction} offers memorable experiences.`);
+    }
+
+    // Sentence 3: Crowd context
+    if (crowdLevel) {
+      const crowdSentence = this.getCrowdSentence(crowdLevel);
+      if (crowdSentence) {
+        sentences.push(crowdSentence);
+      }
+    }
+
+    return sentences.slice(0, 3).join(' ');
+  }
+
+  /**
+   * Get a weather description word based on temperature.
+   */
+  getWeatherDescription(temp) {
+    if (temp >= 28) return 'Hot weather';
+    if (temp >= 24) return 'Beach weather';
+    if (temp >= 20) return 'Warm weather';
+    if (temp >= 15) return 'Mild weather';
+    if (temp >= 10) return 'Cool weather';
+    if (temp >= 5) return 'Crisp weather';
+    return 'Cold weather';
+  }
+
+  /**
+   * Get a crowd context sentence based on crowd level.
+   */
+  getCrowdSentence(crowdLevel) {
+    const map = {
+      'Very Low': 'Very few tourists—peaceful exploration.',
+      'Low': 'Fewer crowds—shorter queues and better value.',
+      'Moderate': 'Expect moderate crowds—less busy than peak weeks.',
+      'High': 'Popular period—book accommodations ahead.',
+      'Very High': 'Peak tourist season—expect crowds at major sites.',
+      'Extreme': 'Extremely busy period—advance booking essential.',
+    };
+    return map[crowdLevel] || '';
   }
 
   /**
@@ -234,6 +343,10 @@ export class ScoreEngine {
     getCityData,
     maxPerTier = 10,
   }) {
+    // Store date range for tier label generation
+    this.currentStartDate = startDate;
+    this.currentEndDate = endDate;
+
     const results = [];
 
     for (const cityId of cityIds) {
@@ -261,33 +374,74 @@ export class ScoreEngine {
     // Sort by score descending
     results.sort((a, b) => b.finalScore - a.finalScore);
 
-    // Group into tiers
-    return this.groupIntoTiers(results, maxPerTier);
+    // Group into tiers with hybrid logic
+    return this.groupIntoTiers(results, { maxPerTier: Array.isArray(maxPerTier) ? maxPerTier : [maxPerTier, maxPerTier, maxPerTier, maxPerTier] });
   }
 
   /**
-   * Group results into tiers.
+   * Group results into tiers with hybrid logic.
+   * Uses minimum score thresholds combined with count caps.
+   * Generates contextual tier labels based on city analysis.
+   *
+   * @param {Array} results - Sorted results array
+   * @param {Object} options - Tier configuration options
+   * @returns {Object} - Tiered results with contextual labels
    */
-  groupIntoTiers(results, maxPerTier = 10) {
+  groupIntoTiers(results, options = {}) {
+    const tierConfig = this.config.tiers || {};
+    const {
+      maxPerTier = [
+        tierConfig.tier1?.maxCities || 8,
+        tierConfig.tier2?.maxCities || 10,
+        tierConfig.tier3?.maxCities || 12,
+        tierConfig.tier4?.maxCities || 15,
+      ],
+      minScores = [
+        tierConfig.tier1?.minScore || 80,
+        tierConfig.tier2?.minScore || 70,
+        tierConfig.tier3?.minScore || 60,
+        tierConfig.tier4?.minScore || 0,
+      ],
+    } = options;
+
     const tiers = {
-      tier1: { label: 'Top Picks (80+)', cities: [] },
-      tier2: { label: 'Great Options (70-79)', cities: [] },
-      tier3: { label: 'Good Options (60-69)', cities: [] },
-      tier4: { label: 'Consider (under 60)', cities: [] },
+      tier1: { label: '', sublabel: '', paragraph: '', cities: [], minScore: minScores[0] },
+      tier2: { label: '', sublabel: '', paragraph: '', cities: [], minScore: minScores[1] },
+      tier3: { label: '', sublabel: '', paragraph: '', cities: [], minScore: minScores[2] },
+      tier4: { label: '', sublabel: '', paragraph: '', cities: [], minScore: minScores[3] },
     };
 
-    for (const result of results) {
+    // Sort by score descending
+    const sorted = [...results].sort((a, b) => b.finalScore - a.finalScore);
+
+    // Assign cities to tiers (hybrid: score threshold + count cap)
+    for (const result of sorted) {
       const score = result.finalScore;
 
-      if (score >= 80 && tiers.tier1.cities.length < maxPerTier) {
+      if (score >= minScores[0] && tiers.tier1.cities.length < maxPerTier[0]) {
         tiers.tier1.cities.push(result);
-      } else if (score >= 70 && tiers.tier2.cities.length < maxPerTier) {
+      } else if (score >= minScores[1] && tiers.tier2.cities.length < maxPerTier[1]) {
         tiers.tier2.cities.push(result);
-      } else if (score >= 60 && tiers.tier3.cities.length < maxPerTier) {
+      } else if (score >= minScores[2] && tiers.tier3.cities.length < maxPerTier[2]) {
         tiers.tier3.cities.push(result);
-      } else if (tiers.tier4.cities.length < maxPerTier) {
+      } else if (tiers.tier4.cities.length < maxPerTier[3]) {
         tiers.tier4.cities.push(result);
       }
+      // Cities that don't fit anywhere are dropped
+    }
+
+    // Generate contextual labels for each tier
+    for (const [tierKey, tier] of Object.entries(tiers)) {
+      const tierNumber = parseInt(tierKey.slice(-1), 10);
+      const labelResult = this.tierLabelGenerator.generate({
+        tierCities: tier.cities,
+        startDate: this.currentStartDate,
+        endDate: this.currentEndDate,
+        tierNumber,
+      });
+      tier.label = labelResult.label;
+      tier.sublabel = labelResult.sublabel;
+      tier.paragraph = labelResult.paragraph || '';
     }
 
     return tiers;
@@ -335,10 +489,11 @@ export class ScoreEngine {
 
   /**
    * Format a V4 result for API/ResultCard compatibility.
-   * Returns the shape that ResultCard expects, with V4 data added.
+   * Returns the shape that ResultCard expects.
+   * NOTE: Numerical scores are only included in debug mode.
    */
-  formatForAPI(result, cityData) {
-    const { cityId, country, finalScore, breakdown } = result;
+  formatForAPI(result, cityData, includeDebug = false) {
+    const { cityId, country, finalScore, breakdown, dynamicWeights, rangeData } = result;
 
     // Build highlights from breakdown
     const highlights = [];
@@ -374,44 +529,75 @@ export class ScoreEngine {
     // Build compelling "why" string highlighting the best aspects
     const why = this.buildWhyString(breakdown, cityData);
 
+    // Build expanded "why" description (2-3 sentences)
+    const whyExpanded = this.buildExpandedWhyString(breakdown, cityData, rangeData);
+
     // Build tags from tourism categories
     const tags = cityData?.tourismCategories?.slice(0, 4) || [];
 
     // Tier assignment
+    const tierConfig = this.config.tiers || {};
     let tier = 4;
-    if (finalScore >= 80) tier = 1;
-    else if (finalScore >= 70) tier = 2;
-    else if (finalScore >= 60) tier = 3;
+    if (finalScore >= (tierConfig.tier1?.minScore || 80)) tier = 1;
+    else if (finalScore >= (tierConfig.tier2?.minScore || 70)) tier = 2;
+    else if (finalScore >= (tierConfig.tier3?.minScore || 60)) tier = 3;
 
-    return {
-      // Existing ResultCard fields
+    // Weather info (OK to show)
+    const weather = {
+      highC: breakdown.timing?.details?.weatherHighC,
+      lowC: breakdown.timing?.details?.weatherLowC,
+    };
+
+    // Base response (no numerical scores exposed)
+    const response = {
       id: cityId,
       cityId,
       title: this.formatCityName(cityId),
-      score: Math.round((finalScore / 20) * 10) / 10, // 0-5 legacy
       image: cityData?.thumbnail || `/images/city-thumbnail/${country}/${cityId}-thumbnail.jpeg`,
+      country,
+      tier,
+      weather,
       crowdLevel: breakdown.crowds?.details?.crowdLevel || 'Moderate',
       highlights,
       why,
+      whyExpanded,
       tags,
-      country,
+    };
 
-      // V4 additions
-      v4: {
+    // Debug info only when requested
+    if (includeDebug) {
+      response.debug = {
         finalScore,
+        dynamicWeights: dynamicWeights?.weights,
+        weightReasoning: dynamicWeights?.reasoning,
         factors: Object.fromEntries(
           Object.entries(breakdown).map(([name, data]) => [
             name,
-            { score: Math.round(data.score), reason: data.reason }
+            { score: Math.round(data.score), reason: data.reason, details: data.details }
           ])
         ),
-        tier,
-      },
-    };
+      };
+      // Legacy score for backwards compatibility in debug mode
+      response.score = Math.round((finalScore / 20) * 10) / 10;
+    }
+
+    return response;
   }
 
   /**
-   * Score cities and return API-compatible results.
+   * Score cities and return API-compatible results grouped by tier.
+   *
+   * @param {Object} options - Scoring options
+   * @param {Array} options.cityIds - City IDs to score
+   * @param {Date|string} options.startDate - Trip start date
+   * @param {Date|string} options.endDate - Trip end date
+   * @param {string} options.originCity - Origin city for logistics
+   * @param {Function} options.getCityData - Function to get city data
+   * @param {number} options.limit - Max cities to return
+   * @param {boolean} options.includeDebug - Include debug info in response
+   * @param {boolean} options.flatList - Return flat list instead of tiers (backwards compat)
+   * @param {boolean} options.useLLM - Use LLM for generating descriptions (default: true)
+   * @returns {Object} - Tiered results or flat list
    */
   async scoreCitiesForAPI({
     cityIds,
@@ -420,8 +606,16 @@ export class ScoreEngine {
     originCity = null,
     getCityData,
     limit = 30,
+    includeDebug = false,
+    flatList = false,
+    useLLM = true,
   }) {
+    // Store date range for tier label generation
+    this.currentStartDate = startDate;
+    this.currentEndDate = endDate;
+
     const results = [];
+    const rawResults = []; // For tiering
 
     for (const cityId of cityIds) {
       let cityData = null;
@@ -442,15 +636,88 @@ export class ScoreEngine {
         originCity,
       });
 
-      const apiResult = this.formatForAPI(result, cityData);
+      rawResults.push({ result, cityData });
+
+      const apiResult = this.formatForAPI(result, cityData, includeDebug);
       results.push(apiResult);
     }
 
-    // Sort by finalScore descending
-    results.sort((a, b) => b.v4.finalScore - a.v4.finalScore);
+    // Sort by tier then by internal score
+    results.sort((a, b) => {
+      if (a.tier !== b.tier) return a.tier - b.tier;
+      // Within same tier, use debug score if available, otherwise maintain order
+      const scoreA = a.debug?.finalScore || 0;
+      const scoreB = b.debug?.finalScore || 0;
+      return scoreB - scoreA;
+    });
 
-    // Limit results
-    return results.slice(0, limit);
+    // For backwards compatibility, return flat list if requested
+    if (flatList) {
+      return results.slice(0, limit);
+    }
+
+    // Group into tiers with contextual labels
+    const tiers = this.groupIntoTiers(
+      rawResults.map(r => r.result),
+      {}
+    );
+
+    // Attach cityData to tier cities for LLM context
+    for (const tierKey of Object.keys(tiers)) {
+      tiers[tierKey].cities = tiers[tierKey].cities.map(rawResult => {
+        const cityData = rawResults.find(r => r.result.cityId === rawResult.cityId)?.cityData;
+        return { ...rawResult, cityData, tags: cityData?.tourismCategories || [] };
+      });
+    }
+
+    // Generate LLM descriptions if enabled
+    let llmDescriptions = null;
+    let llmUsed = false;
+    if (useLLM) {
+      try {
+        llmDescriptions = await generateDescriptions({
+          startDate,
+          endDate,
+          tiers,
+        });
+        llmUsed = llmDescriptions !== null;
+      } catch (error) {
+        console.warn('[ScoreEngine] LLM description generation failed:', error.message);
+      }
+    }
+
+    // Store LLM usage flag for API response meta
+    this._llmUsed = llmUsed;
+
+    // Apply LLM descriptions to tiers (updates paragraph and whyExpanded)
+    const enrichedTiers = llmDescriptions ? applyDescriptions(tiers, llmDescriptions) : tiers;
+
+    // Format tiered response
+    const tieredResponse = {};
+    for (const [tierKey, tier] of Object.entries(enrichedTiers)) {
+      const tierNumber = parseInt(tierKey.slice(-1), 10);
+      const tierCities = tier.cities.map(rawResult => {
+        const cityData = rawResults.find(r => r.result.cityId === rawResult.cityId)?.cityData;
+        const formatted = this.formatForAPI(rawResult, cityData, includeDebug);
+        // Override whyExpanded with LLM version if available
+        if (rawResult.whyExpanded) {
+          formatted.whyExpanded = rawResult.whyExpanded;
+        }
+        return formatted;
+      });
+
+      tieredResponse[tierKey] = {
+        label: tier.label,
+        sublabel: tier.sublabel,
+        paragraph: tier.paragraph,
+        cities: tierCities,
+      };
+    }
+
+    // Attach meta info about LLM usage
+    tieredResponse._meta = { llmUsed };
+
+    return tieredResponse;
   }
 }
 
