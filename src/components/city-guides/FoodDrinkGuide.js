@@ -617,6 +617,142 @@ const CITY_FOOD_DATA = {
       { name: "Würstelstand Late-Night Käsekrainer", type: "Snack", neighborhood: "Any (Bitzinger near Opera is classic)", time: "Late night" },
       { name: "Apfelstrudel Warm from the Oven", type: "Dessert", neighborhood: "Café Landtmann or Café Korb", time: "Afternoon" }
     ]
+  },
+  berlin: {
+    intro: `Berlin's food scene is as eclectic and unpretentious as the city itself—a collision of Turkish döner culture, Vietnamese influences, modern sustainability-focused restaurants, and traditional German comfort food. This isn't a city of white tablecloths; it's a city where the best meal might come from a market stall, a converted warehouse, or a döner shop that's been perfecting the same recipe since 1972. The key is understanding that Berlin rewards the curious over the conventional.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Berlin operates on late rhythms. **Frühstück** (breakfast) extends until 3pm at most cafés—a cultural statement as much as a meal. Döner kebab culture runs deep; this is where the modern döner was essentially invented, and locals will debate Mustafa's vs Imren vs Rüyam with religious intensity. **Currywurst** remains the iconic street food, though visitors often find it more cultural experience than culinary revelation. For sit-down German food, look for "Kneipe" (pub-restaurants) serving schnitzel, eisbein, and kartoffelsalat to locals rather than tourist-focused Biergartens near major sights.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Döner Kebab**: The Berlin döner differs from its Turkish ancestor—stuffed into bread pockets with yogurt sauce, vegetables, and spices. Skip the tourist-area versions. **Currywurst**: Sliced sausage in curry-tomato sauce. Konnopke's Imbiss has served it since 1930. **Königsberger Klopse**: East German meatballs in white caper sauce—hearty and underrated. **Vietnamese**: Dong Xuan Center and scattered Pho restaurants reflect the Vietnamese community that's been here since East German times. **Modern German**: New wave restaurants like CODA and Nobelhart & Schmutzig have put Berlin on the fine dining map with hyper-local, zero-waste approaches.`
+      },
+      {
+        title: "Where to Drink",
+        content: `Berlin's bar culture starts late (after 10pm) and runs until sunrise—literally. **Spätis** (corner shops selling beer and everything else) are where nights often begin. Craft beer has exploded via spots like BRLO, Vagabund, and Stone Brewing's Berlin outpost. For cocktails, seek out hidden bars in Kreuzberg and Neukölln. German wine remains underrated—Rieslings and Spätburgunder appear on serious wine lists. Club Mate and Fritz-Kola are the local caffeine-fuel alternatives. And remember: Berghain's bar is actually excellent, if you can get past the door.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Kreuzberg**: The heart of Turkish-German food culture, plus modern vegetarian and vegan dining. **Neukölln**: Young, diverse, affordable—international flavors from Syrian to Sudanese to Korean. **Prenzlauer Berg**: Brunch culture central, farmers markets on Sundays, family-friendly cafés. **Mitte**: Fine dining and trendy openings, but also tourist traps—choose carefully. **Wedding**: The next Neukölln—immigrant food communities, cheap eats, authentic flavors without hipster markups. **Markthalle Neun** in Kreuzberg hosts Thursday Street Food markets that capture the whole scene in one hall.`
+      },
+      {
+        title: "Practical Tips",
+        content: `Cash is king—many Berlin restaurants still don't take cards (though this is slowly changing). Tipping 10% is standard; round up for small bills. Reservations matter for popular spots but many places run first-come-first-served. Vegetarians and vegans will find Berlin exceptionally welcoming. Many restaurants offer "Mittagstisch" (lunch menu) with significantly cheaper prices. Learn to love bread—German bakery culture is exceptional and appears at every meal. Markets like Markthalle Neun, Turkish Market on Maybachufer, and Winterfeldtplatz farmers market offer the best grazing experiences.`
+      }
+    ],
+    highlights: [
+      { name: "Döner Kebab from Mustafa's or Imren", type: "Food", neighborhood: "Kreuzberg", time: "Late lunch / Late night" },
+      { name: "Markthalle Neun Street Food Thursday", type: "Experience", neighborhood: "Kreuzberg", time: "Evening" },
+      { name: "Späti Drinks to Start the Night", type: "Drink", neighborhood: "Any", time: "Evening" },
+      { name: "Vietnamese Pho at a Prenzlauer Berg Spot", type: "Food", neighborhood: "Prenzlauer Berg", time: "Lunch" },
+      { name: "Sunday Brunch with Bloody Marys", type: "Experience", neighborhood: "Prenzlauer Berg / Kreuzberg", time: "Late morning" },
+      { name: "Currywurst at Konnopke's Imbiss", type: "Food", neighborhood: "Prenzlauer Berg (under U-Bahn)", time: "Lunch" }
+    ]
+  },
+  florence: {
+    intro: `Florentine cuisine is defined by restraint—the Tuscan belief that quality ingredients need minimal intervention. This is the birthplace of the Renaissance but also of ribollita, bistecca alla fiorentina, and the radical idea that bread doesn't need salt when you have exceptional olive oil. Florence doesn't chase trends; it perfects traditions. The key is understanding that the best meal often happens at family-run trattorias that haven't changed their menu in decades.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Florence operates on strict Italian meal rhythms. **Pranzo** (lunch) runs 12:30-2:30pm; dinner starts at 7:30pm earliest, with 8:30pm being more typical. Florentine cuisine is cucina povera elevated—humble ingredients treated with respect. The bread is intentionally saltless (pane sciocco), designed to complement rather than compete with intensely flavored Tuscan cured meats and olive oil. Restaurants often charge **coperto** (cover charge) of €2-4—this is normal and covers bread and service. Central Market (Mercato Centrale) offers excellent food hall dining upstairs but the real action is downstairs in the actual market.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Bistecca alla Fiorentina**: The iconic T-bone from Chianina cattle, charred outside, ruby-red inside, served by the kilo. Sharing is expected. **Ribollita**: Bread soup with cavolo nero, cannellini beans, and vegetables—peasant food perfected. **Lampredotto**: Tripe sandwich from street carts—Florence's true street food, not for the timid. **Schiacciata**: Florentine flatbread, especially when filled with porchetta or prosciutto. **Crostini Neri**: Chicken liver pâté on toast, the essential Tuscan antipasto. **Pappa al Pomodoro**: Another bread soup, this one tomato-based, summer comfort food. **Gelato**: Florence takes gelato seriously—look for natural colors and covered containers.`
+      },
+      {
+        title: "Where to Drink",
+        content: `Tuscany means Chianti, Brunello, and Vino Nobile—serious reds that pair with the local cuisine. Many trattorias serve excellent house wine by the quarter-liter at reasonable prices. **Enotecas** (wine bars) offer tastings and deep selections. Aperitivo culture thrives from 6-9pm, when €10-12 buys a drink and access to substantial buffets—effectively a light dinner. The Oltrarno neighborhood hosts some of the city's best wine bars. Negroni was invented here (at Caffè Casoni, now Caffè Cavalli), making it the essential aperitivo order.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Sant'Ambrogio**: The locals' market, surrounded by authentic trattorias that haven't discovered tourists. **Oltrarno**: Artisan neighborhood across the Arno with excellent wine bars, traditional restaurants, and that slightly-off-the-beaten-path feeling. **San Lorenzo**: Central Market area—crowded but the market itself rewards exploration. **Santa Croce**: Mix of tourist traps and genuine trattorias; research before wandering. **Around Piazza Santo Spirito**: Evening energy, good aperitivo spots, young local crowd. Avoid the immediate Duomo surroundings for food—rent is too high for quality.`
+      },
+      {
+        title: "Practical Tips",
+        content: `Reservations essential for dinner at popular trattorias—call ahead or use TheFork app. Cover charge (coperto) is standard; service is usually included. Lunch offers better value and shorter waits. "Tourist menus" are almost always inferior—order à la carte. Ask for "acqua del rubinetto" (tap water) if you want free water, though many restaurants push bottled. Coffee is consumed standing at the bar, quickly, for about €1.20. Sitting at a table often doubles or triples the price. Learn the gelato warning signs: unnaturally bright colors, piled-high displays, and any place advertising itself to tourists. Vivoli and Gelateria dei Neri remain reliable.`
+      }
+    ],
+    highlights: [
+      { name: "Bistecca alla Fiorentina for Two", type: "Food", neighborhood: "Trattoria Mario or Buca Mario", time: "Dinner" },
+      { name: "Lampredotto from a Cart", type: "Food", neighborhood: "Near Sant'Ambrogio or San Lorenzo", time: "Lunch" },
+      { name: "Aperitivo on Piazza Santo Spirito", type: "Drink", neighborhood: "Oltrarno", time: "Early evening" },
+      { name: "Morning Espresso Standing at the Bar", type: "Drink", neighborhood: "Any historic café", time: "Morning" },
+      { name: "Mercato Centrale Downstairs Exploration", type: "Experience", neighborhood: "San Lorenzo", time: "Morning" },
+      { name: "Gelato from Vivoli or Gelateria dei Neri", type: "Dessert", neighborhood: "Santa Croce area", time: "Afternoon" }
+    ]
+  },
+  budapest: {
+    intro: `Budapest's food scene bridges East and West—paprika-spiced stews meet Habsburg-era coffeehouse culture meet a new generation of chefs reinterpreting everything. This is hearty, soulful cooking: goulash that warms you from the inside, chimney cakes that shouldn't work but absolutely do, and a ruin bar culture that spawned some of Europe's most interesting casual dining. The city's thermal bath culture even extends to food—you'll find yourself craving heavy, restorative meals after hours of soaking.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Hungarian cuisine centers on **paprika**—not just heat but depth, sweetness, and that distinctive red color that defines the cooking. Meal structure follows Central European patterns: substantial lunch, lighter dinner, with coffee and cake filling the afternoon. The historic **kávéház** (coffeehouse) tradition rivals Vienna's—these ornate spaces serve as living rooms, offices, and cultural institutions. Tipping 10-15% is customary; many restaurants add service automatically, so check your bill. The Jewish Quarter has evolved from heritage site to the city's most dynamic dining neighborhood, though quality varies wildly.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Gulyás (Goulash)**: The real thing is a soup, not a stew—paprika-beef broth with potatoes and csipetke noodles. **Pörkölt**: The actual stew, braised meat in paprika-onion sauce. **Lángos**: Deep-fried dough topped with sour cream and cheese—street food perfection, especially at markets. **Kürtőskalács (Chimney Cake)**: Spiral-cooked sweet dough rolled in sugar—the aroma is inescapable. **Töltött Káposzta**: Stuffed cabbage, especially good in winter. **Paprikás Csirke**: Chicken in paprika-sour cream sauce with nokedli (Hungarian dumplings). **Dobos Torta and Somlói Galuska**: The two essential Hungarian desserts, best at historic coffeehouses.`
+      },
+      {
+        title: "Where to Drink",
+        content: `Hungary's wine deserves more attention—**Tokaji** (sweet wines from volcanic soils), **Egri Bikavér** (Bull's Blood reds), and emerging dry whites from Villány and Balaton. The ruin bar phenomenon began at Szimpla Kert and spread globally, but originals like Szimpla, Instant, and Fogas still deliver the chaotic, unexpected energy that defines Budapest nightlife. **Pálinka** (fruit brandy) appears at traditional meals—proper versions are sophisticated, not rotgut. Craft beer has exploded via spots like Élesztő and First Craft Beer. Thermal bath bars exist—Széchenyi has Sparty events combining soaking and clubbing.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Jewish Quarter (District VII)**: Ruin bars, modern restaurants, and street food—highest density of options but also tourist markup. **Újlipótváros (District XIII)**: Local residential neighborhood with excellent everyday restaurants. **Buda Castle area**: Tourist-focused with exceptions; Baltazár and Pierrot remain reliable. **Central Market Hall**: Ground floor for produce and paprika, upstairs for lángos and quick meals. **Hold Street Market (renovated)**: Modern food hall with quality vendors. **Bartók Béla út in Buda**: Student-friendly prices, local crowds, emerging food scene.`
+      },
+      {
+        title: "Practical Tips",
+        content: `Cash preferred at traditional spots; cards work at modern restaurants. Lunch menus (napi menü) offer excellent value at local restaurants—two courses for €5-8. Paprika is the essential souvenir; buy at Central Market from dedicated spice vendors. Coffeehouses charge by time spent as well as consumption—this is traditional and expected. "Gypsy music" performances at tourist restaurants are often overpriced additions to mediocre food. The city's best modern restaurants (Costes, Borkonyha, Stand) have earned Michelin recognition without losing Hungarian identity. Forints are still preferred despite Hungary being in the EU—exchange rates at restaurants are usually unfavorable.`
+      }
+    ],
+    highlights: [
+      { name: "Real Gulyás at a Traditional Étterem", type: "Food", neighborhood: "Kéhli or Kádár Étkezde", time: "Lunch" },
+      { name: "Lángos at Central Market Hall", type: "Food", neighborhood: "Central Market Hall (upstairs)", time: "Lunch" },
+      { name: "Ruin Bar Hopping Starting at Szimpla", type: "Drink", neighborhood: "Jewish Quarter", time: "Evening" },
+      { name: "Coffee and Cake at New York Café", type: "Experience", neighborhood: "Erzsébet körút", time: "Afternoon" },
+      { name: "Wine Tasting at a Borbár", type: "Drink", neighborhood: "Various", time: "Evening" },
+      { name: "Kürtőskalács Fresh from the Oven", type: "Dessert", neighborhood: "Any market or tourist area", time: "Afternoon" }
+    ]
+  },
+  copenhagen: {
+    intro: `Copenhagen invented New Nordic cuisine—the movement that put fermentation, foraging, and local seasonality at the center of modern gastronomy. But beyond the Noma phenomenon, this is a city of exceptional everyday food culture: perfect smørrebrød at lunch counters, some of the world's best bakeries, and a democratic approach to dining where quality matters more than pretension. Hot dogs and Michelin stars coexist without contradiction.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Danish food culture prizes quality ingredients over complex techniques. **Smørrebrød** (open sandwiches on dense rye bread) define lunch—this isn't simple food but an art form with strict rules about construction and toppings. Breakfast often means bakery runs for **wienerbrød** (the original Danish pastry) and exceptional coffee. Dinner restaurants tend toward expensive but portions are generous. The Meatpacking District (Kødbyen) has evolved from industrial slaughterhouses to the city's most dynamic dining district. Copenhagen is expensive even by Nordic standards—budget accordingly.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Smørrebrød**: Dense rugbrød (rye bread) topped with herring, roast beef, egg, shrimp, or numerous other precisely arranged toppings. Not a sandwich—eaten with knife and fork. **Stegt Flæsk**: Crispy pork belly with parsley sauce and potatoes—Denmark's national dish. **Frikadeller**: Pan-fried meatballs, comfort food perfected. **Wienerbrød**: What the world calls "Danish pastries," but better at Copenhagen bakeries than anywhere else. **Pølser**: Danish hot dogs with remoulade, crispy onions, pickles—from a pølsevogn (hot dog cart). **New Nordic**: The Noma-influenced cuisine—fermentation, foraging, intense seasonality—that's spread to dozens of restaurants at various price points.`
+      },
+      {
+        title: "Where to Drink",
+        content: `Denmark's craft beer scene pioneered by Mikkeller has gone global, but the Copenhagen taprooms remain essential. Traditional pubs serve Carlsberg and Tuborg, but seek out **bodegas** for true local atmosphere—no-frills bars where regulars drink, smoke (outside now), and talk. Natural wine bars have exploded across the city. **Aquavit** (caraway-spiced spirit) accompanies traditional Danish meals, especially smørrebrød lunches. Coffee culture is exceptional—Denmark drinks more per capita than almost anywhere, and specialty roasters have raised the standard even higher.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Kødbyen (Meatpacking District)**: Industrial-chic restaurants, wine bars, nightlife—Copenhagen's coolest dining zone. **Vesterbro**: Trendy but not touristy; excellent casual dining and bars. **Nørrebro**: Multicultural, younger, emerging food scene beyond Nordic cuisine. **Torvehallerne**: Central market halls with high-quality vendors—perfect for smørrebrød and coffee. **Christianshavn**: Canal-side charm, excellent restaurants, Noma's neighborhood. **Nyhavn**: Iconic but touristy; better for drinks than food. **Refshaleøen**: Industrial island hosting Reffen street food market and innovative restaurants.`
+      },
+      {
+        title: "Practical Tips",
+        content: `Copenhagen is expensive—lunch often €20-30, dinner €50-100+ at mid-range restaurants. Reservations essential for popular spots; use the restaurant's own system or email directly. Smørrebrød restaurants often require advance ordering. Tipping is not expected (service included) but rounding up is appreciated. Cashless is nearly universal—many places won't accept cash. Lunch is often the best value for experiencing high-end restaurants. **Noma** reservations open months ahead and sell out instantly—plan early or try the wine bar. The bakery tradition rewards early risers; Hart Bageri, Juno, and Andersen & Maillard set the standard.`
+      }
+    ],
+    highlights: [
+      { name: "Traditional Smørrebrød Lunch", type: "Food", neighborhood: "Aamanns or Selma", time: "Lunch" },
+      { name: "Morning Pastry Run to Hart or Juno", type: "Food", neighborhood: "Various", time: "Morning" },
+      { name: "Pølser from a Classic Hot Dog Cart", type: "Food", neighborhood: "Any pølsevogn", time: "Late night" },
+      { name: "Torvehallerne Market Grazing", type: "Experience", neighborhood: "Central / near Nørreport", time: "Lunch" },
+      { name: "Meatpacking District Dinner", type: "Experience", neighborhood: "Kødbyen", time: "Dinner" },
+      { name: "Natural Wine at a Vesterbro Bar", type: "Drink", neighborhood: "Vesterbro", time: "Evening" }
+    ]
   }
 };
 

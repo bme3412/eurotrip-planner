@@ -285,6 +285,142 @@ const CITY_FAQS = {
       question: "What should I definitely not miss?",
       answer: "Beyond Schönbrunn and the museums: standing-room opera at the Staatsoper (€15 for world-class), coffee and cake at a historic café (Café Central, Sperl, or Hawelka), the Naschmarkt for food browsing, an evening at a Heuriger wine tavern, and simply wandering the Ringstrasse at golden hour when the buildings glow."
     }
+  ],
+  berlin: [
+    {
+      question: "Is Berlin safe for tourists?",
+      answer: "Very safe overall. Petty theft exists in tourist areas and on public transit—watch your belongings at Alexanderplatz, on the U-Bahn, and in crowded clubs. Some areas (parts of Neukölln, Wedding) feel grittier but aren't dangerous. The real risk is losing track of time in a 36-hour club session."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "Berlin remains affordable by Western European standards—€90-130 per person daily for mid-range comfort. Budget travelers can manage €50-70 with hostels and döner. Club entry runs €10-20 (if you get in). Beer is €3-4 at bars, meals €10-15. It's changing, but still cheaper than Paris or London."
+    },
+    {
+      question: "Do I need to speak German?",
+      answer: "Not essential—English is widely spoken, especially in tourist areas, restaurants, and by younger people. Berlin is remarkably international. But 'Hallo,' 'Danke,' 'Bitte,' and 'Entschuldigung' (excuse me) are appreciated. Some traditional spots in outer neighborhoods have less English."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "Mitte is central but touristy. Kreuzberg offers nightlife and multicultural energy. Friedrichshain has clubs and student vibes. Prenzlauer Berg is calmer with cafés and families. Neukölln is edgier but increasingly hip. All are well-connected by U-Bahn/S-Bahn—stay near a station and you're fine."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Helpful for Museum Island (especially the Pergamon), the Reichstag dome (free but requires booking), and the DDR Museum. Most other sites are walk-up friendly. Clubs don't do advance tickets—and some famously don't let everyone in regardless."
+    },
+    {
+      question: "Is Berlin tap water safe?",
+      answer: "Absolutely—Berlin's tap water is excellent. Restaurants will bring it if you ask ('Leitungswasser, bitte'), though some push bottled. Public fountains are drinkable. The city is proud of its water quality."
+    },
+    {
+      question: "How does the nightlife work?",
+      answer: "Clubs open late (midnight earliest) and run until Monday morning—or longer. Many have no closing time. Berghain's door policy is famously selective; dress dark, go alone or in pairs, don't take photos in line, and accept rejection gracefully. Cash only in most clubs. Pre-drinking is standard."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond the obvious (Wall, Brandenburg Gate, Museum Island): the Reichstag dome at sunset (book free tickets), a döner at Mustafa's or Rüyam, the East Side Gallery, drinks at a Spätis (corner shops where locals gather), and wandering Kreuzberg on a Sunday. And yes, try the club scene—it's genuinely world-class."
+    }
+  ],
+  florence: [
+    {
+      question: "Is Florence safe for tourists?",
+      answer: "Very safe—one of Italy's safest cities. Pickpocketing occurs around the Duomo, Santa Maria Novella station, and on crowded buses. Keep valuables secure and watch for distraction scams. The centro storico is well-patrolled and feels secure even at night."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "Florence is moderately expensive—€120-160 per person daily for mid-range comfort. The Uffizi runs €20-25, a proper dinner €30-50 with wine. Budget travelers can manage €70-90 with careful choices. Avoid tourist traps around the Duomo; walk 5 minutes for better value."
+    },
+    {
+      question: "Do I need to speak Italian?",
+      answer: "English is widely spoken in tourist areas, but Florentines appreciate effort. 'Buongiorno,' 'Grazie,' 'Per favore,' and 'Il conto, per favore' (the bill please) go far. Staff at restaurants and museums speak English; market vendors and local shops may not."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "Centro Storico puts you in walking distance of everything but is noisy and pricey. Santa Croce is slightly quieter with good restaurants. Oltrarno (across the river) has artisan character and local vibes. San Lorenzo near the market is convenient but hectic. Avoid staying too far from the center—Florence is best walked."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Essential for the Uffizi and Accademia (David)—they sell out days ahead in peak season. Book 2-3 weeks before for summer visits. The Duomo climb requires advance booking. Churches and smaller museums are usually walk-up friendly."
+    },
+    {
+      question: "Is Florence tap water safe?",
+      answer: "Absolutely—Florence has excellent tap water. The city's numerous public fountains (fontanelle) are safe and refreshing. Restaurants will bring tap water if you ask for 'acqua del rubinetto,' though some push bottled."
+    },
+    {
+      question: "How do I avoid the crowds?",
+      answer: "Visit major sites at opening (8:15am for Uffizi) or late afternoon. Book timed-entry tickets. Explore Oltrarno and San Frediano where tourists thin out. Avoid July-August if possible; shoulder seasons (April-May, September-October) are ideal."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond the obvious (Uffizi, David, Duomo): the view from Piazzale Michelangelo at sunset, a proper bistecca alla fiorentina, the Brancacci Chapel frescoes, wandering Oltrarno's artisan workshops, gelato from a proper gelateria (Vivoli, Gelateria dei Neri), and simply sitting in a piazza watching Florentine life unfold."
+    }
+  ],
+  budapest: [
+    {
+      question: "Is Budapest safe for tourists?",
+      answer: "Very safe overall. Petty theft occurs in tourist areas—watch belongings on trams 4/6, at Keleti station, and in ruin bars. Taxi scams exist; use Bolt or official taxis only. The city feels secure at night. The thermal baths are safe; just secure valuables in lockers."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "Budapest offers exceptional value—€70-100 per person daily for mid-range comfort. Thermal baths run €20-25. A full dinner with wine rarely exceeds €25-30 at good restaurants. Budget travelers can manage €40-60. The forint fluctuates but typically favors visitors."
+    },
+    {
+      question: "Do I need to speak Hungarian?",
+      answer: "Not essential—English is widely spoken, especially by younger people and in tourist areas. Hungarian is notoriously difficult; locals don't expect you to speak it. 'Jó napot' (hello), 'Köszönöm' (thanks), and 'Kérem' (please) are appreciated but not required."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "District V (Belváros/inner city) is central for sights but touristy. District VII (Jewish Quarter) has ruin bars and nightlife. District VI near Andrássy Avenue balances location and character. Buda is quieter with Castle views. All central districts are well-connected by metro."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Helpful for the Parliament tour (often sells out), the Opera House, and popular baths on weekends. The thermal baths rarely require advance booking on weekdays. Most museums are walk-up friendly."
+    },
+    {
+      question: "Is Budapest tap water safe?",
+      answer: "Yes—Budapest's tap water is safe, though it's mineral-rich and tastes different from what you might be used to. Restaurants will bring it if you ask. The thermal baths use natural spring water—not for drinking but perfectly safe for soaking."
+    },
+    {
+      question: "How do the thermal baths work?",
+      answer: "Buy a ticket (locker or cabin), change, shower, then soak in pools of varying temperatures. Széchenyi and Gellért are the grandest; Rudas has Ottoman atmosphere. Weekdays are less crowded. Bring flip-flops. Some baths have night parties on weekends. No photos in changing areas."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond the baths and Parliament: the view from Fisherman's Bastion at sunset, a ruin bar evening (Szimpla Kert is the original), coffee at New York Café (ornate excess), walking across Chain Bridge at night, the Great Market Hall for paprika and sausage, and simply watching the Danube from either bank as it turns golden."
+    }
+  ],
+  copenhagen: [
+    {
+      question: "Is Copenhagen safe for tourists?",
+      answer: "Extremely safe—consistently ranked among the world's safest cities. Petty theft exists around Tivoli and the Central Station but at low rates. Cyclists are the main hazard—stay out of bike lanes. Christiania has its own rules but isn't dangerous for visitors who respect them."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "Copenhagen is expensive—€150-200 per person daily for mid-range comfort. A simple lunch runs €15-20; dinner €40-60 with wine. Budget travelers can manage €90-120 with hostels and street food. The Copenhagen Card covers transport and many museums if you're doing several."
+    },
+    {
+      question: "Do I need to speak Danish?",
+      answer: "Not at all—Danes speak near-perfect English, possibly the best in non-English-speaking Europe. Danish is notoriously difficult and locals don't expect you to try. That said, 'Tak' (thanks) and 'Skål' (cheers) are always appreciated."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "Indre By (inner city) is central and walkable to everything. Vesterbro is hip with great food and nightlife. Nørrebro is multicultural and local. Frederiksberg is calm and residential. Christianshavn has canal charm and Christiania access. All are well-connected by metro and bike."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Helpful for Tivoli Gardens (especially weekends) and popular restaurants (reservations essential at Noma-level spots). The Copenhagen Card covers many museums and transport—good value if you're visiting several. Most attractions are walk-up friendly."
+    },
+    {
+      question: "Is Copenhagen tap water safe?",
+      answer: "Excellent—Copenhagen's tap water is pristine. Restaurants serve it free ('postevand' in Danish). Public fountains are drinkable. Denmark is proud of its water quality; bottled water is a waste of money."
+    },
+    {
+      question: "How does hygge actually work?",
+      answer: "Hygge (roughly 'HOO-gah') isn't a thing you do—it's an atmosphere you create. Candles, warm drinks, soft textures, intimate spaces, good company. Coffee shops, wine bars, and Danish homes cultivate it naturally. Don't force it; just slow down, get cozy, and it emerges."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond Tivoli and the Little Mermaid: cycling everywhere (rent a bike immediately), a smørrebrød lunch at a proper restaurant, drinks in Vesterbro's wine bars, the Louisiana Museum of Modern Art (worth the 35-minute train), a canal tour, and experiencing hygge firsthand in a candlelit café. Skip nothing; stay longer."
+    }
   ]
 };
 
@@ -885,6 +1021,346 @@ Keep **€30–50** on hand for small purchases, markets, and tips.
 **Heurigen evenings.** Take the tram to Grinzing or Neustift for wine tavern evenings with local wine and buffet food. This is where Viennese actually go.
 
 **The Ringstrasse at sunset.** Walk or take tram 1 or 2 around the Ring as buildings turn golden—free and unforgettable.`
+    }
+  },
+  berlin: {
+    intro: `You've landed at BER. Here's the fast start—no tourist traps, no confusion, just the moves that make navigating this sprawling, creative, historically-weighted city feel natural from day one.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**BER → city:** The **FEX (Airport Express)** runs every 30 min to Hauptbahnhof (central station), €3.80 with AB ticket, 30 min. The **S9** and **S45** are slower but connect to more stations. All accept the same tickets.
+
+**Buy an AB zone ticket** (€3.80 single, €9.90 day pass) at machines in the station—covers all central Berlin. Validate before boarding.
+
+**Taxis:** Flat rate doesn't exist; expect €50-70 to center. Uber/Bolt work and are similar prices. The train is much cheaper and often faster.
+
+**Pro tip:** Get a day pass if you're arriving and exploring. The **Berlin WelcomeCard** bundles transport and museum discounts if you're doing heavy sightseeing.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**U-Bahn and S-Bahn are king.** The U-Bahn (subway) and S-Bahn (urban rail) cover everything. Buy tickets at machines; validate them on platforms. No turnstiles but random inspections—€60 fine if caught without valid ticket.
+
+**Zone AB** covers central Berlin (what you'll need). Zone C adds airport and Potsdam.
+
+**Trams** run in East Berlin and are useful for Prenzlauer Berg and Friedrichshain.
+
+**Buses** fill gaps, especially the 100 and 200 which pass major sights.
+
+**Bikes** are everywhere—rental stands on corners. Berlin is flat and cycle-friendly.
+
+**Taxis/rideshare** are reasonable by European standards. Uber and Bolt work fine.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Cash is more important here than elsewhere.** Many Berlin bars, clubs, and smaller restaurants are cash-only. "Nur Bargeld" or "Kein Kartenzahlung" mean no cards.
+
+Keep **€50-100** on hand for going out. Cards work at larger restaurants, hotels, and shops—but don't assume.
+
+**Tipping:** Round up or add 5-10% at restaurants. Tell the server the total you want to pay when they bring the bill. Tips at bars aren't expected but rounding up is appreciated.
+
+**ATMs:** Plentiful. Use bank machines (Sparkasse, Deutsche Bank) to avoid fees.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is standard** in cafés and hotels. Many bars have it; some clubs don't (by design). Public WiFi exists at some stations and squares but is patchy.
+
+**EU SIMs roam free.** Non-EU visitors should grab a prepaid SIM from **O2, Vodafone, or Telekom**—available at electronics stores and some kiosks. €15-20 for solid data.
+
+**Outlets:** Type C/F, 230V. Standard European plugs.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Berlin runs late.** Very late by most standards.
+
+**Brunch:** 10am–3pm is the window. Weekend brunch is a religion. Many places don't open before 10am.
+
+**Lunch:** Less of a thing; grab a döner or Asian food on the go.
+
+**Dinner:** 7–8pm is early; 9pm is normal. Kitchens close by 10:30-11pm at most places.
+
+**Nightlife:** Clubs open at midnight at earliest. Peak entry 1-3am. Many run until Monday morning or beyond. Don't show up before 1am.
+
+**Shops:** 10am–8pm weekdays. **Closed Sunday** (except some in tourist areas and Hauptbahnhof).
+
+**Spätis** (late-night shops): Open late, sell beer, are gathering spots. Essential infrastructure.`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Bring cash.** Berlin is not cashless. Clubs, bars, and many restaurants are "nur Bargeld."
+
+**Sundays are quiet.** Shops are closed. Museums, parks, flea markets, and brunch are the moves.
+
+**Club dress code is anti-dress code.** Dark, minimal, no effort showing. Definitely no suits or flashy outfits. Berghain's rejection rate is real—accept it gracefully.
+
+**Don't photograph in clubs.** Seriously. Phone cameras get taped at doors.
+
+**Döner after 2am** is tradition. Mustafa's is famous; Rüyam Gemüse Kebap has faster lines.
+
+**The Reichstag dome is free** but requires advance booking online. Do it—sunset views are worth it.
+
+**Sundays at Mauerpark.** Flea market, karaoke, people-watching. Peak Berlin.`
+    }
+  },
+  florence: {
+    intro: `You've arrived at Firenze. Here's the fast start—no tourist traps, no wrong turns, just the moves that make navigating this Renaissance jewel feel natural from day one.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**Firenze Airport (FLR) → city:** The **Volainbus** shuttle runs every 30 min to Santa Maria Novella station (main train station), €6 one-way, 20 min. Buy tickets at the booth outside arrivals or on board.
+
+**Taxis:** Fixed rate €22 (€25.30 Sundays/holidays, €24.20 nights) to center. Official white taxis only—queue at the rank.
+
+**From Pisa Airport (PSA):** The **PisaMover** connects to Pisa Centrale, then direct trains to Firenze SMN (1 hour, €8-14). Or take the direct **Autostradale bus** (70 min, €14).
+
+**Pro tip:** Florence is small. If staying centrally, you won't need transport once you arrive—everything is walkable.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**Walk everything.** Florence's centro storico is compact—Duomo to Ponte Vecchio is 10 minutes. Walking is the best way to discover the city.
+
+**Buses** exist but aren't necessary for most tourists. The center is a ZTL (limited traffic zone)—cars and most vehicles are restricted.
+
+**Taxis:** Use official white taxis from stands or call. No Uber. Metered within center; fixed rates to outskirts/airport.
+
+**Bikes:** Possible but cobblestones and crowds make it tricky. E-bikes help with occasional hills.
+
+**Day trips:** Trains from SMN station to Siena (1.5 hrs), Pisa (1 hr), Lucca (1.5 hrs), and San Gimignano (bus).
+
+**Pro tip:** Comfortable shoes are essential. Cobblestones punish bad footwear.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Cards work almost everywhere**—restaurants, shops, museums. Visa and Mastercard accepted; Amex is spottier. Contactless is common.
+
+Keep **€30-50** on hand for gelato, street food, and smaller purchases.
+
+**Tipping:** Not expected but appreciated. Round up for good service; 5-10% at nicer restaurants. Cover charge (coperto) of €2-3 is standard and isn't a tip.
+
+**ATMs:** Use bank machines inside (Intesa Sanpaolo, UniCredit) to avoid fees and skimming. Avoid standalone ATMs near tourist sites.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is widely available**—cafés, restaurants, and hotels offer free access. Quality varies; some historic buildings have thick walls that block signals.
+
+**EU SIMs roam free.** Non-EU visitors can grab a prepaid SIM from **TIM, Vodafone, or WindTre**—available at phone shops and some tabacchi.
+
+**Outlets:** Type C/L, 230V. Standard European plugs work.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Florence keeps Italian hours.** Understand the rhythm and you'll eat better and stress less.
+
+**Breakfast:** 7–10am at bars. A cornetto (croissant) and cappuccino standing at the counter is the local way—€2-3.
+
+**Lunch:** 12:30–2:30pm. Many restaurants close between meals (3-7pm). Don't miss the window.
+
+**Aperitivo:** 6–8pm. Spritz or Negroni with free snacks at many bars. The Florentine pre-dinner ritual.
+
+**Dinner:** 7:30pm is early; 8:30pm is normal. Kitchens close by 10–10:30pm. Reservations helpful on weekends.
+
+**Shops:** 10am–7pm with a possible 1–3pm break at smaller shops. Many closed Sunday or Monday morning.
+
+**Museums:** Check hours carefully—many close Mondays. Book Uffizi and Accademia in advance.`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Book the Uffizi and Accademia in advance.** Non-negotiable in peak season. Timed entry means no lines.
+
+**Oltrarno is the move.** Cross Ponte Vecchio and escape the crowds. Artisan workshops, real restaurants, local bars.
+
+**Avoid eating within sight of the Duomo.** Walk 5 minutes in any direction for dramatically better food at lower prices.
+
+**Lunch > dinner for value.** Many restaurants offer fixed lunch menus (€12-18) of the same quality as dinner at half the price.
+
+**Gelato quality check:** Mounded displays and neon colors = artificial. Flat containers with muted colors = the real thing.
+
+**Piazzale Michelangelo at sunset.** Touristy? Yes. Worth it? Absolutely. The whole city laid out below, glowing golden.
+
+**San Lorenzo Market for leather.** Negotiate (politely). Start at 50% of asking price.`
+    }
+  },
+  budapest: {
+    intro: `You've arrived at Budapest Liszt Ferenc Airport. Here's the fast start—no taxi scams, no confusion, just the moves that make navigating this thermal-bath capital feel natural from day one.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**Airport → city:** The **100E bus** runs every 20 min to Deák Ferenc tér (city center), HUF 2,200 (~€5.50) single, 35-45 min. Buy tickets at the airport kiosk or BKK machines.
+
+**Taxis:** Use **Főtaxi** or **Bolt** only—fixed zone prices. To center: HUF 9,000-11,000 (~€23-28). Never take unmarked cars or accept "taxi?" offers inside.
+
+**Train:** The **200E bus** connects to Kőbánya-Kispest metro station (M3 line), then metro to center. Cheaper but slower with a transfer.
+
+**Pro tip:** Budapest public transport runs on an honor system—validate tickets or risk HUF 16,000 fines from inspectors.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**Metro, trams, and buses cover everything.** Four metro lines (M1 is historic and cute), extensive tram network, and buses fill gaps. The same tickets work on all.
+
+**Buy a travel pass:** 24-hour (HUF 2,500/~€6), 72-hour (HUF 5,500/~€14). Single tickets are HUF 450 (~€1.15). Validate every time.
+
+**Trams 4/6** circle the Nagykörút (Grand Boulevard)—run 24 hours and are extremely useful.
+
+**Tram 2** runs along the Danube with Parliament views—the scenic option.
+
+**Taxis:** Always use **Bolt** or **Főtaxi**. Never hail random cars. Scams still exist.
+
+**Walking:** Pest is flat; Buda has hills. The center is manageable on foot, but trams help.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Hungary uses the Forint (HUF)**, not the Euro. Current rate fluctuates around €1 = 380-400 HUF.
+
+**Cards work widely**—most restaurants, shops, and attractions accept Visa/Mastercard. Smaller places, market vendors, and ruin bars often prefer cash.
+
+Keep **HUF 10,000-20,000** (~€25-50) on hand for baths, markets, and drinks.
+
+**Tipping:** 10% at restaurants is standard. Round up for smaller amounts. Hand cash directly; don't leave it on the table.
+
+**ATMs:** Use bank machines (OTP, Erste, CIB). Avoid "dynamic currency conversion"—always pay in forints.
+
+**Exchange:** Never use airport or street exchange booths. ATMs give the best rates.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is widespread**—cafés, restaurants, and hotels offer free access. Ruin bars often have good WiFi.
+
+**EU SIMs roam free.** Non-EU visitors should grab a prepaid SIM from **Vodafone, Telekom, or Yettel**—available at phone shops and malls. €10-15 for solid data.
+
+**Outlets:** Type C/F, 230V. Standard European plugs.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Budapest moves slowly.** Don't rush—you're on thermal bath time now.
+
+**Breakfast:** 8–10am. Hotels do buffets; locals grab pastries at a cukrászda (pastry shop).
+
+**Lunch:** Noon–2pm. Traditional étkezde (canteen-style) restaurants offer cheap, filling meals.
+
+**Baths:** Best early morning (before 9am) or late afternoon. Weekdays are less crowded. Saturday nights often have parties.
+
+**Dinner:** 7pm is normal; 8pm is not early. Kitchens close by 10pm at many places.
+
+**Ruin bars:** Open afternoon/evening; peak around 10pm–2am. Szimpla is most famous but crowded.
+
+**Shops:** 10am–6pm weekdays, shorter Saturday. Many closed Sunday (except malls).`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Széchenyi vs Gellért vs Rudas.** Széchenyi is the grand outdoor experience. Gellért is Art Nouveau elegance. Rudas has Ottoman atmosphere and rooftop pool. Pick based on your vibe.
+
+**Bath hack:** Weekday mornings are emptiest. Bring flip-flops and a waterproof phone case.
+
+**Ruin bars beyond Szimpla.** Instant-Fogas, Csendes, and Mazel Tov offer the experience with fewer stag parties.
+
+**Tram 2 along the Danube** is a cheap sightseeing tour. Ride it at night when Parliament glows.
+
+**Great Market Hall for lunch.** Upstairs stalls serve local food cheaply. Go before noon to beat crowds.
+
+**Never exchange money at the airport.** Use ATMs or wait until you're in the city.
+
+**Fisherman's Bastion at sunrise.** Free before 9am, uncrowded, and magical light.`
+    }
+  },
+  copenhagen: {
+    intro: `You've arrived at Kastrup. Here's the fast start—no confusion, no overpaying, just the moves that make navigating this design-forward Scandinavian capital feel natural from day one.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**CPH → city:** The **Metro M2** runs every 4-6 min to Kongens Nytorv (city center), 15 min. Trains run 24 hours. Buy tickets at machines or use the **DOT Tickets app**.
+
+**Trains:** Regional trains to København H (Central Station) take 13 min, same price. Useful if staying near the main station.
+
+**Taxis:** Expect DKK 250-350 (~€33-47) to center. Dantaxi and Taxa are reliable. Uber doesn't operate in Copenhagen.
+
+**Pro tip:** The **Copenhagen Card** includes airport transport plus 80+ attractions and unlimited public transit. Worth calculating if you're museum-heavy.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**Bike. Bike. Bike.** Copenhagen is the world's most bike-friendly city. 400+ km of bike lanes, flat terrain, bike traffic lights. Rent from **Donkey Republic** (app-based) or hotel bike schemes.
+
+**Metro** runs 24 hours, covering key areas. Clean, efficient, driverless.
+
+**Buses and S-trains** fill gaps. Same tickets work on everything.
+
+**Buy a City Pass:** 24-hour (DKK 80/~€11), 72-hour (DKK 200/~€27). Or use the DOT app for single tickets.
+
+**Walking** is pleasant—the center is compact.
+
+**Water buses (Havnebussen):** Free with transit passes, great for harbor views.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Denmark uses the Krone (DKK)**, not the Euro. Rate hovers around €1 = DKK 7.5.
+
+**Copenhagen is nearly cashless.** Cards accepted everywhere—even food trucks and market stalls. Visa, Mastercard, and Dankort (local) are universal.
+
+Keep **DKK 200-300** (~€27-40) for rare cash-only situations and tips.
+
+**Tipping:** Not expected—service is included. Rounding up for exceptional service is appreciated but not required.
+
+**Prices are high.** A beer is DKK 50-70 (~€7-9), lunch DKK 100-150 (~€13-20), dinner DKK 300-500 (~€40-67). Adjust expectations accordingly.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is excellent**—cafés, restaurants, and public spaces offer free access. Denmark has outstanding digital infrastructure.
+
+**EU SIMs roam free.** Non-EU visitors should grab a prepaid SIM from **Lebara, Lycamobile, or 3 (Tre)**—available at convenience stores and phone shops.
+
+**Outlets:** Type C/K, 230V. Standard European plugs usually work; Type K is Denmark-specific but compatible.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Copenhagen keeps civilized Scandinavian hours.** Early dinners, efficient lunches, and genuine work-life balance.
+
+**Breakfast:** 7–10am. Bakeries (bageri) open early for fresh bread and pastries.
+
+**Lunch (Frokost):** 11:30am–2pm. Smørrebrød (open sandwiches) is the traditional move.
+
+**Dinner:** 6–7pm is normal—early by southern European standards. Reservations essential for popular spots.
+
+**Bars/nightlife:** Peak around 11pm–2am. Meatpacking District (Kødbyen) for clubs; Vesterbro for bars.
+
+**Shops:** 10am–6pm weekdays, shorter Saturday. Many closed Sunday (except in tourist areas).
+
+**Museums:** Usually 10am–5pm. Many closed Mondays. Late openings some days.`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Rent a bike immediately.** This is non-negotiable. Copenhagen is designed for cycling; you'll move faster, see more, and feel like a local.
+
+**Bike lane etiquette:** Stay right, signal turns with your arm, don't stop suddenly. Get out of the way if you're slow.
+
+**Skip the Little Mermaid** (or manage expectations). It's small, crowded, and far from everything. See it if you must; don't build your day around it.
+
+**Louisiana Museum is worth the trip.** 35 minutes north by train, stunning modern art collection with sea views.
+
+**Street food at Reffen.** Copenhagen's best casual eating scene. Accessible by water bus or bike.
+
+**Torvehallerne market for lunch.** Two glass halls with excellent food stalls. Try smørrebrød.
+
+**Hygge is real.** Seek out candlelit cafés, cozy wine bars, and slow meals. This is why you came.
+
+**Christiania rules:** No photos on Pusher Street. No running. Buy or don't buy—but respect the space.`
     }
   }
 };
