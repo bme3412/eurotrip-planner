@@ -2,7 +2,15 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import {
+  ChevronDown,
+  Plane,
+  Navigation,
+  Wallet,
+  Wifi,
+  Clock,
+  Lightbulb
+} from 'lucide-react';
 
 // City-specific FAQ data
 const CITY_FAQS = {
@@ -208,6 +216,74 @@ const CITY_FAQS = {
     {
       question: "What should I definitely not miss?",
       answer: "Beyond the obvious (Big Ben, Tower Bridge, Buckingham Palace), don't skip: a pint in a historic pub, Borough Market on a weekday morning, a walk along the South Bank, free museums (seriously—world class), and a Sunday roast somewhere proper. Oh, and the view from Primrose Hill."
+    }
+  ],
+  lisbon: [
+    {
+      question: "Is Lisbon safe for tourists?",
+      answer: "Very safe overall—one of Europe's safest capitals. Petty theft exists in tourist hotspots (Baixa, trams, Belém), so watch bags and pockets. The 28 tram is notorious for pickpockets—keep valuables secure. At night, Bairro Alto gets rowdy but isn't dangerous. Avoid darker streets in Mouraria and Alfama late at night."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "Lisbon is excellent value—€80-120 per person daily covers comfortable accommodation, great food, transport, and attractions. Budget travelers can manage €50-70 with hostels and local tascas. Luxury visitors might spend €200+. A proper meal with wine rarely exceeds €20-25 even at good restaurants."
+    },
+    {
+      question: "Do I need to speak Portuguese?",
+      answer: "Not essential—English is widely spoken, especially among younger Lisboetas. Learning 'Bom dia' (good morning), 'Obrigado/Obrigada' (thank you, male/female speaker), 'Por favor' (please), and 'A conta, por favor' (the bill please) goes far. Portuguese appreciate the effort enormously."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "Baixa/Chiado is central and walkable to everything. Alfama has character but steep hills and noise from fado bars. Príncipe Real is trendy and quieter. Bairro Alto is nightlife central—great if you're young, loud at night. Santos/Lapa is local and affordable. Avoid anything too far from a Metro line."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Helpful for Jerónimos Monastery (long queues), Belém Tower, and the National Tile Museum. Sintra day trips benefit from early Pena Palace tickets—it gets packed by 11am. Most other attractions are walk-up friendly. The Lisboa Card covers transport and many museums if you're doing several."
+    },
+    {
+      question: "Is Lisbon tap water safe to drink?",
+      answer: "Absolutely—Lisbon's tap water is clean and safe. It can taste slightly chlorinated depending on your neighborhood, but it's perfectly fine. Restaurants will bring tap water if you ask, though some push bottled. Refill bottles at public fountains."
+    },
+    {
+      question: "How do I handle the hills?",
+      answer: "Lisbon is built on seven hills—embrace it or work around it. The Metro avoids most climbing. The three funiculars (Glória, Bica, Lavra) and the Santa Justa elevator help. Tuk-tuks are overpriced but useful if you're tired. Wear comfortable shoes—cobblestones are everywhere and can be slippery when wet."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond Belém and Alfama: sunset drinks at a miradouro (Graça or Portas do Sol), a ginjinha (cherry liqueur) standing at a tiny bar, fresh pastéis de nata from Manteigaria, fado in an intimate venue (not a tourist show), the LX Factory on weekends, and simply getting lost in Alfama's labyrinthine streets."
+    }
+  ],
+  vienna: [
+    {
+      question: "Is Vienna safe for tourists?",
+      answer: "Extremely safe—consistently ranked among the world's safest cities. Violent crime is rare; petty theft exists but at lower rates than most European capitals. The U-Bahn is safe at all hours. Normal urban awareness suffices. The biggest 'danger' is jaywalking—Viennese take crosswalks seriously."
+    },
+    {
+      question: "How much should I budget per day?",
+      answer: "Vienna is moderately expensive—€120-160 per person daily for mid-range comfort covering accommodation, meals, transport, and attractions. Budget travelers can manage €70-90 with hostels and careful choices. The Vienna Pass covers many museums but do the math first. Coffee and cake: €10-15. Schnitzel dinner: €20-30."
+    },
+    {
+      question: "Do I need to speak German?",
+      answer: "Not essential—English is widely spoken in tourist areas, hotels, and restaurants. But Viennese appreciate effort: 'Grüß Gott' (hello), 'Danke' (thanks), 'Bitte' (please), and 'Die Rechnung, bitte' (the bill please) go far. Note: Viennese German differs from German German; locals are proud of their dialect."
+    },
+    {
+      question: "What's the best area to stay?",
+      answer: "Innere Stadt (1st district) puts you in the historic center—walkable to everything but pricey. Neubau (7th) and Josefstadt (8th) offer trendy restaurants and local character at better prices. Leopoldstadt (2nd) near the Prater is emerging and well-connected. Anywhere near a U-Bahn works—the system is excellent."
+    },
+    {
+      question: "Should I buy attraction tickets in advance?",
+      answer: "Helpful for Schönbrunn Palace (especially Grand Tour tickets) and the Belvedere's Klimt collection. The Kunsthistorisches Museum and most others are walk-up friendly. Standing-room opera tickets are sold same-day only (arrive 80 min early). The Vienna Pass saves money if you're museum-intensive."
+    },
+    {
+      question: "Is Vienna tap water safe?",
+      answer: "Excellent—Vienna's tap water comes from Alpine springs and is genuinely delicious. The city is proud of this; public fountains are drinkable. Restaurants serve tap water free if you ask ('Leitungswasser, bitte'). Don't waste money on bottled water."
+    },
+    {
+      question: "How does the coffee house culture work?",
+      answer: "Order at your table; wait for the waiter (rushing is frowned upon). One coffee entitles you to stay indefinitely—this is tradition. Newspapers are provided. Tip by rounding up. 'Melange' is like cappuccino; 'Verlängerter' is elongated espresso; 'Einspänner' is espresso with whipped cream. Always comes with a glass of water."
+    },
+    {
+      question: "What should I definitely not miss?",
+      answer: "Beyond Schönbrunn and the museums: standing-room opera at the Staatsoper (€15 for world-class), coffee and cake at a historic café (Café Central, Sperl, or Hawelka), the Naschmarkt for food browsing, an evening at a Heuriger wine tavern, and simply wandering the Ringstrasse at golden hour when the buildings glow."
     }
   ]
 };
@@ -656,6 +732,160 @@ Outlets: **Type G (three-prong)**. You'll need an adapter. 230V, so most charger
 
 **The pint comes first.** In a pub, find your seat, go to the bar, order, pay immediately. Table service exists but isn't standard.`
     }
+  },
+  lisbon: {
+    intro: `You've landed at Humberto Delgado Airport. Here's the fast start—no tourist traps, no confusion, just the moves that make navigating this sun-drenched city of seven hills feel natural from day one.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**Airport → city:** The **Metro (red line)** runs every 6–9 min to the center. €1.65 single + €0.50 reusable Viva Viagem card. Takes 20–25 min to Alameda (transfer to green line for Baixa-Chiado). Clean, safe, easy.
+
+**Aerobus** runs to Marquês de Pombal, Restauradores, and Cais do Sodré. €4 one-way, €6 return. Every 20 min, 35–40 min to center. Useful if you're staying near those stops.
+
+**Taxis:** Should cost €15–20 to center (meter, not flat rate). Use the official taxi rank outside arrivals. Uber and Bolt work at similar prices and are reliable.
+
+**Pro tip:** Get a Viva Viagem card at the airport Metro station—you'll use it all trip.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**Metro** covers the main areas well—4 lines, runs 6:30am–1am. Load your Viva Viagem with "zapping" credit (€1.65/trip) rather than single tickets.
+
+**Trams** are charming but slow. The famous **28** is packed with tourists—take it for the experience but not efficiency. The **28E** follows the same route with less crowding.
+
+**Walking** is essential but exhausting—Lisbon's hills are no joke. Comfortable shoes are mandatory.
+
+**Funiculars** (Glória, Bica, Lavra) and the **Santa Justa Elevator** help with hills and are covered by the 24-hour transit pass (€6.80).
+
+**Uber/Bolt** are cheap and everywhere. A cross-city ride rarely exceeds €8.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Cards work almost everywhere**—Visa and Mastercard accepted at most restaurants, shops, and cafés. Tap-to-pay is common. Smaller tascas and markets may prefer cash.
+
+Keep **€20–40** on hand for small purchases, markets, and tipping.
+
+**Tipping:** Not required but appreciated. Round up at restaurants or leave €1–2 for good service. Cafés: small change is fine. No one tips at the counter.
+
+**ATMs (Multibanco):** Use bank machines—they're everywhere and fee-free for most cards. Avoid Euronet and standalone tourist machines.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is standard**—cafés, restaurants, and hotels offer free access. Quality is generally good. Many public spaces and miradouros also have coverage.
+
+**EU SIMs roam free.** Non-EU visitors should grab a prepaid SIM from **MEO, NOS, or Vodafone**—available at the airport or in the city. €15–20 for solid data.
+
+**Outlets:** Type C/F, 230V. Standard European plugs.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Portugal keeps relaxed hours.** Not as late as Spain, but not early either.
+
+**Lunch:** 12:30–2:30pm. Many places close between meals. The €10–15 "menu do dia" at local tascas is the best deal in town.
+
+**Dinner:** 7:30–8pm is early; 9pm is normal. Kitchens close around 10:30–11pm. Fado shows start late—often 9:30pm or later.
+
+**Shops:** 10am–7pm weekdays, shorter Saturdays. Shopping centers stay open until 11pm or midnight. Sunday closures are common for small shops.
+
+**Cafés:** Open early (8am) for that first bica (espresso). Pastéis de nata are best fresh in the morning.`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Skip the Belém pastel queue.** Manteigaria in Chiado has better pastéis de nata with no wait.
+
+**The 28 tram is a tourist trap.** Take the 28E or walk—Alfama is small and best explored on foot.
+
+**Miradouros at sunset.** Graça and Portas do Sol have the best views. Bring a beer from a nearby shop.
+
+**Ginjinha ritual.** Order a shot at A Ginjinha near Rossio—€1.50, stand at the bar, drink it in one go.
+
+**Fado requires research.** Skip tourist dinner shows. Real fado happens in Alfama's small casas—ask locals or check Clube de Fado, Mesa de Frades.
+
+**Sintra goes early.** Take the first train (before 9am) to beat the crowds at Pena Palace.`
+    }
+  },
+  vienna: {
+    intro: `You've arrived at Vienna International Airport. Here's the fast start—no overpriced taxis, no confusion, just the moves that make navigating this imperial city of coffee and music feel natural from day one.`,
+
+    arrival: {
+      title: "From the Airport",
+      content: `**Airport → city:** The **City Airport Train (CAT)** runs every 30 min to Wien Mitte, €12 one-way (16 min, direct). The **S7 S-Bahn** is cheaper (€4.40 single, €2.40 with Vienna Card) but takes 25 min with stops. Both arrive at Wien Mitte, connected to U3/U4.
+
+**ÖBB Railjet** trains go to Hauptbahnhof (main station) if that's more convenient for your hotel—same price as S-Bahn.
+
+**Taxis:** Fixed fare €39 to center. Use the official taxi rank; ignore anyone approaching you inside. Uber works but isn't much cheaper.
+
+**Pro tip:** Get a **Wiener Linien** transport pass at the airport—24-hour (€8), 48-hour (€14.10), or 72-hour (€17.10) covers unlimited travel on everything.`
+    },
+
+    gettingAround: {
+      title: "Getting Around",
+      content: `**The U-Bahn is superb.** 5 lines, runs 5am-midnight (24 hours Fri/Sat nights). Clean, punctual, safe. A single ticket (€2.40) is valid for one journey with transfers.
+
+**Trams** are iconic and useful—the Ring Tram circles the Ringstrasse past major sights. Buy tickets before boarding from machines or Tabak shops.
+
+**Walking** covers the Innere Stadt (1st district) easily—it's compact and beautiful. Most major sights are within 20 minutes of each other.
+
+**Taxis** use meters. Uber and Bolt work well. Tipping: round up or add 10%.
+
+**Bikes:** Vienna has excellent cycling infrastructure. City Bike Wien (WienMobil) offers free first-hour rentals.`
+    },
+
+    money: {
+      title: "Money & Payments",
+      content: `**Cards work almost everywhere**—Visa and Mastercard accepted at most restaurants, shops, and cafés. Contactless is common. Some traditional spots and market vendors prefer cash.
+
+Keep **€30–50** on hand for small purchases, markets, and tips.
+
+**Tipping:** Round up at restaurants or add 5-10% for good service. Tell the waiter the total you want to pay. Cafés: round up or leave coins. Nothing expected at counters.
+
+**ATMs:** Bank machines throughout the city—avoid Euronet and independent machines with high fees. Austrian banks like Erste, BAWAG, and Raiffeisen are best.`
+    },
+
+    connectivity: {
+      title: "Staying Connected",
+      content: `**WiFi is widely available**—cafés, museums, and hotels offer free access. Many public spaces including U-Bahn stations have coverage.
+
+**EU SIMs roam free.** Non-EU visitors should grab a prepaid SIM from **A1, Magenta, or Drei**—available at the airport or phone shops. €10–20 for solid data.
+
+**Outlets:** Type C/F, 230V. Standard European plugs.`
+    },
+
+    timing: {
+      title: "Local Rhythms",
+      content: `**Vienna keeps civilized hours.** Not as late as Mediterranean cities, but not early either.
+
+**Breakfast/Brunch:** 8–11am at cafés. The traditional Viennese breakfast is coffee, bread, jam, and maybe an egg—or go full pastry.
+
+**Lunch:** Noon–2pm. Many restaurants offer good-value lunch menus (Mittagsmenü).
+
+**Dinner:** 6:30–8pm start is normal. Kitchens typically close by 9:30–10pm at traditional spots; later at contemporary restaurants.
+
+**Coffeehouses:** Open from early morning until 10pm or later. No rush—ever.
+
+**Shops:** 9am–6pm weekdays, 9am–5pm Saturday. Most closed Sunday (except in tourist zones).
+
+**Museums:** Usually 10am–6pm, many open late one evening per week.`
+    },
+
+    quickWins: {
+      title: "Insider Moves",
+      content: `**Standing-room opera is the move.** €15 for world-class performances at the Staatsoper. Arrive 80 minutes before curtain to queue.
+
+**Coffee house etiquette:** Never rush. One coffee entitles you to stay indefinitely. Water comes automatically. Newspapers are provided.
+
+**Grüß Gott, not Guten Tag.** Austrians say "Grüß Gott" (God greet you)—it's not religious, just local.
+
+**Skip the Sacher line.** Hotel Sacher's café has eternal queues. Demel and Café Central serve equally excellent Sachertorte.
+
+**Heurigen evenings.** Take the tram to Grinzing or Neustift for wine tavern evenings with local wine and buffet food. This is where Viennese actually go.
+
+**The Ringstrasse at sunset.** Walk or take tram 1 or 2 around the Ring as buildings turn golden—free and unforgettable.`
+    }
   }
 };
 
@@ -702,95 +932,97 @@ export default function StartHere({ cityName }) {
   
   const [openFaq, setOpenFaq] = useState(null);
 
+  // Section accent colors - just left border + icon color
+  const SECTION_ACCENTS = {
+    arrival: { border: 'border-l-sky-400', icon: Plane, iconColor: 'text-sky-500' },
+    gettingAround: { border: 'border-l-indigo-400', icon: Navigation, iconColor: 'text-indigo-500' },
+    money: { border: 'border-l-emerald-400', icon: Wallet, iconColor: 'text-emerald-500' },
+    connectivity: { border: 'border-l-amber-400', icon: Wifi, iconColor: 'text-amber-500' },
+    timing: { border: 'border-l-rose-400', icon: Clock, iconColor: 'text-rose-500' },
+    quickWins: { border: 'border-l-violet-400', icon: Lightbulb, iconColor: 'text-violet-500' }
+  };
+
   // Convert markdown-style bold to JSX
   const renderContent = (content) => {
     const parts = content.split(/(\*\*[^*]+\*\*)/g);
     return parts.map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={i} className="text-gray-900">{part.slice(2, -2)}</strong>;
+        return <strong key={i} className="font-semibold text-gray-900">{part.slice(2, -2)}</strong>;
       }
       return part;
     });
   };
 
-  const Section = ({ title, content }) => (
-    <section className="mb-8 last:mb-0">
-      <h2 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">{title}</h2>
-      <div className="prose prose-lg max-w-none">
-        {content.split('\n\n').map((paragraph, i) => (
-          <p key={i} className="text-gray-700 leading-relaxed mb-4 last:mb-0 text-[17px]">
-            {renderContent(paragraph)}
-          </p>
-        ))}
-      </div>
-    </section>
-  );
+  // Editorial-style section with accent border
+  const Section = ({ sectionKey, title, content }) => {
+    const accent = SECTION_ACCENTS[sectionKey] || SECTION_ACCENTS.quickWins;
+    const Icon = accent.icon;
+
+    return (
+      <section className={`border-l-[3px] ${accent.border} pl-5 py-1`}>
+        <div className="flex items-center gap-2.5 mb-3">
+          <Icon className={`h-[18px] w-[18px] ${accent.iconColor}`} />
+          <h2 className="text-[17px] font-bold text-gray-900 tracking-tight">{title}</h2>
+        </div>
+        <div className="space-y-3">
+          {content.split('\n\n').map((paragraph, i) => (
+            <p key={i} className="text-gray-600 leading-7 text-[15px]">
+              {renderContent(paragraph)}
+            </p>
+          ))}
+        </div>
+      </section>
+    );
+  };
 
   const FAQItem = ({ faq, index }) => {
     const isOpen = openFaq === index;
     return (
-      <div className="border-b border-gray-200 last:border-b-0">
+      <div className="border-b border-gray-100 last:border-b-0">
         <button
           onClick={() => setOpenFaq(isOpen ? null : index)}
-          className="w-full py-4 flex items-start justify-between gap-4 text-left hover:bg-gray-50 transition-colors -mx-2 px-2 rounded"
+          className="w-full py-4 flex items-start justify-between gap-4 text-left group"
         >
-          <span className="text-[17px] font-medium text-gray-900 leading-snug">{faq.question}</span>
-          <ChevronDown 
-            className={`w-5 h-5 text-gray-400 shrink-0 mt-0.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} 
+          <span className={`text-[15px] leading-snug transition-colors ${
+            isOpen ? 'text-gray-900 font-semibold' : 'text-gray-700 font-medium group-hover:text-gray-900'
+          }`}>{faq.question}</span>
+          <ChevronDown
+            className={`w-4 h-4 shrink-0 mt-1 transition-all duration-200 ${
+              isOpen ? 'rotate-180 text-indigo-500' : 'text-gray-400 group-hover:text-gray-600'
+            }`}
           />
         </button>
-        {isOpen && (
-          <div className="pb-4 pr-8">
-            <p className="text-gray-600 leading-relaxed text-[16px]">{faq.answer}</p>
-          </div>
-        )}
+        <div className={`overflow-hidden transition-all duration-200 ease-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <p className="text-gray-600 leading-7 text-[15px] pb-4 pr-6">{faq.answer}</p>
+        </div>
       </div>
     );
   };
 
   return (
-    <div className="space-y-12">
-      <article className="max-w-4xl mx-auto lg:max-w-none">
-        {/* Lead paragraph */}
-        <p className="text-xl md:text-2xl text-gray-800 leading-relaxed mb-10 font-medium max-w-4xl">
-          {narrative.intro}
-        </p>
+    <div className="space-y-8">
+      <article className="lg:max-w-none">
+        {/* Lead - editorial pull-quote style */}
+        <div className="border-l-4 border-indigo-400 pl-6 mb-10">
+          <p className="text-xl md:text-[22px] text-gray-800 leading-relaxed font-medium max-w-3xl">
+            {narrative.intro}
+          </p>
+        </div>
 
-        {/* Two column layout on larger screens */}
-        <div className="grid lg:grid-cols-2 gap-x-12 gap-y-2">
-          <div className="divide-y divide-gray-100 lg:divide-y-0">
-            <div className="py-5 first:pt-0 lg:py-0 lg:mb-8">
-              <Section title={narrative.arrival.title} content={narrative.arrival.content} />
-            </div>
-            
-            <div className="py-5 lg:py-0 lg:mb-8">
-              <Section title={narrative.gettingAround.title} content={narrative.gettingAround.content} />
-            </div>
-            
-            <div className="py-5 lg:py-0 lg:mb-8">
-              <Section title={narrative.money.title} content={narrative.money.content} />
-            </div>
-          </div>
-          
-          <div className="divide-y divide-gray-100 lg:divide-y-0">
-            <div className="py-5 first:pt-0 lg:py-0 lg:mb-8">
-              <Section title={narrative.connectivity.title} content={narrative.connectivity.content} />
-            </div>
-            
-            <div className="py-5 lg:py-0 lg:mb-8">
-              <Section title={narrative.timing.title} content={narrative.timing.content} />
-            </div>
-            
-            <div className="py-5 lg:py-0">
-              <Section title={narrative.quickWins.title} content={narrative.quickWins.content} />
-            </div>
-          </div>
+        {/* Two column layout with editorial sections */}
+        <div className="grid lg:grid-cols-2 gap-x-10 gap-y-8">
+          <Section sectionKey="arrival" title={narrative.arrival.title} content={narrative.arrival.content} />
+          <Section sectionKey="gettingAround" title={narrative.gettingAround.title} content={narrative.gettingAround.content} />
+          <Section sectionKey="money" title={narrative.money.title} content={narrative.money.content} />
+          <Section sectionKey="connectivity" title={narrative.connectivity.title} content={narrative.connectivity.content} />
+          <Section sectionKey="timing" title={narrative.timing.title} content={narrative.timing.content} />
+          <Section sectionKey="quickWins" title={narrative.quickWins.title} content={narrative.quickWins.content} />
         </div>
       </article>
 
       {/* FAQ Section */}
-      <section className="border-t border-gray-200 pt-10">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">Frequently Asked Questions</h2>
+      <section className="border-t border-gray-200 pt-8">
+        <h2 className="text-lg font-bold text-gray-900 tracking-tight mb-6">Frequently Asked Questions</h2>
         <div className="grid lg:grid-cols-2 gap-x-12">
           <div>
             {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, i) => (
@@ -805,15 +1037,15 @@ export default function StartHere({ cityName }) {
         </div>
       </section>
 
-      {/* Footer - simplified */}
-      <footer className="border-t border-gray-200 pt-6 pb-4">
+      {/* Footer */}
+      <footer className="mt-10 pt-6 border-t border-gray-100">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
-          <span className="text-gray-700 font-semibold">Plan smarter. Travel better.</span>
+          <span className="text-gray-500 font-medium">Plan smarter. Travel better.</span>
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/city-guides" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="/city-guides" className="text-gray-500 hover:text-indigo-600 transition-colors font-medium">
               Browse all cities
             </Link>
-            <Link href="mailto:hello@eurotrip.guide" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="mailto:hello@eurotrip.guide" className="text-gray-500 hover:text-indigo-600 transition-colors font-medium">
               Get support
             </Link>
           </div>

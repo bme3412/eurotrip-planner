@@ -459,6 +459,164 @@ const CITY_FOOD_DATA = {
       { name: "Curry on Brick Lane", type: "Meal", neighborhood: "East London", time: "Evening" },
       { name: "Pub Session at a Historic Boozer", type: "Drink", neighborhood: "City (The George Inn) or Soho", time: "5-11pm" }
     ]
+  },
+  lisbon: {
+    intro: `Portuguese cuisine is built on simple ingredients prepared with love—salt cod transformed a hundred ways, sardines grilled over charcoal, and pastries that make Paris jealous. Lisbon's food scene honors these traditions while a new generation of chefs pushes boundaries. Wine flows freely (cheaper than water in many spots), and meals unfold slowly because rushing is simply not done here. Here's how to eat and drink like a Lisboeta.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Start your morning at a **pastelaria** with a **bica** (espresso) and a warm **pastel de nata** straight from the oven—custard tarts with caramelized tops that shatter perfectly. Locals stand at the counter; tourists sit (and pay more). Either works.
+
+**Lunch** is the main meal for working Lisboetas. Seek out **tascas** (tavern-style restaurants) offering a **prato do dia** (dish of the day) or **menu do dia** for €8-12—soup, main, drink, coffee. This is extraordinary value for home-cooked Portuguese food. Served roughly noon-3pm.
+
+**Dinner** starts late by Northern European standards. 8pm is early; 9pm is normal. Kitchens close around 10:30-11pm. Reservations are helpful at popular spots on weekends, but many places welcome walk-ins.
+
+**Petiscos** (Portuguese tapas) are perfect for grazing. Order several small plates—pica-pau (garlicky pork), peixinhos da horta (fried green beans), moelas (gizzards), presunto (cured ham)—and share.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Bacalhau** — Salt cod, prepared 365 ways (the Portuguese will tell you). Bacalhau à Brás (shredded with eggs and potatoes), Bacalhau com Natas (baked in cream), Pastéis de Bacalhau (fried croquettes). The national obsession.
+
+**Sardinhas Assadas** — Grilled sardines, served whole, charred and smoky. Peak season is June (Santo António festival), but available year-round at good restaurants. Eat with your hands, discard bones, repeat.
+
+**Francesinha** — Not from Lisbon (it's a Porto thing) but available everywhere. A gut-busting sandwich of meats, covered in cheese and beer sauce, often with a fried egg on top. Hangover cure or cause—you decide.
+
+**Bifana** — Thin pork steak in a bread roll, soaked in garlic-white wine sauce. The perfect cheap lunch. As Bifanas in Cais do Sodré is legendary.
+
+**Pastéis de Nata** — Those custard tarts. Manteigaria in Chiado makes them fresh constantly (skip the Belém queue unless you want the historic experience).
+
+**Queijo da Serra** — Portugal's great cheese, from sheep's milk. Soft, creamy, eaten with a spoon scooped from inside the rind. Ask at any decent restaurant.`
+      },
+      {
+        title: "Where to Drink",
+        content: `**Wine** — Portugal produces extraordinary wine at remarkable prices. A good bottle of **Alentejo** red or **Douro** is €4-8 at a wine shop, €15-20 at restaurants. **Vinho Verde** (young, slightly effervescent white) is perfect for summer afternoons. Order a **copo** (glass) at any tasca.
+
+**Ginjinha** — Sour cherry liqueur, served in tiny chocolate cups at hole-in-the-wall bars. A Ginjinha near Rossio is the original; there are others. One euro, one shot, move on.
+
+**Cerveja** — Super Bock and Sagres are the local lagers. Served cold as **imperial** (small draft) or **caneca** (half-liter). Portuguese beer is simple but refreshing.
+
+**Rooftop Bars** — Lisbon's miradouros have competition from rooftop terraces. Park Bar (above a parking garage, shockingly great), Sky Bar at Tivoli, and TOPO Chiado offer views and cocktails.
+
+**Fado Houses** — Some serve dinner; most require a drink minimum. Genuine fado isn't about the food—it's about listening. Tasca do Chico, Mesa de Frades, and Clube de Fado are authentic.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Baixa/Chiado** — Tourist central, but Manteigaria for pastéis de nata and several good traditional restaurants survive. Prices higher than elsewhere.
+
+**Alfama** — The old quarter has traditional tascas hidden among fado houses. More authentic, fewer menus in English. Wander until something smells good.
+
+**Bairro Alto** — Restaurant-dense and young. Great for evening grazing and bar-hopping. Quality varies; follow your nose and the locals.
+
+**Mouraria** — Multicultural, underrated, increasingly foodie. African, Asian, and traditional Portuguese options cluster here. Zé da Mouraria is a local institution.
+
+**Santos/Cais do Sodré** — Transformed from red-light district to restaurant row. Time Out Market is here (curated food hall, good but crowded). Surrounding streets have excellent independent spots.
+
+**LX Factory** — Sunday market brunch spot in converted industrial space. Good for a lazy late morning with excellent coffee and creative vendors.`
+      },
+      {
+        title: "Practical Tips",
+        content: `**Tipping** — Not required but appreciated. 5-10% for good service at restaurants; rounding up is standard. Many Lisboetas leave coins on the table.
+
+**Couvert** — Bread, olives, and cheese appear without ordering. These cost €2-5—wave them away immediately if you don't want to pay. Once touched, you're charged.
+
+**Service pace** — Slow by American standards. This is intentional. Wave clearly for the check; the waiter won't rush you.
+
+**Menu do Dia** — The lunch menu at local tascas is the best value in Lisbon. €8-12 for soup, main, drink, and coffee. Available weekdays, noon-3pm.
+
+**Reservations** — Helpful at popular restaurants on weekends. Many places are first-come; arrive early (8pm) to avoid waiting.
+
+**Alfama navigation** — GPS struggles in the labyrinth. Just wander and trust that you'll find something good. You will.`
+      }
+    ],
+
+    highlights: [
+      { name: "Pastel de Nata at Manteigaria", type: "Snack", neighborhood: "Chiado", time: "Morning" },
+      { name: "Ginjinha Shot Standing Up", type: "Drink", neighborhood: "Rossio / Baixa", time: "Any time" },
+      { name: "Menu do Dia at a Tasca", type: "Meal", neighborhood: "Alfama / Mouraria", time: "12-3pm" },
+      { name: "Grilled Sardines", type: "Meal", neighborhood: "Alfama waterfront", time: "Dinner" },
+      { name: "Sunset Wine at a Miradouro", type: "Drink", neighborhood: "Graça / Portas do Sol", time: "6-8pm" },
+      { name: "Time Out Market Grazing", type: "Experience", neighborhood: "Cais do Sodré", time: "Evening" }
+    ]
+  },
+  vienna: {
+    intro: `Viennese cuisine is the edible legacy of an empire—Bohemian, Hungarian, Italian, and Germanic influences fused over centuries into something uniquely indulgent. Schnitzel, Sachertorte, and Tafelspitz define the tradition, but Vienna's food scene has evolved beyond museum pieces. A new generation of chefs is reimagining classics while the legendary coffeehouse culture remains gloriously unchanged. Wine flows from vineyards within city limits, and the ritual of coffee and cake remains sacred. Here's how to eat and drink like a Wiener.`,
+
+    sections: [
+      {
+        title: "The Essentials",
+        content: `Start your morning at a **Kaffeehaus** (coffeehouse) with a **Melange** (similar to cappuccino) and perhaps a **Kipferl** (crescent roll) or something from the pastry case. Viennese breakfast traditions are modest—coffee and bread—but the pastries tempt.
+
+**Lunch** can be substantial or light. Look for **Mittagsmenü** (lunch menu) at traditional restaurants—two or three courses at good value. Würstelstände (sausage stands) provide quick, authentic bites.
+
+**Dinner** starts around 6:30–7pm—earlier than Mediterranean cities. Traditional restaurants (Beisln) fill up; reservations help on weekends. Kitchens typically close by 9:30–10pm at classic spots.
+
+**The Jause** is Vienna's afternoon snack tradition—coffee and cake, or bread with cold cuts. Embrace it around 4pm when energy flags.`
+      },
+      {
+        title: "What to Eat",
+        content: `**Wiener Schnitzel** — The definitive dish: veal pounded thin, breaded, and fried in butter until the coating billows. Traditionally served with potato salad, parsley, and lemon. Figlmüller is famous (and touristy); Schnitzelwirt and Gasthaus Pöschl are more local.
+
+**Tafelspitz** — Boiled beef with apple-horseradish sauce and rösti potatoes. The Habsburg court's favorite—Emperor Franz Joseph ate it daily. Plachutta has made it a specialty.
+
+**Sachertorte** — Dense chocolate cake with apricot jam, glazed in chocolate. Hotel Sacher and Demel both claim the original recipe (there was a lawsuit). Both are excellent.
+
+**Apfelstrudel** — Apple strudel, best with thin, hand-pulled dough. Often served warm with vanilla sauce or whipped cream.
+
+**Käsekrainer** — Cheese-filled sausage from a Würstelstand, eaten standing with mustard and a Semmel (roll). The 2am classic.
+
+**Kaiserschmarrn** — Shredded pancake with powdered sugar and plum compote. Named for Emperor Franz Joseph (allegedly his favorite).`
+      },
+      {
+        title: "Where to Drink",
+        content: `**Coffeehouses** — Not just cafés but cultural institutions. Order a Melange, Verlängerter (elongated espresso), or Einspänner (espresso with whipped cream in a glass). Stay as long as you like—this is the tradition. Café Central, Café Sperl, Café Hawelka, and Café Prückel are landmarks.
+
+**Wine** — Vienna is the only major city with significant vineyards within its limits. **Gemischter Satz** (field blend white) is the local specialty. Taste at **Heurigen** (wine taverns) in Grinzing, Neustift, or Nussdorf—take tram D to the end of the line.
+
+**Beer** — Less famous than wine but solid. Ottakringer is the local brewery. Beer gardens and Gastgärten (restaurant patios) fill on warm evenings.
+
+**Cocktails** — The scene has grown. Barfly's, Tür 7, and Roberto American Bar (Adolf Loos-designed, tiny, legendary) are classics. Hotel bars in palaces offer opulent settings.
+
+**Spritzer** — Wine mixed with soda water. The Austrian default for casual drinking, especially in summer.`
+      },
+      {
+        title: "Neighborhoods for Food",
+        content: `**Innere Stadt (1st)** — Historic center has tourist traps but also classics: Figlmüller, Plachutta, Zum Schwarzen Kameel. Higher prices; choose carefully.
+
+**Naschmarkt** — Vienna's legendary market. Produce, spices, cheese, olives, and restaurant stalls. Go on Saturday for the flea market extension. Arrive before noon to beat crowds.
+
+**Neubau (7th)** — The foodie neighborhood. Contemporary restaurants, natural wine bars, and brunch spots cluster around the Spittelberg area. More creative, less traditional.
+
+**Josefstadt (8th)** — Quieter, more residential. Traditional Beisln (bistros) that cater to locals. Excellent for authentic Viennese dining without tourist markup.
+
+**Leopoldstadt (2nd)** — Emerging area near the Prater. Multicultural food scene, hip cafés, and the Karmelitermarkt for weekend browsing.
+
+**Wieden (4th) / Margareten (5th)** — South of the center. Excellent neighborhood restaurants, good value, and fewer tourists. Where Viennese actually eat regularly.`
+      },
+      {
+        title: "Practical Tips",
+        content: `**Tipping:** Round up or add 5-10% at restaurants. Tell the waiter the total you want to pay when they bring the bill—don't leave money on the table.
+
+**Coffee house rules:** No rushing. One coffee = unlimited time. Water comes automatically. Newspapers are provided. Wait for service—don't approach the counter.
+
+**Reservations:** Helpful at popular restaurants on weekends. Traditional Beisln are often walk-in friendly.
+
+**Sunday closures:** Many smaller restaurants close Sunday. Plan ahead or stick to hotel restaurants and tourist areas.
+
+**Heurigen etiquette:** Order wine by the Viertel (quarter liter) or Achtel (eighth). Food is often self-service buffet. Cash preferred at traditional spots.
+
+**Kitchen hours:** Traditional restaurants close kitchens by 9:30-10pm. Don't arrive at 9pm expecting a leisurely meal.`
+      }
+    ],
+
+    highlights: [
+      { name: "Coffee & Sachertorte at a Kaffeehaus", type: "Experience", neighborhood: "Café Central, Sperl, or Demel", time: "Afternoon" },
+      { name: "Schnitzel at Figlmüller or Local Beisl", type: "Meal", neighborhood: "Innere Stadt / Josefstadt", time: "Lunch or Dinner" },
+      { name: "Naschmarkt Grazing", type: "Experience", neighborhood: "4th district", time: "Morning (Sat for flea market)" },
+      { name: "Heuriger Evening in Grinzing", type: "Drink", neighborhood: "Grinzing / Neustift", time: "Evening" },
+      { name: "Würstelstand Late-Night Käsekrainer", type: "Snack", neighborhood: "Any (Bitzinger near Opera is classic)", time: "Late night" },
+      { name: "Apfelstrudel Warm from the Oven", type: "Dessert", neighborhood: "Café Landtmann or Café Korb", time: "Afternoon" }
+    ]
   }
 };
 
