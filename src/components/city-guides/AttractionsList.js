@@ -350,7 +350,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         // Load experiences and place IDs in parallel
         const [json, placeIdsData] = await Promise.all([
           fetchCityDataUrl(experiencesUrl, { cache: 'no-store' }),
-          fetch('/data/google-place-ids.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+          fetch('/data/google-place-ids.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))
         ]);
 
         const cats = json?.categories || {};
@@ -1133,13 +1133,6 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   
   // Generate practical tips - reads from JSON data first, falls back to generic tips
   const generateTips = (attraction) => {
-    // DEBUG: Log to see what tips are being passed
-    if (attraction.tips) {
-      console.log(`[Tips Debug] ${attraction.name}: has tips array:`, attraction.tips);
-    } else {
-      console.log(`[Tips Debug] ${attraction.name}: NO tips array, using fallback`);
-    }
-    
     // First, check if tips are provided in the JSON data
     if (attraction.tips && Array.isArray(attraction.tips) && attraction.tips.length > 0) {
       return attraction.tips.slice(0, 2); // Return max 2 tips from data
